@@ -1,6 +1,4 @@
 dist: trusty
-
-# Use Dockerized infrastructure
 sudo: required
 
 # Use ruby environment
@@ -24,7 +22,7 @@ env:
     - PROJECT_ID=okapi-173322
     - CLUSTER_NAME=okapi-mod-resource--management-pipeline
     - CLOUDSDK_COMPUTE_ZONE=us-central1-a
-    - DOCKER_IMAGE_NAME=thefrontside/folio-mod-resource-management
+    - DOCKER_IMAGE_NAME=thefrontside/mod-kb-ebsco
     - KUBE_DEPLOYMENT_NAME=folio-mod-resource-management
     - KUBE_DEPLOYMENT_CONTAINER_NAME=folio-mod-resource-management
 
@@ -47,3 +45,6 @@ deploy:
     skip_cleanup: true
     on:
       branch: master
+
+notifications:
+  webhooks: https://fs-bitbot.herokuapp.com/travis
