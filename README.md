@@ -14,6 +14,15 @@ This software is distributed under the terms of the Apache License, Version 2.0.
 
 Module to broker communication with the EBSCO knowledge base.
 
+## Setup
+
+Environment variables needed:
+- `EBSCO_RESOURCE_MANAGEMENT_API_BASE_URL`
+- `EBSCO_RESOURCE_MANAGEMENT_API_CUSTOMER_ID`
+- `EBSCO_RESOURCE_MANAGEMENT_API_KEY`
+
+Place in `.env` or CI project settings.
+
 ## Additional information
 
 Other [modules](http://dev.folio.org/source-code/#server-side).
