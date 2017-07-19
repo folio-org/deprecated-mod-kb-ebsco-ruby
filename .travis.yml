@@ -25,6 +25,9 @@ env:
     - DOCKER_IMAGE_NAME=thefrontside/mod-kb-ebsco
     - KUBE_DEPLOYMENT_NAME=folio-mod-kb-ebsco
     - KUBE_DEPLOYMENT_CONTAINER_NAME=folio-mod-kb-ebsco
+    - OKAPI_EXTERNAL_ADDRESS=http://104.196.172.62:80
+    - FOLIO_MODULE_NAME=mod-kb-ebsco
+    - FOLIO_TENANT_ID=fs
 
 install:
   - bundle install
