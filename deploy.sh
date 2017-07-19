@@ -1,7 +1,6 @@
 #!/bin/bash
 
 set -e
-set -x
 
 bash_escape() ( printf '\\033[%dm' $1; );
 RESET=$(bash_escape 0); BLUE=$(bash_escape 34);

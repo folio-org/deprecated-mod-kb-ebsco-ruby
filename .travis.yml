@@ -20,11 +20,11 @@ env:
   global:
     - GOOGLE_APPLICATION_CREDENTIALS=~/gcloud-service-key.json
     - PROJECT_ID=okapi-173322
-    - CLUSTER_NAME=okapi-mod-resource--management-pipeline
-    - CLOUDSDK_COMPUTE_ZONE=us-central1-a
+    - CLUSTER_NAME=okapi-demo
+    - CLOUDSDK_COMPUTE_ZONE=us-east1-b
     - DOCKER_IMAGE_NAME=thefrontside/mod-kb-ebsco
-    - KUBE_DEPLOYMENT_NAME=folio-mod-resource-management
-    - KUBE_DEPLOYMENT_CONTAINER_NAME=folio-mod-resource-management
+    - KUBE_DEPLOYMENT_NAME=folio-mod-kb-ebsco
+    - KUBE_DEPLOYMENT_CONTAINER_NAME=folio-mod-kb-ebsco
 
 install:
   - bundle install
