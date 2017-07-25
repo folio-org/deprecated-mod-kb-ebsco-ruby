@@ -1,0 +1,17 @@
+{
+  "id": "mod-kb-ebsco-0.1.0",
+  "name": "kb-ebsco",
+  "provides": [
+    {
+      "id": "kb-ebsco",
+      "version": "0.1.0",
+      "handlers" : [
+        {
+          "methods": [ "GET" ],
+          "pathPattern": "/"
+        }
+      ]
+    }
+  ],
+  "permissionSets" : []
+}
