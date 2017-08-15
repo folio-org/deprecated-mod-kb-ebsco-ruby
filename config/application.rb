@@ -19,6 +19,12 @@ module ModKbEbsco
         origins 'folio.frontside.io'
         resource '*', :headers => :any, :methods => [:get, :post, :options]
       end
+
+      # Hack hack hack
+      allow do
+        origins '104.6.33.13'
+        resource '*', :headers => :any, :methods => [:get, :post, :options]
+      end
     end
   end
 end
