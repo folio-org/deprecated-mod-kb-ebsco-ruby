@@ -13,18 +13,5 @@ module ModKbEbsco
   class Application < Rails::Application
     config.load_defaults 5.1
     config.api_only = true
-
-    config.middleware.insert_before 0, Rack::Cors do
-      allow do
-        origins 'folio.frontside.io'
-        resource '*', :headers => :any, :methods => [:get, :post, :options]
-      end
-
-      # Hack hack hack
-      allow do
-        origins '104.6.33.13'
-        resource '*', :headers => :any, :methods => [:get, :post, :options]
-      end
-    end
   end
 end

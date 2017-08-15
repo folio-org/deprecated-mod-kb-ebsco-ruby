@@ -8,5 +8,5 @@ ADD Gemfile.lock /mod-kb-ebsco/Gemfile.lock
 RUN bundle install
 ADD . /mod-kb-ebsco
 
-EXPOSE 3000
-CMD ["rails", "server", "-b", "0.0.0.0"]
+EXPOSE 8081
+CMD ["rails", "server", "-b", "0.0.0.0", "-p", "8081"]

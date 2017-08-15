@@ -12,7 +12,6 @@ gem 'dotenv-rails', groups: [:development, :test]
 gem 'rails', '~> 5.1.2'
 gem 'sqlite3'
 gem 'puma', '~> 3.7'
-gem 'rack-cors', :require => 'rack/cors'
 
 group :development, :test do
   gem 'pry-remote'
