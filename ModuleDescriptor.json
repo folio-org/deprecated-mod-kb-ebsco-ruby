@@ -8,7 +8,7 @@
       "handlers" : [
         {
           "methods": [ "GET" ],
-          "pathPattern": "/eholdings/"
+          "pathPattern": "/eholdings/*"
         }
       ]
     }

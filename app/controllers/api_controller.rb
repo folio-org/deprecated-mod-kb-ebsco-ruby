@@ -4,6 +4,7 @@ class ApiController < ApplicationController
   def index
     # Form the URL
     urlstr = "#{ENV['EBSCO_RESOURCE_MANAGEMENT_API_BASE_URL']}/rm/rmaccounts/#{ENV['EBSCO_RESOURCE_MANAGEMENT_API_CUSTOMER_ID']}#{request.fullpath}"
+    urlstr.slice! '/eholdings'
     uri = URI(urlstr)
 
     # Create the HTTP object
