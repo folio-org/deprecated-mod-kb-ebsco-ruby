@@ -25,7 +25,7 @@ env:
     - DOCKER_IMAGE_NAME=thefrontside/mod-kb-ebsco
     - KUBE_DEPLOYMENT_NAME=folio-mod-kb-ebsco
     - KUBE_DEPLOYMENT_CONTAINER_NAME=folio-mod-kb-ebsco
-    - OKAPI_EXTERNAL_ADDRESS=http://104.196.172.62:80
+    - OKAPI_EXTERNAL_ADDRESS=https://okapi.frontside.io
     - FOLIO_MODULE_NAME=mod-kb-ebsco
     - FOLIO_TENANT_ID=fs
     - EBSCO_RESOURCE_MANAGEMENT_API_BASE_URL=https://sandbox.ebsco.io
