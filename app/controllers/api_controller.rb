@@ -11,13 +11,18 @@ class ApiController < ApplicationController
     http = Net::HTTP.new(uri.host, uri.port)
     http.use_ssl = true
 
-    # Create the request
-    external_request = Net::HTTP::Get.new(uri.request_uri)
-    external_request["Accept"] = 'application/json'
-    external_request["X-Api-Key"] = ENV['EBSCO_RESOURCE_MANAGEMENT_API_KEY']
+    # Create and send the request
+    response = http.send_request(
+        request.method,
+        uri.request_uri,
+        request.body.read(),
+        {
+            "X-Api-Key" => ENV['EBSCO_RESOURCE_MANAGEMENT_API_KEY'],
+            "Content-Type" => 'application/json',
+            "Accept" => 'application/json'
+        }
+    )
 
-    # Send the request
-    response = http.request(external_request)
     render :json => response.body, :status => response.code
   end
 end
