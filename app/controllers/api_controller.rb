@@ -18,6 +18,6 @@ class ApiController < ApplicationController
 
     # Send the request
     response = http.request(external_request)
-    render :json => response.body
+    render :json => response.body, :status => response.code
   end
 end
