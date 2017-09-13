@@ -46,21 +46,21 @@ okapi_tenants_modules_endpoint="${OKAPI_EXTERNAL_ADDRESS}/_/proxy/tenants/${FOLI
 
 # deselect module from the tenant
 get_selected_modules() {
-  curl -s -X GET $okapi_tenants_modules_endpoint | \
+  curl -k -s -X GET $okapi_tenants_modules_endpoint | \
   jq -c "map(select(.id | test(\"${FOLIO_MODULE_NAME}-.*\")==true)) | .[]";
 }
 delete_selected_modules() {
   while read object; do
     id=$(echo $object | jq -r '.id')
     put_info "Deselecting module ${id} from tenant ${FOLIO_TENANT_ID}";
-    curl -s -X DELETE "${okapi_tenants_modules_endpoint}/${id}";
+    curl -k -s -X DELETE "${okapi_tenants_modules_endpoint}/${id}";
   done;
 }
 get_selected_modules | delete_selected_modules;
 
 # delete existing discovery records for module
 get_discovered_modules() {
-  curl -s -X GET $okapi_discovery_endpoint | \
+  curl -k -s -X GET $okapi_discovery_endpoint | \
   jq -c "map(select(.srvcId | test(\"${FOLIO_MODULE_NAME}-.*\")==true)) | .[]";
 }
 delete_discovered_modules() {
@@ -68,28 +68,28 @@ delete_discovered_modules() {
     srvcId=$(echo $object | jq -r '.srvcId');
     instId=$(echo $object | jq -r '.instId');
     put_info "Deleting existing discovery record with Service ID: ${srvcId} and Instance ID: ${instId}";
-    curl -s -X DELETE "${okapi_discovery_endpoint}/${srvcId}/${instId}";
+    curl -k -s -X DELETE "${okapi_discovery_endpoint}/${srvcId}/${instId}";
   done;
 }
 get_discovered_modules | delete_discovered_modules;
 
 # delete existing module registrations
 get_registered_modules() {
-  curl -s -X GET $okapi_modules_endpoint | \
+  curl -k -s -X GET $okapi_modules_endpoint | \
   jq -c "map(select(.id | test(\"${FOLIO_MODULE_NAME}-.*\")==true)) | .[]";
 }
 delete_registered_modules() {
   while read object; do
     id=$(echo $object | jq -r '.id')
     put_info "Deleting existing module registration with Service ID: ${id}";
-    curl -s -X DELETE "${okapi_modules_endpoint}/${id}";
+    curl -k -s -X DELETE "${okapi_modules_endpoint}/${id}";
   done;
 }
 get_registered_modules | delete_registered_modules;
 
 # register module
 put_info "Registering module to Okapi with Service ID: ${service_id}";
-cat ModuleDescriptor.json | jq ".id = \"${service_id}\"" | curl -s -X POST -d @- $okapi_modules_endpoint;
+cat ModuleDescriptor.json | jq ".id = \"${service_id}\"" | curl -k -s -X POST -d @- $okapi_modules_endpoint;
 
 # create discovery record
 discovery_payload() {
@@ -103,7 +103,7 @@ EOF
 }
 
 put_info "Creating discovery record for module with Service ID: ${service_id} and Instance ID: ${service_id}";
-echo "$(discovery_payload)" | curl -s -X POST -d @- $okapi_discovery_endpoint;
+echo "$(discovery_payload)" | curl -k -s -X POST -d @- $okapi_discovery_endpoint;
 
 # select for tenant
 module_tenant_payload() {
@@ -115,4 +115,4 @@ EOF
 }
 
 put_info "Link ${service_id} to tenant ${FOLIO_TENANT_ID}";
-echo "$(module_tenant_payload)" | curl -s -X POST -d @- $okapi_tenants_modules_endpoint;
+echo "$(module_tenant_payload)" | curl -k -s -X POST -d @- $okapi_tenants_modules_endpoint;
