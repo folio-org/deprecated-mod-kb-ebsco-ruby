@@ -3,7 +3,7 @@
   "name": "kb-ebsco",
   "provides": [
     {
-      "id": "kb-ebsco",
+      "id": "eholdings",
       "version": "0.1.0",
       "handlers" : [
         {
