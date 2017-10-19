@@ -10,12 +10,18 @@ end
 gem 'dotenv-rails', groups: [:development, :test]
 
 gem 'rails', '~> 5.1.2'
-gem 'sqlite3'
 gem 'puma', '~> 3.7'
+gem 'jsonapi-resources', '~> 0.9.1.beta'
+gem 'okapi', :git => 'git://github.com/thefrontside/okapi.rb/', :branch => "master"
 
 group :development, :test do
   gem 'pry-remote'
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'rspec'
+  gem 'rspec-rails'
+  gem 'map', '~> 6.0'
+  gem 'vcr', '~> 3.0'
+  gem 'webmock', '~> 3.0'
 end
 
 group :development do
