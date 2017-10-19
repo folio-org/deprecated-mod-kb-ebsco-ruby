@@ -20,15 +20,16 @@ env:
   global:
     - GOOGLE_APPLICATION_CREDENTIALS=~/gcloud-service-key.json
     - PROJECT_ID=okapi-173322
-    - CLUSTER_NAME=okapi-demo
-    - CLOUDSDK_COMPUTE_ZONE=us-east1-b
+    - CLUSTER_NAME=okapi
+    - CLOUDSDK_COMPUTE_ZONE=us-central1-a
     - DOCKER_IMAGE_NAME=thefrontside/mod-kb-ebsco
-    - KUBE_DEPLOYMENT_NAME=folio-mod-kb-ebsco
-    - KUBE_DEPLOYMENT_CONTAINER_NAME=folio-mod-kb-ebsco
+    - KUBE_DEPLOYMENT_NAME=mod-kb-ebsco
+    - KUBE_DEPLOYMENT_CONTAINER_NAME=mod-kb-ebsco
     - OKAPI_EXTERNAL_ADDRESS=https://okapi.frontside.io
     - FOLIO_MODULE_NAME=mod-kb-ebsco
     - FOLIO_TENANT_ID=fs
     - EBSCO_RESOURCE_MANAGEMENT_API_BASE_URL=https://sandbox.ebsco.io
+    - MODULE_VERSION=0.1.0
 
 install:
   - bundle install
@@ -42,6 +43,12 @@ before_deploy:
   - gcloud --quiet version
   - gcloud --quiet components update
   - gcloud --quiet components update kubectl
+  - echo $GCLOUD_SERVICE_KEY | base64 --decode -i > ${HOME}/gcloud-service-key.json
+  - gcloud auth activate-service-account --key-file ${HOME}/gcloud-service-key.json
+  - gcloud --quiet config set project $PROJECT_ID
+  - gcloud --quiet config set container/cluster $CLUSTER_NAME
+  - gcloud --quiet config set compute/zone ${CLOUDSDK_COMPUTE_ZONE}
+  - gcloud --quiet container clusters get-credentials $CLUSTER_NAME
 
 deploy:
   - provider: script
