@@ -7,6 +7,10 @@
       "version": "0.1.0",
       "handlers" : [
         {
+          "methods": [ "GET", "PUT" ],
+          "pathPattern": "/eholdings/configuration"
+        },
+        {
           "methods": [ "GET", "POST", "PUT", "PATCH", "DELETE" ],
           "pathPattern": "/eholdings/*"
         }
