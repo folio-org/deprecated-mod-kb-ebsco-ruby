@@ -27,7 +27,7 @@ class Configuration
     urlstr = "#{ENV['EBSCO_RESOURCE_MANAGEMENT_API_BASE_URL']}/rm/rmaccounts/#{@customer_id}/vendors?search=zz12&offset=1&orderby=vendorname&count=1"
 
     open(urlstr,{'X-Api-Key' => @api_key})
-
+    return true
   rescue Exception => e
     @errors = [e.message]
     false
