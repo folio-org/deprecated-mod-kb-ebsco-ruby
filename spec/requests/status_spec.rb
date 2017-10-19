@@ -18,7 +18,7 @@ RSpec.describe "Status", type: :request do
     end
 
     it "gets configuration validity" do
-      expect(status["is-configuration-valid"]).to be_truthy
+      expect(status["is-configuration-valid"]).to be(true)
       expect(response).to have_http_status(200)
     end
   end
