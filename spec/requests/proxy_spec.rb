@@ -1,8 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe "Proxy", type: :request do
-  let(:customer_id) { ENV['TEST_CUSTOMER_ID'] }
-  let(:api_key) { ENV['TEST_API_KEY'] }
   let(:okapi_token) { ENV['TEST_OKAPI_TOKEN'] }
 
   let(:resource) do
