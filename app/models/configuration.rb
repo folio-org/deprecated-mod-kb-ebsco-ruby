@@ -1,6 +1,4 @@
-require "net/http"
-require "uri"
-require "json"
+require "open-uri"
 
 class Configuration
   attr_reader :errors
@@ -25,8 +23,8 @@ class Configuration
     'rmapi'
   end
 
-  def valid?(arg)
-    urlstr = "https://sandbox.ebsco.io/rm/rmaccounts/#{@customer_id}/vendors?search=zz12&offset=1&orderby=vendorname&count=1"
+  def valid?(arg = {})
+    urlstr = "#{ENV['EBSCO_RESOURCE_MANAGEMENT_API_BASE_URL']}/rm/rmaccounts/#{@customer_id}/vendors?search=zz12&offset=1&orderby=vendorname&count=1"
 
     open(urlstr,{'X-Api-Key' => @api_key})
 

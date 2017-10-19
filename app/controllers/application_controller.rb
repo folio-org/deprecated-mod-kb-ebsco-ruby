@@ -1,29 +1,32 @@
 require 'net/http'
+require 'okapi'
+
 class ApplicationController < ActionController::API
-  def index
-    # This is currently just a passthrough to the RM-API
+  before_action :verify_okapi_headers
 
-    # Form the URL
-    urlstr = "#{ENV['EBSCO_RESOURCE_MANAGEMENT_API_BASE_URL']}/rm/rmaccounts/#{ENV['EBSCO_RESOURCE_MANAGEMENT_API_CUSTOMER_ID']}#{request.fullpath}"
-    urlstr.slice! '/eholdings'
-    uri = URI(urlstr)
+  def okapi
+    @okapi ||= Okapi::Client.new(okapi_url, okapi_tenant, okapi_token)
+  end
 
-    # Create the HTTP object
-    http = Net::HTTP.new(uri.host, uri.port)
-    http.use_ssl = true
+  def okapi_url
+    request.headers["HTTP_X_OKAPI_URL"]
+  end
 
-    # Create and send the request
-    response = http.send_request(
-      request.method,
-      uri.request_uri,
-      request.body.read(),
-      {
-        "X-Api-Key" => ENV['EBSCO_RESOURCE_MANAGEMENT_API_KEY'],
-        "Content-Type" => 'application/json',
-        "Accept" => 'application/json'
-      }
-    )
+  def okapi_tenant
+    request.headers["HTTP_X_OKAPI_TENANT"]
+  end
 
-    render :json => response.body, :status => response.code
+  def okapi_token
+    request.headers["HTTP_X_OKAPI_TOKEN"]
+  end
+
+  def verify_okapi_headers
+    if !okapi_url
+      render plain: 'Missing header X-OKAPI-URL', status: :bad_request
+    elsif !okapi_tenant
+      render plain: 'Missing header X-OKAPI-TENANT', status: :bad_request
+    elsif !okapi_token
+      render plain: 'Missing header X-OKAPI-TOKEN', status: :bad_request
+    end
   end
 end

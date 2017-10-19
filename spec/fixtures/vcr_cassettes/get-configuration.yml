@@ -27,7 +27,7 @@ http_interactions:
       Server:
       - nginx/1.13.5
       Date:
-      - Mon, 16 Oct 2017 22:51:25 GMT
+      - Thu, 19 Oct 2017 17:33:11 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -35,16 +35,16 @@ http_interactions:
       Connection:
       - keep-alive
       X-Okapi-Trace:
-      - 'GET mod-authtoken-1.0.1-SNAPSHOT.4 http://10.31.248.123:8081/configurations/entries..
+      - 'GET mod-authtoken-1.1.1-SNAPSHOT.6 http://10.31.250.202:8081/configurations/entries..
         : 202'
-      - 'GET mod-configuration-3.0.1-SNAPSHOT.18 http://10.31.254.128:8081/configurations/entries..
-        : 200 42299us'
+      - 'GET mod-configuration-3.0.1-SNAPSHOT.18 http://10.31.249.229:8081/configurations/entries..
+        : 200 44781us'
       Host:
       - okapi-sandbox.frontside.io
       X-Real-Ip:
-      - 10.28.0.1
+      - 10.28.1.1
       X-Forwarded-For:
-      - 10.28.0.1
+      - 10.28.1.1
       X-Forwarded-Host:
       - okapi-sandbox.frontside.io
       X-Forwarded-Port:
@@ -66,13 +66,13 @@ http_interactions:
       User-Agent:
       - Ruby
       X-Okapi-Request-Id:
-      - '036817/configurations'
+      - 210776/configurations
       X-Okapi-Url:
-      - http://10.31.244.201:80
+      - http://10.31.244.246:80
       X-Okapi-Permissions-Required:
       - configuration.entries.collection.get
       X-Okapi-Module-Permissions:
-      - '{"mod-authtoken-1.0.1-SNAPSHOT.4":["perms.users.get"]}'
+      - '{"mod-authtoken-1.1.1-SNAPSHOT.6":["perms.users.get"]}'
       X-Okapi-Permissions:
       - '["configuration.entries.collection.get"]'
       X-Okapi-User-Id:
@@ -86,7 +86,7 @@ http_interactions:
       string: |-
         {
           "configs" : [ {
-            "id" : "b3065805-315c-446f-99a6-d2d56ae1c66e",
+            "id" : "a4483978-b085-49ff-87dc-423baa768110",
             "module" : "KB_EBSCO",
             "configName" : "api_credentials",
             "code" : "kb.ebsco.credentials",
@@ -94,9 +94,9 @@ http_interactions:
             "enabled" : true,
             "value" : "customer-id=TEST_CUSTOMER_ID&api-key=TEST_API_KEY",
             "metadata" : {
-              "createdDate" : "2017-10-16T22:51:25.278+0000",
+              "createdDate" : "2017-10-19T17:33:11.192+0000",
               "createdByUserId" : "1ad737b0-d847-11e6-bf26-cec0c932ce01",
-              "updatedDate" : "2017-10-16T22:51:25.278+0000",
+              "updatedDate" : "2017-10-19T17:33:11.192+0000",
               "updatedByUserId" : "1ad737b0-d847-11e6-bf26-cec0c932ce01"
             }
           } ],
@@ -107,5 +107,5 @@ http_interactions:
           }
         }
     http_version: 
-  recorded_at: Mon, 16 Oct 2017 22:51:25 GMT
+  recorded_at: Thu, 19 Oct 2017 17:33:11 GMT
 recorded_with: VCR 3.0.3
