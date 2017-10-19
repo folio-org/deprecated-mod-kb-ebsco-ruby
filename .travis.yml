@@ -29,7 +29,7 @@ env:
     - FOLIO_MODULE_NAME=mod-kb-ebsco
     - FOLIO_TENANT_ID=fs
     - EBSCO_RESOURCE_MANAGEMENT_API_BASE_URL=https://sandbox.ebsco.io
-    - MODULE_VERSION=0.1.0
+    - MODULE_VERSION=0.1.1
 
 install:
   - bundle install

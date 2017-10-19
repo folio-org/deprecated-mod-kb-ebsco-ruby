@@ -1,14 +1,18 @@
 {
-  "id": "mod-kb-ebsco-0.1.0",
+  "id": "mod-kb-ebsco-0.1.1",
   "name": "kb-ebsco",
   "provides": [
     {
       "id": "eholdings",
-      "version": "0.1.0",
+      "version": "0.1.1",
       "handlers" : [
         {
           "methods": [ "GET", "PUT" ],
           "pathPattern": "/eholdings/configuration"
+        },
+        {
+          "methods": [ "GET" ],
+          "pathPattern": "/eholdings/status"
         },
         {
           "methods": [ "GET", "POST", "PUT", "PATCH", "DELETE" ],
