@@ -1,2 +1,0 @@
-class StatusController < JSONAPIController
-end

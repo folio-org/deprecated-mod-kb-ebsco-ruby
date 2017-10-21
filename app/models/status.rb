@@ -2,11 +2,11 @@ class Status
   attr_reader :errors
 
   def initialize(config)
-    @errors = []
     @config = config
+    @errors = []
   end
 
-  def configuration_valid?
+  def is_configuration_valid
     @config.valid?
   end
 

@@ -12,8 +12,10 @@ docker build .;
 
 image=$(docker images --format="{{.ID}}" | head -n 1);
 
-put_info "Tagging image '$image' as '$TRAVIS_COMMIT'";
-docker tag "$image" ${DOCKER_IMAGE_NAME}:${MODULE_VERSION};
+commit_sha=${TRAVIS_COMMIT:0:7}
+
+put_info "Tagging image '$image' as '$MODULE_VERSION_${commit_sha}'";
+docker tag "$image" ${DOCKER_IMAGE_NAME}:${MODULE_VERSION}_${commit_sha};
 put_info "Tagging image '$image' as 'latest'";
 docker tag "$image" ${DOCKER_IMAGE_NAME}:latest;
 
@@ -23,7 +25,7 @@ docker push ${DOCKER_IMAGE_NAME};
 put_info "Pulling new image into container '${KUBE_DEPLOYMENT_CONTAINER_NAME}' on deployment '${KUBE_DEPLOYMENT_NAME}'";
 kubectl config view;
 kubectl config current-context;
-kubectl set image deployment/${KUBE_DEPLOYMENT_NAME} ${KUBE_DEPLOYMENT_CONTAINER_NAME}=${DOCKER_IMAGE_NAME}:${MODULE_VERSION};
+kubectl set image deployment/${KUBE_DEPLOYMENT_NAME} ${KUBE_DEPLOYMENT_CONTAINER_NAME}=${DOCKER_IMAGE_NAME}:${MODULE_VERSION}_${commit_sha};
 
 # variables needed for Okapi registration
 service_id="${FOLIO_MODULE_NAME}-${MODULE_VERSION}"

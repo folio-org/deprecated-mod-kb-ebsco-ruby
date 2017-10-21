@@ -16,7 +16,19 @@
         },
         {
           "methods": [ "GET", "POST", "PUT", "PATCH", "DELETE" ],
-          "pathPattern": "/eholdings/*"
+          "pathPattern": "/eholdings/holdings*"
+        },
+        {
+          "methods": [ "GET", "POST", "PUT", "PATCH", "DELETE" ],
+          "pathPattern": "/eholdings/packages*"
+        },
+        {
+          "methods": [ "GET", "POST", "PUT", "PATCH", "DELETE" ],
+          "pathPattern": "/eholdings/vendors*"
+        },
+        {
+          "methods": [ "GET", "POST", "PUT", "PATCH", "DELETE" ],
+          "pathPattern": "/eholdings/titles*"
         }
       ]
     }

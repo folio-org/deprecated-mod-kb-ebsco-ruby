@@ -69,10 +69,17 @@ GEM
     hashdiff (0.3.7)
     highline (1.7.8)
     i18n (0.8.6)
-    jsonapi-resources (0.9.1.beta1)
-      activerecord (>= 4.1)
-      concurrent-ruby
-      railties (>= 4.1)
+    jsonapi-deserializable (0.2.0)
+    jsonapi-parser (0.1.1)
+    jsonapi-rails (0.3.1)
+      jsonapi-parser (~> 0.1.0)
+      jsonapi-rb (~> 0.5.0)
+    jsonapi-rb (0.5.0)
+      jsonapi-deserializable (~> 0.2.0)
+      jsonapi-serializable (~> 0.3.0)
+    jsonapi-renderer (0.2.0)
+    jsonapi-serializable (0.3.0)
+      jsonapi-renderer (~> 0.2.0)
     listen (3.1.5)
       rb-fsevent (~> 0.9, >= 0.9.4)
       rb-inotify (~> 0.9, >= 0.9.7)
@@ -95,6 +102,9 @@ GEM
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
       slop (~> 3.4)
+    pry-byebug (3.4.3)
+      byebug (>= 9.0, < 9.1)
+      pry (~> 0.10)
     pry-remote (0.1.8)
       pry (~> 0.9)
       slop (~> 3.0)
@@ -185,10 +195,11 @@ PLATFORMS
 DEPENDENCIES
   byebug
   dotenv-rails
-  jsonapi-resources (~> 0.9.1.beta)
+  jsonapi-rails
   listen (>= 3.0.5, < 3.2)
   map (~> 6.0)
   okapi!
+  pry-byebug
   pry-remote
   puma (~> 3.7)
   rails (~> 5.1.2)
@@ -201,7 +212,7 @@ DEPENDENCIES
   webmock (~> 3.0)
 
 RUBY VERSION
-   ruby 2.4.1p111
+   ruby 2.4.2p198
 
 BUNDLED WITH
    1.16.0.pre.3

@@ -4,7 +4,7 @@ sudo: required
 # Use ruby environment
 language: ruby
 rvm:
-  - 2.4.1
+  - 2.4.2
 
 # Cache Gcloud SDK between commands
 cache:
