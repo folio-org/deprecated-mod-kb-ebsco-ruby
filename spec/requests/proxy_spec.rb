@@ -1,10 +1,17 @@
 require 'rails_helper'
 
 RSpec.describe "Proxy", type: :request do
-  let(:okapi_token) { ENV['TEST_OKAPI_TOKEN'] }
+  let(:okapi_token) { ENV.fetch('TEST_OKAPI_TOKEN') }
 
   let(:resource) do
-    ['/eholdings/vendors/19', headers: {'X-Okapi-Url': 'https://okapi-sandbox.frontside.io', 'X-Okapi-Tenant': 'fs', 'X-Okapi-Token': okapi_token}]
+    [
+      '/eholdings/vendors/19',
+      headers: {
+        'X-Okapi-Url': 'https://okapi-sandbox.frontside.io',
+        'X-Okapi-Tenant': 'fs',
+        'X-Okapi-Token': okapi_token
+      }
+    ]
   end
 
   describe "getting a resource" do

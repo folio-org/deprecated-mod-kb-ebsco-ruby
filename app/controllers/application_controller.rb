@@ -1,11 +1,12 @@
-require 'net/http'
-require 'okapi'
-
 class ApplicationController < ActionController::API
   before_action :verify_okapi_headers
 
   def okapi
     @okapi ||= Okapi::Client.new(okapi_url, okapi_tenant, okapi_token)
+  end
+
+  def rmapi_base_url
+    ENV.fetch('EBSCO_RESOURCE_MANAGEMENT_API_BASE_URL')
   end
 
   def okapi_url
@@ -19,6 +20,8 @@ class ApplicationController < ActionController::API
   def okapi_token
     request.headers["HTTP_X_OKAPI_TOKEN"]
   end
+
+  private
 
   def verify_okapi_headers
     if !okapi_url

@@ -2,9 +2,9 @@ require 'rails_helper'
 
 RSpec.describe "Configurations", type: :request do
 
-  let(:customer_id) { ENV['TEST_CUSTOMER_ID'] }
-  let(:api_key) { ENV['TEST_API_KEY'] }
-  let(:okapi_token) { ENV['TEST_OKAPI_TOKEN'] }
+  let(:customer_id) { ENV.fetch('TEST_CUSTOMER_ID') }
+  let(:api_key) { ENV.fetch('TEST_API_KEY') }
+  let(:okapi_token) { ENV.fetch('TEST_OKAPI_TOKEN') }
   let(:resource) do
     ['/eholdings/configuration', params: {data:{ type: "configurations", id: 'default', attributes: {"customer-id": customer_id, "api-key": api_key} }}.to_json, headers: {'Content-Type': 'application/vnd.api+json','X-Okapi-Url': 'https://okapi-sandbox.frontside.io', 'X-Okapi-Tenant': 'fs', 'X-Okapi-Token': okapi_token}]
   end
@@ -16,7 +16,7 @@ RSpec.describe "Configurations", type: :request do
       end
     end
 
-    let!(:json) {Map JSON.parse response.body}
+    let!(:json) { Map JSON.parse response.body }
 
     it 'expects the response to have 200' do
       expect(response).to have_http_status(200)
