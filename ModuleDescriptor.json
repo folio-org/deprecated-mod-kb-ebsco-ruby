@@ -15,6 +15,10 @@
           "pathPattern": "/eholdings/status"
         },
         {
+          "methods": [ "GET" ],
+          "pathPattern": "/eholdings/rmapi/vendors*"
+        },
+        {
           "methods": [ "GET", "POST", "PUT", "PATCH", "DELETE" ],
           "pathPattern": "/eholdings/holdings*"
         },
