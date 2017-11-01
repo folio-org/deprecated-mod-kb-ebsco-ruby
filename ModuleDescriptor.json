@@ -16,7 +16,7 @@
         },
         {
           "methods": [ "GET" ],
-          "pathPattern": "/eholdings/rmapi/vendors*"
+          "pathPattern": "/eholdings/jsonapi/vendors*"
         },
         {
           "methods": [ "GET", "POST", "PUT", "PATCH", "DELETE" ],
