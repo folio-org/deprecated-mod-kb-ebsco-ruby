@@ -6,7 +6,7 @@ RSpec.describe "Configurations", type: :request do
   let(:api_key) { ENV.fetch('TEST_API_KEY') }
   let(:okapi_token) { ENV.fetch('TEST_OKAPI_TOKEN') }
   let(:resource) do
-    ['/eholdings/configuration', params: {data:{ type: "configurations", id: 'default', attributes: {"customer-id": customer_id, "api-key": api_key} }}.to_json, headers: {'Content-Type': 'application/vnd.api+json','X-Okapi-Url': 'https://okapi-sandbox.frontside.io', 'X-Okapi-Tenant': 'fs', 'X-Okapi-Token': okapi_token}]
+    ['/eholdings/configuration', params: {data:{ type: "configurations", id: 'default', attributes: {"customerId": customer_id, "apiKey": api_key} }}.to_json, headers: {'Content-Type': 'application/vnd.api+json','X-Okapi-Url': 'https://okapi-sandbox.frontside.io', 'X-Okapi-Tenant': 'fs', 'X-Okapi-Token': okapi_token}]
   end
 
   describe "setting the configuration when it has never been set before" do
@@ -34,8 +34,8 @@ RSpec.describe "Configurations", type: :request do
       end
 
       it 'contains valid attributes' do
-        expect(json.data.attributes['customer-id']).to eql(customer_id)
-        expect(json.data.attributes['api-key']).to eql(api_key)
+        expect(json.data.attributes.customerId).to eql(customer_id)
+        expect(json.data.attributes.apiKey).to eql(api_key)
       end
     end
   end

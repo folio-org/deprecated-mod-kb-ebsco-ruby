@@ -22,9 +22,8 @@ class ConfigurationsController < ApplicationController
              status: :unprocessable_entity
     end
 
-    config.customer_id = data_attributes['customer-id']
-    config.api_key = data_attributes['api-key']
-
+    config.customer_id = data_attributes['customerId']
+    config.api_key = data_attributes['apiKey']
 
     if config.save
       render jsonapi: config,
