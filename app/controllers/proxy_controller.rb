@@ -6,7 +6,7 @@ class ProxyController < ApplicationController
     uri = URI(
       "%{base}/rm/rmaccounts/%{customer_id}%{path}" % {
         base: rmapi_base_url,
-        customer_id: configuration.customer_id,
+        customer_id: config.customer_id,
         path: rmapi_path
       }
     )
@@ -21,7 +21,7 @@ class ProxyController < ApplicationController
       uri.request_uri,
       request.body.read,
       {
-        "X-Api-Key" => configuration.api_key,
+        "X-Api-Key" => config.api_key,
         "Content-Type" => 'application/json',
         "Accept" => 'application/json'
       }
@@ -36,11 +36,5 @@ class ProxyController < ApplicationController
     # What we really care about here is what comes after
     # the `/eholdings` namespace.  That's what we proxy to RMAPI
     request.fullpath.gsub(/\/eholdings/, '')
-  end
-
-  def configuration
-    @config ||= ::Configuration.new(okapi, rmapi_base_url).tap do |config|
-      config.load!
-    end
   end
 end

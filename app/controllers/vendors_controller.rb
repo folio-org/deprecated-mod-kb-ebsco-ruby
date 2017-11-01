@@ -57,7 +57,7 @@ class VendorsController < ApplicationController
     http.get(
       uri.request_uri,
       {
-        "X-Api-Key" => configuration.api_key,
+        "X-Api-Key" => config.api_key,
         "Content-Type" => 'application/json',
         "Accept" => 'application/json'
       }
@@ -73,13 +73,7 @@ class VendorsController < ApplicationController
   def rmapi_path
     "%{base}/rm/rmaccounts/%{customer_id}/vendors" % {
       base: rmapi_base_url,
-      customer_id: configuration.customer_id
+      customer_id: config.customer_id
     }
-  end
-
-  def configuration
-    @config ||= ::Configuration.new(okapi, rmapi_base_url).tap do |config|
-      config.load!
-    end
   end
 end
