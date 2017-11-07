@@ -10,34 +10,34 @@ class TitlesController < ApplicationController
     )
 
     # Make the request for titles from the RM API
-    data = rmapi.request(:get, "titles?%{query}" % { query: query })
+    response = rmapi.request(:get, "titles?%{query}" % { query: query })
 
-    if data
-      render jsonapi: data.titles.map { |vendor| Title.new(vendor) },
-             meta: { totalResults: data.totalResults }
+    if response.ok?
+      render jsonapi: response.data.titles.map { |vendor| Title.new(vendor) },
+             meta: { totalResults: response.data.totalResults }
     else
-      render jsonapi_errors: rmapi.errors,
-             status: rmapi.response.code
+      render jsonapi_errors: response.errors,
+             status: response.code
     end
   end
 
   def show
     # Make the request for the title from the RM API
-    data = rmapi.request(:get, "titles/%{id}" % { id: params[:id] })
+    response = rmapi.request(:get, "titles/%{id}" % { id: params[:id] })
 
-    if data
-      render jsonapi: Title.new(data),
+    if response.ok?
+      render jsonapi: Title.new(response.data),
              include: params[:include]
     else
-      render jsonapi_errors: rmapi.errors,
-             status: rmapi.response.code
+      render jsonapi_errors: response.errors,
+             status: response.code
     end
   end
 
   private
 
   def rmapi
-    @rmapi ||= ::RmApiService.new(
+    RmApiService.new(
       base_url: rmapi_base_url,
       customer_id: config.customer_id,
       api_key: config.api_key
