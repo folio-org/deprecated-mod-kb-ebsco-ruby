@@ -19,6 +19,10 @@
           "pathPattern": "/eholdings/jsonapi/vendors*"
         },
         {
+          "methods": [ "GET" ],
+          "pathPattern": "/eholdings/jsonapi/titles*"
+        },
+        {
           "methods": [ "GET", "POST", "PUT", "PATCH", "DELETE" ],
           "pathPattern": "/eholdings/holdings*"
         },
