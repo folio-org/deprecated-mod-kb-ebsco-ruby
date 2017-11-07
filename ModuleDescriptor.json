@@ -20,6 +20,10 @@
         },
         {
           "methods": [ "GET" ],
+          "pathPattern": "/eholdings/jsonapi/packages*"
+        },
+        {
+          "methods": [ "GET" ],
           "pathPattern": "/eholdings/jsonapi/titles*"
         },
         {

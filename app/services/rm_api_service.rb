@@ -18,6 +18,18 @@ class RmApiService
     end
   end
 
+  def request_multi(pending)
+    responses = {}
+
+    pending.each do |key, args|
+      res = request(*args)
+      responses[key] = res
+      break unless res.ok?
+    end
+
+    Responses.new(responses)
+  end
+
   private
 
   def uri_for(path)
@@ -62,6 +74,31 @@ class RmApiService
       data.Errors.map { |err| { title: err.Message } }
     rescue
       [{ title: "Unhandled Error" }]
+    end
+  end
+
+  class Responses
+    def initialize(responses)
+      @responses = responses.values
+      responses.each do |key, res|
+        define_singleton_method(key) { res }
+      end
+    end
+
+    # Only the last response might not be OK since we break on
+    # the first unsuccessful requests above in `request_multi`. So the
+    # following methods simply return the data from the last response.
+
+    def ok?
+      @responses.last.ok?
+    end
+
+    def code
+      @responses.last.code
+    end
+
+    def errors
+      @responses.last.errors
     end
   end
 end
