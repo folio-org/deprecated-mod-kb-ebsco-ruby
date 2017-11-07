@@ -1,18 +1,19 @@
-class VendorsController < ApplicationController
+class TitlesController < ApplicationController
   def index
     # Transform query params to what the EBSCO RM-API expects
     query = URI.encode_www_form(
       search: params[:q],
-      orderby: params[:orderby] || params[:q] ? 'relevance' : 'vendorname',
+      searchfield: params[:searchfield] || 'titlename',
+      orderby: params[:orderby] || params[:q] ? 'relevance' : 'titlename',
       count: params[:count] || 25,
       offset: params[:offset] || 1
     )
 
-    # Make the request for vendors from the RM API
-    data = rmapi.request(:get, "vendors?%{query}" % { query: query })
+    # Make the request for titles from the RM API
+    data = rmapi.request(:get, "titles?%{query}" % { query: query })
 
     if data
-      render jsonapi: data.vendors.map { |vendor| Vendor.new(vendor) },
+      render jsonapi: data.titles.map { |vendor| Title.new(vendor) },
              meta: { totalResults: data.totalResults }
     else
       render jsonapi_errors: rmapi.errors,
@@ -21,11 +22,12 @@ class VendorsController < ApplicationController
   end
 
   def show
-    # Make the request for the vendor from the RM API
-    data = rmapi.request(:get, "vendors/%{id}" % { id: params[:id] })
+    # Make the request for the title from the RM API
+    data = rmapi.request(:get, "titles/%{id}" % { id: params[:id] })
 
     if data
-      render jsonapi: Vendor.new(data)
+      render jsonapi: Title.new(data),
+             include: params[:include]
     else
       render jsonapi_errors: rmapi.errors,
              status: rmapi.response.code

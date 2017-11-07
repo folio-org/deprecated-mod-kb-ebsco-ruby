@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   scope '/eholdings' do
     scope '/jsonapi' do
       resources :vendors, only: [:index, :show]
+      resources :titles, only: [:index, :show]
     end
 
     resource :configuration, only: [:show, :update]

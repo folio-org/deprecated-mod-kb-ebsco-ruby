@@ -5,6 +5,12 @@ class ApplicationController < ActionController::API
     @okapi ||= Okapi::Client.new(okapi_url, okapi_tenant, okapi_token)
   end
 
+  def config
+    @config ||= ::Configuration.new(okapi, rmapi_base_url).tap do |config|
+      config.load!
+    end
+  end
+
   def rmapi_base_url
     ENV.fetch('EBSCO_RESOURCE_MANAGEMENT_API_BASE_URL')
   end
