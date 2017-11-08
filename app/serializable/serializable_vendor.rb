@@ -1,5 +1,12 @@
 class SerializableVendor < SerializableResource
   type 'vendors'
 
-  attributes :name, :packages_total, :packages_selected
+  attribute :name do
+    @object.vendorName
+  end
+
+  attributes :packagesTotal,
+             :packagesSelected
+
+  has_many :packages
 end

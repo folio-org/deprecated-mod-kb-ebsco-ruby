@@ -2,17 +2,12 @@ require 'rails_helper'
 
 RSpec.describe "Configurations", type: :request do
 
-  let(:customer_id) { ENV.fetch('TEST_CUSTOMER_ID') }
-  let(:api_key) { ENV.fetch('TEST_API_KEY') }
-  let(:okapi_token) { ENV.fetch('TEST_OKAPI_TOKEN') }
-
   let(:headers) {
-    {
-      'Content-Type': 'application/vnd.api+json',
-      'X-Okapi-Url': 'https://okapi-sandbox.frontside.io',
-      'X-Okapi-Tenant': 'fs',
-      'X-Okapi-Token': okapi_token
-    }
+    okapi_headers.merge(
+      {
+        'Content-Type': 'application/vnd.api+json'
+      }
+    )
   }
 
   let(:resource) do

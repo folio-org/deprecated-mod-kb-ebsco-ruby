@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://okapi-sandbox.frontside.io/configurations/entries?query=module=KB_EBSCO
+    uri: https://okapi.frontside.io/configurations/entries?query=module=KB_EBSCO
     body:
       encoding: US-ASCII
       string: ''
@@ -27,7 +27,7 @@ http_interactions:
       Server:
       - nginx/1.13.5
       Date:
-      - Tue, 31 Oct 2017 19:59:33 GMT
+      - Wed, 22 Nov 2017 19:11:58 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -35,18 +35,18 @@ http_interactions:
       Connection:
       - keep-alive
       X-Okapi-Trace:
-      - 'GET mod-authtoken-1.1.1-SNAPSHOT.7 http://10.31.244.4:8081/configurations/entries..
+      - 'GET mod-authtoken-1.1.1-SNAPSHOT.7 http://10.39.243.223:8081/configurations/entries..
         : 202'
-      - 'GET mod-configuration-3.0.1-SNAPSHOT.18 http://10.31.244.179:8081/configurations/entries..
-        : 200 44922us'
+      - 'GET mod-configuration-3.0.1-SNAPSHOT.18 http://10.39.247.37:8081/configurations/entries..
+        : 200 43972us'
       Host:
-      - okapi-sandbox.frontside.io
+      - okapi.frontside.io
       X-Real-Ip:
-      - 10.28.1.1
+      - 10.128.0.3
       X-Forwarded-For:
-      - 10.28.1.1
+      - 10.128.0.3
       X-Forwarded-Host:
-      - okapi-sandbox.frontside.io
+      - okapi.frontside.io
       X-Forwarded-Port:
       - '443'
       X-Forwarded-Proto:
@@ -66,9 +66,9 @@ http_interactions:
       User-Agent:
       - Ruby
       X-Okapi-Request-Id:
-      - 754366/configurations
+      - 157941/configurations
       X-Okapi-Url:
-      - http://10.31.250.155:80
+      - http://10.39.247.213:80
       X-Okapi-Permissions-Required:
       - configuration.entries.collection.get
       X-Okapi-Module-Permissions:
@@ -86,7 +86,7 @@ http_interactions:
       string: |-
         {
           "configs" : [ {
-            "id" : "a8d8ba0e-3a9f-4abd-a85d-fe2caba12b9d",
+            "id" : "0ccfbcb5-a2eb-4bb8-bee4-b918a8d0aeaa",
             "module" : "KB_EBSCO",
             "configName" : "api_credentials",
             "code" : "kb.ebsco.credentials",
@@ -94,9 +94,9 @@ http_interactions:
             "enabled" : true,
             "value" : "customer-id=TEST_CUSTOMER_ID&api-key=TEST_API_KEY",
             "metadata" : {
-              "createdDate" : "2017-10-23T18:52:45.612+0000",
+              "createdDate" : "2017-11-22T19:11:39.501+0000",
               "createdByUserId" : "1ad737b0-d847-11e6-bf26-cec0c932ce01",
-              "updatedDate" : "2017-10-23T18:52:45.612+0000",
+              "updatedDate" : "2017-11-22T19:11:39.501+0000",
               "updatedByUserId" : "1ad737b0-d847-11e6-bf26-cec0c932ce01"
             }
           } ],
@@ -107,24 +107,26 @@ http_interactions:
           }
         }
     http_version: 
-  recorded_at: Tue, 31 Oct 2017 19:59:33 GMT
+  recorded_at: Wed, 22 Nov 2017 19:11:58 GMT
 - request:
     method: get
-    uri: https://sandbox.ebsco.io/rm/rmaccounts/TEST_CUSTOMER_ID/vendors/19
+    uri: https://api.ebsco.io/rm/rmaccounts/TEST_CUSTOMER_ID/vendors/19
     body:
       encoding: US-ASCII
       string: ''
     headers:
+      User-Agent:
+      - Flexirest/1.5.3
+      Connection:
+      - Keep-Alive
+      Accept:
+      - application/json
       X-Api-Key:
       - TEST_API_KEY
       Content-Type:
       - application/json
-      Accept:
-      - application/json
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-      User-Agent:
-      - Ruby
   response:
     status:
       code: 200
@@ -137,9 +139,9 @@ http_interactions:
       Connection:
       - keep-alive
       Date:
-      - Tue, 31 Oct 2017 19:59:33 GMT
+      - Wed, 22 Nov 2017 19:11:59 GMT
       X-Amzn-Requestid:
-      - 03a25cce-be76-11e7-82c0-8b9490068ed3
+      - 034ac304-cfb9-11e7-b968-1555c3208478
       X-Amzn-Remapped-Content-Length:
       - '116'
       X-Amzn-Remapped-Connection:
@@ -155,18 +157,18 @@ http_interactions:
       Pragma:
       - no-cache
       X-Amzn-Remapped-Date:
-      - Tue, 31 Oct 2017 19:59:32 GMT
+      - Wed, 22 Nov 2017 19:11:57 GMT
       X-Aspnet-Version:
       - 4.0.30319
       X-Cache:
       - Miss from cloudfront
       Via:
-      - 1.1 f49012242a4f84f01f6dfcdeba18b241.cloudfront.net (CloudFront)
+      - 1.1 2e60888b24fa442131e50f158ca360a6.cloudfront.net (CloudFront)
       X-Amz-Cf-Id:
-      - zeXgIX76F5-HG8mkV3pkfF8E2vMxupOni-B0nvlZdu4RRYZgOD5uKA==
+      - J2559OOIuOj8xcVvAYZiv8TI6HW58OlIJxOVkyCW_jR3k8e4J5I7iA==
     body:
       encoding: UTF-8
-      string: '{"vendorId":19,"vendorName":"EBSCO","vendorToken":null,"isCustomer":false,"packagesTotal":602,"packagesSelected":48}'
+      string: '{"vendorId":19,"vendorName":"EBSCO","vendorToken":null,"isCustomer":false,"packagesTotal":628,"packagesSelected":14}'
     http_version: 
-  recorded_at: Tue, 31 Oct 2017 19:59:33 GMT
+  recorded_at: Wed, 22 Nov 2017 19:11:59 GMT
 recorded_with: VCR 3.0.3

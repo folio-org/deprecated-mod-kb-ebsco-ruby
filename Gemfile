@@ -12,6 +12,7 @@ gem 'dotenv-rails', groups: [:development, :test]
 gem 'rails', '~> 5.1.2'
 gem 'puma', '~> 3.7'
 gem 'jsonapi-rails'
+gem 'flexirest'
 gem 'okapi', :git => 'git://github.com/thefrontside/okapi.rb/', :branch => "master"
 
 group :development, :test do
