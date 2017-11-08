@@ -42,6 +42,27 @@ RSpec.describe "Vendors", type: :request do
       expect(json.data.id).to eq('19')
       expect(json.data.attributes).to include('name', 'packagesTotal', 'packagesSelected')
     end
+
+    it "contains relationships data" do
+      expect(json.data.relationships). to include('packages')
+    end
+  end
+
+  describe 'getting a vendor with included packages' do
+    before do
+      VCR.use_cassette("get-vendors-include-packages-success") do
+        get '/eholdings/jsonapi/vendors/19?include=packages', headers: headers
+      end
+    end
+
+    let!(:json) { Map JSON.parse response.body }
+
+    it "gets associated package records" do
+      expect(response).to have_http_status(200)
+      expect(json.included.first.type).to eq('packages')
+      expect(json.included.length).to eq(25)
+      expect(json.data.relationships.packages.data.length).to eq(25)
+    end
   end
 
   describe "getting a non-existing vendor" do

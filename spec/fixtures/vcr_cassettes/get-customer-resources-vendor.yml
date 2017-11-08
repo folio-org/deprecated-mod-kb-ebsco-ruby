@@ -27,7 +27,7 @@ http_interactions:
       Server:
       - nginx/1.13.5
       Date:
-      - Mon, 20 Nov 2017 20:03:59 GMT
+      - Mon, 20 Nov 2017 20:42:45 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -38,7 +38,7 @@ http_interactions:
       - 'GET mod-authtoken-1.1.1-SNAPSHOT.7 http://10.31.244.178:8081/configurations/entries..
         : 202'
       - 'GET mod-configuration-3.0.1-SNAPSHOT.18 http://10.31.253.220:8081/configurations/entries..
-        : 200 42707us'
+        : 200 40902us'
       Host:
       - okapi-sandbox.frontside.io
       X-Real-Ip:
@@ -66,7 +66,7 @@ http_interactions:
       User-Agent:
       - Ruby
       X-Okapi-Request-Id:
-      - '073229/configurations'
+      - '058394/configurations'
       X-Okapi-Url:
       - http://10.31.252.16:80
       X-Okapi-Permissions-Required:
@@ -107,10 +107,10 @@ http_interactions:
           }
         }
     http_version: 
-  recorded_at: Mon, 20 Nov 2017 20:03:59 GMT
+  recorded_at: Mon, 20 Nov 2017 20:42:45 GMT
 - request:
     method: get
-    uri: https://sandbox.ebsco.io/rm/rmaccounts/TEST_CUSTOMER_ID/vendors/19
+    uri: https://sandbox.ebsco.io/rm/rmaccounts/TEST_CUSTOMER_ID/vendors/22/packages/1887786/titles/1440285
     body:
       encoding: US-ASCII
       string: ''
@@ -135,15 +135,15 @@ http_interactions:
       Content-Type:
       - application/json; charset=utf-8
       Content-Length:
-      - '116'
+      - '1469'
       Connection:
       - keep-alive
       Date:
-      - Mon, 20 Nov 2017 20:03:59 GMT
+      - Mon, 20 Nov 2017 20:42:46 GMT
       X-Amzn-Requestid:
-      - f2b2494b-ce2d-11e7-a63a-cf9d668d7ca9
+      - 5d160f27-ce33-11e7-b33f-e325d8a81791
       X-Amzn-Remapped-Content-Length:
-      - '116'
+      - '1469'
       X-Amzn-Remapped-Connection:
       - keep-alive
       X-Amzn-Remapped-Server:
@@ -157,18 +157,86 @@ http_interactions:
       Pragma:
       - no-cache
       X-Amzn-Remapped-Date:
-      - Mon, 20 Nov 2017 20:04:00 GMT
+      - Mon, 20 Nov 2017 20:42:46 GMT
       X-Aspnet-Version:
       - 4.0.30319
       X-Cache:
       - Miss from cloudfront
       Via:
-      - 1.1 4d3a7d395265f8e16cc2d4443a1e0afb.cloudfront.net (CloudFront)
+      - 1.1 83038ba72c6b8f14ce170ee7b725175e.cloudfront.net (CloudFront)
       X-Amz-Cf-Id:
-      - GXoeEIIsvUzVl8ixn8ilv0Z_uOtgYzlQy06HX502M7whopNzK3PmTw==
+      - AZGgoU7cfyDR8GdgJVLiKaRZdscAqzj07VBvMJsISOlhhIQmEQHPOQ==
     body:
       encoding: UTF-8
-      string: '{"vendorId":19,"vendorName":"EBSCO","vendorToken":null,"isCustomer":false,"packagesTotal":602,"packagesSelected":54}'
+      string: '{"description":null,"edition":null,"isPeerReviewed":false,"contributorsList":[{"type":"author","contributor":"Havard,
+        Margaret"},{"type":"author","contributor":"Tiziani, Adriana."}],"titleId":1440285,"titleName":"Havard''s
+        Nursing Guide to Drugs (Nursing Guide to Drugs)","publisherName":"Elsevier","identifiersList":[{"id":"1440285","source":"AtoZ","subtype":0,"type":9},{"id":"475765","source":"ResourceIdentifier","subtype":0,"type":7},{"id":"978-0-7295-3913-5","source":"ResourceIdentifier","subtype":1,"type":1},{"id":"978-0-7295-7913-1","source":"ResourceIdentifier","subtype":2,"type":1}],"subjectsList":[{"type":"BISAC","subject":"MEDICAL
+        / Nursing / Pharmacology"}],"isTitleCustom":false,"pubType":"Book","customerResourcesList":[{"titleId":1440285,"packageId":1887786,"packageName":"ProQuest
+        Ebook Central","isPackageCustom":false,"vendorId":22,"vendorName":"Proquest
+        Info & Learning Co","locationId":17545807,"isSelected":false,"isTokenNeeded":true,"visibilityData":{"isHidden":false,"reason":""},"managedCoverageList":[{"beginCoverage":"2010-01-01","endCoverage":"2010-12-31"}],"customCoverageList":[],"coverageStatement":null,"managedEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"customEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"url":"http://ebookcentral.proquest.com/lib/[SITE_ID]/detail.action?docID=1722033","userDefinedField1":null,"userDefinedField2":null,"userDefinedField3":null,"userDefinedField4":null,"userDefinedField5":null}]}'
     http_version: 
-  recorded_at: Mon, 20 Nov 2017 20:03:59 GMT
+  recorded_at: Mon, 20 Nov 2017 20:42:46 GMT
+- request:
+    method: get
+    uri: https://sandbox.ebsco.io/rm/rmaccounts/TEST_CUSTOMER_ID/vendors/22
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Flexirest/1.5.3
+      Connection:
+      - Keep-Alive
+      Accept:
+      - application/json
+      X-Api-Key:
+      - TEST_API_KEY
+      Content-Type:
+      - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '137'
+      Connection:
+      - keep-alive
+      Date:
+      - Mon, 20 Nov 2017 20:42:46 GMT
+      X-Amzn-Requestid:
+      - 5da83ca4-ce33-11e7-8a0e-9d3e24032f05
+      X-Amzn-Remapped-Content-Length:
+      - '137'
+      X-Amzn-Remapped-Connection:
+      - keep-alive
+      X-Amzn-Remapped-Server:
+      - Microsoft-IIS/8.5
+      Cache-Control:
+      - no-cache
+      Expires:
+      - "-1"
+      X-Powered-By:
+      - ASP.NET
+      Pragma:
+      - no-cache
+      X-Amzn-Remapped-Date:
+      - Mon, 20 Nov 2017 20:42:47 GMT
+      X-Aspnet-Version:
+      - 4.0.30319
+      X-Cache:
+      - Miss from cloudfront
+      Via:
+      - 1.1 92b4dc5b4118e1b45ef99665213c7c9a.cloudfront.net (CloudFront)
+      X-Amz-Cf-Id:
+      - wXNe0UjHlOcG4kd26XbOX4bVG8I_4WVp7F-6pwBmhocnweDZYLaNMQ==
+    body:
+      encoding: UTF-8
+      string: '{"vendorId":22,"vendorName":"Proquest Info & Learning Co","vendorToken":null,"isCustomer":false,"packagesTotal":706,"packagesSelected":7}'
+    http_version: 
+  recorded_at: Mon, 20 Nov 2017 20:42:46 GMT
 recorded_with: VCR 3.0.3

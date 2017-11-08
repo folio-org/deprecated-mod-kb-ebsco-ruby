@@ -17,6 +17,8 @@ RSpec.describe "Titles", type: :request do
       VCR.use_cassette("search-titles") do
         get '/eholdings/jsonapi/titles/?q=ebsco', headers: headers
       end
+
+      # binding.pry
     end
 
     let!(:json) { Map JSON.parse response.body }
@@ -42,25 +44,25 @@ RSpec.describe "Titles", type: :request do
       expect(json.data.type).to eq('titles')
       expect(json.data.id).to eq('316875')
       expect(json.data.attributes).to include(
-        'name', 
-        'description', 
-        'publisherName', 
-        'publicationType', 
-        'isTitleCustom',
-        'isPeerReviewed',
-        'contributors',
-        'identifiers',
-        'subjects'
-        )
+                                        'name',
+                                        'description',
+                                        'publisherName',
+                                        'publicationType',
+                                        'isTitleCustom',
+                                        'isPeerReviewed',
+                                        'contributors',
+                                        'identifiers',
+                                        'subjects'
+                                      )
       expect(json.data.relationships).to include('customerResources')
     end
 
     it "returns identifiers as human readable types and subtypes" do
       expect(json.data.attributes.identifiers).to include(
-        'id' => '316875', 
-        'type' => 'BHM', 
-        'subtype' => 'Empty'
-        )
+                                                    'id' => '316875',
+                                                    'type' => 'BHM',
+                                                    'subtype' => 'Empty'
+                                                  )
     end
 
     it "returns a human readable publication type" do
@@ -68,7 +70,7 @@ RSpec.describe "Titles", type: :request do
     end
   end
 
-  describe "getting a title with customer resources" do
+  describe "getting a title with included customer resources" do
     before do
       VCR.use_cassette("get-titles-customer-resources") do
         get '/eholdings/jsonapi/titles/316875?include=customerResources', headers: headers
