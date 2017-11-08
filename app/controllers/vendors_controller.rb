@@ -9,33 +9,33 @@ class VendorsController < ApplicationController
     )
 
     # Make the request for vendors from the RM API
-    data = rmapi.request(:get, "vendors?%{query}" % { query: query })
+    response = rmapi.request(:get, "vendors?%{query}" % { query: query })
 
-    if data
-      render jsonapi: data.vendors.map { |vendor| Vendor.new(vendor) },
-             meta: { totalResults: data.totalResults }
+    if response.ok?
+      render jsonapi: response.data.vendors.map { |vendor| Vendor.new(vendor) },
+             meta: { totalResults: response.data.totalResults }
     else
-      render jsonapi_errors: rmapi.errors,
-             status: rmapi.response.code
+      render jsonapi_errors: response.errors,
+             status: response.code
     end
   end
 
   def show
     # Make the request for the vendor from the RM API
-    data = rmapi.request(:get, "vendors/%{id}" % { id: params[:id] })
+    response = rmapi.request(:get, "vendors/%{id}" % { id: params[:id] })
 
-    if data
-      render jsonapi: Vendor.new(data)
+    if response.ok?
+      render jsonapi: Vendor.new(response.data)
     else
-      render jsonapi_errors: rmapi.errors,
-             status: rmapi.response.code
+      render jsonapi_errors: response.errors,
+             status: response.code
     end
   end
 
   private
 
   def rmapi
-    @rmapi ||= ::RmApiService.new(
+    RmApiService.new(
       base_url: rmapi_base_url,
       customer_id: config.customer_id,
       api_key: config.api_key

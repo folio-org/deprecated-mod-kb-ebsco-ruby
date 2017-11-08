@@ -26,13 +26,15 @@ class Configuration
   end
 
   def verify_credentials
-    rmapi = ::RmApiService.new(
+    verify_path = 'vendors?search=zz12&offset=1&orderby=vendorname&count=1'
+
+    response = RmApiService.new(
       base_url: @rmapi_base_url,
       customer_id: @customer_id,
       api_key: @api_key
-    )
+    ).request(:get, verify_path)
 
-    if rmapi.request(:get, 'vendors?search=zz12&offset=1&orderby=vendorname&count=1')
+    if response.ok?
       return true
     else
       self.errors[:base] << "RM-API Credentials Are Invalid"

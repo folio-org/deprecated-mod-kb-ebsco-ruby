@@ -1,6 +1,4 @@
 class RmApiService
-  attr_reader :response, :errors
-
   def initialize(params)
     @base_url = params[:base_url]
     @customer_id = params[:customer_id]
@@ -15,33 +13,12 @@ class RmApiService
 
     http.start do
       args = [body].compact
-      @response = http.send(verb, uri, *args, headers)
-
-      if @response.message === 'OK'
-        success!
-      else
-        fail!
-      end
+      response = http.send(verb, uri, *args, headers)
+      Response.new(response)
     end
   end
 
   private
-
-  def success!
-    @errors = []
-    Map JSON.parse(@response.body)
-  rescue
-    return true
-  end
-
-  def fail!
-    data = Map JSON.parse(@response.body)
-    @errors = data.Errors.map { |err| { title: err.Message } }
-  rescue
-    @errors = [{ title: "Unhandled Error" }]
-  ensure
-    return false
-  end
 
   def uri_for(path)
     URI(
@@ -59,5 +36,32 @@ class RmApiService
       "Content-Type" => 'application/json',
       "Accept" => 'application/json'
     }
+  end
+
+  class Response
+    def initialize(res)
+      @res = res
+    end
+
+    def ok?
+      @res.message === 'OK'
+    end
+
+    def code
+      @res.code
+    end
+
+    def data
+      @data ||= Map JSON.parse(@res.body)
+    rescue
+      nil
+    end
+
+    def errors
+      return [] if ok?
+      data.Errors.map { |err| { title: err.Message } }
+    rescue
+      [{ title: "Unhandled Error" }]
+    end
   end
 end
