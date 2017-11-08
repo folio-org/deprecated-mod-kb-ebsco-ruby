@@ -37,7 +37,7 @@ class Title
 
   def customer_resources
     @attrs['customerResourcesList'].map do | customer_resource |
-      CustomerResource.new(customer_resource)
+      CustomerResource.new(title_data: @attrs, customer_resource_data: customer_resource)
     end
   end
 
