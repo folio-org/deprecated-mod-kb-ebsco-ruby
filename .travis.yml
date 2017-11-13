@@ -28,7 +28,7 @@ env:
     - OKAPI_EXTERNAL_ADDRESS=https://okapi.frontside.io
     - FOLIO_MODULE_NAME=mod-kb-ebsco
     - FOLIO_TENANT_ID=fs
-    - EBSCO_RESOURCE_MANAGEMENT_API_BASE_URL=https://sandbox.ebsco.io
+    - EBSCO_RESOURCE_MANAGEMENT_API_BASE_URL=https://api.ebsco.io
     - MODULE_VERSION=0.1.1
 
 install:
