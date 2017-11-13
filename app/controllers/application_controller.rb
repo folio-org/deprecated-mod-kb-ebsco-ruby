@@ -12,7 +12,7 @@ class ApplicationController < ActionController::API
   end
 
   def rmapi_base_url
-    ENV.fetch('EBSCO_RESOURCE_MANAGEMENT_API_BASE_URL')
+    ENV.fetch('EBSCO_RESOURCE_MANAGEMENT_API_BASE_URL', 'https://sandbox.ebsco.io')
   end
 
   def okapi_url
