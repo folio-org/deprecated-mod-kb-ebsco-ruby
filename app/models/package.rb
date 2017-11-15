@@ -52,7 +52,7 @@ class Package
 
   def customer_resources
     @titles.map do |title|
-      CustomerResource.new(title.customerResourcesList[0])
+      CustomerResource.new(title_data: title)
     end
   end
 

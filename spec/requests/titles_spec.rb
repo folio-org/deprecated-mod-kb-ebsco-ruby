@@ -42,10 +42,10 @@ RSpec.describe "Titles", type: :request do
       expect(json.data.type).to eq('titles')
       expect(json.data.id).to eq('316875')
       expect(json.data.attributes).to include(
-        'name', 
-        'description', 
-        'publisherName', 
-        'publicationType', 
+        'name',
+        'description',
+        'publisherName',
+        'publicationType',
         'isTitleCustom',
         'isPeerReviewed',
         'contributors',
@@ -57,8 +57,8 @@ RSpec.describe "Titles", type: :request do
 
     it "returns identifiers as human readable types and subtypes" do
       expect(json.data.attributes.identifiers).to include(
-        'id' => '316875', 
-        'type' => 'BHM', 
+        'id' => '316875',
+        'type' => 'BHM',
         'subtype' => 'Empty'
         )
     end
