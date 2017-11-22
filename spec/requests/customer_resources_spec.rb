@@ -183,6 +183,24 @@ RSpec.describe "Customer Resources", type: :request do
     end
   end
 
+  describe "selecting a customer resource" do
+    before do
+      VCR.use_cassette("update-customer-resource-isselected") do
+        put '/eholdings/jsonapi/customer-resources/22-1887786-1440285', params: { isSelected: true }, as: :json, headers: headers
+      end
+    end
+
+    it "responds with no content" do
+      binding.pry
+      expect(response).to have_http_status(204)
+
+    end
+
+    # it "updates the 'isSelected' field" do
+    #   binding.pry
+    # end
+  end
+
   describe "getting a non-existing customer resource" do
     before do
       VCR.use_cassette("get-customer-resources-not-found") do
