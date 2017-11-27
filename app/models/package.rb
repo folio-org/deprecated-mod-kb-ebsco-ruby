@@ -17,10 +17,10 @@ class Package < RmApiResource
   end
 
   def vendor
-    Vendor.find(vendorId)
+    Vendor.configure(config).find(vendorId)
   end
 
   def customer_resources
-    CustomerResource.find_by_package(vendor_id: vendorId, package_id: packageId).titles.to_a
+    CustomerResource.configure(config).find_by_package(vendor_id: vendorId, package_id: packageId).titles.to_a
   end
 end

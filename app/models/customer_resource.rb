@@ -18,15 +18,15 @@ class CustomerResource < RmApiResource
   end
 
   def vendor
-    Vendor.find(resource.vendorId)
+    Vendor.configure(config).find(resource.vendorId)
   end
 
   def title
-    Title.find(titleId)
+    Title.configure(config).find(titleId)
   end
 
   def package
-    Package.find(vendor_id: resource.vendorId, package_id: resource.packageId)
+    Package.configure(config).find(vendor_id: resource.vendorId, package_id: resource.packageId)
   end
 
   def resource

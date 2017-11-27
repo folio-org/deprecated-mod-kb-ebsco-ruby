@@ -16,6 +16,6 @@ class Vendor < RmApiResource
   end
 
   def packages
-    Package.find_by_vendor(vendor_id: id).packagesList.to_a
+    Package.configure(config).find_by_vendor(vendor_id: id).packagesList.to_a
   end
 end
