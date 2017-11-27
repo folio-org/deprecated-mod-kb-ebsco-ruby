@@ -1,5 +1,7 @@
 class ApplicationController < ActionController::API
   before_action :verify_okapi_headers
+  around_action :catch_flexirest_exceptions
+
 
   def okapi
     @okapi ||= Okapi::Client.new(okapi_url, okapi_tenant, okapi_token)
@@ -28,6 +30,13 @@ class ApplicationController < ActionController::API
   end
 
   private
+
+  def catch_flexirest_exceptions
+    yield
+  rescue Flexirest::HTTPClientException, Flexirest::HTTPServerException, Flexirest::HTTPNotFoundClientException => e
+    render jsonapi_errors: e.result.Errors.to_a.map{ |err| {"title": err.to_hash['Message']} },
+           status: e.status
+  end
 
   def verify_okapi_headers
     if !okapi_url

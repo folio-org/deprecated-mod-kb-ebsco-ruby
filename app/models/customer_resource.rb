@@ -1,37 +1,35 @@
-class CustomerResource
-  def initialize(attrs)
-    @attrs = attrs
+class CustomerResource < RmApiResource
+  get :find, "/#customer_id/vendors/:vendor_id/packages/:package_id/titles/:title_id"
+  get :find_by_package, "/#customer_id/vendors/:vendor_id/packages/:package_id/titles"
+
+
+  before_request do |name, request|
+    if name == :find_by_package
+      request.get_params[:search] = ''
+      request.get_params[:searchfield] = 'titlename'
+      request.get_params[:orderby] = 'titlename'
+      request.get_params[:count] ||= 25
+      request.get_params[:offset] ||= 1
+    end
   end
 
   def id
-    "#{vendor_id}-#{package_id}-#{title_id}"
+    "#{resource.vendorId}-#{resource.packageId}-#{titleId}"
   end
 
-  def title_id
-    @attrs['titleId']
+  def vendor
+    Vendor.configure(config).find(resource.vendorId)
   end
 
-  def vendor_id
-    @attrs['vendorId']
+  def title
+    Title.configure(config).find(titleId)
   end
 
-  def package_id
-    @attrs['packageId']
+  def package
+    Package.configure(config).find(vendor_id: resource.vendorId, package_id: resource.packageId)
   end
 
-  def package_name
-    @attrs['packageName']
-  end
-
-  def is_selected
-    @attrs['isSelected']
-  end
-
-  def selected_count
-    @attrs['selectedCount']
-  end
-
-  def title_count
-    @attrs['titleCount']
+  def resource
+    customerResourcesList.first
   end
 end

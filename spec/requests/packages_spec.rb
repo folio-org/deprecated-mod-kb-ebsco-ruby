@@ -1,20 +1,11 @@
 require 'rails_helper'
 
 RSpec.describe "Packages", type: :request do
-  let(:okapi_token) { ENV.fetch('TEST_OKAPI_TOKEN') }
-
-  let(:headers) do
-    {
-      'X-Okapi-Url': 'https://okapi-sandbox.frontside.io',
-      'X-Okapi-Tenant': 'fs',
-      'X-Okapi-Token': okapi_token
-    }
-  end
 
   describe "searching for packages" do
     before do
       VCR.use_cassette("search-packages") do
-        get '/eholdings/jsonapi/packages/?q=ebsco', headers: headers
+        get '/eholdings/jsonapi/packages/?q=ebsco', headers: okapi_headers
       end
     end
 
@@ -23,14 +14,14 @@ RSpec.describe "Packages", type: :request do
     it "gets a list of resources" do
       expect(response).to have_http_status(200)
       expect(json.data.length).to equal(25)
-      expect(json.meta.totalResults).to equal(101)
+      expect(json.meta.totalResults).to equal(111)
     end
   end
 
   describe "getting a specific package" do
     before do
       VCR.use_cassette("get-packages-success") do
-        get '/eholdings/jsonapi/packages/19-6581', headers: headers
+        get '/eholdings/jsonapi/packages/19-6581', headers: okapi_headers
       end
     end
 
@@ -63,10 +54,10 @@ RSpec.describe "Packages", type: :request do
     end
   end
 
-  describe "getting a package with customer resources" do
+  describe "getting a package with included customer resources" do
     before do
       VCR.use_cassette("get-packages-customer-resources") do
-        get '/eholdings/jsonapi/packages/19-6581?include=customerResources', headers: headers
+        get '/eholdings/jsonapi/packages/19-6581?include=customerResources', headers: okapi_headers
       end
     end
 
@@ -82,10 +73,32 @@ RSpec.describe "Packages", type: :request do
     end
   end
 
+  describe "getting a package with included vendor" do
+    before do
+      VCR.use_cassette("get-packages-vendor") do
+        get '/eholdings/jsonapi/packages/19-6581?include=vendor', headers: okapi_headers
+      end
+    end
+
+    let!(:json) { Map JSON.parse response.body }
+
+    it "includes a vendor" do
+      # NOTE: has_one relationships are serialized as singleton hashes
+      # there might be a better way to handle this, but for now we
+      # wrap the relation in an array
+      expect([json.data.relationships.vendor.data].length).to eq(1)
+      expect(json.included.length).to eq(1)
+    end
+
+    it "returns the correct included type" do
+      expect(json.included.first.type).to eq('vendors')
+    end
+  end
+
   describe "getting a non-existing package" do
     before do
       VCR.use_cassette("get-packages-not-found") do
-        get '/eholdings/jsonapi/packages/1', headers: headers
+        get '/eholdings/jsonapi/packages/1-1', headers: okapi_headers
       end
     end
 

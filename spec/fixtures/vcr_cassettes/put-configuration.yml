@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://okapi-sandbox.frontside.io/configurations/entries?query=module=KB_EBSCO
+    uri: https://okapi.frontside.io/configurations/entries?query=module=KB_EBSCO
     body:
       encoding: US-ASCII
       string: ''
@@ -27,7 +27,7 @@ http_interactions:
       Server:
       - nginx/1.13.5
       Date:
-      - Thu, 19 Oct 2017 17:33:09 GMT
+      - Wed, 22 Nov 2017 19:11:36 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -35,18 +35,18 @@ http_interactions:
       Connection:
       - keep-alive
       X-Okapi-Trace:
-      - 'GET mod-authtoken-1.1.1-SNAPSHOT.6 http://10.31.250.202:8081/configurations/entries..
+      - 'GET mod-authtoken-1.1.1-SNAPSHOT.7 http://10.39.243.223:8081/configurations/entries..
         : 202'
-      - 'GET mod-configuration-3.0.1-SNAPSHOT.18 http://10.31.249.229:8081/configurations/entries..
-        : 200 47108us'
+      - 'GET mod-configuration-3.0.1-SNAPSHOT.18 http://10.39.247.37:8081/configurations/entries..
+        : 200 45374us'
       Host:
-      - okapi-sandbox.frontside.io
+      - okapi.frontside.io
       X-Real-Ip:
-      - 10.28.1.1
+      - 10.128.0.3
       X-Forwarded-For:
-      - 10.28.1.1
+      - 10.128.0.3
       X-Forwarded-Host:
-      - okapi-sandbox.frontside.io
+      - okapi.frontside.io
       X-Forwarded-Port:
       - '443'
       X-Forwarded-Proto:
@@ -66,13 +66,13 @@ http_interactions:
       User-Agent:
       - Ruby
       X-Okapi-Request-Id:
-      - 466331/configurations
+      - 922964/configurations
       X-Okapi-Url:
-      - http://10.31.244.246:80
+      - http://10.39.247.213:80
       X-Okapi-Permissions-Required:
       - configuration.entries.collection.get
       X-Okapi-Module-Permissions:
-      - '{"mod-authtoken-1.1.1-SNAPSHOT.6":["perms.users.get"]}'
+      - '{"mod-authtoken-1.1.1-SNAPSHOT.7":["perms.users.get"]}'
       X-Okapi-Permissions:
       - '["configuration.entries.collection.get"]'
       X-Okapi-User-Id:
@@ -86,7 +86,7 @@ http_interactions:
       string: |-
         {
           "configs" : [ {
-            "id" : "ebe83888-6a1a-4a4f-8449-d23138a615f7",
+            "id" : "779b34bb-450f-403d-af89-6a9671e0757d",
             "module" : "KB_EBSCO",
             "configName" : "api_credentials",
             "code" : "kb.ebsco.credentials",
@@ -94,9 +94,9 @@ http_interactions:
             "enabled" : true,
             "value" : "customer-id=TEST_CUSTOMER_ID&api-key=TEST_API_KEY",
             "metadata" : {
-              "createdDate" : "2017-10-19T17:23:11.949+0000",
+              "createdDate" : "2017-11-22T18:59:05.198+0000",
               "createdByUserId" : "1ad737b0-d847-11e6-bf26-cec0c932ce01",
-              "updatedDate" : "2017-10-19T17:23:11.949+0000",
+              "updatedDate" : "2017-11-22T18:59:05.198+0000",
               "updatedByUserId" : "1ad737b0-d847-11e6-bf26-cec0c932ce01"
             }
           } ],
@@ -107,22 +107,26 @@ http_interactions:
           }
         }
     http_version: 
-  recorded_at: Thu, 19 Oct 2017 17:33:09 GMT
+  recorded_at: Wed, 22 Nov 2017 19:11:36 GMT
 - request:
     method: get
-    uri: https://sandbox.ebsco.io/rm/rmaccounts/TEST_CUSTOMER_ID/vendors?count=1&offset=1&orderby=vendorname&search=zz12
+    uri: https://api.ebsco.io/rm/rmaccounts/TEST_CUSTOMER_ID/vendors?count=1&offset=1&orderby=vendorname&search=zz12
     body:
       encoding: US-ASCII
       string: ''
     headers:
       X-Api-Key:
       - TEST_API_KEY
+      Content-Type:
+      - application/json
+      Accept:
+      - application/json
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-      Accept:
-      - "*/*"
       User-Agent:
       - Ruby
+      Host:
+      - api.ebsco.io
   response:
     status:
       code: 200
@@ -135,9 +139,9 @@ http_interactions:
       Connection:
       - keep-alive
       Date:
-      - Thu, 19 Oct 2017 17:33:09 GMT
+      - Wed, 22 Nov 2017 19:11:36 GMT
       X-Amzn-Requestid:
-      - 931997fa-b4f3-11e7-bfa5-1b8153f1ad6b
+      - f61542e0-cfb8-11e7-933a-296657c38ca2
       X-Amzn-Remapped-Content-Length:
       - '31'
       X-Amzn-Remapped-Connection:
@@ -153,23 +157,23 @@ http_interactions:
       Pragma:
       - no-cache
       X-Amzn-Remapped-Date:
-      - Thu, 19 Oct 2017 17:33:09 GMT
+      - Wed, 22 Nov 2017 19:11:36 GMT
       X-Aspnet-Version:
       - 4.0.30319
       X-Cache:
       - Miss from cloudfront
       Via:
-      - 1.1 5bd9bab11fd8ad5d2dea405e259e8910.cloudfront.net (CloudFront)
+      - 1.1 6ec360ae41a9b168553cec53f0c85d70.cloudfront.net (CloudFront)
       X-Amz-Cf-Id:
-      - aTRhAtqqjrMXymOFSVAEWwGSjCL9oy7vN3iQLhSKzjrwyxVE-D1OEw==
+      - BwOTol44OZsDXdQgy0vgfgxL2iVYw0TCs-bUS95QgGe1Dl5eZSc5FQ==
     body:
       encoding: UTF-8
       string: '{"totalResults":0,"vendors":[]}'
     http_version: 
-  recorded_at: Thu, 19 Oct 2017 17:33:09 GMT
+  recorded_at: Wed, 22 Nov 2017 19:11:36 GMT
 - request:
     method: get
-    uri: https://okapi-sandbox.frontside.io/configurations/entries?query=module=KB_EBSCO
+    uri: https://okapi.frontside.io/configurations/entries?query=module=KB_EBSCO
     body:
       encoding: US-ASCII
       string: ''
@@ -194,7 +198,7 @@ http_interactions:
       Server:
       - nginx/1.13.5
       Date:
-      - Thu, 19 Oct 2017 17:33:10 GMT
+      - Wed, 22 Nov 2017 19:11:37 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -202,18 +206,18 @@ http_interactions:
       Connection:
       - keep-alive
       X-Okapi-Trace:
-      - 'GET mod-authtoken-1.1.1-SNAPSHOT.6 http://10.31.250.202:8081/configurations/entries..
+      - 'GET mod-authtoken-1.1.1-SNAPSHOT.7 http://10.39.243.223:8081/configurations/entries..
         : 202'
-      - 'GET mod-configuration-3.0.1-SNAPSHOT.18 http://10.31.249.229:8081/configurations/entries..
-        : 200 45236us'
+      - 'GET mod-configuration-3.0.1-SNAPSHOT.18 http://10.39.247.37:8081/configurations/entries..
+        : 200 41992us'
       Host:
-      - okapi-sandbox.frontside.io
+      - okapi.frontside.io
       X-Real-Ip:
-      - 10.28.1.1
+      - 10.36.1.1
       X-Forwarded-For:
-      - 10.28.1.1
+      - 10.36.1.1
       X-Forwarded-Host:
-      - okapi-sandbox.frontside.io
+      - okapi.frontside.io
       X-Forwarded-Port:
       - '443'
       X-Forwarded-Proto:
@@ -233,13 +237,13 @@ http_interactions:
       User-Agent:
       - Ruby
       X-Okapi-Request-Id:
-      - 231805/configurations
+      - 823370/configurations
       X-Okapi-Url:
-      - http://10.31.244.246:80
+      - http://10.39.247.213:80
       X-Okapi-Permissions-Required:
       - configuration.entries.collection.get
       X-Okapi-Module-Permissions:
-      - '{"mod-authtoken-1.1.1-SNAPSHOT.6":["perms.users.get"]}'
+      - '{"mod-authtoken-1.1.1-SNAPSHOT.7":["perms.users.get"]}'
       X-Okapi-Permissions:
       - '["configuration.entries.collection.get"]'
       X-Okapi-User-Id:
@@ -253,7 +257,7 @@ http_interactions:
       string: |-
         {
           "configs" : [ {
-            "id" : "ebe83888-6a1a-4a4f-8449-d23138a615f7",
+            "id" : "779b34bb-450f-403d-af89-6a9671e0757d",
             "module" : "KB_EBSCO",
             "configName" : "api_credentials",
             "code" : "kb.ebsco.credentials",
@@ -261,9 +265,9 @@ http_interactions:
             "enabled" : true,
             "value" : "customer-id=TEST_CUSTOMER_ID&api-key=TEST_API_KEY",
             "metadata" : {
-              "createdDate" : "2017-10-19T17:23:11.949+0000",
+              "createdDate" : "2017-11-22T18:59:05.198+0000",
               "createdByUserId" : "1ad737b0-d847-11e6-bf26-cec0c932ce01",
-              "updatedDate" : "2017-10-19T17:23:11.949+0000",
+              "updatedDate" : "2017-11-22T18:59:05.198+0000",
               "updatedByUserId" : "1ad737b0-d847-11e6-bf26-cec0c932ce01"
             }
           } ],
@@ -274,10 +278,10 @@ http_interactions:
           }
         }
     http_version: 
-  recorded_at: Thu, 19 Oct 2017 17:33:10 GMT
+  recorded_at: Wed, 22 Nov 2017 19:11:37 GMT
 - request:
     method: delete
-    uri: https://okapi-sandbox.frontside.io/configurations/entries/ebe83888-6a1a-4a4f-8449-d23138a615f7
+    uri: https://okapi.frontside.io/configurations/entries/779b34bb-450f-403d-af89-6a9671e0757d
     body:
       encoding: US-ASCII
       string: ''
@@ -302,32 +306,32 @@ http_interactions:
       Server:
       - nginx/1.13.5
       Date:
-      - Thu, 19 Oct 2017 17:33:10 GMT
+      - Wed, 22 Nov 2017 19:11:37 GMT
       Connection:
       - keep-alive
       X-Okapi-Trace:
-      - 'DELETE mod-authtoken-1.1.1-SNAPSHOT.6 http://10.31.250.202:8081/configurations/entries/ebe83888-6a1a-4a4f-8449-d23138a615f7
+      - 'DELETE mod-authtoken-1.1.1-SNAPSHOT.7 http://10.39.243.223:8081/configurations/entries/779b34bb-450f-403d-af89-6a9671e0757d
         : 202'
-      - 'DELETE mod-configuration-3.0.1-SNAPSHOT.18 http://10.31.249.229:8081/configurations/entries/ebe83888-6a1a-4a4f-8449-d23138a615f7
-        : 204 44080us'
+      - 'DELETE mod-configuration-3.0.1-SNAPSHOT.18 http://10.39.247.37:8081/configurations/entries/779b34bb-450f-403d-af89-6a9671e0757d
+        : 204 42994us'
       Host:
-      - okapi-sandbox.frontside.io
+      - okapi.frontside.io
       X-Real-Ip:
-      - 10.28.1.1
+      - 10.36.1.1
       X-Forwarded-For:
-      - 10.28.1.1
+      - 10.36.1.1
       X-Forwarded-Host:
-      - okapi-sandbox.frontside.io
+      - okapi.frontside.io
       X-Forwarded-Port:
       - '443'
       X-Forwarded-Proto:
       - https
       X-Original-Uri:
-      - "/configurations/entries/ebe83888-6a1a-4a4f-8449-d23138a615f7"
+      - "/configurations/entries/779b34bb-450f-403d-af89-6a9671e0757d"
       X-Scheme:
       - https
       X-Auth-Request-Redirect:
-      - "/configurations/entries/ebe83888-6a1a-4a4f-8449-d23138a615f7"
+      - "/configurations/entries/779b34bb-450f-403d-af89-6a9671e0757d"
       Accept:
       - text/plain
       X-Okapi-Tenant:
@@ -337,13 +341,13 @@ http_interactions:
       User-Agent:
       - Ruby
       X-Okapi-Request-Id:
-      - '020578/configurations'
+      - 315670/configurations
       X-Okapi-Url:
-      - http://10.31.244.246:80
+      - http://10.39.247.213:80
       X-Okapi-Permissions-Required:
       - configuration.entries.item.delete
       X-Okapi-Module-Permissions:
-      - '{"mod-authtoken-1.1.1-SNAPSHOT.6":["perms.users.get"]}'
+      - '{"mod-authtoken-1.1.1-SNAPSHOT.7":["perms.users.get"]}'
       X-Okapi-Permissions:
       - '["configuration.entries.item.delete"]'
       X-Okapi-User-Id:
@@ -356,10 +360,10 @@ http_interactions:
       encoding: UTF-8
       string: ''
     http_version: 
-  recorded_at: Thu, 19 Oct 2017 17:33:10 GMT
+  recorded_at: Wed, 22 Nov 2017 19:11:37 GMT
 - request:
     method: post
-    uri: https://okapi-sandbox.frontside.io/configurations/entries
+    uri: https://okapi.frontside.io/configurations/entries
     body:
       encoding: UTF-8
       string: '{"module":"KB_EBSCO","configName":"api_credentials","code":"kb.ebsco.credentials","description":"EBSCO
@@ -385,7 +389,7 @@ http_interactions:
       Server:
       - nginx/1.13.5
       Date:
-      - Thu, 19 Oct 2017 17:33:11 GMT
+      - Wed, 22 Nov 2017 19:11:39 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -393,20 +397,20 @@ http_interactions:
       Connection:
       - keep-alive
       X-Okapi-Trace:
-      - 'POST mod-authtoken-1.1.1-SNAPSHOT.6 http://10.31.250.202:8081/configurations/entries
+      - 'POST mod-authtoken-1.1.1-SNAPSHOT.7 http://10.39.243.223:8081/configurations/entries
         : 202'
-      - 'POST mod-configuration-3.0.1-SNAPSHOT.18 http://10.31.249.229:8081/configurations/entries
-        : 201 46293us'
+      - 'POST mod-configuration-3.0.1-SNAPSHOT.18 http://10.39.247.37:8081/configurations/entries
+        : 201 43658us'
       Location:
-      - "/configurations/entries/a4483978-b085-49ff-87dc-423baa768110"
+      - "/configurations/entries/0ccfbcb5-a2eb-4bb8-bee4-b918a8d0aeaa"
       Host:
-      - okapi-sandbox.frontside.io
+      - okapi.frontside.io
       X-Real-Ip:
-      - 10.28.1.1
+      - 10.128.0.3
       X-Forwarded-For:
-      - 10.28.1.1
+      - 10.128.0.3
       X-Forwarded-Host:
-      - okapi-sandbox.frontside.io
+      - okapi.frontside.io
       X-Forwarded-Port:
       - '443'
       X-Forwarded-Proto:
@@ -426,13 +430,13 @@ http_interactions:
       User-Agent:
       - Ruby
       X-Okapi-Request-Id:
-      - 916603/configurations
+      - 103639/configurations
       X-Okapi-Url:
-      - http://10.31.244.246:80
+      - http://10.39.247.213:80
       X-Okapi-Permissions-Required:
       - configuration.entries.item.post
       X-Okapi-Module-Permissions:
-      - '{"mod-authtoken-1.1.1-SNAPSHOT.6":["perms.users.get"]}'
+      - '{"mod-authtoken-1.1.1-SNAPSHOT.7":["perms.users.get"]}'
       X-Okapi-Permissions:
       - '["configuration.entries.item.post"]'
       X-Okapi-User-Id:
@@ -445,7 +449,7 @@ http_interactions:
       encoding: UTF-8
       string: |-
         {
-          "id" : "a4483978-b085-49ff-87dc-423baa768110",
+          "id" : "0ccfbcb5-a2eb-4bb8-bee4-b918a8d0aeaa",
           "module" : "KB_EBSCO",
           "configName" : "api_credentials",
           "code" : "kb.ebsco.credentials",
@@ -453,12 +457,12 @@ http_interactions:
           "enabled" : true,
           "value" : "customer-id=TEST_CUSTOMER_ID&api-key=TEST_API_KEY",
           "metadata" : {
-            "createdDate" : "2017-10-19T17:33:11.192+0000",
+            "createdDate" : "2017-11-22T19:11:39.501+0000",
             "createdByUserId" : "1ad737b0-d847-11e6-bf26-cec0c932ce01",
-            "updatedDate" : "2017-10-19T17:33:11.192+0000",
+            "updatedDate" : "2017-11-22T19:11:39.501+0000",
             "updatedByUserId" : "1ad737b0-d847-11e6-bf26-cec0c932ce01"
           }
         }
     http_version: 
-  recorded_at: Thu, 19 Oct 2017 17:33:11 GMT
+  recorded_at: Wed, 22 Nov 2017 19:11:39 GMT
 recorded_with: VCR 3.0.3
