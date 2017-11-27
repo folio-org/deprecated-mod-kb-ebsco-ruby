@@ -32,12 +32,10 @@ class ApplicationController < ActionController::API
   private
 
   def catch_flexirest_exceptions
-    begin
-      yield
-    rescue Flexirest::HTTPClientException, Flexirest::HTTPServerException, Flexirest::HTTPNotFoundClientException => e
-      render jsonapi_errors: e.result.Errors.to_a.map{ |err| {"title": err.to_hash['Message']} },
-             status: e.status
-    end
+    yield
+  rescue Flexirest::HTTPClientException, Flexirest::HTTPServerException, Flexirest::HTTPNotFoundClientException => e
+    render jsonapi_errors: e.result.Errors.to_a.map{ |err| {"title": err.to_hash['Message']} },
+           status: e.status
   end
 
   def verify_okapi_headers
