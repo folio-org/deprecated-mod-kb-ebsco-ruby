@@ -27,7 +27,7 @@ http_interactions:
       Server:
       - nginx/1.13.5
       Date:
-      - Fri, 01 Dec 2017 23:39:50 GMT
+      - Fri, 01 Dec 2017 23:40:03 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -38,13 +38,13 @@ http_interactions:
       - 'GET mod-authtoken-1.1.1-SNAPSHOT.7 http://10.39.243.223:8081/configurations/entries..
         : 202'
       - 'GET mod-configuration-3.0.1-SNAPSHOT.18 http://10.39.247.37:8081/configurations/entries..
-        : 200 42160us'
+        : 200 41664us'
       Host:
       - okapi.frontside.io
       X-Real-Ip:
-      - 10.36.2.1
+      - 10.128.0.3
       X-Forwarded-For:
-      - 10.36.2.1
+      - 10.128.0.3
       X-Forwarded-Host:
       - okapi.frontside.io
       X-Forwarded-Port:
@@ -66,7 +66,7 @@ http_interactions:
       User-Agent:
       - Ruby
       X-Okapi-Request-Id:
-      - 319711/configurations
+      - 489703/configurations
       X-Okapi-Url:
       - http://10.39.247.213:80
       X-Okapi-Permissions-Required:
@@ -107,7 +107,7 @@ http_interactions:
           }
         }
     http_version: 
-  recorded_at: Fri, 01 Dec 2017 23:39:50 GMT
+  recorded_at: Fri, 01 Dec 2017 23:40:03 GMT
 - request:
     method: get
     uri: https://api.ebsco.io/rm/rmaccounts/TEST_CUSTOMER_ID/vendors/22/packages/1887786/titles/1440285
@@ -135,15 +135,15 @@ http_interactions:
       Content-Type:
       - application/json; charset=utf-8
       Content-Length:
-      - '1471'
+      - '1579'
       Connection:
       - keep-alive
       Date:
-      - Fri, 01 Dec 2017 23:39:50 GMT
+      - Fri, 01 Dec 2017 23:40:03 GMT
       X-Amzn-Requestid:
-      - ec67ccad-d6f0-11e7-be9f-873899e9814d
+      - f435f068-d6f0-11e7-aed9-57e62307c672
       X-Amzn-Remapped-Content-Length:
-      - '1471'
+      - '1579'
       X-Amzn-Remapped-Connection:
       - keep-alive
       X-Amzn-Remapped-Server:
@@ -157,15 +157,15 @@ http_interactions:
       Pragma:
       - no-cache
       X-Amzn-Remapped-Date:
-      - Fri, 01 Dec 2017 23:39:50 GMT
+      - Fri, 01 Dec 2017 23:40:03 GMT
       X-Aspnet-Version:
       - 4.0.30319
       X-Cache:
       - Miss from cloudfront
       Via:
-      - 1.1 5ead76a58ac4f48d1b89fffd1e73667c.cloudfront.net (CloudFront)
+      - 1.1 93eca0e8ef8f4e7cd978be1da20a3a43.cloudfront.net (CloudFront)
       X-Amz-Cf-Id:
-      - gcrFmIb4pdkclr-PlAgPCFjBj1ADRFWXkB0WcsCGCZeBv-FAIy15dA==
+      - OuXv9v4AwDPEladFYlCOntkHW6yRs6VtPysOYJP3bNCYGnuvucuIAQ==
     body:
       encoding: UTF-8
       string: '{"description":null,"edition":null,"isPeerReviewed":false,"contributorsList":[{"type":"author","contributor":"Havard,
@@ -173,70 +173,7 @@ http_interactions:
         Nursing Guide to Drugs (Nursing Guide to Drugs)","publisherName":"Elsevier","identifiersList":[{"id":"1440285","source":"AtoZ","subtype":0,"type":9},{"id":"475765","source":"ResourceIdentifier","subtype":0,"type":16},{"id":"978-0-7295-3913-5","source":"ResourceIdentifier","subtype":1,"type":6},{"id":"978-0-7295-7913-1","source":"ResourceIdentifier","subtype":2,"type":8}],"subjectsList":[{"type":"BISAC","subject":"MEDICAL
         / Nursing / Pharmacology"}],"isTitleCustom":false,"pubType":"Book","customerResourcesList":[{"titleId":1440285,"packageId":1887786,"packageName":"ProQuest
         Ebook Central","isPackageCustom":false,"vendorId":22,"vendorName":"Proquest
-        Info & Learning Co","locationId":17545807,"isSelected":false,"isTokenNeeded":true,"visibilityData":{"isHidden":false,"reason":""},"managedCoverageList":[{"beginCoverage":"2010-01-01","endCoverage":"2010-12-31"}],"customCoverageList":[],"coverageStatement":null,"managedEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"customEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"url":"http://ebookcentral.proquest.com/lib/[[SiteID]]/detail.action?docID=1722033","userDefinedField1":null,"userDefinedField2":null,"userDefinedField3":null,"userDefinedField4":null,"userDefinedField5":null}]}'
+        Info & Learning Co","locationId":17545807,"isSelected":true,"isTokenNeeded":true,"visibilityData":{"isHidden":false,"reason":""},"managedCoverageList":[{"beginCoverage":"2010-01-01","endCoverage":"2010-12-31"}],"customCoverageList":[{"beginCoverage":"2000-01-01","endCoverage":"2004-02-01"},{"beginCoverage":"2005-01-01","endCoverage":""}],"coverageStatement":null,"managedEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"customEmbargoPeriod":{"embargoUnit":"Months","embargoValue":5},"url":"http://ebookcentral.proquest.com/lib/[[SiteID]]/detail.action?docID=1722033","userDefinedField1":null,"userDefinedField2":null,"userDefinedField3":null,"userDefinedField4":null,"userDefinedField5":null}]}'
     http_version: 
-  recorded_at: Fri, 01 Dec 2017 23:39:50 GMT
-- request:
-    method: get
-    uri: https://api.ebsco.io/rm/rmaccounts/TEST_CUSTOMER_ID/vendors/22
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      User-Agent:
-      - Flexirest/1.5.5
-      Connection:
-      - Keep-Alive
-      Accept:
-      - application/json
-      X-Api-Key:
-      - TEST_API_KEY
-      Content-Type:
-      - application/json
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Content-Type:
-      - application/json; charset=utf-8
-      Content-Length:
-      - '137'
-      Connection:
-      - keep-alive
-      Date:
-      - Fri, 01 Dec 2017 23:39:50 GMT
-      X-Amzn-Requestid:
-      - ec858d66-d6f0-11e7-8543-9161b1692846
-      X-Amzn-Remapped-Content-Length:
-      - '137'
-      X-Amzn-Remapped-Connection:
-      - keep-alive
-      X-Amzn-Remapped-Server:
-      - Microsoft-IIS/8.5
-      Cache-Control:
-      - no-cache
-      Expires:
-      - "-1"
-      X-Powered-By:
-      - ASP.NET
-      Pragma:
-      - no-cache
-      X-Amzn-Remapped-Date:
-      - Fri, 01 Dec 2017 23:39:50 GMT
-      X-Aspnet-Version:
-      - 4.0.30319
-      X-Cache:
-      - Miss from cloudfront
-      Via:
-      - 1.1 267a504f48f1bc76fa46685685b3432c.cloudfront.net (CloudFront)
-      X-Amz-Cf-Id:
-      - Uwe8JMtNnHsycBrgcho74xePDkQj3zFOZbk7pptmDO_74aoH3C_elQ==
-    body:
-      encoding: UTF-8
-      string: '{"vendorId":22,"vendorName":"Proquest Info & Learning Co","vendorToken":null,"isCustomer":false,"packagesTotal":828,"packagesSelected":2}'
-    http_version: 
-  recorded_at: Fri, 01 Dec 2017 23:39:50 GMT
+  recorded_at: Fri, 01 Dec 2017 23:40:03 GMT
 recorded_with: VCR 3.0.3

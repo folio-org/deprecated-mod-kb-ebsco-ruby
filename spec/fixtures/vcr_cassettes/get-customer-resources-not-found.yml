@@ -27,7 +27,7 @@ http_interactions:
       Server:
       - nginx/1.13.5
       Date:
-      - Wed, 22 Nov 2017 19:11:45 GMT
+      - Fri, 01 Dec 2017 23:40:04 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -38,13 +38,13 @@ http_interactions:
       - 'GET mod-authtoken-1.1.1-SNAPSHOT.7 http://10.39.243.223:8081/configurations/entries..
         : 202'
       - 'GET mod-configuration-3.0.1-SNAPSHOT.18 http://10.39.247.37:8081/configurations/entries..
-        : 200 41818us'
+        : 200 42523us'
       Host:
       - okapi.frontside.io
       X-Real-Ip:
-      - 10.128.0.3
+      - 10.128.0.5
       X-Forwarded-For:
-      - 10.128.0.3
+      - 10.128.0.5
       X-Forwarded-Host:
       - okapi.frontside.io
       X-Forwarded-Port:
@@ -66,7 +66,7 @@ http_interactions:
       User-Agent:
       - Ruby
       X-Okapi-Request-Id:
-      - 260012/configurations
+      - 571233/configurations
       X-Okapi-Url:
       - http://10.39.247.213:80
       X-Okapi-Permissions-Required:
@@ -107,7 +107,7 @@ http_interactions:
           }
         }
     http_version: 
-  recorded_at: Wed, 22 Nov 2017 19:11:45 GMT
+  recorded_at: Fri, 01 Dec 2017 23:40:04 GMT
 - request:
     method: get
     uri: https://api.ebsco.io/rm/rmaccounts/TEST_CUSTOMER_ID/vendors/1/packages/1/titles/1
@@ -116,7 +116,7 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - Flexirest/1.5.3
+      - Flexirest/1.5.5
       Connection:
       - Keep-Alive
       Accept:
@@ -139,9 +139,9 @@ http_interactions:
       Connection:
       - keep-alive
       Date:
-      - Wed, 22 Nov 2017 19:11:45 GMT
+      - Fri, 01 Dec 2017 23:40:04 GMT
       X-Amzn-Requestid:
-      - fb818222-cfb8-11e7-83f0-2dcc793c950b
+      - f4d515c4-d6f0-11e7-9c11-27b6116e1718
       X-Amzn-Remapped-Content-Length:
       - '67'
       X-Amzn-Remapped-Connection:
@@ -157,18 +157,18 @@ http_interactions:
       Pragma:
       - no-cache
       X-Amzn-Remapped-Date:
-      - Wed, 22 Nov 2017 19:11:45 GMT
+      - Fri, 01 Dec 2017 23:40:03 GMT
       X-Aspnet-Version:
       - 4.0.30319
       X-Cache:
       - Error from cloudfront
       Via:
-      - 1.1 6da1bcb7d31bf254b4ec29d408bf59db.cloudfront.net (CloudFront)
+      - 1.1 f6b76c8821a68085e600e3749a3a5472.cloudfront.net (CloudFront)
       X-Amz-Cf-Id:
-      - J07zcHxRcnUeRbt0VOUHu-Nlt7wv4JmmEl9j3LdDgx6yjI35O2NKxg==
+      - Z3gATFFyP2CWfOhcFCJgBFQWJ0L6mzCJyr2CF5OHYCkEPq8biGLYaQ==
     body:
       encoding: UTF-8
       string: '{"Errors":[{"Code":1001,"Message":"Vendor not found","SubCode":0}]}'
     http_version: 
-  recorded_at: Wed, 22 Nov 2017 19:11:45 GMT
+  recorded_at: Fri, 01 Dec 2017 23:40:04 GMT
 recorded_with: VCR 3.0.3
