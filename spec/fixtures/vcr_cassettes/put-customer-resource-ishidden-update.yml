@@ -27,7 +27,7 @@ http_interactions:
       Server:
       - nginx/1.13.5
       Date:
-      - Fri, 01 Dec 2017 23:39:52 GMT
+      - Fri, 01 Dec 2017 23:39:55 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -38,13 +38,13 @@ http_interactions:
       - 'GET mod-authtoken-1.1.1-SNAPSHOT.7 http://10.39.243.223:8081/configurations/entries..
         : 202'
       - 'GET mod-configuration-3.0.1-SNAPSHOT.18 http://10.39.247.37:8081/configurations/entries..
-        : 200 41524us'
+        : 200 40972us'
       Host:
       - okapi.frontside.io
       X-Real-Ip:
-      - 10.128.0.3
+      - 10.36.2.1
       X-Forwarded-For:
-      - 10.128.0.3
+      - 10.36.2.1
       X-Forwarded-Host:
       - okapi.frontside.io
       X-Forwarded-Port:
@@ -66,7 +66,7 @@ http_interactions:
       User-Agent:
       - Ruby
       X-Okapi-Request-Id:
-      - 624413/configurations
+      - 217232/configurations
       X-Okapi-Url:
       - http://10.39.247.213:80
       X-Okapi-Permissions-Required:
@@ -107,7 +107,7 @@ http_interactions:
           }
         }
     http_version: 
-  recorded_at: Fri, 01 Dec 2017 23:39:52 GMT
+  recorded_at: Fri, 01 Dec 2017 23:39:56 GMT
 - request:
     method: get
     uri: https://api.ebsco.io/rm/rmaccounts/TEST_CUSTOMER_ID/vendors/22/packages/1887786/titles/1440285
@@ -135,15 +135,15 @@ http_interactions:
       Content-Type:
       - application/json; charset=utf-8
       Content-Length:
-      - '1471'
+      - '1470'
       Connection:
       - keep-alive
       Date:
-      - Fri, 01 Dec 2017 23:39:52 GMT
+      - Fri, 01 Dec 2017 23:39:56 GMT
       X-Amzn-Requestid:
-      - edcd4fc2-d6f0-11e7-9fc5-0df4f2e8d8d1
+      - efe29b2d-d6f0-11e7-a43b-619a8babf0dc
       X-Amzn-Remapped-Content-Length:
-      - '1471'
+      - '1470'
       X-Amzn-Remapped-Connection:
       - keep-alive
       X-Amzn-Remapped-Server:
@@ -157,15 +157,15 @@ http_interactions:
       Pragma:
       - no-cache
       X-Amzn-Remapped-Date:
-      - Fri, 01 Dec 2017 23:39:52 GMT
+      - Fri, 01 Dec 2017 23:39:56 GMT
       X-Aspnet-Version:
       - 4.0.30319
       X-Cache:
       - Miss from cloudfront
       Via:
-      - 1.1 eceebc7fc75ad1b377e012ce418717cd.cloudfront.net (CloudFront)
+      - 1.1 9c49cf68cf2287c443a3527dd202d688.cloudfront.net (CloudFront)
       X-Amz-Cf-Id:
-      - xoFJ11BFW9h8cZbaWXzOE8JMpNvCc5vQHpFSOuOjCgmOQOfuyZMJLw==
+      - ags3w6CDHbklxrlZ5HEfE_R4C4AJ-O-6ZVX62IxEzDZQL0SyjIDqJQ==
     body:
       encoding: UTF-8
       string: '{"description":null,"edition":null,"isPeerReviewed":false,"contributorsList":[{"type":"author","contributor":"Havard,
@@ -173,15 +173,15 @@ http_interactions:
         Nursing Guide to Drugs (Nursing Guide to Drugs)","publisherName":"Elsevier","identifiersList":[{"id":"1440285","source":"AtoZ","subtype":0,"type":9},{"id":"475765","source":"ResourceIdentifier","subtype":0,"type":16},{"id":"978-0-7295-3913-5","source":"ResourceIdentifier","subtype":1,"type":6},{"id":"978-0-7295-7913-1","source":"ResourceIdentifier","subtype":2,"type":8}],"subjectsList":[{"type":"BISAC","subject":"MEDICAL
         / Nursing / Pharmacology"}],"isTitleCustom":false,"pubType":"Book","customerResourcesList":[{"titleId":1440285,"packageId":1887786,"packageName":"ProQuest
         Ebook Central","isPackageCustom":false,"vendorId":22,"vendorName":"Proquest
-        Info & Learning Co","locationId":17545807,"isSelected":false,"isTokenNeeded":true,"visibilityData":{"isHidden":false,"reason":""},"managedCoverageList":[{"beginCoverage":"2010-01-01","endCoverage":"2010-12-31"}],"customCoverageList":[],"coverageStatement":null,"managedEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"customEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"url":"http://ebookcentral.proquest.com/lib/[[SiteID]]/detail.action?docID=1722033","userDefinedField1":null,"userDefinedField2":null,"userDefinedField3":null,"userDefinedField4":null,"userDefinedField5":null}]}'
+        Info & Learning Co","locationId":17545807,"isSelected":true,"isTokenNeeded":true,"visibilityData":{"isHidden":false,"reason":""},"managedCoverageList":[{"beginCoverage":"2010-01-01","endCoverage":"2010-12-31"}],"customCoverageList":[],"coverageStatement":null,"managedEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"customEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"url":"http://ebookcentral.proquest.com/lib/[[SiteID]]/detail.action?docID=1722033","userDefinedField1":null,"userDefinedField2":null,"userDefinedField3":null,"userDefinedField4":null,"userDefinedField5":null}]}'
     http_version: 
-  recorded_at: Fri, 01 Dec 2017 23:39:52 GMT
+  recorded_at: Fri, 01 Dec 2017 23:39:56 GMT
 - request:
-    method: get
-    uri: https://api.ebsco.io/rm/rmaccounts/TEST_CUSTOMER_ID/titles/1440285
+    method: put
+    uri: https://api.ebsco.io/rm/rmaccounts/TEST_CUSTOMER_ID/vendors/22/packages/1887786/titles/1440285
     body:
-      encoding: US-ASCII
-      string: ''
+      encoding: UTF-8
+      string: '{"isSelected":true,"isHidden":true,"customCoverageList":[],"customEmbargoPeriod":{"embargoUnit":null,"embargoValue":0}}'
     headers:
       User-Agent:
       - Flexirest/1.5.5
@@ -197,21 +197,19 @@ http_interactions:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
   response:
     status:
-      code: 200
-      message: OK
+      code: 204
+      message: No Content
     headers:
       Content-Type:
-      - application/json; charset=utf-8
+      - application/json
       Content-Length:
-      - '3522'
+      - '0'
       Connection:
       - keep-alive
       Date:
-      - Fri, 01 Dec 2017 23:39:53 GMT
+      - Fri, 01 Dec 2017 23:39:56 GMT
       X-Amzn-Requestid:
-      - edecbea6-d6f0-11e7-9bbf-9779f9f4a904
-      X-Amzn-Remapped-Content-Length:
-      - '3522'
+      - f001468c-d6f0-11e7-81a9-9b66a4c6cc11
       X-Amzn-Remapped-Connection:
       - keep-alive
       X-Amzn-Remapped-Server:
@@ -225,27 +223,18 @@ http_interactions:
       Pragma:
       - no-cache
       X-Amzn-Remapped-Date:
-      - Fri, 01 Dec 2017 23:39:52 GMT
+      - Fri, 01 Dec 2017 23:39:56 GMT
       X-Aspnet-Version:
       - 4.0.30319
       X-Cache:
       - Miss from cloudfront
       Via:
-      - 1.1 d76bf0100595ded869c3bdda089e4c7a.cloudfront.net (CloudFront)
+      - 1.1 9c49cf68cf2287c443a3527dd202d688.cloudfront.net (CloudFront)
       X-Amz-Cf-Id:
-      - YOjvYIqxo3x1-ik2h9dQEwrMx2rjWqW3s2zA6Tux-pOvCWVBb6SSew==
+      - vx8xlgO9w21m0XCx2ttmn7MvzR7FFRJjlTtOwjAr7dLwUHgI25Dr3Q==
     body:
       encoding: UTF-8
-      string: '{"description":null,"edition":null,"isPeerReviewed":false,"contributorsList":[{"type":"author","contributor":"Havard,
-        Margaret"},{"type":"author","contributor":"Tiziani, Adriana."}],"titleId":1440285,"titleName":"Havard''s
-        Nursing Guide to Drugs (Nursing Guide to Drugs)","publisherName":"Elsevier","identifiersList":[{"id":"1440285","source":"AtoZ","subtype":0,"type":9},{"id":"475765","source":"ResourceIdentifier","subtype":0,"type":16},{"id":"978-0-7295-3913-5","source":"ResourceIdentifier","subtype":1,"type":6},{"id":"978-0-7295-7913-1","source":"ResourceIdentifier","subtype":2,"type":8}],"subjectsList":[{"type":"BISAC","subject":"MEDICAL
-        / Nursing / Pharmacology"}],"isTitleCustom":false,"pubType":"Book","customerResourcesList":[{"titleId":1440285,"packageId":5207,"packageName":"EBSCO
-        eBooks","isPackageCustom":false,"vendorId":19,"vendorName":"EBSCO","locationId":4857928,"isSelected":true,"isTokenNeeded":false,"visibilityData":{"isHidden":false,"reason":""},"managedCoverageList":[{"beginCoverage":"2010-01-01","endCoverage":"2010-12-31"}],"customCoverageList":[],"coverageStatement":null,"managedEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"customEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"url":"http://search.ebscohost.com/login.aspx?direct=true&scope=site&db=nlebk&db=nlabk&AN=475765","userDefinedField1":null,"userDefinedField2":null,"userDefinedField3":null,"userDefinedField4":null,"userDefinedField5":null},{"titleId":1440285,"packageId":22551,"packageName":"123Library
-        eBooks","isPackageCustom":false,"vendorId":58251,"vendorName":"123Library","locationId":7916208,"isSelected":false,"isTokenNeeded":false,"visibilityData":{"isHidden":false,"reason":""},"managedCoverageList":[],"customCoverageList":[],"coverageStatement":null,"managedEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"customEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"url":"https://www.123library.org/ebook/id/30589/","userDefinedField1":null,"userDefinedField2":null,"userDefinedField3":null,"userDefinedField4":null,"userDefinedField5":null},{"titleId":1440285,"packageId":1884903,"packageName":"ProQuest
-        Ebook Library (EBL)","isPackageCustom":false,"vendorId":22,"vendorName":"Proquest
-        Info & Learning Co","locationId":17501653,"isSelected":false,"isTokenNeeded":true,"visibilityData":{"isHidden":false,"reason":""},"managedCoverageList":[{"beginCoverage":"2010-01-01","endCoverage":"2010-12-31"}],"customCoverageList":[],"coverageStatement":null,"managedEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"customEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"url":"http://[[SiteID]].eblib.com/patron/FullRecord.aspx?p=1722033","userDefinedField1":null,"userDefinedField2":null,"userDefinedField3":null,"userDefinedField4":null,"userDefinedField5":null},{"titleId":1440285,"packageId":1887786,"packageName":"ProQuest
-        Ebook Central","isPackageCustom":false,"vendorId":22,"vendorName":"Proquest
-        Info & Learning Co","locationId":17545807,"isSelected":false,"isTokenNeeded":true,"visibilityData":{"isHidden":false,"reason":""},"managedCoverageList":[{"beginCoverage":"2010-01-01","endCoverage":"2010-12-31"}],"customCoverageList":[],"coverageStatement":null,"managedEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"customEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"url":"http://ebookcentral.proquest.com/lib/[[SiteID]]/detail.action?docID=1722033","userDefinedField1":null,"userDefinedField2":null,"userDefinedField3":null,"userDefinedField4":null,"userDefinedField5":null}]}'
+      string: ''
     http_version: 
-  recorded_at: Fri, 01 Dec 2017 23:39:53 GMT
+  recorded_at: Fri, 01 Dec 2017 23:39:56 GMT
 recorded_with: VCR 3.0.3
