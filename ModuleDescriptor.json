@@ -19,7 +19,7 @@
           "pathPattern": "/eholdings/jsonapi/vendors*"
         },
         {
-          "methods": [ "GET" ],
+          "methods": [ "GET", "PUT" ],
           "pathPattern": "/eholdings/jsonapi/packages*"
         },
         {

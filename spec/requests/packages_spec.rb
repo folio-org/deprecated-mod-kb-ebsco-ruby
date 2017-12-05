@@ -95,6 +95,187 @@ RSpec.describe "Packages", type: :request do
     end
   end
 
+  describe "updating a package" do
+    let(:update_headers) do
+      okapi_headers.merge(
+        {
+          'Content-Type': 'application/vnd.api+json'
+        }
+      )
+    end
+
+    describe "selecting a package" do
+      let(:params) do
+        {
+          "data" => {
+            "type" => 'packages',
+            "attributes" => {
+              "isSelected" => true
+            }
+	        }
+        }
+      end
+
+      before do
+        VCR.use_cassette("put-packages-isselected-update") do
+          put '/eholdings/jsonapi/packages/19-6581',
+              params: params, as: :json, headers: update_headers
+        end
+      end
+
+      it "responds with no content" do
+        expect(response).to have_http_status(204)
+      end
+
+      describe "viewing the updated package" do
+        before do
+          VCR.use_cassette("put-packages-isselected-verify") do
+            get '/eholdings/jsonapi/packages/19-6581',
+                headers: okapi_headers
+          end
+        end
+
+        let!(:json) { Map JSON.parse response.body }
+
+        it "is no longer selected" do
+          expect(json.data.attributes.isSelected).to be true
+        end
+      end
+    end
+
+    describe "hiding a package" do
+      let(:params) do
+        {
+          "data" => {
+            "type" => 'packages',
+            "attributes" => {
+              "isHidden" => true
+            }
+	  }
+        }
+      end
+
+      before do
+        VCR.use_cassette("put-packages-ishidden-update") do
+          put '/eholdings/jsonapi/packages/19-6581',
+              params: params, as: :json, headers: update_headers
+        end
+      end
+
+      it "responds with no content" do
+        expect(response).to have_http_status(204)
+      end
+
+      describe "viewing the updated customer resource" do
+        before do
+          VCR.use_cassette("put-packages-ishidden-verify") do
+            get '/eholdings/jsonapi/packages/19-6581',
+                headers: okapi_headers
+          end
+        end
+
+        let!(:json) { Map JSON.parse response.body }
+
+        it "is no longer visible" do
+          expect(json.data.attributes.visibilityData.isHidden).to be true
+        end
+      end
+    end
+
+    describe "setting custom coverage" do
+      let(:params) do
+        {
+          "data" => {
+            "type" => 'packages',
+            "attributes" => {
+              "customCoverage" => {
+                "beginCoverage" => "2003-01-01",
+                "endCoverage" => "2004-01-01"
+              }
+            }
+	  }
+        }
+      end
+
+      before do
+        VCR.use_cassette("put-packages-customcoverage-update") do
+          put '/eholdings/jsonapi/packages/19-6581',
+              params: params, as: :json, headers: update_headers
+        end
+      end
+
+      it "responds with no content" do
+        expect(response).to have_http_status(204)
+      end
+
+      describe "viewing the updated package" do
+        before do
+          VCR.use_cassette("put-packages-customcoverage-verify") do
+            get '/eholdings/jsonapi/packages/19-6581',
+                headers: okapi_headers
+          end
+        end
+
+        let!(:json) { Map JSON.parse response.body }
+
+        it "custom coverage range has a beginning" do
+          expect(json.data.attributes.customCoverage.beginCoverage).to eq("2003-01-01")
+        end
+        it "custom coverage range has an ending" do
+          expect(json.data.attributes.customCoverage.endCoverage).to eq("2004-01-01")
+        end
+      end
+    end
+
+    describe "combined update" do
+      let(:params) do
+        {
+          "data" => {
+            "type" => 'packages',
+            "attributes" => {
+              "isSelected" => true,
+              "isHidden" => false,
+              "customCoverage" => {
+                "beginCoverage" => "2000-01-01",
+                "endCoverage" => "2004-02-01"
+              }
+            }
+          }
+        }
+      end
+
+      before do
+        VCR.use_cassette("put-packages-combined-update") do
+          put '/eholdings/jsonapi/packages/19-6581',
+              params: params, as: :json, headers: update_headers
+        end
+      end
+
+      it "responds with no content" do
+        expect(response).to have_http_status(204)
+      end
+
+      describe "viewing the updated package" do
+        before do
+          VCR.use_cassette("put-packages-combined-verify") do
+            get '/eholdings/jsonapi/packages/19-6581',
+                headers: okapi_headers
+          end
+        end
+
+        let!(:json) { Map JSON.parse response.body }
+
+        it "all fields have been successfully updated" do
+          expect(json.data.attributes.isSelected).to be true
+          expect(json.data.attributes.visibilityData.isHidden).to be false
+          expect(json.data.attributes.customCoverage.beginCoverage).to eq("2000-01-01")
+          expect(json.data.attributes.customCoverage.endCoverage).to eq("2004-02-01")
+        end
+      end
+    end
+  end
+
+
   describe "getting a non-existing package" do
     before do
       VCR.use_cassette("get-packages-not-found") do
