@@ -1,7 +1,11 @@
 class Package < RmApiResource
+
+  request_body_type :json
+
   get :all, "/#customer_id/packages"
   get :find, "/#customer_id/vendors/:vendor_id/packages/:package_id"
   get :find_by_vendor, "/#customer_id/vendors/:vendor_id/packages"
+  put :update, "/#customer_id/vendors/:vendor_id/packages/:package_id"
 
   before_request do |name, request|
     if name == :all || name == :find_by_vendor
@@ -16,11 +20,49 @@ class Package < RmApiResource
     "#{vendorId}-#{packageId}"
   end
 
+  # Relationships
   def vendor
     Vendor.configure(config).find(vendorId)
   end
 
   def customer_resources
     CustomerResource.configure(config).find_by_package(vendor_id: vendorId, package_id: packageId).titles.to_a
+  end
+
+  # Instance methods
+  def update(params)
+    # Mimicking AR as closely as we can here. Invoking `update` on a
+    # model (i.e. as an instance method) applies a hash of changes
+    # to the instance and then persists that data to the store.
+
+    update_fields.deep_merge(params.to_h).each do |k,v|
+      self.send("#{k}=".to_sym, v)
+    end
+
+    save!
+  end
+
+  def save!
+    attributes = update_fields
+
+    self.class.update({
+      vendor_id: vendorId,
+      package_id: packageId,
+      isSelected: attributes[:isSelected],
+      isHidden: attributes[:visibilityData][:isHidden],
+      customCoverage: attributes[:customCoverage]
+    })
+  end
+
+  private
+
+  def update_fields
+    whitelist = [
+      :isSelected,
+      :visibilityData,
+      :customCoverage
+    ]
+
+    self.to_hash.with_indifferent_access.slice(*whitelist)
   end
 end
