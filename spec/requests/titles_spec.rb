@@ -77,6 +77,21 @@ RSpec.describe "Titles", type: :request do
     end
   end
 
+  describe "getting a title with empty array fields" do
+    before do
+      VCR.use_cassette("get-titles-empty-array-fields") do
+        get '/eholdings/jsonapi/titles/146131', headers: okapi_headers
+      end
+    end
+
+    let!(:json) { Map JSON.parse response.body }
+
+    it "returns empty arrays for array attributes" do
+      expect(json.data.attributes.contributors).to eq([])
+      expect(json.data.attributes.subjects).to eq([])
+    end
+  end
+
 
   describe "getting a non-existing title" do
     before do

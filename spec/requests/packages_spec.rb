@@ -71,6 +71,11 @@ RSpec.describe "Packages", type: :request do
     it "returns the correct included type" do
       expect(json.included.first.type).to eq('customerResources')
     end
+
+    it "returns empty arrays for array attributes" do
+      expect(json.included[8].attributes.contributors).to eq([])
+      expect(json.included[8].attributes.subjects).to eq([])
+    end
   end
 
   describe "getting a package with included vendor" do

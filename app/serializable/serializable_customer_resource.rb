@@ -15,7 +15,7 @@ class SerializableCustomerResource < SerializableResource
 
 
   attribute :contributors do
-    @object.contributorsList
+    @object.contributorsList || []
   end
   attribute :identifiers do
     types = {
@@ -76,7 +76,7 @@ class SerializableCustomerResource < SerializableResource
     publication_types[type_key] || @object.pubType
   end
   attribute :subjects do
-    @object.subjectsList
+    @object.subjectsList || []
   end
 
 
