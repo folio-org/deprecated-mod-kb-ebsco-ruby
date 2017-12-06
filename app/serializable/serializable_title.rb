@@ -14,11 +14,11 @@ class SerializableTitle < SerializableResource
   end
 
   attribute :contributors do
-    @object.contributorsList
+    @object.contributorsList || []
   end
 
   attribute :subjects do
-    @object.subjectsList
+    @object.subjectsList || []
   end
 
 
