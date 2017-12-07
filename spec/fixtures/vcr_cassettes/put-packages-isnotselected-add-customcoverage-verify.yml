@@ -27,7 +27,7 @@ http_interactions:
       Server:
       - nginx/1.13.5
       Date:
-      - Tue, 05 Dec 2017 17:46:34 GMT
+      - Thu, 07 Dec 2017 18:25:58 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -38,13 +38,13 @@ http_interactions:
       - 'GET mod-authtoken-1.1.1-SNAPSHOT.7 http://10.39.243.223:8081/configurations/entries..
         : 202'
       - 'GET mod-configuration-3.0.1-SNAPSHOT.18 http://10.39.247.37:8081/configurations/entries..
-        : 200 41631us'
+        : 200 41714us'
       Host:
       - okapi.frontside.io
       X-Real-Ip:
-      - 10.128.0.3
+      - 10.128.0.4
       X-Forwarded-For:
-      - 10.128.0.3
+      - 10.128.0.4
       X-Forwarded-Host:
       - okapi.frontside.io
       X-Forwarded-Port:
@@ -66,7 +66,7 @@ http_interactions:
       User-Agent:
       - Ruby
       X-Okapi-Request-Id:
-      - 699778/configurations
+      - 302313/configurations
       X-Okapi-Url:
       - http://10.39.247.213:80
       X-Okapi-Permissions-Required:
@@ -107,7 +107,7 @@ http_interactions:
           }
         }
     http_version: 
-  recorded_at: Tue, 05 Dec 2017 17:46:34 GMT
+  recorded_at: Thu, 07 Dec 2017 18:25:58 GMT
 - request:
     method: get
     uri: https://api.ebsco.io/rm/rmaccounts/TEST_CUSTOMER_ID/vendors/19/packages/6581
@@ -135,15 +135,15 @@ http_interactions:
       Content-Type:
       - application/json; charset=utf-8
       Content-Length:
-      - '360'
+      - '342'
       Connection:
       - keep-alive
       Date:
-      - Tue, 05 Dec 2017 17:46:34 GMT
+      - Thu, 07 Dec 2017 18:25:58 GMT
       X-Amzn-Requestid:
-      - 3c6ff3d5-d9e4-11e7-b506-312c0a4947a0
+      - 1220b405-db7c-11e7-a2f7-4d3d12a05954
       X-Amzn-Remapped-Content-Length:
-      - '360'
+      - '342'
       X-Amzn-Remapped-Connection:
       - keep-alive
       X-Amzn-Remapped-Server:
@@ -157,19 +157,18 @@ http_interactions:
       Pragma:
       - no-cache
       X-Amzn-Remapped-Date:
-      - Tue, 05 Dec 2017 17:46:35 GMT
+      - Thu, 07 Dec 2017 18:25:58 GMT
       X-Aspnet-Version:
       - 4.0.30319
       X-Cache:
       - Miss from cloudfront
       Via:
-      - 1.1 66ed69e8b47ad05050331602c798132f.cloudfront.net (CloudFront)
+      - 1.1 11dd60d1f68e8258294f92935b53a91f.cloudfront.net (CloudFront)
       X-Amz-Cf-Id:
-      - boIPenUBSYWQLhBHv30timI88TdYp6ovNzIMhOAFxolu7kvirQDNxw==
+      - Gytk-H5ksUqomodNKAMrp9UDuoqUF5TtF4DGsw-t7UQ9IkKk_g5wPw==
     body:
       encoding: UTF-8
-      string: '{"packageId":6581,"packageName":"EBSCO Biotechnology Collection: India","isCustom":false,"vendorId":19,"vendorName":"EBSCO","titleCount":159,"isSelected":true,"visibilityData":{"isHidden":true,"reason":"Hidden
-        by Customer"},"selectedCount":159,"isTokenNeeded":false,"contentType":"AggregatedFullText","customCoverage":{"beginCoverage":null,"endCoverage":null}}'
+      string: '{"packageId":6581,"packageName":"EBSCO Biotechnology Collection: India","isCustom":false,"vendorId":19,"vendorName":"EBSCO","titleCount":159,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"AggregatedFullText","customCoverage":{"beginCoverage":null,"endCoverage":null}}'
     http_version: 
-  recorded_at: Tue, 05 Dec 2017 17:46:35 GMT
+  recorded_at: Thu, 07 Dec 2017 18:25:58 GMT
 recorded_with: VCR 3.0.3
