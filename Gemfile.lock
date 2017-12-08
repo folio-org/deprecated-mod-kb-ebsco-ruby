@@ -1,5 +1,14 @@
 GIT
-  remote: git://github.com/thefrontside/okapi.rb/
+  remote: https://github.com/jsonapi-rb/jsonapi-rails.git
+  revision: 14a9421658495fe916ec1886834b6adfd764b211
+  ref: 14a9421
+  specs:
+    jsonapi-rails (0.3.1)
+      jsonapi-parser (~> 0.1.0)
+      jsonapi-rb (~> 0.5.0)
+
+GIT
+  remote: https://github.com/thefrontside/okapi.rb/
   revision: 04e69b667f443ec859120e14dcf4639bca93bb2c
   branch: master
   specs:
@@ -80,9 +89,6 @@ GEM
       concurrent-ruby (~> 1.0)
     jsonapi-deserializable (0.2.0)
     jsonapi-parser (0.1.1)
-    jsonapi-rails (0.3.1)
-      jsonapi-parser (~> 0.1.0)
-      jsonapi-rb (~> 0.5.0)
     jsonapi-rb (0.5.0)
       jsonapi-deserializable (~> 0.2.0)
       jsonapi-serializable (~> 0.3.0)
@@ -205,7 +211,7 @@ DEPENDENCIES
   byebug
   dotenv-rails
   flexirest
-  jsonapi-rails
+  jsonapi-rails!
   listen (>= 3.0.5, < 3.2)
   map (~> 6.0)
   okapi!

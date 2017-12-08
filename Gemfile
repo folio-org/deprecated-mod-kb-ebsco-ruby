@@ -11,9 +11,9 @@ gem 'dotenv-rails', groups: [:development, :test]
 
 gem 'rails', '~> 5.1.2'
 gem 'puma', '~> 3.7'
-gem 'jsonapi-rails'
+gem 'jsonapi-rails', :git => "https://github.com/jsonapi-rb/jsonapi-rails.git", :ref => "14a9421"
 gem 'flexirest'
-gem 'okapi', :git => 'git://github.com/thefrontside/okapi.rb/', :branch => "master"
+gem 'okapi', :git => 'https://github.com/thefrontside/okapi.rb/', :branch => "master"
 
 group :development, :test do
   gem 'pry-remote'
