@@ -1,12 +1,9 @@
 class DeserializableCustomerResource < JSONAPI::Deserializable::Resource
   attributes :isSelected,
-             :customEmbargoPeriod
+             :customEmbargoPeriod,
+             :visibilityData
 
   attribute :customCoverages do |value|
     { customCoverageList: value }
-  end
-
-  attribute :isHidden do |value|
-    { visibilityData: { isHidden: value } }
   end
 end

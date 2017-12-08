@@ -191,7 +191,7 @@ RSpec.describe "Customer Resources", type: :request do
             "attributes" => {
               "isSelected" => true
             }
-	  }
+    }
         }
       end
 
@@ -228,9 +228,11 @@ RSpec.describe "Customer Resources", type: :request do
           "data" => {
             "type" => 'customerResources',
             "attributes" => {
-              "isHidden" => true
+              "visibilityData" => {
+                "isHidden" => true
+              }
             }
-	  }
+          }
         }
       end
 
@@ -274,7 +276,7 @@ RSpec.describe "Customer Resources", type: :request do
                 }
               ]
             }
-	  }
+    }
         }
       end
 
@@ -322,7 +324,7 @@ RSpec.describe "Customer Resources", type: :request do
                 "embargoValue" => 7
               }
             }
-	  }
+    }
         }
       end
 
@@ -361,7 +363,9 @@ RSpec.describe "Customer Resources", type: :request do
             "type" => 'customerResources',
             "attributes" => {
               "isSelected" => true,
-              "isHidden" => false,
+              "visibilityData" => {
+                "isHidden" => false
+              },
               "customEmbargoPeriod" => {
                 "embargoUnit" => "Months",
                 "embargoValue" => 5
