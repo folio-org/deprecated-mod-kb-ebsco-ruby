@@ -3,15 +3,13 @@ class CustomerResourcesController < ApplicationController
 
   before_action :set_customer_resource
 
-  deserializable_resource :customer_resource, only: :update,
-                          class: DeserializableCustomerResource
-
   def show
     render jsonapi: @customer_resource,
            include: params[:include]
   end
 
   def update
+    params = DeserializableCustomerResource.new(params).to_h
     @customer_resource.update customer_resource_params
 
     render status: :no_content
@@ -35,7 +33,6 @@ class CustomerResourcesController < ApplicationController
 
   def customer_resource_params
     params
-      .require(:customer_resource)
       .permit(
         :isSelected,
         visibilityData: [ :isHidden ],

@@ -1,7 +1,4 @@
 class PackagesController < ApplicationController
-  deserializable_resource :package, only: :update,
-                          class: DeserializablePackage
-
   def index
     @packages = packages.all(q: params[:q])
     render jsonapi: @packages.packagesList.to_a,
@@ -15,6 +12,7 @@ class PackagesController < ApplicationController
 
   def update
     @package = packages.find package_id
+    params = DeserializablePackage.new(params).to_h
     @package.update package_params
 
     render status: :no_content
@@ -33,7 +31,6 @@ class PackagesController < ApplicationController
 
   def package_params
     params
-      .require(:package)
       .permit(
         :isSelected,
         visibilityData: [ :isHidden ],
