@@ -103,7 +103,7 @@ class SerializableCustomerResource < SerializableResource
     @object.resource.managedEmbargoPeriod
   end
   attribute :packageId do
-    @object.resource.packageId
+    "#{@object.resource.vendorId}-#{@object.resource.packageId}"
   end
   attribute :packageName do
     @object.resource.packageName

@@ -47,6 +47,10 @@ RSpec.describe "Customer Resources", type: :request do
                             )
     end
 
+    it "has a composite pacakge id of '{vendor_id}-{package_id}'" do
+      expect(attributes.packageId).to eq('22-1887786')
+    end
+
     it "has a human readable publication type" do
       expect(attributes.publicationType).to eq('Book')
     end
