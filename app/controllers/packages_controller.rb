@@ -12,7 +12,6 @@ class PackagesController < ApplicationController
 
   def update
     @package = packages.find package_id
-    params = DeserializablePackage.new(params).to_h
     @package.update package_params
 
     render status: :no_content
@@ -30,7 +29,12 @@ class PackagesController < ApplicationController
   end
 
   def package_params
-    params
+    deserialized_params = ActionController::Parameters.new({
+      package: DeserializablePackage.new(params[:data].to_unsafe_hash).to_h
+    })
+
+    deserialized_params
+      .require(:package)
       .permit(
         :isSelected,
         visibilityData: [ :isHidden ],
