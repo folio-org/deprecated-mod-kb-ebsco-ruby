@@ -1,7 +1,4 @@
 class PackagesController < ApplicationController
-  deserializable_resource :package, only: :update,
-                          class: DeserializablePackage
-
   def index
     @packages = packages.all(q: params[:q])
     render jsonapi: @packages.packagesList.to_a,
@@ -32,7 +29,11 @@ class PackagesController < ApplicationController
   end
 
   def package_params
-    params
+    deserialized_params = ActionController::Parameters.new({
+      package: DeserializablePackage.new(params[:data].to_unsafe_hash).to_h
+    })
+
+    deserialized_params
       .require(:package)
       .permit(
         :isSelected,

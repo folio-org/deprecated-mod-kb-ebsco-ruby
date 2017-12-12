@@ -3,9 +3,6 @@ class CustomerResourcesController < ApplicationController
 
   before_action :set_customer_resource
 
-  deserializable_resource :customer_resource, only: :update,
-                          class: DeserializableCustomerResource
-
   def show
     render jsonapi: @customer_resource,
            include: params[:include]
@@ -34,7 +31,11 @@ class CustomerResourcesController < ApplicationController
   end
 
   def customer_resource_params
-    params
+    deserialized_params = ActionController::Parameters.new({
+      customer_resource: DeserializableCustomerResource.new(params[:data].to_unsafe_hash).to_h
+    })
+
+    deserialized_params
       .require(:customer_resource)
       .permit(
         :isSelected,
