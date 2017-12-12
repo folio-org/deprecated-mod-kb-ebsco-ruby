@@ -206,23 +206,14 @@ RSpec.describe "Customer Resources", type: :request do
         end
       end
 
-      it "responds with no content" do
-        expect(response).to have_http_status(204)
+      it "responds with OK status" do
+        expect(response).to have_http_status(200)
       end
 
-      describe "viewing the updated customer resource" do
-        before do
-          VCR.use_cassette("put-customer-resources-isselected-verify") do
-            get '/eholdings/jsonapi/customer-resources/22-1887786-1440285',
-                headers: okapi_headers
-          end
-        end
+      let!(:json) { Map JSON.parse response.body }
 
-        let!(:json) { Map JSON.parse response.body }
-
-        it "is no longer selected" do
-          expect(json.data.attributes.isSelected).to be true
-        end
+      it "is no longer selected" do
+        expect(json.data.attributes.isSelected).to be true
       end
     end
 
@@ -247,23 +238,14 @@ RSpec.describe "Customer Resources", type: :request do
         end
       end
 
-      it "responds with no content" do
-        expect(response).to have_http_status(204)
+      it "responds with OK status" do
+        expect(response).to have_http_status(200)
       end
 
-      describe "viewing the updated customer resource" do
-        before do
-          VCR.use_cassette("put-customer-resources-ishidden-verify") do
-            get '/eholdings/jsonapi/customer-resources/22-1887786-1440285',
-                headers: okapi_headers
-          end
-        end
+      let!(:json) { Map JSON.parse response.body }
 
-        let!(:json) { Map JSON.parse response.body }
-
-        it "is no longer visible" do
-          expect(json.data.attributes.visibilityData.isHidden).to be true
-        end
+      it "is no longer visible" do
+        expect(json.data.attributes.visibilityData.isHidden).to be true
       end
     end
 
@@ -280,7 +262,7 @@ RSpec.describe "Customer Resources", type: :request do
                 }
               ]
             }
-    }
+          }
         }
       end
 
@@ -291,29 +273,20 @@ RSpec.describe "Customer Resources", type: :request do
         end
       end
 
-      it "responds with no content" do
-        expect(response).to have_http_status(204)
+      it "responds with OK status" do
+        expect(response).to have_http_status(200)
       end
 
-      describe "viewing the updated customer resource" do
-        before do
-          VCR.use_cassette("put-customer-resources-customcoverage-verify") do
-            get '/eholdings/jsonapi/customer-resources/22-1887786-1440285',
-                headers: okapi_headers
-          end
-        end
+      let!(:json) { Map JSON.parse response.body }
 
-        let!(:json) { Map JSON.parse response.body }
-
-        it "has a custom coverage range" do
-          expect(json.data.attributes.customCoverages.length).to eq(1)
-        end
-        it "custom coverage range has a beginning" do
-          expect(json.data.attributes.customCoverages[0].beginCoverage).to eq("2003-01-01")
-        end
-        it "custom coverage range has an ending" do
-          expect(json.data.attributes.customCoverages[0].endCoverage).to eq("2004-01-01")
-        end
+      it "has a custom coverage range" do
+        expect(json.data.attributes.customCoverages.length).to eq(1)
+      end
+      it "custom coverage range has a beginning" do
+        expect(json.data.attributes.customCoverages[0].beginCoverage).to eq("2003-01-01")
+      end
+      it "custom coverage range has an ending" do
+        expect(json.data.attributes.customCoverages[0].endCoverage).to eq("2004-01-01")
       end
     end
 
@@ -328,7 +301,7 @@ RSpec.describe "Customer Resources", type: :request do
                 "embargoValue" => 7
               }
             }
-    }
+          }
         }
       end
 
@@ -339,24 +312,15 @@ RSpec.describe "Customer Resources", type: :request do
         end
       end
 
-      it "responds with no content" do
-        expect(response).to have_http_status(204)
+      it "responds with OK status" do
+        expect(response).to have_http_status(200)
       end
 
-      describe "viewing the updated customer resource" do
-        before do
-          VCR.use_cassette("put-customer-resources-customembargo-verify") do
-            get '/eholdings/jsonapi/customer-resources/22-1887786-1440285',
-                headers: okapi_headers
-          end
-        end
+      let!(:json) { Map JSON.parse response.body }
 
-        let!(:json) { Map JSON.parse response.body }
-
-        it "has a custom embargo period" do
-          expect(json.data.attributes.customEmbargoPeriod.embargoUnit).to eq("Days")
-          expect(json.data.attributes.customEmbargoPeriod.embargoValue).to eq(7)
-        end
+      it "has a custom embargo period" do
+        expect(json.data.attributes.customEmbargoPeriod.embargoUnit).to eq("Days")
+        expect(json.data.attributes.customEmbargoPeriod.embargoValue).to eq(7)
       end
     end
 
@@ -395,35 +359,24 @@ RSpec.describe "Customer Resources", type: :request do
         end
       end
 
-      it "responds with no content" do
-        expect(response).to have_http_status(204)
+      it "responds with OK status" do
+        expect(response).to have_http_status(200)
       end
 
-      describe "viewing the updated customer resource" do
-        before do
-          VCR.use_cassette("put-customer-resources-combined-verify") do
-            get '/eholdings/jsonapi/customer-resources/22-1887786-1440285',
-                headers: okapi_headers
-          end
-        end
+      let!(:json) { Map JSON.parse response.body }
 
-        let!(:json) { Map JSON.parse response.body }
+      it "all fields have been successfully updated" do
+        expect(json.data.attributes.isSelected).to be true
+        expect(json.data.attributes.visibilityData.isHidden).to be false
 
-        it "all fields have been successfully updated" do
-          expect(json.data.attributes.isSelected).to be true
-          expect(json.data.attributes.visibilityData.isHidden).to be false
+        expect(json.data.attributes.customCoverages.length).to eq(2)
+        expect(json.data.attributes.customCoverages[0].beginCoverage).to eq("2000-01-01")
+        expect(json.data.attributes.customCoverages[0].endCoverage).to eq("2004-02-01")
 
-          expect(json.data.attributes.customCoverages.length).to eq(2)
-          expect(json.data.attributes.customCoverages[0].beginCoverage).to eq("2000-01-01")
-          expect(json.data.attributes.customCoverages[0].endCoverage).to eq("2004-02-01")
-
-          expect(json.data.attributes.customEmbargoPeriod.embargoUnit).to eq("Months")
-          expect(json.data.attributes.customEmbargoPeriod.embargoValue).to eq(5)
-        end
+        expect(json.data.attributes.customEmbargoPeriod.embargoUnit).to eq("Months")
+        expect(json.data.attributes.customEmbargoPeriod.embargoValue).to eq(5)
       end
     end
-
-
   end
 
   describe "getting a non-existing customer resource" do

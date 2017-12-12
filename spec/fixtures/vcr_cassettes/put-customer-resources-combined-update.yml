@@ -27,7 +27,7 @@ http_interactions:
       Server:
       - nginx/1.13.5
       Date:
-      - Fri, 01 Dec 2017 23:40:02 GMT
+      - Tue, 12 Dec 2017 23:52:21 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -38,7 +38,7 @@ http_interactions:
       - 'GET mod-authtoken-1.1.1-SNAPSHOT.7 http://10.39.243.223:8081/configurations/entries..
         : 202'
       - 'GET mod-configuration-3.0.1-SNAPSHOT.18 http://10.39.247.37:8081/configurations/entries..
-        : 200 42903us'
+        : 200 43228us'
       Host:
       - okapi.frontside.io
       X-Real-Ip:
@@ -66,7 +66,7 @@ http_interactions:
       User-Agent:
       - Ruby
       X-Okapi-Request-Id:
-      - 866206/configurations
+      - 712079/configurations
       X-Okapi-Url:
       - http://10.39.247.213:80
       X-Okapi-Permissions-Required:
@@ -86,7 +86,7 @@ http_interactions:
       string: |-
         {
           "configs" : [ {
-            "id" : "0ccfbcb5-a2eb-4bb8-bee4-b918a8d0aeaa",
+            "id" : "0f7643e0-25b5-487a-816e-17484ec17e1b",
             "module" : "KB_EBSCO",
             "configName" : "api_credentials",
             "code" : "kb.ebsco.credentials",
@@ -94,9 +94,9 @@ http_interactions:
             "enabled" : true,
             "value" : "customer-id=TEST_CUSTOMER_ID&api-key=TEST_API_KEY",
             "metadata" : {
-              "createdDate" : "2017-11-22T19:11:39.501+0000",
+              "createdDate" : "2017-12-12T18:31:12.750+0000",
               "createdByUserId" : "1ad737b0-d847-11e6-bf26-cec0c932ce01",
-              "updatedDate" : "2017-11-22T19:11:39.501+0000",
+              "updatedDate" : "2017-12-12T18:31:12.750+0000",
               "updatedByUserId" : "1ad737b0-d847-11e6-bf26-cec0c932ce01"
             }
           } ],
@@ -107,7 +107,7 @@ http_interactions:
           }
         }
     http_version: 
-  recorded_at: Fri, 01 Dec 2017 23:40:02 GMT
+  recorded_at: Tue, 12 Dec 2017 23:52:21 GMT
 - request:
     method: get
     uri: https://api.ebsco.io/rm/rmaccounts/TEST_CUSTOMER_ID/vendors/22/packages/1887786/titles/1440285
@@ -139,9 +139,9 @@ http_interactions:
       Connection:
       - keep-alive
       Date:
-      - Fri, 01 Dec 2017 23:40:02 GMT
+      - Tue, 12 Dec 2017 23:52:21 GMT
       X-Amzn-Requestid:
-      - f39039dc-d6f0-11e7-8f94-e9e1d19b57fd
+      - 7e88a6e2-df97-11e7-91c9-afd53ce2cb19
       X-Amzn-Remapped-Content-Length:
       - '1546'
       X-Amzn-Remapped-Connection:
@@ -157,15 +157,15 @@ http_interactions:
       Pragma:
       - no-cache
       X-Amzn-Remapped-Date:
-      - Fri, 01 Dec 2017 23:40:02 GMT
+      - Tue, 12 Dec 2017 23:52:21 GMT
       X-Aspnet-Version:
       - 4.0.30319
       X-Cache:
       - Miss from cloudfront
       Via:
-      - 1.1 d0c50155b22ea341e27555805310caca.cloudfront.net (CloudFront)
+      - 1.1 3d3d633d266d05d90a4eea7a6a59b514.cloudfront.net (CloudFront)
       X-Amz-Cf-Id:
-      - "-y2ur0vJOlqEwDFb5XDincMda7yQE_XuI8xIA7tc8jNPoCZEY6Bezg=="
+      - zDhc8MlL7H4n_l2Cc4idA5vDbyGuj_nmOpRm2Apjj6NXD0e7n3f2cw==
     body:
       encoding: UTF-8
       string: '{"description":null,"edition":null,"isPeerReviewed":false,"contributorsList":[{"type":"author","contributor":"Havard,
@@ -176,7 +176,7 @@ http_interactions:
         Info & Learning Co","locationId":17545807,"isSelected":true,"isTokenNeeded":true,"visibilityData":{"isHidden":true,"reason":"Hidden
         by Customer"},"managedCoverageList":[{"beginCoverage":"2010-01-01","endCoverage":"2010-12-31"}],"customCoverageList":[{"beginCoverage":"2003-01-01","endCoverage":"2004-01-01"}],"coverageStatement":null,"managedEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"customEmbargoPeriod":{"embargoUnit":"Days","embargoValue":7},"url":"http://ebookcentral.proquest.com/lib/[[SiteID]]/detail.action?docID=1722033","userDefinedField1":null,"userDefinedField2":null,"userDefinedField3":null,"userDefinedField4":null,"userDefinedField5":null}]}'
     http_version: 
-  recorded_at: Fri, 01 Dec 2017 23:40:02 GMT
+  recorded_at: Tue, 12 Dec 2017 23:52:21 GMT
 - request:
     method: put
     uri: https://api.ebsco.io/rm/rmaccounts/TEST_CUSTOMER_ID/vendors/22/packages/1887786/titles/1440285
@@ -208,9 +208,9 @@ http_interactions:
       Connection:
       - keep-alive
       Date:
-      - Fri, 01 Dec 2017 23:40:02 GMT
+      - Tue, 12 Dec 2017 23:52:21 GMT
       X-Amzn-Requestid:
-      - f3aa7943-d6f0-11e7-b680-edca40bc29c6
+      - 7eb07a4f-df97-11e7-a330-29ef4601dbae
       X-Amzn-Remapped-Connection:
       - keep-alive
       X-Amzn-Remapped-Server:
@@ -224,18 +224,86 @@ http_interactions:
       Pragma:
       - no-cache
       X-Amzn-Remapped-Date:
-      - Fri, 01 Dec 2017 23:40:02 GMT
+      - Tue, 12 Dec 2017 23:52:21 GMT
       X-Aspnet-Version:
       - 4.0.30319
       X-Cache:
       - Miss from cloudfront
       Via:
-      - 1.1 f6b76c8821a68085e600e3749a3a5472.cloudfront.net (CloudFront)
+      - 1.1 30bb04916f91d64c600e15c15000042d.cloudfront.net (CloudFront)
       X-Amz-Cf-Id:
-      - 3DMvaHylvo5oxXD5w192V8f39e29QIXtt2aKXqPqsYXys_C3GZ1zNA==
+      - zOmNs_MOn65BiUxBFLuZGAqizajoyn6obfu7Ryah1rRILImFX9rjVQ==
     body:
       encoding: UTF-8
       string: ''
     http_version: 
-  recorded_at: Fri, 01 Dec 2017 23:40:02 GMT
+  recorded_at: Tue, 12 Dec 2017 23:52:21 GMT
+- request:
+    method: get
+    uri: https://api.ebsco.io/rm/rmaccounts/TEST_CUSTOMER_ID/vendors/22/packages/1887786/titles/1440285
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Flexirest/1.5.5
+      Connection:
+      - Keep-Alive
+      Accept:
+      - application/json
+      X-Api-Key:
+      - TEST_API_KEY
+      Content-Type:
+      - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '1579'
+      Connection:
+      - keep-alive
+      Date:
+      - Tue, 12 Dec 2017 23:52:22 GMT
+      X-Amzn-Requestid:
+      - 7ee1eb06-df97-11e7-aa06-f58a95cf28db
+      X-Amzn-Remapped-Content-Length:
+      - '1579'
+      X-Amzn-Remapped-Connection:
+      - keep-alive
+      X-Amzn-Remapped-Server:
+      - Microsoft-IIS/8.5
+      Cache-Control:
+      - no-cache
+      Expires:
+      - "-1"
+      X-Powered-By:
+      - ASP.NET
+      Pragma:
+      - no-cache
+      X-Amzn-Remapped-Date:
+      - Tue, 12 Dec 2017 23:52:21 GMT
+      X-Aspnet-Version:
+      - 4.0.30319
+      X-Cache:
+      - Miss from cloudfront
+      Via:
+      - 1.1 81871f1c889cc44b6c25e3ef722a3801.cloudfront.net (CloudFront)
+      X-Amz-Cf-Id:
+      - 6Yzujq9r7YmPVgGQSi6VgTjvMiUU_b71K6iertbh7-fi4V3ythFrgg==
+    body:
+      encoding: UTF-8
+      string: '{"description":null,"edition":null,"isPeerReviewed":false,"contributorsList":[{"type":"author","contributor":"Havard,
+        Margaret"},{"type":"author","contributor":"Tiziani, Adriana."}],"titleId":1440285,"titleName":"Havard''s
+        Nursing Guide to Drugs (Nursing Guide to Drugs)","publisherName":"Elsevier","identifiersList":[{"id":"1440285","source":"AtoZ","subtype":0,"type":9},{"id":"475765","source":"ResourceIdentifier","subtype":0,"type":16},{"id":"978-0-7295-3913-5","source":"ResourceIdentifier","subtype":1,"type":6},{"id":"978-0-7295-7913-1","source":"ResourceIdentifier","subtype":2,"type":8}],"subjectsList":[{"type":"BISAC","subject":"MEDICAL
+        / Nursing / Pharmacology"}],"isTitleCustom":false,"pubType":"Book","customerResourcesList":[{"titleId":1440285,"packageId":1887786,"packageName":"ProQuest
+        Ebook Central","isPackageCustom":false,"vendorId":22,"vendorName":"Proquest
+        Info & Learning Co","locationId":17545807,"isSelected":true,"isTokenNeeded":true,"visibilityData":{"isHidden":false,"reason":""},"managedCoverageList":[{"beginCoverage":"2010-01-01","endCoverage":"2010-12-31"}],"customCoverageList":[{"beginCoverage":"2000-01-01","endCoverage":"2004-02-01"},{"beginCoverage":"2005-01-01","endCoverage":""}],"coverageStatement":null,"managedEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"customEmbargoPeriod":{"embargoUnit":"Months","embargoValue":5},"url":"http://ebookcentral.proquest.com/lib/[[SiteID]]/detail.action?docID=1722033","userDefinedField1":null,"userDefinedField2":null,"userDefinedField3":null,"userDefinedField4":null,"userDefinedField5":null}]}'
+    http_version: 
+  recorded_at: Tue, 12 Dec 2017 23:52:22 GMT
 recorded_with: VCR 3.0.3
