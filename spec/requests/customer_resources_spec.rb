@@ -176,16 +176,11 @@ RSpec.describe "Customer Resources", type: :request do
 
   describe "updating a customer resource" do
     let(:update_headers) do
-      okapi_headers
-
-      # Okapi does not appear to pass through the content-type header
-      # These tests should now pass with or without this content-type header value
-      #
-      # okapi_headers.merge(
-      #   {
-      #     'Content-Type': 'application/vnd.api+json'
-      #   }
-      # )
+      okapi_headers.merge(
+        {
+          'Content-Type': 'application/vnd.api+json'
+        }
+      )
     end
 
     describe "selecting a customer resource" do

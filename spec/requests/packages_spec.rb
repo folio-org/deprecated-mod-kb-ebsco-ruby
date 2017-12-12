@@ -102,16 +102,11 @@ RSpec.describe "Packages", type: :request do
 
   describe "updating a package" do
     let(:update_headers) do
-      okapi_headers
-
-      # Okapi does not appear to pass through the content-type header
-      # These tests should now pass with or without this content-type header value
-      #
-      # okapi_headers.merge(
-      #   {
-      #     'Content-Type': 'application/vnd.api+json'
-      #   }
-      # )
+      okapi_headers.merge(
+        {
+          'Content-Type': 'application/vnd.api+json'
+        }
+      )
     end
 
     describe "when the package is not already selected" do
