@@ -13,9 +13,6 @@ class CustomerResourcesController < ApplicationController
 
   def update
     @customer_resource.update customer_resource_params
-
-    # re-fetch from RM API to surface side-effects
-    @customer_resource = customer_resources.find customer_resource_id
     render jsonapi: @customer_resource
   end
 
