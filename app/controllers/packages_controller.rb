@@ -16,9 +16,6 @@ class PackagesController < ApplicationController
   def update
     @package = packages.find package_id
     @package.update package_params
-
-    # re-fetch from RM API to surface side-effects
-    @package = packages.find package_id
     render jsonapi: @package
   end
 

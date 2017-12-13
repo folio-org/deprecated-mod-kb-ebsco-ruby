@@ -35,10 +35,7 @@ class Package < RmApiResource
     # model (i.e. as an instance method) applies a hash of changes
     # to the instance and then persists that data to the store.
 
-    update_fields.deep_merge(params.to_h).each do |k,v|
-      self.send("#{k}=".to_sym, v)
-    end
-
+    merge_fields(params)
     save!
   end
 
@@ -52,9 +49,19 @@ class Package < RmApiResource
       isHidden: attributes[:visibilityData][:isHidden],
       customCoverage: attributes[:customCoverage]
     })
+
+    # re-fetch from RM API to surface side-effects
+    saved_package = self.class.find(vendor_id: vendorId, package_id: packageId)
+    merge_fields(saved_package)
   end
 
   private
+
+  def merge_fields(new_values)
+    update_fields.deep_merge(new_values.to_hash).each do |k,v|
+      self.send("#{k}=".to_sym, v)
+    end
+  end
 
   def update_fields
     whitelist = [
