@@ -43,4 +43,7 @@ Rails.application.configure do
     logger.formatter = config.log_formatter
     config.logger    = ActiveSupport::TaggedLogging.new(logger)
   end
+
+  # Load middleware for dealing with Transfer-Encoding: chunked
+  config.middleware.insert_before 'Rack::Runtime', 'ChunkedTransferDecoder', decoded_upstream: true
 end
