@@ -1,0 +1,212 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://okapi.frontside.io/configurations/entries?query=module=KB_EBSCO
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Content-Type:
+      - application/json
+      Accept:
+      - application/json
+      X-Okapi-Tenant:
+      - fs
+      X-Okapi-Token:
+      - TEST_OKAPI_TOKEN
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx/1.13.5
+      Date:
+      - Fri, 15 Dec 2017 23:11:29 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      X-Okapi-Trace:
+      - 'GET mod-authtoken-1.1.1-SNAPSHOT.7 http://10.39.243.223:8081/configurations/entries..
+        : 202'
+      - 'GET mod-configuration-3.0.1-SNAPSHOT.18 http://10.39.247.37:8081/configurations/entries..
+        : 200 41408us'
+      Host:
+      - okapi.frontside.io
+      X-Real-Ip:
+      - 10.36.2.1
+      X-Forwarded-For:
+      - 10.36.2.1
+      X-Forwarded-Host:
+      - okapi.frontside.io
+      X-Forwarded-Port:
+      - '443'
+      X-Forwarded-Proto:
+      - https
+      X-Original-Uri:
+      - "/configurations/entries?query=module=KB_EBSCO"
+      X-Scheme:
+      - https
+      X-Auth-Request-Redirect:
+      - "/configurations/entries?query=module=KB_EBSCO"
+      Accept:
+      - application/json
+      X-Okapi-Tenant:
+      - fs
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      User-Agent:
+      - Ruby
+      X-Okapi-Request-Id:
+      - 461793/configurations
+      X-Okapi-Url:
+      - http://10.39.247.213:80
+      X-Okapi-Permissions-Required:
+      - configuration.entries.collection.get
+      X-Okapi-Module-Permissions:
+      - '{"mod-authtoken-1.1.1-SNAPSHOT.7":["perms.users.get"]}'
+      X-Okapi-Permissions:
+      - '["configuration.entries.collection.get"]'
+      X-Okapi-User-Id:
+      - 1ad737b0-d847-11e6-bf26-cec0c932ce01
+      X-Okapi-Token:
+      - TEST_OKAPI_TOKEN
+      Strict-Transport-Security:
+      - max-age=15724800; includeSubDomains;
+    body:
+      encoding: ASCII-8BIT
+      string: |-
+        {
+          "configs" : [ {
+            "id" : "0f7643e0-25b5-487a-816e-17484ec17e1b",
+            "module" : "KB_EBSCO",
+            "configName" : "api_credentials",
+            "code" : "kb.ebsco.credentials",
+            "description" : "EBSCO RM-API Credentials",
+            "enabled" : true,
+            "value" : "customer-id=TEST_CUSTOMER_ID&api-key=TEST_API_KEY",
+            "metadata" : {
+              "createdDate" : "2017-12-12T18:31:12.750+0000",
+              "createdByUserId" : "1ad737b0-d847-11e6-bf26-cec0c932ce01",
+              "updatedDate" : "2017-12-12T18:31:12.750+0000",
+              "updatedByUserId" : "1ad737b0-d847-11e6-bf26-cec0c932ce01"
+            }
+          } ],
+          "totalRecords" : 1,
+          "resultInfo" : {
+            "totalRecords" : 1,
+            "facets" : [ ]
+          }
+        }
+    http_version: 
+  recorded_at: Fri, 15 Dec 2017 23:11:30 GMT
+- request:
+    method: get
+    uri: https://api.ebsco.io/rm/rmaccounts/TEST_CUSTOMER_ID/packages?count=25&offset=2&orderby=relevance&search=ebsco
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Flexirest/1.5.5
+      Connection:
+      - Keep-Alive
+      Accept:
+      - application/json
+      X-Api-Key:
+      - TEST_API_KEY
+      Content-Type:
+      - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '8795'
+      Connection:
+      - keep-alive
+      Date:
+      - Fri, 15 Dec 2017 23:11:30 GMT
+      X-Amzn-Requestid:
+      - 48bcc96a-e1ed-11e7-a2e8-fbde0637f4fd
+      X-Amzn-Remapped-Content-Length:
+      - '8795'
+      X-Amzn-Remapped-Connection:
+      - keep-alive
+      X-Amzn-Remapped-Server:
+      - Microsoft-IIS/8.5
+      Cache-Control:
+      - no-cache
+      Expires:
+      - "-1"
+      X-Powered-By:
+      - ASP.NET
+      Pragma:
+      - no-cache
+      X-Amzn-Remapped-Date:
+      - Fri, 15 Dec 2017 23:11:30 GMT
+      X-Aspnet-Version:
+      - 4.0.30319
+      X-Cache:
+      - Miss from cloudfront
+      Via:
+      - 1.1 586f1a150b4ba39f3a668b8055d4d5ea.cloudfront.net (CloudFront)
+      X-Amz-Cf-Id:
+      - ZL3S00bRlxvY8Jy3hioM6_gs6wh18RbLFm3KIzOIAhoSsyLW7BhmUA==
+    body:
+      encoding: UTF-8
+      string: '{"totalResults":111,"packagesList":[{"packageId":1680,"packageName":"EBSCO
+        Open Access Language and Literature Collection","isCustom":false,"vendorId":273,"vendorName":"EBSCO
+        Open Access Lists","titleCount":787,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"AggregatedFullText","customCoverage":{"beginCoverage":null,"endCoverage":null}},{"packageId":1697,"packageName":"EBSCO
+        Open Access Law Collection","isCustom":false,"vendorId":273,"vendorName":"EBSCO
+        Open Access Lists","titleCount":743,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"AggregatedFullText","customCoverage":{"beginCoverage":null,"endCoverage":null}},{"packageId":1727,"packageName":"EBSCO
+        Open Access Mathematics and Statistics","isCustom":false,"vendorId":273,"vendorName":"EBSCO
+        Open Access Lists","titleCount":441,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"AggregatedFullText","customCoverage":{"beginCoverage":null,"endCoverage":null}},{"packageId":1530,"packageName":"EBSCO
+        Open Access Medical and Health Collection","isCustom":false,"vendorId":273,"vendorName":"EBSCO
+        Open Access Lists","titleCount":3089,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"AggregatedFullText","customCoverage":{"beginCoverage":null,"endCoverage":null}},{"packageId":1725,"packageName":"EBSCO
+        Open Access Music Collection","isCustom":false,"vendorId":273,"vendorName":"EBSCO
+        Open Access Lists","titleCount":163,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"AggregatedFullText","customCoverage":{"beginCoverage":null,"endCoverage":null}},{"packageId":2058,"packageName":"EBSCO
+        Open Access Norwegian Collection","isCustom":false,"vendorId":273,"vendorName":"EBSCO
+        Open Access Lists","titleCount":350,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"AggregatedFullText","customCoverage":{"beginCoverage":null,"endCoverage":null}},{"packageId":1659,"packageName":"EBSCO
+        Open Access Philosophy Collection","isCustom":false,"vendorId":273,"vendorName":"EBSCO
+        Open Access Lists","titleCount":206,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"AggregatedFullText","customCoverage":{"beginCoverage":null,"endCoverage":null}},{"packageId":1708,"packageName":"EBSCO
+        Open Access Physics and Astronomy Collection","isCustom":false,"vendorId":273,"vendorName":"EBSCO
+        Open Access Lists","titleCount":283,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"AggregatedFullText","customCoverage":{"beginCoverage":null,"endCoverage":null}},{"packageId":1660,"packageName":"EBSCO
+        Open Access Political Science Collection","isCustom":false,"vendorId":273,"vendorName":"EBSCO
+        Open Access Lists","titleCount":447,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"AggregatedFullText","customCoverage":{"beginCoverage":null,"endCoverage":null}},{"packageId":1814,"packageName":"EBSCO
+        Open Access Portuguese Collection","isCustom":false,"vendorId":273,"vendorName":"EBSCO
+        Open Access Lists","titleCount":304,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"AggregatedFullText","customCoverage":{"beginCoverage":null,"endCoverage":null}},{"packageId":2045,"packageName":"EBSCO
+        Open Access Religion Collection","isCustom":false,"vendorId":273,"vendorName":"EBSCO
+        Open Access Lists","titleCount":38,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"AggregatedFullText","customCoverage":{"beginCoverage":null,"endCoverage":null}},{"packageId":1815,"packageName":"EBSCO
+        Open Access Spanish Collection","isCustom":false,"vendorId":273,"vendorName":"EBSCO
+        Open Access Lists","titleCount":332,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"AggregatedFullText","customCoverage":{"beginCoverage":null,"endCoverage":null}},{"packageId":1704,"packageName":"EBSCO
+        Open Access Technology Collection","isCustom":false,"vendorId":273,"vendorName":"EBSCO
+        Open Access Lists","titleCount":517,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"AggregatedFullText","customCoverage":{"beginCoverage":null,"endCoverage":null}},{"packageId":6583,"packageName":"EBSCO
+        Pharmacy Collection: India","isCustom":false,"vendorId":19,"vendorName":"EBSCO","titleCount":666,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"AggregatedFullText","customCoverage":{"beginCoverage":null,"endCoverage":null}},{"packageId":6861,"packageName":"EBSCO
+        Polytechnic Studies Collection: India","isCustom":false,"vendorId":19,"vendorName":"EBSCO","titleCount":1044,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"AggregatedFullText","customCoverage":{"beginCoverage":null,"endCoverage":null}},{"packageId":1992372,"packageName":"EBSCOhost
+        Connection - Two","isCustom":false,"vendorId":19,"vendorName":"EBSCO","titleCount":1,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"OnlineReference","customCoverage":{"beginCoverage":null,"endCoverage":null}},{"packageId":2699,"packageName":"AgeLine
+        (EBSCO)","isCustom":false,"vendorId":19,"vendorName":"EBSCO","titleCount":1,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"AbstractAndIndex","customCoverage":{"beginCoverage":null,"endCoverage":null}},{"packageId":2681,"packageName":"Agricola
+        (EBSCO)","isCustom":false,"vendorId":19,"vendorName":"EBSCO","titleCount":1,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"AbstractAndIndex","customCoverage":{"beginCoverage":null,"endCoverage":null}},{"packageId":4242,"packageName":"Alternative
+        Press Index (EBSCO)","isCustom":false,"vendorId":19,"vendorName":"EBSCO","titleCount":1,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"AbstractAndIndex","customCoverage":{"beginCoverage":null,"endCoverage":null}},{"packageId":4288,"packageName":"Alternative
+        Press Index Archive (EBSCO)","isCustom":false,"vendorId":19,"vendorName":"EBSCO","titleCount":1,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"AbstractAndIndex","customCoverage":{"beginCoverage":null,"endCoverage":null}},{"packageId":7377,"packageName":"AMA
+        Archive (EBSCO)","isCustom":false,"vendorId":19,"vendorName":"EBSCO","titleCount":1,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"OnlineReference","customCoverage":{"beginCoverage":null,"endCoverage":null}},{"packageId":2532,"packageName":"America:
+        History & Life (EBSCO)","isCustom":false,"vendorId":19,"vendorName":"EBSCO","titleCount":1,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"AbstractAndIndex","customCoverage":{"beginCoverage":null,"endCoverage":null}},{"packageId":6108,"packageName":"Anthropological
+        Literature (EBSCO)","isCustom":false,"vendorId":19,"vendorName":"EBSCO","titleCount":1,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"AbstractAndIndex","customCoverage":{"beginCoverage":null,"endCoverage":null}},{"packageId":2577,"packageName":"ATLA
+        Religion Database (EBSCO)","isCustom":false,"vendorId":19,"vendorName":"EBSCO","titleCount":1,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"AbstractAndIndex","customCoverage":{"beginCoverage":null,"endCoverage":null}},{"packageId":666,"packageName":"ATLA
+        Religion Database with ATLASerials (EBSCO)","isCustom":false,"vendorId":19,"vendorName":"EBSCO","titleCount":328,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"AggregatedFullText","customCoverage":{"beginCoverage":null,"endCoverage":null}}]}'
+    http_version: 
+  recorded_at: Fri, 15 Dec 2017 23:11:30 GMT
+recorded_with: VCR 3.0.3

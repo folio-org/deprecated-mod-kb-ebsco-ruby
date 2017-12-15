@@ -3,7 +3,7 @@ class PackagesController < ApplicationController
                           class: DeserializablePackage
 
   def index
-    @packages = packages.all(q: params[:q])
+    @packages = packages.all(q: params[:q], page: params[:page])
     render jsonapi: @packages.packagesList.to_a,
            meta: { totalResults: @packages.totalResults }
   end

@@ -7,7 +7,8 @@ class Vendor < RmApiResource
       request.get_params[:search] = request.get_params.delete(:q)
       request.get_params[:orderby] ||= (request.get_params[:search] ? 'relevance' : 'vendorname')
       request.get_params[:count] ||= 25
-      request.get_params[:offset] ||= 1
+      request.get_params[:offset] = request.get_params[:page] || 1
+      request.get_params.delete(:page)
     end
   end
 

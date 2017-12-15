@@ -1,7 +1,7 @@
 class TitlesController < ApplicationController
 
   def index
-    @titles = titles.all(q: params[:q])
+    @titles = titles.all(q: params[:q], page: params[:page])
     render jsonapi: @titles.titles.to_a,
            meta: { totalResults: @titles.totalResults }
   end
