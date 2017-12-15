@@ -45,5 +45,5 @@ Rails.application.configure do
   end
 
   # Load middleware for dealing with Transfer-Encoding: chunked
-  config.middleware.insert_before 'Rack::Runtime', 'ChunkedTransferDecoder', decoded_upstream: true
+  config.middleware.insert_before Rack::Runtime, ChunkedTransferDecoder, decoded_upstream: true
 end
