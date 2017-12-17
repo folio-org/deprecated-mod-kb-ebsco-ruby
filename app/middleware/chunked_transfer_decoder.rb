@@ -12,7 +12,7 @@
 # If you are using Webrick or Unicorn/Rainbows/Zbatery, pass a `decoded_upstream`
 # option when adding this to the middleware chain like so:
 #
-#     config.middleware.insert_before 'Rack::Runtime', "ChunkedTransferDecoder", decoded_upstream: true
+#     config.middleware.insert_before Rack::Runtime, ChunkedTransferDecoder, decoded_upstream: true
 #
 # See: https://github.com/rails/rails/issues/15079
 #
