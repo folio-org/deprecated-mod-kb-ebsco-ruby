@@ -1,9 +1,25 @@
 Rails.application.routes.draw do
   scope '/eholdings' do
     scope '/jsonapi' do
-      resources :vendors, only: [:index, :show]
-      resources :packages, only: [:index, :show, :update]
-      resources :titles, only: [:index, :show]
+
+      resources :vendors, only: [:index, :show] do
+        member do
+          get 'packages'
+        end
+      end
+
+      resources :packages, only: [:index, :show, :update] do
+        member do
+          get 'customer-resources'
+        end
+      end
+
+      resources :titles, only: [:index, :show] do
+        member do
+          get 'customer-resources'
+        end
+      end
+
       resources :customer_resources, :path => '/customer-resources', only: [:show, :update]
     end
 

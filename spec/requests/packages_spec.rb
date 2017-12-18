@@ -95,6 +95,24 @@ RSpec.describe "Packages", type: :request do
     end
   end
 
+  describe "getting customer resources related to package" do
+    before do
+      VCR.use_cassette("get-packages-related-customer-resources") do
+        get '/eholdings/jsonapi/packages/19-6581/customer-resources', headers: okapi_headers
+      end
+    end
+
+    let!(:json) { Map JSON.parse response.body }
+
+    it "responds with a list of customer resources" do
+      expect(json.data.length).to eq(25)
+    end
+
+    it "returns the correct included type" do
+      expect(json.data.first.type).to eq('customerResources')
+    end
+  end
+
   describe "getting a package with included vendor" do
     before do
       VCR.use_cassette("get-packages-vendor") do

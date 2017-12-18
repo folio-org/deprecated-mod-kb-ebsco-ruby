@@ -1,10 +1,9 @@
 class CustomerResourcesController < ApplicationController
   attr_accessor :customer_resource
 
-  before_action :set_customer_resource
+  before_action :set_customer_resource, only: [:show, :update]
 
-  deserializable_resource :customer_resource, only: :update,
-                          class: DeserializableCustomerResource
+  deserializable_resource :customer_resource, only: :update
 
   def show
     render jsonapi: @customer_resource,
