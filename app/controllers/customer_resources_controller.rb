@@ -13,8 +13,7 @@ class CustomerResourcesController < ApplicationController
 
   def update
     @customer_resource.update customer_resource_params
-
-    render status: :no_content
+    render jsonapi: @customer_resource
   end
 
   private

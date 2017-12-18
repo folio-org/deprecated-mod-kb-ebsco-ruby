@@ -137,27 +137,18 @@ RSpec.describe "Packages", type: :request do
           end
         end
 
-        it "responds with no content" do
-          expect(response).to have_http_status(204)
+        it "responds with OK status" do
+          expect(response).to have_http_status(200)
         end
 
-        describe "viewing the updated package" do
-          before do
-            VCR.use_cassette("put-packages-isnotselected-toggle-isselected-verify") do
-              get '/eholdings/jsonapi/packages/19-6581',
-                  headers: okapi_headers
-            end
-          end
+        let!(:json) { Map JSON.parse response.body }
 
-          let!(:json) { Map JSON.parse response.body }
+        it "is now selected" do
+          expect(json.data.attributes.isSelected).to be true
+        end
 
-          it "is now selected" do
-            expect(json.data.attributes.isSelected).to be true
-          end
-
-          it "is not hidden" do
-            expect(json.data.attributes.visibilityData.isHidden).to be false
-          end
+        it "is not hidden" do
+          expect(json.data.attributes.visibilityData.isHidden).to be false
         end
       end
 
@@ -188,28 +179,19 @@ RSpec.describe "Packages", type: :request do
           end
         end
 
-        it "responds with no content" do
-          # TODO: should return 5xx instead
-          expect(response).to have_http_status(204)
+        it "responds with OK status" do
+          # TODO: should return 4xx or 5xx instead
+          expect(response).to have_http_status(200)
         end
 
-        describe "viewing the updated package" do
-          before do
-            VCR.use_cassette("put-packages-isnotselected-toggle-ishidden-verify") do
-              get '/eholdings/jsonapi/packages/19-6581',
-                  headers: okapi_headers
-            end
-          end
+        let!(:json) { Map JSON.parse response.body }
 
-          let!(:json) { Map JSON.parse response.body }
+        it "is not selected" do
+          expect(json.data.attributes.isSelected).to be false
+        end
 
-          it "is not selected" do
-            expect(json.data.attributes.isSelected).to be false
-          end
-
-          it "is still not hidden" do
-            expect(json.data.attributes.visibilityData.isHidden).to be false
-          end
+        it "is still not hidden" do
+          expect(json.data.attributes.visibilityData.isHidden).to be false
         end
       end
 
@@ -240,29 +222,20 @@ RSpec.describe "Packages", type: :request do
           end
         end
 
-        it "responds with no content" do
-          # TODO: should return 5xx instead
-          expect(response).to have_http_status(204)
+        it "responds with OK status" do
+          # TODO: should return 4xx or 5xx instead
+          expect(response).to have_http_status(200)
         end
 
-        describe "viewing the updated package" do
-          before do
-            VCR.use_cassette("put-packages-isnotselected-add-customcoverage-verify") do
-              get '/eholdings/jsonapi/packages/19-6581',
-                  headers: okapi_headers
-            end
-          end
+        let!(:json) { Map JSON.parse response.body }
 
-          let!(:json) { Map JSON.parse response.body }
+        it "is not selected" do
+          expect(json.data.attributes.isSelected).to be false
+        end
 
-          it "is not selected" do
-            expect(json.data.attributes.isSelected).to be false
-          end
-
-          it "is still without custom coverage" do
-            expect(json.data.attributes.customCoverage.beginCoverage).to be nil
-            expect(json.data.attributes.customCoverage.endCoverage).to be nil
-          end
+        it "is still without custom coverage" do
+          expect(json.data.attributes.customCoverage.beginCoverage).to be nil
+          expect(json.data.attributes.customCoverage.endCoverage).to be nil
         end
       end
 
@@ -293,32 +266,23 @@ RSpec.describe "Packages", type: :request do
           end
         end
 
-        it "responds with no content" do
-          expect(response).to have_http_status(204)
+        it "responds with OK status" do
+          expect(response).to have_http_status(200)
         end
 
-        describe "viewing the updated package" do
-          before do
-            VCR.use_cassette("put-packages-isnotselected-combined-verify") do
-              get '/eholdings/jsonapi/packages/19-6581',
-                  headers: okapi_headers
-            end
-          end
+        let!(:json) { Map JSON.parse response.body }
 
-          let!(:json) { Map JSON.parse response.body }
+        it "is now selected" do
+          expect(json.data.attributes.isSelected).to be true
+        end
 
-          it "is now selected" do
-            expect(json.data.attributes.isSelected).to be true
-          end
+        it "is now hidden" do
+          expect(json.data.attributes.visibilityData.isHidden).to be true
+        end
 
-          it "is now hidden" do
-            expect(json.data.attributes.visibilityData.isHidden).to be true
-          end
-
-          it "is populated with custom coverage" do
-            expect(json.data.attributes.customCoverage.beginCoverage).to eq("2003-01-01")
-            expect(json.data.attributes.customCoverage.endCoverage).to eq("2004-01-01")
-          end
+        it "is populated with custom coverage" do
+          expect(json.data.attributes.customCoverage.beginCoverage).to eq("2003-01-01")
+          expect(json.data.attributes.customCoverage.endCoverage).to eq("2004-01-01")
         end
       end
     end
@@ -351,27 +315,18 @@ RSpec.describe "Packages", type: :request do
           end
         end
 
-        it "responds with no content" do
-          expect(response).to have_http_status(204)
+        it "responds with OK status" do
+          expect(response).to have_http_status(200)
         end
 
-        describe "viewing the updated package" do
-          before do
-            VCR.use_cassette("put-packages-isselected-toggle-isselected-verify") do
-              get '/eholdings/jsonapi/packages/19-6581',
-                  headers: okapi_headers
-            end
-          end
+        let!(:json) { Map JSON.parse response.body }
 
-          let!(:json) { Map JSON.parse response.body }
+        it "is not selected" do
+          expect(json.data.attributes.isSelected).to be false
+        end
 
-          it "is not selected" do
-            expect(json.data.attributes.isSelected).to be false
-          end
-
-          it "is not hidden" do
-            expect(json.data.attributes.visibilityData.isHidden).to be false
-          end
+        it "is not hidden" do
+          expect(json.data.attributes.visibilityData.isHidden).to be false
         end
       end
 
@@ -402,27 +357,19 @@ RSpec.describe "Packages", type: :request do
           end
         end
 
-        it "responds with no content" do
-          expect(response).to have_http_status(204)
+        it "responds with OK status" do
+          expect(response).to have_http_status(200)
         end
 
-        describe "viewing the updated package" do
-          before do
-            VCR.use_cassette("put-packages-isselected-toggle-ishidden-verify") do
-              get '/eholdings/jsonapi/packages/19-6581',
-                  headers: okapi_headers
-            end
-          end
 
-          let!(:json) { Map JSON.parse response.body }
+        let!(:json) { Map JSON.parse response.body }
 
-          it "is still selected" do
-            expect(json.data.attributes.isSelected).to be true
-          end
+        it "is still selected" do
+          expect(json.data.attributes.isSelected).to be true
+        end
 
-          it "is now hidden" do
-            expect(json.data.attributes.visibilityData.isHidden).to be true
-          end
+        it "is now hidden" do
+          expect(json.data.attributes.visibilityData.isHidden).to be true
         end
       end
 
@@ -453,28 +400,19 @@ RSpec.describe "Packages", type: :request do
           end
         end
 
-        it "responds with no content" do
-          expect(response).to have_http_status(204)
+        it "responds with OK status" do
+          expect(response).to have_http_status(200)
         end
 
-        describe "viewing the updated package" do
-          before do
-            VCR.use_cassette("put-packages-isselected-add-customcoverage-verify") do
-              get '/eholdings/jsonapi/packages/19-6581',
-                  headers: okapi_headers
-            end
-          end
+        let!(:json) { Map JSON.parse response.body }
 
-          let!(:json) { Map JSON.parse response.body }
+        it "is still selected" do
+          expect(json.data.attributes.isSelected).to be true
+        end
 
-          it "is still selected" do
-            expect(json.data.attributes.isSelected).to be true
-          end
-
-          it "now has custom coverage" do
-            expect(json.data.attributes.customCoverage.beginCoverage).to eq("2003-01-01")
-            expect(json.data.attributes.customCoverage.endCoverage).to eq("2004-01-01")
-          end
+        it "now has custom coverage" do
+          expect(json.data.attributes.customCoverage.beginCoverage).to eq("2003-01-01")
+          expect(json.data.attributes.customCoverage.endCoverage).to eq("2004-01-01")
         end
       end
 
@@ -505,32 +443,23 @@ RSpec.describe "Packages", type: :request do
           end
         end
 
-        it "responds with no content" do
-          expect(response).to have_http_status(204)
+        it "responds with OK status" do
+          expect(response).to have_http_status(200)
         end
 
-        describe "viewing the updated package" do
-          before do
-            VCR.use_cassette("put-packages-isselected-combined-verify") do
-              get '/eholdings/jsonapi/packages/19-6581',
-                  headers: okapi_headers
-            end
-          end
+        let!(:json) { Map JSON.parse response.body }
 
-          let!(:json) { Map JSON.parse response.body }
+        it "is now unselected" do
+          expect(json.data.attributes.isSelected).to be false
+        end
 
-          it "is now unselected" do
-            expect(json.data.attributes.isSelected).to be false
-          end
+        it "is not hidden" do
+          expect(json.data.attributes.visibilityData.isHidden).to be false
+        end
 
-          it "is not hidden" do
-            expect(json.data.attributes.visibilityData.isHidden).to be false
-          end
-
-          it "is not populated with custom coverage" do
-            expect(json.data.attributes.customCoverage.beginCoverage).to be nil
-            expect(json.data.attributes.customCoverage.endCoverage).to be nil
-          end
+        it "is not populated with custom coverage" do
+          expect(json.data.attributes.customCoverage.beginCoverage).to be nil
+          expect(json.data.attributes.customCoverage.endCoverage).to be nil
         end
       end
     end

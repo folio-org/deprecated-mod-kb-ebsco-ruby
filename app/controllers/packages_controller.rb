@@ -16,8 +16,7 @@ class PackagesController < ApplicationController
   def update
     @package = packages.find package_id
     @package.update package_params
-
-    render status: :no_content
+    render jsonapi: @package
   end
 
   private

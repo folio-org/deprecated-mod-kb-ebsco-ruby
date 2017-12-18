@@ -53,10 +53,7 @@ class CustomerResource < RmApiResource
     # model (i.e. as an instance method) applies a hash of changes
     # to the instance and then persists that data to the store.
 
-    update_fields.deep_merge(params.to_h).each do |k,v|
-      self.resource.send("#{k}=".to_sym, v)
-    end
-
+    merge_fields(params)
     save!
   end
 
@@ -78,9 +75,19 @@ class CustomerResource < RmApiResource
       customCoverageList: sorted_coverage,
       customEmbargoPeriod: attributes[:customEmbargoPeriod]
     })
+
+    # re-fetch from RM API to surface side-effects
+    saved = self.class.find(vendor_id: resource.vendorId, package_id: resource.packageId, title_id: titleId)
+    merge_fields(saved.customerResourcesList.first)
   end
 
   private
+
+  def merge_fields(new_values)
+    update_fields.deep_merge(new_values.to_hash).each do |k,v|
+      self.resource.send("#{k}=".to_sym, v)
+    end
+  end
 
   def update_fields
     whitelist = [
