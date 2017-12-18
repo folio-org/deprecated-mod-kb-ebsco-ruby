@@ -22,7 +22,8 @@ class CustomerResource < RmApiResource
       request.get_params[:searchfield] = 'titlename'
       request.get_params[:orderby] = 'titlename'
       request.get_params[:count] ||= 25
-      request.get_params[:offset] ||= 1
+      request.get_params[:offset] = request.get_params[:page] || 1
+      request.get_params.delete(:page)
     end
   end
 

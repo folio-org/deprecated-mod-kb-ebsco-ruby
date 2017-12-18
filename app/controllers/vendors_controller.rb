@@ -1,7 +1,7 @@
 class VendorsController < ApplicationController
 
   def index
-    @vendors = vendors.all(q: params[:q])
+    @vendors = vendors.all(q: params[:q], page: params[:page])
     render jsonapi: @vendors.vendors.to_a,
            meta: { totalResults: @vendors.totalResults }
   end

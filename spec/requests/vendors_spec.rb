@@ -5,7 +5,7 @@ RSpec.describe "Vendors", type: :request do
   describe "searching for vendors" do
     before do
       VCR.use_cassette("search-vendors") do
-        get '/eholdings/jsonapi/vendors/?q=ebsco', headers: okapi_headers
+        get '/eholdings/jsonapi/vendors/?q=e', headers: okapi_headers
       end
     end
 
@@ -13,8 +13,25 @@ RSpec.describe "Vendors", type: :request do
 
     it "gets a list of resources" do
       expect(response).to have_http_status(200)
-      expect(json.data.length).to equal(2)
-      expect(json.meta.totalResults).to equal(2)
+      expect(json.data.length).to equal(25)
+      expect(json.meta.totalResults).to equal(101)
+    end
+
+    describe "with pagination" do
+      before do
+        VCR.use_cassette("search-vendors-page2") do
+          get '/eholdings/jsonapi/vendors/?q=e&page=2', headers: okapi_headers
+        end
+      end
+
+      let!(:json2) { Map JSON.parse response.body }
+
+      it "gets a different list of resources" do
+        expect(response).to have_http_status(200)
+        expect(json2.data.length).to equal(25)
+        expect(json2.meta.totalResults).to equal(101)
+        expect(json.data.first.id).not_to eql(json2.data.first.id)
+      end
     end
   end
 
