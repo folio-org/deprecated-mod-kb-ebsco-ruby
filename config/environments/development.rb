@@ -30,4 +30,7 @@ Rails.application.configure do
   # Use an evented file watcher to asynchronously detect changes in source code,
   # routes, locales, etc. This feature depends on the listen gem.
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
+
+  # Load middleware for dealing with Transfer-Encoding: chunked
+  config.middleware.insert_before Rack::Runtime, ChunkedTransferDecoder, decoded_upstream: true
 end
