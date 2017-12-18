@@ -1,5 +1,7 @@
 class TitlesController < ApplicationController
 
+  before_action :set_title, only: [:show, :customer_resources]
+
   def index
     @titles = titles.all(q: params[:q], page: params[:page])
     render jsonapi: @titles.titles.to_a,
@@ -7,11 +9,19 @@ class TitlesController < ApplicationController
   end
 
   def show
-    render jsonapi: titles.find(params[:id]),
-           include: params[:include]
+    render jsonapi: @title, include: params[:include]
+  end
+
+  # Relationships
+  def customer_resources
+    render jsonapi: @title.customer_resources
   end
 
   private
+
+  def set_title
+    @title = titles.find params[:id]
+  end
 
   def titles
     Title.configure(config)

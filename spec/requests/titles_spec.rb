@@ -1,3 +1,4 @@
+
 require 'rails_helper'
 
 RSpec.describe "Titles", type: :request do
@@ -94,6 +95,24 @@ RSpec.describe "Titles", type: :request do
     end
   end
 
+  describe "getting customer resources related to title" do
+    before do
+      VCR.use_cassette("get-titles-related-customer-resources") do
+        get '/eholdings/jsonapi/titles/316875/customer-resources', headers: okapi_headers
+      end
+    end
+
+    let!(:json) { Map JSON.parse response.body }
+
+    it "responds with a list of customers resources" do
+      expect(json.data.length).to eq(24)
+    end
+
+    it "returns the correct included type" do
+      expect(json.data.first.type).to eq('customerResources')
+    end
+  end
+
   describe "getting a title with empty array fields" do
     before do
       VCR.use_cassette("get-titles-empty-array-fields") do
@@ -108,6 +127,7 @@ RSpec.describe "Titles", type: :request do
       expect(json.data.attributes.subjects).to eq([])
     end
   end
+
 
 
   describe "getting a non-existing title" do

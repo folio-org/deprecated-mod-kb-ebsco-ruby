@@ -73,6 +73,22 @@ RSpec.describe "Vendors", type: :request do
     end
   end
 
+  describe 'getting packages related to vendor' do
+    before do
+      VCR.use_cassette("get-vendors-related-packages-success") do
+        get '/eholdings/jsonapi/vendors/19/packages', headers: okapi_headers
+      end
+    end
+
+    let!(:json) { Map JSON.parse response.body }
+
+    it "gets associated package records" do
+      expect(response).to have_http_status(200)
+      expect(json.data.first.type).to eq('packages')
+      expect(json.data.length).to eq(25)
+    end
+  end
+
   describe "getting a non-existing vendor" do
     before do
       VCR.use_cassette("get-vendors-not-found") do
