@@ -1,3 +1,4 @@
+
 class PackagesController < ApplicationController
 
   before_action :set_package, only: [:show, :update, :customer_resources]
@@ -15,8 +16,15 @@ class PackagesController < ApplicationController
   end
 
   def update
-    @package.update package_params
-    render jsonapi: @package
+    package_validation = Validation::PackageParameters.new(package_params)
+
+    if package_validation.valid?
+      @package.update package_params
+      render jsonapi: @package
+    else
+      render jsonapi_errors: package_validation.errors,
+             status: :unprocessable_entity
+    end
   end
 
   # Relationships
