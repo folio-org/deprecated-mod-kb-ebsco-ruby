@@ -32,19 +32,19 @@
         },
         {
           "methods": [ "GET", "POST", "PUT", "PATCH", "DELETE" ],
-          "pathPattern": "/eholdings/proxy/holdings*"
+          "pathPattern": "/ebsco-rmapi/holdings*"
         },
         {
           "methods": [ "GET", "POST", "PUT", "PATCH", "DELETE" ],
-          "pathPattern": "/eholdings/proxy/packages*"
+          "pathPattern": "/ebsco-rmapi/packages*"
         },
         {
           "methods": [ "GET", "POST", "PUT", "PATCH", "DELETE" ],
-          "pathPattern": "/eholdings/proxy/vendors*"
+          "pathPattern": "/ebsco-rmapi/vendors*"
         },
         {
           "methods": [ "GET", "POST", "PUT", "PATCH", "DELETE" ],
-          "pathPattern": "/eholdings/proxy/titles*"
+          "pathPattern": "/ebsco-rmapi/titles*"
         }
       ]
     }
