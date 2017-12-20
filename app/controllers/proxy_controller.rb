@@ -34,7 +34,7 @@ class ProxyController < ApplicationController
 
   def rmapi_path
     # What we really care about here is what comes after
-    # the `/eholdings/proxy` namespace.  That's what we proxy to RMAPI
-    request.fullpath.gsub(/\/eholdings\/proxy/, '')
+    # the `/ebsco-rmapi` namespace.  That's what we proxy to RMAPI
+    request.fullpath.gsub(/\/ebsco-rmapi/, '')
   end
 end

@@ -23,8 +23,9 @@ Rails.application.routes.draw do
     resource :configuration, only: [:show, :update]
     resource :status, only: [:show]
 
-    match '/proxy/*path' => 'proxy#index', via: [:get, :post, :put, :patch, :delete]
+
   end
 
+  match '/ebsco-rmapi/*path' => 'proxy#index', via: [:get, :post, :put, :patch, :delete]
   match '/admin/health' => 'health#index', via: [:get]
 end

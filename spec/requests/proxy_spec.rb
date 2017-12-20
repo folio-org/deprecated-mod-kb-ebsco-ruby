@@ -4,7 +4,7 @@ RSpec.describe "Proxy", type: :request do
   describe "getting a vendor" do
     let(:resource) do
       [
-        '/eholdings/proxy/vendors/19',
+        '/ebsco-rmapi/vendors/19',
         headers: okapi_headers
       ]
     end
@@ -23,7 +23,7 @@ RSpec.describe "Proxy", type: :request do
   describe "getting a package" do
     let(:resource) do
       [
-        '/eholdings/proxy/vendors/19/packages/6581',
+        '/ebsco-rmapi/vendors/19/packages/6581',
         headers: okapi_headers
       ]
     end
@@ -42,7 +42,7 @@ RSpec.describe "Proxy", type: :request do
   describe "getting a title" do
     let(:resource) do
       [
-        '/eholdings/proxy/titles/316875',
+        '/ebsco-rmapi/titles/316875',
         headers: okapi_headers
       ]
     end
@@ -61,11 +61,11 @@ RSpec.describe "Proxy", type: :request do
   describe "getting a customer resource" do
     let(:resource) do
       [
-        '/eholdings/proxy/vendors/22/packages/1887786/titles/1440285',
+        '/ebsco-rmapi/vendors/22/packages/1887786/titles/1440285',
         headers: okapi_headers
       ]
     end
-    
+
     before do
       VCR.use_cassette("get-proxy-customer-resource-valid") do
         get(*resource)
