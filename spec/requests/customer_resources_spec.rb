@@ -5,7 +5,7 @@ RSpec.describe "Customer Resources", type: :request do
   describe "getting a specific customer resource" do
     before do
       VCR.use_cassette("get-customer-resources-success") do
-        get '/eholdings/jsonapi/customer-resources/22-1887786-1440285', headers: okapi_headers
+        get '/eholdings/customer-resources/22-1887786-1440285', headers: okapi_headers
       end
     end
 
@@ -121,7 +121,7 @@ RSpec.describe "Customer Resources", type: :request do
   describe "getting a customer resource with included vendor" do
     before do
       VCR.use_cassette("get-customer-resources-vendor") do
-        get '/eholdings/jsonapi/customer-resources/22-1887786-1440285?include=vendor', headers: okapi_headers
+        get '/eholdings/customer-resources/22-1887786-1440285?include=vendor', headers: okapi_headers
       end
     end
 
@@ -143,7 +143,7 @@ RSpec.describe "Customer Resources", type: :request do
   describe "getting a customer resource with included package" do
     before do
       VCR.use_cassette("get-customer-resources-package") do
-        get '/eholdings/jsonapi/customer-resources/22-1887786-1440285?include=package', headers: okapi_headers
+        get '/eholdings/customer-resources/22-1887786-1440285?include=package', headers: okapi_headers
       end
     end
 
@@ -162,7 +162,7 @@ RSpec.describe "Customer Resources", type: :request do
   describe "getting a customer resource with included title" do
     before do
       VCR.use_cassette("get-customer-resources-title") do
-        get '/eholdings/jsonapi/customer-resources/22-1887786-1440285?include=title', headers: okapi_headers
+        get '/eholdings/customer-resources/22-1887786-1440285?include=title', headers: okapi_headers
       end
     end
 
@@ -201,7 +201,7 @@ RSpec.describe "Customer Resources", type: :request do
 
       before do
         VCR.use_cassette("put-customer-resources-isselected-update") do
-          put '/eholdings/jsonapi/customer-resources/22-1887786-1440285',
+          put '/eholdings/customer-resources/22-1887786-1440285',
               params: params, as: :json, headers: update_headers
         end
       end
@@ -233,7 +233,7 @@ RSpec.describe "Customer Resources", type: :request do
 
       before do
         VCR.use_cassette("put-customer-resource-ishidden-update") do
-          put '/eholdings/jsonapi/customer-resources/22-1887786-1440285',
+          put '/eholdings/customer-resources/22-1887786-1440285',
               params: params, as: :json, headers: update_headers
         end
       end
@@ -268,7 +268,7 @@ RSpec.describe "Customer Resources", type: :request do
 
       before do
         VCR.use_cassette("put-customer-resources-customcoverage-update") do
-          put '/eholdings/jsonapi/customer-resources/22-1887786-1440285',
+          put '/eholdings/customer-resources/22-1887786-1440285',
               params: params, as: :json, headers: update_headers
         end
       end
@@ -307,7 +307,7 @@ RSpec.describe "Customer Resources", type: :request do
 
       before do
         VCR.use_cassette("put-customer-resources-customembargo-update") do
-          put '/eholdings/jsonapi/customer-resources/22-1887786-1440285',
+          put '/eholdings/customer-resources/22-1887786-1440285',
               params: params, as: :json, headers: update_headers
         end
       end
@@ -354,7 +354,7 @@ RSpec.describe "Customer Resources", type: :request do
 
       before do
         VCR.use_cassette("put-customer-resources-combined-update") do
-          put '/eholdings/jsonapi/customer-resources/22-1887786-1440285',
+          put '/eholdings/customer-resources/22-1887786-1440285',
               params: params, as: :json, headers: update_headers
         end
       end
@@ -382,7 +382,7 @@ RSpec.describe "Customer Resources", type: :request do
   describe "getting a non-existing customer resource" do
     before do
       VCR.use_cassette("get-customer-resources-not-found") do
-        get '/eholdings/jsonapi/customer-resources/1-1-1', headers: okapi_headers
+        get '/eholdings/customer-resources/1-1-1', headers: okapi_headers
       end
     end
 
