@@ -16,35 +16,35 @@
         },
         {
           "methods": [ "GET" ],
-          "pathPattern": "/eholdings/jsonapi/vendors*"
-        },
-        {
-          "methods": [ "GET", "PUT" ],
-          "pathPattern": "/eholdings/jsonapi/packages*"
-        },
-        {
-          "methods": [ "GET" ],
-          "pathPattern": "/eholdings/jsonapi/titles*"
-        },
-        {
-          "methods": [ "GET", "PUT" ],
-          "pathPattern": "/eholdings/jsonapi/customer-resources*"
-        },
-        {
-          "methods": [ "GET", "POST", "PUT", "PATCH", "DELETE" ],
-          "pathPattern": "/eholdings/holdings*"
-        },
-        {
-          "methods": [ "GET", "POST", "PUT", "PATCH", "DELETE" ],
-          "pathPattern": "/eholdings/packages*"
-        },
-        {
-          "methods": [ "GET", "POST", "PUT", "PATCH", "DELETE" ],
           "pathPattern": "/eholdings/vendors*"
         },
         {
-          "methods": [ "GET", "POST", "PUT", "PATCH", "DELETE" ],
+          "methods": [ "GET", "PUT" ],
+          "pathPattern": "/eholdings/packages*"
+        },
+        {
+          "methods": [ "GET" ],
           "pathPattern": "/eholdings/titles*"
+        },
+        {
+          "methods": [ "GET", "PUT" ],
+          "pathPattern": "/eholdings/customer-resources*"
+        },
+        {
+          "methods": [ "GET", "POST", "PUT", "PATCH", "DELETE" ],
+          "pathPattern": "/eholdings/proxy/holdings*"
+        },
+        {
+          "methods": [ "GET", "POST", "PUT", "PATCH", "DELETE" ],
+          "pathPattern": "/eholdings/proxy/packages*"
+        },
+        {
+          "methods": [ "GET", "POST", "PUT", "PATCH", "DELETE" ],
+          "pathPattern": "/eholdings/proxy/vendors*"
+        },
+        {
+          "methods": [ "GET", "POST", "PUT", "PATCH", "DELETE" ],
+          "pathPattern": "/eholdings/proxy/titles*"
         }
       ]
     }

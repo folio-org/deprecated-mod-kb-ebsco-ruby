@@ -6,7 +6,7 @@ RSpec.describe "Packages", type: :request do
   describe "searching for packages" do
     before do
       VCR.use_cassette("search-packages") do
-        get '/eholdings/jsonapi/packages/?q=ebsco', headers: okapi_headers
+        get '/eholdings/packages/?q=ebsco', headers: okapi_headers
       end
     end
 
@@ -21,7 +21,7 @@ RSpec.describe "Packages", type: :request do
     describe "with pagination" do
       before do
         VCR.use_cassette("search-packages-page2") do
-          get '/eholdings/jsonapi/packages/?q=ebsco&page=2', headers: okapi_headers
+          get '/eholdings/packages/?q=ebsco&page=2', headers: okapi_headers
         end
       end
 
@@ -39,7 +39,7 @@ RSpec.describe "Packages", type: :request do
   describe "getting a specific package" do
     before do
       VCR.use_cassette("get-packages-success") do
-        get '/eholdings/jsonapi/packages/19-6581', headers: okapi_headers
+        get '/eholdings/packages/19-6581', headers: okapi_headers
       end
     end
 
@@ -75,7 +75,7 @@ RSpec.describe "Packages", type: :request do
   describe "getting a package with included customer resources" do
     before do
       VCR.use_cassette("get-packages-customer-resources") do
-        get '/eholdings/jsonapi/packages/19-6581?include=customerResources', headers: okapi_headers
+        get '/eholdings/packages/19-6581?include=customerResources', headers: okapi_headers
       end
     end
 
@@ -99,7 +99,7 @@ RSpec.describe "Packages", type: :request do
   describe "getting customer resources related to package" do
     before do
       VCR.use_cassette("get-packages-related-customer-resources") do
-        get '/eholdings/jsonapi/packages/19-6581/customer-resources', headers: okapi_headers
+        get '/eholdings/packages/19-6581/customer-resources', headers: okapi_headers
       end
     end
 
@@ -117,7 +117,7 @@ RSpec.describe "Packages", type: :request do
   describe "getting a package with included vendor" do
     before do
       VCR.use_cassette("get-packages-vendor") do
-        get '/eholdings/jsonapi/packages/19-6581?include=vendor', headers: okapi_headers
+        get '/eholdings/packages/19-6581?include=vendor', headers: okapi_headers
       end
     end
 
@@ -168,7 +168,7 @@ RSpec.describe "Packages", type: :request do
 
         before do
           VCR.use_cassette("put-packages-isnotselected-toggle-ishidden") do
-            put '/eholdings/jsonapi/packages/19-6581',
+            put '/eholdings/packages/19-6581',
                 params: params, as: :json, headers: update_headers
           end
         end
@@ -200,7 +200,7 @@ RSpec.describe "Packages", type: :request do
 
         before do
           VCR.use_cassette("put-packages-isnotselected-add-customcoverage") do
-            put '/eholdings/jsonapi/packages/19-6581',
+            put '/eholdings/packages/19-6581',
                 params: params, as: :json, headers: update_headers
           end
         end
@@ -232,7 +232,7 @@ RSpec.describe "Packages", type: :request do
 
         before do
           VCR.use_cassette("put-packages-isnotselected-combined-update") do
-            put '/eholdings/jsonapi/packages/19-6581',
+            put '/eholdings/packages/19-6581',
                 params: params, as: :json, headers: update_headers
           end
         end
@@ -264,7 +264,7 @@ RSpec.describe "Packages", type: :request do
 
         before do
           VCR.use_cassette("put-packages-isnotselected-toggle-isselected") do
-            put '/eholdings/jsonapi/packages/19-6581',
+            put '/eholdings/packages/19-6581',
                 params: params, as: :json, headers: update_headers
           end
         end
@@ -305,7 +305,7 @@ RSpec.describe "Packages", type: :request do
 
         before do
           VCR.use_cassette("put-packages-isselected-toggle-ishidden") do
-            put '/eholdings/jsonapi/packages/19-6581',
+            put '/eholdings/packages/19-6581',
                 params: params, as: :json, headers: update_headers
           end
         end
@@ -348,7 +348,7 @@ RSpec.describe "Packages", type: :request do
 
         before do
           VCR.use_cassette("put-packages-isselected-add-customcoverage") do
-            put '/eholdings/jsonapi/packages/19-6581',
+            put '/eholdings/packages/19-6581',
                 params: params, as: :json, headers: update_headers
           end
         end
@@ -391,7 +391,7 @@ RSpec.describe "Packages", type: :request do
 
         before do
           VCR.use_cassette("put-packages-isselected-combined-update") do
-            put '/eholdings/jsonapi/packages/19-6581',
+            put '/eholdings/packages/19-6581',
                 params: params, as: :json, headers: update_headers
           end
         end
@@ -438,7 +438,7 @@ RSpec.describe "Packages", type: :request do
 
         before do
           VCR.use_cassette("put-packages-isselected-toggle-isselected") do
-            put '/eholdings/jsonapi/packages/19-6581',
+            put '/eholdings/packages/19-6581',
                 params: params, as: :json, headers: update_headers
           end
         end
@@ -463,7 +463,7 @@ RSpec.describe "Packages", type: :request do
   describe "getting a non-existing package" do
     before do
       VCR.use_cassette("get-packages-not-found") do
-        get '/eholdings/jsonapi/packages/1-1', headers: okapi_headers
+        get '/eholdings/packages/1-1', headers: okapi_headers
       end
     end
 
