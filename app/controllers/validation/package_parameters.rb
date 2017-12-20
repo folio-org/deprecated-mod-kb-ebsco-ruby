@@ -4,7 +4,7 @@ module Validation
 
     attr_accessor :isSelected, :isHidden, :beginCoverage, :endCoverage
 
-    # Deselected resources cannot be customized.  Though the UI is smart enough
+    # Deselected packages cannot be customized.  Though the UI is smart enough
     # to keep this from happening, a manual request to the API could lead
     # to confusing behavior unless we signal a failure code here.
     # TODO: clearer messaging might be nice here
