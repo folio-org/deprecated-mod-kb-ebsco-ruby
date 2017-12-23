@@ -3,7 +3,8 @@ class PackagesController < ApplicationController
 
   before_action :set_package, only: [:show, :update, :customer_resources]
 
-  deserializable_resource :package, only: :update
+  deserializable_resource :package, only: :update,
+                          class: DeserializablePackage
 
   def index
     @packages = packages.all(q: params[:q], page: params[:page])

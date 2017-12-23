@@ -3,7 +3,8 @@ class CustomerResourcesController < ApplicationController
 
   before_action :set_customer_resource, only: [:show, :update]
 
-  deserializable_resource :customer_resource, only: :update
+  deserializable_resource :customer_resource, only: :update,
+                          class: DeserializableCustomerResource
 
   def show
     render jsonapi: @customer_resource,
@@ -11,8 +12,16 @@ class CustomerResourcesController < ApplicationController
   end
 
   def update
-    @customer_resource.update customer_resource_params
-    render jsonapi: @customer_resource
+    customer_resource_validation =
+      Validation::CustomerResourceParameters.new(customer_resource_params)
+
+    if customer_resource_validation.valid?
+      @customer_resource.update customer_resource_params
+      render jsonapi: @customer_resource
+    else
+      render jsonapi_errors: customer_resource_validation.errors,
+             status: :unprocessable_entity
+    end
   end
 
   private
@@ -32,6 +41,8 @@ class CustomerResourcesController < ApplicationController
   end
 
   def customer_resource_params
+    # NOTE: deserialization happens before param parsing, so we
+    # use the RMAPI property names here
     params
       .require(:customer_resource)
       .permit(

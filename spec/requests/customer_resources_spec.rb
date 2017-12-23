@@ -187,194 +187,295 @@ RSpec.describe "Customer Resources", type: :request do
       )
     end
 
-    describe "selecting a customer resource" do
-      let(:params) do
-        {
-          "data" => {
-            "type" => 'customerResources',
-            "attributes" => {
-              "isSelected" => true
-            }
-    }
-        }
-      end
-
-      before do
-        VCR.use_cassette("put-customer-resources-isselected-update") do
-          put '/eholdings/customer-resources/22-1887786-1440285',
-              params: params, as: :json, headers: update_headers
-        end
-      end
-
-      it "responds with OK status" do
-        expect(response).to have_http_status(200)
-      end
-
-      let!(:json) { Map JSON.parse response.body }
-
-      it "is no longer selected" do
-        expect(json.data.attributes.isSelected).to be true
-      end
-    end
-
-    describe "hiding a customer resource" do
-      let(:params) do
-        {
-          "data" => {
-            "type" => 'customerResources',
-            "attributes" => {
-              "visibilityData" => {
-                "isHidden" => true
-              }
-            }
-          }
-        }
-      end
-
-      before do
-        VCR.use_cassette("put-customer-resource-ishidden-update") do
-          put '/eholdings/customer-resources/22-1887786-1440285',
-              params: params, as: :json, headers: update_headers
-        end
-      end
-
-      it "responds with OK status" do
-        expect(response).to have_http_status(200)
-      end
-
-      let!(:json) { Map JSON.parse response.body }
-
-      it "is no longer visible" do
-        expect(json.data.attributes.visibilityData.isHidden).to be true
-      end
-    end
-
-    describe "setting custom coverage" do
-      let(:params) do
-        {
-          "data" => {
-            "type" => 'customerResources',
-            "attributes" => {
-              "customCoverages" => [
-                {
-                  "beginCoverage" => "2003-01-01",
-                  "endCoverage" => "2004-01-01"
-                }
-              ]
-            }
-          }
-        }
-      end
-
-      before do
-        VCR.use_cassette("put-customer-resources-customcoverage-update") do
-          put '/eholdings/customer-resources/22-1887786-1440285',
-              params: params, as: :json, headers: update_headers
-        end
-      end
-
-      it "responds with OK status" do
-        expect(response).to have_http_status(200)
-      end
-
-      let!(:json) { Map JSON.parse response.body }
-
-      it "has a custom coverage range" do
-        expect(json.data.attributes.customCoverages.length).to eq(1)
-      end
-      it "custom coverage range has a beginning" do
-        expect(json.data.attributes.customCoverages[0].beginCoverage).to eq("2003-01-01")
-      end
-      it "custom coverage range has an ending" do
-        expect(json.data.attributes.customCoverages[0].endCoverage).to eq("2004-01-01")
-      end
-    end
-
-    describe "setting a custom embargo period" do
-      let(:params) do
-        {
-          "data" => {
-            "type" => 'customerResources',
-            "attributes" => {
-              "customEmbargoPeriod" => {
-                "embargoUnit" => "Days",
-                "embargoValue" => 7
-              }
-            }
-          }
-        }
-      end
-
-      before do
-        VCR.use_cassette("put-customer-resources-customembargo-update") do
-          put '/eholdings/customer-resources/22-1887786-1440285',
-              params: params, as: :json, headers: update_headers
-        end
-      end
-
-      it "responds with OK status" do
-        expect(response).to have_http_status(200)
-      end
-
-      let!(:json) { Map JSON.parse response.body }
-
-      it "has a custom embargo period" do
-        expect(json.data.attributes.customEmbargoPeriod.embargoUnit).to eq("Days")
-        expect(json.data.attributes.customEmbargoPeriod.embargoValue).to eq(7)
-      end
-    end
-
-    describe "combined update" do
-      let(:params) do
-        {
-          "data" => {
-            "type" => 'customerResources',
-            "attributes" => {
-              "isSelected" => true,
-              "visibilityData" => {
-                "isHidden" => false
-              },
-              "customEmbargoPeriod" => {
-                "embargoUnit" => "Months",
-                "embargoValue" => 5
-              },
-              "customCoverages" => [
-                {
-                  "beginCoverage" => "2005-01-01"
+    describe "when the customer resource is not selected" do
+      describe "hiding a customer resource" do
+        let(:params) do
+          {
+            "data" => {
+              "type" => 'customerResources',
+              "attributes" => {
+                "isSelected" => false,
+                "visibilityData" => {
+                  "isHidden" => true
                 },
-                {
-                  "beginCoverage" => "2000-01-01",
-                  "endCoverage" => "2004-02-01"
-                }
-              ]
+                "customEmbargoPeriod" => nil,
+                "customCoverages" => []
+              }
             }
           }
-        }
-      end
+        end
 
-      before do
-        VCR.use_cassette("put-customer-resources-combined-update") do
-          put '/eholdings/customer-resources/22-1887786-1440285',
-              params: params, as: :json, headers: update_headers
+        before do
+          VCR.use_cassette("put-customer-resource-isnotselected-ishidden") do
+            put '/eholdings/customer-resources/22-1887786-1440285',
+                params: params, as: :json, headers: update_headers
+          end
+        end
+
+        it "fails with unprocessable entity status" do
+          expect(response).to have_http_status(422)
         end
       end
 
-      it "responds with OK status" do
-        expect(response).to have_http_status(200)
+      describe "setting custom coverages" do
+        let(:params) do
+          {
+            "data" => {
+              "type" => 'customerResources',
+              "attributes" => {
+                "isSelected" => false,
+                "visibilityData" => nil,
+                "customEmbargoPeriod" => nil,
+                "customCoverages" => [
+                  {
+                    "beginCoverage" => "2001-01-02"
+                  },
+                  {
+                    "beginCoverage" => "2000-01-01",
+                    "endCoverage" => "2000-02-01"
+                  }
+                ]
+              }
+            }
+          }
+        end
+
+        before do
+          VCR.use_cassette("put-customer-resource-isnotselected-customcoverages") do
+            put '/eholdings/customer-resources/22-1887786-1440285',
+                params: params, as: :json, headers: update_headers
+          end
+        end
+
+        it "fails with unprocessable entity status" do
+          expect(response).to have_http_status(422)
+        end
       end
 
-      let!(:json) { Map JSON.parse response.body }
+      describe "setting a custom embargo period" do
+        let(:params) do
+          {
+            "data" => {
+              "type" => 'customerResources',
+              "attributes" => {
+                "isSelected" => false,
+                "visibilityData" => nil,
+                "customEmbargoPeriod" => {
+                  "embargoUnit" => "Weeks",
+                  "embargoValue" => 6
+                },
+                "customCoverages" => []
+              }
+            }
+          }
+        end
 
-      it "all fields have been successfully updated" do
-        expect(json.data.attributes.isSelected).to be true
-        expect(json.data.attributes.visibilityData.isHidden).to be false
+        before do
+          VCR.use_cassette("put-customer-resources-isnotselected-customembargo") do
+            put '/eholdings/customer-resources/22-1887786-1440285',
+                params: params, as: :json, headers: update_headers
+          end
+        end
 
-        expect(json.data.attributes.customCoverages.length).to eq(2)
-        expect(json.data.attributes.customCoverages[0].beginCoverage).to eq("2000-01-01")
-        expect(json.data.attributes.customCoverages[0].endCoverage).to eq("2004-02-01")
+        it "fails with unprocessable entity status" do
+          expect(response).to have_http_status(422)
+        end
+      end
 
-        expect(json.data.attributes.customEmbargoPeriod.embargoUnit).to eq("Months")
-        expect(json.data.attributes.customEmbargoPeriod.embargoValue).to eq(5)
+      describe "selecting a customer resource" do
+        let(:params) do
+          {
+            "data" => {
+              "type" => 'customerResources',
+              "attributes" => {
+                "isSelected" => true
+              }
+            }
+          }
+        end
+
+        before do
+          VCR.use_cassette("put-customer-resources-isselected") do
+            put '/eholdings/customer-resources/22-1887786-1440285',
+                params: params, as: :json, headers: update_headers
+          end
+        end
+
+        it "responds with OK status" do
+          expect(response).to have_http_status(200)
+        end
+
+        let!(:json) { Map JSON.parse response.body }
+
+        it "is now selected" do
+          expect(json.data.attributes.isSelected).to be true
+        end
+      end
+    end
+
+    describe "when the customer resource is selected" do
+      describe "hiding a customer resource" do
+        let(:params) do
+          {
+            "data" => {
+              "type" => 'customerResources',
+              "attributes" => {
+                "isSelected" => true,
+                "visibilityData" => {
+                  "isHidden" => true
+                }
+              }
+            }
+          }
+        end
+
+        before do
+          VCR.use_cassette("put-customer-resource-ishidden-update") do
+            put '/eholdings/customer-resources/22-1887786-1440285',
+                params: params, as: :json, headers: update_headers
+          end
+        end
+
+        it "responds with OK status" do
+          expect(response).to have_http_status(200)
+        end
+
+        let!(:json) { Map JSON.parse response.body }
+
+        it "is no longer visible" do
+          expect(json.data.attributes.visibilityData.isHidden).to be true
+        end
+      end
+
+      describe "setting custom coverage" do
+        let(:params) do
+          {
+            "data" => {
+              "type" => 'customerResources',
+              "attributes" => {
+                "isSelected" => true,
+                "customCoverages" => [
+                  {
+                    "beginCoverage" => "2003-01-01",
+                    "endCoverage" => "2004-01-01"
+                  }
+                ]
+              }
+            }
+          }
+        end
+
+        before do
+          VCR.use_cassette("put-customer-resources-customcoverage-update") do
+            put '/eholdings/customer-resources/22-1887786-1440285',
+                params: params, as: :json, headers: update_headers
+          end
+        end
+
+        it "responds with OK status" do
+          expect(response).to have_http_status(200)
+        end
+
+        let!(:json) { Map JSON.parse response.body }
+
+        it "has a custom coverage range" do
+          expect(json.data.attributes.customCoverages.length).to eq(1)
+        end
+        it "custom coverage range has a beginning" do
+          expect(json.data.attributes.customCoverages[0].beginCoverage).to eq("2003-01-01")
+        end
+        it "custom coverage range has an ending" do
+          expect(json.data.attributes.customCoverages[0].endCoverage).to eq("2004-01-01")
+        end
+      end
+
+      describe "setting a custom embargo period" do
+        let(:params) do
+          {
+            "data" => {
+              "type" => 'customerResources',
+              "attributes" => {
+                "isSelected" => true,
+                "customEmbargoPeriod" => {
+                  "embargoUnit" => "Days",
+                  "embargoValue" => 7
+                }
+              }
+            }
+          }
+        end
+
+        before do
+          VCR.use_cassette("put-customer-resources-customembargo-update") do
+            put '/eholdings/customer-resources/22-1887786-1440285',
+                params: params, as: :json, headers: update_headers
+          end
+        end
+
+        it "responds with OK status" do
+          expect(response).to have_http_status(200)
+        end
+
+        let!(:json) { Map JSON.parse response.body }
+
+        it "has a custom embargo period" do
+          expect(json.data.attributes.customEmbargoPeriod.embargoUnit).to eq("Days")
+          expect(json.data.attributes.customEmbargoPeriod.embargoValue).to eq(7)
+        end
+      end
+
+      describe "combined update" do
+        let(:params) do
+          {
+            "data" => {
+              "type" => 'customerResources',
+              "attributes" => {
+                "isSelected" => true,
+                "visibilityData" => {
+                  "isHidden" => false
+                },
+                "customEmbargoPeriod" => {
+                  "embargoUnit" => "Months",
+                  "embargoValue" => 5
+                },
+                "customCoverages" => [
+                  {
+                    "beginCoverage" => "2005-01-01"
+                  },
+                  {
+                    "beginCoverage" => "2000-01-01",
+                    "endCoverage" => "2004-02-01"
+                  }
+                ]
+              }
+            }
+          }
+        end
+
+        before do
+          VCR.use_cassette("put-customer-resources-combined-update") do
+            put '/eholdings/customer-resources/22-1887786-1440285',
+                params: params, as: :json, headers: update_headers
+          end
+        end
+
+        it "responds with OK status" do
+          expect(response).to have_http_status(200)
+        end
+
+        let!(:json) { Map JSON.parse response.body }
+
+        it "all fields have been successfully updated" do
+          expect(json.data.attributes.isSelected).to be true
+          expect(json.data.attributes.visibilityData.isHidden).to be false
+
+          expect(json.data.attributes.customCoverages.length).to eq(2)
+          expect(json.data.attributes.customCoverages[0].beginCoverage).to eq("2000-01-01")
+          expect(json.data.attributes.customCoverages[0].endCoverage).to eq("2004-02-01")
+
+          expect(json.data.attributes.customEmbargoPeriod.embargoUnit).to eq("Months")
+          expect(json.data.attributes.customEmbargoPeriod.embargoValue).to eq(5)
+        end
       end
     end
   end

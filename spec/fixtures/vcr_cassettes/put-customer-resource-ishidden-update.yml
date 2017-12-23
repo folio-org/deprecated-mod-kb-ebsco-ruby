@@ -27,7 +27,7 @@ http_interactions:
       Server:
       - nginx/1.13.5
       Date:
-      - Tue, 12 Dec 2017 23:51:44 GMT
+      - Wed, 20 Dec 2017 20:03:47 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -38,13 +38,13 @@ http_interactions:
       - 'GET mod-authtoken-1.1.1-SNAPSHOT.7 http://10.39.243.223:8081/configurations/entries..
         : 202'
       - 'GET mod-configuration-3.0.1-SNAPSHOT.18 http://10.39.247.37:8081/configurations/entries..
-        : 200 43512us'
+        : 200 41757us'
       Host:
       - okapi.frontside.io
       X-Real-Ip:
-      - 10.128.0.3
+      - 10.36.2.1
       X-Forwarded-For:
-      - 10.128.0.3
+      - 10.36.2.1
       X-Forwarded-Host:
       - okapi.frontside.io
       X-Forwarded-Port:
@@ -66,7 +66,7 @@ http_interactions:
       User-Agent:
       - Ruby
       X-Okapi-Request-Id:
-      - 163436/configurations
+      - 169071/configurations
       X-Okapi-Url:
       - http://10.39.247.213:80
       X-Okapi-Permissions-Required:
@@ -107,7 +107,7 @@ http_interactions:
           }
         }
     http_version: 
-  recorded_at: Tue, 12 Dec 2017 23:51:44 GMT
+  recorded_at: Wed, 20 Dec 2017 20:03:47 GMT
 - request:
     method: get
     uri: https://api.ebsco.io/rm/rmaccounts/TEST_CUSTOMER_ID/vendors/22/packages/1887786/titles/1440285
@@ -139,9 +139,9 @@ http_interactions:
       Connection:
       - keep-alive
       Date:
-      - Tue, 12 Dec 2017 23:51:44 GMT
+      - Wed, 20 Dec 2017 20:03:48 GMT
       X-Amzn-Requestid:
-      - 689bdbcf-df97-11e7-9d3e-3957dbf9f8de
+      - e3f5fd3e-e5c0-11e7-8f42-a3e368ef60ef
       X-Amzn-Remapped-Content-Length:
       - '1579'
       X-Amzn-Remapped-Connection:
@@ -157,15 +157,15 @@ http_interactions:
       Pragma:
       - no-cache
       X-Amzn-Remapped-Date:
-      - Tue, 12 Dec 2017 23:51:44 GMT
+      - Wed, 20 Dec 2017 20:03:48 GMT
       X-Aspnet-Version:
       - 4.0.30319
       X-Cache:
       - Miss from cloudfront
       Via:
-      - 1.1 3d3d633d266d05d90a4eea7a6a59b514.cloudfront.net (CloudFront)
+      - 1.1 5ae8b0e76af80aa471660f48d35acb41.cloudfront.net (CloudFront)
       X-Amz-Cf-Id:
-      - EDqDp7Zat6FctXXtB5llsDb9AuacTLzVd8i6_JhWPLoTqDneIAXc_A==
+      - IqAVkxXXrQe7RgPO9-H7QpGZUiDUmzPo-h5UZDXe6l1L96qIjhDl_A==
     body:
       encoding: UTF-8
       string: '{"description":null,"edition":null,"isPeerReviewed":false,"contributorsList":[{"type":"author","contributor":"Havard,
@@ -175,7 +175,7 @@ http_interactions:
         Ebook Central","isPackageCustom":false,"vendorId":22,"vendorName":"Proquest
         Info & Learning Co","locationId":17545807,"isSelected":true,"isTokenNeeded":true,"visibilityData":{"isHidden":false,"reason":""},"managedCoverageList":[{"beginCoverage":"2010-01-01","endCoverage":"2010-12-31"}],"customCoverageList":[{"beginCoverage":"2000-01-01","endCoverage":"2004-02-01"},{"beginCoverage":"2005-01-01","endCoverage":""}],"coverageStatement":null,"managedEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"customEmbargoPeriod":{"embargoUnit":"Months","embargoValue":5},"url":"http://ebookcentral.proquest.com/lib/[[SiteID]]/detail.action?docID=1722033","userDefinedField1":null,"userDefinedField2":null,"userDefinedField3":null,"userDefinedField4":null,"userDefinedField5":null}]}'
     http_version: 
-  recorded_at: Tue, 12 Dec 2017 23:51:44 GMT
+  recorded_at: Wed, 20 Dec 2017 20:03:48 GMT
 - request:
     method: put
     uri: https://api.ebsco.io/rm/rmaccounts/TEST_CUSTOMER_ID/vendors/22/packages/1887786/titles/1440285
@@ -207,9 +207,9 @@ http_interactions:
       Connection:
       - keep-alive
       Date:
-      - Tue, 12 Dec 2017 23:51:45 GMT
+      - Wed, 20 Dec 2017 20:03:48 GMT
       X-Amzn-Requestid:
-      - 68c5365a-df97-11e7-bf56-eb0765fc151b
+      - e426f873-e5c0-11e7-b47e-19463f23d40e
       X-Amzn-Remapped-Connection:
       - keep-alive
       X-Amzn-Remapped-Server:
@@ -223,20 +223,20 @@ http_interactions:
       Pragma:
       - no-cache
       X-Amzn-Remapped-Date:
-      - Tue, 12 Dec 2017 23:51:44 GMT
+      - Wed, 20 Dec 2017 20:03:48 GMT
       X-Aspnet-Version:
       - 4.0.30319
       X-Cache:
       - Miss from cloudfront
       Via:
-      - 1.1 ff09df097f823b2834408d17e9779d62.cloudfront.net (CloudFront)
+      - 1.1 5ae8b0e76af80aa471660f48d35acb41.cloudfront.net (CloudFront)
       X-Amz-Cf-Id:
-      - Y2BHpQyAI6wipPB-8ElziO4_O80f2kpUubH1LC7rc5c7AoUe4K63PQ==
+      - GBN_5MZEbp6zmQ6XNEn4OyDdQn7vyuZuK8kkG-VLvaSNeopTUv1Wdw==
     body:
       encoding: UTF-8
       string: ''
     http_version: 
-  recorded_at: Tue, 12 Dec 2017 23:51:45 GMT
+  recorded_at: Wed, 20 Dec 2017 20:03:48 GMT
 - request:
     method: get
     uri: https://api.ebsco.io/rm/rmaccounts/TEST_CUSTOMER_ID/vendors/22/packages/1887786/titles/1440285
@@ -268,9 +268,9 @@ http_interactions:
       Connection:
       - keep-alive
       Date:
-      - Tue, 12 Dec 2017 23:51:45 GMT
+      - Wed, 20 Dec 2017 20:03:48 GMT
       X-Amzn-Requestid:
-      - 6919bf05-df97-11e7-848d-af2f26db0e50
+      - e43ffeb0-e5c0-11e7-9c84-3be4208b146c
       X-Amzn-Remapped-Content-Length:
       - '1596'
       X-Amzn-Remapped-Connection:
@@ -286,15 +286,15 @@ http_interactions:
       Pragma:
       - no-cache
       X-Amzn-Remapped-Date:
-      - Tue, 12 Dec 2017 23:51:44 GMT
+      - Wed, 20 Dec 2017 20:03:48 GMT
       X-Aspnet-Version:
       - 4.0.30319
       X-Cache:
       - Miss from cloudfront
       Via:
-      - 1.1 b04a4cffa8fb4f524ff7edcab1b5ae31.cloudfront.net (CloudFront)
+      - 1.1 9443b13f9c1702357fc79e34ddbc761c.cloudfront.net (CloudFront)
       X-Amz-Cf-Id:
-      - KT1x3GVW0kQbJRkasldeo_90zzKoh8EdtYhZ0PTNAjgYIok1nqh_Rw==
+      - rN4LzrpanwV452btRF9sc9Zh79lQKXkMM8f7gDMsAccGi7IWwZ7RDw==
     body:
       encoding: UTF-8
       string: '{"description":null,"edition":null,"isPeerReviewed":false,"contributorsList":[{"type":"author","contributor":"Havard,
@@ -305,5 +305,5 @@ http_interactions:
         Info & Learning Co","locationId":17545807,"isSelected":true,"isTokenNeeded":true,"visibilityData":{"isHidden":true,"reason":"Hidden
         by Customer"},"managedCoverageList":[{"beginCoverage":"2010-01-01","endCoverage":"2010-12-31"}],"customCoverageList":[{"beginCoverage":"2000-01-01","endCoverage":"2004-02-01"},{"beginCoverage":"2005-01-01","endCoverage":""}],"coverageStatement":null,"managedEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"customEmbargoPeriod":{"embargoUnit":"Months","embargoValue":5},"url":"http://ebookcentral.proquest.com/lib/[[SiteID]]/detail.action?docID=1722033","userDefinedField1":null,"userDefinedField2":null,"userDefinedField3":null,"userDefinedField4":null,"userDefinedField5":null}]}'
     http_version: 
-  recorded_at: Tue, 12 Dec 2017 23:51:45 GMT
+  recorded_at: Wed, 20 Dec 2017 20:03:48 GMT
 recorded_with: VCR 3.0.3
