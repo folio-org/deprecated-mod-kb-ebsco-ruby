@@ -1,0 +1,31 @@
+inherit_from:
+  - .rubocop_todo.yml
+
+AllCops:
+  TargetRubyVersion: 2.4
+  Exclude:
+    - 'bin/**/*'
+    - 'vendor/**/*'
+    - 'app/middleware/**/*'
+
+Documentation:
+  Enabled: false
+
+Rails:
+  Enabled: true
+
+# Our models aren't ActiveRecord models, so this breaks stuff
+Rails/DynamicFindBy:
+  Enabled: false
+
+# I sort of get where they're coming from, but we're all adults here
+Metrics/MethodLength:
+  Enabled: false
+Metrics/BlockLength:
+  Enabled: false
+Metrics/ClassLength:
+  Enabled: false
+
+# Template tokens are fine
+Style/FormatStringToken:
+  Enabled: false

@@ -1,4 +1,6 @@
-require "open-uri"
+# frozen_string_literal: true
+
+require 'open-uri'
 
 class Configuration
   include ActiveModel::Validations
@@ -18,10 +20,10 @@ class Configuration
 
   def load!
     response = @okapi.user.get '/configurations/entries?query=module=KB_EBSCO'
-    response["configs"].each do |config|
-      params = Rack::Utils.parse_query(config["value"])
-      @customer_id = params["customer-id"]
-      @api_key = params["api-key"]
+    response['configs'].each do |config|
+      params = Rack::Utils.parse_query(config['value'])
+      @customer_id = params['customer-id']
+      @api_key = params['api-key']
     end
   end
 
@@ -34,11 +36,9 @@ class Configuration
       api_key: @api_key
     ).request(:get, verify_path)
 
-    if response.ok?
-      return true
-    else
-      self.errors[:base] << "RM-API Credentials Are Invalid"
-    end
+    return true if response.ok?
+
+    errors[:base] << 'RM-API Credentials Are Invalid'
   end
 
   def save
@@ -46,21 +46,19 @@ class Configuration
 
     response = @okapi.user.get '/configurations/entries?query=module=KB_EBSCO'
 
-    response["configs"].each do |config|
-      id = config["id"]
+    response['configs'].each do |config|
+      id = config['id']
       @okapi.user.delete "/configurations/entries/#{id}"
     end
 
     @okapi.user.post(
       '/configurations/entries',
-      {
-       "module": "KB_EBSCO",
-       "configName": "api_credentials",
-       "code": "kb.ebsco.credentials",
-       "description": "EBSCO RM-API Credentials",
-       "enabled": true,
-       "value": "customer-id=#{customer_id}&api-key=#{@api_key}"
-      }
+      "module": 'KB_EBSCO',
+      "configName": 'api_credentials',
+      "code": 'kb.ebsco.credentials',
+      "description": 'EBSCO RM-API Credentials',
+      "enabled": true,
+      "value": "customer-id=#{customer_id}&api-key=#{@api_key}"
     )
   end
 end

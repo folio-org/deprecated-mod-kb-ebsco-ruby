@@ -1,6 +1,7 @@
-class TitlesController < ApplicationController
+# frozen_string_literal: true
 
-  before_action :set_title, only: [:show, :customer_resources]
+class TitlesController < ApplicationController
+  before_action :set_title, only: %i[show customer_resources]
 
   def index
     @titles = titles.all(q: params[:q], page: params[:page])

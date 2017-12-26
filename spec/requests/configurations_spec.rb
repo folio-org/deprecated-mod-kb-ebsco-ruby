@@ -1,21 +1,20 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
-RSpec.describe "Configurations", type: :request do
-
-  let(:headers) {
+RSpec.describe 'Configurations', type: :request do
+  let(:headers) do
     okapi_headers.merge(
-      {
-        'Content-Type': 'application/vnd.api+json'
-      }
+      'Content-Type': 'application/vnd.api+json'
     )
-  }
+  end
 
   let(:resource) do
     [
       '/eholdings/configuration',
       params: {
         data: {
-          type: "configurations",
+          type: 'configurations',
           id: 'default',
           attributes: {
             customerId: customer_id,
@@ -27,9 +26,9 @@ RSpec.describe "Configurations", type: :request do
     ]
   end
 
-  describe "setting the configuration when it has never been set before" do
+  describe 'setting the configuration when it has never been set before' do
     before do
-      VCR.use_cassette("put-configuration") do
+      VCR.use_cassette('put-configuration') do
         put(*resource)
       end
     end
@@ -40,9 +39,9 @@ RSpec.describe "Configurations", type: :request do
       expect(response).to have_http_status(200)
     end
 
-    describe "reading the configuration" do
+    describe 'reading the configuration' do
       before do
-        VCR.use_cassette("get-configuration") do
+        VCR.use_cassette('get-configuration') do
           get(*resource)
         end
       end
@@ -58,9 +57,9 @@ RSpec.describe "Configurations", type: :request do
     end
   end
 
-  describe "setting the configuration with invalid JSON" do
+  describe 'setting the configuration with invalid JSON' do
     before do
-      VCR.use_cassette("put-configuration-bad") do
+      VCR.use_cassette('put-configuration-bad') do
         put(
           '/eholdings/configuration',
           params: {
@@ -72,12 +71,12 @@ RSpec.describe "Configurations", type: :request do
       end
     end
 
-    it "returns an unprocessable entity code" do
+    it 'returns an unprocessable entity code' do
       expect(response).to have_http_status(422)
     end
   end
 
-  describe "trying to fetch configuration without a url" do
+  describe 'trying to fetch configuration without a url' do
     before do
       get '/eholdings/configuration'
     end
@@ -87,9 +86,13 @@ RSpec.describe "Configurations", type: :request do
     end
   end
 
-  describe "trying to fetch configuration without a tenant" do
+  describe 'trying to fetch configuration without a tenant' do
     before do
-      get '/eholdings/configuration', params:{}, headers: {'X-Okapi-Url': 'https://frontside.io' }
+      get '/eholdings/configuration',
+          headers: {
+            'X-Okapi-Url': 'https://frontside.io'
+          },
+          params: {}
     end
 
     it 'returns a bad request code' do
@@ -97,14 +100,18 @@ RSpec.describe "Configurations", type: :request do
     end
   end
 
-  describe "trying to fetch configuration without a token" do
+  describe 'trying to fetch configuration without a token' do
     before do
-      get '/eholdings/configuration', params:{}, headers: {'X-Okapi-Url': 'https://frontside.io', 'X-Okapi-Tenant': 'fs' }
+      get '/eholdings/configuration',
+          headers: {
+            'X-Okapi-Url': 'https://frontside.io',
+            'X-Okapi-Tenant': 'fs'
+          },
+          params: {}
     end
 
     it 'returns a bad request code' do
       expect(response).to have_http_status(400)
     end
   end
-
 end

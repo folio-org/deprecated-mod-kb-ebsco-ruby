@@ -1,6 +1,9 @@
-#require 'rack/request'
+# frozen_string_literal: true
+
+# require 'rack/request'
 
 # Rack middleware to decode a `Transfer-Encoding: chunked` HTTP request.
+
 #
 # USAGE NOTE:
 #
@@ -22,49 +25,48 @@
 # This middleware cannot fix these problems.
 #
 class ChunkedTransferDecoder
-
   TRANSFER_ENCODING = 'HTTP_TRANSFER_ENCODING'
   CHUNKED_TRANSFER_ENCODING = 'chunked'
 
-  def initialize app, opts
+  def initialize(app, opts)
     @app = app
     @decoded_upstream = opts[:decoded_upstream] || false
   end
 
-  def call env
-    #req = Rack::Request.new env
+  def call(env)
+    # req = Rack::Request.new env
 
-    if is_chunked_encoding?(env) #and (req.post? or req.put? or req.patch?)
-      stream = env["rack.input"]
+    if is_chunked_encoding?(env) # and (req.post? or req.put? or req.patch?)
+      stream = env['rack.input']
       stream.rewind if stream.respond_to?(:rewind)
       encoded = stream.read
       encoded.force_encoding(Encoding::BINARY)
 
-      if @decoded_upstream
-        decoded = encoded
-      else
-        #puts "ENCODED ----------- #{encoded}"
-        decoded = self.class.reassemble_chunks encoded
-        #puts "DECODED ----------- #{decoded}"
-      end
+      decoded = if @decoded_upstream
+                  encoded
+                else
+                  # puts "ENCODED ----------- #{encoded}"
+                  self.class.reassemble_chunks encoded
+                  # puts "DECODED ----------- #{decoded}"
+                end
 
       env['CONTENT_LENGTH'] = decoded.size
       env['RAW_POST_DATA'] = decoded
-      env["rack.input"] = StringIO.new(decoded)
+      env['rack.input'] = StringIO.new(decoded)
       env.delete TRANSFER_ENCODING
     end
-    return @app.call env
+    @app.call env
   end
 
-  def is_chunked_encoding? env
+  def is_chunked_encoding?(env)
     env[TRANSFER_ENCODING] == CHUNKED_TRANSFER_ENCODING
   end
 
   # Reassemble HTTP chunked transfer data
   # Doc: http://en.wikipedia.org/wiki/Chunked_transfer_encoding
   # Here's an example http://twistedmatrix.com/trac/browser/tags/releases/twisted-8.2.0/twisted/web/http.py#L1206
-  def self.reassemble_chunks raw_data
-    reassembled_data = ""
+  def self.reassemble_chunks(raw_data)
+    reassembled_data = ''
     position = 0
 
     while position < raw_data.size
@@ -75,16 +77,15 @@ class ChunkedTransferDecoder
         reassembled_data << raw_data[position..-1]
         break
       end
-      chunk_size = raw_data[position..(end_of_chunk_size-1)].to_i 16 # chunk size represented in hex
+      chunk_size = raw_data[position..(end_of_chunk_size - 1)].to_i 16 # chunk size represented in hex
       # TODO ensure next two characters are "\r\n"
       position = end_of_chunk_size + 2
       end_of_content = position + chunk_size
-      chunk = raw_data[position..end_of_content-1]
+      chunk = raw_data[position..end_of_content - 1]
       reassembled_data << chunk
       position += chunk.size + 2
-      # TODO ensure next two characters are "\r\n"
+      # TODO: ensure next two characters are "\r\n"
     end
     reassembled_data
   end
-
 end

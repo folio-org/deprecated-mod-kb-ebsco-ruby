@@ -27,7 +27,7 @@ http_interactions:
       Server:
       - nginx/1.13.5
       Date:
-      - Wed, 20 Dec 2017 17:47:01 GMT
+      - Tue, 26 Dec 2017 22:16:30 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -38,7 +38,7 @@ http_interactions:
       - 'GET mod-authtoken-1.1.1-SNAPSHOT.7 http://10.39.243.223:8081/configurations/entries..
         : 202'
       - 'GET mod-configuration-3.0.1-SNAPSHOT.18 http://10.39.247.37:8081/configurations/entries..
-        : 200 42010us'
+        : 200 47767us'
       Host:
       - okapi.frontside.io
       X-Real-Ip:
@@ -66,7 +66,7 @@ http_interactions:
       User-Agent:
       - Ruby
       X-Okapi-Request-Id:
-      - 219778/configurations
+      - 162613/configurations
       X-Okapi-Url:
       - http://10.39.247.213:80
       X-Okapi-Permissions-Required:
@@ -107,7 +107,7 @@ http_interactions:
           }
         }
     http_version: 
-  recorded_at: Wed, 20 Dec 2017 17:47:01 GMT
+  recorded_at: Tue, 26 Dec 2017 22:16:30 GMT
 - request:
     method: get
     uri: https://api.ebsco.io/rm/rmaccounts/TEST_CUSTOMER_ID/vendors/22/packages/1887786/titles/1440285
@@ -133,15 +133,15 @@ http_interactions:
       Content-Type:
       - application/json; charset=utf-8
       Content-Length:
-      - '1471'
+      - '1579'
       Connection:
       - keep-alive
       Date:
-      - Wed, 20 Dec 2017 17:47:02 GMT
+      - Tue, 26 Dec 2017 22:16:31 GMT
       X-Amzn-Requestid:
-      - c8d0f690-e5ad-11e7-bd77-c31b809bbe71
+      - 6ccb2b50-ea8a-11e7-816c-53ab5541ac85
       X-Amzn-Remapped-Content-Length:
-      - '1471'
+      - '1579'
       X-Amzn-Remapped-Connection:
       - keep-alive
       X-Amzn-Remapped-Server:
@@ -155,15 +155,15 @@ http_interactions:
       Pragma:
       - no-cache
       X-Amzn-Remapped-Date:
-      - Wed, 20 Dec 2017 17:47:02 GMT
+      - Tue, 26 Dec 2017 22:16:30 GMT
       X-Aspnet-Version:
       - 4.0.30319
       X-Cache:
       - Miss from cloudfront
       Via:
-      - 1.1 6e65abb04cb818a6ec78111935b507f7.cloudfront.net (CloudFront)
+      - 1.1 22770649ed08cb882d5843ad2fac846d.cloudfront.net (CloudFront)
       X-Amz-Cf-Id:
-      - GbnUhIY_RtuwtaTu7X1ClJyquJ2MdnGrCMzsV9LMyzaUnccDnVVf-w==
+      - pVrQ62xQ08kCXlfOeqv7GQW3LaRwKOOQmO8f8didfYgz1uQIhGUK2g==
     body:
       encoding: UTF-8
       string: '{"description":null,"edition":null,"isPeerReviewed":false,"contributorsList":[{"type":"author","contributor":"Havard,
@@ -171,7 +171,7 @@ http_interactions:
         Nursing Guide to Drugs (Nursing Guide to Drugs)","publisherName":"Elsevier","identifiersList":[{"id":"1440285","source":"AtoZ","subtype":0,"type":9},{"id":"475765","source":"ResourceIdentifier","subtype":0,"type":16},{"id":"978-0-7295-3913-5","source":"ResourceIdentifier","subtype":1,"type":6},{"id":"978-0-7295-7913-1","source":"ResourceIdentifier","subtype":2,"type":8}],"subjectsList":[{"type":"BISAC","subject":"MEDICAL
         / Nursing / Pharmacology"}],"isTitleCustom":false,"pubType":"Book","customerResourcesList":[{"titleId":1440285,"packageId":1887786,"packageName":"ProQuest
         Ebook Central","isPackageCustom":false,"vendorId":22,"vendorName":"Proquest
-        Info & Learning Co","locationId":17545807,"isSelected":false,"isTokenNeeded":true,"visibilityData":{"isHidden":false,"reason":""},"managedCoverageList":[{"beginCoverage":"2010-01-01","endCoverage":"2010-12-31"}],"customCoverageList":[],"coverageStatement":null,"managedEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"customEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"url":"http://ebookcentral.proquest.com/lib/[[SiteID]]/detail.action?docID=1722033","userDefinedField1":null,"userDefinedField2":null,"userDefinedField3":null,"userDefinedField4":null,"userDefinedField5":null}]}'
+        Info & Learning Co","locationId":17545807,"isSelected":true,"isTokenNeeded":true,"visibilityData":{"isHidden":false,"reason":""},"managedCoverageList":[{"beginCoverage":"2010-01-01","endCoverage":"2010-12-31"}],"customCoverageList":[{"beginCoverage":"2000-01-01","endCoverage":"2004-02-01"},{"beginCoverage":"2005-01-01","endCoverage":""}],"coverageStatement":null,"managedEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"customEmbargoPeriod":{"embargoUnit":"Months","embargoValue":5},"url":"http://ebookcentral.proquest.com/lib/[[SiteID]]/detail.action?docID=1722033","userDefinedField1":null,"userDefinedField2":null,"userDefinedField3":null,"userDefinedField4":null,"userDefinedField5":null}]}'
     http_version: 
-  recorded_at: Wed, 20 Dec 2017 17:47:02 GMT
+  recorded_at: Tue, 26 Dec 2017 22:16:31 GMT
 recorded_with: VCR 3.0.3

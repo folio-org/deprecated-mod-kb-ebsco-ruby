@@ -27,7 +27,7 @@ http_interactions:
       Server:
       - nginx/1.13.5
       Date:
-      - Wed, 22 Nov 2017 19:11:50 GMT
+      - Tue, 26 Dec 2017 20:40:06 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -38,7 +38,7 @@ http_interactions:
       - 'GET mod-authtoken-1.1.1-SNAPSHOT.7 http://10.39.243.223:8081/configurations/entries..
         : 202'
       - 'GET mod-configuration-3.0.1-SNAPSHOT.18 http://10.39.247.37:8081/configurations/entries..
-        : 200 44465us'
+        : 200 40954us'
       Host:
       - okapi.frontside.io
       X-Real-Ip:
@@ -66,7 +66,7 @@ http_interactions:
       User-Agent:
       - Ruby
       X-Okapi-Request-Id:
-      - 168917/configurations
+      - 023543/configurations
       X-Okapi-Url:
       - http://10.39.247.213:80
       X-Okapi-Permissions-Required:
@@ -86,7 +86,7 @@ http_interactions:
       string: |-
         {
           "configs" : [ {
-            "id" : "0ccfbcb5-a2eb-4bb8-bee4-b918a8d0aeaa",
+            "id" : "0f7643e0-25b5-487a-816e-17484ec17e1b",
             "module" : "KB_EBSCO",
             "configName" : "api_credentials",
             "code" : "kb.ebsco.credentials",
@@ -94,9 +94,9 @@ http_interactions:
             "enabled" : true,
             "value" : "customer-id=TEST_CUSTOMER_ID&api-key=TEST_API_KEY",
             "metadata" : {
-              "createdDate" : "2017-11-22T19:11:39.501+0000",
+              "createdDate" : "2017-12-12T18:31:12.750+0000",
               "createdByUserId" : "1ad737b0-d847-11e6-bf26-cec0c932ce01",
-              "updatedDate" : "2017-11-22T19:11:39.501+0000",
+              "updatedDate" : "2017-12-12T18:31:12.750+0000",
               "updatedByUserId" : "1ad737b0-d847-11e6-bf26-cec0c932ce01"
             }
           } ],
@@ -107,7 +107,7 @@ http_interactions:
           }
         }
     http_version: 
-  recorded_at: Wed, 22 Nov 2017 19:11:50 GMT
+  recorded_at: Tue, 26 Dec 2017 20:40:06 GMT
 - request:
     method: get
     uri: https://api.ebsco.io/rm/rmaccounts/TEST_CUSTOMER_ID/vendors/19/packages/6581
@@ -116,7 +116,7 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - Flexirest/1.5.3
+      - Flexirest/1.5.5
       Connection:
       - Keep-Alive
       Accept:
@@ -135,15 +135,15 @@ http_interactions:
       Content-Type:
       - application/json; charset=utf-8
       Content-Length:
-      - '360'
+      - '354'
       Connection:
       - keep-alive
       Date:
-      - Wed, 22 Nov 2017 19:11:50 GMT
+      - Tue, 26 Dec 2017 20:40:06 GMT
       X-Amzn-Requestid:
-      - fe31d4bc-cfb8-11e7-8f4c-b15c3bfec4cc
+      - f51d45d4-ea7c-11e7-9846-d34029435562
       X-Amzn-Remapped-Content-Length:
-      - '360'
+      - '354'
       X-Amzn-Remapped-Connection:
       - keep-alive
       X-Amzn-Remapped-Server:
@@ -157,21 +157,21 @@ http_interactions:
       Pragma:
       - no-cache
       X-Amzn-Remapped-Date:
-      - Wed, 22 Nov 2017 19:11:50 GMT
+      - Tue, 26 Dec 2017 20:40:06 GMT
       X-Aspnet-Version:
       - 4.0.30319
       X-Cache:
       - Miss from cloudfront
       Via:
-      - 1.1 1e0f6d91fb358639e6808cb6d2638da0.cloudfront.net (CloudFront)
+      - 1.1 6efe4cf59648bc53c4136b0291d22d56.cloudfront.net (CloudFront)
       X-Amz-Cf-Id:
-      - D6yvoUcPTwziwirCQjJ0Z3obuBhPvarVFXtARq8YFFQRIGp7bXLNEg==
+      - 3jxem7IHCu2VpA-Cu8Uo3bbJWScMY_u-l3mpcwbacWbJgFeBgN1v9g==
     body:
       encoding: UTF-8
       string: '{"packageId":6581,"packageName":"EBSCO Biotechnology Collection: India","isCustom":false,"vendorId":19,"vendorName":"EBSCO","titleCount":159,"isSelected":true,"visibilityData":{"isHidden":true,"reason":"Hidden
-        by Customer"},"selectedCount":159,"isTokenNeeded":false,"contentType":"AggregatedFullText","customCoverage":{"beginCoverage":null,"endCoverage":null}}'
+        by EP"},"selectedCount":158,"isTokenNeeded":false,"contentType":"AggregatedFullText","customCoverage":{"beginCoverage":null,"endCoverage":null}}'
     http_version: 
-  recorded_at: Wed, 22 Nov 2017 19:11:50 GMT
+  recorded_at: Tue, 26 Dec 2017 20:40:06 GMT
 - request:
     method: get
     uri: https://api.ebsco.io/rm/rmaccounts/TEST_CUSTOMER_ID/vendors/19
@@ -180,7 +180,7 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - Flexirest/1.5.3
+      - Flexirest/1.5.5
       Connection:
       - Keep-Alive
       Accept:
@@ -203,9 +203,9 @@ http_interactions:
       Connection:
       - keep-alive
       Date:
-      - Wed, 22 Nov 2017 19:11:50 GMT
+      - Tue, 26 Dec 2017 20:40:06 GMT
       X-Amzn-Requestid:
-      - fe58210d-cfb8-11e7-84d5-eb6559faa8ea
+      - f536c1ad-ea7c-11e7-9cbd-15c689f36ff0
       X-Amzn-Remapped-Content-Length:
       - '116'
       X-Amzn-Remapped-Connection:
@@ -221,18 +221,18 @@ http_interactions:
       Pragma:
       - no-cache
       X-Amzn-Remapped-Date:
-      - Wed, 22 Nov 2017 19:11:50 GMT
+      - Tue, 26 Dec 2017 20:40:06 GMT
       X-Aspnet-Version:
       - 4.0.30319
       X-Cache:
       - Miss from cloudfront
       Via:
-      - 1.1 0ae25fed904e0259c5db061e4b999b59.cloudfront.net (CloudFront)
+      - 1.1 975acac100ae1bd3b8c22fb4f33b5845.cloudfront.net (CloudFront)
       X-Amz-Cf-Id:
-      - EXy5h3K9Zr70fOy5ujAK3ugnO1i3dp7W6iX3s0UNjzTlOZ2rm_1Hkw==
+      - ubHKA0qIm1Ks5eYbvrvLUtL2fQ37MWHXIBqyQqqrjBjCMfvv71cU1g==
     body:
       encoding: UTF-8
-      string: '{"vendorId":19,"vendorName":"EBSCO","vendorToken":null,"isCustomer":false,"packagesTotal":628,"packagesSelected":14}'
+      string: '{"vendorId":19,"vendorName":"EBSCO","vendorToken":null,"isCustomer":false,"packagesTotal":628,"packagesSelected":21}'
     http_version: 
-  recorded_at: Wed, 22 Nov 2017 19:11:50 GMT
+  recorded_at: Tue, 26 Dec 2017 20:40:06 GMT
 recorded_with: VCR 3.0.3

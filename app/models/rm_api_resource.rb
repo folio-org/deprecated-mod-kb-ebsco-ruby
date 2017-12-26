@@ -1,18 +1,16 @@
+# frozen_string_literal: true
+
 class RmApiResource < Flexirest::Base
   extend ActiveModel::Naming
   include ActiveModel::Conversion
   include ActiveModel::Validations
 
+  before_request :set_base_url
   before_request :add_headers
-  before_request :add_customer_id
-
-  base_url "#{ENV.fetch('EBSCO_RESOURCE_MANAGEMENT_API_BASE_URL', 'https://sandbox.ebsco.io')}/rm/rmaccounts"
 
   def persisted?
     id.present?
   end
-
-  private
 
   ##
   # Get a subclass of this resource configured to
@@ -51,13 +49,20 @@ class RmApiResource < Flexirest::Base
     end
   end
 
-  def add_headers(name, request)
+  private
+
+  def set_base_url(_name, request)
+    rmapi_url = ENV.fetch(
+      'EBSCO_RESOURCE_MANAGEMENT_API_BASE_URL',
+      'https://sandbox.ebsco.io'
+    )
+    customer_id = request.object.config.customer_id
+    self.class.base_url "#{rmapi_url}/rm/rmaccounts/#{customer_id}"
+  end
+
+  def add_headers(_name, request)
     request.headers['X-Api-Key'] = request.object.config.api_key
     request.headers['Content-Type'] = 'application/json'
     request.headers['Accept'] = 'application/json'
-  end
-
-  def add_customer_id(name, request)
-    request.url.gsub!("#customer_id", request.object.config.customer_id)
   end
 end

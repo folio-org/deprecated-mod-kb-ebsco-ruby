@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class RmApiService
   def initialize(params)
     @base_url = params[:base_url]
@@ -34,19 +36,20 @@ class RmApiService
 
   def uri_for(path)
     URI(
-      "%{base}/rm/rmaccounts/%{customer_id}/%{path}" % {
+      format(
+        '%{base}/rm/rmaccounts/%{customer_id}/%{path}',
         base: @base_url,
         customer_id: @customer_id,
         path: path
-      }
+      )
     )
   end
 
   def headers
     {
-      "X-Api-Key" => @api_key,
-      "Content-Type" => 'application/json',
-      "Accept" => 'application/json'
+      'X-Api-Key' => @api_key,
+      'Content-Type' => 'application/json',
+      'Accept' => 'application/json'
     }
   end
 
@@ -56,7 +59,7 @@ class RmApiService
     end
 
     def ok?
-      @res.message === 'OK'
+      @res.message == 'OK'
     end
 
     def code
@@ -65,15 +68,15 @@ class RmApiService
 
     def data
       @data ||= Map JSON.parse(@res.body)
-    rescue
+    rescue StandardError
       nil
     end
 
     def errors
       return [] if ok?
       data.Errors.map { |err| { title: err.Message } }
-    rescue
-      [{ title: "Unhandled Error" }]
+    rescue StandardError
+      [{ title: 'Unhandled Error' }]
     end
   end
 

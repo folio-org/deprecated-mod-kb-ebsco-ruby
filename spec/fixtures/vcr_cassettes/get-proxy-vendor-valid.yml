@@ -27,7 +27,7 @@ http_interactions:
       Server:
       - nginx/1.13.5
       Date:
-      - Wed, 20 Dec 2017 17:46:58 GMT
+      - Tue, 26 Dec 2017 22:16:25 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -38,13 +38,13 @@ http_interactions:
       - 'GET mod-authtoken-1.1.1-SNAPSHOT.7 http://10.39.243.223:8081/configurations/entries..
         : 202'
       - 'GET mod-configuration-3.0.1-SNAPSHOT.18 http://10.39.247.37:8081/configurations/entries..
-        : 200 42185us'
+        : 200 44092us'
       Host:
       - okapi.frontside.io
       X-Real-Ip:
-      - 10.128.0.4
+      - 10.36.1.1
       X-Forwarded-For:
-      - 10.128.0.4
+      - 10.36.1.1
       X-Forwarded-Host:
       - okapi.frontside.io
       X-Forwarded-Port:
@@ -66,7 +66,7 @@ http_interactions:
       User-Agent:
       - Ruby
       X-Okapi-Request-Id:
-      - 290811/configurations
+      - 927130/configurations
       X-Okapi-Url:
       - http://10.39.247.213:80
       X-Okapi-Permissions-Required:
@@ -107,7 +107,7 @@ http_interactions:
           }
         }
     http_version: 
-  recorded_at: Wed, 20 Dec 2017 17:46:58 GMT
+  recorded_at: Tue, 26 Dec 2017 22:16:25 GMT
 - request:
     method: get
     uri: https://api.ebsco.io/rm/rmaccounts/TEST_CUSTOMER_ID/vendors/19
@@ -137,9 +137,9 @@ http_interactions:
       Connection:
       - keep-alive
       Date:
-      - Wed, 20 Dec 2017 17:46:58 GMT
+      - Tue, 26 Dec 2017 22:16:25 GMT
       X-Amzn-Requestid:
-      - c6c93f07-e5ad-11e7-8720-f756771a4a96
+      - 6974fb25-ea8a-11e7-9b95-97dd4f452fde
       X-Amzn-Remapped-Content-Length:
       - '116'
       X-Amzn-Remapped-Connection:
@@ -155,18 +155,18 @@ http_interactions:
       Pragma:
       - no-cache
       X-Amzn-Remapped-Date:
-      - Wed, 20 Dec 2017 17:46:58 GMT
+      - Tue, 26 Dec 2017 22:16:25 GMT
       X-Aspnet-Version:
       - 4.0.30319
       X-Cache:
       - Miss from cloudfront
       Via:
-      - 1.1 f46e4d7bc5419470a70eb57aa9c935c8.cloudfront.net (CloudFront)
+      - 1.1 ae7fd0d88f365738edb8b211d5f7884a.cloudfront.net (CloudFront)
       X-Amz-Cf-Id:
-      - Helqxn7O93IswmKZLvjuQCpeEbuTb3qRvZTCCaZHbq4mquh6kwbuLQ==
+      - 93pem3zaI-8GKVywrb6xvwOBEaJJben0E7ZSSffkVV62HgfwVu2fBQ==
     body:
       encoding: UTF-8
       string: '{"vendorId":19,"vendorName":"EBSCO","vendorToken":null,"isCustomer":false,"packagesTotal":628,"packagesSelected":21}'
     http_version: 
-  recorded_at: Wed, 20 Dec 2017 17:46:58 GMT
+  recorded_at: Tue, 26 Dec 2017 22:16:25 GMT
 recorded_with: VCR 3.0.3

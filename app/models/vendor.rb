@@ -1,11 +1,14 @@
+# frozen_string_literal: true
+
 class Vendor < RmApiResource
-  get :all, "/#customer_id/vendors"
-  get :find, "/#customer_id/vendors/:id"
+  get :all, '/vendors'
+  get :find, '/vendors/:id'
 
   before_request do |name, request|
     if name == :all
       request.get_params[:search] = request.get_params.delete(:q)
-      request.get_params[:orderby] ||= (request.get_params[:search] ? 'relevance' : 'vendorname')
+      request.get_params[:orderby] ||=
+        (request.get_params[:search] ? 'relevance' : 'vendorname')
       request.get_params[:count] ||= 25
       request.get_params[:offset] = request.get_params[:page] || 1
       request.get_params.delete(:page)

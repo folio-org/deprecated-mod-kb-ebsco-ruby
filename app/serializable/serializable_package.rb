@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class SerializablePackage < SerializableResource
   type 'packages'
 
@@ -37,7 +39,7 @@ class SerializablePackage < SerializableResource
       print: 'Print',
       unknown: 'Unknown',
       onlinereference: 'Online Reference'
-    };
+    }
 
     content_type_key = @object.contentType.downcase.to_sym
 
