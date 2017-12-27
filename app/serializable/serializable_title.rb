@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class SerializableTitle < SerializableResource
   type 'titles'
 
@@ -20,7 +22,6 @@ class SerializableTitle < SerializableResource
   attribute :subjects do
     @object.subjectsList || []
   end
-
 
   attribute :identifiers do
     types = {

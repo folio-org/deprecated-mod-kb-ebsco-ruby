@@ -1,10 +1,11 @@
 
-class PackagesController < ApplicationController
+# frozen_string_literal: true
 
-  before_action :set_package, only: [:show, :update, :customer_resources]
+class PackagesController < ApplicationController
+  before_action :set_package, only: %i[show update customer_resources]
 
   deserializable_resource :package, only: :update,
-                          class: DeserializablePackage
+                                    class: DeserializablePackage
 
   def index
     @packages = packages.all(q: params[:q], page: params[:page])
@@ -53,8 +54,8 @@ class PackagesController < ApplicationController
       .require(:package)
       .permit(
         :isSelected,
-        visibilityData: [ :isHidden ],
-        customCoverage: [ :beginCoverage, :endCoverage ]
+        visibilityData: [:isHidden],
+        customCoverage: %i[beginCoverage endCoverage]
       )
   end
 end

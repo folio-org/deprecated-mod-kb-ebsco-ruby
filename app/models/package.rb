@@ -1,16 +1,18 @@
-class Package < RmApiResource
+# frozen_string_literal: true
 
+class Package < RmApiResource
   request_body_type :json
 
-  get :all, "/#customer_id/packages"
-  get :find, "/#customer_id/vendors/:vendor_id/packages/:package_id"
-  get :find_by_vendor, "/#customer_id/vendors/:vendor_id/packages"
-  put :update, "/#customer_id/vendors/:vendor_id/packages/:package_id"
+  get :all, '/packages'
+  get :find, '/vendors/:vendor_id/packages/:package_id'
+  get :find_by_vendor, '/vendors/:vendor_id/packages'
+  put :update, '/vendors/:vendor_id/packages/:package_id'
 
   before_request do |name, request|
-    if name == :all || name == :find_by_vendor
+    if %i[all find_by_vendor].include?(name)
       request.get_params[:search] = request.get_params.delete(:q)
-      request.get_params[:orderby] ||= (request.get_params[:search] ? 'relevance' : 'packagename')
+      request.get_params[:orderby] ||=
+        (request.get_params[:search] ? 'relevance' : 'packagename')
       request.get_params[:count] ||= 25
       request.get_params[:offset] = request.get_params[:page] || 1
       request.get_params.delete(:page)
@@ -27,7 +29,10 @@ class Package < RmApiResource
   end
 
   def customer_resources
-    CustomerResource.configure(config).find_by_package(vendor_id: vendorId, package_id: packageId).titles.to_a
+    CustomerResource.configure(config).find_by_package(
+      vendor_id: vendorId,
+      package_id: packageId
+    ).titles.to_a
   end
 
   # Instance methods
@@ -43,13 +48,13 @@ class Package < RmApiResource
   def save!
     attributes = update_fields
 
-    self.class.update({
+    self.class.update(
       vendor_id: vendorId,
       package_id: packageId,
       isSelected: attributes[:isSelected],
       isHidden: attributes[:visibilityData][:isHidden],
       customCoverage: attributes[:customCoverage]
-    })
+    )
 
     # re-fetch from RM API to surface side-effects
     saved_package = self.class.find(vendor_id: vendorId, package_id: packageId)
@@ -59,18 +64,16 @@ class Package < RmApiResource
   private
 
   def merge_fields(new_values)
-    update_fields.deep_merge(new_values.to_hash).each do |k,v|
-      self.send("#{k}=".to_sym, v)
+    update_fields.deep_merge(new_values.to_hash).each do |k, v|
+      send("#{k}=".to_sym, v)
     end
   end
 
   def update_fields
-    whitelist = [
+    to_hash.with_indifferent_access.slice(
       :isSelected,
       :visibilityData,
       :customCoverage
-    ]
-
-    self.to_hash.with_indifferent_access.slice(*whitelist)
+    )
   end
 end

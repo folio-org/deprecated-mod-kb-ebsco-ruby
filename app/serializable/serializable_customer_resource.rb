@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class SerializableCustomerResource < SerializableResource
   type 'customerResources'
 
@@ -12,7 +14,6 @@ class SerializableCustomerResource < SerializableResource
              :isTitleCustom,
              :publisherName,
              :titleId
-
 
   attribute :contributors do
     @object.contributorsList || []
@@ -78,7 +79,6 @@ class SerializableCustomerResource < SerializableResource
   attribute :subjects do
     @object.subjectsList || []
   end
-
 
   # CustomerResource Attributes
   attribute :coverageStatement do

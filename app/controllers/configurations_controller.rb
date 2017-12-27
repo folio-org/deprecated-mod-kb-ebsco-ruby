@@ -1,9 +1,12 @@
+# frozen_string_literal: true
+
 class ConfigurationsController < ApplicationController
   def show
     render jsonapi: config
   end
 
-  def update
+  # TODO: Use ActionController::Parameters
+  def update # rubocop:disable Metrics/AbcSize
     data_attributes = JSON.parse(request.body.read)['data']['attributes'] || {}
 
     config.customer_id = data_attributes['customerId']

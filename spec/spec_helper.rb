@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 # Shared context for values common to all request tests
-RSpec.shared_context "Request Test Helpers" do
+RSpec.shared_context 'Request Test Helpers' do
   let!(:customer_id) { ENV.fetch('TEST_CUSTOMER_ID') }
   let!(:api_key) { ENV.fetch('TEST_API_KEY') }
   let!(:okapi_token) { ENV.fetch('TEST_OKAPI_TOKEN') }
@@ -8,16 +10,16 @@ RSpec.shared_context "Request Test Helpers" do
 
   let!(:okapi_headers) do
     {
-     'X-Okapi-Url': okapi_url,
-     'X-Okapi-Tenant': okapi_tenant,
-     'X-Okapi-Token': okapi_token
+      'X-Okapi-Url': okapi_url,
+      'X-Okapi-Tenant': okapi_tenant,
+      'X-Okapi-Token': okapi_token
     }
   end
 end
 
 RSpec.configure do |config|
   # Shared Context Helpers
-  config.include_context "Request Test Helpers", :type => :request
+  config.include_context 'Request Test Helpers', type: :request
 
   # Assertion / Expectation Settings
   config.expect_with :rspec do |expectations|
@@ -35,10 +37,9 @@ RSpec.configure do |config|
   config.shared_context_metadata_behavior = :apply_to_host_groups
 end
 
-
 require 'vcr'
 VCR.configure do |config|
-  config.cassette_library_dir = "spec/fixtures/vcr_cassettes"
+  config.cassette_library_dir = 'spec/fixtures/vcr_cassettes'
   config.hook_into :webmock
   config.filter_sensitive_data('TEST_CUSTOMER_ID') do
     ENV['TEST_CUSTOMER_ID']

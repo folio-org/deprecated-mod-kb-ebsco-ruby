@@ -1,6 +1,7 @@
-class VendorsController < ApplicationController
+# frozen_string_literal: true
 
-  before_action :set_vendor, only: [:show, :packages]
+class VendorsController < ApplicationController
+  before_action :set_vendor, only: %i[show packages]
 
   def index
     @vendors = vendors.all(q: params[:q], page: params[:page])

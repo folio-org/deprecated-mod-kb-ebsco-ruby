@@ -1,3 +1,7 @@
+# frozen_string_literal: true
+
+# rubocop:disable Naming/VariableName
+
 module Validation
   class PackageParameters
     include ActiveModel::Validations
@@ -8,13 +12,13 @@ module Validation
     # to keep this from happening, a manual request to the API could lead
     # to confusing behavior unless we signal a failure code here.
     # TODO: clearer messaging might be nice here
-    with_options unless: :isSelected do |package|
-      package.validates :isHidden, absence: true, unless: :isSelected
-      package.validates :beginCoverage, absence: true, unless: :isSelected
-      package.validates :endCoverage, absence: true, unless: :isSelected
+    with_options unless: :isSelected do
+      validates :isHidden, absence: true, unless: :isSelected
+      validates :beginCoverage, absence: true, unless: :isSelected
+      validates :endCoverage, absence: true, unless: :isSelected
     end
 
-    def initialize(params={})
+    def initialize(params = {})
       @isSelected = params[:isSelected]
       @isHidden = params.dig(:visibilityData, :isHidden)
       @beginCoverage = params.dig(:customCoverage, :beginCoverage)
@@ -22,3 +26,5 @@ module Validation
     end
   end
 end
+
+# rubocop:enable Naming/VariableName

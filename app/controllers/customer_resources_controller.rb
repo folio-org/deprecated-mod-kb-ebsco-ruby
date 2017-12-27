@@ -1,9 +1,12 @@
+# frozen_string_literal: true
+
 class CustomerResourcesController < ApplicationController
   attr_accessor :customer_resource
 
-  before_action :set_customer_resource, only: [:show, :update]
+  before_action :set_customer_resource, only: %i[show update]
 
-  deserializable_resource :customer_resource, only: :update,
+  deserializable_resource :customer_resource,
+                          only: :update,
                           class: DeserializableCustomerResource
 
   def show
@@ -31,7 +34,7 @@ class CustomerResourcesController < ApplicationController
   end
 
   def customer_resource_id
-    [:vendor_id, :package_id, :title_id].zip(
+    %i[vendor_id package_id title_id].zip(
       params[:id].split('-')
     ).to_h
   end
@@ -47,13 +50,13 @@ class CustomerResourcesController < ApplicationController
       .require(:customer_resource)
       .permit(
         :isSelected,
-        visibilityData: [ :isHidden ],
+        visibilityData: [:isHidden],
         customCoverageList: [
-          [ :beginCoverage, :endCoverage ]
+          %i[beginCoverage endCoverage]
         ],
-        customEmbargoPeriod: [
-          :embargoUnit,
-          :embargoValue
+        customEmbargoPeriod: %i[
+          embargoUnit
+          embargoValue
         ]
       )
   end

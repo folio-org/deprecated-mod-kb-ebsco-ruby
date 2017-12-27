@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 Rails.application.configure do
   # Code is not reloaded between requests.
   config.cache_classes = true
@@ -26,7 +28,7 @@ Rails.application.configure do
   config.log_level = :debug
 
   # Prepend all log lines with the following tags.
-  config.log_tags = [ :request_id ]
+  config.log_tags = [:request_id]
 
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
   # the I18n.default_locale when a translation cannot be found).
@@ -38,12 +40,14 @@ Rails.application.configure do
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new
 
-  if ENV["RAILS_LOG_TO_STDOUT"].present?
+  if ENV['RAILS_LOG_TO_STDOUT'].present?
     logger           = ActiveSupport::Logger.new(STDOUT)
     logger.formatter = config.log_formatter
     config.logger    = ActiveSupport::TaggedLogging.new(logger)
   end
 
   # Load middleware for dealing with Transfer-Encoding: chunked
-  config.middleware.insert_before Rack::Runtime, ChunkedTransferDecoder, decoded_upstream: true
+  config.middleware.insert_before Rack::Runtime,
+                                  ChunkedTransferDecoder,
+                                  decoded_upstream: true
 end

@@ -1,41 +1,50 @@
+# frozen_string_literal: true
+
 class ApplicationController < ActionController::API
   before_action :verify_okapi_headers
   before_action :set_response_headers
   around_action :catch_flexirest_exceptions
-
 
   def okapi
     @okapi ||= Okapi::Client.new(okapi_url, okapi_tenant, okapi_token)
   end
 
   def config
-    @config ||= ::Configuration.new(okapi, rmapi_base_url).tap do |config|
-      config.load!
-    end
+    @config ||= ::Configuration.new(okapi, rmapi_base_url).tap(&:load!)
   end
 
   def rmapi_base_url
-    ENV.fetch('EBSCO_RESOURCE_MANAGEMENT_API_BASE_URL', 'https://sandbox.ebsco.io')
+    ENV.fetch(
+      'EBSCO_RESOURCE_MANAGEMENT_API_BASE_URL',
+      'https://sandbox.ebsco.io'
+    )
   end
 
   def okapi_url
-    request.headers["HTTP_X_OKAPI_URL"]
+    request.headers['HTTP_X_OKAPI_URL']
   end
 
   def okapi_tenant
-    request.headers["HTTP_X_OKAPI_TENANT"]
+    request.headers['HTTP_X_OKAPI_TENANT']
   end
 
   def okapi_token
-    request.headers["HTTP_X_OKAPI_TOKEN"]
+    request.headers['HTTP_X_OKAPI_TOKEN']
   end
 
   private
 
   def catch_flexirest_exceptions
     yield
-  rescue Flexirest::HTTPClientException, Flexirest::HTTPServerException, Flexirest::HTTPNotFoundClientException => e
-    render jsonapi_errors: e.result.Errors.to_a.map{ |err| {"title": err.to_hash['Message']} },
+  rescue Flexirest::HTTPClientException,
+         Flexirest::HTTPServerException,
+         Flexirest::HTTPNotFoundClientException => e
+
+    errors_hash = e.result.Errors.to_a.map do |err|
+      { "title": err.to_hash['Message'] }
+    end
+
+    render jsonapi_errors: errors_hash,
            status: e.status
   end
 

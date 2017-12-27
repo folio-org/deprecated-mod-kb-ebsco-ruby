@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 Rails.application.configure do
   # In the development environment your application's code is reloaded on
   # every request. This slows down response time but is perfect for development
@@ -11,7 +13,7 @@ Rails.application.configure do
   config.consider_all_requests_local = true
 
   # Enable/disable caching. By default caching is disabled.
-  if Rails.root.join('tmp/caching-dev.txt').exist?
+  if Rails.root.join('tmp', 'caching-dev.txt').exist?
     config.action_controller.perform_caching = true
 
     config.cache_store = :memory_store
@@ -32,5 +34,7 @@ Rails.application.configure do
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
 
   # Load middleware for dealing with Transfer-Encoding: chunked
-  config.middleware.insert_before Rack::Runtime, ChunkedTransferDecoder, decoded_upstream: true
+  config.middleware.insert_before Rack::Runtime,
+                                  ChunkedTransferDecoder,
+                                  decoded_upstream: true
 end

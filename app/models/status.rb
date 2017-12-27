@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Status
   attr_reader :errors
 
@@ -6,7 +8,7 @@ class Status
     @errors = []
   end
 
-  def is_configuration_valid
+  def configuration_valid?
     @config.valid?
   end
 
