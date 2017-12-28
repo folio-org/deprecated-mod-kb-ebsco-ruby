@@ -114,6 +114,23 @@ RSpec.describe 'Titles', type: :request do
     it 'returns the correct included type' do
       expect(json.data.first.type).to eq('customerResources')
     end
+
+    describe 'with pagination' do
+      before do
+        VCR.use_cassette('get-titles-related-customer-resources-page2') do
+          get '/eholdings/titles/316875/customer-resources?page=2', headers: okapi_headers
+        end
+      end
+
+      let!(:json2) { Map JSON.parse response.body }
+
+      it 'gets a different list of resources' do
+        expect(response).to have_http_status(200)
+        expect(json2.data.length).to equal(25)
+        expect(json2.meta.totalResults).to equal(61)
+        expect(json.data.first.id).not_to eql(json2.data.first.id)
+      end
+    end
   end
 
   describe 'getting a title with empty array fields' do
