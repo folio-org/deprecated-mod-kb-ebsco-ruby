@@ -10,7 +10,7 @@ class Configuration
   validate :verify_credentials
 
   def id
-    'rmapi'
+    'configuration'
   end
 
   def initialize(okapi, rmapi_base_url)
