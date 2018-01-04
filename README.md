@@ -21,7 +21,7 @@ Environment variables needed:
 - `EBSCO_RESOURCE_MANAGEMENT_API_CUSTOMER_ID`
 - `EBSCO_RESOURCE_MANAGEMENT_API_KEY`
 
-Place in `.env` or CI project settings.
+Place in `.env` or CI project settings. 
 
 ## Additional information
 
