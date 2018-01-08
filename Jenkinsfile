@@ -86,7 +86,9 @@ pipeline {
       steps {
         echo "Building Docker image..."
         script {
-          docker.build("${env.name}:${env.version}", '--no-cache .') 
+          def dockerRepo = 'folioci'
+          env.dockerImage = "$dockerRepo/${env.name}"
+          docker.build("${env.dockerImage}:${env.version}", '--no-cache .') 
         }
       }  
     }
@@ -99,7 +101,7 @@ pipeline {
         echo "Pushing Docker image ${env.name} to Docker Hub..."
         script {
           docker.withRegistry('https://index.docker.io/v1/', 'DockerHubIDJenkins') {
-            def dockerImage =  docker.image("${env.name}:${env.version}")
+            def dockerImage =  docker.image("${env.dockerImage}:${env.version}")
             dockerImage.push()
             dockerImage.push('latest')
           }
