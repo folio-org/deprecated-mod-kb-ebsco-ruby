@@ -116,6 +116,7 @@ pipeline {
       steps {
         script {
           if (env.snapshot) { 
+            def foliociLib = new org.folio.foliociCommands()
             foliociLib.updateModDescriptorId('ModuleDescriptor.json')
           }
         }
@@ -127,8 +128,8 @@ pipeline {
 
   post {
     always {
-      sh "docker rmi ${env.name}:${env.version} || exit 0"
-      sh "docker rmi ${env.name}:latest || exit 0"
+      sh "docker rmi ${env.dockerImage}:${env.version} || exit 0"
+      sh "docker rmi ${env.dockerImage}:latest || exit 0"
       sendNotifications currentBuild.result
     }
   }
