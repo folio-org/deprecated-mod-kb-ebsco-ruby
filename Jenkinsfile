@@ -1,4 +1,4 @@
-@Library ('folio_jenkins_shared_libs@folio-997-ruby') _
+@Library ('folio_jenkins_shared_libs') _
 
 pipeline {
 
