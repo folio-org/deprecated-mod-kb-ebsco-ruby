@@ -15,7 +15,9 @@ class VendorsController < ApplicationController
 
   # Relationships
   def packages
-    render jsonapi: @vendor.packages
+    @packages = @vendor.find_packages(page: params[:page])
+    render jsonapi: @packages.packagesList.to_a,
+           meta: { totalResults: @packages.totalResults }
   end
 
   private

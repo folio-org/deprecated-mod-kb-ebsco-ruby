@@ -19,7 +19,11 @@ class Vendor < RmApiResource
     vendorId
   end
 
+  def find_packages(**params)
+    Package.configure(config).find_by_vendor(vendor_id: id, **params)
+  end
+
   def packages
-    Package.configure(config).find_by_vendor(vendor_id: id).packagesList.to_a
+    find_packages.packagesList.to_a
   end
 end
