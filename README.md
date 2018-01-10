@@ -1,6 +1,6 @@
 # mod-kb-ebsco
 
-[![Build Status](https://travis-ci.org/thefrontside/mod-kb-ebsco.svg?branch=master)](https://travis-ci.org/thefrontside/mod-kb-ebsco)
+[![Build Status](https://travis-ci.org/folio-org/mod-kb-ebsco.svg?branch=master)](https://travis-ci.org/folio-org/mod-kb-ebsco)
 
 ## License
 
