@@ -14,5 +14,9 @@ module ModKbEbsco
   class Application < Rails::Application
     config.load_defaults 5.1
     config.api_only = true
+
+    def config.rmapi_base_url
+      ENV.fetch('EBSCO_RMAPI_BASE_URL', 'https://api.ebsco.io')
+    end
   end
 end
