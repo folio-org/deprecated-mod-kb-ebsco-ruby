@@ -2,9 +2,9 @@
 
 # Shared context for values common to all request tests
 RSpec.shared_context 'Request Test Helpers' do
-  let!(:customer_id) { ENV.fetch('TEST_CUSTOMER_ID') }
-  let!(:api_key) { ENV.fetch('TEST_API_KEY') }
-  let!(:okapi_token) { ENV.fetch('TEST_OKAPI_TOKEN') }
+  let!(:customer_id) { ENV.fetch('TEST_CUSTOMER_ID', 'test-customer-id') }
+  let!(:api_key) { ENV.fetch('TEST_API_KEY', 'test-rm-api-key') }
+  let!(:okapi_token) { ENV.fetch('TEST_OKAPI_TOKEN', 'test-okapi-token') }
   let!(:okapi_url) { ENV.fetch('TEST_OKAPI_URL', 'https://okapi.frontside.io') }
   let!(:okapi_tenant) { ENV.fetch('TEST_OKAPI_TENANT', 'fs') }
 
@@ -42,12 +42,12 @@ VCR.configure do |config|
   config.cassette_library_dir = 'spec/fixtures/vcr_cassettes'
   config.hook_into :webmock
   config.filter_sensitive_data('TEST_CUSTOMER_ID') do
-    ENV['TEST_CUSTOMER_ID']
+    ENV.fetch('TEST_CUSTOMER_ID', 'test-customer-id')
   end
   config.filter_sensitive_data('TEST_API_KEY') do
-    ENV['TEST_API_KEY']
+    ENV.fetch('TEST_API_KEY', 'test-rm-api-key')
   end
   config.filter_sensitive_data('TEST_OKAPI_TOKEN') do
-    ENV['TEST_OKAPI_TOKEN']
+    ENV.fetch('TEST_OKAPI_TOKEN', 'test-okapi-token')
   end
 end

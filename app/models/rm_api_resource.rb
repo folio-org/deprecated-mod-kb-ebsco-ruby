@@ -52,10 +52,7 @@ class RmApiResource < Flexirest::Base
   private
 
   def set_base_url(_name, request)
-    rmapi_url = ENV.fetch(
-      'EBSCO_RESOURCE_MANAGEMENT_API_BASE_URL',
-      'https://sandbox.ebsco.io'
-    )
+    rmapi_url = Rails.application.config.rmapi_base_url
     customer_id = request.object.config.customer_id
     self.class.base_url "#{rmapi_url}/rm/rmaccounts/#{customer_id}"
   end
