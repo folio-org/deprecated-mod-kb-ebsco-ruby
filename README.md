@@ -28,7 +28,7 @@ Place in `.env` or CI project settings.
 
 ## Running tests
 
-Run existing tests using 
+Run existing tests using
 
 - bundle exec rspec
 
@@ -37,6 +37,10 @@ However, if new recordings for tests need to be made, set the following in .env 
 - TEST_CUSTOMER_ID
 - TEST_API_KEY
 - TEST_OKAPI_TOKEN
+
+To run tests that also generate a code coverage report at `/coverage`
+
+- COVERAGE=true bundle exec rspec
 
 ## Additional information
 
