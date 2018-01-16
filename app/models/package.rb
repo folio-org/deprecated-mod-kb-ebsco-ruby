@@ -29,10 +29,15 @@ class Package < RmApiResource
   end
 
   def customer_resources
+    find_customer_resources.titles.to_a
+  end
+
+  def find_customer_resources(**params)
     CustomerResource.configure(config).find_by_package(
       vendor_id: vendorId,
-      package_id: packageId
-    ).titles.to_a
+      package_id: packageId,
+      **params
+    )
   end
 
   # Instance methods

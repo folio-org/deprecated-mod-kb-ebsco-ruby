@@ -27,7 +27,7 @@ http_interactions:
       Server:
       - nginx/1.13.5
       Date:
-      - Wed, 22 Nov 2017 19:11:59 GMT
+      - Wed, 10 Jan 2018 21:11:11 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -35,16 +35,16 @@ http_interactions:
       Connection:
       - keep-alive
       X-Okapi-Trace:
-      - 'GET mod-authtoken-1.1.1-SNAPSHOT.7 http://10.39.243.223:8081/configurations/entries..
-        : 202'
-      - 'GET mod-configuration-3.0.1-SNAPSHOT.18 http://10.39.247.37:8081/configurations/entries..
-        : 200 42193us'
+      - 'GET mod-authtoken-1.2.0-SNAPSHOT.14 http://10.39.255.104:8081/configurations/entries..
+        : 202 349911us'
+      - 'GET mod-configuration-4.0.1-SNAPSHOT.23 http://10.39.243.63:8081/configurations/entries..
+        : 200 43489us'
       Host:
       - okapi.frontside.io
       X-Real-Ip:
-      - 10.128.0.4
+      - 10.128.0.5
       X-Forwarded-For:
-      - 10.128.0.4
+      - 10.128.0.5
       X-Forwarded-Host:
       - okapi.frontside.io
       X-Forwarded-Port:
@@ -66,13 +66,13 @@ http_interactions:
       User-Agent:
       - Ruby
       X-Okapi-Request-Id:
-      - '084362/configurations'
+      - 704216/configurations
       X-Okapi-Url:
-      - http://10.39.247.213:80
+      - http://10.39.248.95:80
       X-Okapi-Permissions-Required:
       - configuration.entries.collection.get
       X-Okapi-Module-Permissions:
-      - '{"mod-authtoken-1.1.1-SNAPSHOT.7":["perms.users.get"]}'
+      - '{"mod-authtoken-1.2.0-SNAPSHOT.14":["perms.users.get"]}'
       X-Okapi-Permissions:
       - '["configuration.entries.collection.get"]'
       X-Okapi-User-Id:
@@ -86,7 +86,7 @@ http_interactions:
       string: |-
         {
           "configs" : [ {
-            "id" : "0ccfbcb5-a2eb-4bb8-bee4-b918a8d0aeaa",
+            "id" : "fa776aae-7473-4bf9-aa33-08f2a314cb04",
             "module" : "KB_EBSCO",
             "configName" : "api_credentials",
             "code" : "kb.ebsco.credentials",
@@ -94,9 +94,9 @@ http_interactions:
             "enabled" : true,
             "value" : "customer-id=TEST_CUSTOMER_ID&api-key=TEST_API_KEY",
             "metadata" : {
-              "createdDate" : "2017-11-22T19:11:39.501+0000",
+              "createdDate" : "2017-11-02T15:56:49.186+0000",
               "createdByUserId" : "1ad737b0-d847-11e6-bf26-cec0c932ce01",
-              "updatedDate" : "2017-11-22T19:11:39.501+0000",
+              "updatedDate" : "2017-11-02T15:56:49.186+0000",
               "updatedByUserId" : "1ad737b0-d847-11e6-bf26-cec0c932ce01"
             }
           } ],
@@ -107,7 +107,7 @@ http_interactions:
           }
         }
     http_version: 
-  recorded_at: Wed, 22 Nov 2017 19:11:59 GMT
+  recorded_at: Wed, 10 Jan 2018 21:11:11 GMT
 - request:
     method: get
     uri: https://api.ebsco.io/rm/rmaccounts/TEST_CUSTOMER_ID/vendors/19
@@ -116,7 +116,7 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - Flexirest/1.5.3
+      - Flexirest/1.5.5
       Connection:
       - Keep-Alive
       Accept:
@@ -139,9 +139,9 @@ http_interactions:
       Connection:
       - keep-alive
       Date:
-      - Wed, 22 Nov 2017 19:11:59 GMT
+      - Wed, 10 Jan 2018 21:11:11 GMT
       X-Amzn-Requestid:
-      - 03bf566c-cfb9-11e7-8f0a-030ca167ae94
+      - c8ce1023-f64a-11e7-af0c-5925d84ddf6d
       X-Amzn-Remapped-Content-Length:
       - '116'
       X-Amzn-Remapped-Connection:
@@ -157,20 +157,20 @@ http_interactions:
       Pragma:
       - no-cache
       X-Amzn-Remapped-Date:
-      - Wed, 22 Nov 2017 19:11:59 GMT
+      - Wed, 10 Jan 2018 21:11:11 GMT
       X-Aspnet-Version:
       - 4.0.30319
       X-Cache:
       - Miss from cloudfront
       Via:
-      - 1.1 da94bfa4529bf05a5b62b3f058727c6c.cloudfront.net (CloudFront)
+      - 1.1 1ed98fc00b2a1a4ba9773a032570cc00.cloudfront.net (CloudFront)
       X-Amz-Cf-Id:
-      - RenkORVihpLUuI8BqR6riLbzMR1J1viWL69zvqLiG6QsZkHWqXe2yQ==
+      - 9MfG6eesoN_QKBdCw5W0LGGEoNeAZOMLnW0GOdpfHHacBLUdYw7qzA==
     body:
       encoding: UTF-8
-      string: '{"vendorId":19,"vendorName":"EBSCO","vendorToken":null,"isCustomer":false,"packagesTotal":628,"packagesSelected":14}'
+      string: '{"vendorId":19,"vendorName":"EBSCO","vendorToken":null,"isCustomer":false,"packagesTotal":628,"packagesSelected":27}'
     http_version: 
-  recorded_at: Wed, 22 Nov 2017 19:11:59 GMT
+  recorded_at: Wed, 10 Jan 2018 21:11:11 GMT
 - request:
     method: get
     uri: https://api.ebsco.io/rm/rmaccounts/TEST_CUSTOMER_ID/vendors/19/packages?count=25&offset=1&orderby=packagename&search=
@@ -179,7 +179,7 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - Flexirest/1.5.3
+      - Flexirest/1.5.5
       Connection:
       - Keep-Alive
       Accept:
@@ -198,15 +198,15 @@ http_interactions:
       Content-Type:
       - application/json; charset=utf-8
       Content-Length:
-      - '8491'
+      - '8561'
       Connection:
       - keep-alive
       Date:
-      - Wed, 22 Nov 2017 19:12:00 GMT
+      - Wed, 10 Jan 2018 21:11:11 GMT
       X-Amzn-Requestid:
-      - 03ea85ea-cfb9-11e7-8af8-7ff5f8047f5e
+      - c900923f-f64a-11e7-a1e5-b762cd247c28
       X-Amzn-Remapped-Content-Length:
-      - '8491'
+      - '8561'
       X-Amzn-Remapped-Connection:
       - keep-alive
       X-Amzn-Remapped-Server:
@@ -220,45 +220,49 @@ http_interactions:
       Pragma:
       - no-cache
       X-Amzn-Remapped-Date:
-      - Wed, 22 Nov 2017 19:12:00 GMT
+      - Wed, 10 Jan 2018 21:11:11 GMT
       X-Aspnet-Version:
       - 4.0.30319
       X-Cache:
       - Miss from cloudfront
       Via:
-      - 1.1 056e8663365bf1daf840591db57b77b6.cloudfront.net (CloudFront)
+      - 1.1 7dd202542eedb4379b92613a759c7ff6.cloudfront.net (CloudFront)
       X-Amz-Cf-Id:
-      - UomC3k7ZL8AU7hH3arkxt_dQHQwuaTdTgGh4rlVJJCK3IVTjsptIKQ==
+      - vePjD5-Ev-xDtHwCaDh551ambzB_JBL6akkFnjXw-DFUxgALIvBk6Q==
     body:
       encoding: UTF-8
       string: '{"totalResults":628,"packagesList":[{"packageId":2697502,"packageName":"ABC-CLIO
-        WORLD RELIGIONS","isCustom":false,"vendorId":19,"vendorName":"EBSCO","titleCount":1,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"OnlineReference","customCoverage":{"beginCoverage":null,"endCoverage":null}},{"packageId":2697501,"packageName":"ABC-CLIO
-        WORLD RELIGIONS - ACADEMIC ED","isCustom":false,"vendorId":19,"vendorName":"EBSCO","titleCount":1,"isSelected":true,"visibilityData":{"isHidden":true,"reason":"Hidden
-        by EP"},"selectedCount":1,"isTokenNeeded":false,"contentType":"OnlineReference","customCoverage":{"beginCoverage":null,"endCoverage":null}},{"packageId":2516,"packageName":"Abstracts
+        WORLD RELIGIONS","isCustom":false,"vendorId":19,"vendorName":"EBSCO","titleCount":1,"isSelected":true,"visibilityData":{"isHidden":true,"reason":"Hidden
+        by Customer"},"selectedCount":1,"isTokenNeeded":false,"contentType":"OnlineReference","customCoverage":{"beginCoverage":null,"endCoverage":null}},{"packageId":2697501,"packageName":"ABC-CLIO
+        WORLD RELIGIONS - ACADEMIC ED","isCustom":false,"vendorId":19,"vendorName":"EBSCO","titleCount":1,"isSelected":true,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":1,"isTokenNeeded":false,"contentType":"OnlineReference","customCoverage":{"beginCoverage":null,"endCoverage":null}},{"packageId":2516,"packageName":"Abstracts
         in Social Gerontology","isCustom":false,"vendorId":19,"vendorName":"EBSCO","titleCount":1,"isSelected":true,"visibilityData":{"isHidden":true,"reason":"Hidden
-        by EP"},"selectedCount":1,"isTokenNeeded":false,"contentType":"AbstractAndIndex","customCoverage":{"beginCoverage":null,"endCoverage":null}},{"packageId":1073,"packageName":"Academic
-        Search Alumni Edition","isCustom":false,"vendorId":19,"vendorName":"EBSCO","titleCount":3758,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"AggregatedFullText","customCoverage":{"beginCoverage":null,"endCoverage":null}},{"packageId":1615,"packageName":"Academic
-        Search Complete","isCustom":false,"vendorId":19,"vendorName":"EBSCO","titleCount":10679,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"AggregatedFullText","customCoverage":{"beginCoverage":null,"endCoverage":null}},{"packageId":158,"packageName":"Academic
-        Search Elite","isCustom":false,"vendorId":19,"vendorName":"EBSCO","titleCount":3525,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"AggregatedFullText","customCoverage":{"beginCoverage":null,"endCoverage":null}},{"packageId":1327231,"packageName":"Academic
+        by EP"},"selectedCount":1,"isTokenNeeded":false,"contentType":"AbstractAndIndex","customCoverage":{"beginCoverage":"2018-01-04","endCoverage":""}},{"packageId":1073,"packageName":"Academic
+        Search Alumni Edition","isCustom":false,"vendorId":19,"vendorName":"EBSCO","titleCount":3755,"isSelected":true,"visibilityData":{"isHidden":true,"reason":"Hidden
+        by EP"},"selectedCount":3755,"isTokenNeeded":false,"contentType":"AggregatedFullText","customCoverage":{"beginCoverage":null,"endCoverage":null}},{"packageId":1615,"packageName":"Academic
+        Search Complete","isCustom":false,"vendorId":19,"vendorName":"EBSCO","titleCount":10666,"isSelected":true,"visibilityData":{"isHidden":true,"reason":"Hidden
+        by EP"},"selectedCount":1,"isTokenNeeded":false,"contentType":"AggregatedFullText","customCoverage":{"beginCoverage":null,"endCoverage":null}},{"packageId":158,"packageName":"Academic
+        Search Elite","isCustom":false,"vendorId":19,"vendorName":"EBSCO","titleCount":3520,"isSelected":true,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":3520,"isTokenNeeded":false,"contentType":"AggregatedFullText","customCoverage":{"beginCoverage":null,"endCoverage":null}},{"packageId":1327231,"packageName":"Academic
         Search Index","isCustom":false,"vendorId":19,"vendorName":"EBSCO","titleCount":1,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"AbstractAndIndex","customCoverage":{"beginCoverage":null,"endCoverage":null}},{"packageId":4065,"packageName":"Academic
-        Search Main Edition ","isCustom":false,"vendorId":19,"vendorName":"EBSCO","titleCount":3014,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"AggregatedFullText","customCoverage":{"beginCoverage":null,"endCoverage":null}},{"packageId":160,"packageName":"Academic
-        Search Premier","isCustom":false,"vendorId":19,"vendorName":"EBSCO","titleCount":6143,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"AggregatedFullText","customCoverage":{"beginCoverage":null,"endCoverage":null}},{"packageId":2333054,"packageName":"Academic
-        Search Ultimate","isCustom":false,"vendorId":19,"vendorName":"EBSCO","titleCount":13385,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"AggregatedFullText","customCoverage":{"beginCoverage":null,"endCoverage":null}},{"packageId":1153,"packageName":"Advanced
-        Placement Source","isCustom":false,"vendorId":19,"vendorName":"EBSCO","titleCount":4361,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"AggregatedFullText","customCoverage":{"beginCoverage":null,"endCoverage":null}},{"packageId":6529,"packageName":"Advanstar
-        Communications Collection","isCustom":false,"vendorId":19,"vendorName":"EBSCO","titleCount":56,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"AggregatedFullText","customCoverage":{"beginCoverage":null,"endCoverage":null}},{"packageId":22440,"packageName":"Advertising
+        Search Main Edition ","isCustom":false,"vendorId":19,"vendorName":"EBSCO","titleCount":3010,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"AggregatedFullText","customCoverage":{"beginCoverage":null,"endCoverage":null}},{"packageId":160,"packageName":"Academic
+        Search Premier","isCustom":false,"vendorId":19,"vendorName":"EBSCO","titleCount":6137,"isSelected":true,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":6137,"isTokenNeeded":false,"contentType":"AggregatedFullText","customCoverage":{"beginCoverage":null,"endCoverage":null}},{"packageId":2333054,"packageName":"Academic
+        Search Ultimate","isCustom":false,"vendorId":19,"vendorName":"EBSCO","titleCount":13390,"isSelected":true,"visibilityData":{"isHidden":true,"reason":"Hidden
+        by Customer"},"selectedCount":13390,"isTokenNeeded":false,"contentType":"AggregatedFullText","customCoverage":{"beginCoverage":null,"endCoverage":null}},{"packageId":1153,"packageName":"Advanced
+        Placement Source","isCustom":false,"vendorId":19,"vendorName":"EBSCO","titleCount":4347,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"AggregatedFullText","customCoverage":{"beginCoverage":null,"endCoverage":null}},{"packageId":6529,"packageName":"Advanstar
+        Communications Collection","isCustom":false,"vendorId":19,"vendorName":"EBSCO","titleCount":56,"isSelected":true,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":56,"isTokenNeeded":false,"contentType":"AggregatedFullText","customCoverage":{"beginCoverage":null,"endCoverage":null}},{"packageId":22440,"packageName":"Advertising
         Periodicals, 1815-1888","isCustom":false,"vendorId":19,"vendorName":"EBSCO","titleCount":297,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"AggregatedFullText","customCoverage":{"beginCoverage":null,"endCoverage":null}},{"packageId":5188,"packageName":"African
         American Archives","isCustom":false,"vendorId":19,"vendorName":"EBSCO","titleCount":1,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"AbstractAndIndex","customCoverage":{"beginCoverage":null,"endCoverage":null}},{"packageId":5738,"packageName":"African
         American Historical Serials Collection","isCustom":false,"vendorId":19,"vendorName":"EBSCO","titleCount":177,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"AggregatedFullText","customCoverage":{"beginCoverage":null,"endCoverage":null}},{"packageId":2552,"packageName":"Africa-Wide
         Information","isCustom":false,"vendorId":19,"vendorName":"EBSCO","titleCount":1,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"AbstractAndIndex","customCoverage":{"beginCoverage":null,"endCoverage":null}},{"packageId":2699,"packageName":"AgeLine
         (EBSCO)","isCustom":false,"vendorId":19,"vendorName":"EBSCO","titleCount":1,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"AbstractAndIndex","customCoverage":{"beginCoverage":null,"endCoverage":null}},{"packageId":2681,"packageName":"Agricola
         (EBSCO)","isCustom":false,"vendorId":19,"vendorName":"EBSCO","titleCount":1,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"AbstractAndIndex","customCoverage":{"beginCoverage":null,"endCoverage":null}},{"packageId":22427,"packageName":"Agricultural
-        Periodicals from the Northeastern U.S., 1789-1879","isCustom":false,"vendorId":19,"vendorName":"EBSCO","titleCount":231,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"AggregatedFullText","customCoverage":{"beginCoverage":null,"endCoverage":null}},{"packageId":22449,"packageName":"Agricultural
+        Periodicals from the Northeastern U.S., 1789-1879","isCustom":false,"vendorId":19,"vendorName":"EBSCO","titleCount":231,"isSelected":true,"visibilityData":{"isHidden":true,"reason":"Hidden
+        by EP"},"selectedCount":230,"isTokenNeeded":false,"contentType":"AggregatedFullText","customCoverage":{"beginCoverage":null,"endCoverage":null}},{"packageId":22449,"packageName":"Agricultural
         Periodicals from the Southern, Midwestern, and Western U.S., 1800-1878","isCustom":false,"vendorId":19,"vendorName":"EBSCO","titleCount":188,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"AggregatedFullText","customCoverage":{"beginCoverage":null,"endCoverage":null}},{"packageId":1376381,"packageName":"Agriculture
-        Plus","isCustom":false,"vendorId":19,"vendorName":"EBSCO","titleCount":282,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"AggregatedFullText","customCoverage":{"beginCoverage":null,"endCoverage":null}},{"packageId":4270,"packageName":"AHFS
+        Plus","isCustom":false,"vendorId":19,"vendorName":"EBSCO","titleCount":279,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"AggregatedFullText","customCoverage":{"beginCoverage":null,"endCoverage":null}},{"packageId":4270,"packageName":"AHFS
         Consumer Medication Information","isCustom":false,"vendorId":19,"vendorName":"EBSCO","titleCount":2,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"AggregatedFullText","customCoverage":{"beginCoverage":null,"endCoverage":null}},{"packageId":500,"packageName":"Alt
         HealthWatch","isCustom":false,"vendorId":19,"vendorName":"EBSCO","titleCount":192,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"AggregatedFullText","customCoverage":{"beginCoverage":null,"endCoverage":null}},{"packageId":22428,"packageName":"Alternative
         Faith and Philosophy Periodicals, 1789-1878","isCustom":false,"vendorId":19,"vendorName":"EBSCO","titleCount":164,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"AggregatedFullText","customCoverage":{"beginCoverage":null,"endCoverage":null}},{"packageId":1321944,"packageName":"Alternative
         Medicine and Health, 1810-1877","isCustom":false,"vendorId":19,"vendorName":"EBSCO","titleCount":179,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"AggregatedFullText","customCoverage":{"beginCoverage":null,"endCoverage":null}}]}'
     http_version: 
-  recorded_at: Wed, 22 Nov 2017 19:12:00 GMT
+  recorded_at: Wed, 10 Jan 2018 21:11:12 GMT
 recorded_with: VCR 3.0.3

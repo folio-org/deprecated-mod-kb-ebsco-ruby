@@ -31,7 +31,9 @@ class PackagesController < ApplicationController
 
   # Relationships
   def customer_resources
-    render jsonapi: @package.customer_resources
+    @customer_resources = @package.find_customer_resources(page: params[:page])
+    render jsonapi: @customer_resources.titles.to_a,
+           meta: { totalResults: @customer_resources.totalResults }
   end
 
   private
