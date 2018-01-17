@@ -1,0 +1,179 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://okapi.frontside.io/configurations/entries?query=module=KB_EBSCO
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Content-Type:
+      - application/json
+      Accept:
+      - application/json
+      X-Okapi-Tenant:
+      - fs
+      X-Okapi-Token:
+      - TEST_OKAPI_TOKEN
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx/1.13.5
+      Date:
+      - Tue, 16 Jan 2018 20:52:55 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      X-Okapi-Trace:
+      - 'GET mod-authtoken-1.2.0-SNAPSHOT.14 http://10.39.255.104:8081/configurations/entries..
+        : 202 355251us'
+      - 'GET mod-configuration-4.0.1-SNAPSHOT.23 http://10.39.243.63:8081/configurations/entries..
+        : 200 42905us'
+      Host:
+      - okapi.frontside.io
+      X-Real-Ip:
+      - 10.128.0.3
+      X-Forwarded-For:
+      - 10.128.0.3
+      X-Forwarded-Host:
+      - okapi.frontside.io
+      X-Forwarded-Port:
+      - '443'
+      X-Forwarded-Proto:
+      - https
+      X-Original-Uri:
+      - "/configurations/entries?query=module=KB_EBSCO"
+      X-Scheme:
+      - https
+      X-Auth-Request-Redirect:
+      - "/configurations/entries?query=module=KB_EBSCO"
+      Accept:
+      - application/json
+      X-Okapi-Tenant:
+      - fs
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      User-Agent:
+      - Ruby
+      X-Okapi-Request-Id:
+      - 701625/configurations
+      X-Okapi-Url:
+      - http://10.39.248.95:80
+      X-Okapi-Permissions-Required:
+      - configuration.entries.collection.get
+      X-Okapi-Module-Permissions:
+      - '{"mod-authtoken-1.2.0-SNAPSHOT.14":["perms.users.get"]}'
+      X-Okapi-Permissions:
+      - '["configuration.entries.collection.get"]'
+      X-Okapi-User-Id:
+      - 1ad737b0-d847-11e6-bf26-cec0c932ce01
+      X-Okapi-Token:
+      - TEST_OKAPI_TOKEN
+      Strict-Transport-Security:
+      - max-age=15724800; includeSubDomains;
+    body:
+      encoding: ASCII-8BIT
+      string: |-
+        {
+          "configs" : [ {
+            "id" : "fa776aae-7473-4bf9-aa33-08f2a314cb04",
+            "module" : "KB_EBSCO",
+            "configName" : "api_credentials",
+            "code" : "kb.ebsco.credentials",
+            "description" : "EBSCO RM-API Credentials",
+            "enabled" : true,
+            "value" : "customer-id=TEST_CUSTOMER_ID&api-key=TEST_API_KEY",
+            "metadata" : {
+              "createdDate" : "2017-11-02T15:56:49.186+0000",
+              "createdByUserId" : "1ad737b0-d847-11e6-bf26-cec0c932ce01",
+              "updatedDate" : "2017-11-02T15:56:49.186+0000",
+              "updatedByUserId" : "1ad737b0-d847-11e6-bf26-cec0c932ce01"
+            }
+          } ],
+          "totalRecords" : 1,
+          "resultInfo" : {
+            "totalRecords" : 1,
+            "facets" : [ ]
+          }
+        }
+    http_version: 
+  recorded_at: Tue, 16 Jan 2018 20:38:55 GMT
+- request:
+    method: get
+    uri: https://api.ebsco.io/rm/rmaccounts/TEST_CUSTOMER_ID/vendors/22/packages/4620/titles/5557625
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Flexirest/1.5.5
+      Connection:
+      - Keep-Alive
+      Accept:
+      - application/json
+      X-Api-Key:
+      - TEST_API_KEY
+      Content-Type:
+      - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '1316'
+      Connection:
+      - keep-alive
+      Date:
+      - Tue, 16 Jan 2018 20:52:55 GMT
+      X-Amzn-Requestid:
+      - 39ef5557-faff-11e7-9488-99af875eb12b
+      X-Amzn-Remapped-Content-Length:
+      - '1316'
+      X-Amzn-Remapped-Connection:
+      - keep-alive
+      X-Amzn-Remapped-Server:
+      - Microsoft-IIS/8.5
+      Cache-Control:
+      - no-cache
+      Expires:
+      - "-1"
+      X-Powered-By:
+      - ASP.NET
+      Pragma:
+      - no-cache
+      X-Amzn-Remapped-Date:
+      - Tue, 16 Jan 2018 20:52:55 GMT
+      X-Aspnet-Version:
+      - 4.0.30319
+      X-Cache:
+      - Miss from cloudfront
+      Via:
+      - 1.1 2f7eec78b53c7625bd656dcd08ed1823.cloudfront.net (CloudFront)
+      X-Amz-Cf-Id:
+      - KboxjaeyDjLzrKBHQePgMcD5hGbigmd12DVOmj5cVvGXzCM2QZj4zw==
+    body:
+      encoding: UTF-8
+      string: '{"description":null,"edition":null,"isPeerReviewed":false,"contributorsList":[],"titleId":5557625,"titleName":"Muslim
+        Journal","publisherName":"Muslim Journal","identifiersList":[{"id":"0883-816X","source":"ResourceIdentifier","subtype":1,"type":1},{"id":"422558","source":"AtoZ","subtype":0,"type":9},{"id":"604756163","source":"ResourceIdentifier","subtype":0,"type":11},{"id":"BOB5","source":"MFS","subtype":0,"type":17}],"subjectsList":[{"type":"TLI","subject":"Eastern
+        Religions"}],"isTitleCustom":false,"pubType":"Newspaper","customerResourcesList":[{"titleId":5557625,"packageId":4620,"packageName":"ProQuest
+        Black Newspapers","isPackageCustom":false,"vendorId":22,"vendorName":"Proquest
+        Info & Learning Co","locationId":24205955,"isSelected":true,"isTokenNeeded":false,"visibilityData":{"isHidden":true,"reason":"Hidden
+        by EP"},"managedCoverageList":[{"beginCoverage":"2016-05-06","endCoverage":""}],"customCoverageList":[{"beginCoverage":"2017-01-09","endCoverage":"2017-12-28"}],"coverageStatement":null,"managedEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"customEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"url":"https://search.proquest.com/publication/45595","userDefinedField1":null,"userDefinedField2":null,"userDefinedField3":null,"userDefinedField4":null,"userDefinedField5":null}]}'
+    http_version: 
+  recorded_at: Tue, 16 Jan 2018 20:38:55 GMT
+recorded_with: VCR 3.0.3

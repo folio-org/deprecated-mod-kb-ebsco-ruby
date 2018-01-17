@@ -2,4 +2,6 @@ log
 tmp
 .env
 telepresence.log
+.byebug_history
+.vscode/launch.json
 coverage
