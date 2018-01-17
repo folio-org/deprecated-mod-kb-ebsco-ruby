@@ -4,7 +4,7 @@
 require 'simplecov'
 if ENV['COVERAGE']
   SimpleCov.start 'rails' do
-    minimum_coverage 85
+    minimum_coverage 90
   end
 end
 
