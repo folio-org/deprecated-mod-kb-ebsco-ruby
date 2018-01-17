@@ -118,7 +118,12 @@ class SerializableCustomerResource < SerializableResource
     @object.resource.vendorName
   end
   attribute :visibilityData do
-    @object.resource.visibilityData
+    visibility = @object.resource.visibilityData
+    if visibility['isHidden']
+      visibility['reason'] =
+        visibility['reason'] == 'Hidden by EP' ? 'Set by System' : ''
+    end
+    visibility
   end
   attribute :managedCoverages do
     @object.resource.managedCoverageList

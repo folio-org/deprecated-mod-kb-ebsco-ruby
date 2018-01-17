@@ -72,6 +72,9 @@ RSpec.describe 'Customer Resources', type: :request do
       it 'has reason ' do
         expect(attributes.visibilityData).to have_key(:reason)
       end
+      it 'has reason empty' do
+        expect(attributes.visibilityData.reason).to eq('')
+      end
     end
 
     describe 'with custom embargo period' do
@@ -513,6 +516,44 @@ RSpec.describe 'Customer Resources', type: :request do
 
     it 'returns a not found error' do
       expect(response).to have_http_status(404)
+    end
+  end
+
+  describe 'when the customer resource is hidden' do
+    before do
+      VCR.use_cassette('get-customer-resource-reason-hidden-by-customer') do
+        get '/eholdings/customer-resources/19-2697502-15097690',
+            headers: okapi_headers
+      end
+    end
+
+    let!(:json) { Map JSON.parse response.body }
+    let!(:visibility) { json.data.attributes.visibilityData }
+
+    it 'gets a successful response' do
+      expect(response).to have_http_status(200)
+    end
+    it 'has reason hidden by customer' do
+      expect(visibility.reason).to eq('')
+    end
+  end
+
+  describe 'when the customer resource is hidden at package level' do
+    before do
+      VCR.use_cassette('get-customer-resource-reason-hidden-by-ep') do
+        get '/eholdings/customer-resources/22-4620-5557625',
+            headers: okapi_headers
+      end
+    end
+
+    let!(:json) { Map JSON.parse response.body }
+    let!(:visibility) { json.data.attributes.visibilityData }
+
+    it 'gets a successful response' do
+      expect(response).to have_http_status(200)
+    end
+    it 'has reason hidden by ep' do
+      expect(visibility.reason).to eq('Set by System')
     end
   end
 end
