@@ -11,4 +11,4 @@ install:
 
 script:
   - rubocop
-  - rake spec
+  - COVERAGE=true rake spec

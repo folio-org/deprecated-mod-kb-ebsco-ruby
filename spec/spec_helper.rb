@@ -1,5 +1,13 @@
 # frozen_string_literal: true
 
+# If COVERAGE=true, generate simplecov reports
+require 'simplecov'
+if ENV['COVERAGE']
+  SimpleCov.start 'rails' do
+    minimum_coverage 90
+  end
+end
+
 # Shared context for values common to all request tests
 RSpec.shared_context 'Request Test Helpers' do
   let!(:customer_id) { ENV.fetch('TEST_CUSTOMER_ID', 'test-customer-id') }

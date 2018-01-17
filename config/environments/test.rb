@@ -30,4 +30,9 @@ Rails.application.configure do
 
   # Print deprecation notices to the stderr.
   config.active_support.deprecation = :stderr
+
+  # Load middleware for dealing with Transfer-Encoding: chunked
+  config.middleware.insert_before Rack::Runtime,
+                                  ChunkedTransferDecoder,
+                                  decoded_upstream: true
 end

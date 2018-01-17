@@ -26,6 +26,7 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'rubocop', require: false
   gem 'rubocop-checkstyle_formatter', require: false
+  gem 'simplecov'
   gem 'vcr', '~> 3.0'
   gem 'webmock', '~> 3.0'
 end
