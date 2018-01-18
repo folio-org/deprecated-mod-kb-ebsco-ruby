@@ -70,7 +70,7 @@ RSpec.describe 'Packages', type: :request do
 
     it 'returns a valid visibility reason' do
       expect(json.data.attributes.visibilityData.reason).to(
-        eq('All titles in this package are hidden')
+        eq('Set by System')
       )
     end
   end
@@ -497,6 +497,44 @@ RSpec.describe 'Packages', type: :request do
 
     it 'returns a not found error' do
       expect(response).to have_http_status(404)
+    end
+  end
+
+  describe 'getting a hidden by ep package' do
+    before do
+      VCR.use_cassette('get-package-reason-hidden-by-ep') do
+        get '/eholdings/packages/19-2516',
+            headers: okapi_headers
+      end
+    end
+
+    let!(:json) { Map JSON.parse response.body }
+    let!(:visibility) { json.data.attributes.visibilityData }
+
+    it 'gets a successful response' do
+      expect(response).to have_http_status(200)
+    end
+    it 'has reason hidden by customer' do
+      expect(visibility.reason).to eq('Set by System')
+    end
+  end
+
+  describe 'getting a hidden by customer package' do
+    before do
+      VCR.use_cassette('get-package-reason-hidden-by-customer') do
+        get '/eholdings/packages/19-2697502',
+            headers: okapi_headers
+      end
+    end
+
+    let!(:json) { Map JSON.parse response.body }
+    let!(:visibility) { json.data.attributes.visibilityData }
+
+    it 'gets a successful response' do
+      expect(response).to have_http_status(200)
+    end
+    it 'has reason hidden by customer' do
+      expect(visibility.reason).to eq('')
     end
   end
 end

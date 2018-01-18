@@ -22,11 +22,11 @@ class SerializablePackage < SerializableResource
   attribute :visibilityData do
     visibility = @object.visibilityData
 
-    if visibility['isHidden']
-      { isHidden: true, reason: 'All titles in this package are hidden' }
-    else
-      visibility
+    if visibility[:isHidden]
+      visibility[:reason] =
+        visibility[:reason] == 'Hidden by EP' ? 'Set by System' : ''
     end
+    visibility
   end
 
   attribute :contentType do
