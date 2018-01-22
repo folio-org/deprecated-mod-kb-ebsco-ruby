@@ -27,7 +27,7 @@ http_interactions:
       Server:
       - nginx/1.13.5
       Date:
-      - Wed, 10 Jan 2018 21:11:15 GMT
+      - Mon, 22 Jan 2018 17:41:02 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -36,15 +36,15 @@ http_interactions:
       - keep-alive
       X-Okapi-Trace:
       - 'GET mod-authtoken-1.2.0-SNAPSHOT.14 http://10.39.255.104:8081/configurations/entries..
-        : 202 356797us'
+        : 202 354929us'
       - 'GET mod-configuration-4.0.1-SNAPSHOT.23 http://10.39.243.63:8081/configurations/entries..
-        : 200 42722us'
+        : 200 43851us'
       Host:
       - okapi.frontside.io
       X-Real-Ip:
-      - 10.128.0.4
+      - 10.128.0.3
       X-Forwarded-For:
-      - 10.128.0.4
+      - 10.128.0.3
       X-Forwarded-Host:
       - okapi.frontside.io
       X-Forwarded-Port:
@@ -66,7 +66,7 @@ http_interactions:
       User-Agent:
       - Ruby
       X-Okapi-Request-Id:
-      - 944291/configurations
+      - 351675/configurations
       X-Okapi-Url:
       - http://10.39.248.95:80
       X-Okapi-Permissions-Required:
@@ -107,10 +107,10 @@ http_interactions:
           }
         }
     http_version: 
-  recorded_at: Wed, 10 Jan 2018 21:11:15 GMT
+  recorded_at: Mon, 22 Jan 2018 17:41:00 GMT
 - request:
     method: get
-    uri: https://api.ebsco.io/rm/rmaccounts/TEST_CUSTOMER_ID/vendors/1
+    uri: https://api.ebsco.io/rm/rmaccounts/TEST_CUSTOMER_ID/vendors/19
     body:
       encoding: US-ASCII
       string: ''
@@ -129,21 +129,21 @@ http_interactions:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
   response:
     status:
-      code: 404
-      message: Not Found
+      code: 200
+      message: OK
     headers:
       Content-Type:
       - application/json; charset=utf-8
       Content-Length:
-      - '125'
+      - '116'
       Connection:
       - keep-alive
       Date:
-      - Wed, 10 Jan 2018 21:11:16 GMT
+      - Mon, 22 Jan 2018 17:41:02 GMT
       X-Amzn-Requestid:
-      - cb7a4512-f64a-11e7-9fb5-b7a1529b493c
+      - 6a18e685-ff9b-11e7-acde-6ffa2b35901c
       X-Amzn-Remapped-Content-Length:
-      - '125'
+      - '116'
       X-Amzn-Remapped-Connection:
       - keep-alive
       X-Amzn-Remapped-Server:
@@ -157,19 +157,18 @@ http_interactions:
       Pragma:
       - no-cache
       X-Amzn-Remapped-Date:
-      - Wed, 10 Jan 2018 21:11:16 GMT
+      - Mon, 22 Jan 2018 17:41:01 GMT
       X-Aspnet-Version:
       - 4.0.30319
       X-Cache:
-      - Error from cloudfront
+      - Miss from cloudfront
       Via:
-      - 1.1 d5e213c12bf7767a9efd9f67c65f3bd8.cloudfront.net (CloudFront)
+      - 1.1 e018d6e4d9703845cd533602c08bfac9.cloudfront.net (CloudFront)
       X-Amz-Cf-Id:
-      - kNqX4wOt8Mg4P4uv7sP1RrhtViyBUDThUL718r9ZLAFjmJ8LJxkPLg==
+      - A9LVPYQQpwD5Q7j204K2y4cyKkntlR7vCpqnORMwrIPWO7qtJwdu4Q==
     body:
       encoding: UTF-8
-      string: '{"Errors":[{"Code":1001,"Message":"The customer TEST_CUSTOMER_ID does
-        not have a vendor with id=1 in their holdings.","SubCode":0}]}'
+      string: '{"vendorId":19,"vendorName":"EBSCO","vendorToken":null,"isCustomer":false,"packagesTotal":628,"packagesSelected":29}'
     http_version: 
-  recorded_at: Wed, 10 Jan 2018 21:11:16 GMT
+  recorded_at: Mon, 22 Jan 2018 17:41:01 GMT
 recorded_with: VCR 3.0.3

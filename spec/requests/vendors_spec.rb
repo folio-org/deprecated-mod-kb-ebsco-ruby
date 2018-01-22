@@ -5,8 +5,8 @@ require 'rails_helper'
 RSpec.describe 'Vendors', type: :request do
   describe 'searching for vendors' do
     before do
-      VCR.use_cassette('search-vendors') do
-        get '/eholdings/vendors/?q=e', headers: okapi_headers
+      VCR.use_cassette('search-providers') do
+        get '/eholdings/providers/?q=e', headers: okapi_headers
       end
     end
 
@@ -20,8 +20,8 @@ RSpec.describe 'Vendors', type: :request do
 
     describe 'with pagination' do
       before do
-        VCR.use_cassette('search-vendors-page2') do
-          get '/eholdings/vendors/?q=e&page=2', headers: okapi_headers
+        VCR.use_cassette('search-providers-page2') do
+          get '/eholdings/providers/?q=e&page=2', headers: okapi_headers
         end
       end
 
@@ -38,8 +38,8 @@ RSpec.describe 'Vendors', type: :request do
 
   describe 'getting a specific vendor' do
     before do
-      VCR.use_cassette('get-vendors-success') do
-        get '/eholdings/vendors/19', headers: okapi_headers
+      VCR.use_cassette('get-providers-success') do
+        get '/eholdings/providers/19', headers: okapi_headers
       end
     end
 
@@ -65,8 +65,8 @@ RSpec.describe 'Vendors', type: :request do
 
   describe 'getting a vendor with included packages' do
     before do
-      VCR.use_cassette('get-vendors-include-packages-success') do
-        get '/eholdings/vendors/19?include=packages', headers: okapi_headers
+      VCR.use_cassette('get-providers-include-packages-success') do
+        get '/eholdings/providers/19?include=packages', headers: okapi_headers
       end
     end
 
@@ -82,8 +82,8 @@ RSpec.describe 'Vendors', type: :request do
 
   describe 'getting packages related to vendor' do
     before do
-      VCR.use_cassette('get-vendors-related-packages-success') do
-        get '/eholdings/vendors/19/packages', headers: okapi_headers
+      VCR.use_cassette('get-providers-related-packages-success') do
+        get '/eholdings/providers/19/packages', headers: okapi_headers
       end
     end
 
@@ -98,8 +98,8 @@ RSpec.describe 'Vendors', type: :request do
 
     describe 'with pagination' do
       before do
-        VCR.use_cassette('get-vendors-related-packages-success-page2') do
-          get '/eholdings/vendors/19/packages?page=2', headers: okapi_headers
+        VCR.use_cassette('get-providers-related-packages-success-page2') do
+          get '/eholdings/providers/19/packages?page=2', headers: okapi_headers
         end
       end
 
@@ -116,8 +116,8 @@ RSpec.describe 'Vendors', type: :request do
 
   describe 'getting a non-existing vendor' do
     before do
-      VCR.use_cassette('get-vendors-not-found') do
-        get '/eholdings/vendors/1', headers: okapi_headers
+      VCR.use_cassette('get-providers-not-found') do
+        get '/eholdings/providers/1', headers: okapi_headers
       end
     end
 

@@ -27,7 +27,7 @@ http_interactions:
       Server:
       - nginx/1.13.5
       Date:
-      - Wed, 10 Jan 2018 21:11:14 GMT
+      - Mon, 22 Jan 2018 17:41:05 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -36,15 +36,15 @@ http_interactions:
       - keep-alive
       X-Okapi-Trace:
       - 'GET mod-authtoken-1.2.0-SNAPSHOT.14 http://10.39.255.104:8081/configurations/entries..
-        : 202 356559us'
+        : 202 368868us'
       - 'GET mod-configuration-4.0.1-SNAPSHOT.23 http://10.39.243.63:8081/configurations/entries..
-        : 200 43021us'
+        : 200 42154us'
       Host:
       - okapi.frontside.io
       X-Real-Ip:
-      - 10.36.2.1
+      - 10.128.0.4
       X-Forwarded-For:
-      - 10.36.2.1
+      - 10.128.0.4
       X-Forwarded-Host:
       - okapi.frontside.io
       X-Forwarded-Port:
@@ -66,7 +66,7 @@ http_interactions:
       User-Agent:
       - Ruby
       X-Okapi-Request-Id:
-      - 294415/configurations
+      - 199028/configurations
       X-Okapi-Url:
       - http://10.39.248.95:80
       X-Okapi-Permissions-Required:
@@ -107,7 +107,7 @@ http_interactions:
           }
         }
     http_version: 
-  recorded_at: Wed, 10 Jan 2018 21:11:14 GMT
+  recorded_at: Mon, 22 Jan 2018 17:41:04 GMT
 - request:
     method: get
     uri: https://api.ebsco.io/rm/rmaccounts/TEST_CUSTOMER_ID/vendors/19
@@ -139,9 +139,9 @@ http_interactions:
       Connection:
       - keep-alive
       Date:
-      - Wed, 10 Jan 2018 21:11:14 GMT
+      - Mon, 22 Jan 2018 17:41:06 GMT
       X-Amzn-Requestid:
-      - ca9a9330-f64a-11e7-bba9-ef2dc386a533
+      - 6c48716a-ff9b-11e7-903e-9f4e5b69e21c
       X-Amzn-Remapped-Content-Length:
       - '116'
       X-Amzn-Remapped-Connection:
@@ -157,20 +157,20 @@ http_interactions:
       Pragma:
       - no-cache
       X-Amzn-Remapped-Date:
-      - Wed, 10 Jan 2018 21:11:14 GMT
+      - Mon, 22 Jan 2018 17:41:05 GMT
       X-Aspnet-Version:
       - 4.0.30319
       X-Cache:
       - Miss from cloudfront
       Via:
-      - 1.1 724ad4e1173fd5ccae88e687b8a9f430.cloudfront.net (CloudFront)
+      - 1.1 dc313ef11f936e4b5265503c64842909.cloudfront.net (CloudFront)
       X-Amz-Cf-Id:
-      - __F95gcY81EIk1ahYFHe27Kp8FTZvNH1Bu9jAx9IGqXZZMoXd0UHGg==
+      - myQa-7rLEYRB9JM3ibU0enGaneOPn1hq83qcKRR8224Tcq4elBeh0A==
     body:
       encoding: UTF-8
-      string: '{"vendorId":19,"vendorName":"EBSCO","vendorToken":null,"isCustomer":false,"packagesTotal":628,"packagesSelected":27}'
+      string: '{"vendorId":19,"vendorName":"EBSCO","vendorToken":null,"isCustomer":false,"packagesTotal":628,"packagesSelected":29}'
     http_version: 
-  recorded_at: Wed, 10 Jan 2018 21:11:14 GMT
+  recorded_at: Mon, 22 Jan 2018 17:41:04 GMT
 - request:
     method: get
     uri: https://api.ebsco.io/rm/rmaccounts/TEST_CUSTOMER_ID/vendors/19/packages?count=25&offset=2&orderby=packagename&search=
@@ -202,9 +202,9 @@ http_interactions:
       Connection:
       - keep-alive
       Date:
-      - Wed, 10 Jan 2018 21:11:14 GMT
+      - Mon, 22 Jan 2018 17:41:06 GMT
       X-Amzn-Requestid:
-      - cad24510-f64a-11e7-ab36-c5939488f560
+      - 6c6f81a3-ff9b-11e7-a224-1d600a1d9f47
       X-Amzn-Remapped-Content-Length:
       - '8980'
       X-Amzn-Remapped-Connection:
@@ -220,15 +220,15 @@ http_interactions:
       Pragma:
       - no-cache
       X-Amzn-Remapped-Date:
-      - Wed, 10 Jan 2018 21:11:14 GMT
+      - Mon, 22 Jan 2018 17:41:06 GMT
       X-Aspnet-Version:
       - 4.0.30319
       X-Cache:
       - Miss from cloudfront
       Via:
-      - 1.1 7f3d624eb6fc6c8e9702f2193b2e7f1a.cloudfront.net (CloudFront)
+      - 1.1 ee4ba2e7eed09e7f30c6ffa712f4bee8.cloudfront.net (CloudFront)
       X-Amz-Cf-Id:
-      - tgviHdIPSjl79RlEM0y34YHCkLyNzRdEDHdLuD8MjZQA-BmP6HWmnQ==
+      - AWiy_9Dm7ghr-BYh4quoM2ZorB6v4QdrMLTY9GBGk3jegToD7eOktw==
     body:
       encoding: UTF-8
       string: '{"totalResults":628,"packagesList":[{"packageId":4242,"packageName":"Alternative
@@ -256,10 +256,10 @@ http_interactions:
         Literary Periodicals, 1859-1891","isCustom":false,"vendorId":19,"vendorName":"EBSCO","titleCount":184,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"AggregatedFullText","customCoverage":{"beginCoverage":null,"endCoverage":null}},{"packageId":1714910,"packageName":"American
         Medicine, Surgery, Dentistry Periodicals, 1786-1877","isCustom":false,"vendorId":19,"vendorName":"EBSCO","titleCount":225,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"AggregatedFullText","customCoverage":{"beginCoverage":null,"endCoverage":null}},{"packageId":1154658,"packageName":"American
         Political and Social Movements, 1815-1884","isCustom":false,"vendorId":19,"vendorName":"EBSCO","titleCount":221,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"AggregatedFullText","customCoverage":{"beginCoverage":null,"endCoverage":null}},{"packageId":1104831,"packageName":"American
-        Political Periodicals - 1715-1891","isCustom":false,"vendorId":19,"vendorName":"EBSCO","titleCount":163,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"AggregatedFullText","customCoverage":{"beginCoverage":null,"endCoverage":null}},{"packageId":1709922,"packageName":"American
+        Political Periodicals - 1715-1891","isCustom":false,"vendorId":19,"vendorName":"EBSCO","titleCount":181,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"AggregatedFullText","customCoverage":{"beginCoverage":null,"endCoverage":null}},{"packageId":1709922,"packageName":"American
         Revolution Archives","isCustom":false,"vendorId":19,"vendorName":"EBSCO","titleCount":1,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"AbstractAndIndex","customCoverage":{"beginCoverage":null,"endCoverage":null}},{"packageId":3930,"packageName":"American
         Theological Library Association (ATLA) Historical Monographs Collection: Series
         1","isCustom":false,"vendorId":19,"vendorName":"EBSCO","titleCount":14729,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"AggregatedFullText","customCoverage":{"beginCoverage":null,"endCoverage":null}}]}'
     http_version: 
-  recorded_at: Wed, 10 Jan 2018 21:11:15 GMT
+  recorded_at: Mon, 22 Jan 2018 17:41:05 GMT
 recorded_with: VCR 3.0.3
