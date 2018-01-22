@@ -2,7 +2,7 @@
 
 Rails.application.routes.draw do
   scope '/eholdings' do
-    resources :vendors, only: %i[index show] do
+    resources :vendors, path: :providers, only: %i[index show] do
       member do
         get 'packages'
       end
