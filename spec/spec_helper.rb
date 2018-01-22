@@ -10,9 +10,9 @@ end
 
 # Shared context for values common to all request tests
 RSpec.shared_context 'Request Test Helpers' do
-  let!(:customer_id) { ENV.fetch('TEST_CUSTOMER_ID', 'apidvcorp') }
-  let!(:api_key) { ENV.fetch('TEST_API_KEY', '4TxhFoiDoxaqz54wspzR074Pw2iUTPZ2arkbnd9N') }
-  let!(:okapi_token) { ENV.fetch('TEST_OKAPI_TOKEN', 'eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsInVzZXJfaWQiOiIxYWQ3MzdiMC1kODQ3LTExZTYtYmYyNi1jZWMwYzkzMmNlMDEiLCJ0ZW5hbnQiOiJmcyJ9.-lRE3mPuJns4cysAV87vy9l7yYMHuwV2JXrpKR9NhBAHafV70SMqWeu1Ixdik5AMNqFt52c8VB1M2RROkamkZw') }
+  let!(:customer_id) { ENV.fetch('TEST_CUSTOMER_ID', 'test-customer-id') }
+  let!(:api_key) { ENV.fetch('TEST_API_KEY', 'test-rm-api-key') }
+  let!(:okapi_token) { ENV.fetch('TEST_OKAPI_TOKEN', 'test-okapi-token') }
   let!(:okapi_url) { ENV.fetch('TEST_OKAPI_URL', 'https://okapi.frontside.io') }
   let!(:okapi_tenant) { ENV.fetch('TEST_OKAPI_TENANT', 'fs') }
 
@@ -50,12 +50,12 @@ VCR.configure do |config|
   config.cassette_library_dir = 'spec/fixtures/vcr_cassettes'
   config.hook_into :webmock
   config.filter_sensitive_data('TEST_CUSTOMER_ID') do
-    ENV.fetch('TEST_CUSTOMER_ID', 'apidvcorp')
+    ENV.fetch('TEST_CUSTOMER_ID', 'test-customer-id')
   end
   config.filter_sensitive_data('TEST_API_KEY') do
-    ENV.fetch('TEST_API_KEY', '4TxhFoiDoxaqz54wspzR074Pw2iUTPZ2arkbnd9N')
+    ENV.fetch('TEST_API_KEY', 'test-rm-api-key')
   end
   config.filter_sensitive_data('TEST_OKAPI_TOKEN') do
-    ENV.fetch('TEST_OKAPI_TOKEN', 'eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsInVzZXJfaWQiOiIxYWQ3MzdiMC1kODQ3LTExZTYtYmYyNi1jZWMwYzkzMmNlMDEiLCJ0ZW5hbnQiOiJmcyJ9.-lRE3mPuJns4cysAV87vy9l7yYMHuwV2JXrpKR9NhBAHafV70SMqWeu1Ixdik5AMNqFt52c8VB1M2RROkamkZw')
+    ENV.fetch('TEST_OKAPI_TOKEN', 'test-okapi-token')
   end
 end
