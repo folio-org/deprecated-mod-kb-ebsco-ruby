@@ -4,7 +4,12 @@ class TitlesController < ApplicationController
   before_action :set_title, only: %i[show customer_resources]
 
   def index
-    @titles = titles.all(q: params[:q], page: params[:page])
+    @titles = titles.all(
+      q: params[:q],
+      page: params[:page],
+      filter: params[:filter]
+    )
+
     render jsonapi: @titles.titles.to_a,
            meta: { totalResults: @titles.totalResults }
   end
