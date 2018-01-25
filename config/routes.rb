@@ -8,6 +8,12 @@ Rails.application.routes.draw do
       end
     end
 
+    resources :providers, only: %i[index show] do
+      member do
+        get 'packages'
+      end
+    end
+
     resources :packages, only: %i[index show update] do
       member do
         get 'customer-resources'

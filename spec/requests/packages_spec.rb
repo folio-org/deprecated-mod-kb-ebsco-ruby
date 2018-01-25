@@ -164,6 +164,25 @@ RSpec.describe 'Packages', type: :request do
     end
   end
 
+  describe 'getting a package with correct relationships' do
+    before do
+      VCR.use_cassette('get-package-relationships') do
+        get '/eholdings/packages/19-6581',
+            headers: okapi_headers
+      end
+    end
+
+    let!(:json) { Map JSON.parse response.body }
+
+    it 'includes the expected relationships' do
+      expect(json.data.relationships).to include(
+        'vendor',
+        'provider',
+        'customerResources'
+      )
+    end
+  end
+
   describe 'updating a package' do
     let(:update_headers) do
       okapi_headers.merge(

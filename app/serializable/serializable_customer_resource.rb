@@ -4,6 +4,7 @@ class SerializableCustomerResource < SerializableResource
   type 'customerResources'
 
   has_one :vendor
+  has_one :provider
   has_one :title
   has_one :package
 
@@ -115,6 +116,12 @@ class SerializableCustomerResource < SerializableResource
     @object.resource.vendorId
   end
   attribute :vendorName do
+    @object.resource.vendorName
+  end
+  attribute :providerId do
+    @object.resource.vendorId
+  end
+  attribute :providerName do
     @object.resource.vendorName
   end
   attribute :visibilityData do

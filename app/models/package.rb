@@ -28,6 +28,10 @@ class Package < RmApiResource
     Vendor.configure(config).find(vendorId)
   end
 
+  def provider
+    Provider.configure(config).find(vendorId)
+  end
+
   def customer_resources
     find_customer_resources.titles.to_a
   end

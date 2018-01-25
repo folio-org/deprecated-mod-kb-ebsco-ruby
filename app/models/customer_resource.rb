@@ -38,6 +38,11 @@ class CustomerResource < RmApiResource
     Vendor.configure(config).find(resource.vendorId)
   end
 
+  # Relationships
+  def provider
+    Provider.configure(config).find(resource.vendorId)
+  end
+
   def title
     Title.configure(config).find(titleId)
   end
