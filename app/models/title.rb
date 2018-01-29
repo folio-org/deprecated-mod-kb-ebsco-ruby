@@ -8,12 +8,13 @@ class Title < RmApiResource
   before_request do |name, request|
     if name == :all
       request.get_params[:search] = request.get_params.delete(:q)
+      request.get_params[:resourcetype] =
+        (request.get_params.delete(:filter) || 'all')
       request.get_params[:searchfield] ||= 'titlename'
       request.get_params[:orderby] ||=
         (request.get_params[:search] ? 'relevance' : 'titlename')
       request.get_params[:count] ||= 25
-      request.get_params[:offset] = request.get_params[:page] || 1
-      request.get_params.delete(:page)
+      request.get_params[:offset] = request.get_params.delete(:page) || 1
     end
   end
 

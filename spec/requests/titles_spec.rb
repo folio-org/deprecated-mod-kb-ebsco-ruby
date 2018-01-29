@@ -35,6 +35,24 @@ RSpec.describe 'Titles', type: :request do
         expect(json.data.first.id).not_to eql(json2.data.first.id)
       end
     end
+
+    describe 'with filtering' do
+      before do
+        VCR.use_cassette('search-titles-filtered') do
+          get '/eholdings/titles/?q=ebsco&filter=book', headers: okapi_headers
+        end
+      end
+
+      let!(:json_f) { Map JSON.parse response.body }
+
+      it 'gets a filtered list of resources' do
+        expect(response).to have_http_status(200)
+        expect(json_f.data.length).to equal(1)
+        expect(json_f.meta.totalResults).to equal(1)
+        expect(json_f.data.first.id).not_to eql(json.data.first.id)
+        expect(json_f.data.first.attributes.publicationType).to eql('Book')
+      end
+    end
   end
 
   describe 'getting a specific title' do
