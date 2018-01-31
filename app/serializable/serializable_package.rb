@@ -5,6 +5,7 @@ class SerializablePackage < SerializableResource
 
   has_many :customer_resources
   has_one :vendor
+  has_one :provider
 
   attributes :vendorId,
              :packageId,
@@ -14,6 +15,14 @@ class SerializablePackage < SerializableResource
              :customCoverage,
              :isSelected,
              :vendorName
+
+  attribute :providerId do
+    @object.vendorId
+  end
+
+  attribute :providerName do
+    @object.vendorName
+  end
 
   attribute :name do
     @object.packageName

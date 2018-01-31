@@ -34,9 +34,8 @@ class CustomerResourcesController < ApplicationController
   end
 
   def customer_resource_id
-    %i[vendor_id package_id title_id].zip(
-      params[:id].split('-')
-    ).to_h
+    vendor_id, package_id, title_id = params[:id].split('-')
+    { vendor_id: vendor_id, package_id: package_id, title_id: title_id }
   end
 
   def customer_resources

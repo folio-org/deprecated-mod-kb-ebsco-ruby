@@ -196,6 +196,26 @@ RSpec.describe 'Customer Resources', type: :request do
     end
   end
 
+  describe 'getting a customer resource with correct relationships' do
+    before do
+      VCR.use_cassette('get-customer-resource-relationships') do
+        get '/eholdings/customer-resources/22-1887786-1440285',
+            headers: okapi_headers
+      end
+    end
+
+    let!(:json) { Map JSON.parse response.body }
+
+    it 'includes the expected relationships' do
+      expect(json.data.relationships).to include(
+        'vendor',
+        'provider',
+        'title',
+        'package'
+      )
+    end
+  end
+
   describe 'updating a customer resource' do
     let(:update_headers) do
       okapi_headers.merge(
