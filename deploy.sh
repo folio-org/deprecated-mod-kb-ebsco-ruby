@@ -4,28 +4,10 @@ bash_escape() ( printf '\\033[%dm' $1; );
 RESET=$(bash_escape 0); BLUE=$(bash_escape 34);
 put_info() ( printf "${BLUE}[INFO]${RESET} $1\n");
 
-put_info "Authenticating to DockerHub";
-docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD";
-
-put_info "Building new image";
-docker build .;
-
-image=$(docker images --format="{{.ID}}" | head -n 1);
-
-commit_sha=${TRAVIS_COMMIT:0:7}
-
-put_info "Tagging image '$image' as '$MODULE_VERSION_${commit_sha}'";
-docker tag "$image" ${DOCKER_IMAGE_NAME}:${MODULE_VERSION}_${commit_sha};
-put_info "Tagging image '$image' as 'latest'";
-docker tag "$image" ${DOCKER_IMAGE_NAME}:latest;
-
-put_info "Pushing image to DockerHub";
-docker push ${DOCKER_IMAGE_NAME};
-
 put_info "Pulling new image into container '${KUBE_DEPLOYMENT_CONTAINER_NAME}' on deployment '${KUBE_DEPLOYMENT_NAME}'";
 kubectl config view;
 kubectl config current-context;
-kubectl set image deployment/${KUBE_DEPLOYMENT_NAME} ${KUBE_DEPLOYMENT_CONTAINER_NAME}=${DOCKER_IMAGE_NAME}:${MODULE_VERSION}_${commit_sha};
+kubectl set image deployment/${KUBE_DEPLOYMENT_NAME} ${KUBE_DEPLOYMENT_CONTAINER_NAME}=${DOCKER_IMAGE_NAME}:latest;
 
 # variables needed for Okapi registration
 service_id="${FOLIO_MODULE_NAME}-${MODULE_VERSION}"
