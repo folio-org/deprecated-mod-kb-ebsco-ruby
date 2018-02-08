@@ -19,6 +19,8 @@ class Title < RmApiResource
         request.get_params[:selection] = 'notselected'
       elsif filters[:selected] == 'ebsco'
         request.get_params[:selection] = 'orderedthroughebsco'
+      else
+        request.get_params[:selection] = 'all'
       end
 
       request.get_params[:search] = request.get_params.delete(:q)
