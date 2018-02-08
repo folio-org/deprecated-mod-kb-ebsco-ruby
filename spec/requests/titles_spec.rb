@@ -1,4 +1,3 @@
-
 # frozen_string_literal: true
 
 require 'rails_helper'
@@ -36,21 +35,55 @@ RSpec.describe 'Titles', type: :request do
       end
     end
 
-    describe 'with filtering' do
+    describe 'filtering by publication type' do
       before do
-        VCR.use_cassette('search-titles-filtered') do
-          get '/eholdings/titles/?q=ebsco&filter=book', headers: okapi_headers
+        VCR.use_cassette('search-titles-filter-book') do
+          filter = { filter: { type: 'book' } }.to_query
+          get "/eholdings/titles/?q=news&#{filter}", headers: okapi_headers
         end
       end
 
       let!(:json_f) { Map JSON.parse response.body }
 
-      it 'gets a filtered list of resources' do
+      it 'gets a list of book resources' do
         expect(response).to have_http_status(200)
-        expect(json_f.data.length).to equal(1)
-        expect(json_f.meta.totalResults).to equal(1)
-        expect(json_f.data.first.id).not_to eql(json.data.first.id)
+        expect(json_f.data.length).to equal(25)
+        expect(json_f.meta.totalResults).to equal(1296)
         expect(json_f.data.first.attributes.publicationType).to eql('Book')
+      end
+
+      describe 'filtering further by selected status' do
+        before do
+          VCR.use_cassette('search-titles-filter-book-selection') do
+            filter = { filter: { type: 'book', selected: true } }.to_query
+            get "/eholdings/titles/?q=news&#{filter}", headers: okapi_headers
+          end
+        end
+
+        let!(:json_f2) { Map JSON.parse response.body }
+
+        it 'gets a list of unselected book resources' do
+          expect(response).to have_http_status(200)
+          expect(json_f2.data.length).to equal(25)
+          expect(json_f2.meta.totalResults).to equal(1278)
+          expect(json_f2.data.first.attributes.publicationType).to eql('Book')
+          expect(json_f2.data.first.id).not_to eql(json_f.data.first.id)
+        end
+      end
+    end
+
+    describe 'with an invalid filter param' do
+      before do
+        VCR.use_cassette('search-titles-filter-invalid') do
+          get '/eholdings/titles/?q=news&filter=invalid', headers: okapi_headers
+        end
+      end
+
+      let!(:json_f) { Map JSON.parse response.body }
+
+      it 'gets a list of unselected book resources' do
+        expect(response).to have_http_status(400)
+        expect(json_f.errors.first.title).to eql('Invalid filter parameter')
       end
     end
   end

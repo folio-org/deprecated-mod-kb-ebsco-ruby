@@ -7,9 +7,25 @@ class Title < RmApiResource
 
   before_request do |name, request|
     if name == :all
+      filters = request.get_params.delete(:filter) || {}
+
+      unless filters.is_a?(ActionController::Parameters) || filters.is_a?(Hash)
+        raise ActionController::BadRequest, 'Invalid filter parameter'
+      end
+
+      request.get_params[:selection] =
+        if filters[:selected] == 'true'
+          'selected'
+        elsif filters[:selected] == 'false'
+          'notselected'
+        elsif filters[:selected] == 'ebsco'
+          'orderedthroughebsco'
+        else
+          'all'
+        end
+
       request.get_params[:search] = request.get_params.delete(:q)
-      request.get_params[:resourcetype] =
-        (request.get_params.delete(:filter) || 'all')
+      request.get_params[:resourcetype] = filters[:type] || 'all'
       request.get_params[:searchfield] ||= 'titlename'
       request.get_params[:orderby] ||=
         (request.get_params[:search] ? 'relevance' : 'titlename')

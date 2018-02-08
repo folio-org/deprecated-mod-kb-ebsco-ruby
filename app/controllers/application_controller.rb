@@ -3,6 +3,7 @@
 class ApplicationController < ActionController::API
   before_action :verify_okapi_headers
   before_action :set_response_headers
+  around_action :catch_exceptions
   around_action :catch_flexirest_exceptions
 
   def okapi
@@ -30,6 +31,13 @@ class ApplicationController < ActionController::API
   end
 
   private
+
+  def catch_exceptions
+    yield
+  rescue ActionController::BadRequest => e
+    render jsonapi_errors: { "title": e.message },
+           status: :bad_request
+  end
 
   def catch_flexirest_exceptions
     yield
