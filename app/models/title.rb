@@ -13,15 +13,16 @@ class Title < RmApiResource
         raise ActionController::BadRequest, 'Invalid filter parameter'
       end
 
-      if filters[:selected] == 'true'
-        request.get_params[:selection] = 'selected'
-      elsif filters[:selected] == 'false'
-        request.get_params[:selection] = 'notselected'
-      elsif filters[:selected] == 'ebsco'
-        request.get_params[:selection] = 'orderedthroughebsco'
-      else
-        request.get_params[:selection] = 'all'
-      end
+      request.get_params[:selection] =
+        if filters[:selected] == 'true'
+          'selected'
+        elsif filters[:selected] == 'false'
+          'notselected'
+        elsif filters[:selected] == 'ebsco'
+          'orderedthroughebsco'
+        else
+          'all'
+        end
 
       request.get_params[:search] = request.get_params.delete(:q)
       request.get_params[:resourcetype] = filters[:type] || 'all'
