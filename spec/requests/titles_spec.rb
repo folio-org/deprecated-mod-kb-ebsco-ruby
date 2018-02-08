@@ -86,6 +86,121 @@ RSpec.describe 'Titles', type: :request do
         expect(json_f.errors.first.title).to eql('Invalid filter parameter')
       end
     end
+
+    describe 'with search field titlename filter' do
+      before do
+        VCR.use_cassette('search-titles-filter-titlename') do
+          get '/eholdings/titles/?filter[name]=ebsco', headers: okapi_headers
+        end
+      end
+
+      let!(:json_t) { Map JSON.parse response.body }
+
+      it 'gets a filtered list of resources' do
+        expect(response).to have_http_status(200)
+        expect(json_t.data.length).to equal(25)
+        expect(json_t.meta.totalResults).to equal(61)
+        json_t.data.each do |title|
+          expect(title.attributes.name.downcase).to include('ebsco')
+        end
+      end
+
+      describe 'with titlename filter and pagination' do
+        before do
+          VCR.use_cassette('search-titles-filter-titlename-page2') do
+            get '/eholdings/titles/?filter[name]=ebsco&page=2',
+                headers: okapi_headers
+          end
+        end
+        let!(:json_t2) { Map JSON.parse response.body }
+        it 'gets a different list of resources' do
+          expect(response).to have_http_status(200)
+          expect(json_t2.data.length).to equal(25)
+          expect(json_t2.meta.totalResults).to equal(61)
+          expect(json_t2.data.first.id).not_to eql(json_t.data.first.id)
+        end
+      end
+    end
+
+    describe 'with search field isxn filter' do
+      before do
+        VCR.use_cassette('search-titles-filter-isxn') do
+          get '/eholdings/titles/?filter[isxn]=1362-3613',
+              headers: okapi_headers
+        end
+      end
+
+      let!(:json_i) { Map JSON.parse response.body }
+
+      it 'gets a filtered list of resources' do
+        expect(response).to have_http_status(200)
+        expect(json_i.data.length).to equal(1)
+        expect(json_i.meta.totalResults).to equal(1)
+        expect(json_i.data.first.attributes.identifiers).to include(
+          'id' => '1362-3613',
+          'type' => 'ISSN',
+          'subtype' => 'Print'
+        )
+      end
+    end
+
+    describe 'with search field subject filter' do
+      before do
+        VCR.use_cassette('search-titles-filter-subject') do
+          get '/eholdings/titles/?filter[subject]=history',
+              headers: okapi_headers
+        end
+      end
+
+      let!(:json_h) { Map JSON.parse response.body }
+
+      it 'gets a filtered list of resources' do
+        expect(response).to have_http_status(200)
+        expect(json_h.data.length).to equal(25)
+        expect(json_h.meta.totalResults).to equal(10_001)
+        json_h.data.each do |title|
+          expect(title.attributes.subjects.any? do |sub|
+            sub.subject.downcase.include?('history')
+          end).to be true
+        end
+      end
+    end
+
+    describe 'with conflicting search field filters' do
+      before do
+        VCR.use_cassette('search-titles-filter-conflict') do
+          get '/eholdings/titles/?filter[subject]=history&filter[name]=ebsco',
+              headers: okapi_headers
+        end
+      end
+
+      let!(:json_c) { Map JSON.parse response.body }
+
+      it 'returns a bad request' do
+        expect(response).to have_http_status(400)
+        expect(json_c.errors.first.title).to eql(
+          'Conflicting filter parameters'
+        )
+      end
+    end
+
+    describe 'with conflicting query parameters' do
+      before do
+        VCR.use_cassette('search-titles-query-conflict') do
+          get '/eholdings/titles/?q=ebsco&filter[name]=ebsco',
+              headers: okapi_headers
+        end
+      end
+
+      let!(:json_c) { Map JSON.parse response.body }
+
+      it 'returns a bad request' do
+        expect(response).to have_http_status(400)
+        expect(json_c.errors.first.title).to eql(
+          'Conflicting query parameters'
+        )
+      end
+    end
   end
 
   describe 'getting a specific title' do
