@@ -13,6 +13,39 @@ class Title < RmApiResource
         raise ActionController::BadRequest, 'Invalid filter parameter'
       end
 
+      querykeys = filters.keys & %w[name isxn subject publisher]
+
+      unless querykeys.size <= 1
+        raise ActionController::BadRequest, 'Conflicting filter parameters'
+      end
+
+      titlename = filters[:name]
+      isxn = filters[:isxn]
+      subject = filters[:subject]
+      publisher = filters[:publisher]
+      query = request.get_params.delete(:q)
+
+      if query && querykeys.size == 1
+        raise ActionController::BadRequest, 'Conflicting query parameters'
+      end
+
+      if query
+        request.get_params[:search] = query
+        request.get_params[:searchfield] = 'titlename'
+      elsif titlename
+        request.get_params[:search] = titlename
+        request.get_params[:searchfield] = 'titlename'
+      elsif isxn
+        request.get_params[:search] = isxn
+        request.get_params[:searchfield] = 'isxn'
+      elsif subject
+        request.get_params[:search] = subject
+        request.get_params[:searchfield] = 'subject'
+      elsif publisher
+        request.get_params[:search] = publisher
+        request.get_params[:searchfield] = 'publisher'
+      end
+
       request.get_params[:selection] =
         if filters[:selected] == 'true'
           'selected'
@@ -23,10 +56,7 @@ class Title < RmApiResource
         else
           'all'
         end
-
-      request.get_params[:search] = request.get_params.delete(:q)
       request.get_params[:resourcetype] = filters[:type] || 'all'
-      request.get_params[:searchfield] ||= 'titlename'
       request.get_params[:orderby] ||=
         (request.get_params[:search] ? 'relevance' : 'titlename')
       request.get_params[:count] ||= 25
