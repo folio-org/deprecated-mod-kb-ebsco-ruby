@@ -14,6 +14,7 @@ class SerializablePackage < SerializableResource
              :selectedCount,
              :customCoverage,
              :isSelected,
+             :allowKbToAddTitles,
              :vendorName
 
   attribute :providerId do
@@ -26,6 +27,10 @@ class SerializablePackage < SerializableResource
 
   attribute :name do
     @object.packageName
+  end
+
+  attribute :allowKbToAddTitles do
+    @object.allowEbscoToAddTitles
   end
 
   attribute :visibilityData do
