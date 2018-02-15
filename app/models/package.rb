@@ -10,7 +10,25 @@ class Package < RmApiResource
 
   before_request do |name, request|
     if %i[all find_by_vendor].include?(name)
+      filters = request.get_params.delete(:filter) || {}
+
+      unless filters.is_a?(ActionController::Parameters) || filters.is_a?(Hash)
+        raise ActionController::BadRequest, 'Invalid filter parameter'
+      end
+
+      request.get_params[:selection] =
+        if filters[:selected] == 'true'
+          'selected'
+        elsif filters[:selected] == 'false'
+          'notselected'
+        elsif filters[:selected] == 'ebsco'
+          'orderedthroughebsco'
+        else
+          'all'
+        end
+
       request.get_params[:search] = request.get_params.delete(:q)
+      request.get_params[:contenttype] = filters[:type] || 'all'
       request.get_params[:orderby] ||=
         (request.get_params[:search] ? 'relevance' : 'packagename')
       request.get_params[:count] ||= 25
