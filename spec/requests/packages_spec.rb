@@ -1,4 +1,3 @@
-
 # frozen_string_literal: true
 
 require 'rails_helper'
@@ -34,6 +33,58 @@ RSpec.describe 'Packages', type: :request do
         expect(json2.meta.totalResults).to equal(111)
         expect(json.data.first.id).not_to eql(json2.data.first.id)
       end
+    end
+  end
+
+  describe 'filtering by content type' do
+    before do
+      VCR.use_cassette('search-packages-filter-ebook') do
+        filter = { filter: { type: 'ebook' } }.to_query
+        get "/eholdings/packages/?q=ebsco&#{filter}", headers: okapi_headers
+      end
+    end
+
+    let!(:json_f) { Map JSON.parse response.body }
+
+    it 'gets a list of ebook packages' do
+      expect(response).to have_http_status(200)
+      expect(json_f.data.length).to equal(5)
+      expect(json_f.meta.totalResults).to equal(5)
+      expect(json_f.data.first.attributes.contentType).to eql('E-Book')
+    end
+
+    describe 'filtering further by selected status' do
+      before do
+        VCR.use_cassette('search-packages-filter-ebook-selection') do
+          filter = { filter: { type: 'ebook', selected: true } }.to_query
+          get "/eholdings/packages/?q=ebsco&#{filter}", headers: okapi_headers
+        end
+      end
+
+      let!(:json_f2) { Map JSON.parse response.body }
+
+      it 'gets a list of selected ebook packages' do
+        expect(response).to have_http_status(200)
+        expect(json_f2.data.length).to equal(1)
+        expect(json_f2.meta.totalResults).to equal(1)
+        expect(json_f2.data.first.attributes.contentType).to eql('E-Book')
+        expect(json_f2.data.first.attributes.isSelected).to be true
+      end
+    end
+  end
+
+  describe 'with an invalid filter param' do
+    before do
+      VCR.use_cassette('search-packages-filter-invalid') do
+        get '/eholdings/packages/?q=ebsc&filter=invalid', headers: okapi_headers
+      end
+    end
+
+    let!(:json_f) { Map JSON.parse response.body }
+
+    it 'returns a bad request error' do
+      expect(response).to have_http_status(400)
+      expect(json_f.errors.first.title).to eql('Invalid filter parameter')
     end
   end
 

@@ -81,7 +81,7 @@ RSpec.describe 'Titles', type: :request do
 
       let!(:json_f) { Map JSON.parse response.body }
 
-      it 'gets a list of unselected book resources' do
+      it 'returns a bad request error' do
         expect(response).to have_http_status(400)
         expect(json_f.errors.first.title).to eql('Invalid filter parameter')
       end
