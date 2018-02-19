@@ -126,6 +126,24 @@ RSpec.describe 'Packages', type: :request do
     end
   end
 
+  describe 'getting a specific package with allow add titles' do
+    before do
+      VCR.use_cassette('get-package-allow-add-titles') do
+        get '/eholdings/packages/40-1118425', headers: okapi_headers
+      end
+    end
+
+    let!(:json) { Map JSON.parse response.body }
+
+    it 'gets the resource' do
+      expect(response).to have_http_status(200)
+      expect(json.data.attributes.vendorId).to eq(40)
+      expect(json.data.attributes.packageId).to eq(1_118_425)
+      expect(json.data.attributes.allowKbToAddTitles).to be true
+      expect(json.data.attributes.isSelected).to be true
+    end
+  end
+
   describe 'getting a package with included customer resources' do
     before do
       VCR.use_cassette('get-packages-customer-resources') do
@@ -306,6 +324,39 @@ RSpec.describe 'Packages', type: :request do
         end
       end
 
+      describe 'allowing to add titles should fail' do
+        let(:params) do
+          {
+            "data": {
+              "type": 'packages',
+              "attributes": {
+                "customCoverage": {
+                  "beginCoverage": '2003-01-01',
+                  "endCoverage": '2004-01-01'
+                },
+                "isSelected": false,
+                "allowKbToAddTitles": true,
+                "visibilityData": {
+                  "isHidden": false,
+                  "reason": ''
+                }
+              }
+            }
+          }
+        end
+
+        before do
+          VCR.use_cassette('put-packages-isnotselected-allow-add-titles') do
+            put '/eholdings/packages/19-6581',
+                params: params, as: :json, headers: update_headers
+          end
+        end
+
+        it 'responds with unprocessable entity status' do
+          expect(response).to have_http_status(422)
+        end
+      end
+
       describe 'combined update' do
         let(:params) do
           {
@@ -317,6 +368,7 @@ RSpec.describe 'Packages', type: :request do
                   "endCoverage": '2004-01-01'
                 },
                 "isSelected": false,
+                "allowKbToAddTitles": true,
                 "visibilityData": {
                   "isHidden": true,
                   "reason": ''
@@ -349,6 +401,7 @@ RSpec.describe 'Packages', type: :request do
                   "endCoverage": nil
                 },
                 "isSelected": true,
+                "allowKbToAddTitles": true,
                 "visibilityData": {
                   "isHidden": false,
                   "reason": ''
@@ -421,6 +474,49 @@ RSpec.describe 'Packages', type: :request do
         end
       end
 
+      describe 'allow kb to add titles to a package' do
+        let(:params) do
+          {
+            "data": {
+              "type": 'packages',
+              "attributes": {
+                "customCoverage": {
+                  "beginCoverage": nil,
+                  "endCoverage": nil
+                },
+                "isSelected": true,
+                "allowKbToAddTitles": true,
+                "visibilityData": {
+                  "isHidden": true,
+                  "reason": ''
+                }
+              }
+            }
+          }
+        end
+
+        before do
+          VCR.use_cassette('put-packages-isselected-toggle-add-titles') do
+            put '/eholdings/packages/19-6581',
+                params: params, as: :json, headers: update_headers
+          end
+        end
+
+        it 'responds with OK status' do
+          expect(response).to have_http_status(200)
+        end
+
+        let!(:json) { Map JSON.parse response.body }
+
+        it 'is still selected' do
+          expect(json.data.attributes.isSelected).to be true
+        end
+
+        it 'is allowed to add titles' do
+          expect(json.data.attributes.allowKbToAddTitles).to be true
+        end
+      end
+
       describe 'adding custom coverage' do
         let(:params) do
           {
@@ -476,6 +572,7 @@ RSpec.describe 'Packages', type: :request do
                   "endCoverage": '2004-01-01'
                 },
                 "isSelected": true,
+                "allowKbToAddTitles": true,
                 "visibilityData": {
                   "isHidden": true,
                   "reason": ''
@@ -508,6 +605,10 @@ RSpec.describe 'Packages', type: :request do
           expect(visibility.isHidden).to be true
         end
 
+        it 'is allowed to add titles' do
+          expect(json.data.attributes.allowKbToAddTitles).to be true
+        end
+
         it 'is populated with custom coverage' do
           expect(coverage.beginCoverage).to eq '2003-01-01'
           expect(coverage.endCoverage).to eq '2004-01-01'
@@ -525,6 +626,7 @@ RSpec.describe 'Packages', type: :request do
                   "endCoverage": nil
                 },
                 "isSelected": false,
+                "allowKbToAddTitles": false,
                 "visibilityData": {
                   "isHidden": false,
                   "reason": ''
@@ -553,6 +655,10 @@ RSpec.describe 'Packages', type: :request do
 
         it 'is not hidden' do
           expect(json.data.attributes.visibilityData.isHidden).to be false
+        end
+
+        it 'is not allowed to add titles' do
+          expect(json.data.attributes.allowKbToAddTitles).to be false
         end
       end
     end

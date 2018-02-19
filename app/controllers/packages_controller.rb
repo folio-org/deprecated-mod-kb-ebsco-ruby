@@ -61,6 +61,7 @@ class PackagesController < ApplicationController
       .require(:package)
       .permit(
         :isSelected,
+        :allowEbscoToAddTitles,
         visibilityData: [:isHidden],
         customCoverage: %i[beginCoverage endCoverage]
       )

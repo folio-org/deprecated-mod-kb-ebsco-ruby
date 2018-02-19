@@ -79,16 +79,23 @@ class Package < RmApiResource
       vendor_id: vendorId,
       package_id: packageId,
       isSelected: attributes[:isSelected],
+      allowEbscoToAddTitles: attributes[:allowEbscoToAddTitles],
       isHidden: attributes[:visibilityData][:isHidden],
       customCoverage: attributes[:customCoverage]
     )
-
-    # re-fetch from RM API to surface side-effects
-    saved_package = self.class.find(vendor_id: vendorId, package_id: packageId)
-    merge_fields(saved_package)
+    refresh!
   end
 
   private
+
+  def refresh!
+    # re-fetch from RM API to surface side-effects
+    saved_package = self.class.find(
+      vendor_id: vendorId,
+      package_id: packageId
+    )
+    merge_fields(saved_package)
+  end
 
   def merge_fields(new_values)
     update_fields.deep_merge(new_values.to_hash).each do |k, v|
@@ -99,6 +106,7 @@ class Package < RmApiResource
   def update_fields
     to_hash.with_indifferent_access.slice(
       :isSelected,
+      :allowEbscoToAddTitles,
       :visibilityData,
       :customCoverage
     )
