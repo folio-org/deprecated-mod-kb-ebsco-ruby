@@ -44,6 +44,92 @@ RSpec.describe 'Providers', type: :request do
         expect(json2.data.first.relationships). to include('packages')
       end
     end
+
+    describe 'with alphabetical sorting' do
+      before do
+        VCR.use_cassette('search-providers-sort-name') do
+          get '/eholdings/providers/?q=higher%20education&sort=name',
+              headers: okapi_headers
+        end
+      end
+
+      let!(:json_n) { Map JSON.parse response.body }
+
+      it 'contains a list of alphabetically A-Z sorted resources' do
+        expect(response).to have_http_status(200)
+        expect(json_n.data.length).to equal(20)
+        expect(json_n.meta.totalResults).to equal(20)
+        expect(json_n.data.first.type).to eq('providers')
+        sorted_array = json_n.data.sort_by { |p| p.attributes.name.downcase }
+        expect(json_n.data).to eq(sorted_array)
+      end
+    end
+
+    describe 'with relevance sorting' do
+      before do
+        VCR.use_cassette('search-providers-sort-relevance') do
+          get '/eholdings/providers/?q=higher%20education&sort=relevance',
+              headers: okapi_headers
+        end
+      end
+
+      let!(:json_n) { Map JSON.parse response.body }
+
+      it 'contains a list of relevancy sorted resources' do
+        expect(response).to have_http_status(200)
+        expect(json_n.data.length).to equal(20)
+        expect(json_n.meta.totalResults).to equal(20)
+        expect(json_n.data.first.type).to eq('providers')
+        expect(json_n.data[0].attributes.name.downcase).to include(
+          'higher education'
+        )
+        sorted_array = json_n.data.sort_by { |p| p.attributes.name.downcase }
+        expect(json_n.data).not_to eq(sorted_array)
+      end
+    end
+
+    describe 'with default sorting' do
+      before do
+        VCR.use_cassette('search-providers-sort-default') do
+          get '/eholdings/providers/?q=higher%20education',
+              headers: okapi_headers
+        end
+      end
+
+      let!(:json_n) { Map JSON.parse response.body }
+
+      it 'contains a list of relevancy sorted resources' do
+        expect(response).to have_http_status(200)
+        expect(json_n.data.length).to equal(20)
+        expect(json_n.meta.totalResults).to equal(20)
+        expect(json_n.data.first.type).to eq('providers')
+        expect(json_n.data[0].attributes.name.downcase).to include(
+          'higher education'
+        )
+        sorted_array = json_n.data.sort_by { |p| p.attributes.name.downcase }
+        expect(json_n.data).not_to eq(sorted_array)
+      end
+    end
+
+    describe 'with sorting and no query' do
+      before do
+        VCR.use_cassette('search-providers-sort-noquery') do
+          get '/eholdings/providers/',
+              headers: okapi_headers
+        end
+      end
+
+      let!(:json_n) { Map JSON.parse response.body }
+
+      it 'contains a list of alphabetically sorted resources' do
+        expect(response).to have_http_status(200)
+        expect(json_n.data.length).to equal(25)
+        expect(json_n.meta.totalResults).to equal(1716)
+        expect(json_n.data.first.type).to eq('providers')
+        sorted_array = json_n.data.sort_by { |p| p.attributes.name.downcase }
+        expect(json_n.data).to eq(sorted_array)
+      end
+    end
   end
 
   describe 'getting a specific provider' do
