@@ -4,7 +4,12 @@ class ProvidersController < ApplicationController
   before_action :set_provider, only: %i[show packages]
 
   def index
-    @providers = providers.all(q: params[:q], page: params[:page])
+    @providers = providers.all(
+      q: params[:q],
+      page: params[:page],
+      sort: params[:sort]
+    )
+
     render jsonapi: @providers.vendors.to_a,
            meta: { totalResults: @providers.totalResults }
   end

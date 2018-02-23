@@ -7,8 +7,17 @@ class Provider < RmApiResource
   before_request do |name, request|
     if name == :all
       request.get_params[:search] = request.get_params.delete(:q)
-      request.get_params[:orderby] ||=
-        (request.get_params[:search] ? 'relevance' : 'vendorname')
+
+      sort = request.get_params.delete(:sort)
+      request.get_params[:orderby] =
+        if sort == 'relevance'
+          'relevance'
+        elsif sort == 'name'
+          'vendorname'
+        else
+          request.get_params[:search] ? 'relevance' : 'vendorname'
+        end
+
       request.get_params[:count] ||= 25
       request.get_params[:offset] = request.get_params[:page] || 1
       request.get_params.delete(:page)
