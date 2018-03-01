@@ -88,6 +88,91 @@ RSpec.describe 'Packages', type: :request do
     end
   end
 
+  describe 'with alphabetical sorting' do
+    before do
+      VCR.use_cassette('search-packages-sort-name') do
+        get '/eholdings/packages/?q=academic%20search&sort=name',
+            headers: okapi_headers
+      end
+    end
+
+    let!(:json_n) { Map JSON.parse response.body }
+
+    it 'contains a list of alphabetically A-Z sorted resources' do
+      expect(response).to have_http_status(200)
+      expect(json_n.data.length).to equal(25)
+      expect(json_n.meta.totalResults).to equal(179)
+      expect(json_n.data.first.type).to eq('packages')
+      sorted_array = json_n.data.sort_by { |p| p.attributes.name.downcase }
+      expect(json_n.data).to eq(sorted_array)
+    end
+  end
+
+  describe 'with relevance sorting' do
+    before do
+      VCR.use_cassette('search-packages-sort-relevance') do
+        get '/eholdings/packages/?q=academic%20search&sort=relevance',
+            headers: okapi_headers
+      end
+    end
+
+    let!(:json_n) { Map JSON.parse response.body }
+
+    it 'contains a list of relevancy sorted resources' do
+      expect(response).to have_http_status(200)
+      expect(json_n.data.length).to equal(25)
+      expect(json_n.meta.totalResults).to equal(179)
+      expect(json_n.data.first.type).to eq('packages')
+      expect(json_n.data[0].attributes.name.downcase).to include(
+        'academic search'
+      )
+      sorted_array = json_n.data.sort_by { |p| p.attributes.name.downcase }
+      expect(json_n.data).not_to eq(sorted_array)
+    end
+  end
+
+  describe 'with default sorting' do
+    before do
+      VCR.use_cassette('search-packages-sort-default') do
+        get '/eholdings/packages/?q=academic%20search',
+            headers: okapi_headers
+      end
+    end
+
+    let!(:json_n) { Map JSON.parse response.body }
+
+    it 'contains a list of relevancy sorted resources' do
+      expect(response).to have_http_status(200)
+      expect(json_n.data.length).to equal(25)
+      expect(json_n.meta.totalResults).to equal(179)
+      expect(json_n.data.first.type).to eq('packages')
+      expect(json_n.data[0].attributes.name.downcase).to include(
+        'academic search'
+      )
+      sorted_array = json_n.data.sort_by { |p| p.attributes.name.downcase }
+      expect(json_n.data).not_to eq(sorted_array)
+    end
+  end
+
+  describe 'with sorting and no query' do
+    before do
+      VCR.use_cassette('search-packages-sort-noquery') do
+        get '/eholdings/packages/',
+            headers: okapi_headers
+      end
+    end
+
+    let!(:json_n) { Map JSON.parse response.body }
+
+    it 'contains a list of alphabetically sorted resources' do
+      expect(response).to have_http_status(200)
+      expect(json_n.data.length).to equal(25)
+      expect(json_n.meta.totalResults).to equal(10_001)
+      expect(json_n.data.first.type).to eq('packages')
+      sorted_array = json_n.data.sort_by { |p| p.attributes.name.downcase }
+      expect(json_n.data).to eq(sorted_array)
+    end
+  end
   describe 'getting a specific package' do
     before do
       VCR.use_cassette('get-packages-success') do
