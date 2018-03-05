@@ -29,6 +29,17 @@ class Package < RmApiResource
 
       request.get_params[:search] = request.get_params.delete(:q)
       request.get_params[:contenttype] = filters[:type] || 'all'
+
+      sort = request.get_params.delete(:sort)
+      request.get_params[:orderby] =
+        if sort == 'relevance'
+          'relevance'
+        elsif sort == 'name'
+          'packagename'
+        else
+          request.get_params[:search] ? 'relevance' : 'packagename'
+        end
+
       request.get_params[:orderby] ||=
         (request.get_params[:search] ? 'relevance' : 'packagename')
       request.get_params[:count] ||= 25

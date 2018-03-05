@@ -7,7 +7,8 @@ class TitlesController < ApplicationController
     @titles = titles.all(
       q: params[:q],
       page: params[:page],
-      filter: params[:filter]
+      filter: params[:filter],
+      sort: params[:sort]
     )
 
     render jsonapi: @titles.titles.to_a,

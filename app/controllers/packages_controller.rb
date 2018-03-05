@@ -11,7 +11,8 @@ class PackagesController < ApplicationController
     @packages = packages.all(
       q: params[:q],
       page: params[:page],
-      filter: params[:filter]
+      filter: params[:filter],
+      sort: params[:sort]
     )
 
     render jsonapi: @packages.packagesList.to_a,

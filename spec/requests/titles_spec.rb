@@ -203,6 +203,81 @@ RSpec.describe 'Titles', type: :request do
     end
   end
 
+  # NOTE: alphabetical sorting tests for titles are currently limited
+  # due to a limitation in RM API. Cannot compare sorted results with
+  # a sorted list (some titles appear out of order).
+  # Additionally the same search with different sorts yields different counts.
+  # Title sorting is not being invoked from UI until
+  # sort limitation and a title count difference is resolved.
+  describe 'with alphabetical sorting' do
+    before do
+      VCR.use_cassette('search-titles-sort-name') do
+        get '/eholdings/titles/?filter[name]=victorian%20fashion&sort=name',
+            headers: okapi_headers
+      end
+    end
+
+    let!(:json_n) { Map JSON.parse response.body }
+
+    it 'contains a list of alphabetically A-Z sorted resources' do
+      expect(response).to have_http_status(200)
+      expect(json_n.data.length).to equal(25)
+      expect(json_n.meta.totalResults).to equal(5069)
+      expect(json_n.data.first.type).to eq('titles')
+      expect(json_n.data[0].attributes.name.downcase).not_to include(
+        'victorian fashion'
+      )
+    end
+  end
+
+  describe 'with relevance sorting' do
+    before do
+      # rubocop:disable Metrics/LineLength
+      VCR.use_cassette('search-titles-sort-relevance') do
+        get '/eholdings/titles/?filter[name]=victorian%20fashion&sort=relevance',
+            headers: okapi_headers
+      end
+      # rubocop:enable Metrics/LineLength
+    end
+
+    let!(:json_n) { Map JSON.parse response.body }
+
+    it 'contains a list of relevancy sorted resources' do
+      expect(response).to have_http_status(200)
+      expect(json_n.data.length).to equal(25)
+      expect(json_n.meta.totalResults).to equal(5064)
+      expect(json_n.data.first.type).to eq('titles')
+      expect(json_n.data[0].attributes.name.downcase).to include(
+        'victorian fashion'
+      )
+      sorted_array = json_n.data.sort_by { |p| p.attributes.name.downcase }
+      expect(json_n.data).not_to eq(sorted_array)
+    end
+  end
+
+  describe 'with default sorting' do
+    before do
+      VCR.use_cassette('search-titles-sort-default') do
+        get '/eholdings/titles/?filter[name]=victorian%20fashion',
+            headers: okapi_headers
+      end
+    end
+
+    let!(:json_n) { Map JSON.parse response.body }
+
+    it 'contains a list of relevancy sorted resources' do
+      expect(response).to have_http_status(200)
+      expect(json_n.data.length).to equal(25)
+      expect(json_n.meta.totalResults).to equal(5064)
+      expect(json_n.data.first.type).to eq('titles')
+      expect(json_n.data[0].attributes.name.downcase).to include(
+        'victorian fashion'
+      )
+      sorted_array = json_n.data.sort_by { |p| p.attributes.name.downcase }
+      expect(json_n.data).not_to eq(sorted_array)
+    end
+  end
+
   describe 'getting a specific title' do
     before do
       VCR.use_cassette('get-titles-success') do
