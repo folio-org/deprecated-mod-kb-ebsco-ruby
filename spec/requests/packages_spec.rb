@@ -206,7 +206,7 @@ RSpec.describe 'Packages', type: :request do
 
     it 'returns a valid visibility reason' do
       expect(json.data.attributes.visibilityData.reason).to(
-        eq('Set by System')
+        eq('Set by system')
       )
     end
   end
@@ -776,7 +776,7 @@ RSpec.describe 'Packages', type: :request do
       expect(response).to have_http_status(200)
     end
     it 'has reason hidden by customer' do
-      expect(visibility.reason).to eq('Set by System')
+      expect(visibility.reason).to eq('Set by system')
     end
   end
 

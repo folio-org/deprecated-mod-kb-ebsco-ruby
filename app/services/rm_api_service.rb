@@ -76,7 +76,7 @@ class RmApiService
       return [] if ok?
       data.Errors.map { |err| { title: err.Message } }
     rescue StandardError
-      [{ title: 'Unhandled Error' }]
+      [{ title: 'Unhandled error' }]
     end
   end
 
