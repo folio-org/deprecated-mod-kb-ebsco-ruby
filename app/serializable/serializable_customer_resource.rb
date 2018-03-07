@@ -128,7 +128,7 @@ class SerializableCustomerResource < SerializableResource
     visibility = @object.resource.visibilityData
     if visibility[:isHidden]
       visibility[:reason] =
-        visibility[:reason] == 'Hidden by EP' ? 'Set by System' : ''
+        visibility[:reason] == 'Hidden by EP' ? 'Set by system' : ''
     end
     visibility
   end

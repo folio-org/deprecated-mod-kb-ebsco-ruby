@@ -38,7 +38,7 @@ class Configuration
 
     return true if response.ok?
 
-    errors[:base] << 'RM-API Credentials Are Invalid'
+    errors[:base] << 'RM-API credentials are invalid'
   end
 
   def save

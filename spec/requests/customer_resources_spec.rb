@@ -573,7 +573,7 @@ RSpec.describe 'Customer Resources', type: :request do
       expect(response).to have_http_status(200)
     end
     it 'has reason hidden by ep' do
-      expect(visibility.reason).to eq('Set by System')
+      expect(visibility.reason).to eq('Set by system')
     end
   end
 end
