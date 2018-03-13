@@ -53,5 +53,13 @@
       ]
     }
   ],
-  "permissionSets" : []
+  "permissionSets" : [],
+  "launchDescriptor": {
+    "dockerImage": "mod-kb-ebsco:0.1.1",
+    "dockerArgs": {
+      "HostConfig": { "PortBindings": { "8081/tcp":  [{ "HostPort": "%p" }] } } 
+    },
+    "dockerPull" : false
+  }
 }
+
