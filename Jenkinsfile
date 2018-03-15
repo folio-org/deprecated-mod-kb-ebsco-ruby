@@ -129,6 +129,6 @@ pipeline {
       sh "docker rmi ${env.dockerImage}:latest || exit 0"
       sendNotifications currentBuild.result
     }
-  }
+  } //FS
 
 }
