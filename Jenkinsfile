@@ -42,19 +42,19 @@ pipeline {
         ])
         echo " Checked out $env.BRANCH_NAME"
       }
-    } 
+    }
 
     stage('Build and Unit Tests') {
       steps {
         script {
           def foliociLib = new org.folio.foliociCommands()
-           
+
           // always 'true' for now
           env.snapshot = true
 
           env.project_name = foliociLib.getProjName()
           env.name = env.project_name
-     
+
           // getting current version from MD.  Not ideal. Good enough for now.
           def version = foliociLib.getModuleDescriptorIdVer('ModuleDescriptor.json')
 
@@ -72,11 +72,11 @@ pipeline {
         sh "/bin/bash -l -c '. /usr/share/rvm/scripts/rvm && rvm use ${env.RUBY_VERSION}'"
         sh "sudo /bin/bash -l -c '. /usr/share/rvm/scripts/rvm && gem install bundler'"
 
-        sh "sudo /bin/bash -l -c '. /usr/share/rvm/scripts/rvm && bundle install'" 
+        sh "sudo /bin/bash -l -c '. /usr/share/rvm/scripts/rvm && bundle install'"
 
         echo "Run Ruby linter - rubocop..."
         sh "/bin/bash -l -c '. /usr/share/rvm/scripts/rvm && rubocop'"
-      
+
         echo "Run unit tests..."
         sh "/bin/bash -l -c '. /usr/share/rvm/scripts/rvm && rake spec'"
       }
@@ -88,9 +88,9 @@ pipeline {
         script {
           def dockerRepo = 'folioci'
           env.dockerImage = "$dockerRepo/${env.name}"
-          docker.build("${env.dockerImage}:${env.version}", '--no-cache .') 
+          docker.build("${env.dockerImage}:${env.version}", '--no-cache .')
         }
-      }  
+      }
     }
 
     stage('Publish Docker image') {
@@ -110,17 +110,17 @@ pipeline {
     }
 
     stage('Publish Module Descriptor') {
-      when { 
+      when {
         branch 'master'
       }
       steps {
         script {
-          if (env.snapshot) { 
+          if (env.snapshot) {
             def foliociLib = new org.folio.foliociCommands()
             foliociLib.updateModDescriptorId('ModuleDescriptor.json')
           }
         }
-        postModuleDescriptor('ModuleDescriptor.json')  
+        postModuleDescriptor('ModuleDescriptor.json')
       }
     }
 
@@ -135,5 +135,5 @@ pipeline {
   }
 
 }
-       
-    
+
+
