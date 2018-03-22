@@ -49,6 +49,7 @@ class CustomerResourcesController < ApplicationController
       .require(:customer_resource)
       .permit(
         :isSelected,
+        :coverageStatement,
         visibilityData: [:isHidden],
         customCoverageList: [
           %i[beginCoverage endCoverage]

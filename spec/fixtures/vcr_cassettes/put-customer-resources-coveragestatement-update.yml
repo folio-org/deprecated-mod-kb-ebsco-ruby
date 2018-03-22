@@ -27,7 +27,7 @@ http_interactions:
       Server:
       - nginx/1.13.5
       Date:
-      - Thu, 22 Mar 2018 03:05:55 GMT
+      - Thu, 22 Mar 2018 03:03:48 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -36,15 +36,15 @@ http_interactions:
       - keep-alive
       X-Okapi-Trace:
       - 'GET mod-authtoken-1.4.1-SNAPSHOT.20 http://10.39.247.20:8081/configurations/entries..
-        : 202 365035us'
+        : 202 361192us'
       - 'GET mod-configuration-4.0.3-SNAPSHOT.29 http://10.39.248.16:8081/configurations/entries..
-        : 200 45478us'
+        : 200 45041us'
       Host:
       - okapi.frontside.io
       X-Real-Ip:
-      - 10.128.0.3
+      - 10.36.4.1
       X-Forwarded-For:
-      - 10.128.0.3
+      - 10.36.4.1
       X-Forwarded-Host:
       - okapi.frontside.io
       X-Forwarded-Port:
@@ -66,7 +66,7 @@ http_interactions:
       User-Agent:
       - Ruby
       X-Okapi-Request-Id:
-      - 688334/configurations
+      - 718609/configurations
       X-Okapi-Url:
       - http://10.39.253.90:80
       X-Okapi-Permissions-Required:
@@ -107,7 +107,7 @@ http_interactions:
           }
         }
     http_version: 
-  recorded_at: Thu, 22 Mar 2018 03:05:56 GMT
+  recorded_at: Thu, 22 Mar 2018 03:03:48 GMT
 - request:
     method: get
     uri: https://api.ebsco.io/rm/rmaccounts/TEST_CUSTOMER_ID/vendors/22/packages/1887786/titles/1440285
@@ -139,9 +139,9 @@ http_interactions:
       Connection:
       - keep-alive
       Date:
-      - Thu, 22 Mar 2018 03:05:56 GMT
+      - Thu, 22 Mar 2018 03:03:50 GMT
       X-Amzn-Requestid:
-      - f065defd-2d7d-11e8-8206-e3db9ca99846
+      - a531187d-2d7d-11e8-b362-097fb77e0a8a
       X-Amzn-Remapped-Content-Length:
       - '1755'
       X-Amzn-Remapped-Connection:
@@ -157,15 +157,15 @@ http_interactions:
       Pragma:
       - no-cache
       X-Amzn-Remapped-Date:
-      - Thu, 22 Mar 2018 03:05:56 GMT
+      - Thu, 22 Mar 2018 03:03:50 GMT
       X-Aspnet-Version:
       - 4.0.30319
       X-Cache:
       - Miss from cloudfront
       Via:
-      - 1.1 1a855d5f6b4cbdb5eb9d1df48257840c.cloudfront.net (CloudFront)
+      - 1.1 cadfe97a89a2dfb762b7d7cff04f03cf.cloudfront.net (CloudFront)
       X-Amz-Cf-Id:
-      - QNwtciD71H9McdoZnOh_fIANF7CX3JwcmyGjI-mirRhOeDtCd3muUg==
+      - ZU2weFsl73EJOMsYBCiwqQrgLU9rs684Axu_hx_wdcIYeuPukIFUPw==
     body:
       encoding: UTF-8
       string: '{"titleId":1440285,"titleName":"Havard''s Nursing Guide to Drugs (Nursing
@@ -177,14 +177,14 @@ http_interactions:
         1990s issues available.","managedEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"customEmbargoPeriod":{"embargoUnit":"Weeks","embargoValue":2},"url":"http://ebookcentral.proquest.com/lib/[[SiteID]]/detail.action?docID=1722033","userDefinedField1":null,"userDefinedField2":null,"userDefinedField3":null,"userDefinedField4":null,"userDefinedField5":null}],"description":null,"edition":null,"isPeerReviewed":false,"contributorsList":[{"type":"author","contributor":"Havard,
         Margaret"},{"type":"author","contributor":"Tiziani, Adriana."}]}'
     http_version: 
-  recorded_at: Thu, 22 Mar 2018 03:05:56 GMT
+  recorded_at: Thu, 22 Mar 2018 03:03:50 GMT
 - request:
     method: put
     uri: https://api.ebsco.io/rm/rmaccounts/TEST_CUSTOMER_ID/vendors/22/packages/1887786/titles/1440285
     body:
       encoding: UTF-8
-      string: '{"isSelected":true,"isHidden":false,"customCoverageList":[{"beginCoverage":"2005-01-01"},{"beginCoverage":"2000-01-01","endCoverage":"2004-02-01"}],"customEmbargoPeriod":{"embargoUnit":"Months","embargoValue":5},"coverageStatement":"Only
-        2000s issues available."}'
+      string: '{"isSelected":true,"isHidden":true,"customCoverageList":[{"beginCoverage":"2011-01-01","endCoverage":"2012-12-31"},{"beginCoverage":"2000-01-01","endCoverage":"2001-12-31"},{"beginCoverage":"1990-01-01","endCoverage":"1997-12-31"}],"customEmbargoPeriod":{"embargoUnit":"Weeks","embargoValue":2},"coverageStatement":"Only
+        1990s issues available."}'
     headers:
       User-Agent:
       - Flexirest/1.5.5
@@ -210,9 +210,9 @@ http_interactions:
       Connection:
       - keep-alive
       Date:
-      - Thu, 22 Mar 2018 03:05:56 GMT
+      - Thu, 22 Mar 2018 03:03:50 GMT
       X-Amzn-Requestid:
-      - f08638a9-2d7d-11e8-b7fe-51585d79652b
+      - a550fbdb-2d7d-11e8-a46e-a91777f49ea4
       X-Amzn-Remapped-Connection:
       - keep-alive
       X-Amzn-Remapped-Server:
@@ -226,20 +226,20 @@ http_interactions:
       Pragma:
       - no-cache
       X-Amzn-Remapped-Date:
-      - Thu, 22 Mar 2018 03:05:56 GMT
+      - Thu, 22 Mar 2018 03:03:50 GMT
       X-Aspnet-Version:
       - 4.0.30319
       X-Cache:
       - Miss from cloudfront
       Via:
-      - 1.1 e151cdfc40018593a63b6d2b830f43ab.cloudfront.net (CloudFront)
+      - 1.1 966f5fd0c86bd4e9f829fca8c1e569b8.cloudfront.net (CloudFront)
       X-Amz-Cf-Id:
-      - IUlOfI4vPw9UBxYYMBUA0sbAjF2_eocSDWNkX-GS8i9tcDoQO-Lcvw==
+      - C12iykygm03ULfPqYb9ixZ33Rjdn7ilaChv56sLkaB89HkgiFODV5g==
     body:
       encoding: UTF-8
       string: ''
     http_version: 
-  recorded_at: Thu, 22 Mar 2018 03:05:56 GMT
+  recorded_at: Thu, 22 Mar 2018 03:03:50 GMT
 - request:
     method: get
     uri: https://api.ebsco.io/rm/rmaccounts/TEST_CUSTOMER_ID/vendors/22/packages/1887786/titles/1440285
@@ -267,15 +267,15 @@ http_interactions:
       Content-Type:
       - application/json; charset=utf-8
       Content-Length:
-      - '1671'
+      - '1755'
       Connection:
       - keep-alive
       Date:
-      - Thu, 22 Mar 2018 03:05:56 GMT
+      - Thu, 22 Mar 2018 03:03:50 GMT
       X-Amzn-Requestid:
-      - f0c2cbac-2d7d-11e8-b5d8-77aee7b48a9a
+      - a57dd8a4-2d7d-11e8-bde9-09e1796684d4
       X-Amzn-Remapped-Content-Length:
-      - '1671'
+      - '1755'
       X-Amzn-Remapped-Connection:
       - keep-alive
       X-Amzn-Remapped-Server:
@@ -289,24 +289,25 @@ http_interactions:
       Pragma:
       - no-cache
       X-Amzn-Remapped-Date:
-      - Thu, 22 Mar 2018 03:05:56 GMT
+      - Thu, 22 Mar 2018 03:03:50 GMT
       X-Aspnet-Version:
       - 4.0.30319
       X-Cache:
       - Miss from cloudfront
       Via:
-      - 1.1 e7e29d0eded63a37a4752639a0b543bf.cloudfront.net (CloudFront)
+      - 1.1 ad15c70abd681cb2e8c1d7aaa175778a.cloudfront.net (CloudFront)
       X-Amz-Cf-Id:
-      - SMtEDOOTDvsgm5JiyIV30Jq0DWLbjwv6jMb6FwBYPxok7k737_UpeQ==
+      - vePOiTTcKzloBppofGZ0vWkKxgH3nT0ZRPSJ01UmvGxhycDnk3QEXg==
     body:
       encoding: UTF-8
       string: '{"titleId":1440285,"titleName":"Havard''s Nursing Guide to Drugs (Nursing
         Guide to Drugs)","publisherName":"Elsevier","identifiersList":[{"id":"1440285","source":"AtoZ","subtype":0,"type":9},{"id":"475765","source":"ResourceIdentifier","subtype":0,"type":7},{"id":"978-0-7295-3913-5","source":"ResourceIdentifier","subtype":1,"type":1},{"id":"978-0-7295-7913-1","source":"ResourceIdentifier","subtype":2,"type":1}],"subjectsList":[{"type":"BISAC","subject":"MEDICAL
         / Nursing / Pharmacology"}],"isTitleCustom":false,"pubType":"Book","customerResourcesList":[{"titleId":1440285,"packageId":1887786,"packageName":"ProQuest
         Ebook Central","packageType":"Variable","proxy":{"id":"EZProxy","inherited":true},"isPackageCustom":false,"vendorId":22,"vendorName":"Proquest
-        Info & Learning Co","locationId":17545807,"isSelected":true,"isTokenNeeded":true,"visibilityData":{"isHidden":false,"reason":""},"managedCoverageList":[{"beginCoverage":"2010-01-01","endCoverage":"2010-12-31"}],"customCoverageList":[{"beginCoverage":"2000-01-01","endCoverage":"2004-02-01"},{"beginCoverage":"2005-01-01","endCoverage":""}],"coverageStatement":"Only
-        2000s issues available.","managedEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"customEmbargoPeriod":{"embargoUnit":"Months","embargoValue":5},"url":"http://ebookcentral.proquest.com/lib/[[SiteID]]/detail.action?docID=1722033","userDefinedField1":null,"userDefinedField2":null,"userDefinedField3":null,"userDefinedField4":null,"userDefinedField5":null}],"description":null,"edition":null,"isPeerReviewed":false,"contributorsList":[{"type":"author","contributor":"Havard,
+        Info & Learning Co","locationId":17545807,"isSelected":true,"isTokenNeeded":true,"visibilityData":{"isHidden":true,"reason":"Hidden
+        by Customer"},"managedCoverageList":[{"beginCoverage":"2010-01-01","endCoverage":"2010-12-31"}],"customCoverageList":[{"beginCoverage":"1990-01-01","endCoverage":"1997-12-31"},{"beginCoverage":"2000-01-01","endCoverage":"2001-12-31"},{"beginCoverage":"2011-01-01","endCoverage":"2012-12-31"}],"coverageStatement":"Only
+        1990s issues available.","managedEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"customEmbargoPeriod":{"embargoUnit":"Weeks","embargoValue":2},"url":"http://ebookcentral.proquest.com/lib/[[SiteID]]/detail.action?docID=1722033","userDefinedField1":null,"userDefinedField2":null,"userDefinedField3":null,"userDefinedField4":null,"userDefinedField5":null}],"description":null,"edition":null,"isPeerReviewed":false,"contributorsList":[{"type":"author","contributor":"Havard,
         Margaret"},{"type":"author","contributor":"Tiziani, Adriana."}]}'
     http_version: 
-  recorded_at: Thu, 22 Mar 2018 03:05:57 GMT
+  recorded_at: Thu, 22 Mar 2018 03:03:50 GMT
 recorded_with: VCR 3.0.3

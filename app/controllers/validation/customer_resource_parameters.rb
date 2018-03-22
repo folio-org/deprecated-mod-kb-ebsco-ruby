@@ -7,7 +7,7 @@ module Validation
     include ActiveModel::Validations
 
     attr_accessor :isSelected, :isHidden, :customCoverageList,
-                  :embargoUnit, :embargoValue
+                  :embargoUnit, :embargoValue, :coverageStatement
 
     # Deselected resources cannot be customized.  Though the UI is smart enough
     # to keep this from happening, a manual request to the API could lead
@@ -18,6 +18,7 @@ module Validation
       validates :customCoverageList, absence: true, unless: :isSelected
       validates :embargoUnit, absence: true, unless: :isSelected
       validates :embargoValue, absence: true, unless: :isSelected
+      validates :coverageStatement, absence: true, unless: :isSelected
     end
 
     def initialize(params = {})
@@ -26,6 +27,7 @@ module Validation
       @customCoverageList = params[:customCoverageList]
       @embargoUnit = params.dig(:customEmbargoPeriod, :embargoUnit)
       @embargoValue = params.dig(:customEmbargoPeriod, :embargoValue)
+      @coverageStatement = params[:coverageStatement]
     end
   end
 end
