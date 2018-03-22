@@ -68,7 +68,7 @@ class CustomerResource < RmApiResource
     save!
   end
 
-  def save!
+  def save! # rubocop:disable Metrics/AbcSize
     attributes = update_fields
     self.class.update(
       vendor_id: resource.vendorId,
@@ -77,7 +77,8 @@ class CustomerResource < RmApiResource
       isSelected: attributes[:isSelected],
       isHidden: attributes[:visibilityData][:isHidden],
       customCoverageList: sorted_coverage,
-      customEmbargoPeriod: attributes[:customEmbargoPeriod]
+      customEmbargoPeriod: attributes[:customEmbargoPeriod],
+      coverageStatement: attributes[:coverageStatement]
     )
     refresh!
   end
@@ -114,7 +115,8 @@ class CustomerResource < RmApiResource
       :isSelected,
       :visibilityData,
       :customCoverageList,
-      :customEmbargoPeriod
+      :customEmbargoPeriod,
+      :coverageStatement
     )
   end
 end

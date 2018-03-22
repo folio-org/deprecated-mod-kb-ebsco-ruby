@@ -322,6 +322,36 @@ RSpec.describe 'Customer Resources', type: :request do
         end
       end
 
+      describe 'setting a coverage statement' do
+        let(:params) do
+          {
+            'data' => {
+              'type' => 'customerResources',
+              'attributes' => {
+                'isSelected' => false,
+                'visibilityData' => nil,
+                'customEmbargoPeriod' => nil,
+                'customCoverages' => [],
+                'coverageStatement': 'Only 1980s issues available.'
+              }
+            }
+          }
+        end
+
+        before do
+          # rubocop:disable Metrics/LineLength
+          VCR.use_cassette('put-customer-resources-isnotselected-coveragestatement') do
+            put '/eholdings/customer-resources/22-1887786-1440285',
+                params: params, as: :json, headers: update_headers
+          end
+          # rubocop:enable Metrics/LineLength
+        end
+
+        it 'fails with unprocessable entity status' do
+          expect(response).to have_http_status(422)
+        end
+      end
+
       describe 'selecting a customer resource' do
         let(:params) do
           {
@@ -467,6 +497,38 @@ RSpec.describe 'Customer Resources', type: :request do
         end
       end
 
+      describe 'setting a coverage statement' do
+        let(:params) do
+          {
+            'data' => {
+              'type' => 'customerResources',
+              'attributes' => {
+                'isSelected' => true,
+                'coverageStatement' => 'Only 1990s issues available.'
+              }
+            }
+          }
+        end
+
+        before do
+          VCR.use_cassette('put-customer-resources-coveragestatement-update') do
+            put '/eholdings/customer-resources/22-1887786-1440285',
+                params: params, as: :json, headers: update_headers
+          end
+        end
+
+        it 'responds with OK status' do
+          expect(response).to have_http_status(200)
+        end
+
+        let!(:json) { Map JSON.parse response.body }
+
+        it 'has a coverage statement' do
+          expect(json.data.attributes.coverageStatement)
+            .to eq('Only 1990s issues available.')
+        end
+      end
+
       describe 'combined update' do
         let(:params) do
           {
@@ -489,7 +551,8 @@ RSpec.describe 'Customer Resources', type: :request do
                     'beginCoverage' => '2000-01-01',
                     'endCoverage' => '2004-02-01'
                   }
-                ]
+                ],
+                'coverageStatement' => 'Only 2000s issues available.'
               }
             }
           }
@@ -521,6 +584,9 @@ RSpec.describe 'Customer Resources', type: :request do
 
           expect(embargo.embargoUnit).to eq('Months')
           expect(embargo.embargoValue).to eq(5)
+
+          expect(json.data.attributes.coverageStatement)
+            .to eq('Only 2000s issues available.')
         end
       end
     end

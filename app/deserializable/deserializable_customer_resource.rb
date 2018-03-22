@@ -3,7 +3,8 @@
 class DeserializableCustomerResource < JSONAPI::Deserializable::Resource
   attributes :isSelected,
              :customEmbargoPeriod,
-             :visibilityData
+             :visibilityData,
+             :coverageStatement
 
   attribute :customCoverages do |value|
     { customCoverageList: value }
