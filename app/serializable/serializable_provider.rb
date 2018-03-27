@@ -10,5 +10,9 @@ class SerializableProvider < SerializableResource
   attributes :packagesTotal,
              :packagesSelected
 
+  attribute :providerToken do
+    @object.vendorToken
+  end
+
   has_many :packages
 end

@@ -149,9 +149,54 @@ RSpec.describe 'Providers', type: :request do
         include(
           'name',
           'packagesTotal',
-          'packagesSelected'
+          'packagesSelected',
+          'providerToken'
         )
       )
+    end
+
+    it 'returns null provider token' do
+      expect(json.data.attributes.providerToken).to eq(nil)
+    end
+
+    it 'contains relationships data' do
+      expect(json.data.relationships). to include('packages')
+    end
+  end
+
+  describe 'getting a provider with a token ' do
+    before do
+      VCR.use_cassette('get-providers-token') do
+        get '/eholdings/providers/18', headers: okapi_headers
+      end
+    end
+
+    let!(:json) { Map JSON.parse response.body }
+
+    it 'gets the resource' do
+      expect(response).to have_http_status(200)
+      expect(json.data.type).to eq('providers')
+      expect(json.data.id).to eq('18')
+      expect(json.data.attributes).to(
+        include(
+          'name',
+          'packagesTotal',
+          'packagesSelected',
+          'providerToken'
+        )
+      )
+    end
+
+    it 'returns provider token attributes' do
+      expect(json.data.attributes.providerToken).to include(
+        'factName' => '[[galesiteid]]',
+        'prompt' => '/itweb/',
+        'value' => '2304505'
+      )
+    end
+
+    it 'returns provider token help text' do
+      expect(json.data.attributes.providerToken).to have_key(:helpText)
     end
 
     it 'contains relationships data' do
@@ -265,6 +310,77 @@ RSpec.describe 'Providers', type: :request do
 
     it 'returns a not found error' do
       expect(response).to have_http_status(404)
+    end
+  end
+
+  describe 'updating a provider' do
+    let(:update_headers) do
+      okapi_headers.merge(
+        'Content-Type': 'application/vnd.api+json'
+      )
+    end
+
+    describe 'when the provider does not allow tokens' do
+      describe 'setting token value should fail' do
+        let(:params) do
+          {
+            "data": {
+              "type": 'providers',
+              "attributes": {
+                "providerToken": {
+                  "value": '99'
+                }
+              }
+            }
+          }
+        end
+
+        before do
+          VCR.use_cassette('put-providers-isnotallowed-token') do
+            put '/eholdings/providers/22',
+                params: params, as: :json, headers: update_headers
+          end
+        end
+
+        it 'responds with unprocessable entity status' do
+          expect(response).to have_http_status(422)
+        end
+      end
+    end
+
+    describe 'when the provider allows tokens' do
+      describe 'setting token value should succeed' do
+        let(:params) do
+          {
+            "data": {
+              "type": 'providers',
+              "attributes": {
+                "providerToken": {
+                  "value": '99'
+                }
+              }
+            }
+          }
+        end
+
+        before do
+          VCR.use_cassette('put-providers-token') do
+            put '/eholdings/providers/18',
+                params: params, as: :json, headers: update_headers
+          end
+        end
+
+        it 'responds with OK status' do
+          expect(response).to have_http_status(200)
+        end
+
+        let!(:json) { Map JSON.parse response.body }
+        let!(:value) { json.data.vendorToken.value }
+
+        it 'has token value' do
+          expect(json.data.vendorToken.value).to equal(99)
+        end
+      end
     end
   end
 end

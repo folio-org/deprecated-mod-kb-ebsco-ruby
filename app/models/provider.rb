@@ -3,6 +3,7 @@
 class Provider < RmApiResource
   get :all, '/vendors'
   get :find, '/vendors/:id'
+  put :update, '/vendors/:vendor_id'
 
   before_request do |name, request|
     if name == :all
@@ -26,6 +27,10 @@ class Provider < RmApiResource
 
   def id
     vendorId
+  end
+
+  def update(params)
+    byebug
   end
 
   def find_packages(**params)

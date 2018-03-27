@@ -8,7 +8,7 @@ Rails.application.routes.draw do
       end
     end
 
-    resources :providers, only: %i[index show] do
+    resources :providers, only: %i[index show update] do
       member do
         get 'packages'
       end

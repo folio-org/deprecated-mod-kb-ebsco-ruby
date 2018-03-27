@@ -19,7 +19,7 @@
           "pathPattern": "/eholdings/vendors*"
         },
         {
-          "methods": [ "GET" ],
+          "methods": [ "GET", "PUT" ],
           "pathPattern": "/eholdings/providers*"
         },
         {
