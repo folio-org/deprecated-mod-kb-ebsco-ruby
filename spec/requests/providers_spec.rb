@@ -204,6 +204,46 @@ RSpec.describe 'Providers', type: :request do
     end
   end
 
+  describe 'getting a provider with a token ' do
+    before do
+      VCR.use_cassette('get-providers-token') do
+        get '/eholdings/providers/18', headers: okapi_headers
+      end
+    end
+
+    let!(:json) { Map JSON.parse response.body }
+
+    it 'gets the resource' do
+      expect(response).to have_http_status(200)
+      expect(json.data.type).to eq('providers')
+      expect(json.data.id).to eq('18')
+      expect(json.data.attributes).to(
+        include(
+          'name',
+          'packagesTotal',
+          'packagesSelected',
+          'providerToken'
+        )
+      )
+    end
+
+    it 'returns provider token attributes' do
+      expect(json.data.attributes.providerToken).to include(
+        'factName' => '[[galesiteid]]',
+        'prompt' => '/itweb/',
+        'value' => '2304505'
+      )
+    end
+
+    it 'returns provider token help text' do
+      expect(json.data.attributes.providerToken).to have_key(:helpText)
+    end
+
+    it 'contains relationships data' do
+      expect(json.data.relationships). to include('packages')
+    end
+  end
+
   describe 'getting a provider with included packages' do
     before do
       VCR.use_cassette('get-providers-include-packages-success') do
