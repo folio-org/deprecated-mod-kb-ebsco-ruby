@@ -368,7 +368,7 @@ RSpec.describe 'Providers', type: :request do
               "type": 'providers',
               "attributes": {
                 "providerToken": {
-                  "value": '99'
+                  "value": '88'
                 }
               }
             }
@@ -418,7 +418,7 @@ RSpec.describe 'Providers', type: :request do
         let!(:value) { json.data.vendorToken.value }
 
         it 'has token value' do
-          expect(json.data.vendorToken.value).to equal(99)
+          expect(json.data.attributes.providerToken.value).to equal(99)
         end
       end
     end
