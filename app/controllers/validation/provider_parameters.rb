@@ -6,10 +6,8 @@ module Validation
 
     attr_accessor :value
 
-    validates :value, presence: true
-
     def initialize(params = {})
-      @value = params.dig(:providerToken, :value)
+      @value = params.dig(:vendorToken, :value)
     end
   end
 end

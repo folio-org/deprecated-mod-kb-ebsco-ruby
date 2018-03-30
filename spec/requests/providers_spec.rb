@@ -363,16 +363,16 @@ RSpec.describe 'Providers', type: :request do
     describe 'when the provider does not allow tokens' do
       describe 'setting token value should fail' do
         let(:params) do
-          {
-            "data": {
-              "type": 'providers',
-              "attributes": {
-                "providerToken": {
-                  "value": '88'
-                }
+        {
+          'data' => {
+            'type' => 'providers',
+            'attributes' => {
+              'providerToken' => {
+                'value' => '88'
               }
             }
           }
+        }
         end
 
         before do
@@ -392,16 +392,16 @@ RSpec.describe 'Providers', type: :request do
       describe 'setting token value should succeed' do
         let(:params) do
           {
-            "data": {
-              "type": 'providers',
-              "attributes": {
-                "providerToken": {
-                  "value": '99'
+            'data' => {
+              'type' => 'providers',
+              'attributes' => {
+                'providerToken' => {
+                  'value' => '99'
                 }
               }
             }
           }
-        end
+          end
 
         before do
           VCR.use_cassette('put-providers-token') do
@@ -412,13 +412,6 @@ RSpec.describe 'Providers', type: :request do
 
         it 'responds with OK status' do
           expect(response).to have_http_status(200)
-        end
-
-        let!(:json) { Map JSON.parse response.body }
-        let!(:value) { json.data.vendorToken.value }
-
-        it 'has token value' do
-          expect(json.data.attributes.providerToken.value).to equal(99)
         end
       end
     end

@@ -5,7 +5,7 @@ class Provider < RmApiResource
 
   get :all, '/vendors'
   get :find, '/vendors/:id'
-  put :update, '/vendors/:vendor_id'
+  put :update, '/vendors/:id'
 
   before_request do |name, request|
     if name == :all
@@ -40,13 +40,14 @@ class Provider < RmApiResource
   end
 
   def update(params)
-    merge_fields!(params)
+    merge_fields(params)
     save!
   end
 
   def save! # rubocop:disable Metrics/AbcSize
     attributes = update_fields
     self.class.update(
+      id: attributes[:vendorId],
       value: attributes[:vendorToken][:value]
     )
     refresh!
@@ -57,9 +58,9 @@ class Provider < RmApiResource
   def refresh!
     # re-fetch from RM API to surface side-effects
     saved = self.class.find(
-      vendor_id: resource.vendorId
+      id: vendorId
     )
-    merge_fields!(saved)
+    merge_fields(saved)
   end
 
   def merge_fields(new_values)
@@ -69,7 +70,7 @@ class Provider < RmApiResource
   end
 
   def update_fields
-    resource.to_hash.with_indifferent_access.slice(
+    to_hash.with_indifferent_access.slice(
       :vendorToken
     )
   end

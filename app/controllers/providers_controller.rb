@@ -54,7 +54,7 @@ class ProvidersController < ApplicationController
     params
       .require(:provider)
       .permit(
-        providerToken: [:value]
+        vendorToken: [:value]
       )
   end
 end

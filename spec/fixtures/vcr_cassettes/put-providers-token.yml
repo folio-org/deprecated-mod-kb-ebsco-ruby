@@ -27,7 +27,7 @@ http_interactions:
       Server:
       - nginx/1.13.5
       Date:
-      - Thu, 29 Mar 2018 15:16:01 GMT
+      - Fri, 30 Mar 2018 20:22:53 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -36,9 +36,9 @@ http_interactions:
       - keep-alive
       X-Okapi-Trace:
       - 'GET mod-authtoken-1.4.1-SNAPSHOT.20 http://10.39.249.72:8081/configurations/entries..
-        : 202 456011us'
+        : 202 376623us'
       - 'GET mod-configuration-4.0.3-SNAPSHOT.29 http://10.39.252.104:8081/configurations/entries..
-        : 200 75655us'
+        : 200 54361us'
       Host:
       - okapi.frontside.io
       X-Real-Ip:
@@ -66,7 +66,7 @@ http_interactions:
       User-Agent:
       - Ruby
       X-Okapi-Request-Id:
-      - 201067/configurations
+      - 393456/configurations
       X-Okapi-Url:
       - http://10.39.243.220:80
       X-Okapi-Permissions-Required:
@@ -107,7 +107,7 @@ http_interactions:
           }
         }
     http_version: 
-  recorded_at: Thu, 29 Mar 2018 15:16:01 GMT
+  recorded_at: Fri, 30 Mar 2018 20:22:53 GMT
 - request:
     method: get
     uri: https://api.ebsco.io/rm/rmaccounts/TEST_CUSTOMER_ID/vendors/18
@@ -139,25 +139,76 @@ http_interactions:
       Connection:
       - keep-alive
       Date:
-      - Thu, 29 Mar 2018 15:16:02 GMT
+      - Fri, 30 Mar 2018 20:22:54 GMT
       X-Amzn-Requestid:
-      - 17b56497-3364-11e8-9e9e-b3455d320736
+      - 20acecae-3458-11e8-b137-615a09d6dd26
       X-Amzn-Remapped-Connection:
       - keep-alive
       X-Amz-Apigw-Id:
-      - Eg1v2GV5oAMFheQ=
+      - Ek1owHEcoAMFUmA=
       X-Amzn-Remapped-Date:
-      - Thu, 29 Mar 2018 15:16:02 GMT
+      - Fri, 30 Mar 2018 20:22:53 GMT
       X-Cache:
       - Miss from cloudfront
       Via:
-      - 1.1 2d357730b9d8c4fff788ffa9b0881e8f.cloudfront.net (CloudFront)
+      - 1.1 f65bda8bf2dccd41d20af73214f75094.cloudfront.net (CloudFront)
       X-Amz-Cf-Id:
-      - vhyax4SmrnS2NipaeN-ArZp3QjDnBzWAz7L2kvD5sV5UyD6AWvQfFQ==
+      - EfSfXJnu4WegaAc0DEF5w_Br7zpLHwmO-7HRIdEYGa2r7tnRQ-W8xw==
     body:
       encoding: ASCII-8BIT
       string: !binary |-
         eyJpc0N1c3RvbWVyIjpmYWxzZSwicGFja2FnZXNTZWxlY3RlZCI6MTUsInBhY2thZ2VzVG90YWwiOjI0NCwidmVuZG9ySWQiOjE4LCJ2ZW5kb3JOYW1lIjoiR2FsZSB8IENlbmdhZ2UiLCJwcm94eSI6eyJpZCI6IkVaUHJveHkiLCJpbmhlcml0ZWQiOnRydWV9LCJ2ZW5kb3JUb2tlbiI6eyJmYWN0TmFtZSI6IltbZ2FsZXNpdGVpZF1dIiwicHJvbXB0IjoiL2l0d2ViLyIsImhlbHBUZXh0IjoiPHVsPlxyXG4gICAgPGxpPkVudGVyIHlvdXIgR2FsZTxzdXA+wq48L3N1cD4gc2l0ZSBJRCBpbiB0aGUgc3BhY2UgcHJvdmlkZWQgYmVsb3cuIFRoZSBzaXRlIElEIG1heSBjb250YWluIGEgY29tYmluYXRpb24gb2YgYWxwaGEvbnVtZXJpYyBjaGFyYWN0ZXJzLCB2YXJ5aW5nIGluIGxlbmd0aC4gPGJsb2NrcXVvdGUgc3R5bGU9XCJtYXJnaW4tcmlnaHQ6IDBweDtcIiBkaXI9XCJsdHJcIj5cclxuICAgIDxwPsKgRXhhbXBsZTogVGhlIHNpdGUgSUQgaW1tZWRpYXRlbHkgZm9sbG93cyAvaXR3ZWIvIGluIGEgVVJMLiBUaGUgc2l0ZSBJRCBpbiB0aGUgZm9sbG93aW5nIFVSTCBpcyA8aT5hYTExYmIyMjwvaT4uIDwvcD5cclxuICAgIDwvYmxvY2txdW90ZT48L2xpPlxyXG48L3VsPlxyXG48YmxvY2txdW90ZSBzdHlsZT1cIm1hcmdpbi1yaWdodDogMHB4O1wiIGRpcj1cImx0clwiPjxibG9ja3F1b3RlIHN0eWxlPVwibWFyZ2luLXJpZ2h0OiAwcHg7XCIgZGlyPVwibHRyXCI+XHJcbjxwPjxzcGFuIHN0eWxlPVwidGV4dC1kZWNvcmF0aW9uOiB1bmRlcmxpbmU7XCI+aHR0cDovL2luZm90cmFjLmdhbGVncm91cC5jb20vaXR3ZWIvYWExMWJiMjI/ZGI9QUlNPC9zcGFuPjwvcD5cclxuPC9ibG9ja3F1b3RlPjwvYmxvY2txdW90ZT48YnIgLz5cclxuPHVsPlxyXG4gICAgPGxpPklmIG5vIHNpdGUgSUQgaXMgc3BlY2lmaWVkLCB5b3VyIEdhbGUgR3JvdXAgbGlua3MgbWF5IG5vdCBmdW5jdGlvbiBwcm9wZXJseSwgYXMgR2FsZSBHcm91cCByZXF1aXJlcyB0aGlzIGluZm9ybWF0aW9uIGZvciBhdXRoZW50aWNhdGlvbi4gPC9saT5cclxuICAgIDxsaT5JZiB5b3UgYXJlIHVuYWJsZSB0byBsb2NhdGUgdGhlIHNpdGUgSUQsIHBsZWFzZSBjb250YWN0IEdhbGUgR3JvdXAuIEZvciBjb250YWN0IGluZm9ybWF0aW9uLCB2aXNpdDogPGEgaHJlZj1cImh0dHA6Ly9hY2Nlc3MuZ2FsZS5jb20vYXV0aGVudGljYXRpb24vXCI+aHR0cDovL2FjY2Vzcy5nYWxlLmNvbS9hdXRoZW50aWNhdGlvbi88L2E+LiA8L2xpPlxyXG48L3VsPlxyXG4iLCJ2YWx1ZSI6IjIzMDQ1MDUifX0=
     http_version: 
-  recorded_at: Thu, 29 Mar 2018 15:16:02 GMT
+  recorded_at: Fri, 30 Mar 2018 20:22:54 GMT
+- request:
+    method: put
+    uri: https://api.ebsco.io/rm/rmaccounts/TEST_CUSTOMER_ID/vendors/
+    body:
+      encoding: UTF-8
+      string: '{"value":"99"}'
+    headers:
+      User-Agent:
+      - Flexirest/1.5.5
+      Connection:
+      - Keep-Alive
+      Accept:
+      - application/json
+      X-Api-Key:
+      - TEST_API_KEY
+      Content-Type:
+      - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 403
+      message: Forbidden
+    headers:
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '43'
+      Connection:
+      - keep-alive
+      Date:
+      - Fri, 30 Mar 2018 20:22:54 GMT
+      X-Amzn-Requestid:
+      - 20d9c906-3458-11e8-813c-9574bcee6cb5
+      X-Amzn-Errortype:
+      - MissingAuthenticationTokenException
+      X-Amz-Apigw-Id:
+      - Ek1ozHXcIAMF7tQ=
+      X-Cache:
+      - Error from cloudfront
+      Via:
+      - 1.1 5d54f7d67ab3f1ccb26ae4de736754e1.cloudfront.net (CloudFront)
+      X-Amz-Cf-Id:
+      - d9hX_u-98qhSL3KT3po9r7-aJp1U7YBrQB2YoLTL-FSOSoxW9GCtBQ==
+    body:
+      encoding: UTF-8
+      string: '{"message":"Missing Authentication Token"}
+
+'
+    http_version: 
+  recorded_at: Fri, 30 Mar 2018 20:22:54 GMT
 recorded_with: VCR 3.0.3
