@@ -44,11 +44,11 @@ class Provider < RmApiResource
     save!
   end
 
-  def save! # rubocop:disable Metrics/AbcSize
+  def save!
     attributes = update_fields
     self.class.update(
-      id: attributes[:vendorId],
-      value: attributes[:vendorToken][:value]
+      id: vendorId,
+      vendorToken: attributes[:vendorToken]
     )
     refresh!
   end

@@ -6,6 +6,8 @@ module Validation
 
     attr_accessor :value
 
+    validates :value, length: { maximum: 500 }
+
     def initialize(params = {})
       @value = params.dig(:vendorToken, :value)
     end
