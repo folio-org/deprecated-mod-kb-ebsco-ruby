@@ -204,46 +204,6 @@ RSpec.describe 'Providers', type: :request do
     end
   end
 
-  describe 'getting a provider with a token ' do
-    before do
-      VCR.use_cassette('get-providers-token') do
-        get '/eholdings/providers/18', headers: okapi_headers
-      end
-    end
-
-    let!(:json) { Map JSON.parse response.body }
-
-    it 'gets the resource' do
-      expect(response).to have_http_status(200)
-      expect(json.data.type).to eq('providers')
-      expect(json.data.id).to eq('18')
-      expect(json.data.attributes).to(
-        include(
-          'name',
-          'packagesTotal',
-          'packagesSelected',
-          'providerToken'
-        )
-      )
-    end
-
-    it 'returns provider token attributes' do
-      expect(json.data.attributes.providerToken).to include(
-        'factName' => '[[galesiteid]]',
-        'prompt' => '/itweb/',
-        'value' => '2304505'
-      )
-    end
-
-    it 'returns provider token help text' do
-      expect(json.data.attributes.providerToken).to have_key(:helpText)
-    end
-
-    it 'contains relationships data' do
-      expect(json.data.relationships). to include('packages')
-    end
-  end
-
   describe 'getting a provider with included packages' do
     before do
       VCR.use_cassette('get-providers-include-packages-success') do
@@ -363,16 +323,16 @@ RSpec.describe 'Providers', type: :request do
     describe 'when the provider does not allow tokens' do
       describe 'setting token value should fail' do
         let(:params) do
-        {
-          'data' => {
-            'type' => 'providers',
-            'attributes' => {
-              'providerToken' => {
-                'value' => '88'
+          {
+            'data' => {
+              'type' => 'providers',
+              'attributes' => {
+                'providerToken' => {
+                  'value' => '88'
+                }
               }
             }
           }
-        }
         end
 
         before do
@@ -382,8 +342,8 @@ RSpec.describe 'Providers', type: :request do
           end
         end
 
-        it 'responds with unprocessable entity status' do
-          expect(response).to have_http_status(422)
+        it 'responds with bad request' do
+          expect(response).to have_http_status(400)
         end
       end
     end
@@ -401,7 +361,7 @@ RSpec.describe 'Providers', type: :request do
               }
             }
           }
-          end
+        end
 
         before do
           VCR.use_cassette('put-providers-token') do
@@ -412,6 +372,13 @@ RSpec.describe 'Providers', type: :request do
 
         it 'responds with OK status' do
           expect(response).to have_http_status(200)
+        end
+
+        let!(:json) { Map JSON.parse response.body }
+        let!(:value) { json.data.attributes.providerToken.value }
+
+        it 'has token value' do
+          expect(json.data.attributes.providerToken.value).to eq('99')
         end
       end
     end
