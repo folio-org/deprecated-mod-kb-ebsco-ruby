@@ -250,8 +250,8 @@ RSpec.describe 'Packages', type: :request do
     end
 
     it 'returns empty arrays for array attributes' do
-      expect(json.included[8].attributes.contributors).to eq([])
-      expect(json.included[8].attributes.subjects).to eq([])
+      expect(json.included[8].attributes.contributors).to be_kind_of(Array)
+      expect(json.included[8].attributes.subjects).to be_kind_of(Array)
     end
   end
 
