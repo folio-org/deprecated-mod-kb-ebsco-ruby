@@ -1,4 +1,3 @@
-
 # frozen_string_literal: true
 
 class PackagesController < ApplicationController
@@ -37,7 +36,12 @@ class PackagesController < ApplicationController
 
   # Relationships
   def customer_resources
-    @customer_resources = @package.find_customer_resources(page: params[:page])
+    @customer_resources = @package.find_customer_resources(
+      page: params[:page],
+      q: params[:q],
+      filter: params[:filter],
+      sort: params[:sort]
+    )
     render jsonapi: @customer_resources.titles.to_a,
            meta: { totalResults: @customer_resources.totalResults }
   end
