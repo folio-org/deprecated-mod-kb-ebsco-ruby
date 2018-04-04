@@ -1,0 +1,280 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://okapi.frontside.io/configurations/entries?query=module=KB_EBSCO
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Content-Type:
+      - application/json
+      Accept:
+      - application/json
+      X-Okapi-Tenant:
+      - fs
+      X-Okapi-Token:
+      - TEST_OKAPI_TOKEN
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx/1.13.5
+      Date:
+      - Mon, 02 Apr 2018 16:03:11 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      X-Okapi-Trace:
+      - 'GET mod-authtoken-1.4.1-SNAPSHOT.20 http://10.39.249.72:8081/configurations/entries..
+        : 202 1742us'
+      - 'GET mod-configuration-4.0.3-SNAPSHOT.29 http://10.39.252.104:8081/configurations/entries..
+        : 200 46049us'
+      Host:
+      - okapi.frontside.io
+      X-Real-Ip:
+      - 10.36.3.1
+      X-Forwarded-For:
+      - 10.36.3.1
+      X-Forwarded-Host:
+      - okapi.frontside.io
+      X-Forwarded-Port:
+      - '443'
+      X-Forwarded-Proto:
+      - https
+      X-Original-Uri:
+      - "/configurations/entries?query=module=KB_EBSCO"
+      X-Scheme:
+      - https
+      X-Auth-Request-Redirect:
+      - "/configurations/entries?query=module=KB_EBSCO"
+      Accept:
+      - application/json
+      X-Okapi-Tenant:
+      - fs
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      User-Agent:
+      - Ruby
+      X-Okapi-Request-Id:
+      - '044889/configurations'
+      X-Okapi-Url:
+      - http://10.39.243.220:80
+      X-Okapi-Permissions-Required:
+      - configuration.entries.collection.get
+      X-Okapi-Module-Permissions:
+      - '{"mod-authtoken-1.4.1-SNAPSHOT.20":["perms.users.get"]}'
+      X-Okapi-Permissions:
+      - '["configuration.entries.collection.get"]'
+      X-Okapi-User-Id:
+      - 1ad737b0-d847-11e6-bf26-cec0c932ce01
+      X-Okapi-Token:
+      - TEST_OKAPI_TOKEN
+      Strict-Transport-Security:
+      - max-age=15724800; includeSubDomains;
+    body:
+      encoding: ASCII-8BIT
+      string: |-
+        {
+          "configs" : [ {
+            "id" : "9f193b46-4cc5-4c99-b09f-374fe5415673",
+            "module" : "KB_EBSCO",
+            "configName" : "api_credentials",
+            "code" : "kb.ebsco.credentials",
+            "description" : "EBSCO RM-API Credentials",
+            "enabled" : true,
+            "value" : "customer-id=TEST_CUSTOMER_ID&api-key=TEST_API_KEY",
+            "metadata" : {
+              "createdDate" : "2018-03-28T14:49:56.794+0000",
+              "createdByUserId" : "1ad737b0-d847-11e6-bf26-cec0c932ce01",
+              "updatedDate" : "2018-03-28T14:49:56.794+0000",
+              "updatedByUserId" : "1ad737b0-d847-11e6-bf26-cec0c932ce01"
+            }
+          } ],
+          "totalRecords" : 1,
+          "resultInfo" : {
+            "totalRecords" : 1,
+            "facets" : [ ]
+          }
+        }
+    http_version: 
+  recorded_at: Mon, 02 Apr 2018 16:03:11 GMT
+- request:
+    method: get
+    uri: https://api.ebsco.io/rm/rmaccounts/TEST_CUSTOMER_ID/vendors/18
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Flexirest/1.5.5
+      Connection:
+      - Keep-Alive
+      Accept:
+      - application/json
+      X-Api-Key:
+      - TEST_API_KEY
+      Content-Type:
+      - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json;charset=UTF-8
+      Content-Length:
+      - '1269'
+      Connection:
+      - keep-alive
+      Date:
+      - Mon, 02 Apr 2018 16:03:11 GMT
+      X-Amzn-Requestid:
+      - 57c8ca59-368f-11e8-a1b2-2bc2db179107
+      X-Amzn-Remapped-Connection:
+      - keep-alive
+      X-Amz-Apigw-Id:
+      - EuIZ7HlUoAMFRDA=
+      X-Amzn-Remapped-Date:
+      - Mon, 02 Apr 2018 16:03:11 GMT
+      X-Cache:
+      - Miss from cloudfront
+      Via:
+      - 1.1 73a52047a4b5d0888cd6da66a23c4762.cloudfront.net (CloudFront)
+      X-Amz-Cf-Id:
+      - SY2wCvFYRg_7LuZpOIk-lG4PKBYlnl90dh4nHvxa9_ktk7ORaPdYjA==
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        eyJpc0N1c3RvbWVyIjpmYWxzZSwicGFja2FnZXNTZWxlY3RlZCI6MTUsInBhY2thZ2VzVG90YWwiOjI0NCwidmVuZG9ySWQiOjE4LCJ2ZW5kb3JOYW1lIjoiR2FsZSB8IENlbmdhZ2UiLCJwcm94eSI6eyJpZCI6IkVaUHJveHkiLCJpbmhlcml0ZWQiOnRydWV9LCJ2ZW5kb3JUb2tlbiI6eyJmYWN0TmFtZSI6IltbZ2FsZXNpdGVpZF1dIiwicHJvbXB0IjoiL2l0d2ViLyIsImhlbHBUZXh0IjoiPHVsPlxyXG4gICAgPGxpPkVudGVyIHlvdXIgR2FsZTxzdXA+wq48L3N1cD4gc2l0ZSBJRCBpbiB0aGUgc3BhY2UgcHJvdmlkZWQgYmVsb3cuIFRoZSBzaXRlIElEIG1heSBjb250YWluIGEgY29tYmluYXRpb24gb2YgYWxwaGEvbnVtZXJpYyBjaGFyYWN0ZXJzLCB2YXJ5aW5nIGluIGxlbmd0aC4gPGJsb2NrcXVvdGUgc3R5bGU9XCJtYXJnaW4tcmlnaHQ6IDBweDtcIiBkaXI9XCJsdHJcIj5cclxuICAgIDxwPsKgRXhhbXBsZTogVGhlIHNpdGUgSUQgaW1tZWRpYXRlbHkgZm9sbG93cyAvaXR3ZWIvIGluIGEgVVJMLiBUaGUgc2l0ZSBJRCBpbiB0aGUgZm9sbG93aW5nIFVSTCBpcyA8aT5hYTExYmIyMjwvaT4uIDwvcD5cclxuICAgIDwvYmxvY2txdW90ZT48L2xpPlxyXG48L3VsPlxyXG48YmxvY2txdW90ZSBzdHlsZT1cIm1hcmdpbi1yaWdodDogMHB4O1wiIGRpcj1cImx0clwiPjxibG9ja3F1b3RlIHN0eWxlPVwibWFyZ2luLXJpZ2h0OiAwcHg7XCIgZGlyPVwibHRyXCI+XHJcbjxwPjxzcGFuIHN0eWxlPVwidGV4dC1kZWNvcmF0aW9uOiB1bmRlcmxpbmU7XCI+aHR0cDovL2luZm90cmFjLmdhbGVncm91cC5jb20vaXR3ZWIvYWExMWJiMjI/ZGI9QUlNPC9zcGFuPjwvcD5cclxuPC9ibG9ja3F1b3RlPjwvYmxvY2txdW90ZT48YnIgLz5cclxuPHVsPlxyXG4gICAgPGxpPklmIG5vIHNpdGUgSUQgaXMgc3BlY2lmaWVkLCB5b3VyIEdhbGUgR3JvdXAgbGlua3MgbWF5IG5vdCBmdW5jdGlvbiBwcm9wZXJseSwgYXMgR2FsZSBHcm91cCByZXF1aXJlcyB0aGlzIGluZm9ybWF0aW9uIGZvciBhdXRoZW50aWNhdGlvbi4gPC9saT5cclxuICAgIDxsaT5JZiB5b3UgYXJlIHVuYWJsZSB0byBsb2NhdGUgdGhlIHNpdGUgSUQsIHBsZWFzZSBjb250YWN0IEdhbGUgR3JvdXAuIEZvciBjb250YWN0IGluZm9ybWF0aW9uLCB2aXNpdDogPGEgaHJlZj1cImh0dHA6Ly9hY2Nlc3MuZ2FsZS5jb20vYXV0aGVudGljYXRpb24vXCI+aHR0cDovL2FjY2Vzcy5nYWxlLmNvbS9hdXRoZW50aWNhdGlvbi88L2E+LiA8L2xpPlxyXG48L3VsPlxyXG4iLCJ2YWx1ZSI6Ijk5In19
+    http_version: 
+  recorded_at: Mon, 02 Apr 2018 16:03:11 GMT
+- request:
+    method: put
+    uri: https://api.ebsco.io/rm/rmaccounts/TEST_CUSTOMER_ID/vendors/18
+    body:
+      encoding: UTF-8
+      string: '{"vendorToken":{"factName":"[[galesiteid]]","prompt":"/itweb/","helpText":"\u003cul\u003e\r\n    \u003cli\u003eEnter
+        your Gale\u003csup\u003e®\u003c/sup\u003e site ID in the space provided below.
+        The site ID may contain a combination of alpha/numeric characters, varying
+        in length. \u003cblockquote style=\"margin-right: 0px;\" dir=\"ltr\"\u003e\r\n    \u003cp\u003e Example:
+        The site ID immediately follows /itweb/ in a URL. The site ID in the following
+        URL is \u003ci\u003eaa11bb22\u003c/i\u003e. \u003c/p\u003e\r\n    \u003c/blockquote\u003e\u003c/li\u003e\r\n\u003c/ul\u003e\r\n\u003cblockquote
+        style=\"margin-right: 0px;\" dir=\"ltr\"\u003e\u003cblockquote style=\"margin-right:
+        0px;\" dir=\"ltr\"\u003e\r\n\u003cp\u003e\u003cspan style=\"text-decoration:
+        underline;\"\u003ehttp://infotrac.galegroup.com/itweb/aa11bb22?db=AIM\u003c/span\u003e\u003c/p\u003e\r\n\u003c/blockquote\u003e\u003c/blockquote\u003e\u003cbr
+        /\u003e\r\n\u003cul\u003e\r\n    \u003cli\u003eIf no site ID is specified,
+        your Gale Group links may not function properly, as Gale Group requires this
+        information for authentication. \u003c/li\u003e\r\n    \u003cli\u003eIf you
+        are unable to locate the site ID, please contact Gale Group. For contact information,
+        visit: \u003ca href=\"http://access.gale.com/authentication/\"\u003ehttp://access.gale.com/authentication/\u003c/a\u003e.
+        \u003c/li\u003e\r\n\u003c/ul\u003e\r\n","value":"99"}}'
+    headers:
+      User-Agent:
+      - Flexirest/1.5.5
+      Connection:
+      - Keep-Alive
+      Accept:
+      - application/json
+      X-Api-Key:
+      - TEST_API_KEY
+      Content-Type:
+      - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 204
+      message: No Content
+    headers:
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '0'
+      Connection:
+      - keep-alive
+      Date:
+      - Mon, 02 Apr 2018 16:03:11 GMT
+      X-Amzn-Requestid:
+      - 57e74f0f-368f-11e8-8825-9bb4d5f66677
+      X-Amzn-Remapped-Connection:
+      - keep-alive
+      X-Amz-Apigw-Id:
+      - EuIZ9HhEoAMFZFA=
+      X-Amzn-Remapped-Date:
+      - Mon, 02 Apr 2018 16:03:11 GMT
+      X-Cache:
+      - Miss from cloudfront
+      Via:
+      - 1.1 5eeb97aa7733a60bc509534d9745abc7.cloudfront.net (CloudFront)
+      X-Amz-Cf-Id:
+      - Lz3FFT_SemVyqnvuwKpOzO6HTWnfKI8dY_PHCtKPTuSENY5j9zPkww==
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: 
+  recorded_at: Mon, 02 Apr 2018 16:03:11 GMT
+- request:
+    method: get
+    uri: https://api.ebsco.io/rm/rmaccounts/TEST_CUSTOMER_ID/vendors/18
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Flexirest/1.5.5
+      Connection:
+      - Keep-Alive
+      Accept:
+      - application/json
+      X-Api-Key:
+      - TEST_API_KEY
+      Content-Type:
+      - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json;charset=UTF-8
+      Content-Length:
+      - '1269'
+      Connection:
+      - keep-alive
+      Date:
+      - Mon, 02 Apr 2018 16:03:12 GMT
+      X-Amzn-Requestid:
+      - 58007c7c-368f-11e8-9c1f-4dbf57b455c0
+      X-Amzn-Remapped-Connection:
+      - keep-alive
+      X-Amz-Apigw-Id:
+      - EuIZ_EVzIAMFSJg=
+      X-Amzn-Remapped-Date:
+      - Mon, 02 Apr 2018 16:03:11 GMT
+      X-Cache:
+      - Miss from cloudfront
+      Via:
+      - 1.1 b5434ae2f27f51f7ce619d0889d77d8d.cloudfront.net (CloudFront)
+      X-Amz-Cf-Id:
+      - NGa6A6bElX4cXMEsZDN1BMRugrQbrUbwYBPhO_qLMTsqQ2cvuhvK2w==
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        eyJpc0N1c3RvbWVyIjpmYWxzZSwicGFja2FnZXNTZWxlY3RlZCI6MTUsInBhY2thZ2VzVG90YWwiOjI0NCwidmVuZG9ySWQiOjE4LCJ2ZW5kb3JOYW1lIjoiR2FsZSB8IENlbmdhZ2UiLCJwcm94eSI6eyJpZCI6IkVaUHJveHkiLCJpbmhlcml0ZWQiOnRydWV9LCJ2ZW5kb3JUb2tlbiI6eyJmYWN0TmFtZSI6IltbZ2FsZXNpdGVpZF1dIiwicHJvbXB0IjoiL2l0d2ViLyIsImhlbHBUZXh0IjoiPHVsPlxyXG4gICAgPGxpPkVudGVyIHlvdXIgR2FsZTxzdXA+wq48L3N1cD4gc2l0ZSBJRCBpbiB0aGUgc3BhY2UgcHJvdmlkZWQgYmVsb3cuIFRoZSBzaXRlIElEIG1heSBjb250YWluIGEgY29tYmluYXRpb24gb2YgYWxwaGEvbnVtZXJpYyBjaGFyYWN0ZXJzLCB2YXJ5aW5nIGluIGxlbmd0aC4gPGJsb2NrcXVvdGUgc3R5bGU9XCJtYXJnaW4tcmlnaHQ6IDBweDtcIiBkaXI9XCJsdHJcIj5cclxuICAgIDxwPsKgRXhhbXBsZTogVGhlIHNpdGUgSUQgaW1tZWRpYXRlbHkgZm9sbG93cyAvaXR3ZWIvIGluIGEgVVJMLiBUaGUgc2l0ZSBJRCBpbiB0aGUgZm9sbG93aW5nIFVSTCBpcyA8aT5hYTExYmIyMjwvaT4uIDwvcD5cclxuICAgIDwvYmxvY2txdW90ZT48L2xpPlxyXG48L3VsPlxyXG48YmxvY2txdW90ZSBzdHlsZT1cIm1hcmdpbi1yaWdodDogMHB4O1wiIGRpcj1cImx0clwiPjxibG9ja3F1b3RlIHN0eWxlPVwibWFyZ2luLXJpZ2h0OiAwcHg7XCIgZGlyPVwibHRyXCI+XHJcbjxwPjxzcGFuIHN0eWxlPVwidGV4dC1kZWNvcmF0aW9uOiB1bmRlcmxpbmU7XCI+aHR0cDovL2luZm90cmFjLmdhbGVncm91cC5jb20vaXR3ZWIvYWExMWJiMjI/ZGI9QUlNPC9zcGFuPjwvcD5cclxuPC9ibG9ja3F1b3RlPjwvYmxvY2txdW90ZT48YnIgLz5cclxuPHVsPlxyXG4gICAgPGxpPklmIG5vIHNpdGUgSUQgaXMgc3BlY2lmaWVkLCB5b3VyIEdhbGUgR3JvdXAgbGlua3MgbWF5IG5vdCBmdW5jdGlvbiBwcm9wZXJseSwgYXMgR2FsZSBHcm91cCByZXF1aXJlcyB0aGlzIGluZm9ybWF0aW9uIGZvciBhdXRoZW50aWNhdGlvbi4gPC9saT5cclxuICAgIDxsaT5JZiB5b3UgYXJlIHVuYWJsZSB0byBsb2NhdGUgdGhlIHNpdGUgSUQsIHBsZWFzZSBjb250YWN0IEdhbGUgR3JvdXAuIEZvciBjb250YWN0IGluZm9ybWF0aW9uLCB2aXNpdDogPGEgaHJlZj1cImh0dHA6Ly9hY2Nlc3MuZ2FsZS5jb20vYXV0aGVudGljYXRpb24vXCI+aHR0cDovL2FjY2Vzcy5nYWxlLmNvbS9hdXRoZW50aWNhdGlvbi88L2E+LiA8L2xpPlxyXG48L3VsPlxyXG4iLCJ2YWx1ZSI6Ijk5In19
+    http_version: 
+  recorded_at: Mon, 02 Apr 2018 16:03:12 GMT
+recorded_with: VCR 3.0.3

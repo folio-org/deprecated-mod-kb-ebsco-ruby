@@ -1,7 +1,10 @@
 # frozen_string_literal: true
 
 class ProvidersController < ApplicationController
-  before_action :set_provider, only: %i[show packages]
+  before_action :set_provider, only: %i[show update packages]
+
+  deserializable_resource :provider, only: :update,
+                                     class: DeserializableProvider
 
   def index
     @providers = providers.all(
@@ -16,6 +19,18 @@ class ProvidersController < ApplicationController
 
   def show
     render jsonapi: @provider, include: params[:include]
+  end
+
+  def update
+    provider_validation = Validation::ProviderParameters.new(provider_params)
+
+    if provider_validation.valid?
+      @provider.update provider_params
+      render jsonapi: @provider
+    else
+      render jsonapi_errors: provider_validation.errors,
+             status: :unprocessable_entity
+    end
   end
 
   # Relationships
@@ -33,5 +48,13 @@ class ProvidersController < ApplicationController
 
   def providers
     Provider.configure config
+  end
+
+  def provider_params
+    params
+      .require(:provider)
+      .permit(
+        vendorToken: [:value]
+      )
   end
 end

@@ -1,8 +1,11 @@
 # frozen_string_literal: true
 
 class Provider < RmApiResource
+  request_body_type :json
+
   get :all, '/vendors'
   get :find, '/vendors/:id'
+  put :update, '/vendors/:id'
 
   before_request do |name, request|
     if name == :all
@@ -34,5 +37,41 @@ class Provider < RmApiResource
 
   def packages
     find_packages.packagesList.to_a
+  end
+
+  def update(params)
+    merge_fields(params)
+    save!
+  end
+
+  def save!
+    attributes = update_fields
+    self.class.update(
+      id: vendorId,
+      vendorToken: attributes[:vendorToken]
+    )
+    refresh!
+  end
+
+  private
+
+  def refresh!
+    # re-fetch from RM API to surface side-effects
+    saved = self.class.find(
+      id: vendorId
+    )
+    merge_fields(saved)
+  end
+
+  def merge_fields(new_values)
+    update_fields.deep_merge(new_values.to_hash).each do |k, v|
+      send("#{k}=".to_sym, v)
+    end
+  end
+
+  def update_fields
+    to_hash.with_indifferent_access.slice(
+      :vendorToken
+    )
   end
 end
