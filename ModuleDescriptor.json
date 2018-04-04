@@ -15,6 +15,10 @@
           "pathPattern": "/eholdings/status"
         },
         {
+          "methods": [ "GET", "PUT", "DELETE" ],
+          "pathPattern": "/eholdings/custom-labels"
+        },
+        {
           "methods": [ "GET" ],
           "pathPattern": "/eholdings/vendors*"
         },

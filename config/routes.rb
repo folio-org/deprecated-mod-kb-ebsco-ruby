@@ -30,6 +30,10 @@ Rails.application.routes.draw do
               path: '/customer-resources',
               only: %i[show update]
 
+    resources :custom_labels,
+              path: '/custom-labels',
+              only: %i[index update destroy]
+
     resource :configuration, only: %i[show update]
     resource :status, only: [:show]
   end
