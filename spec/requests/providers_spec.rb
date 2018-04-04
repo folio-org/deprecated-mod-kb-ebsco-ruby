@@ -441,8 +441,11 @@ RSpec.describe 'Providers', type: :request do
       end
     end
 
+    let!(:json) { Map JSON.parse response.body }
+
     it 'returns a not found error' do
       expect(response).to have_http_status(404)
+      expect(json.errors.first.title).to eql('Provider not found')
     end
   end
 
@@ -475,8 +478,13 @@ RSpec.describe 'Providers', type: :request do
           end
         end
 
+        let!(:json) { Map JSON.parse response.body }
+
         it 'responds with bad request' do
+          # rubocop:disable Metrics/LineLength
           expect(response).to have_http_status(400)
+          expect(json.errors.first.title).to eql('Provider does not allow token')
+          # rubocop:enable Metrics/LineLength
         end
       end
     end
