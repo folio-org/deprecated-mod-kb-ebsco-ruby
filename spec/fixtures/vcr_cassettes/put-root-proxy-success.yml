@@ -1,0 +1,386 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://okapi.frontside.io/configurations/entries?query=module=KB_EBSCO
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Content-Type:
+      - application/json
+      Accept:
+      - application/json
+      X-Okapi-Tenant:
+      - fs
+      X-Okapi-Token:
+      - TEST_OKAPI_TOKEN
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx/1.13.5
+      Date:
+      - Mon, 02 Apr 2018 19:00:16 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      X-Okapi-Trace:
+      - 'GET mod-authtoken-1.4.1-SNAPSHOT.20 http://10.39.249.72:8081/configurations/entries..
+        : 202 370833us'
+      - 'GET mod-configuration-4.0.3-SNAPSHOT.29 http://10.39.252.104:8081/configurations/entries..
+        : 200 46615us'
+      Host:
+      - okapi.frontside.io
+      X-Real-Ip:
+      - 10.36.4.1
+      X-Forwarded-For:
+      - 10.36.4.1
+      X-Forwarded-Host:
+      - okapi.frontside.io
+      X-Forwarded-Port:
+      - '443'
+      X-Forwarded-Proto:
+      - https
+      X-Original-Uri:
+      - "/configurations/entries?query=module=KB_EBSCO"
+      X-Scheme:
+      - https
+      X-Auth-Request-Redirect:
+      - "/configurations/entries?query=module=KB_EBSCO"
+      Accept:
+      - application/json
+      X-Okapi-Tenant:
+      - fs
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      User-Agent:
+      - Ruby
+      X-Okapi-Request-Id:
+      - 426055/configurations
+      X-Okapi-Url:
+      - http://10.39.243.220:80
+      X-Okapi-Permissions-Required:
+      - configuration.entries.collection.get
+      X-Okapi-Module-Permissions:
+      - '{"mod-authtoken-1.4.1-SNAPSHOT.20":["perms.users.get"]}'
+      X-Okapi-Permissions:
+      - '["configuration.entries.collection.get"]'
+      X-Okapi-User-Id:
+      - 1ad737b0-d847-11e6-bf26-cec0c932ce01
+      X-Okapi-Token:
+      - TEST_OKAPI_TOKEN
+      Strict-Transport-Security:
+      - max-age=15724800; includeSubDomains;
+    body:
+      encoding: ASCII-8BIT
+      string: |-
+        {
+          "configs" : [ {
+            "id" : "9f193b46-4cc5-4c99-b09f-374fe5415673",
+            "module" : "KB_EBSCO",
+            "configName" : "api_credentials",
+            "code" : "kb.ebsco.credentials",
+            "description" : "EBSCO RM-API Credentials",
+            "enabled" : true,
+            "value" : "customer-id=TEST_CUSTOMER_ID&api-key=TEST_API_KEY",
+            "metadata" : {
+              "createdDate" : "2018-03-28T14:49:56.794+0000",
+              "createdByUserId" : "1ad737b0-d847-11e6-bf26-cec0c932ce01",
+              "updatedDate" : "2018-03-28T14:49:56.794+0000",
+              "updatedByUserId" : "1ad737b0-d847-11e6-bf26-cec0c932ce01"
+            }
+          } ],
+          "totalRecords" : 1,
+          "resultInfo" : {
+            "totalRecords" : 1,
+            "facets" : [ ]
+          }
+        }
+    http_version: 
+  recorded_at: Mon, 02 Apr 2018 18:54:07 GMT
+- request:
+    method: get
+    uri: https://api.ebsco.io/rm/rmaccounts/TEST_CUSTOMER_ID/proxies
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Flexirest/1.5.5
+      Connection:
+      - Keep-Alive
+      Accept:
+      - application/json
+      X-Api-Key:
+      - TEST_API_KEY
+      Content-Type:
+      - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json;charset=UTF-8
+      Content-Length:
+      - '140'
+      Connection:
+      - keep-alive
+      Date:
+      - Mon, 02 Apr 2018 19:00:16 GMT
+      X-Amzn-Requestid:
+      - 14c4af82-36a8-11e8-8a8d-bdf9536f6b8f
+      X-Amzn-Remapped-Connection:
+      - keep-alive
+      X-Amz-Apigw-Id:
+      - EuiWFEMUIAMFvMQ=
+      X-Amzn-Remapped-Date:
+      - Mon, 02 Apr 2018 19:00:16 GMT
+      X-Cache:
+      - Miss from cloudfront
+      Via:
+      - 1.1 73a52047a4b5d0888cd6da66a23c4762.cloudfront.net (CloudFront)
+      X-Amz-Cf-Id:
+      - YCrvk3UeZzm39FaEjP8FuMqSDqb_Pk-70PMZI0-J3zSZH9Y2ppGalA==
+    body:
+      encoding: UTF-8
+      string: '[{"id":"<n>","name":"None","urlMask":""},{"id":"EZProxy","name":"EZProxy","urlMask":"http://ezproxy.myinstitute.edu/login?url={targetURL}"}]'
+    http_version: 
+  recorded_at: Mon, 02 Apr 2018 18:54:07 GMT
+- request:
+    method: get
+    uri: https://api.ebsco.io/rm/rmaccounts/TEST_CUSTOMER_ID/
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Flexirest/1.5.5
+      Connection:
+      - Keep-Alive
+      Accept:
+      - application/json
+      X-Api-Key:
+      - TEST_API_KEY
+      Content-Type:
+      - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json;charset=UTF-8
+      Content-Length:
+      - '573'
+      Connection:
+      - keep-alive
+      Date:
+      - Mon, 02 Apr 2018 19:00:16 GMT
+      X-Amzn-Requestid:
+      - 14f3882d-36a8-11e8-a1ef-118fd8cbe6ac
+      X-Amzn-Remapped-Connection:
+      - keep-alive
+      X-Amz-Apigw-Id:
+      - EuiWIGSGIAMF46w=
+      X-Amzn-Remapped-Date:
+      - Mon, 02 Apr 2018 19:00:16 GMT
+      X-Cache:
+      - Miss from cloudfront
+      Via:
+      - 1.1 a6a098cdc333f9948baa2a00729f4f25.cloudfront.net (CloudFront)
+      X-Amz-Cf-Id:
+      - 4P9fOSvcEDp2BVrdt6qqA0rkKoy7AOMNZRkcs3nAD2Y59rDSRYpiQg==
+    body:
+      encoding: UTF-8
+      string: '{"proxy":{"id":"EZProxy"},"labels":[{"id":1,"displayLabel":"Hello 1st
+        label","displayOnFullTextFinder":true,"displayOnPublicationFinder":false},{"id":2,"displayLabel":"Hello
+        2nd label","displayOnFullTextFinder":true,"displayOnPublicationFinder":true},{"id":3,"displayLabel":"Hello
+        3rd label","displayOnFullTextFinder":true,"displayOnPublicationFinder":true},{"id":4,"displayLabel":"Hello
+        4th label","displayOnFullTextFinder":true,"displayOnPublicationFinder":true},{"id":5,"displayLabel":"Hello
+        5th label","displayOnFullTextFinder":true,"displayOnPublicationFinder":true}]}'
+    http_version: 
+  recorded_at: Mon, 02 Apr 2018 18:54:07 GMT
+- request:
+    method: get
+    uri: https://api.ebsco.io/rm/rmaccounts/TEST_CUSTOMER_ID/
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Flexirest/1.5.5
+      Connection:
+      - Keep-Alive
+      Accept:
+      - application/json
+      X-Api-Key:
+      - TEST_API_KEY
+      Content-Type:
+      - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json;charset=UTF-8
+      Content-Length:
+      - '573'
+      Connection:
+      - keep-alive
+      Date:
+      - Mon, 02 Apr 2018 19:00:17 GMT
+      X-Amzn-Requestid:
+      - 150f4d4d-36a8-11e8-9dc7-d1217534bf26
+      X-Amzn-Remapped-Connection:
+      - keep-alive
+      X-Amz-Apigw-Id:
+      - EuiWKF0pIAMF19w=
+      X-Amzn-Remapped-Date:
+      - Mon, 02 Apr 2018 19:00:16 GMT
+      X-Cache:
+      - Miss from cloudfront
+      Via:
+      - 1.1 93e404430d11dacb3232bae72aaaee90.cloudfront.net (CloudFront)
+      X-Amz-Cf-Id:
+      - BnAqvUaYux7grL1VCqdsBBxydDNFdE6US3JRXR42cjvfTnvhV0uCFQ==
+    body:
+      encoding: UTF-8
+      string: '{"proxy":{"id":"EZProxy"},"labels":[{"id":1,"displayLabel":"Hello 1st
+        label","displayOnFullTextFinder":true,"displayOnPublicationFinder":false},{"id":2,"displayLabel":"Hello
+        2nd label","displayOnFullTextFinder":true,"displayOnPublicationFinder":true},{"id":3,"displayLabel":"Hello
+        3rd label","displayOnFullTextFinder":true,"displayOnPublicationFinder":true},{"id":4,"displayLabel":"Hello
+        4th label","displayOnFullTextFinder":true,"displayOnPublicationFinder":true},{"id":5,"displayLabel":"Hello
+        5th label","displayOnFullTextFinder":true,"displayOnPublicationFinder":true}]}'
+    http_version: 
+  recorded_at: Mon, 02 Apr 2018 18:54:07 GMT
+- request:
+    method: put
+    uri: https://api.ebsco.io/rm/rmaccounts/TEST_CUSTOMER_ID/
+    body:
+      encoding: UTF-8
+      string: '{"proxy":{"id":"EZProxy"},"labels":[{"id":1,"displayLabel":"Hello 1st
+        label","displayOnFullTextFinder":true,"displayOnPublicationFinder":false},{"id":2,"displayLabel":"Hello
+        2nd label","displayOnFullTextFinder":true,"displayOnPublicationFinder":true},{"id":3,"displayLabel":"Hello
+        3rd label","displayOnFullTextFinder":true,"displayOnPublicationFinder":true},{"id":4,"displayLabel":"Hello
+        4th label","displayOnFullTextFinder":true,"displayOnPublicationFinder":true},{"id":5,"displayLabel":"Hello
+        5th label","displayOnFullTextFinder":true,"displayOnPublicationFinder":true}]}'
+    headers:
+      User-Agent:
+      - Flexirest/1.5.5
+      Connection:
+      - Keep-Alive
+      Accept:
+      - application/json
+      X-Api-Key:
+      - TEST_API_KEY
+      Content-Type:
+      - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 204
+      message: No Content
+    headers:
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '0'
+      Connection:
+      - keep-alive
+      Date:
+      - Mon, 02 Apr 2018 19:00:17 GMT
+      X-Amzn-Requestid:
+      - 152df873-36a8-11e8-b698-253e33f7eef9
+      X-Amzn-Remapped-Connection:
+      - keep-alive
+      X-Amz-Apigw-Id:
+      - EuiWMGcPIAMFvIQ=
+      X-Amzn-Remapped-Date:
+      - Mon, 02 Apr 2018 19:00:16 GMT
+      X-Cache:
+      - Miss from cloudfront
+      Via:
+      - 1.1 b5434ae2f27f51f7ce619d0889d77d8d.cloudfront.net (CloudFront)
+      X-Amz-Cf-Id:
+      - T3RxAAtiT8NJX-xoFBOoSGFpE7dTLheMSe2sBy5Sh8P8DDXW16fK7A==
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: 
+  recorded_at: Mon, 02 Apr 2018 18:54:08 GMT
+- request:
+    method: get
+    uri: https://api.ebsco.io/rm/rmaccounts/TEST_CUSTOMER_ID/
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Flexirest/1.5.5
+      Connection:
+      - Keep-Alive
+      Accept:
+      - application/json
+      X-Api-Key:
+      - TEST_API_KEY
+      Content-Type:
+      - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json;charset=UTF-8
+      Content-Length:
+      - '573'
+      Connection:
+      - keep-alive
+      Date:
+      - Mon, 02 Apr 2018 19:00:17 GMT
+      X-Amzn-Requestid:
+      - 1577370e-36a8-11e8-8adb-bf426db03c00
+      X-Amzn-Remapped-Connection:
+      - keep-alive
+      X-Amz-Apigw-Id:
+      - EuiWRHeeoAMFuiA=
+      X-Amzn-Remapped-Date:
+      - Mon, 02 Apr 2018 19:00:17 GMT
+      X-Cache:
+      - Miss from cloudfront
+      Via:
+      - 1.1 5acd50d556cd25b3cd99abfe744c498d.cloudfront.net (CloudFront)
+      X-Amz-Cf-Id:
+      - wKRbIGoyAVljQ_Hzi7K50YkQ5gHBjd2XKQylF78gMgROpJkYIOG3mw==
+    body:
+      encoding: UTF-8
+      string: '{"proxy":{"id":"EZProxy"},"labels":[{"id":1,"displayLabel":"Hello 1st
+        label","displayOnFullTextFinder":true,"displayOnPublicationFinder":false},{"id":2,"displayLabel":"Hello
+        2nd label","displayOnFullTextFinder":true,"displayOnPublicationFinder":true},{"id":3,"displayLabel":"Hello
+        3rd label","displayOnFullTextFinder":true,"displayOnPublicationFinder":true},{"id":4,"displayLabel":"Hello
+        4th label","displayOnFullTextFinder":true,"displayOnPublicationFinder":true},{"id":5,"displayLabel":"Hello
+        5th label","displayOnFullTextFinder":true,"displayOnPublicationFinder":true}]}'
+    http_version: 
+  recorded_at: Mon, 02 Apr 2018 18:54:08 GMT
+recorded_with: VCR 3.0.3
