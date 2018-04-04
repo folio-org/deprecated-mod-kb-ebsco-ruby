@@ -21,7 +21,7 @@ module Validation
       custom_label_list.each do |label|
         next unless label.id == label_id
         if label.display_label == ''
-          errors.add(:label_id, ':Label with this id does not exist')
+          errors.add(:label_id, ':Label with this id has already been deleted')
         end
       end
     end
