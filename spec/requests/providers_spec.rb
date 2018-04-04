@@ -299,6 +299,23 @@ RSpec.describe 'Providers', type: :request do
         )
       end
     end
+
+    describe 'with a search query' do
+      before do
+        VCR.use_cassette('search-providers-related-packages') do
+          get '/eholdings/providers/19/packages?q=abstract', headers: okapi_headers
+        end
+      end
+
+      let!(:json) { Map JSON.parse response.body }
+
+      it 'gets a different list of resources' do
+        expect(response).to have_http_status(200)
+        expect(json.data.length).to equal(1)
+        expect(json.meta.totalResults).to equal(1)
+        expect(json.data[0].attributes.name).to eql('Abstracts in Social Gerontology')
+      end
+    end
   end
 
   describe 'getting a non-existing provider' do
