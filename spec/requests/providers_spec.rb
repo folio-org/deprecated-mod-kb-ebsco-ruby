@@ -252,7 +252,7 @@ RSpec.describe 'Providers', type: :request do
       expect(response).to have_http_status(200)
       expect(json.data.first.type).to eq('packages')
       expect(json.data.length).to eq(25)
-      expect(json.meta.totalResults).to equal(628)
+      expect(json.meta.totalResults).to equal(632)
       expect(json.data.first.attributes).to(
         include(
           'vendorId',
@@ -285,7 +285,7 @@ RSpec.describe 'Providers', type: :request do
       it 'gets a different list of resources' do
         expect(response).to have_http_status(200)
         expect(json2.data.length).to equal(25)
-        expect(json2.meta.totalResults).to equal(628)
+        expect(json2.meta.totalResults).to equal(632)
         expect(json.data.first.id).not_to eql(json2.data.first.id)
       end
 
@@ -297,6 +297,104 @@ RSpec.describe 'Providers', type: :request do
             'provider'
           )
         )
+      end
+    end
+
+    describe 'with a search query' do
+      before do
+        VCR.use_cassette('search-providers-related-packages') do
+          get '/eholdings/providers/19/packages?q=abstract',
+              headers: okapi_headers
+        end
+      end
+
+      let!(:json_with_query) { Map JSON.parse response.body }
+
+      it 'gets a different list of resources' do
+        json = json_with_query
+        name = json.data[0].attributes.name
+        expect(response).to have_http_status(200)
+        expect(json.data.length).to equal(25)
+        expect(json.meta.totalResults).to equal(46)
+        expect(name).to eql('Abstracts in Social Gerontology')
+      end
+    end
+
+    describe 'with a invalid filter' do
+      before do
+        VCR.use_cassette(
+          'search-providers-related-packages-invalid-filter'
+        ) do
+          get '/eholdings/providers/19/packages?q=abstract&filter=invalid',
+              headers: okapi_headers
+        end
+      end
+
+      let!(:json_query_invalid_filter) { Map JSON.parse response.body }
+
+      it 'returns a request error' do
+        error = json_query_invalid_filter.errors.first.title
+        expect(response).to have_http_status(400)
+        expect(error).to eq('Invalid filter parameter')
+      end
+    end
+
+    describe 'with valid filter options' do
+      before do
+        VCR.use_cassette('search-providers-related-packages-valid-filter') do
+          filter = { filter: { type: 'aggregatedfulltext' } }.to_query
+          get '/eholdings/providers/19/packages'\
+              "?q=abstract&#{filter}",
+              headers: okapi_headers
+        end
+      end
+
+      let!(:json_query_valid_filter) { Map JSON.parse response.body }
+
+      it 'returns a list limted to filter options passed' do
+        expect(response).to have_http_status(200)
+        expect(json_query_valid_filter.meta.totalResults).to eql(6)
+      end
+    end
+
+    describe 'without passing a sort defaults to relevance' do
+      before do
+        VCR.use_cassette(
+          'search-providers-related-packages-no-sort-defaults-relevance'
+        ) do
+          get '/eholdings/providers/19/packages?q=communication%20abstracts',
+              headers: okapi_headers
+        end
+      end
+
+      let!(:json_query_default_relevance) { Map JSON.parse response.body }
+
+      it 'returns a list sorted by relevance' do
+        name = json_query_default_relevance.data[0].attributes.name.downcase
+        expect(response).to have_http_status(200)
+        expect(name).to eql('communication abstracts (ebsco)')
+      end
+    end
+
+    describe 'with passing a sort of name' do
+      before do
+        VCR.use_cassette(
+          'search-providers-related-packages-with-name-sort'
+        ) do
+          get '/eholdings/providers/19/packages'\
+              '?q=communication%20abstracts&sort=name',
+              headers: okapi_headers
+        end
+      end
+
+      let!(:json_query_with_name_sort) { Map JSON.parse response.body }
+
+      it 'returns a list sorted by name' do
+        expect(response).to have_http_status(200)
+        sorted_array = json_query_with_name_sort.data.sort_by do |p|
+          p.attributes.name.downcase
+        end
+        expect(json_query_with_name_sort.data).to eq(sorted_array)
       end
     end
   end

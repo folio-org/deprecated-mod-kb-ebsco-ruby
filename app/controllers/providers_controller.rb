@@ -35,7 +35,13 @@ class ProvidersController < ApplicationController
 
   # Relationships
   def packages
-    @packages = @provider.find_packages(page: params[:page])
+    @packages = @provider.find_packages(
+      q: params[:q],
+      page: params[:page],
+      filter: params[:filter],
+      sort: params[:sort]
+    )
+
     render jsonapi: @packages.packagesList.to_a,
            meta: { totalResults: @packages.totalResults }
   end
