@@ -27,7 +27,7 @@ http_interactions:
       Server:
       - nginx/1.13.5
       Date:
-      - Mon, 02 Apr 2018 18:35:39 GMT
+      - Mon, 02 Apr 2018 18:35:34 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -36,9 +36,9 @@ http_interactions:
       - keep-alive
       X-Okapi-Trace:
       - 'GET mod-authtoken-1.4.1-SNAPSHOT.20 http://10.39.249.72:8081/configurations/entries..
-        : 202 2042us'
+        : 202 2225us'
       - 'GET mod-configuration-4.0.3-SNAPSHOT.29 http://10.39.252.104:8081/configurations/entries..
-        : 200 44232us'
+        : 200 47071us'
       Host:
       - okapi.frontside.io
       X-Real-Ip:
@@ -66,7 +66,7 @@ http_interactions:
       User-Agent:
       - Ruby
       X-Okapi-Request-Id:
-      - 592802/configurations
+      - '091560/configurations'
       X-Okapi-Url:
       - http://10.39.243.220:80
       X-Okapi-Permissions-Required:
@@ -107,10 +107,10 @@ http_interactions:
           }
         }
     http_version: 
-  recorded_at: Mon, 02 Apr 2018 18:35:39 GMT
+  recorded_at: Mon, 02 Apr 2018 18:35:34 GMT
 - request:
     method: get
-    uri: https://api.ebsco.io/rm/rmaccounts/TEST_CUSTOMER_ID/vendors/1/packages/1
+    uri: https://api.ebsco.io/rm/rmaccounts/TEST_CUSTOMER_ID/vendors/19/packages/6581
     body:
       encoding: US-ASCII
       string: ''
@@ -129,34 +129,34 @@ http_interactions:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
   response:
     status:
-      code: 404
-      message: Not Found
+      code: 200
+      message: OK
     headers:
       Content-Type:
       - application/json;charset=UTF-8
       Content-Length:
-      - '67'
+      - '455'
       Connection:
       - keep-alive
       Date:
-      - Mon, 02 Apr 2018 18:35:40 GMT
+      - Mon, 02 Apr 2018 18:35:35 GMT
       X-Amzn-Requestid:
-      - a4ad30d9-36a4-11e8-82c2-c5a3690e7b3a
+      - a1aa02ff-36a4-11e8-a1c7-7bbeaa5313f2
       X-Amzn-Remapped-Connection:
       - keep-alive
       X-Amz-Apigw-Id:
-      - EuevYGldIAMFelw=
+      - EueulHPjoAMFhhA=
       X-Amzn-Remapped-Date:
-      - Mon, 02 Apr 2018 18:35:40 GMT
+      - Mon, 02 Apr 2018 18:35:35 GMT
       X-Cache:
-      - Error from cloudfront
+      - Miss from cloudfront
       Via:
       - 1.1 83d82856eafc6ceb7ba06a257022fa7c.cloudfront.net (CloudFront)
       X-Amz-Cf-Id:
-      - UFqlkT2ZJksqh1hlsP4_6CPVOAMlUkEO7zKuzMU9rrD7YATxhYtavA==
+      - LrWA5ZCwMBsB2ytE0lIQJn3msK55uTu8wyo3kHPcKIwon4H3CXe65Q==
     body:
       encoding: UTF-8
-      string: '{"errors":[{"code":1001,"subCode":0,"message":"Vendor not found"}]}'
+      string: '{"packageId":6581,"packageName":"EBSCO Biotechnology Collection: India","isCustom":false,"vendorId":19,"vendorName":"EBSCO","titleCount":159,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"AggregatedFullText","customCoverage":{"beginCoverage":"","endCoverage":""},"proxy":{"id":"EZProxy","inherited":true},"allowEbscoToAddTitles":false,"packageToken":null,"packageType":"Complete"}'
     http_version: 
-  recorded_at: Mon, 02 Apr 2018 18:35:40 GMT
+  recorded_at: Mon, 02 Apr 2018 18:35:35 GMT
 recorded_with: VCR 3.0.3

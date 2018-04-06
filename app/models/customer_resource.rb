@@ -20,9 +20,37 @@ class CustomerResource < RmApiResource
 
   before_request do |name, request|
     if name == :find_by_package
-      request.get_params[:search] = ''
+      filters = request.get_params.delete(:filter) || {}
+
+      unless filters.is_a?(ActionController::Parameters) || filters.is_a?(Hash)
+        raise ActionController::BadRequest, 'Invalid filter parameter'
+      end
+
+      request.get_params[:selection] =
+        if filters[:selected] == 'true'
+          'selected'
+        elsif filters[:selected] == 'false'
+          'notselected'
+        elsif filters[:selected] == 'ebsco'
+          'orderedthroughebsco'
+        else
+          'all'
+        end
+
+      request.get_params[:resourcetype] = filters[:type] || 'all'
+
+      sort = request.get_params.delete(:sort)
+      request.get_params[:orderby] =
+        if sort == 'relevance'
+          'relevance'
+        elsif sort == 'name'
+          'titlename'
+        else
+          request.get_params[:q] ? 'relevance' : 'titlename'
+        end
+
+      request.get_params[:search] = request.get_params.delete(:q) || ''
       request.get_params[:searchfield] = 'titlename'
-      request.get_params[:orderby] = 'titlename'
       request.get_params[:count] ||= 25
       request.get_params[:offset] = request.get_params[:page] || 1
       request.get_params.delete(:page)

@@ -173,6 +173,7 @@ RSpec.describe 'Packages', type: :request do
       expect(json_n.data).to eq(sorted_array)
     end
   end
+
   describe 'getting a specific package' do
     before do
       VCR.use_cassette('get-packages-success') do
@@ -249,8 +250,8 @@ RSpec.describe 'Packages', type: :request do
     end
 
     it 'returns empty arrays for array attributes' do
-      expect(json.included[8].attributes.contributors).to eq([])
-      expect(json.included[8].attributes.subjects).to eq([])
+      expect(json.included[8].attributes.contributors).to be_kind_of(Array)
+      expect(json.included[8].attributes.subjects).to be_kind_of(Array)
     end
   end
 
@@ -287,6 +288,104 @@ RSpec.describe 'Packages', type: :request do
         expect(json2.data.length).to equal(25)
         expect(json2.meta.totalResults).to equal(159)
         expect(json.data.first.id).not_to eql(json2.data.first.id)
+      end
+    end
+
+    describe 'with a query' do
+      before do
+        VCR.use_cassette('get-packages-related-customer-resources-query') do
+          get '/eholdings/packages/19-6581/customer-resources/?q=acta',
+              headers: okapi_headers
+        end
+      end
+
+      let!(:json_query) { Map JSON.parse response.body }
+
+      it 'returns list limited to search' do
+        expect(json_query.data.length).to eq(1)
+        expect(json_query.meta.totalResults).to eq(1)
+      end
+
+      describe 'with a invalid filter' do
+        before do
+          VCR.use_cassette(
+            'get-packages-related-cusomter-resources-query-invalid-sort'
+          ) do
+            get '/eholdings/packages/19-6581/customer-resources/'\
+                 '?q=acta&filter=invalid',
+                headers: okapi_headers
+          end
+        end
+
+        let!(:json_query_invalid_filter) { Map JSON.parse response.body }
+
+        it 'returns a bad request error' do
+          title = json_query_invalid_filter.errors.first.title
+          expect(response).to have_http_status(400)
+          expect(title).to eql('Invalid filter parameter')
+        end
+      end
+
+      describe 'with valid type filter options ' do
+        before do
+          VCR.use_cassette(
+            'get-packages-related-cusomter-resources-query-filter-newsletter'
+          ) do
+            filter = { filter: { type: 'newsletter' } }.to_query
+            get '/eholdings/packages/19-6581/customer-resources/'\
+                 "?q=bioworld&#{filter}",
+                headers: okapi_headers
+          end
+        end
+
+        let!(:json_query_valid_filter) { Map JSON.parse response.body }
+
+        it 'returns a list limted to filter options passed' do
+          expect(response).to have_http_status(200)
+          expect(json_query_valid_filter.meta.totalResults).to eql(2)
+        end
+      end
+
+      describe 'without passing a sort defaults to relevance' do
+        before do
+          VCR.use_cassette(
+            'get-packages-related-customer-resources-query-default-to-relevance'
+          ) do
+            get '/eholdings/packages/19-6581/customer-resources/'\
+                '?q=bioworld%20week',
+                headers: okapi_headers
+          end
+        end
+
+        let!(:json_query_default_relevance) { Map JSON.parse response.body }
+
+        it 'returns a list sorted by relevance' do
+          name = json_query_default_relevance.data[0].attributes.name.downcase
+          expect(response).to have_http_status(200)
+          expect(name).to eql('bioworld week')
+        end
+      end
+
+      describe 'with passing a sort of name' do
+        before do
+          VCR.use_cassette(
+            'get-packages-related-customer-resources-query-with-name-sort'
+          ) do
+            get '/eholdings/packages/19-6581/customer-resources/'\
+                 '?q=bioworld%20week&sort=name',
+                headers: okapi_headers
+          end
+        end
+
+        let!(:json_query_with_name_sort) { Map JSON.parse response.body }
+
+        it 'returns a list sorted by name' do
+          expect(response).to have_http_status(200)
+          sorted_array = json_query_with_name_sort.data.sort_by do |p|
+            p.attributes.name.downcase
+          end
+          expect(json_query_with_name_sort.data).to eq(sorted_array)
+        end
       end
     end
   end
