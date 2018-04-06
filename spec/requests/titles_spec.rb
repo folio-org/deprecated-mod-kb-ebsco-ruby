@@ -232,12 +232,10 @@ RSpec.describe 'Titles', type: :request do
 
   describe 'with relevance sorting' do
     before do
-      # rubocop:disable Metrics/LineLength
       VCR.use_cassette('search-titles-sort-relevance') do
         get '/eholdings/titles/?filter[name]=victorian%20fashion&sort=relevance',
             headers: okapi_headers
       end
-      # rubocop:enable Metrics/LineLength
     end
 
     let!(:json_n) { Map JSON.parse response.body }

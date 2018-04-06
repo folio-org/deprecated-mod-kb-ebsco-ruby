@@ -39,26 +39,28 @@ class ApplicationController < ActionController::API
            status: :bad_request
   end
 
-  def catch_flexirest_exceptions # rubocop:disable Metrics/AbcSize
+  def catch_flexirest_exceptions
     yield
   rescue Flexirest::HTTPClientException,
          Flexirest::HTTPServerException,
          Flexirest::HTTPNotFoundClientException => e
 
-    errors_hash = if e.result.respond_to?(:Errors)
-                    e.result.Errors.to_a.map do |err|
-                      { "title": map_provider(err.to_hash['Message']) }
-                    end
-                  elsif e.result.respond_to?(:errors)
-                    e.result[:errors].items.to_a.map do |err|
-                      { "title": map_provider(err.to_hash['message']) }
-                    end
-                  else
-                    []
-                  end
-
-    render jsonapi_errors: errors_hash,
+    render jsonapi_errors: get_errors_hash(e),
            status: e.status
+  end
+
+  def get_errors_hash(e) # rubocop:disable Metrics/AbcSize
+    if e.result.respond_to?(:Errors)
+      e.result.Errors.to_a.map do |err|
+        { "title": map_provider(err.to_hash['Message']) }
+      end
+    elsif e.result.respond_to?(:errors)
+      e.result[:errors].items.to_a.map do |err|
+        { "title": map_provider(err.to_hash['message']) }
+      end
+    else
+      []
+    end
   end
 
   def map_provider(string)

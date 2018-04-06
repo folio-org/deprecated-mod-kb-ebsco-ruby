@@ -481,10 +481,8 @@ RSpec.describe 'Providers', type: :request do
         let!(:json) { Map JSON.parse response.body }
 
         it 'responds with bad request' do
-          # rubocop:disable Metrics/LineLength
           expect(response).to have_http_status(400)
           expect(json.errors.first.title).to eql('Provider does not allow token')
-          # rubocop:enable Metrics/LineLength
         end
       end
     end
