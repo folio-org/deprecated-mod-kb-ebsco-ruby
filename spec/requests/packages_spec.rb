@@ -195,7 +195,8 @@ RSpec.describe 'Packages', type: :request do
         'customCoverage',
         'visibilityData',
         'isSelected',
-        'vendorName'
+        'vendorName',
+        'isCustom'
       )
       expect(json.data.attributes.vendorId).to eq(19)
       expect(json.data.attributes.packageId).to eq(6581)
