@@ -16,7 +16,8 @@ class SerializablePackage < SerializableResource
              :isSelected,
              :allowKbToAddTitles,
              :vendorName,
-             :isCustom
+             :isCustom,
+             :packageType
 
   attribute :providerId do
     @object.vendorId
