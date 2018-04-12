@@ -65,6 +65,8 @@ class PackagesController < ApplicationController
     params
       .require(:package)
       .permit(
+        :packageName,
+        :contentType,
         :isSelected,
         :allowEbscoToAddTitles,
         visibilityData: [:isHidden],
