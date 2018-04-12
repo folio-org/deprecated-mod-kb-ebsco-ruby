@@ -92,7 +92,9 @@ class Package < RmApiResource
       isSelected: attributes[:isSelected],
       allowEbscoToAddTitles: attributes[:allowEbscoToAddTitles],
       isHidden: attributes[:visibilityData][:isHidden],
-      customCoverage: attributes[:customCoverage]
+      customCoverage: attributes[:customCoverage],
+      packageName: attributes[:packageName],
+      contentType: attributes[:contentType]
     )
     refresh!
   end
@@ -119,7 +121,9 @@ class Package < RmApiResource
       :isSelected,
       :allowEbscoToAddTitles,
       :visibilityData,
-      :customCoverage
+      :customCoverage,
+      :packageName,
+      :contentType
     )
   end
 end

@@ -922,4 +922,143 @@ RSpec.describe 'Packages', type: :request do
       expect(visibility.reason).to eq('')
     end
   end
+
+  describe 'editing a custom package' do
+    let(:update_headers) do
+      okapi_headers.merge(
+        'Content-Type': 'application/vnd.api+json'
+      )
+    end
+
+    describe 'changing the name' do
+      let(:params) do
+        {
+          "data": {
+            "type": 'packages',
+            "attributes": {
+              "name": 'I got a new package name'
+            }
+          }
+        }
+      end
+
+      before do
+        VCR.use_cassette('put-custom-package-name') do
+          put '/eholdings/packages/123355-2845506',
+              params: params, as: :json, headers: update_headers
+        end
+      end
+
+      it 'responds with OK status' do
+        expect(response).to have_http_status(200)
+      end
+
+      let!(:json) { Map JSON.parse response.body }
+
+      it 'has the new name' do
+        expect(json.data.attributes.name).to eq('I got a new package name')
+      end
+    end
+
+    describe 'changing the coverage dates' do
+      let(:params) do
+        {
+          "data": {
+            "type": 'packages',
+            "attributes": {
+              "customCoverage": {
+                "beginCoverage": '2003-01-01',
+                "endCoverage": '2004-01-01'
+              },
+              "isSelected": true
+            }
+          }
+        }
+      end
+
+      before do
+        VCR.use_cassette('put-custom-package-coverage-dates') do
+          put '/eholdings/packages/123355-2845506',
+              params: params, as: :json, headers: update_headers
+        end
+      end
+
+      it 'responds with OK status' do
+        expect(response).to have_http_status(200)
+      end
+
+      let!(:json) { Map JSON.parse response.body }
+
+      it 'now has custom coverage' do
+        expect(json.data.attributes.customCoverage.beginCoverage)
+          .to eq('2003-01-01')
+        expect(json.data.attributes.customCoverage.endCoverage)
+          .to eq('2004-01-01')
+      end
+    end
+
+    describe 'changing the content type' do
+      let(:params) do
+        {
+          "data": {
+            "type": 'packages',
+            "attributes": {
+              "contentType": 'Aggregated Full Text'
+            }
+          }
+        }
+      end
+
+      before do
+        VCR.use_cassette('put-custom-package-content-type') do
+          put '/eholdings/packages/123355-2845506',
+              params: params, as: :json, headers: update_headers
+        end
+      end
+
+      it 'responds with OK status' do
+        expect(response).to have_http_status(200)
+      end
+
+      let!(:json) { Map JSON.parse response.body }
+
+      it 'has the new content type' do
+        expect(json.data.attributes.contentType).to eq('Aggregated Full Text')
+      end
+    end
+
+    describe 'changing the visibility' do
+      let(:params) do
+        {
+          "data": {
+            "type": 'packages',
+            "attributes": {
+              "isSelected": true,
+              "visibilityData": {
+                "isHidden": true,
+                "reason": ''
+              }
+            }
+          }
+        }
+      end
+
+      before do
+        VCR.use_cassette('put-custom-package-visibility') do
+          put '/eholdings/packages/123355-2845506',
+              params: params, as: :json, headers: update_headers
+        end
+      end
+
+      it 'responds with OK status' do
+        expect(response).to have_http_status(200)
+      end
+
+      let!(:json) { Map JSON.parse response.body }
+
+      it 'is now hidden' do
+        expect(json.data.attributes.visibilityData.isHidden).to be true
+      end
+    end
+  end
 end
