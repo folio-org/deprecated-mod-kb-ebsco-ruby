@@ -48,12 +48,16 @@ class SerializableTitle < SerializableResource
       7 => 'Invalid'
     }
 
-    @object.identifiersList.map do |identifier|
-      {
-        id: identifier['id'],
-        type: types[identifier['type']] || '',
-        subtype: subtypes[identifier['subtype']] || ''
-      }
+    if @object.identifiersList
+      @object.identifiersList.map do |identifier|
+        {
+          id: identifier['id'],
+          type: types[identifier['type']] || '',
+          subtype: subtypes[identifier['subtype']] || ''
+        }
+      end
+    else
+      []
     end
   end
 
