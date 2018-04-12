@@ -98,15 +98,19 @@ class CustomerResource < RmApiResource
 
   def save! # rubocop:disable Metrics/AbcSize
     attributes = update_fields
+    resource_attributes = resource_update_fields
+
     self.class.update(
       vendor_id: resource.vendorId,
       package_id: resource.packageId,
       title_id: titleId,
-      isSelected: attributes[:isSelected],
-      isHidden: attributes[:visibilityData][:isHidden],
+      isSelected: resource_attributes[:isSelected],
+      isHidden: resource_attributes[:visibilityData][:isHidden],
       customCoverageList: sorted_coverage,
-      customEmbargoPeriod: attributes[:customEmbargoPeriod],
-      coverageStatement: attributes[:coverageStatement]
+      customEmbargoPeriod: resource_attributes[:customEmbargoPeriod],
+      coverageStatement: resource_attributes[:coverageStatement],
+      titleName: attributes[:titleName],
+      pubType: attributes[:pubType]
     )
     refresh!
   end
@@ -126,7 +130,7 @@ class CustomerResource < RmApiResource
   def sorted_coverage
     # Coverage date order matters to RMAPI, so make sure
     # these are sorted before sending them off.
-    update_fields[:customCoverageList].sort_by do |coverage|
+    resource_update_fields[:customCoverageList].sort_by do |coverage|
       Date.strptime(coverage[:beginCoverage], '%Y-%m-%d')
       # rubocop:enable Style/FormatStringToken
     end.reverse
@@ -134,17 +138,29 @@ class CustomerResource < RmApiResource
 
   def merge_fields!(new_values)
     update_fields.deep_merge(new_values.to_hash).each do |k, v|
+      send("#{k}=".to_sym, v)
+    end
+
+    resource_update_fields.deep_merge(new_values.to_hash).each do |k, v|
       resource.send("#{k}=".to_sym, v)
     end
   end
 
   def update_fields
+    to_hash.with_indifferent_access.slice(
+      :titleName,
+      :pubType
+    )
+  end
+
+  def resource_update_fields
     resource.to_hash.with_indifferent_access.slice(
       :isSelected,
       :visibilityData,
       :customCoverageList,
       :customEmbargoPeriod,
-      :coverageStatement
+      :coverageStatement,
+      :titleName
     )
   end
 end

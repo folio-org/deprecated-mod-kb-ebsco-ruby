@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe 'Customer Resources', type: :request do
+RSpec.describe 'Resources', type: :request do
   describe 'getting a specific customer resource' do
     before do
       VCR.use_cassette('get-customer-resources-success') do
