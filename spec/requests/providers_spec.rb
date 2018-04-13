@@ -150,13 +150,18 @@ RSpec.describe 'Providers', type: :request do
           'name',
           'packagesTotal',
           'packagesSelected',
-          'providerToken'
+          'providerToken',
+          'supportsCustomPackages'
         )
       )
     end
 
     it 'returns null provider token' do
       expect(json.data.attributes.providerToken).to eq(nil)
+    end
+
+    it 'returns false for supports custom packages' do
+      expect(json.data.attributes.supportsCustomPackages).to eq(false)
     end
 
     it 'contains relationships data' do
@@ -182,7 +187,8 @@ RSpec.describe 'Providers', type: :request do
           'name',
           'packagesTotal',
           'packagesSelected',
-          'providerToken'
+          'providerToken',
+          'supportsCustomPackages'
         )
       )
     end
@@ -201,6 +207,35 @@ RSpec.describe 'Providers', type: :request do
 
     it 'contains relationships data' do
       expect(json.data.relationships). to include('packages')
+    end
+  end
+
+  describe 'getting a provider that supports custom packages ' do
+    before do
+      VCR.use_cassette('support-custom-packages') do
+        get '/eholdings/providers/123355', headers: okapi_headers
+      end
+    end
+
+    let!(:json) { Map JSON.parse response.body }
+
+    it 'gets the resource' do
+      expect(response).to have_http_status(200)
+      expect(json.data.type).to eq('providers')
+      expect(json.data.id).to eq('123355')
+      expect(json.data.attributes).to(
+        include(
+          'name',
+          'packagesTotal',
+          'packagesSelected',
+          'providerToken',
+          'supportsCustomPackages'
+        )
+      )
+    end
+
+    it 'supports custom packages' do
+      expect(json.data.attributes.supportsCustomPackages).to eq(true)
     end
   end
 

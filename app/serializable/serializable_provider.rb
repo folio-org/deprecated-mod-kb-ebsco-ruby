@@ -14,5 +14,9 @@ class SerializableProvider < SerializableResource
     @object.vendorToken
   end
 
+  attribute :supportsCustomPackages do
+    @object.isCustomer
+  end
+
   has_many :packages
 end
