@@ -28,7 +28,7 @@ Rails.application.routes.draw do
 
     resources :resources,
               path: '/resources',
-              only: %i[show update]
+              only: %i[show update destroy]
 
     resources :custom_labels,
               path: '/custom-labels',
