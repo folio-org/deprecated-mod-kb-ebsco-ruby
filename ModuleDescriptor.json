@@ -40,7 +40,7 @@
         },
         {
           "methods": [ "GET", "PUT" ],
-          "pathPattern": "/eholdings/customer-resources*"
+          "pathPattern": "/eholdings/resources*"
         },
         {
           "methods": [ "GET", "POST", "PUT", "PATCH", "DELETE" ],
@@ -70,4 +70,3 @@
     "dockerPull" : false
   }
 }
-
