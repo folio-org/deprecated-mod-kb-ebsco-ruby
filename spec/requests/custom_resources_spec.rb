@@ -212,4 +212,45 @@ RSpec.describe 'Custom Resources', type: :request do
       end
     end
   end
+
+  describe 'deleting a custom title' do
+    describe 'deletes title if it is a custom title' do
+      before do
+        VCR.use_cassette('delete-custom-title') do
+          delete '/eholdings/resources/123355-2843714-17070531',
+                 headers: okapi_headers
+        end
+      end
+
+      it 'gets a successful response' do
+        expect(response).to have_http_status(204)
+      end
+    end
+
+    describe 'trying to delete a deleted title results in error' do
+      before do
+        VCR.use_cassette('delete-deleted-title') do
+          delete '/eholdings/resources/123355-2843714-17070531',
+                 headers: okapi_headers
+        end
+      end
+
+      it 'gets a not found response' do
+        expect(response).to have_http_status(404)
+      end
+    end
+
+    describe 'trying to delete a non-custom title' do
+      before do
+        VCR.use_cassette('delete-non-custom-title') do
+          delete '/eholdings/resources/72-6057-1360002',
+                 headers: okapi_headers
+        end
+      end
+
+      it 'gets a bad request response' do
+        expect(response).to have_http_status(400)
+      end
+    end
+  end
 end

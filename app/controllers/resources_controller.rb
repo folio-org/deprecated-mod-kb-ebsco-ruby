@@ -3,7 +3,7 @@
 class ResourcesController < ApplicationController
   attr_accessor :resource
 
-  before_action :set_resource, only: %i[show update]
+  before_action :set_resource, only: %i[show update destroy]
 
   deserializable_resource :resource,
                           only: :update,
@@ -24,6 +24,18 @@ class ResourcesController < ApplicationController
     else
       render jsonapi_errors: resource_validation.errors,
              status: :unprocessable_entity
+    end
+  end
+
+  def destroy
+    resource_validation =
+      Validation::ResourceDestroyParameters.new(@resource)
+
+    if resource_validation.valid?
+      @resource.delete
+    else
+      render jsonapi_errors: resource_validation.errors,
+             status: :bad_request
     end
   end
 

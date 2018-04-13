@@ -39,7 +39,7 @@
           "pathPattern": "/eholdings/titles*"
         },
         {
-          "methods": [ "GET", "PUT" ],
+          "methods": [ "GET", "PUT", "DELETE" ],
           "pathPattern": "/eholdings/resources*"
         },
         {

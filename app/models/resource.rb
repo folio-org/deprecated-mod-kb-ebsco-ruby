@@ -115,6 +115,15 @@ class Resource < RmApiResource
     refresh!
   end
 
+  def delete
+    self.class.update(
+      vendor_id: resource.vendorId,
+      package_id: resource.packageId,
+      title_id: titleId,
+      isSelected: false
+    )
+  end
+
   private
 
   def refresh!
