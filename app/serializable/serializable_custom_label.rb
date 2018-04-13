@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class SerializableCustomLabel < SerializableResource
+class SerializableCustomLabel < SerializableJSONAPIResource
   type 'customLabel'
 
   # Custom Label attributes

@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class TitlesController < ApplicationController
-  before_action :set_title, only: %i[show customer_resources]
+  before_action :set_title, only: %i[show resources]
 
   def index
     @titles = titles.all(
@@ -20,8 +20,8 @@ class TitlesController < ApplicationController
   end
 
   # Relationships
-  def customer_resources
-    render jsonapi: @title.customer_resources
+  def resources
+    render jsonapi: @title.resources
   end
 
   private

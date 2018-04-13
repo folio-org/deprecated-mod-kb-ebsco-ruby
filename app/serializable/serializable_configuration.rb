@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class SerializableConfiguration < SerializableResource
+class SerializableConfiguration < SerializableJSONAPIResource
   type 'configurations'
 
   attributes :api_key, :customer_id

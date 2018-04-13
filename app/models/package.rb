@@ -61,12 +61,12 @@ class Package < RmApiResource
     Provider.configure(config).find(vendorId)
   end
 
-  def customer_resources
-    find_customer_resources.titles.to_a
+  def resources
+    find_resources.titles.to_a
   end
 
-  def find_customer_resources(**params)
-    CustomerResource.configure(config).find_by_package(
+  def find_resources(**params)
+    Resource.configure(config).find_by_package(
       vendor_id: vendorId,
       package_id: packageId,
       **params

@@ -14,7 +14,7 @@ RSpec.describe 'Custom Resources', type: :request do
       let(:params) do
         {
           "data": {
-            "type": 'customerResources',
+            "type": 'resources',
             "attributes": {
               "name": 'I have a great new title name'
             }
@@ -24,7 +24,7 @@ RSpec.describe 'Custom Resources', type: :request do
 
       before do
         VCR.use_cassette('put-custom-resource-name') do
-          put '/eholdings/customer-resources/123355-2845510-62477',
+          put '/eholdings/resources/123355-2845510-62477',
               params: params, as: :json, headers: update_headers
         end
       end
@@ -44,7 +44,7 @@ RSpec.describe 'Custom Resources', type: :request do
       let(:params) do
         {
           "data": {
-            "type": 'customerResources',
+            "type": 'resources',
             "attributes": {
               "publicationType": 'Book Series'
             }
@@ -54,7 +54,7 @@ RSpec.describe 'Custom Resources', type: :request do
 
       before do
         VCR.use_cassette('put-custom-resource-pubtype') do
-          put '/eholdings/customer-resources/123355-2845510-62477',
+          put '/eholdings/resources/123355-2845510-62477',
               params: params, as: :json, headers: update_headers
         end
       end
@@ -74,7 +74,7 @@ RSpec.describe 'Custom Resources', type: :request do
       let(:params) do
         {
           "data": {
-            "type": 'customerResources',
+            "type": 'resources',
             "attributes": {
               'customCoverages': [
                 {
@@ -90,7 +90,7 @@ RSpec.describe 'Custom Resources', type: :request do
 
       before do
         VCR.use_cassette('put-custom-resource-coverage-dates') do
-          put '/eholdings/customer-resources/123355-2845510-62477',
+          put '/eholdings/resources/123355-2845510-62477',
               params: params, as: :json, headers: update_headers
         end
       end
@@ -113,7 +113,7 @@ RSpec.describe 'Custom Resources', type: :request do
       let(:params) do
         {
           "data": {
-            "type": 'customerResources',
+            "type": 'resources',
             "attributes": {
               "isSelected": true,
               "visibilityData": {
@@ -127,7 +127,7 @@ RSpec.describe 'Custom Resources', type: :request do
 
       before do
         VCR.use_cassette('put-custom-resource-visibility') do
-          put '/eholdings/customer-resources/123355-2845510-62477',
+          put '/eholdings/resources/123355-2845510-62477',
               params: params, as: :json, headers: update_headers
         end
       end
@@ -147,7 +147,7 @@ RSpec.describe 'Custom Resources', type: :request do
       let(:params) do
         {
           "data": {
-            "type": 'customerResources',
+            "type": 'resources',
             "attributes": {
               "isSelected": true,
               "customEmbargoPeriod": {
@@ -161,7 +161,7 @@ RSpec.describe 'Custom Resources', type: :request do
 
       before do
         VCR.use_cassette('put-custom-resource-embargo-period') do
-          put '/eholdings/customer-resources/123355-2845510-62477',
+          put '/eholdings/resources/123355-2845510-62477',
               params: params, as: :json, headers: update_headers
         end
       end
@@ -184,7 +184,7 @@ RSpec.describe 'Custom Resources', type: :request do
       let(:params) do
         {
           "data": {
-            "type": 'customerResources',
+            "type": 'resources',
             "attributes": {
               "isSelected": true,
               "coverageStatement": 'We have so much coverage.'
@@ -195,7 +195,7 @@ RSpec.describe 'Custom Resources', type: :request do
 
       before do
         VCR.use_cassette('put-custom-resource-coverage-statement') do
-          put '/eholdings/customer-resources/123355-2845510-62477',
+          put '/eholdings/resources/123355-2845510-62477',
               params: params, as: :json, headers: update_headers
         end
       end

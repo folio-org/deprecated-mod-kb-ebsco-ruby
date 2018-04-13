@@ -16,18 +16,18 @@ Rails.application.routes.draw do
 
     resources :packages, only: %i[index show update] do
       member do
-        get 'customer-resources'
+        get 'resources'
       end
     end
 
     resources :titles, only: %i[index show] do
       member do
-        get 'customer-resources'
+        get 'resources'
       end
     end
 
-    resources :customer_resources,
-              path: '/customer-resources',
+    resources :resources,
+              path: '/resources',
               only: %i[show update]
 
     resources :custom_labels,

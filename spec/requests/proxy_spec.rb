@@ -60,7 +60,7 @@ RSpec.describe 'Proxy', type: :request do
     end
   end
 
-  describe 'getting a customer resource' do
+  describe 'getting a resource' do
     let(:resource) do
       [
         '/ebsco-rmapi/vendors/22/packages/1887786/titles/1440285',
@@ -69,12 +69,12 @@ RSpec.describe 'Proxy', type: :request do
     end
 
     before do
-      VCR.use_cassette('get-proxy-customer-resource-valid') do
+      VCR.use_cassette('get-proxy-resource-valid') do
         get(*resource)
       end
     end
 
-    it 'gets the customer resource' do
+    it 'gets the resource' do
       expect(response).to be_ok
     end
   end

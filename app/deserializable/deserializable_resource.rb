@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class DeserializableCustomerResource < JSONAPI::Deserializable::Resource
+class DeserializableResource < JSONAPI::Deserializable::Resource
   attributes :isSelected,
              :customEmbargoPeriod,
              :visibilityData,
