@@ -357,6 +357,20 @@ RSpec.describe 'Titles', type: :request do
     end
   end
 
+  describe 'getting a custom title with empty array fields' do
+    before do
+      VCR.use_cassette('get-custom-title') do
+        get '/eholdings/titles/17059784', headers: okapi_headers
+      end
+    end
+
+    let!(:json) { Map JSON.parse response.body }
+
+    it 'returns empty arrays for array attributes' do
+      expect(json.data.attributes.identifiers).to eq([])
+    end
+  end
+
   describe 'getting a title with empty array fields' do
     before do
       VCR.use_cassette('get-titles-empty-array-fields') do
