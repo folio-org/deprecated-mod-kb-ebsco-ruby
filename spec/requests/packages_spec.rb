@@ -232,23 +232,23 @@ RSpec.describe 'Packages', type: :request do
     end
   end
 
-  describe 'getting a package with included customer resources' do
+  describe 'getting a package with included resources' do
     before do
-      VCR.use_cassette('get-packages-customer-resources') do
-        get '/eholdings/packages/19-6581?include=customerResources',
+      VCR.use_cassette('get-packages-resources') do
+        get '/eholdings/packages/19-6581?include=resources',
             headers: okapi_headers
       end
     end
 
     let!(:json) { Map JSON.parse response.body }
 
-    it 'includes a list of customer resources' do
-      expect(json.data.relationships.customerResources.data.length).to eq(25)
+    it 'includes a list of resources' do
+      expect(json.data.relationships.resources.data.length).to eq(25)
       expect(json.included.length).to eq(25)
     end
 
     it 'returns the correct included type' do
-      expect(json.included.first.type).to eq('customerResources')
+      expect(json.included.first.type).to eq('resources')
     end
 
     it 'returns empty arrays for array attributes' do
@@ -257,28 +257,28 @@ RSpec.describe 'Packages', type: :request do
     end
   end
 
-  describe 'getting customer resources related to package' do
+  describe 'getting resources related to package' do
     before do
-      VCR.use_cassette('get-packages-related-customer-resources') do
-        get '/eholdings/packages/19-6581/customer-resources',
+      VCR.use_cassette('get-packages-related-resources') do
+        get '/eholdings/packages/19-6581/resources',
             headers: okapi_headers
       end
     end
 
     let!(:json) { Map JSON.parse response.body }
 
-    it 'responds with a list of customer resources' do
+    it 'responds with a list of resources' do
       expect(json.data.length).to eq(25)
     end
 
     it 'returns the correct included type' do
-      expect(json.data.first.type).to eq('customerResources')
+      expect(json.data.first.type).to eq('resources')
     end
 
     describe 'with pagination' do
       before do
-        VCR.use_cassette('get-packages-related-customer-resources-page2') do
-          get '/eholdings/packages/19-6581/customer-resources?page=2',
+        VCR.use_cassette('get-packages-related-resources-page2') do
+          get '/eholdings/packages/19-6581/resources?page=2',
               headers: okapi_headers
         end
       end
@@ -295,8 +295,8 @@ RSpec.describe 'Packages', type: :request do
 
     describe 'with a query' do
       before do
-        VCR.use_cassette('get-packages-related-customer-resources-query') do
-          get '/eholdings/packages/19-6581/customer-resources/?q=acta',
+        VCR.use_cassette('get-packages-related-resources-query') do
+          get '/eholdings/packages/19-6581/resources/?q=acta',
               headers: okapi_headers
         end
       end
@@ -311,9 +311,9 @@ RSpec.describe 'Packages', type: :request do
       describe 'with a invalid filter' do
         before do
           VCR.use_cassette(
-            'get-packages-related-cusomter-resources-query-invalid-sort'
+            'get-packages-related-resources-query-invalid-sort'
           ) do
-            get '/eholdings/packages/19-6581/customer-resources/'\
+            get '/eholdings/packages/19-6581/resources/'\
                  '?q=acta&filter=invalid',
                 headers: okapi_headers
           end
@@ -331,10 +331,10 @@ RSpec.describe 'Packages', type: :request do
       describe 'with valid type filter options ' do
         before do
           VCR.use_cassette(
-            'get-packages-related-cusomter-resources-query-filter-newsletter'
+            'get-packages-related-resources-query-filter-newsletter'
           ) do
             filter = { filter: { type: 'newsletter' } }.to_query
-            get '/eholdings/packages/19-6581/customer-resources/'\
+            get '/eholdings/packages/19-6581/resources/'\
                  "?q=bioworld&#{filter}",
                 headers: okapi_headers
           end
@@ -351,9 +351,9 @@ RSpec.describe 'Packages', type: :request do
       describe 'without passing a sort defaults to relevance' do
         before do
           VCR.use_cassette(
-            'get-packages-related-customer-resources-query-default-to-relevance'
+            'get-packages-related-resources-query-default-to-relevance'
           ) do
-            get '/eholdings/packages/19-6581/customer-resources/'\
+            get '/eholdings/packages/19-6581/resources/'\
                 '?q=bioworld%20week',
                 headers: okapi_headers
           end
@@ -371,9 +371,9 @@ RSpec.describe 'Packages', type: :request do
       describe 'with passing a sort of name' do
         before do
           VCR.use_cassette(
-            'get-packages-related-customer-resources-query-with-name-sort'
+            'get-packages-related-resources-query-with-name-sort'
           ) do
-            get '/eholdings/packages/19-6581/customer-resources/'\
+            get '/eholdings/packages/19-6581/resources/'\
                  '?q=bioworld%20week&sort=name',
                 headers: okapi_headers
           end
@@ -392,26 +392,26 @@ RSpec.describe 'Packages', type: :request do
     end
   end
 
-  describe 'getting customer resources related to a custom package' do
+  describe 'getting resources related to a custom package' do
     before do
-      VCR.use_cassette('get-custom-package-related-customer-resources') do
-        get '/eholdings/packages/123355-2723775/customer-resources',
+      VCR.use_cassette('get-custom-package-related-resources') do
+        get '/eholdings/packages/123355-2723775/resources',
             headers: okapi_headers
       end
     end
 
     let!(:json) { Map JSON.parse response.body }
 
-    it 'responds with a list of customer resources' do
+    it 'responds with a list of resources' do
       expect(json.data.length).to eq(8)
     end
 
-    it 'does not return identifiers for the customer resources' do
+    it 'does not return identifiers for the resources' do
       expect(json.data.first.attributes.identifiers.length).to eq(0)
     end
 
     it 'returns the correct included type' do
-      expect(json.data.first.type).to eq('customerResources')
+      expect(json.data.first.type).to eq('resources')
     end
   end
 
@@ -456,7 +456,7 @@ RSpec.describe 'Packages', type: :request do
       expect(json.data.relationships).to include(
         'vendor',
         'provider',
-        'customerResources'
+        'resources'
       )
     end
   end

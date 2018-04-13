@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
-class SerializablePackage < SerializableResource
+class SerializablePackage < SerializableJSONAPIResource
   type 'packages'
 
-  has_many :customer_resources
+  has_many :resources
   has_one :vendor
   has_one :provider
 

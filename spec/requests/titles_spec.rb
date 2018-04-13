@@ -302,7 +302,7 @@ RSpec.describe 'Titles', type: :request do
         'identifiers',
         'subjects'
       )
-      expect(json.data.relationships).to include('customerResources')
+      expect(json.data.relationships).to include('resources')
     end
 
     it 'returns identifiers as human readable types and subtypes' do
@@ -318,42 +318,42 @@ RSpec.describe 'Titles', type: :request do
     end
   end
 
-  describe 'getting a title with included customer resources' do
+  describe 'getting a title with included resources' do
     before do
-      VCR.use_cassette('get-titles-customer-resources') do
-        get '/eholdings/titles/316875?include=customerResources',
+      VCR.use_cassette('get-titles-resources') do
+        get '/eholdings/titles/316875?include=resources',
             headers: okapi_headers
       end
     end
 
     let!(:json) { Map JSON.parse response.body }
 
-    it 'includes a list of customers resources' do
-      expect(json.data.relationships.customerResources.data.length).to eq(24)
+    it 'includes a list of resources' do
+      expect(json.data.relationships.resources.data.length).to eq(24)
       expect(json.included.length).to eq(24)
     end
 
     it 'returns the correct included type' do
-      expect(json.included.first.type).to eq('customerResources')
+      expect(json.included.first.type).to eq('resources')
     end
   end
 
-  describe 'getting customer resources related to title' do
+  describe 'getting resources related to title' do
     before do
-      VCR.use_cassette('get-titles-related-customer-resources') do
-        get '/eholdings/titles/316875/customer-resources',
+      VCR.use_cassette('get-titles-related-resources') do
+        get '/eholdings/titles/316875/resources',
             headers: okapi_headers
       end
     end
 
     let!(:json) { Map JSON.parse response.body }
 
-    it 'responds with a list of customers resources' do
+    it 'responds with a list of resources' do
       expect(json.data.length).to eq(24)
     end
 
     it 'returns the correct included type' do
-      expect(json.data.first.type).to eq('customerResources')
+      expect(json.data.first.type).to eq('resources')
     end
   end
 

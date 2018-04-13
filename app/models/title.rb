@@ -78,12 +78,12 @@ class Title < RmApiResource
     titleId
   end
 
-  def customer_resources
+  def resources
     title_attrs = to_hash
     resources_list = title_attrs.delete('customerResourcesList').to_a
-    resources_list.map do |customer_resource|
-      title_attrs['customerResourcesList'] = [customer_resource]
-      CustomerResource.new(title_attrs)
+    resources_list.map do |resource|
+      title_attrs['customerResourcesList'] = [resource]
+      Resource.new(title_attrs)
     end
   end
 end

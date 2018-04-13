@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class SerializableProvider < SerializableResource
+class SerializableProvider < SerializableJSONAPIResource
   type 'providers'
 
   attribute :name do

@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class PackagesController < ApplicationController
-  before_action :set_package, only: %i[show update customer_resources]
+  before_action :set_package, only: %i[show update resources]
 
   deserializable_resource :package, only: :update,
                                     class: DeserializablePackage
@@ -35,15 +35,15 @@ class PackagesController < ApplicationController
   end
 
   # Relationships
-  def customer_resources
-    @customer_resources = @package.find_customer_resources(
+  def resources
+    @resources = @package.find_resources(
       page: params[:page],
       q: params[:q],
       filter: params[:filter],
       sort: params[:sort]
     )
-    render jsonapi: @customer_resources.titles.to_a,
-           meta: { totalResults: @customer_resources.totalResults }
+    render jsonapi: @resources.titles.to_a,
+           meta: { totalResults: @resources.totalResults }
   end
 
   private

@@ -266,7 +266,7 @@ RSpec.describe 'Providers', type: :request do
     it 'contains relationships data' do
       expect(json.included.first.relationships). to(
         include(
-          'customerResources',
+          'resources',
           'vendor',
           'provider'
         )
@@ -301,7 +301,7 @@ RSpec.describe 'Providers', type: :request do
     it 'contains relationships data' do
       expect(json.data.first.relationships). to(
         include(
-          'customerResources',
+          'resources',
           'vendor',
           'provider'
         )
@@ -327,7 +327,7 @@ RSpec.describe 'Providers', type: :request do
       it 'contains relationships data' do
         expect(json.data.first.relationships). to(
           include(
-            'customerResources',
+            'resources',
             'vendor',
             'provider'
           )

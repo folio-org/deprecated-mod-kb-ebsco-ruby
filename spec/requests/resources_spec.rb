@@ -3,10 +3,10 @@
 require 'rails_helper'
 
 RSpec.describe 'Resources', type: :request do
-  describe 'getting a specific customer resource' do
+  describe 'getting a specific resource' do
     before do
-      VCR.use_cassette('get-customer-resources-success') do
-        get '/eholdings/customer-resources/22-1887786-1440285',
+      VCR.use_cassette('get-resources-success') do
+        get '/eholdings/resources/22-1887786-1440285',
             headers: okapi_headers
       end
     end
@@ -17,8 +17,8 @@ RSpec.describe 'Resources', type: :request do
     it 'gets a successful response' do
       expect(response).to have_http_status(200)
     end
-    it "is of type 'customerResources'" do
-      expect(json.data.type).to eq('customerResources')
+    it "is of type 'resources'" do
+      expect(json.data.type).to eq('resources')
     end
     it "has a composite id of '{vendor_id}-{package_id}-{title_id}'" do
       expect(json.data.id).to eq('22-1887786-1440285')
@@ -123,10 +123,10 @@ RSpec.describe 'Resources', type: :request do
     end
   end
 
-  describe 'getting a customer resource with included vendor' do
+  describe 'getting a resource with included vendor' do
     before do
-      VCR.use_cassette('get-customer-resources-vendor') do
-        get '/eholdings/customer-resources/22-1887786-1440285?include=vendor',
+      VCR.use_cassette('get-resources-vendor') do
+        get '/eholdings/resources/22-1887786-1440285?include=vendor',
             headers: okapi_headers
       end
     end
@@ -150,10 +150,10 @@ RSpec.describe 'Resources', type: :request do
     end
   end
 
-  describe 'getting a customer resource with included package' do
+  describe 'getting a resource with included package' do
     before do
-      VCR.use_cassette('get-customer-resources-package') do
-        get '/eholdings/customer-resources/22-1887786-1440285?include=package',
+      VCR.use_cassette('get-resources-package') do
+        get '/eholdings/resources/22-1887786-1440285?include=package',
             headers: okapi_headers
       end
     end
@@ -173,10 +173,10 @@ RSpec.describe 'Resources', type: :request do
     end
   end
 
-  describe 'getting a customer resource with included title' do
+  describe 'getting a resource with included title' do
     before do
-      VCR.use_cassette('get-customer-resources-title') do
-        get '/eholdings/customer-resources/22-1887786-1440285?include=title',
+      VCR.use_cassette('get-resources-title') do
+        get '/eholdings/resources/22-1887786-1440285?include=title',
             headers: okapi_headers
       end
     end
@@ -196,10 +196,10 @@ RSpec.describe 'Resources', type: :request do
     end
   end
 
-  describe 'getting a customer resource with correct relationships' do
+  describe 'getting a resource with correct relationships' do
     before do
-      VCR.use_cassette('get-customer-resource-relationships') do
-        get '/eholdings/customer-resources/22-1887786-1440285',
+      VCR.use_cassette('get-resource-relationships') do
+        get '/eholdings/resources/22-1887786-1440285',
             headers: okapi_headers
       end
     end
@@ -216,19 +216,19 @@ RSpec.describe 'Resources', type: :request do
     end
   end
 
-  describe 'updating a customer resource' do
+  describe 'updating a resource' do
     let(:update_headers) do
       okapi_headers.merge(
         'Content-Type': 'application/vnd.api+json'
       )
     end
 
-    describe 'when the customer resource is not selected' do
-      describe 'hiding a customer resource' do
+    describe 'when the resource is not selected' do
+      describe 'hiding a resource' do
         let(:params) do
           {
             'data' => {
-              'type' => 'customerResources',
+              'type' => 'resources',
               'attributes' => {
                 'isSelected' => false,
                 'visibilityData' => {
@@ -242,8 +242,8 @@ RSpec.describe 'Resources', type: :request do
         end
 
         before do
-          VCR.use_cassette('put-customer-resource-isnotselected-ishidden') do
-            put '/eholdings/customer-resources/22-1887786-1440285',
+          VCR.use_cassette('put-resource-isnotselected-ishidden') do
+            put '/eholdings/resources/22-1887786-1440285',
                 params: params, as: :json, headers: update_headers
           end
         end
@@ -257,7 +257,7 @@ RSpec.describe 'Resources', type: :request do
         let(:params) do
           {
             'data' => {
-              'type' => 'customerResources',
+              'type' => 'resources',
               'attributes' => {
                 'isSelected' => false,
                 'visibilityData' => nil,
@@ -277,12 +277,10 @@ RSpec.describe 'Resources', type: :request do
         end
 
         before do
-          # rubocop:disable Metrics/LineLength
-          VCR.use_cassette('put-customer-resource-isnotselected-customcoverages') do
-            put '/eholdings/customer-resources/22-1887786-1440285',
+          VCR.use_cassette('put-resource-isnotselected-customcoverages') do
+            put '/eholdings/resources/22-1887786-1440285',
                 params: params, as: :json, headers: update_headers
           end
-          # rubocop:enable Metrics/LineLength
         end
 
         it 'fails with unprocessable entity status' do
@@ -294,7 +292,7 @@ RSpec.describe 'Resources', type: :request do
         let(:params) do
           {
             'data' => {
-              'type' => 'customerResources',
+              'type' => 'resources',
               'attributes' => {
                 'isSelected' => false,
                 'visibilityData' => nil,
@@ -309,12 +307,10 @@ RSpec.describe 'Resources', type: :request do
         end
 
         before do
-          # rubocop:disable Metrics/LineLength
-          VCR.use_cassette('put-customer-resources-isnotselected-customembargo') do
-            put '/eholdings/customer-resources/22-1887786-1440285',
+          VCR.use_cassette('put-resources-isnotselected-customembargo') do
+            put '/eholdings/resources/22-1887786-1440285',
                 params: params, as: :json, headers: update_headers
           end
-          # rubocop:enable Metrics/LineLength
         end
 
         it 'fails with unprocessable entity status' do
@@ -326,7 +322,7 @@ RSpec.describe 'Resources', type: :request do
         let(:params) do
           {
             'data' => {
-              'type' => 'customerResources',
+              'type' => 'resources',
               'attributes' => {
                 'isSelected' => false,
                 'visibilityData' => nil,
@@ -339,12 +335,10 @@ RSpec.describe 'Resources', type: :request do
         end
 
         before do
-          # rubocop:disable Metrics/LineLength
-          VCR.use_cassette('put-customer-resources-isnotselected-coveragestatement') do
-            put '/eholdings/customer-resources/22-1887786-1440285',
+          VCR.use_cassette('put-resources-isnotselected-coveragestatement') do
+            put '/eholdings/resources/22-1887786-1440285',
                 params: params, as: :json, headers: update_headers
           end
-          # rubocop:enable Metrics/LineLength
         end
 
         it 'fails with unprocessable entity status' do
@@ -352,11 +346,11 @@ RSpec.describe 'Resources', type: :request do
         end
       end
 
-      describe 'selecting a customer resource' do
+      describe 'selecting a resource' do
         let(:params) do
           {
             'data' => {
-              'type' => 'customerResources',
+              'type' => 'resources',
               'attributes' => {
                 'isSelected' => true
               }
@@ -365,8 +359,8 @@ RSpec.describe 'Resources', type: :request do
         end
 
         before do
-          VCR.use_cassette('put-customer-resources-isselected') do
-            put '/eholdings/customer-resources/22-1887786-1440285',
+          VCR.use_cassette('put-resources-isselected') do
+            put '/eholdings/resources/22-1887786-1440285',
                 params: params, as: :json, headers: update_headers
           end
         end
@@ -383,12 +377,12 @@ RSpec.describe 'Resources', type: :request do
       end
     end
 
-    describe 'when the customer resource is selected' do
-      describe 'hiding a customer resource' do
+    describe 'when the resource is selected' do
+      describe 'hiding a resource' do
         let(:params) do
           {
             'data' => {
-              'type' => 'customerResources',
+              'type' => 'resources',
               'attributes' => {
                 'isSelected' => true,
                 'visibilityData' => {
@@ -400,8 +394,8 @@ RSpec.describe 'Resources', type: :request do
         end
 
         before do
-          VCR.use_cassette('put-customer-resource-ishidden-update') do
-            put '/eholdings/customer-resources/22-1887786-1440285',
+          VCR.use_cassette('put-resource-ishidden-update') do
+            put '/eholdings/resources/22-1887786-1440285',
                 params: params, as: :json, headers: update_headers
           end
         end
@@ -422,7 +416,7 @@ RSpec.describe 'Resources', type: :request do
         let(:params) do
           {
             'data' => {
-              'type' => 'customerResources',
+              'type' => 'resources',
               'attributes' => {
                 'isSelected' => true,
                 'customCoverages' => [
@@ -437,8 +431,8 @@ RSpec.describe 'Resources', type: :request do
         end
 
         before do
-          VCR.use_cassette('put-customer-resources-customcoverage-update') do
-            put '/eholdings/customer-resources/22-1887786-1440285',
+          VCR.use_cassette('put-resources-customcoverage-update') do
+            put '/eholdings/resources/22-1887786-1440285',
                 params: params, as: :json, headers: update_headers
           end
         end
@@ -465,7 +459,7 @@ RSpec.describe 'Resources', type: :request do
         let(:params) do
           {
             'data' => {
-              'type' => 'customerResources',
+              'type' => 'resources',
               'attributes' => {
                 'isSelected' => true,
                 'customEmbargoPeriod' => {
@@ -478,8 +472,8 @@ RSpec.describe 'Resources', type: :request do
         end
 
         before do
-          VCR.use_cassette('put-customer-resources-customembargo-update') do
-            put '/eholdings/customer-resources/22-1887786-1440285',
+          VCR.use_cassette('put-resources-customembargo-update') do
+            put '/eholdings/resources/22-1887786-1440285',
                 params: params, as: :json, headers: update_headers
           end
         end
@@ -501,7 +495,7 @@ RSpec.describe 'Resources', type: :request do
         let(:params) do
           {
             'data' => {
-              'type' => 'customerResources',
+              'type' => 'resources',
               'attributes' => {
                 'isSelected' => true,
                 'coverageStatement' => 'Only 1990s issues available.'
@@ -511,8 +505,8 @@ RSpec.describe 'Resources', type: :request do
         end
 
         before do
-          VCR.use_cassette('put-customer-resources-coveragestatement-update') do
-            put '/eholdings/customer-resources/22-1887786-1440285',
+          VCR.use_cassette('put-resources-coveragestatement-update') do
+            put '/eholdings/resources/22-1887786-1440285',
                 params: params, as: :json, headers: update_headers
           end
         end
@@ -533,7 +527,7 @@ RSpec.describe 'Resources', type: :request do
         let(:params) do
           {
             'data' => {
-              'type' => 'customerResources',
+              'type' => 'resources',
               'attributes' => {
                 'isSelected' => true,
                 'visibilityData' => {
@@ -559,8 +553,8 @@ RSpec.describe 'Resources', type: :request do
         end
 
         before do
-          VCR.use_cassette('put-customer-resources-combined-update') do
-            put '/eholdings/customer-resources/22-1887786-1440285',
+          VCR.use_cassette('put-resources-combined-update') do
+            put '/eholdings/resources/22-1887786-1440285',
                 params: params, as: :json, headers: update_headers
           end
         end
@@ -592,10 +586,10 @@ RSpec.describe 'Resources', type: :request do
     end
   end
 
-  describe 'getting a non-existing customer resource' do
+  describe 'getting a non-existing resource' do
     before do
-      VCR.use_cassette('get-customer-resources-not-found') do
-        get '/eholdings/customer-resources/1-1-1',
+      VCR.use_cassette('get-resources-not-found') do
+        get '/eholdings/resources/1-1-1',
             headers: okapi_headers
       end
     end
@@ -605,10 +599,10 @@ RSpec.describe 'Resources', type: :request do
     end
   end
 
-  describe 'when the customer resource is hidden' do
+  describe 'when the resource is hidden' do
     before do
-      VCR.use_cassette('get-customer-resource-reason-hidden-by-customer') do
-        get '/eholdings/customer-resources/19-2697502-15097690',
+      VCR.use_cassette('get-resource-reason-hidden-by-customer') do
+        get '/eholdings/resources/19-2697502-15097690',
             headers: okapi_headers
       end
     end
@@ -624,10 +618,10 @@ RSpec.describe 'Resources', type: :request do
     end
   end
 
-  describe 'when the customer resource is hidden at package level' do
+  describe 'when the resource is hidden at package level' do
     before do
-      VCR.use_cassette('get-customer-resource-reason-hidden-by-ep') do
-        get '/eholdings/customer-resources/22-4620-5557625',
+      VCR.use_cassette('get-resource-reason-hidden-by-ep') do
+        get '/eholdings/resources/22-4620-5557625',
             headers: okapi_headers
       end
     end

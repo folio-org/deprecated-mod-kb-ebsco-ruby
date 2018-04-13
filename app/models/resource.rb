@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class CustomerResource < RmApiResource
+class Resource < RmApiResource
   ARRAY_FIELDS = %i[
     contributorsList
     identifiersList

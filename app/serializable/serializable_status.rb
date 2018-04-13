@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class SerializableStatus < SerializableResource
+class SerializableStatus < SerializableJSONAPIResource
   type 'statuses'
 
   attribute :is_configuration_valid do

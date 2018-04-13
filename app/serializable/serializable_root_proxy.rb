@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class SerializableRootProxy < SerializableResource
+class SerializableRootProxy < SerializableJSONAPIResource
   type 'rootProxy'
 
   # Custom Label attributes

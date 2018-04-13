@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
-class SerializableTitle < SerializableResource
+class SerializableTitle < SerializableJSONAPIResource
   type 'titles'
 
-  has_many :customer_resources
+  has_many :resources
 
   attributes :name,
              :description,
