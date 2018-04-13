@@ -48,6 +48,8 @@ class CustomerResourcesController < ApplicationController
     params
       .require(:customer_resource)
       .permit(
+        :titleName,
+        :pubType,
         :isSelected,
         :coverageStatement,
         visibilityData: [:isHidden],
