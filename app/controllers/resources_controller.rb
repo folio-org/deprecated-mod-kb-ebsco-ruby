@@ -64,6 +64,11 @@ class ResourcesController < ApplicationController
         :pubType,
         :isSelected,
         :coverageStatement,
+        :isPeerReviewed,
+        :publisherName,
+        :edition,
+        :description,
+        :url,
         visibilityData: [:isHidden],
         customCoverageList: [
           %i[beginCoverage endCoverage]

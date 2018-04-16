@@ -110,7 +110,12 @@ class Resource < RmApiResource
       customEmbargoPeriod: resource_attributes[:customEmbargoPeriod],
       coverageStatement: resource_attributes[:coverageStatement],
       titleName: attributes[:titleName],
-      pubType: attributes[:pubType]
+      pubType: attributes[:pubType],
+      isPeerReviewed: attributes[:isPeerReviewed],
+      publisherName: attributes[:publisherName],
+      edition: attributes[:edition],
+      description: attributes[:description],
+      url: resource_attributes[:url]
     )
     refresh!
   end
@@ -158,7 +163,11 @@ class Resource < RmApiResource
   def update_fields
     to_hash.with_indifferent_access.slice(
       :titleName,
-      :pubType
+      :pubType,
+      :isPeerReviewed,
+      :publisherName,
+      :edition,
+      :description
     )
   end
 
@@ -169,7 +178,7 @@ class Resource < RmApiResource
       :customCoverageList,
       :customEmbargoPeriod,
       :coverageStatement,
-      :titleName
+      :url
     )
   end
 end

@@ -10,7 +10,7 @@ RSpec.describe 'Custom Resources', type: :request do
       )
     end
 
-    describe 'changing the name and publication type' do
+    describe 'changing the name' do
       let(:params) do
         {
           "data": {
@@ -209,6 +209,85 @@ RSpec.describe 'Custom Resources', type: :request do
       it 'has a coverage statement' do
         expect(json.data.attributes.coverageStatement)
           .to eq('We have so much coverage.')
+      end
+    end
+
+    describe 'combined update' do
+      let(:params) do
+        {
+          "data": {
+            "type": 'resources',
+            "attributes": {
+              "isSelected": true,
+              "visibilityData": {
+                "isHidden": true
+              },
+              "name": 'This is the best title ever',
+              "isPeerReviewed": true,
+              "publicationType": 'Newspaper',
+              "publisherName": 'Frontside Newspapers',
+              "edition": '5',
+              "description": 'Something something something',
+              "url": 'https://frontside.io',
+              "customCoverages": [
+                {
+                  "beginCoverage": '2003-01-01',
+                  "endCoverage": '2004-01-01'
+                }
+              ],
+              "coverageStatement": 'There are many years.',
+              "customEmbargoPeriod": {
+                "embargoUnit": 'Weeks',
+                "embargoValue": 6
+              }
+            }
+          }
+        }
+      end
+
+      before do
+        VCR.use_cassette('put-custom-resource-combined-update') do
+          put '/eholdings/resources/123355-2739728-17053010',
+              params: params, as: :json, headers: update_headers
+        end
+      end
+
+      it 'responds with OK status' do
+        expect(response).to have_http_status(200)
+      end
+
+      let!(:json) { Map JSON.parse response.body }
+
+      it 'has name' do
+        expect(json.data.attributes.name).to eq('This is the best title ever')
+      end
+
+      it 'is now hidden' do
+        expect(json.data.attributes.visibilityData.isHidden).to be true
+      end
+
+      it 'has peer review status' do
+        expect(json.data.attributes.isPeerReviewed).to be true
+      end
+
+      it 'has publication type' do
+        expect(json.data.attributes.publicationType).to eq('Newspaper')
+      end
+
+      it 'has publisher name' do
+        expect(json.data.attributes.publisherName).to eq('Frontside Newspapers')
+      end
+
+      it 'has edition' do
+        expect(json.data.attributes.edition).to eq('5')
+      end
+
+      it 'has description' do
+        expect(json.data.attributes.description).to eq('Something something something')
+      end
+
+      it 'has url' do
+        expect(json.data.attributes.url).to eq('https://frontside.io')
       end
     end
   end
