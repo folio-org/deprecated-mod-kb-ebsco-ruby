@@ -117,13 +117,22 @@ class Package < RmApiResource
   end
 
   def update_fields
-    to_hash.with_indifferent_access.slice(
-      :isSelected,
-      :allowEbscoToAddTitles,
-      :visibilityData,
-      :customCoverage,
-      :packageName,
-      :contentType
-    )
+    if isCustom?
+      to_hash.with_indifferent_access.slice(
+        :isSelected,
+        :allowEbscoToAddTitles,
+        :visibilityData,
+        :customCoverage,
+        :packageName,
+        :contentType
+      )
+    else
+      to_hash.with_indifferent_access.slice(
+        :isSelected,
+        :allowEbscoToAddTitles,
+        :visibilityData,
+        :customCoverage
+      )
+    end
   end
 end
