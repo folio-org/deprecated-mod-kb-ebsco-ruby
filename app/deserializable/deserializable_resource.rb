@@ -4,7 +4,12 @@ class DeserializableResource < JSONAPI::Deserializable::Resource
   attributes :isSelected,
              :customEmbargoPeriod,
              :visibilityData,
-             :coverageStatement
+             :coverageStatement,
+             :isPeerReviewed,
+             :publisherName,
+             :edition,
+             :description,
+             :url
 
   attribute :name do |value|
     { titleName: value }
