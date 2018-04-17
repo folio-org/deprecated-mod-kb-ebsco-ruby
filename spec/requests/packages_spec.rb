@@ -923,6 +923,39 @@ RSpec.describe 'Packages', type: :request do
     end
   end
 
+  # RM API will reject PUTs to managed packages
+  # with a contentType in the request
+  describe 'sending a content type to a managed package' do
+    let(:update_headers) do
+      okapi_headers.merge(
+        'Content-Type': 'application/vnd.api+json'
+      )
+    end
+
+    let(:params) do
+      {
+        "data": {
+          "type": 'packages',
+          "attributes": {
+            "name": 'I want to rename this managed package',
+            "contentType": 'Book'
+          }
+        }
+      }
+    end
+
+    before do
+      VCR.use_cassette('put-package-managed-content-type') do
+        put '/eholdings/packages/75-2686',
+            params: params, as: :json, headers: update_headers
+      end
+    end
+
+    it 'gets a successful response' do
+      expect(response).to have_http_status(200)
+    end
+  end
+
   describe 'editing a custom package' do
     let(:update_headers) do
       okapi_headers.merge(

@@ -583,6 +583,36 @@ RSpec.describe 'Resources', type: :request do
             .to eq('Only 2000s issues available.')
         end
       end
+
+      describe 'trying to update fields only available to custom resources' do
+        let(:params) do
+          {
+            "data": {
+              "type": 'resources',
+              "attributes": {
+                "name": 'I want a cool title name',
+                "isPeerReviewed": true,
+                "publicationType": 'Newspaper',
+                "publisherName": 'Frontside Newspapers',
+                "edition": '5',
+                "description": 'Something something something',
+                "url": 'https://frontside.io'
+              }
+            }
+          }
+        end
+
+        before do
+          VCR.use_cassette('put-resources-managed-update-custom-fields') do
+            put '/eholdings/resources/22-1887786-1440285',
+                params: params, as: :json, headers: update_headers
+          end
+        end
+
+        it 'responds with OK status' do
+          expect(response).to have_http_status(200)
+        end
+      end
     end
   end
 
