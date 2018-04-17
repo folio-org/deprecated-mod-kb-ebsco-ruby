@@ -17,6 +17,7 @@ class Resource < RmApiResource
   get :find_by_package, '/vendors/:vendor_id/packages/:package_id/titles',
       array: ARRAY_FIELDS
   put :update, '/vendors/:vendor_id/packages/:package_id/titles/:title_id'
+  post :create, '/vendors/:vendor_id/packages/:package_id/titles'
 
   before_request do |name, request|
     if name == :find_by_package
@@ -126,6 +127,17 @@ class Resource < RmApiResource
       package_id: resource.packageId,
       title_id: titleId,
       isSelected: false
+    )
+  end
+
+  def self.create_resource(params)
+    custom_provider_id = Provider.custom_provider_id(config)
+    create_params = { vendor_id: custom_provider_id }.merge(params)
+    resource_response = create create_params
+    find(
+      vendor_id: create_params[:vendor_id],
+      package_id: create_params['package_id'],
+      title_id: resource_response[:titleId]
     )
   end
 

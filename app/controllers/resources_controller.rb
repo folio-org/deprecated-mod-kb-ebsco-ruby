@@ -6,8 +6,26 @@ class ResourcesController < ApplicationController
   before_action :set_resource, only: %i[show update destroy]
 
   deserializable_resource :resource,
-                          only: :update,
+                          only: %i[create update],
                           class: DeserializableResource
+  def create
+    resource_create_params = resource_params.slice(
+      :titleName,
+      :pubType,
+      :package_id
+    )
+
+    resource_validation =
+      Validation::ResourceCreateParameters.new(resource_create_params)
+
+    if resource_validation.valid?
+      @resource = resources.create_resource(resource_create_params)
+      render jsonapi: @resource
+    else
+      render jsonapi_errors: resource_validation.errors,
+             status: :unprocessable_entity
+    end
+  end
 
   def show
     render jsonapi: @resource,
@@ -16,7 +34,7 @@ class ResourcesController < ApplicationController
 
   def update
     resource_validation =
-      Validation::ResourceParameters.new(resource_params)
+      Validation::ResourceUpdateParameters.new(resource_params)
 
     if resource_validation.valid?
       @resource.update resource_params
@@ -69,6 +87,7 @@ class ResourcesController < ApplicationController
         :edition,
         :description,
         :url,
+        :package_id,
         visibilityData: [:isHidden],
         customCoverageList: [
           %i[beginCoverage endCoverage]

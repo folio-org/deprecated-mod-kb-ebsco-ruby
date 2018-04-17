@@ -332,4 +332,249 @@ RSpec.describe 'Custom Resources', type: :request do
       end
     end
   end
+
+  describe 'creating a custom title' do
+    let(:create_headers) do
+      okapi_headers.merge(
+        'Content-Type': 'application/vnd.api+json'
+      )
+    end
+
+    describe 'with name and pubtype' do
+      let(:params) do
+        {
+          'data' => {
+            'type' => 'resources',
+            'attributes' => {
+              'name' => 'New Custom Title Testing',
+              'publicationType' => 'Book',
+              'packageId' => '2843712'
+            }
+          }
+        }
+      end
+
+      before do
+        VCR.use_cassette('post-custom-resource-name-pubtype') do
+          post '/eholdings/resources',
+               params: params, as: :json, headers: create_headers
+        end
+      end
+
+      it 'responds with OK status' do
+        expect(response).to have_http_status(200)
+      end
+
+      let!(:json) { Map JSON.parse response.body }
+      let!(:attributes) { json.data.attributes }
+
+      it 'has a list of attributes' do
+        expect(attributes).to include(
+          'contributors',
+          'coverageStatement',
+          'customCoverages',
+          'customEmbargoPeriod',
+          'description',
+          'identifiers',
+          'isPeerReviewed',
+          'isSelected',
+          'managedCoverages',
+          'managedEmbargoPeriod',
+          'name',
+          'packageId',
+          'packageName',
+          'providerId',
+          'providerName',
+          'publicationType',
+          'publisherName',
+          'subjects',
+          'titleId',
+          'url',
+          'vendorId',
+          'vendorName',
+          'visibilityData'
+        )
+      end
+      it 'has the new name' do
+        expect(json.data.attributes.name).to eq('New Custom Title Testing')
+      end
+
+      it 'has the new publication type' do
+        expect(json.data.attributes.publicationType).to eq('Book')
+      end
+    end
+
+    describe 'with an existing name' do
+      let(:params) do
+        {
+          'data' => {
+            'type' => 'resources',
+            'attributes' => {
+              'name' => 'New Custom Title Testing',
+              'publicationType' => 'Book',
+              'packageId' => '2843712'
+            }
+          }
+        }
+      end
+
+      before do
+        VCR.use_cassette('post-custom-resource-existing-name') do
+          post '/eholdings/resources',
+               params: params, as: :json, headers: create_headers
+        end
+      end
+
+      let!(:json) { Map JSON.parse response.body }
+
+      it 'responds with bad request' do
+        expect(response).to have_http_status(400)
+        expect(json.errors.first.title).to eql('Custom Title with the provided name already exists')
+      end
+    end
+
+    describe 'with missing name' do
+      let(:params) do
+        {
+          'data' => {
+            'type' => 'resources',
+            'attributes' => {
+              'publicationType' => 'Book',
+              'packageId' => '2843712'
+            }
+          }
+        }
+      end
+
+      before do
+        VCR.use_cassette('post-custom-resource-missing-name') do
+          post '/eholdings/resources',
+               params: params, as: :json, headers: create_headers
+        end
+      end
+
+      let!(:json) { Map JSON.parse response.body }
+
+      it 'returns an error status' do
+        expect(response).to have_http_status(422)
+        expect(json.errors.first.title).to eql('Invalid titleName')
+      end
+    end
+
+    describe 'with a name that exceeds maximum size' do
+      let(:largeName) { '0' * 401 }
+
+      let(:params) do
+        {
+          'data' => {
+            'type' => 'resources',
+            'attributes' => {
+              'name' => largeName,
+              'publicationType' => 'Book',
+              'packageId' => '2843712'
+            }
+          }
+        }
+      end
+
+      before do
+        VCR.use_cassette('post-custom-resource-long-name') do
+          post '/eholdings/resources',
+               params: params, as: :json, headers: create_headers
+        end
+      end
+
+      let!(:json) { Map JSON.parse response.body }
+
+      it 'returns an error status' do
+        expect(response).to have_http_status(422)
+        expect(json.errors.first.title).to eql('Invalid titleName')
+      end
+    end
+
+    describe 'with missing publication type' do
+      let(:params) do
+        {
+          'data' => {
+            'type' => 'resources',
+            'attributes' => {
+              'name' => 'My Custom Title Testing',
+              'packageId' => '2843712'
+            }
+          }
+        }
+      end
+
+      before do
+        VCR.use_cassette('post-custom-resource-missing-pubtype') do
+          post '/eholdings/resources',
+               params: params, as: :json, headers: create_headers
+        end
+      end
+
+      let!(:json) { Map JSON.parse response.body }
+
+      it 'returns an error status' do
+        expect(response).to have_http_status(422)
+        expect(json.errors.first.title).to eql('Invalid pubType')
+      end
+    end
+
+    describe 'with missing package id' do
+      let(:params) do
+        {
+          'data' => {
+            'type' => 'resources',
+            'attributes' => {
+              'name' => 'My Custom Title Testing',
+              'publicationType' => 'Book'
+            }
+          }
+        }
+      end
+
+      before do
+        VCR.use_cassette('post-custom-resource-missing-packageId') do
+          post '/eholdings/resources',
+               params: params, as: :json, headers: create_headers
+        end
+      end
+
+      let!(:json) { Map JSON.parse response.body }
+
+      it 'returns an error status' do
+        expect(response).to have_http_status(422)
+        expect(json.errors.first.title).to eql('Invalid package_id')
+      end
+    end
+
+    describe 'with a managed package id' do
+      let(:params) do
+        {
+          'data' => {
+            'type' => 'resources',
+            'attributes' => {
+              'name' => 'My Custom Title Testing',
+              'publicationType' => 'Book',
+              'packageId' => '2512592'
+            }
+          }
+        }
+      end
+
+      before do
+        VCR.use_cassette('post-custom-resource-managed-packageId') do
+          post '/eholdings/resources',
+               params: params, as: :json, headers: create_headers
+        end
+      end
+
+      let!(:json) { Map JSON.parse response.body }
+
+      it 'returns an error status' do
+        expect(response).to have_http_status(400)
+        expect(json.errors.first.title).to eql('Custom Title can not be added to the provided package')
+      end
+    end
+  end
 end

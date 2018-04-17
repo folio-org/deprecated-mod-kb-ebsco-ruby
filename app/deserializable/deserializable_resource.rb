@@ -15,6 +15,10 @@ class DeserializableResource < JSONAPI::Deserializable::Resource
     { titleName: value }
   end
 
+  attribute :packageId do |value|
+    { package_id: value }
+  end
+
   attribute :publicationType do |value|
     publication_types = {
       'All': 'all',
