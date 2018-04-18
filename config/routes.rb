@@ -14,7 +14,7 @@ Rails.application.routes.draw do
       end
     end
 
-    resources :packages, only: %i[index show update] do
+    resources :packages, only: %i[index show update destroy] do
       member do
         get 'resources'
       end

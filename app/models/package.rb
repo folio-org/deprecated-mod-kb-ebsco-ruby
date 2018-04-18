@@ -99,6 +99,14 @@ class Package < RmApiResource
     refresh!
   end
 
+  def delete
+    self.class.update(
+      vendor_id: vendorId,
+      package_id: packageId,
+      isSelected: false
+    )
+  end
+
   private
 
   def refresh!

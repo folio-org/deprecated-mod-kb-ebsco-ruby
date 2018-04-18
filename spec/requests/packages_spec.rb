@@ -1094,4 +1094,45 @@ RSpec.describe 'Packages', type: :request do
       end
     end
   end
+
+  describe 'deleting a custom package' do
+    describe 'delete a custom package successfully' do
+      before do
+        VCR.use_cassette('delete-custom-package') do
+          delete '/eholdings/packages/123355-2848230',
+                 headers: okapi_headers
+        end
+      end
+
+      it 'gets a successful response' do
+        expect(response).to have_http_status(204)
+      end
+    end
+
+    describe 'trying to delete a deleted package results in error' do
+      before do
+        VCR.use_cassette('delete-deleted-custom-package') do
+          delete '/eholdings/packages/123355-2848230',
+                 headers: okapi_headers
+        end
+      end
+
+      it 'gets a not found response' do
+        expect(response).to have_http_status(404)
+      end
+    end
+
+    describe 'trying to delete a non-custom package' do
+      before do
+        VCR.use_cassette('delete-non-custom-package') do
+          delete '/eholdings/packages/583-4345',
+                 headers: okapi_headers
+        end
+      end
+
+      it 'gets a bad request response' do
+        expect(response).to have_http_status(400)
+      end
+    end
+  end
 end

@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class PackagesController < ApplicationController
-  before_action :set_package, only: %i[show update resources]
+  before_action :set_package, only: %i[show update destroy resources]
 
   deserializable_resource :package, only: :update,
                                     class: DeserializablePackage
@@ -31,6 +31,17 @@ class PackagesController < ApplicationController
     else
       render jsonapi_errors: package_validation.errors,
              status: :unprocessable_entity
+    end
+  end
+
+  def destroy
+    package_validation = Validation::PackageDestroyParameters.new(@package)
+
+    if package_validation.valid?
+      @package.delete
+    else
+      render jsonapi_errors: package_validation.errors,
+             status: :bad_request
     end
   end
 
