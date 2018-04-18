@@ -7,14 +7,16 @@ module Validation
     validate :resource_deletable?
 
     def resource_deletable?
-      # Resource can be deleted only if its custom
+      # custom or managed titles can be deleted as long
+      # as the package its associated with is custom.
       # Check for that
       errors.add(:resource, 'cannot be deleted') unless
-        @resource.isTitleCustom
+        @is_package_custom
     end
 
-    def initialize(resource)
-      @resource = resource
+    def initialize(customer_resource_list)
+      customer_resource = customer_resource_list.first
+      @is_package_custom = customer_resource['isPackageCustom']
     end
   end
 end

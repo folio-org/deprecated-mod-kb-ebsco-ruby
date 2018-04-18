@@ -293,7 +293,7 @@ RSpec.describe 'Custom Resources', type: :request do
   end
 
   describe 'deleting a custom title' do
-    describe 'deletes title if it is a custom title' do
+    describe 'deletes title if it is part of a custom package' do
       before do
         VCR.use_cassette('delete-custom-title') do
           delete '/eholdings/resources/123355-2843714-17070531',
@@ -319,7 +319,7 @@ RSpec.describe 'Custom Resources', type: :request do
       end
     end
 
-    describe 'trying to delete a non-custom title' do
+    describe 'trying to delete a title not in a custom package' do
       before do
         VCR.use_cassette('delete-non-custom-title') do
           delete '/eholdings/resources/72-6057-1360002',

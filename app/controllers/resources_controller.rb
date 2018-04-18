@@ -29,7 +29,7 @@ class ResourcesController < ApplicationController
 
   def destroy
     resource_validation =
-      Validation::ResourceDestroyParameters.new(@resource)
+      Validation::ResourceDestroyParameters.new(@resource.customerResourcesList)
 
     if resource_validation.valid?
       @resource.delete
