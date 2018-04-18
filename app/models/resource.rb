@@ -172,13 +172,23 @@ class Resource < RmApiResource
   end
 
   def resource_update_fields
-    resource.to_hash.with_indifferent_access.slice(
-      :isSelected,
-      :visibilityData,
-      :customCoverageList,
-      :customEmbargoPeriod,
-      :coverageStatement,
-      :url
-    )
+    if isTitleCustom?
+      resource.to_hash.with_indifferent_access.slice(
+        :isSelected,
+        :visibilityData,
+        :customCoverageList,
+        :customEmbargoPeriod,
+        :coverageStatement,
+        :url
+      )
+    else
+      resource.to_hash.with_indifferent_access.slice(
+        :isSelected,
+        :visibilityData,
+        :customCoverageList,
+        :customEmbargoPeriod,
+        :coverageStatement
+      )
+    end
   end
 end
