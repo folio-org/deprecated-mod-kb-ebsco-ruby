@@ -1094,4 +1094,197 @@ RSpec.describe 'Packages', type: :request do
       end
     end
   end
+
+  describe 'deleting a custom package' do
+    describe 'delete a custom package successfully' do
+      before do
+        VCR.use_cassette('delete-custom-package') do
+          delete '/eholdings/packages/123355-2848230',
+                 headers: okapi_headers
+        end
+      end
+
+      it 'gets a successful response' do
+        expect(response).to have_http_status(204)
+      end
+    end
+
+    describe 'trying to delete a deleted package results in error' do
+      before do
+        VCR.use_cassette('delete-deleted-custom-package') do
+          delete '/eholdings/packages/123355-2848230',
+                 headers: okapi_headers
+        end
+      end
+
+      it 'gets a not found response' do
+        expect(response).to have_http_status(404)
+      end
+    end
+
+    describe 'trying to delete a non-custom package' do
+      before do
+        VCR.use_cassette('delete-non-custom-package') do
+          delete '/eholdings/packages/583-4345',
+                 headers: okapi_headers
+        end
+      end
+
+      it 'gets a bad request response' do
+        expect(response).to have_http_status(400)
+      end
+    end
+  end
+
+  describe 'creating a custom package' do
+    let(:update_headers) do
+      okapi_headers.merge(
+        'Content-Type': 'application/vnd.api+json'
+      )
+    end
+
+    describe 'without a packageName' do
+      let(:params) do
+        {
+          "data": {
+            "type": 'packages',
+            "attributes": {
+              "contentType": 'ebook'
+            }
+          }
+        }
+      end
+
+      before do
+        VCR.use_cassette('post-custom-package') do
+          post '/eholdings/packages/',
+               params: params, as: :json, headers: update_headers
+        end
+      end
+
+      it 'returns an error' do
+        expect(response).to have_http_status(422)
+      end
+    end
+
+    describe 'without a contentType' do
+      let(:params) do
+        {
+          "data": {
+            "type": 'packages',
+            "attributes": {
+              "name": 'totally new name'
+            }
+          }
+        }
+      end
+
+      before do
+        VCR.use_cassette('post-custom-package') do
+          post '/eholdings/packages/',
+               params: params, as: :json, headers: update_headers
+        end
+      end
+
+      it 'returns an error' do
+        expect(response).to have_http_status(422)
+      end
+    end
+
+    describe 'that is fully valid' do
+      let(:params) do
+        {
+          "data": {
+            "type": 'packages',
+            "attributes": {
+              "name": 'new name',
+              "contentType": 'E-Book',
+              "customCoverage": {
+                "beginCoverage": '2003-01-01',
+                "endCoverage": '2004-01-01'
+              }
+            }
+          }
+        }
+      end
+
+      before do
+        VCR.use_cassette('post-custom-package') do
+          post '/eholdings/packages/',
+               params: params, as: :json, headers: update_headers
+        end
+      end
+
+      it 'responds with OK status' do
+        expect(response).to have_http_status(200)
+      end
+
+      let!(:json) { Map JSON.parse response.body }
+
+      it 'returns a fully formed custom package' do
+        expect(json.data.attributes.name).to eq 'new name'
+        expect(json.data.attributes.contentType).to eq 'E-Book'
+        expect(json.data.attributes.customCoverage.beginCoverage)
+          .to eq '2003-01-01'
+        expect(json.data.attributes.customCoverage.endCoverage)
+          .to eq '2004-01-01'
+      end
+    end
+
+    describe 'with an already taken name' do
+      let(:params) do
+        {
+          "data": {
+            "type": 'packages',
+            "attributes": {
+              "name": 'new name',
+              "contentType": 'E-Book'
+            }
+          }
+        }
+      end
+
+      before do
+        VCR.use_cassette('post-custom-package-taken-name') do
+          post '/eholdings/packages/',
+               params: params, as: :json, headers: update_headers
+        end
+      end
+
+      it 'responds with an error' do
+        expect(response).to have_http_status(400)
+      end
+    end
+
+    describe 'giving invalid content type replaces request with Unknown' do
+      let(:params) do
+        {
+          "data": {
+            "type": 'packages',
+            "attributes": {
+              "contentType": 'something',
+              "name": 'testing content type again'
+            }
+          }
+        }
+      end
+
+      before do
+        VCR.use_cassette('post-custom-package-invalid-content-type') do
+          post '/eholdings/packages/',
+               params: params, as: :json, headers: update_headers
+        end
+      end
+
+      let!(:json_response) { Map JSON.parse response.body }
+
+      it 'returns success' do
+        expect(response).to have_http_status(200)
+      end
+
+      it 'content type replaced with Unknown' do
+        expect(json_response.data.attributes.contentType).to eql('Unknown')
+      end
+    end
+  end
 end

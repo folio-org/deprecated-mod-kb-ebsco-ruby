@@ -16,16 +16,16 @@ class DeserializablePackage < JSONAPI::Deserializable::Resource
 
   attribute :contentType do |value|
     content_types = {
-      'All': 'all',
-      'Aggregated Full Text': 'aggregatedfulltext',
-      'Abstract and Index': 'abstractandindex',
-      'E-Book': 'ebook',
-      'E-Journal': 'ejournal',
-      'Print': 'print',
-      'Unknown': 'unknown',
-      'Online Reference': 'onlinereference'
+      'All': 'All',
+      'Aggregated Full Text': 'AggregatedFullText',
+      'Abstract and Index': 'AbstractAndIndex',
+      'E-Book': 'EBook',
+      'E-Journal': 'EJournal',
+      'Print': 'Print',
+      'Unknown': 'Unknown',
+      'Online Reference': 'OnlineReference'
     }
 
-    { contentType: content_types[value.to_sym] || 'unknown' }
+    { contentType: content_types[value.to_sym] || 'Unknown' }
   end
 end
