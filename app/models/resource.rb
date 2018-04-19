@@ -131,16 +131,23 @@ class Resource < RmApiResource
   end
 
   def self.create_resource(params)
-    provider_id = Provider.custom_provider_id(config)
     package_id = params['packageId']
-    create_params = params.to_hash.except('packageId')
-    rm_api_create = { vendor_id: provider_id, package_id: package_id}.merge(create_params)
+    create_params = params.to_hash.except('packageId', 'isPeerReviewed')
+    rm_api_create = { vendor_id: provider_id, package_id: package_id }.merge(create_params)
+    # RM API Post method expects peerReviewed instead of isPeerReviewed
+    # this is inconsistent with PUT and will eventually be corrected
+    peer_reviewed = params['isPeerReviewed']
+    rm_api_create['peerReviewed'] = peer_reviewed unless peer_reviewed.nil?
     resource_response = create rm_api_create
     find(
       vendor_id: provider_id,
       package_id: package_id,
       title_id: resource_response[:titleId]
     )
+  end
+
+  def self.provider_id
+    Provider.configure(config).provider_id
   end
 
   private

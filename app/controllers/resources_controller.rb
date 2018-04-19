@@ -9,17 +9,11 @@ class ResourcesController < ApplicationController
                           only: %i[create update],
                           class: DeserializableResource
   def create
-    resource_create_params = resource_params.slice(
-      :titleName,
-      :pubType,
-      :packageId
-    )
-
     resource_validation =
-      Validation::ResourceCreateParameters.new(resource_create_params)
+      Validation::ResourceCreateParameters.new(resource_params)
 
     if resource_validation.valid?
-      @resource = resources.create_resource(resource_create_params)
+      @resource = resources.create_resource(resource_params)
       render jsonapi: @resource
     else
       render jsonapi_errors: resource_validation.errors,

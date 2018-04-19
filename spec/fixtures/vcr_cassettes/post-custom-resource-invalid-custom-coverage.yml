@@ -27,7 +27,7 @@ http_interactions:
       Server:
       - nginx/1.13.5
       Date:
-      - Fri, 20 Apr 2018 21:33:31 GMT
+      - Fri, 20 Apr 2018 21:33:38 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -36,15 +36,15 @@ http_interactions:
       - keep-alive
       X-Okapi-Trace:
       - 'GET mod-authtoken-1.4.1-SNAPSHOT.20 http://10.39.249.72:8081/configurations/entries..
-        : 202 902us'
+        : 202 1501us'
       - 'GET mod-configuration-4.0.3-SNAPSHOT.29 http://10.39.252.104:8081/configurations/entries..
-        : 200 43357us'
+        : 200 43584us'
       Host:
       - okapi.frontside.io
       X-Real-Ip:
-      - 10.128.0.4
+      - 10.128.0.5
       X-Forwarded-For:
-      - 10.128.0.4
+      - 10.128.0.5
       X-Forwarded-Host:
       - okapi.frontside.io
       X-Forwarded-Port:
@@ -66,7 +66,7 @@ http_interactions:
       User-Agent:
       - Ruby
       X-Okapi-Request-Id:
-      - 848363/configurations
+      - 643227/configurations
       X-Okapi-Url:
       - http://10.39.243.220:80
       X-Okapi-Permissions-Required:
@@ -107,7 +107,7 @@ http_interactions:
           }
         }
     http_version: 
-  recorded_at: Fri, 20 Apr 2018 21:33:31 GMT
+  recorded_at: Fri, 20 Apr 2018 21:33:38 GMT
 - request:
     method: get
     uri: https://api.ebsco.io/rm/rmaccounts/TEST_CUSTOMER_ID/vendors?count=25&offset=1&orderby=relevance&search=TEST_CUSTOMER_ID
@@ -139,33 +139,33 @@ http_interactions:
       Connection:
       - keep-alive
       Date:
-      - Fri, 20 Apr 2018 21:33:31 GMT
+      - Fri, 20 Apr 2018 21:33:38 GMT
       X-Amzn-Requestid:
-      - 78af1e0c-44e2-11e8-b280-9f89332f125c
+      - 7d1d4d61-44e2-11e8-908d-29f7dc558aa4
       X-Amzn-Remapped-Connection:
       - keep-alive
       X-Amz-Apigw-Id:
-      - FqNqwFm5IAMF51A=
+      - FqNr7Ha4IAMFteg=
       X-Amzn-Remapped-Date:
-      - Fri, 20 Apr 2018 21:33:31 GMT
+      - Fri, 20 Apr 2018 21:33:37 GMT
       X-Cache:
       - Miss from cloudfront
       Via:
-      - 1.1 5acd50d556cd25b3cd99abfe744c498d.cloudfront.net (CloudFront)
+      - 1.1 a56111f87db1a509b68bcbc5e5cf2853.cloudfront.net (CloudFront)
       X-Amz-Cf-Id:
-      - 18sGMwmWjVHKCH0THG8486KNlvkv_8mobkof0v6Xx2N3jz3atvx_ew==
+      - SA0RCk-GVZ4HdNVCqOR8GeCeGRdz6Qgx7dJ759NHDsuoA768GFR7Lg==
     body:
       encoding: UTF-8
       string: '{"totalResults":1,"vendors":[{"vendorId":123355,"vendorName":"API DEV
         CORPORATE CUSTOMER","isCustomer":true,"packagesTotal":64,"packagesSelected":64,"vendorToken":null}]}'
     http_version: 
-  recorded_at: Fri, 20 Apr 2018 21:33:31 GMT
+  recorded_at: Fri, 20 Apr 2018 21:33:38 GMT
 - request:
     method: post
     uri: https://api.ebsco.io/rm/rmaccounts/TEST_CUSTOMER_ID/vendors/123355/packages/2843712/titles
     body:
       encoding: UTF-8
-      string: '{"titleName":"New Custom Title Testing","pubType":"book"}'
+      string: '{"titleName":"New Custom Title Testing Invalid Coverage","pubType":"book","customCoverageList":[{"beginCoverage":"99","endCoverage":"99"}]}'
     headers:
       User-Agent:
       - Flexirest/1.5.5
@@ -187,29 +187,29 @@ http_interactions:
       Content-Type:
       - application/json;charset=UTF-8
       Content-Length:
-      - '101'
+      - '85'
       Connection:
       - keep-alive
       Date:
-      - Fri, 20 Apr 2018 21:33:31 GMT
+      - Fri, 20 Apr 2018 21:33:39 GMT
       X-Amzn-Requestid:
-      - 78e437af-44e2-11e8-bee8-014fb213c480
+      - 7d4a2939-44e2-11e8-981b-e7dc074c8a33
       X-Amzn-Remapped-Connection:
       - keep-alive
       X-Amz-Apigw-Id:
-      - FqNq0FWJoAMF1HA=
+      - FqNr-HLGIAMF7wA=
       X-Amzn-Remapped-Date:
-      - Fri, 20 Apr 2018 21:33:31 GMT
+      - Fri, 20 Apr 2018 21:33:38 GMT
       X-Cache:
       - Error from cloudfront
       Via:
-      - 1.1 a3e3d513d9f4e5f94855ae4a4ce1a7c3.cloudfront.net (CloudFront)
+      - 1.1 8ac2d04f7193cd95abfeb911e77fd3ab.cloudfront.net (CloudFront)
       X-Amz-Cf-Id:
-      - XGb2g55BQhriXls9uKWG0c6uGYElb4YcSly2t01DS7re3uoRlLByqA==
+      - YU7w0JYik7C5h-nxl6z78NOKwGXcgJBmFKz2uy_myt8PvKb3hBGF3g==
     body:
       encoding: UTF-8
-      string: '{"errors":[{"code":1006,"subCode":0,"message":"Custom Title with the
-        provided name already exists"}]}'
+      string: '{"errors":[{"code":1006,"subCode":0,"message":"beginCoverage has an
+        invalid date."}]}'
     http_version: 
-  recorded_at: Fri, 20 Apr 2018 21:33:31 GMT
+  recorded_at: Fri, 20 Apr 2018 21:33:39 GMT
 recorded_with: VCR 3.0.3

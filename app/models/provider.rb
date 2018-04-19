@@ -58,12 +58,6 @@ class Provider < RmApiResource
     refresh!
   end
 
-  def self.custom_provider_id(config)
-    custom_provider_list = configure(config).all(q: config.customer_id)
-    custom_provider_id = custom_provider_list[:vendors].items.first
-    custom_provider_id.vendorId
-  end
-
   private
 
   def refresh!

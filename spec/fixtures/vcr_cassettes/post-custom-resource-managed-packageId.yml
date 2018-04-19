@@ -27,7 +27,7 @@ http_interactions:
       Server:
       - nginx/1.13.5
       Date:
-      - Thu, 19 Apr 2018 12:23:41 GMT
+      - Fri, 20 Apr 2018 21:33:33 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -36,9 +36,9 @@ http_interactions:
       - keep-alive
       X-Okapi-Trace:
       - 'GET mod-authtoken-1.4.1-SNAPSHOT.20 http://10.39.249.72:8081/configurations/entries..
-        : 202 375931us'
+        : 202 1407us'
       - 'GET mod-configuration-4.0.3-SNAPSHOT.29 http://10.39.252.104:8081/configurations/entries..
-        : 200 42186us'
+        : 200 45250us'
       Host:
       - okapi.frontside.io
       X-Real-Ip:
@@ -66,7 +66,7 @@ http_interactions:
       User-Agent:
       - Ruby
       X-Okapi-Request-Id:
-      - 164495/configurations
+      - 396933/configurations
       X-Okapi-Url:
       - http://10.39.243.220:80
       X-Okapi-Permissions-Required:
@@ -107,7 +107,7 @@ http_interactions:
           }
         }
     http_version: 
-  recorded_at: Thu, 19 Apr 2018 12:23:41 GMT
+  recorded_at: Fri, 20 Apr 2018 21:33:33 GMT
 - request:
     method: get
     uri: https://api.ebsco.io/rm/rmaccounts/TEST_CUSTOMER_ID/vendors?count=25&offset=1&orderby=relevance&search=TEST_CUSTOMER_ID
@@ -139,27 +139,27 @@ http_interactions:
       Connection:
       - keep-alive
       Date:
-      - Thu, 19 Apr 2018 12:23:42 GMT
+      - Fri, 20 Apr 2018 21:33:33 GMT
       X-Amzn-Requestid:
-      - 7f16a542-43cc-11e8-844d-ab991bf4700d
+      - 79d8d0af-44e2-11e8-bf32-edb6b9e4af7d
       X-Amzn-Remapped-Connection:
       - keep-alive
       X-Amz-Apigw-Id:
-      - FlqMLEViIAMFVMw=
+      - FqNrEGqJoAMFqxg=
       X-Amzn-Remapped-Date:
-      - Thu, 19 Apr 2018 12:23:42 GMT
+      - Fri, 20 Apr 2018 21:33:33 GMT
       X-Cache:
       - Miss from cloudfront
       Via:
-      - 1.1 2e4bb09f82d346fc09032cfb35e3c3e4.cloudfront.net (CloudFront)
+      - 1.1 437f7a19314c94b424a3bd6ebc827aaa.cloudfront.net (CloudFront)
       X-Amz-Cf-Id:
-      - mH4C5o2X5IyLVHg2b6tf-SxQmmnGKx_XZw8F_uwYa1EoneZSjiHIqA==
+      - "-_u3CtlV4ebN-LlI-UBLTSMts_jTIjSpB2sJKJnwgMaazVlo5ycOAw=="
     body:
       encoding: UTF-8
       string: '{"totalResults":1,"vendors":[{"vendorId":123355,"vendorName":"API DEV
-        CORPORATE CUSTOMER","isCustomer":true,"packagesTotal":47,"packagesSelected":47,"vendorToken":null}]}'
+        CORPORATE CUSTOMER","isCustomer":true,"packagesTotal":64,"packagesSelected":64,"vendorToken":null}]}'
     http_version: 
-  recorded_at: Thu, 19 Apr 2018 12:23:42 GMT
+  recorded_at: Fri, 20 Apr 2018 21:33:33 GMT
 - request:
     method: post
     uri: https://api.ebsco.io/rm/rmaccounts/TEST_CUSTOMER_ID/vendors/123355/packages/2512592/titles
@@ -191,25 +191,25 @@ http_interactions:
       Connection:
       - keep-alive
       Date:
-      - Thu, 19 Apr 2018 12:23:42 GMT
+      - Fri, 20 Apr 2018 21:33:33 GMT
       X-Amzn-Requestid:
-      - 7f37c27a-43cc-11e8-8f76-9f5e2ad5d517
+      - 7a086cab-44e2-11e8-8a0c-7b23633c2803
       X-Amzn-Remapped-Connection:
       - keep-alive
       X-Amz-Apigw-Id:
-      - FlqMNFV9oAMF_6g=
+      - FqNrHF_MIAMF_lw=
       X-Amzn-Remapped-Date:
-      - Thu, 19 Apr 2018 12:23:42 GMT
+      - Fri, 20 Apr 2018 21:33:33 GMT
       X-Cache:
       - Error from cloudfront
       Via:
-      - 1.1 01ecdc212033db2688d221d4212e4efd.cloudfront.net (CloudFront)
+      - 1.1 d3424c9f9521e1ec049f487748144c76.cloudfront.net (CloudFront)
       X-Amz-Cf-Id:
-      - 7UNwqNz3K2bFsUMvjP_mvIbJcdNdC5kY-TdVXcKcovL3Zr9aoM43nA==
+      - OhqSjlJRbJQdNYVHvrvxITKwn5KLm9Yw4cpndG7DWI24OIxbqdL6OQ==
     body:
       encoding: UTF-8
       string: '{"errors":[{"code":1006,"subCode":0,"message":"Custom Title can not
         be added to the provided package"}]}'
     http_version: 
-  recorded_at: Thu, 19 Apr 2018 12:23:42 GMT
+  recorded_at: Fri, 20 Apr 2018 21:33:33 GMT
 recorded_with: VCR 3.0.3
