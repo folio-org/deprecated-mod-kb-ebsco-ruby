@@ -12,7 +12,7 @@ class ResourcesController < ApplicationController
     resource_create_params = resource_params.slice(
       :titleName,
       :pubType,
-      :package_id
+      :packageId
     )
 
     resource_validation =
@@ -87,7 +87,7 @@ class ResourcesController < ApplicationController
         :edition,
         :description,
         :url,
-        :package_id,
+        :packageId,
         visibilityData: [:isHidden],
         customCoverageList: [
           %i[beginCoverage endCoverage]

@@ -9,14 +9,11 @@ class DeserializableResource < JSONAPI::Deserializable::Resource
              :publisherName,
              :edition,
              :description,
-             :url
+             :url,
+             :packageId
 
   attribute :name do |value|
     { titleName: value }
-  end
-
-  attribute :packageId do |value|
-    { package_id: value }
   end
 
   attribute :publicationType do |value|

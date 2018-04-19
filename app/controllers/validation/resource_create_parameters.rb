@@ -6,18 +6,18 @@ module Validation
   class ResourceCreateParameters
     include ActiveModel::Validations
 
-    attr_accessor :titleName, :pubType, :package_id
+    attr_accessor :titleName, :pubType, :packageId
 
     validates :titleName, presence: true
     validates :pubType, presence: true
-    validates :package_id, presence: true
+    validates :packageId, presence: true
 
     validates :titleName, length: { maximum: 400 }
 
     def initialize(params = {})
       @titleName = params[:titleName]
       @pubType = params[:pubType]
-      @package_id = params[:package_id]
+      @packageId = params[:packageId]
     end
   end
 end

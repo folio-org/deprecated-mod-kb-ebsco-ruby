@@ -131,12 +131,14 @@ class Resource < RmApiResource
   end
 
   def self.create_resource(params)
-    custom_provider_id = Provider.custom_provider_id(config)
-    create_params = { vendor_id: custom_provider_id }.merge(params)
-    resource_response = create create_params
+    provider_id = Provider.custom_provider_id(config)
+    package_id = params['packageId']
+    create_params = params.to_hash.except('packageId')
+    rm_api_create = { vendor_id: provider_id, package_id: package_id}.merge(create_params)
+    resource_response = create rm_api_create
     find(
-      vendor_id: create_params[:vendor_id],
-      package_id: create_params['package_id'],
+      vendor_id: provider_id,
+      package_id: package_id,
       title_id: resource_response[:titleId]
     )
   end
