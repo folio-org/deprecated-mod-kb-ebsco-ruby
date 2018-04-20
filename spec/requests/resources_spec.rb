@@ -604,7 +604,7 @@ RSpec.describe 'Resources', type: :request do
 
         before do
           VCR.use_cassette('put-resources-managed-update-custom-fields') do
-            put '/eholdings/resources/22-1887786-1440285',
+            put '/eholdings/resources/19-530-417981',
                 params: params, as: :json, headers: update_headers
           end
         end
