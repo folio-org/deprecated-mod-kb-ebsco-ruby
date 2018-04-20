@@ -7,6 +7,7 @@ class Package < RmApiResource
   get :find, '/vendors/:vendor_id/packages/:package_id'
   get :find_by_vendor, '/vendors/:vendor_id/packages'
   put :update, '/vendors/:vendor_id/packages/:package_id'
+  post :create, '/vendors/:vendor_id/packages/'
 
   before_request do |name, request|
     if %i[all find_by_vendor].include?(name)
@@ -71,6 +72,22 @@ class Package < RmApiResource
       package_id: packageId,
       **params
     )
+  end
+
+  def self.create_package(params)
+    rm_api_create = { vendor_id: provider_id }.merge(params)
+    # RM API gives only packageId after the creation of a package
+    # since our UI needs more, we make a GET request to RM API for the
+    # package we just created and give that as response
+    package_response = create rm_api_create
+    find(
+      vendor_id: provider_id,
+      package_id: package_response[:packageId]
+    )
+  end
+
+  def self.provider_id
+    Provider.configure(config).provider_id
   end
 
   # Instance methods

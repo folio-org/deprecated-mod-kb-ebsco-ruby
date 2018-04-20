@@ -31,6 +31,11 @@ class Provider < RmApiResource
     vendorId
   end
 
+  def self.provider_id
+    provider = all(q: config.customer_id)
+    provider[:vendors].items.first.vendorId
+  end
+
   def find_packages(**params)
     Package.configure(config).find_by_vendor(vendor_id: id, **params)
   end
