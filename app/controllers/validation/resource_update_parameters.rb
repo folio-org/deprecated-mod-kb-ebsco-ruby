@@ -3,7 +3,7 @@
 # rubocop:disable Naming/VariableName
 
 module Validation
-  class ResourceParameters
+  class ResourceUpdateParameters
     include ActiveModel::Validations
 
     attr_accessor :isSelected, :isHidden, :customCoverageList,

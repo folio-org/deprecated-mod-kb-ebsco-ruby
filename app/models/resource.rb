@@ -17,6 +17,7 @@ class Resource < RmApiResource
   get :find_by_package, '/vendors/:vendor_id/packages/:package_id/titles',
       array: ARRAY_FIELDS
   put :update, '/vendors/:vendor_id/packages/:package_id/titles/:title_id'
+  post :create, '/vendors/:vendor_id/packages/:package_id/titles'
 
   before_request do |name, request|
     if name == :find_by_package
@@ -127,6 +128,26 @@ class Resource < RmApiResource
       title_id: titleId,
       isSelected: false
     )
+  end
+
+  def self.create_resource(params)
+    package_id = params['packageId']
+    create_params = params.to_hash.except('packageId', 'isPeerReviewed')
+    rm_api_create = { vendor_id: provider_id, package_id: package_id }.merge(create_params)
+    # RM API Post method expects peerReviewed instead of isPeerReviewed
+    # this is inconsistent with PUT and will eventually be corrected
+    peer_reviewed = params['isPeerReviewed']
+    rm_api_create['peerReviewed'] = peer_reviewed unless peer_reviewed.nil?
+    resource_response = create rm_api_create
+    find(
+      vendor_id: provider_id,
+      package_id: package_id,
+      title_id: resource_response[:titleId]
+    )
+  end
+
+  def self.provider_id
+    Provider.configure(config).provider_id
   end
 
   private

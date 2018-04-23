@@ -9,7 +9,8 @@ class DeserializableResource < JSONAPI::Deserializable::Resource
              :publisherName,
              :edition,
              :description,
-             :url
+             :url,
+             :packageId
 
   attribute :name do |value|
     { titleName: value }
@@ -34,7 +35,7 @@ class DeserializableResource < JSONAPI::Deserializable::Resource
       'Unspecified': 'unspecified'
     }
 
-    { pubType: publication_types[value.to_sym] || 'unknown' }
+    { pubType: publication_types[value.to_sym] || 'unspecified' }
   end
 
   attribute :customCoverages do |value|

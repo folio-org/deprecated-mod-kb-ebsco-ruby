@@ -27,7 +27,7 @@ http_interactions:
       Server:
       - nginx/1.13.5
       Date:
-      - Fri, 20 Apr 2018 21:33:45 GMT
+      - Fri, 20 Apr 2018 21:33:28 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -36,15 +36,15 @@ http_interactions:
       - keep-alive
       X-Okapi-Trace:
       - 'GET mod-authtoken-1.4.1-SNAPSHOT.20 http://10.39.249.72:8081/configurations/entries..
-        : 202 1349us'
+        : 202 365685us'
       - 'GET mod-configuration-4.0.3-SNAPSHOT.29 http://10.39.252.104:8081/configurations/entries..
-        : 200 42636us'
+        : 200 52193us'
       Host:
       - okapi.frontside.io
       X-Real-Ip:
-      - 10.36.3.1
+      - 10.128.0.4
       X-Forwarded-For:
-      - 10.36.3.1
+      - 10.128.0.4
       X-Forwarded-Host:
       - okapi.frontside.io
       X-Forwarded-Port:
@@ -66,7 +66,7 @@ http_interactions:
       User-Agent:
       - Ruby
       X-Okapi-Request-Id:
-      - 350296/configurations
+      - 515687/configurations
       X-Okapi-Url:
       - http://10.39.243.220:80
       X-Okapi-Permissions-Required:
@@ -107,10 +107,165 @@ http_interactions:
           }
         }
     http_version: 
-  recorded_at: Fri, 20 Apr 2018 21:33:45 GMT
+  recorded_at: Fri, 20 Apr 2018 21:33:28 GMT
 - request:
     method: get
-    uri: https://api.ebsco.io/rm/rmaccounts/TEST_CUSTOMER_ID/vendors/123355/packages/2739728/titles/17053010
+    uri: https://api.ebsco.io/rm/rmaccounts/TEST_CUSTOMER_ID/vendors?count=25&offset=1&orderby=relevance&search=TEST_CUSTOMER_ID
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Flexirest/1.5.5
+      Connection:
+      - Keep-Alive
+      Accept:
+      - application/json
+      X-Api-Key:
+      - TEST_API_KEY
+      Content-Type:
+      - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json;charset=UTF-8
+      Content-Length:
+      - '170'
+      Connection:
+      - keep-alive
+      Date:
+      - Fri, 20 Apr 2018 21:33:29 GMT
+      X-Amzn-Requestid:
+      - 776622af-44e2-11e8-8208-a780943d58d7
+      X-Amzn-Remapped-Connection:
+      - keep-alive
+      X-Amz-Apigw-Id:
+      - FqNqbHRtIAMFr_g=
+      X-Amzn-Remapped-Date:
+      - Fri, 20 Apr 2018 21:33:29 GMT
+      X-Cache:
+      - Miss from cloudfront
+      Via:
+      - 1.1 e848f30e8d63b5f324e9295182b986ef.cloudfront.net (CloudFront)
+      X-Amz-Cf-Id:
+      - gIg1RdUpdZb0i9H4-L-pycUueU7_LSmkhVn4r4hwi0KaDUi9OZC6NA==
+    body:
+      encoding: UTF-8
+      string: '{"totalResults":1,"vendors":[{"vendorId":123355,"vendorName":"API DEV
+        CORPORATE CUSTOMER","isCustomer":true,"packagesTotal":64,"packagesSelected":64,"vendorToken":null}]}'
+    http_version: 
+  recorded_at: Fri, 20 Apr 2018 21:33:29 GMT
+- request:
+    method: post
+    uri: https://api.ebsco.io/rm/rmaccounts/TEST_CUSTOMER_ID/vendors/123355/packages/2843712/titles
+    body:
+      encoding: UTF-8
+      string: '{"titleName":"New Custom Title Testing","pubType":"book"}'
+    headers:
+      User-Agent:
+      - Flexirest/1.5.5
+      Connection:
+      - Keep-Alive
+      Accept:
+      - application/json
+      X-Api-Key:
+      - TEST_API_KEY
+      Content-Type:
+      - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json;charset=UTF-8
+      Content-Length:
+      - '20'
+      Connection:
+      - keep-alive
+      Date:
+      - Fri, 20 Apr 2018 21:33:29 GMT
+      X-Amzn-Requestid:
+      - 779e4a25-44e2-11e8-848f-bbd6dd3c43c1
+      X-Amzn-Remapped-Connection:
+      - keep-alive
+      X-Amz-Apigw-Id:
+      - FqNqeG7IIAMFjVg=
+      X-Amzn-Remapped-Date:
+      - Fri, 20 Apr 2018 21:33:29 GMT
+      X-Cache:
+      - Miss from cloudfront
+      Via:
+      - 1.1 3182c21f2ee69ff40cfaf404637c649f.cloudfront.net (CloudFront)
+      X-Amz-Cf-Id:
+      - MdeqlsvW7F5_ImObtjHkiw_ikYsuN0WXgHJXajylsH5kiZ8XYu05Iw==
+    body:
+      encoding: UTF-8
+      string: '{"titleId":17098391}'
+    http_version: 
+  recorded_at: Fri, 20 Apr 2018 21:33:29 GMT
+- request:
+    method: get
+    uri: https://api.ebsco.io/rm/rmaccounts/TEST_CUSTOMER_ID/vendors?count=25&offset=1&orderby=relevance&search=TEST_CUSTOMER_ID
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Flexirest/1.5.5
+      Connection:
+      - Keep-Alive
+      Accept:
+      - application/json
+      X-Api-Key:
+      - TEST_API_KEY
+      Content-Type:
+      - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json;charset=UTF-8
+      Content-Length:
+      - '170'
+      Connection:
+      - keep-alive
+      Date:
+      - Fri, 20 Apr 2018 21:33:29 GMT
+      X-Amzn-Requestid:
+      - 77d3ffc2-44e2-11e8-bf46-b70f72d753ad
+      X-Amzn-Remapped-Connection:
+      - keep-alive
+      X-Amz-Apigw-Id:
+      - FqNqiGfUIAMFjUA=
+      X-Amzn-Remapped-Date:
+      - Fri, 20 Apr 2018 21:33:29 GMT
+      X-Cache:
+      - Miss from cloudfront
+      Via:
+      - 1.1 55157b979573d984aaf7e9e716d67a4a.cloudfront.net (CloudFront)
+      X-Amz-Cf-Id:
+      - ilOE6yFB97Spd4Xacs_0VYJIKqqsLl9lk_bOI76vZAUbMuKBF-hXkA==
+    body:
+      encoding: UTF-8
+      string: '{"totalResults":1,"vendors":[{"vendorId":123355,"vendorName":"API DEV
+        CORPORATE CUSTOMER","isCustomer":true,"packagesTotal":64,"packagesSelected":64,"vendorToken":null}]}'
+    http_version: 
+  recorded_at: Fri, 20 Apr 2018 21:33:29 GMT
+- request:
+    method: get
+    uri: https://api.ebsco.io/rm/rmaccounts/TEST_CUSTOMER_ID/vendors/123355/packages/2843712/titles/17098391
     body:
       encoding: US-ASCII
       string: ''
@@ -135,19 +290,19 @@ http_interactions:
       Content-Type:
       - application/json; charset=utf-8
       Content-Length:
-      - '1078'
+      - '976'
       Connection:
       - keep-alive
       Date:
-      - Fri, 20 Apr 2018 21:33:45 GMT
+      - Fri, 20 Apr 2018 21:33:30 GMT
       X-Amzn-Requestid:
-      - 813bd5f3-44e2-11e8-a396-81c2f28a652d
+      - 77f5b8a1-44e2-11e8-ac38-af42d38eaaf2
       X-Amzn-Remapped-Content-Length:
-      - '1078'
+      - '976'
       X-Amzn-Remapped-Connection:
       - keep-alive
       X-Amz-Apigw-Id:
-      - FqNtAFguoAMF81A=
+      - FqNqkHDiIAMF9mA=
       X-Amzn-Remapped-Server:
       - Microsoft-IIS/8.5
       Cache-Control:
@@ -159,160 +314,20 @@ http_interactions:
       Pragma:
       - no-cache
       X-Amzn-Remapped-Date:
-      - Fri, 20 Apr 2018 21:33:45 GMT
+      - Fri, 20 Apr 2018 21:33:30 GMT
       X-Aspnet-Version:
       - 4.0.30319
       X-Cache:
       - Miss from cloudfront
       Via:
-      - 1.1 5a27d8f87b0f1db56d469d1fefb312ac.cloudfront.net (CloudFront)
+      - 1.1 d3424c9f9521e1ec049f487748144c76.cloudfront.net (CloudFront)
       X-Amz-Cf-Id:
-      - qkhOA3_R3FTfFV_vYxErk01FqUP6CEYN6xJqbT1fdWD46Qow1Jg1oQ==
+      - corEEvO3cwMc6UcZeBI6ml1toT1yTOcX0wNCSvd7mNwkcEIjfJbdwQ==
     body:
       encoding: UTF-8
-      string: '{"titleId":17053010,"titleName":"This is the best title ever","publisherName":"Frontside
-        Newspapers","identifiersList":[],"subjectsList":[],"isTitleCustom":true,"pubType":"Newspaper","customerResourcesList":[{"titleId":17053010,"packageId":2739728,"packageName":"testing
-        ","packageType":"Custom","proxy":{"id":"<n>","inherited":true},"isPackageCustom":true,"vendorId":123355,"vendorName":"API
-        DEV CORPORATE CUSTOMER","locationId":38204653,"isSelected":true,"isTokenNeeded":false,"visibilityData":{"isHidden":true,"reason":"Hidden
-        by Customer"},"managedCoverageList":[],"customCoverageList":[{"beginCoverage":"2003-01-01","endCoverage":"2004-01-01"}],"coverageStatement":"There
-        are many years.","managedEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"customEmbargoPeriod":{"embargoUnit":"Weeks","embargoValue":6},"url":"https://frontside.io","userDefinedField1":null,"userDefinedField2":null,"userDefinedField3":null,"userDefinedField4":null,"userDefinedField5":null}],"description":"Something
-        something something","edition":"5","isPeerReviewed":true,"contributorsList":[]}'
+      string: '{"titleId":17098391,"titleName":"New Custom Title Testing","publisherName":null,"identifiersList":[],"subjectsList":[],"isTitleCustom":true,"pubType":"Book","customerResourcesList":[{"titleId":17098391,"packageId":2843712,"packageName":"Carole
+        Custom Package","packageType":"Custom","proxy":{"id":"<n>","inherited":true},"isPackageCustom":true,"vendorId":123355,"vendorName":"API
+        DEV CORPORATE CUSTOMER","locationId":0,"isSelected":true,"isTokenNeeded":false,"visibilityData":{"isHidden":false,"reason":""},"managedCoverageList":[],"customCoverageList":[{"beginCoverage":"2000-01-01","endCoverage":"2018-12-31"}],"coverageStatement":null,"managedEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"customEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"url":null,"userDefinedField1":null,"userDefinedField2":null,"userDefinedField3":null,"userDefinedField4":null,"userDefinedField5":null}],"description":null,"edition":null,"isPeerReviewed":false,"contributorsList":[]}'
     http_version: 
-  recorded_at: Fri, 20 Apr 2018 21:33:45 GMT
-- request:
-    method: put
-    uri: https://api.ebsco.io/rm/rmaccounts/TEST_CUSTOMER_ID/vendors/123355/packages/2739728/titles/17053010
-    body:
-      encoding: UTF-8
-      string: '{"isSelected":true,"isHidden":true,"customCoverageList":[{"beginCoverage":"2003-01-01","endCoverage":"2004-01-01"}],"customEmbargoPeriod":{"embargoUnit":"Weeks","embargoValue":6},"coverageStatement":"There
-        are many years.","titleName":"This is the best title ever","pubType":"newspaper","isPeerReviewed":true,"publisherName":"Frontside
-        Newspapers","edition":"5","description":"Something something something","url":"https://frontside.io"}'
-    headers:
-      User-Agent:
-      - Flexirest/1.5.5
-      Connection:
-      - Keep-Alive
-      Accept:
-      - application/json
-      X-Api-Key:
-      - TEST_API_KEY
-      Content-Type:
-      - application/json
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-  response:
-    status:
-      code: 204
-      message: No Content
-    headers:
-      Content-Type:
-      - application/json
-      Content-Length:
-      - '0'
-      Connection:
-      - keep-alive
-      Date:
-      - Fri, 20 Apr 2018 21:33:46 GMT
-      X-Amzn-Requestid:
-      - 8184c60a-44e2-11e8-9ca4-113a60f672b5
-      X-Amzn-Remapped-Connection:
-      - keep-alive
-      X-Amz-Apigw-Id:
-      - FqNtFH4PIAMF5Sw=
-      X-Amzn-Remapped-Server:
-      - Microsoft-IIS/8.5
-      Cache-Control:
-      - no-cache
-      Expires:
-      - "-1"
-      X-Powered-By:
-      - ASP.NET
-      Pragma:
-      - no-cache
-      X-Amzn-Remapped-Date:
-      - Fri, 20 Apr 2018 21:33:45 GMT
-      X-Aspnet-Version:
-      - 4.0.30319
-      X-Cache:
-      - Miss from cloudfront
-      Via:
-      - 1.1 b5434ae2f27f51f7ce619d0889d77d8d.cloudfront.net (CloudFront)
-      X-Amz-Cf-Id:
-      - 1W2aDulAVTUfpM2IDo217RIi2i5JrCi-MIUua3oNbmsavlG_79f8bw==
-    body:
-      encoding: UTF-8
-      string: ''
-    http_version: 
-  recorded_at: Fri, 20 Apr 2018 21:33:46 GMT
-- request:
-    method: get
-    uri: https://api.ebsco.io/rm/rmaccounts/TEST_CUSTOMER_ID/vendors/123355/packages/2739728/titles/17053010
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      User-Agent:
-      - Flexirest/1.5.5
-      Connection:
-      - Keep-Alive
-      Accept:
-      - application/json
-      X-Api-Key:
-      - TEST_API_KEY
-      Content-Type:
-      - application/json
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Content-Type:
-      - application/json; charset=utf-8
-      Content-Length:
-      - '1078'
-      Connection:
-      - keep-alive
-      Date:
-      - Fri, 20 Apr 2018 21:33:46 GMT
-      X-Amzn-Requestid:
-      - 81b9e053-44e2-11e8-981b-e7dc074c8a33
-      X-Amzn-Remapped-Content-Length:
-      - '1078'
-      X-Amzn-Remapped-Connection:
-      - keep-alive
-      X-Amz-Apigw-Id:
-      - FqNtIHYlIAMF7wA=
-      X-Amzn-Remapped-Server:
-      - Microsoft-IIS/8.5
-      Cache-Control:
-      - no-cache
-      Expires:
-      - "-1"
-      X-Powered-By:
-      - ASP.NET
-      Pragma:
-      - no-cache
-      X-Amzn-Remapped-Date:
-      - Fri, 20 Apr 2018 21:33:45 GMT
-      X-Aspnet-Version:
-      - 4.0.30319
-      X-Cache:
-      - Miss from cloudfront
-      Via:
-      - 1.1 a6a098cdc333f9948baa2a00729f4f25.cloudfront.net (CloudFront)
-      X-Amz-Cf-Id:
-      - FxtnI8AYgF8kHC5Nd4i6a-I9reZbnsJXxmOao5Q9fU_wQE2k_wpuVg==
-    body:
-      encoding: UTF-8
-      string: '{"titleId":17053010,"titleName":"This is the best title ever","publisherName":"Frontside
-        Newspapers","identifiersList":[],"subjectsList":[],"isTitleCustom":true,"pubType":"Newspaper","customerResourcesList":[{"titleId":17053010,"packageId":2739728,"packageName":"testing
-        ","packageType":"Custom","proxy":{"id":"<n>","inherited":true},"isPackageCustom":true,"vendorId":123355,"vendorName":"API
-        DEV CORPORATE CUSTOMER","locationId":38204653,"isSelected":true,"isTokenNeeded":false,"visibilityData":{"isHidden":true,"reason":"Hidden
-        by Customer"},"managedCoverageList":[],"customCoverageList":[{"beginCoverage":"2003-01-01","endCoverage":"2004-01-01"}],"coverageStatement":"There
-        are many years.","managedEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"customEmbargoPeriod":{"embargoUnit":"Weeks","embargoValue":6},"url":"https://frontside.io","userDefinedField1":null,"userDefinedField2":null,"userDefinedField3":null,"userDefinedField4":null,"userDefinedField5":null}],"description":"Something
-        something something","edition":"5","isPeerReviewed":true,"contributorsList":[]}'
-    http_version: 
-  recorded_at: Fri, 20 Apr 2018 21:33:46 GMT
+  recorded_at: Fri, 20 Apr 2018 21:33:30 GMT
 recorded_with: VCR 3.0.3
