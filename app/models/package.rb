@@ -142,7 +142,7 @@ class Package < RmApiResource
   end
 
   def update_fields
-    if isCustom?
+    if isCustom
       to_hash.with_indifferent_access.slice(
         :isSelected,
         :allowEbscoToAddTitles,

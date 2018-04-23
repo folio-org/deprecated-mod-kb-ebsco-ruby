@@ -172,7 +172,7 @@ class Resource < RmApiResource
   end
 
   def resource_update_fields
-    if isTitleCustom?
+    if isTitleCustom
       resource.to_hash.with_indifferent_access.slice(
         :isSelected,
         :visibilityData,
