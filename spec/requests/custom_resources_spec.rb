@@ -180,7 +180,7 @@ RSpec.describe 'Custom Resources', type: :request do
       end
     end
 
-    describe 'changing the embargo period' do
+    describe 'changing the coverage statement' do
       let(:params) do
         {
           "data": {
@@ -212,6 +212,87 @@ RSpec.describe 'Custom Resources', type: :request do
       end
     end
 
+    describe 'adding contributors of valid contributor types' do
+      let(:params) do
+        {
+          "data": {
+            "type": 'resources',
+            "attributes": {
+              "contributors": [
+                {
+                  "type": 'Editor',
+                  "contributor": 'Lang Z'
+                },
+                {
+                  "type": 'Illustrator',
+                  "contributor": 'last first'
+                }
+              ],
+              "isSelected": true
+            }
+          }
+        }
+      end
+
+      before do
+        VCR.use_cassette('put-custom-resource-valid-contributors') do
+          put '/eholdings/resources/123355-2845510-62477',
+              params: params, as: :json, headers: update_headers
+        end
+      end
+
+      it 'responds with OK status' do
+        expect(response).to have_http_status(200)
+      end
+
+      let!(:json) { Map JSON.parse response.body }
+
+      it 'now has list of contributors' do
+        expect(json.data.attributes.contributors[0].type)
+          .to eq('Editor')
+        expect(json.data.attributes.contributors[0].contributor)
+          .to eq('Lang Z')
+        expect(json.data.attributes.contributors[1].type)
+          .to eq('Illustrator')
+        expect(json.data.attributes.contributors[1].contributor)
+          .to eq('last first')
+      end
+    end
+
+    describe 'adding contributors of invalid contributor types' do
+      let(:params) do
+        {
+          "data": {
+            "type": 'resources',
+            "attributes": {
+              "contributors": [
+                {
+                  "type": 'some type',
+                  "contributor": 'Lang Z'
+                },
+                {
+                  "type": 'Illustrator',
+                  "contributor": 'last first'
+                }
+              ],
+              "isSelected": true
+            }
+          }
+        }
+      end
+
+      before do
+        VCR.use_cassette('put-custom-resource-invalid-contributors') do
+          put '/eholdings/resources/123355-2845510-62477',
+              params: params, as: :json, headers: update_headers
+        end
+      end
+
+      it 'responds with bad request status' do
+        expect(response).to have_http_status(400)
+      end
+    end
+
     describe 'combined update' do
       let(:params) do
         {
@@ -233,6 +314,16 @@ RSpec.describe 'Custom Resources', type: :request do
                 {
                   "beginCoverage": '2003-01-01',
                   "endCoverage": '2004-01-01'
+                }
+              ],
+              "contributors": [
+                {
+                  "type": 'Editor',
+                  "contributor": 'Lang Z'
+                },
+                {
+                  "type": 'Illustrator',
+                  "contributor": 'last first'
                 }
               ],
               "coverageStatement": 'There are many years.',
@@ -288,6 +379,40 @@ RSpec.describe 'Custom Resources', type: :request do
 
       it 'has url' do
         expect(json.data.attributes.url).to eq('https://frontside.io')
+      end
+
+      it 'has custom coverage' do
+        expect(json.data.attributes.customCoverages[0].beginCoverage)
+          .to eq('2003-01-01')
+        expect(json.data.attributes.customCoverages[0].endCoverage)
+          .to eq('2004-01-01')
+      end
+
+      it 'has list of contributors' do
+        expect(json.data.attributes.contributors[0].type)
+          .to eq('Editor')
+        expect(json.data.attributes.contributors[0].contributor)
+          .to eq('Lang Z')
+        expect(json.data.attributes.contributors[1].type)
+          .to eq('Illustrator')
+        expect(json.data.attributes.contributors[1].contributor)
+          .to eq('last first')
+      end
+
+      it 'has a coverage statement' do
+        expect(json.data.attributes.coverageStatement)
+          .to eq('There are many years.')
+      end
+
+      it 'has a custom embargo period' do
+        expect(json.data.attributes.customEmbargoPeriod.embargoUnit)
+          .to eq('Weeks')
+        expect(json.data.attributes.customEmbargoPeriod.embargoValue)
+          .to eq(6)
+      end
+
+      it 'has publisher name' do
+        expect(json.data.attributes.publisherName).to eq('Frontside Newspapers')
       end
     end
   end

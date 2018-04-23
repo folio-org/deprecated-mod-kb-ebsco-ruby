@@ -41,4 +41,8 @@ class DeserializableResource < JSONAPI::Deserializable::Resource
   attribute :customCoverages do |value|
     { customCoverageList: value }
   end
+
+  attribute :contributors do |value|
+    { contributorsList: value }
+  end
 end

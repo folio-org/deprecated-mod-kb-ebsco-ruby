@@ -108,6 +108,7 @@ class Resource < RmApiResource
       isSelected: resource_attributes[:isSelected],
       isHidden: resource_attributes[:visibilityData][:isHidden],
       customCoverageList: sorted_coverage,
+      contributorsList: resource_attributes[:contributorsList],
       customEmbargoPeriod: resource_attributes[:customEmbargoPeriod],
       coverageStatement: resource_attributes[:coverageStatement],
       titleName: attributes[:titleName],
@@ -193,11 +194,12 @@ class Resource < RmApiResource
   end
 
   def resource_update_fields
-    if isTitleCustom?
+    if isTitleCustom
       resource.to_hash.with_indifferent_access.slice(
         :isSelected,
         :visibilityData,
         :customCoverageList,
+        :contributorsList,
         :customEmbargoPeriod,
         :coverageStatement,
         :url

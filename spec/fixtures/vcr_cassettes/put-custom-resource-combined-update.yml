@@ -27,7 +27,7 @@ http_interactions:
       Server:
       - nginx/1.13.5
       Date:
-      - Fri, 20 Apr 2018 21:33:45 GMT
+      - Mon, 23 Apr 2018 19:54:44 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -36,15 +36,15 @@ http_interactions:
       - keep-alive
       X-Okapi-Trace:
       - 'GET mod-authtoken-1.4.1-SNAPSHOT.20 http://10.39.249.72:8081/configurations/entries..
-        : 202 1349us'
+        : 202 357279us'
       - 'GET mod-configuration-4.0.3-SNAPSHOT.29 http://10.39.252.104:8081/configurations/entries..
-        : 200 42636us'
+        : 200 51033us'
       Host:
       - okapi.frontside.io
       X-Real-Ip:
-      - 10.36.3.1
+      - 10.36.4.1
       X-Forwarded-For:
-      - 10.36.3.1
+      - 10.36.4.1
       X-Forwarded-Host:
       - okapi.frontside.io
       X-Forwarded-Port:
@@ -66,7 +66,7 @@ http_interactions:
       User-Agent:
       - Ruby
       X-Okapi-Request-Id:
-      - 350296/configurations
+      - 419501/configurations
       X-Okapi-Url:
       - http://10.39.243.220:80
       X-Okapi-Permissions-Required:
@@ -107,7 +107,7 @@ http_interactions:
           }
         }
     http_version: 
-  recorded_at: Fri, 20 Apr 2018 21:33:45 GMT
+  recorded_at: Mon, 23 Apr 2018 19:54:44 GMT
 - request:
     method: get
     uri: https://api.ebsco.io/rm/rmaccounts/TEST_CUSTOMER_ID/vendors/123355/packages/2739728/titles/17053010
@@ -139,15 +139,15 @@ http_interactions:
       Connection:
       - keep-alive
       Date:
-      - Fri, 20 Apr 2018 21:33:45 GMT
+      - Mon, 23 Apr 2018 19:54:45 GMT
       X-Amzn-Requestid:
-      - 813bd5f3-44e2-11e8-a396-81c2f28a652d
+      - 2b7b8e51-4730-11e8-94c2-89da6928a7db
       X-Amzn-Remapped-Content-Length:
       - '1078'
       X-Amzn-Remapped-Connection:
       - keep-alive
       X-Amz-Apigw-Id:
-      - FqNtAFguoAMF81A=
+      - Fz4AwG8FIAMFfdg=
       X-Amzn-Remapped-Server:
       - Microsoft-IIS/8.5
       Cache-Control:
@@ -159,15 +159,15 @@ http_interactions:
       Pragma:
       - no-cache
       X-Amzn-Remapped-Date:
-      - Fri, 20 Apr 2018 21:33:45 GMT
+      - Mon, 23 Apr 2018 19:54:45 GMT
       X-Aspnet-Version:
       - 4.0.30319
       X-Cache:
       - Miss from cloudfront
       Via:
-      - 1.1 5a27d8f87b0f1db56d469d1fefb312ac.cloudfront.net (CloudFront)
+      - 1.1 8a1bcca0fe247aaeeb568c933bd30ad4.cloudfront.net (CloudFront)
       X-Amz-Cf-Id:
-      - qkhOA3_R3FTfFV_vYxErk01FqUP6CEYN6xJqbT1fdWD46Qow1Jg1oQ==
+      - PZMP-RCNVkAVTw7Stgru3kjSrrftLXN5kkIsUPF5x1UkT8l38sCmCA==
     body:
       encoding: UTF-8
       string: '{"titleId":17053010,"titleName":"This is the best title ever","publisherName":"Frontside
@@ -178,13 +178,14 @@ http_interactions:
         are many years.","managedEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"customEmbargoPeriod":{"embargoUnit":"Weeks","embargoValue":6},"url":"https://frontside.io","userDefinedField1":null,"userDefinedField2":null,"userDefinedField3":null,"userDefinedField4":null,"userDefinedField5":null}],"description":"Something
         something something","edition":"5","isPeerReviewed":true,"contributorsList":[]}'
     http_version: 
-  recorded_at: Fri, 20 Apr 2018 21:33:45 GMT
+  recorded_at: Mon, 23 Apr 2018 19:54:44 GMT
 - request:
     method: put
     uri: https://api.ebsco.io/rm/rmaccounts/TEST_CUSTOMER_ID/vendors/123355/packages/2739728/titles/17053010
     body:
       encoding: UTF-8
-      string: '{"isSelected":true,"isHidden":true,"customCoverageList":[{"beginCoverage":"2003-01-01","endCoverage":"2004-01-01"}],"customEmbargoPeriod":{"embargoUnit":"Weeks","embargoValue":6},"coverageStatement":"There
+      string: '{"isSelected":true,"isHidden":true,"customCoverageList":[{"beginCoverage":"2003-01-01","endCoverage":"2004-01-01"}],"contributorsList":[{"type":"Editor","contributor":"Lang
+        Z"},{"type":"Illustrator","contributor":"last first"}],"customEmbargoPeriod":{"embargoUnit":"Weeks","embargoValue":6},"coverageStatement":"There
         are many years.","titleName":"This is the best title ever","pubType":"newspaper","isPeerReviewed":true,"publisherName":"Frontside
         Newspapers","edition":"5","description":"Something something something","url":"https://frontside.io"}'
     headers:
@@ -212,13 +213,13 @@ http_interactions:
       Connection:
       - keep-alive
       Date:
-      - Fri, 20 Apr 2018 21:33:46 GMT
+      - Mon, 23 Apr 2018 19:54:45 GMT
       X-Amzn-Requestid:
-      - 8184c60a-44e2-11e8-9ca4-113a60f672b5
+      - 2baf4830-4730-11e8-8f07-2b222fd2e9d5
       X-Amzn-Remapped-Connection:
       - keep-alive
       X-Amz-Apigw-Id:
-      - FqNtFH4PIAMF5Sw=
+      - Fz4AzFEuIAMFm5g=
       X-Amzn-Remapped-Server:
       - Microsoft-IIS/8.5
       Cache-Control:
@@ -230,20 +231,20 @@ http_interactions:
       Pragma:
       - no-cache
       X-Amzn-Remapped-Date:
-      - Fri, 20 Apr 2018 21:33:45 GMT
+      - Mon, 23 Apr 2018 19:54:45 GMT
       X-Aspnet-Version:
       - 4.0.30319
       X-Cache:
       - Miss from cloudfront
       Via:
-      - 1.1 b5434ae2f27f51f7ce619d0889d77d8d.cloudfront.net (CloudFront)
+      - 1.1 d56db0d65906a3edce526dc6600d65c6.cloudfront.net (CloudFront)
       X-Amz-Cf-Id:
-      - 1W2aDulAVTUfpM2IDo217RIi2i5JrCi-MIUua3oNbmsavlG_79f8bw==
+      - 47psrcXuOPAgZbhR3Uxm29J1Arsu2HPIIHOp3w8mb2Tzr421gpB0EA==
     body:
       encoding: UTF-8
       string: ''
     http_version: 
-  recorded_at: Fri, 20 Apr 2018 21:33:46 GMT
+  recorded_at: Mon, 23 Apr 2018 19:54:45 GMT
 - request:
     method: get
     uri: https://api.ebsco.io/rm/rmaccounts/TEST_CUSTOMER_ID/vendors/123355/packages/2739728/titles/17053010
@@ -271,19 +272,19 @@ http_interactions:
       Content-Type:
       - application/json; charset=utf-8
       Content-Length:
-      - '1078'
+      - '1168'
       Connection:
       - keep-alive
       Date:
-      - Fri, 20 Apr 2018 21:33:46 GMT
+      - Mon, 23 Apr 2018 19:54:45 GMT
       X-Amzn-Requestid:
-      - 81b9e053-44e2-11e8-981b-e7dc074c8a33
+      - 2bd2fd3a-4730-11e8-b9ad-15e605d6be25
       X-Amzn-Remapped-Content-Length:
-      - '1078'
+      - '1168'
       X-Amzn-Remapped-Connection:
       - keep-alive
       X-Amz-Apigw-Id:
-      - FqNtIHYlIAMF7wA=
+      - Fz4A2GKsIAMF8og=
       X-Amzn-Remapped-Server:
       - Microsoft-IIS/8.5
       Cache-Control:
@@ -295,15 +296,15 @@ http_interactions:
       Pragma:
       - no-cache
       X-Amzn-Remapped-Date:
-      - Fri, 20 Apr 2018 21:33:45 GMT
+      - Mon, 23 Apr 2018 19:54:45 GMT
       X-Aspnet-Version:
       - 4.0.30319
       X-Cache:
       - Miss from cloudfront
       Via:
-      - 1.1 a6a098cdc333f9948baa2a00729f4f25.cloudfront.net (CloudFront)
+      - 1.1 3ca41706981cad42d8ecaabd29f88efa.cloudfront.net (CloudFront)
       X-Amz-Cf-Id:
-      - FxtnI8AYgF8kHC5Nd4i6a-I9reZbnsJXxmOao5Q9fU_wQE2k_wpuVg==
+      - kyAOGMlM-7PcHdQviJQnhwNZiuwZU9s2Md9c_-I-WK0tSiW2rFgu4A==
     body:
       encoding: UTF-8
       string: '{"titleId":17053010,"titleName":"This is the best title ever","publisherName":"Frontside
@@ -312,7 +313,8 @@ http_interactions:
         DEV CORPORATE CUSTOMER","locationId":38204653,"isSelected":true,"isTokenNeeded":false,"visibilityData":{"isHidden":true,"reason":"Hidden
         by Customer"},"managedCoverageList":[],"customCoverageList":[{"beginCoverage":"2003-01-01","endCoverage":"2004-01-01"}],"coverageStatement":"There
         are many years.","managedEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"customEmbargoPeriod":{"embargoUnit":"Weeks","embargoValue":6},"url":"https://frontside.io","userDefinedField1":null,"userDefinedField2":null,"userDefinedField3":null,"userDefinedField4":null,"userDefinedField5":null}],"description":"Something
-        something something","edition":"5","isPeerReviewed":true,"contributorsList":[]}'
+        something something","edition":"5","isPeerReviewed":true,"contributorsList":[{"type":"editor","contributor":"Lang
+        Z"},{"type":"illustrator","contributor":"last first"}]}'
     http_version: 
-  recorded_at: Fri, 20 Apr 2018 21:33:46 GMT
+  recorded_at: Mon, 23 Apr 2018 19:54:45 GMT
 recorded_with: VCR 3.0.3
