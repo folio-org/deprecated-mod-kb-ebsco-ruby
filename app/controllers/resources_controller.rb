@@ -28,10 +28,10 @@ class ResourcesController < ApplicationController
 
   def update
     resource_validation =
-      Validation::ResourceUpdateParameters.new(resource_params)
+      Validation::ResourceUpdateParameters.new(update_params)
 
     if resource_validation.valid?
-      @resource.update resource_params
+      @resource.update update_params
       render jsonapi: @resource
     else
       render jsonapi_errors: resource_validation.errors,
@@ -82,7 +82,36 @@ class ResourcesController < ApplicationController
         :description,
         :url,
         :packageId,
-        visibilityData: [:isHidden],
+        visibilityData: %i[isHidden reason],
+        customCoverageList: [
+          %i[beginCoverage endCoverage]
+        ],
+        contributorsList: [
+          %i[type contributor]
+        ],
+        customEmbargoPeriod: %i[
+          embargoUnit
+          embargoValue
+        ]
+      )
+  end
+
+  def update_params
+    # NOTE: deserialization happens before param parsing, so we
+    # use the RMAPI property names here
+    params
+      .require(:resource)
+      .permit(
+        :titleName,
+        :pubType,
+        :isSelected,
+        :coverageStatement,
+        :isPeerReviewed,
+        :publisherName,
+        :edition,
+        :description,
+        :url,
+        visibilityData: %i[isHidden reason],
         customCoverageList: [
           %i[beginCoverage endCoverage]
         ],
