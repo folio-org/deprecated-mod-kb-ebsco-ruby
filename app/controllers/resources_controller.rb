@@ -86,6 +86,9 @@ class ResourcesController < ApplicationController
         customCoverageList: [
           %i[beginCoverage endCoverage]
         ],
+        contributorsList: [
+          %i[type contributor]
+        ],
         customEmbargoPeriod: %i[
           embargoUnit
           embargoValue

@@ -108,6 +108,7 @@ class Resource < RmApiResource
       isSelected: resource_attributes[:isSelected],
       isHidden: resource_attributes[:visibilityData][:isHidden],
       customCoverageList: sorted_coverage,
+      contributorsList: resource_attributes[:contributorsList],
       customEmbargoPeriod: resource_attributes[:customEmbargoPeriod],
       coverageStatement: resource_attributes[:coverageStatement],
       titleName: attributes[:titleName],
@@ -198,6 +199,7 @@ class Resource < RmApiResource
         :isSelected,
         :visibilityData,
         :customCoverageList,
+        :contributorsList,
         :customEmbargoPeriod,
         :coverageStatement,
         :url

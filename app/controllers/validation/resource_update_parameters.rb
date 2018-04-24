@@ -6,7 +6,7 @@ module Validation
   class ResourceUpdateParameters
     include ActiveModel::Validations
 
-    attr_accessor :isSelected, :isHidden, :customCoverageList,
+    attr_accessor :isSelected, :isHidden, :customCoverageList, :contributorsList,
                   :embargoUnit, :embargoValue, :coverageStatement
 
     # Deselected resources cannot be customized.  Though the UI is smart enough
@@ -16,6 +16,7 @@ module Validation
     with_options unless: :isSelected do
       validates :isHidden, absence: true, unless: :isSelected
       validates :customCoverageList, absence: true, unless: :isSelected
+      validates :contributorsList, absence: true, unless: :isSelected
       validates :embargoUnit, absence: true, unless: :isSelected
       validates :embargoValue, absence: true, unless: :isSelected
       validates :coverageStatement, absence: true, unless: :isSelected
@@ -25,6 +26,7 @@ module Validation
       @isSelected = params[:isSelected]
       @isHidden = params.dig(:visibilityData, :isHidden)
       @customCoverageList = params[:customCoverageList]
+      @contributorsList = params[:contributorsList]
       @embargoUnit = params.dig(:customEmbargoPeriod, :embargoUnit)
       @embargoValue = params.dig(:customEmbargoPeriod, :embargoValue)
       @coverageStatement = params[:coverageStatement]
