@@ -8,7 +8,7 @@ module Validation
 
     attr_accessor :titleName, :pubType, :packageId, :publisherName,
                   :isPeerReviewed, :edition, :description, :url,
-                  :customCoverageList,
+                  :customCoverageList, :contributorsList,
                   :embargoUnit, :embargoValue, :coverageStatement
 
     validates :titleName, presence: true, length: { maximum: 400 }
@@ -37,6 +37,7 @@ module Validation
       @description = params[:description]
       @url = params[:url]
       @customCoverageList = params[:customCoverageList]
+      @contributorsList = params[:contributorsList]
       @embargoUnit = params.dig(:customEmbargoPeriod, :embargoUnit)
       @embargoValue = params.dig(:customEmbargoPeriod, :embargoValue)
       @coverageStatement = params[:coverageStatement]
