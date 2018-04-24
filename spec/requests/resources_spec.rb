@@ -596,7 +596,8 @@ RSpec.describe 'Resources', type: :request do
                 "publisherName": 'Frontside Newspapers',
                 "edition": '5',
                 "description": 'Something something something',
-                "url": 'https://frontside.io'
+                "url": 'https://frontside.io',
+                "packageId": '19-530'
               }
             }
           }

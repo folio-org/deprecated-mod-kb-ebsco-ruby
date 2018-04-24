@@ -92,7 +92,6 @@ class Resource < RmApiResource
     # Mimicking AR as closely as we can here. Invoking `update` on a
     # model (i.e. as an instance method) applies a hash of changes
     # to the instance and then persists that data to the store.
-
     merge_fields!(params)
     save!
   end
