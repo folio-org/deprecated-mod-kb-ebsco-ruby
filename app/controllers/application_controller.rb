@@ -2,6 +2,7 @@
 
 class ApplicationController < ActionController::API
   before_action :verify_okapi_headers
+  before_action :verify_content_type_header
   before_action :set_response_headers
   around_action :catch_exceptions
   around_action :catch_flexirest_exceptions
@@ -28,6 +29,10 @@ class ApplicationController < ActionController::API
 
   def okapi_token
     request.headers['HTTP_X_OKAPI_TOKEN']
+  end
+
+  def content_type
+    request.headers['Content-Type']
   end
 
   private
@@ -75,6 +80,10 @@ class ApplicationController < ActionController::API
     elsif !okapi_token
       render plain: 'Missing header X-OKAPI-TOKEN', status: :bad_request
     end
+  end
+
+  def verify_content_type_header
+    render plain: 'Missing/Invalid header Content-Type', status: :bad_request if !content_type || content_type != 'application/vnd.api+json'
   end
 
   def set_response_headers
