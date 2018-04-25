@@ -327,7 +327,7 @@ RSpec.describe 'Custom Resources Create', type: :request do
           'data' => {
             'type' => 'resources',
             'attributes' => {
-              'name' => 'New Custom Title Testing All Fields Again',
+              'name' => 'Totally New Custom Title Testing All Fields',
               'publicationType' => 'Book',
               'packageId' => 2_843_712,
               'publisherName' => 'test publisher',
@@ -339,6 +339,16 @@ RSpec.describe 'Custom Resources Create', type: :request do
                 {
                   "beginCoverage": '2003-01-01',
                   "endCoverage": '2004-01-01'
+                }
+              ],
+              "contributors": [
+                {
+                  "type": 'Editor',
+                  "contributor": 'some editor'
+                },
+                {
+                  "type": 'Illustrator',
+                  "contributor": 'some illustrator'
                 }
               ],
               "coverageStatement": 'Test coverage statement',
@@ -366,7 +376,7 @@ RSpec.describe 'Custom Resources Create', type: :request do
       let!(:attributes) { json.data.attributes }
 
       it 'has the new resource name' do
-        expect(json.data.attributes.name).to eq('New Custom Title Testing All Fields Again')
+        expect(json.data.attributes.name).to eq('Totally New Custom Title Testing All Fields')
       end
 
       it 'has the new publicationType' do
@@ -398,6 +408,17 @@ RSpec.describe 'Custom Resources Create', type: :request do
           .to eq('2003-01-01')
         expect(json.data.attributes.customCoverages[0].endCoverage)
           .to eq('2004-01-01')
+      end
+
+      it 'has the list of contributors' do
+        expect(json.data.attributes.contributors[0].type)
+          .to eq('Editor')
+        expect(json.data.attributes.contributors[0].contributor)
+          .to eq('some editor')
+        expect(json.data.attributes.contributors[1].type)
+          .to eq('Illustrator')
+        expect(json.data.attributes.contributors[1].contributor)
+          .to eq('some illustrator')
       end
 
       it 'has the new coverageStatement' do
@@ -690,6 +711,48 @@ RSpec.describe 'Custom Resources Create', type: :request do
 
       it 'returns an error status' do
         expect(response).to have_http_status(400)
+      end
+    end
+
+    describe 'with invalid contributor type' do
+      let(:params) do
+        {
+          'data' => {
+            'type' => 'resources',
+            'attributes' => {
+              'name' => 'New Custom Title Testing Invalid Contributor',
+              'publicationType' => 'Book',
+              'packageId' => 2_843_712,
+              "contributors": [
+                {
+                  "type": 'invalid type',
+                  "contributor": 'some editor'
+                },
+                {
+                  "type": 'Illustrator',
+                  "contributor": 'some illustrator'
+                }
+              ]
+            }
+          }
+        }
+      end
+
+      before do
+        VCR.use_cassette('post-custom-resource-invalid-contributor-type') do
+          post '/eholdings/resources',
+               params: params, as: :json, headers: create_headers
+        end
+      end
+
+      let!(:json) { Map JSON.parse response.body }
+
+      it 'returns an error status' do
+        expect(response).to have_http_status(400)
+      end
+
+      it 'returns expected error message' do
+        expect(json.errors.first.title).to eql('Parameter contributorsList.contributorType must be one of (author, editor, illustrator).')
       end
     end
   end

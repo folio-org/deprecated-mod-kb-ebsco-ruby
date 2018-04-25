@@ -100,7 +100,7 @@ RSpec.describe 'Resources', type: :request do
         expect(attributes.contributors.length).to eq(2)
       end
       it 'contributor has a type' do
-        expect(attributes.contributors[0].type).to eq('author')
+        expect(attributes.contributors[0].type).to eq('Author')
       end
       it 'contributor has a name' do
         expect(attributes.contributors[0].contributor).to eq('Havard, Margaret')

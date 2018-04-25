@@ -17,7 +17,23 @@ class SerializableResource < SerializableJSONAPIResource
              :titleId
 
   attribute :contributors do
-    @object.contributorsList || []
+    contributor_types = {
+      editor: 'Editor',
+      illustrator: 'Illustrator',
+      author: 'Author'
+    }
+
+    if @object.contributorsList
+      @object.contributorsList.map do |contributor|
+        type_key = contributor['type'].downcase.to_sym
+        {
+          type: contributor_types[type_key],
+          contributor: contributor['contributor']
+        }
+      end
+    else
+      []
+    end
   end
   attribute :identifiers do
     types = {
