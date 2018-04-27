@@ -329,7 +329,7 @@ RSpec.describe 'Custom Resources Create', type: :request do
             'attributes' => {
               'name' => 'Totally New Custom Title Testing All Fields',
               'publicationType' => 'Book',
-              'packageId' => 2_843_712,
+              'packageId' => 2_852_184,
               'publisherName' => 'test publisher',
               'isPeerReviewed' => true,
               'edition' => 'test edition',
