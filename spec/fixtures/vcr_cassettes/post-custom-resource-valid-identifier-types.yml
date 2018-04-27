@@ -27,7 +27,7 @@ http_interactions:
       Server:
       - nginx/1.13.5
       Date:
-      - Fri, 27 Apr 2018 19:45:48 GMT
+      - Fri, 27 Apr 2018 20:20:23 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -36,15 +36,15 @@ http_interactions:
       - keep-alive
       X-Okapi-Trace:
       - 'GET mod-authtoken-1.4.1-SNAPSHOT.20 http://10.39.249.72:8081/configurations/entries..
-        : 202 356387us'
+        : 202 366742us'
       - 'GET mod-configuration-4.0.3-SNAPSHOT.29 http://10.39.252.104:8081/configurations/entries..
-        : 200 41108us'
+        : 200 41694us'
       Host:
       - okapi.frontside.io
       X-Real-Ip:
-      - 10.128.0.4
+      - 10.36.4.1
       X-Forwarded-For:
-      - 10.128.0.4
+      - 10.36.4.1
       X-Forwarded-Host:
       - okapi.frontside.io
       X-Forwarded-Port:
@@ -66,7 +66,7 @@ http_interactions:
       User-Agent:
       - Ruby
       X-Okapi-Request-Id:
-      - 127705/configurations
+      - 694588/configurations
       X-Okapi-Url:
       - http://10.39.243.220:80
       X-Okapi-Permissions-Required:
@@ -107,7 +107,7 @@ http_interactions:
           }
         }
     http_version: 
-  recorded_at: Fri, 27 Apr 2018 19:45:48 GMT
+  recorded_at: Fri, 27 Apr 2018 20:20:23 GMT
 - request:
     method: get
     uri: https://api.ebsco.io/rm/rmaccounts/TEST_CUSTOMER_ID/vendors?count=25&offset=1&orderby=relevance&search=TEST_CUSTOMER_ID
@@ -139,36 +139,33 @@ http_interactions:
       Connection:
       - keep-alive
       Date:
-      - Fri, 27 Apr 2018 19:45:50 GMT
+      - Fri, 27 Apr 2018 20:20:24 GMT
       X-Amzn-Requestid:
-      - 965c4395-4a53-11e8-a4dd-bd804847fabb
+      - 6ae9450a-4a58-11e8-891f-fb8a04537d04
       X-Amzn-Remapped-Connection:
       - keep-alive
       X-Amz-Apigw-Id:
-      - GBCdMEKZIAMFaYA=
+      - GBHhWEUdoAMFfdg=
       X-Amzn-Remapped-Date:
-      - Fri, 27 Apr 2018 19:45:50 GMT
+      - Fri, 27 Apr 2018 20:20:24 GMT
       X-Cache:
       - Miss from cloudfront
       Via:
-      - 1.1 a576c90d056b9a2e1f473050b2981523.cloudfront.net (CloudFront)
+      - 1.1 3a6be57f33a95df305974838096655cd.cloudfront.net (CloudFront)
       X-Amz-Cf-Id:
-      - VhbEmA3y55YXzEnyQRpL46eEjt-Pcrl4CDM02NWBCUqU_ABpr5wcyA==
+      - S7BcTScGIXBPeyXCiEkUjvvEK3fF7J5hlaEaSMUEbBCp6u8ISgyhLA==
     body:
       encoding: UTF-8
       string: '{"totalResults":1,"vendors":[{"vendorId":123355,"vendorName":"API DEV
         CORPORATE CUSTOMER","isCustomer":true,"packagesTotal":62,"packagesSelected":62,"vendorToken":null}]}'
     http_version: 
-  recorded_at: Fri, 27 Apr 2018 19:45:50 GMT
+  recorded_at: Fri, 27 Apr 2018 20:20:24 GMT
 - request:
     method: post
     uri: https://api.ebsco.io/rm/rmaccounts/TEST_CUSTOMER_ID/vendors/123355/packages/2850417/titles
     body:
       encoding: UTF-8
-      string: '{"titleName":"Totally New Custom Title Testing All Fields Including
-        Identifiers","pubType":"book","coverageStatement":"Test coverage statement","isPeerReviewed":true,"publisherName":"test
-        publisher","edition":"test edition","description":"test description","url":"http://test","customCoverageList":[{"beginCoverage":"2003-01-01","endCoverage":"2003-12-12"}],"contributorsList":[{"type":"Editor","contributor":"some
-        editor"},{"type":"Illustrator","contributor":"some illustrator"}],"identifiersList":[{"id":"12347","subtype":1,"type":1},{"id":"98547","subtype":2,"type":0}],"customEmbargoPeriod":{"embargoUnit":"Weeks","embargoValue":6}}'
+      string: '{"titleName":"New Custom Title Testing Valid Identifier Types","pubType":"book","identifiersList":[{"id":"12345","subtype":1,"type":0},{"id":"12345","subtype":1,"type":1}]}'
     headers:
       User-Agent:
       - Flexirest/1.5.5
@@ -194,26 +191,26 @@ http_interactions:
       Connection:
       - keep-alive
       Date:
-      - Fri, 27 Apr 2018 19:45:51 GMT
+      - Fri, 27 Apr 2018 20:20:26 GMT
       X-Amzn-Requestid:
-      - 9734c99f-4a53-11e8-bafc-49b2eee7c355
+      - 6bbebd87-4a58-11e8-9c3d-4d10b30fbcdf
       X-Amzn-Remapped-Connection:
       - keep-alive
       X-Amz-Apigw-Id:
-      - GBCdaEoUIAMFhVA=
+      - GBHhkHJKoAMFjsg=
       X-Amzn-Remapped-Date:
-      - Fri, 27 Apr 2018 19:45:51 GMT
+      - Fri, 27 Apr 2018 20:20:26 GMT
       X-Cache:
       - Miss from cloudfront
       Via:
-      - 1.1 f1049476caf714fd94ef8827360d9bb1.cloudfront.net (CloudFront)
+      - 1.1 4988915d0d77750503cc39b108813e0f.cloudfront.net (CloudFront)
       X-Amz-Cf-Id:
-      - EvYNh9O_hvEiKNdszsofetaLf5no94nAK0ZnoEA4wrrS-JK16zNYCw==
+      - bHb8Vq-mUc4mxEpJSTlu9BX_plvoUuHZDH21WGuHbaxoyP7WiOv5Ug==
     body:
       encoding: UTF-8
-      string: '{"titleId":17156299}'
+      string: '{"titleId":17156319}'
     http_version: 
-  recorded_at: Fri, 27 Apr 2018 19:45:52 GMT
+  recorded_at: Fri, 27 Apr 2018 20:20:26 GMT
 - request:
     method: get
     uri: https://api.ebsco.io/rm/rmaccounts/TEST_CUSTOMER_ID/vendors?count=25&offset=1&orderby=relevance&search=TEST_CUSTOMER_ID
@@ -245,30 +242,30 @@ http_interactions:
       Connection:
       - keep-alive
       Date:
-      - Fri, 27 Apr 2018 19:45:53 GMT
+      - Fri, 27 Apr 2018 20:20:27 GMT
       X-Amzn-Requestid:
-      - 988d2d36-4a53-11e8-bb64-71904c28478f
+      - 6ca37860-4a58-11e8-9757-9dacb4c0bfee
       X-Amzn-Remapped-Connection:
       - keep-alive
       X-Amz-Apigw-Id:
-      - GBCdwEsYoAMFvJA=
+      - GBHhzFB5IAMFYpA=
       X-Amzn-Remapped-Date:
-      - Fri, 27 Apr 2018 19:45:52 GMT
+      - Fri, 27 Apr 2018 20:20:27 GMT
       X-Cache:
       - Miss from cloudfront
       Via:
-      - 1.1 29b3cfc63bec8504629152c5048602a4.cloudfront.net (CloudFront)
+      - 1.1 4ee8675b5bc89c4b98326c6c036736a8.cloudfront.net (CloudFront)
       X-Amz-Cf-Id:
-      - "-somB_zK_rmMc45N1RpTCtovE0hB21z1xtqCY_Xb9G1jFwhNr7wGEw=="
+      - _QpZ4D0FJEH9sfmMfmFhQLack4l9ewUyGfxEa_TeAC24y3MJHp8g2w==
     body:
       encoding: UTF-8
       string: '{"totalResults":1,"vendors":[{"vendorId":123355,"vendorName":"API DEV
         CORPORATE CUSTOMER","isCustomer":true,"packagesTotal":62,"packagesSelected":62,"vendorToken":null}]}'
     http_version: 
-  recorded_at: Fri, 27 Apr 2018 19:45:54 GMT
+  recorded_at: Fri, 27 Apr 2018 20:20:27 GMT
 - request:
     method: get
-    uri: https://api.ebsco.io/rm/rmaccounts/TEST_CUSTOMER_ID/vendors/123355/packages/2850417/titles/17156299
+    uri: https://api.ebsco.io/rm/rmaccounts/TEST_CUSTOMER_ID/vendors/123355/packages/2850417/titles/17156319
     body:
       encoding: US-ASCII
       string: ''
@@ -293,19 +290,19 @@ http_interactions:
       Content-Type:
       - application/json; charset=utf-8
       Content-Length:
-      - '1320'
+      - '1126'
       Connection:
       - keep-alive
       Date:
-      - Fri, 27 Apr 2018 19:45:55 GMT
+      - Fri, 27 Apr 2018 20:20:28 GMT
       X-Amzn-Requestid:
-      - 99a94be7-4a53-11e8-b294-c7c0eb465795
+      - 6d7547b5-4a58-11e8-b938-fdeaa5a37222
       X-Amzn-Remapped-Content-Length:
-      - '1320'
+      - '1126'
       X-Amzn-Remapped-Connection:
       - keep-alive
       X-Amz-Apigw-Id:
-      - GBCeDEwGIAMF__A=
+      - GBHiAG75IAMFcHA=
       X-Amzn-Remapped-Server:
       - Microsoft-IIS/8.5
       Cache-Control:
@@ -317,24 +314,21 @@ http_interactions:
       Pragma:
       - no-cache
       X-Amzn-Remapped-Date:
-      - Fri, 27 Apr 2018 19:45:55 GMT
+      - Fri, 27 Apr 2018 20:20:28 GMT
       X-Aspnet-Version:
       - 4.0.30319
       X-Cache:
       - Miss from cloudfront
       Via:
-      - 1.1 1ed35878396a5c073c88fd1b51c4f47a.cloudfront.net (CloudFront)
+      - 1.1 66e5950d2a2f44a694f4d9d434e9a3c9.cloudfront.net (CloudFront)
       X-Amz-Cf-Id:
-      - xZhOKNmFFYq2D4PHMHFq2uXjj7FPVN4Z2a4bOcwNGryU7E4dCxS2uw==
+      - zjO3T4EYZ_pCarJz8F4_HOwKjszntDLch5_SS_IfP_YxI5LGrtaeZg==
     body:
       encoding: UTF-8
-      string: '{"titleId":17156299,"titleName":"Totally New Custom Title Testing All
-        Fields Including Identifiers","publisherName":"test publisher","identifiersList":[{"id":"12347","source":"ResourceIdentifier","subtype":1,"type":1},{"id":"98547","source":"ResourceIdentifier","subtype":2,"type":0}],"subjectsList":[],"isTitleCustom":true,"pubType":"Book","customerResourcesList":[{"titleId":17156299,"packageId":2850417,"packageName":"SD''s
+      string: '{"titleId":17156319,"titleName":"New Custom Title Testing Valid Identifier
+        Types","publisherName":null,"identifiersList":[{"id":"12345","source":"ResourceIdentifier","subtype":1,"type":0},{"id":"12345","source":"ResourceIdentifier","subtype":1,"type":1}],"subjectsList":[],"isTitleCustom":true,"pubType":"Book","customerResourcesList":[{"titleId":17156319,"packageId":2850417,"packageName":"SD''s
         test package","packageType":"Custom","proxy":{"id":"<n>","inherited":true},"isPackageCustom":true,"vendorId":123355,"vendorName":"API
-        DEV CORPORATE CUSTOMER","locationId":38443014,"isSelected":true,"isTokenNeeded":false,"visibilityData":{"isHidden":false,"reason":""},"managedCoverageList":[],"customCoverageList":[{"beginCoverage":"2003-01-01","endCoverage":"2003-12-12"}],"coverageStatement":"Test
-        coverage statement","managedEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"customEmbargoPeriod":{"embargoUnit":"Weeks","embargoValue":6},"url":"http://test","userDefinedField1":null,"userDefinedField2":null,"userDefinedField3":null,"userDefinedField4":null,"userDefinedField5":null}],"description":"test
-        description","edition":"test edition","isPeerReviewed":true,"contributorsList":[{"type":"editor","contributor":"some
-        editor"},{"type":"illustrator","contributor":"some illustrator"}]}'
+        DEV CORPORATE CUSTOMER","locationId":0,"isSelected":true,"isTokenNeeded":false,"visibilityData":{"isHidden":false,"reason":""},"managedCoverageList":[],"customCoverageList":[{"beginCoverage":"2003-01-01","endCoverage":"2003-12-12"}],"coverageStatement":null,"managedEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"customEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"url":null,"userDefinedField1":null,"userDefinedField2":null,"userDefinedField3":null,"userDefinedField4":null,"userDefinedField5":null}],"description":null,"edition":null,"isPeerReviewed":false,"contributorsList":[]}'
     http_version: 
-  recorded_at: Fri, 27 Apr 2018 19:45:55 GMT
+  recorded_at: Fri, 27 Apr 2018 20:20:29 GMT
 recorded_with: VCR 3.0.3

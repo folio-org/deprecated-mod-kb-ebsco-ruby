@@ -293,6 +293,317 @@ RSpec.describe 'Custom Resources', type: :request do
       end
     end
 
+    describe 'with invalid identifier id' do
+      let(:params) do
+        {
+          'data' => {
+            'type' => 'resources',
+            'attributes' => {
+              'name' => 'Update Custom Title Testing Invalid Identifier Id',
+              'publicationType' => 'Book',
+              "identifiers": [
+                {
+                  "id": 12_345, # cannot be an integer, has to be a string
+                  "type": 'ISBN',
+                  "subtype": 'Print'
+                }
+              ],
+              "isSelected": true
+            }
+          }
+        }
+      end
+
+      before do
+        VCR.use_cassette('put-custom-resource-invalid-identifier-id') do
+          put '/eholdings/resources/123355-2845510-62477',
+              params: params, as: :json, headers: update_headers
+        end
+      end
+
+      let!(:json) { Map JSON.parse response.body }
+
+      it 'returns an error status' do
+        expect(response).to have_http_status(422)
+      end
+
+      it 'returns expected error message title' do
+        expect(json.errors.first.title).to eql('Invalid IdentifierId')
+      end
+    end
+
+    describe 'with invalid identifier id length' do
+      let(:longIdentifierId) { '0' * 21 }
+      let(:params) do
+        {
+          'data' => {
+            'type' => 'resources',
+            'attributes' => {
+              'name' => 'Update Custom Title Testing Invalid Identifier Id Length',
+              'publicationType' => 'Book',
+              "identifiers": [
+                {
+                  "id": longIdentifierId,
+                  "type": 'ISBN',
+                  "subtype": 'Print'
+                }
+              ],
+              "isSelected": true
+            }
+          }
+        }
+      end
+
+      before do
+        VCR.use_cassette('put-custom-resource-invalid-identifier-id-length') do
+          put '/eholdings/resources/123355-2845510-62477',
+              params: params, as: :json, headers: update_headers
+        end
+      end
+
+      let!(:json) { Map JSON.parse response.body }
+
+      it 'returns an error status' do
+        expect(response).to have_http_status(422)
+      end
+
+      it 'returns expected error message title' do
+        expect(json.errors.first.title).to eql('Invalid IdentifierId')
+      end
+    end
+
+    describe 'with missing identifier id' do
+      let(:params) do
+        {
+          'data' => {
+            'type' => 'resources',
+            'attributes' => {
+              'name' => 'Update Custom Title Testing Missing Identifier Id',
+              'publicationType' => 'Book',
+              "identifiers": [
+                {
+                  "type": 'ISBN',
+                  "subtype": 'Print'
+                }
+              ],
+              "isSelected": true
+            }
+          }
+        }
+      end
+
+      before do
+        VCR.use_cassette('put-custom-resource-missing-identifier-id') do
+          put '/eholdings/resources/123355-2845510-62477',
+              params: params, as: :json, headers: update_headers
+        end
+      end
+
+      let!(:json) { Map JSON.parse response.body }
+
+      it 'returns an error status' do
+        expect(response).to have_http_status(422)
+      end
+
+      it 'returns expected error message title' do
+        expect(json.errors.first.title).to eql('Invalid IdentifierId')
+      end
+    end
+
+    describe 'with invalid identifier type' do
+      let(:params) do
+        {
+          'data' => {
+            'type' => 'resources',
+            'attributes' => {
+              'name' => 'New Custom Title Testing Invalid Identifier Type',
+              'publicationType' => 'Book',
+              "identifiers": [
+                {
+                  "id": '12345',
+                  "type": 'Invalid Type',
+                  "subtype": 'Print'
+                }
+              ],
+              "isSelected": true
+            }
+          }
+        }
+      end
+
+      before do
+        VCR.use_cassette('put-custom-resource-invalid-identifier-type') do
+          put '/eholdings/resources/123355-2845510-62477',
+              params: params, as: :json, headers: update_headers
+        end
+      end
+
+      let!(:json) { Map JSON.parse response.body }
+
+      it 'returns an error status' do
+        expect(response).to have_http_status(422)
+      end
+
+      it 'returns expected error message title' do
+        expect(json.errors.first.title).to eql('Invalid IdentifierType')
+      end
+    end
+
+    describe 'with valid identifier types' do
+      let(:params) do
+        {
+          'data' => {
+            'type' => 'resources',
+            'attributes' => {
+              'name' => 'Update Custom Title Testing Valid Identifier Types',
+              'publicationType' => 'Book',
+              "identifiers": [
+                {
+                  "id": '12345',
+                  "type": 'ISSN',
+                  "subtype": 'Print'
+                },
+                {
+                  "id": '12345',
+                  "type": 'ISBN',
+                  "subtype": 'Print'
+                }
+              ],
+              "isSelected": true
+            }
+          }
+        }
+      end
+
+      before do
+        VCR.use_cassette('put-custom-resource-valid-identifier-types') do
+          put '/eholdings/resources/123355-2845510-62477',
+              params: params, as: :json, headers: update_headers
+        end
+      end
+
+      let!(:json) { Map JSON.parse response.body }
+
+      it 'responds with OK status' do
+        expect(response).to have_http_status(200)
+      end
+
+      let!(:json) { Map JSON.parse response.body }
+      let!(:attributes) { json.data.attributes }
+
+      it 'has the expected list of identifiers' do
+        expect(json.data.attributes.identifiers[0].id)
+          .to eq('12345')
+        expect(json.data.attributes.identifiers[0].type)
+          .to eq('ISSN')
+        expect(json.data.attributes.identifiers[0].subtype)
+          .to eq('Print')
+        expect(json.data.attributes.identifiers[1].id)
+          .to eq('12345')
+        expect(json.data.attributes.identifiers[1].type)
+          .to eq('ISBN')
+        expect(json.data.attributes.identifiers[1].subtype)
+          .to eq('Print')
+      end
+    end
+
+    describe 'with invalid identifier subtype' do
+      let(:params) do
+        {
+          'data' => {
+            'type' => 'resources',
+            'attributes' => {
+              'name' => 'New Custom Title Testing Invalid Identifier Type',
+              'publicationType' => 'Book',
+              "identifiers": [
+                {
+                  "id": '12345',
+                  "type": 'ISSN',
+                  "subtype": 'Invalid subtype'
+                }
+              ],
+              "isSelected": true
+            }
+          }
+        }
+      end
+
+      before do
+        VCR.use_cassette('put-custom-resource-invalid-identifier-type') do
+          put '/eholdings/resources/123355-2845510-62477',
+              params: params, as: :json, headers: update_headers
+        end
+      end
+
+      let!(:json) { Map JSON.parse response.body }
+
+      it 'returns an error status' do
+        expect(response).to have_http_status(422)
+      end
+
+      it 'returns expected error message title' do
+        expect(json.errors.first.title).to eql('Invalid IdentifierSubType')
+      end
+    end
+
+    describe 'with valid identifier subtypes' do
+      let(:params) do
+        {
+          'data' => {
+            'type' => 'resources',
+            'attributes' => {
+              'name' => 'New Custom Title Testing Valid Identifier SubTypes',
+              'publicationType' => 'Book',
+              "identifiers": [
+                {
+                  "id": '12345',
+                  "type": 'ISSN',
+                  "subtype": 'Print'
+                },
+                {
+                  "id": '12345',
+                  "type": 'ISBN',
+                  "subtype": 'Online'
+                }
+              ],
+              "isSelected": true
+            }
+          }
+        }
+      end
+
+      before do
+        VCR.use_cassette('put-custom-resource-valid-identifier-subtypes') do
+          put '/eholdings/resources/123355-2845510-62477',
+              params: params, as: :json, headers: update_headers
+        end
+      end
+
+      let!(:json) { Map JSON.parse response.body }
+
+      it 'responds with OK status' do
+        expect(response).to have_http_status(200)
+      end
+
+      let!(:json) { Map JSON.parse response.body }
+      let!(:attributes) { json.data.attributes }
+
+      it 'has the expected list of identifiers' do
+        expect(json.data.attributes.identifiers[0].id)
+          .to eq('12345')
+        expect(json.data.attributes.identifiers[0].type)
+          .to eq('ISSN')
+        expect(json.data.attributes.identifiers[0].subtype)
+          .to eq('Print')
+        expect(json.data.attributes.identifiers[1].id)
+          .to eq('12345')
+        expect(json.data.attributes.identifiers[1].type)
+          .to eq('ISBN')
+        expect(json.data.attributes.identifiers[1].subtype)
+          .to eq('Online')
+      end
+    end
+
     describe 'combined update' do
       let(:params) do
         {
@@ -324,6 +635,18 @@ RSpec.describe 'Custom Resources', type: :request do
                 {
                   "type": 'Illustrator',
                   "contributor": 'last first'
+                }
+              ],
+              "identifiers": [
+                {
+                  "id": '12347',
+                  "type": 'ISBN',
+                  "subtype": 'Print'
+                },
+                {
+                  "id": '98547',
+                  "type": 'ISSN',
+                  "subtype": 'Online'
                 }
               ],
               "coverageStatement": 'There are many years.',
@@ -397,6 +720,21 @@ RSpec.describe 'Custom Resources', type: :request do
           .to eq('Illustrator')
         expect(json.data.attributes.contributors[1].contributor)
           .to eq('last first')
+      end
+
+      it 'has the list of identifiers' do
+        expect(json.data.attributes.identifiers[0].id)
+          .to eq('12347')
+        expect(json.data.attributes.identifiers[0].type)
+          .to eq('ISBN')
+        expect(json.data.attributes.identifiers[0].subtype)
+          .to eq('Print')
+        expect(json.data.attributes.identifiers[1].id)
+          .to eq('98547')
+        expect(json.data.attributes.identifiers[1].type)
+          .to eq('ISSN')
+        expect(json.data.attributes.identifiers[1].subtype)
+          .to eq('Online')
       end
 
       it 'has a coverage statement' do
