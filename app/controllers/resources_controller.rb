@@ -89,6 +89,9 @@ class ResourcesController < ApplicationController
         contributorsList: [
           %i[type contributor]
         ],
+        identifiersList: [
+          %i[id subtype type]
+        ],
         customEmbargoPeriod: %i[
           embargoUnit
           embargoValue
@@ -117,6 +120,9 @@ class ResourcesController < ApplicationController
         ],
         contributorsList: [
           %i[type contributor]
+        ],
+        identifiersList: [
+          %i[id subtype type]
         ],
         customEmbargoPeriod: %i[
           embargoUnit

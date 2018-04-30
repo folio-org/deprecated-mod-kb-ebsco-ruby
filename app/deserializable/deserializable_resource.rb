@@ -45,4 +45,24 @@ class DeserializableResource < JSONAPI::Deserializable::Resource
   attribute :contributors do |value|
     { contributorsList: value }
   end
+
+  attribute :identifiers do |values|
+    types = {
+      'ISSN': 0,
+      'ISBN': 1
+    }
+
+    subtypes = {
+      'Print': 1,
+      'Online': 2
+    }
+
+    values.map do |identifier|
+      type_key = identifier['type'].to_sym
+      subtype_key = identifier['subtype'].to_sym
+      identifier['type'] = types[type_key]
+      identifier['subtype'] = subtypes[subtype_key]
+    end
+    { identifiersList: values }
+  end
 end
