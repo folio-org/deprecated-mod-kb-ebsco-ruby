@@ -6,6 +6,7 @@ class SerializableTitle < SerializableJSONAPIResource
   has_many :resources
 
   attributes :name,
+             :edition,
              :description,
              :publisherName,
              :isTitleCustom,
