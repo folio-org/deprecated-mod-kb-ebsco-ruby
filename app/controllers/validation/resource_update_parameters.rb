@@ -7,7 +7,10 @@ module Validation
     include ActiveModel::Validations
 
     attr_accessor :isSelected, :isHidden, :customCoverageList, :contributorsList,
-                  :identifiersList, :embargoUnit, :embargoValue, :coverageStatement
+                  :identifiersList, :embargoUnit, :embargoValue, :coverageStatement,
+                  :edition
+
+    validates :edition, length: { maximum: 250 }, allow_nil: true
 
     # Deselected resources cannot be customized.  Though the UI is smart enough
     # to keep this from happening, a manual request to the API could lead
@@ -45,6 +48,7 @@ module Validation
       @embargoUnit = params.dig(:customEmbargoPeriod, :embargoUnit)
       @embargoValue = params.dig(:customEmbargoPeriod, :embargoValue)
       @coverageStatement = params[:coverageStatement]
+      @edition = params[:edition]
     end
   end
 end

@@ -398,4 +398,33 @@ RSpec.describe 'Titles', type: :request do
       expect(json.errors).to include(title: 'Title not found')
     end
   end
+
+  describe 'getting a custom title with edition in it' do
+    before do
+      VCR.use_cassette('get-titles-edition-success') do
+        get '/eholdings/titles/17059786', headers: okapi_headers
+      end
+    end
+
+    let!(:json) { Map JSON.parse response.body }
+
+    it 'gets the resource' do
+      expect(response).to have_http_status(200)
+      expect(json.data.type).to eq('titles')
+      expect(json.data.id).to eq('17059786')
+      expect(json.data.attributes).to include(
+        'name',
+        'edition',
+        'description',
+        'publisherName',
+        'publicationType',
+        'isTitleCustom',
+        'isPeerReviewed',
+        'contributors',
+        'identifiers',
+        'subjects'
+      )
+      expect(json.data.attributes.edition).to eq('some edition')
+    end
+  end
 end
