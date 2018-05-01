@@ -49,12 +49,26 @@ class DeserializableResource < JSONAPI::Deserializable::Resource
   attribute :identifiers do |values|
     types = {
       'ISSN': 0,
-      'ISBN': 1
+      'ISBN': 1,
+      'TSDID': 2,
+      'SPID': 3,
+      'EjsJournalID': 4,
+      'NewsbankID': 5,
+      'ZDBID': 6,
+      'EPBookID': 7,
+      'Mid': 8,
+      'BHM': 9
     }
 
     subtypes = {
+      'Empty': 0,
       'Print': 1,
-      'Online': 2
+      'Online': 2,
+      'Preceding': 3,
+      'Succeeding': 4,
+      'Regional': 5,
+      'Linking': 6,
+      'Invalid': 7
     }
 
     values.map do |identifier|
