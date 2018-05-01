@@ -1,8 +1,6 @@
 # frozen_string_literal: true
 
 class PackagesController < ApplicationController
-  before_action :set_package, only: %i[show update destroy resources]
-
   deserializable_resource :package, only: %i[create update],
                                     class: DeserializablePackage
 
@@ -38,15 +36,15 @@ class PackagesController < ApplicationController
   end
 
   def show
-    render jsonapi: @package, include: params[:include]
+    render jsonapi: package, include: params[:include]
   end
 
   def update
     package_validation = Validation::PackageParameters.new(package_params)
 
     if package_validation.valid?
-      @package.update package_params
-      render jsonapi: @package
+      package.update package_params
+      render jsonapi: package
     else
       render jsonapi_errors: package_validation.errors,
              status: :unprocessable_entity
@@ -54,10 +52,10 @@ class PackagesController < ApplicationController
   end
 
   def destroy
-    package_validation = Validation::PackageDestroyParameters.new(@package)
+    package_validation = Validation::PackageDestroyParameters.new(package)
 
     if package_validation.valid?
-      @package.delete
+      package.delete
     else
       render jsonapi_errors: package_validation.errors,
              status: :bad_request
@@ -66,7 +64,7 @@ class PackagesController < ApplicationController
 
   # Relationships
   def resources
-    @resources = @package.find_resources(
+    @resources = package.find_resources(
       page: params[:page],
       q: params[:q],
       filter: params[:filter],
@@ -78,8 +76,8 @@ class PackagesController < ApplicationController
 
   private
 
-  def set_package
-    @package = packages.find package_id
+  def package
+    @package ||= packages.find package_id
   end
 
   def package_id
