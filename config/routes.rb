@@ -20,7 +20,7 @@ Rails.application.routes.draw do
       end
     end
 
-    resources :titles, only: %i[index show] do
+    resources :titles, only: %i[index create show] do
       member do
         get 'resources'
       end

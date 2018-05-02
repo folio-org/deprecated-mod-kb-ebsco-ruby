@@ -86,4 +86,19 @@ class Title < RmApiResource
       Resource.new(title_attrs)
     end
   end
+
+  # RM API creates titles as a side-effect of creating resources, so
+  # we actually create a resource here, but then return the resulting
+  # title that was also created
+  def self.create_title(params)
+    package_id = params[:packageId]
+    create_params = params.to_hash.except(:packageId)
+    rm_api_create = { vendor_id: provider_id, package_id: package_id }.merge(create_params)
+    resource_response = Resource.configure(config).create rm_api_create
+    find resource_response[:titleId]
+  end
+
+  def self.provider_id
+    Provider.configure(config).provider_id
+  end
 end
