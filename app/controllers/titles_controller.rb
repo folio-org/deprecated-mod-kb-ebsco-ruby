@@ -50,7 +50,7 @@ class TitlesController < ApplicationController
     Title.configure(config)
   end
 
-  def combined_resource # rubocop:disable Metrics/AbcSize
+  def combined_resource
     json = JSON.parse request.body.read
 
     unless json['included']&.first
