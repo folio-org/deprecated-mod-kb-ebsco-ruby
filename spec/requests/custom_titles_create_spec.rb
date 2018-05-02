@@ -279,7 +279,7 @@ RSpec.describe 'Custom Titles Create', type: :request do
       let!(:json) { Map JSON.parse response.body }
 
       it 'returns an error status' do
-        expect(response).to have_http_status(422)
+        expect(response).to have_http_status(400)
         expect(json.errors.first.title).to eql('Missing resource')
       end
     end
