@@ -164,7 +164,6 @@ class Resource < RmApiResource
     # these are sorted before sending them off.
     resource_update_fields[:customCoverageList].sort_by do |coverage|
       Date.strptime(coverage[:beginCoverage], '%Y-%m-%d')
-      # rubocop:enable Style/FormatStringToken
     end.reverse
   end
 

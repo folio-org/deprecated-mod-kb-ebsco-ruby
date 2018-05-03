@@ -1,9 +1,7 @@
 # frozen_string_literal: true
 
 class ProxyController < ApplicationController
-  attr_accessor :rmapi_uri
-
-  before_action :set_rmapi_uri
+  before_action :rmapi_uri
 
   def index
     # For the time being, this is a direct passthrough to
@@ -35,7 +33,7 @@ class ProxyController < ApplicationController
     response
   end
 
-  def set_rmapi_uri
+  def rmapi_uri
     @rmapi_uri ||= URI(
       format(
         '%{base}/rm/rmaccounts/%{customer_id}%{path}',

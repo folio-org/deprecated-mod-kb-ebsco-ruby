@@ -49,13 +49,13 @@ class ApplicationController < ActionController::API
            status: e.status
   end
 
-  def get_errors_hash(e) # rubocop:disable Metrics/AbcSize
-    if e.result.respond_to?(:Errors)
-      e.result.Errors.to_a.map do |err|
+  def get_errors_hash(error) # rubocop:disable Metrics/AbcSize
+    if error.result.respond_to?(:Errors)
+      error.result.Errors.to_a.map do |err|
         { "title": map_provider(err.to_hash['Message']) }
       end
-    elsif e.result.respond_to?(:errors)
-      e.result[:errors].items.to_a.map do |err|
+    elsif error.result.respond_to?(:errors)
+      error.result[:errors].items.to_a.map do |err|
         { "title": map_provider(err.to_hash['message']) }
       end
     else
