@@ -27,7 +27,7 @@ http_interactions:
       Server:
       - nginx/1.13.5
       Date:
-      - Thu, 12 Apr 2018 16:29:21 GMT
+      - Fri, 04 May 2018 02:43:11 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -36,15 +36,15 @@ http_interactions:
       - keep-alive
       X-Okapi-Trace:
       - 'GET mod-authtoken-1.4.1-SNAPSHOT.20 http://10.39.249.72:8081/configurations/entries..
-        : 202 356529us'
+        : 202 1229us'
       - 'GET mod-configuration-4.0.3-SNAPSHOT.29 http://10.39.252.104:8081/configurations/entries..
-        : 200 45206us'
+        : 200 41468us'
       Host:
       - okapi.frontside.io
       X-Real-Ip:
-      - 10.36.4.1
+      - 10.128.0.4
       X-Forwarded-For:
-      - 10.36.4.1
+      - 10.128.0.4
       X-Forwarded-Host:
       - okapi.frontside.io
       X-Forwarded-Port:
@@ -66,7 +66,7 @@ http_interactions:
       User-Agent:
       - Ruby
       X-Okapi-Request-Id:
-      - 140179/configurations
+      - '098061/configurations'
       X-Okapi-Url:
       - http://10.39.243.220:80
       X-Okapi-Permissions-Required:
@@ -107,26 +107,26 @@ http_interactions:
           }
         }
     http_version: 
-  recorded_at: Thu, 12 Apr 2018 16:29:21 GMT
+  recorded_at: Fri, 04 May 2018 02:43:11 GMT
 - request:
     method: get
     uri: https://api.ebsco.io/rm/rmaccounts/TEST_CUSTOMER_ID/vendors/123355/packages/2845506
     body:
-      encoding: US-ASCII
+      encoding: UTF-8
       string: ''
     headers:
-      User-Agent:
-      - Flexirest/1.5.5
-      Connection:
-      - Keep-Alive
-      Accept:
-      - application/json
       X-Api-Key:
       - TEST_API_KEY
       Content-Type:
       - application/json
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - application/json
+      Connection:
+      - close
+      Host:
+      - api.ebsco.io
+      User-Agent:
+      - http.rb/3.3.0
   response:
     status:
       code: 200
@@ -135,102 +135,103 @@ http_interactions:
       Content-Type:
       - application/json;charset=UTF-8
       Content-Length:
-      - '480'
+      - '487'
       Connection:
-      - keep-alive
+      - close
       Date:
-      - Thu, 12 Apr 2018 16:29:21 GMT
+      - Fri, 04 May 2018 02:43:11 GMT
       X-Amzn-Requestid:
-      - a7dc5729-3e6e-11e8-9f92-654745aebec6
+      - e2f09ce0-4f44-11e8-8d62-a73384407920
       X-Amzn-Remapped-Connection:
       - keep-alive
       X-Amz-Apigw-Id:
-      - FPJnSH3JIAMFz8A=
+      - GVxN-Hg2oAMFyZw=
       X-Amzn-Remapped-Date:
-      - Thu, 12 Apr 2018 16:29:21 GMT
+      - Fri, 04 May 2018 02:43:11 GMT
       X-Cache:
       - Miss from cloudfront
       Via:
-      - 1.1 26323e33c40f7d3c5faf3b27606bb0b1.cloudfront.net (CloudFront)
+      - 1.1 ac34121093afdc7c5e89263bece028e1.cloudfront.net (CloudFront)
       X-Amz-Cf-Id:
-      - BEw4dZROCTsn2l9gnDCEEff9u5lBJbiJRCAUKLNGis05QLYlk44XaA==
+      - DxMjxVirE45TW8aKMWhKttFjpKH10p4HZUNCaSZe9J_T8e9_i8DEOA==
     body:
       encoding: UTF-8
       string: '{"packageId":2845506,"packageName":"I got a new package name","isCustom":true,"vendorId":123355,"vendorName":"API
-        DEV CORPORATE CUSTOMER","titleCount":0,"isSelected":true,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"AggregatedFullText","customCoverage":{"beginCoverage":"2003-01-01","endCoverage":"2004-01-01"},"proxy":{"id":"<n>","inherited":true},"allowEbscoToAddTitles":false,"packageToken":null,"packageType":"Custom"}'
+        DEV CORPORATE CUSTOMER","titleCount":0,"isSelected":true,"visibilityData":{"isHidden":true,"reason":"Hidden
+        by Customer"},"selectedCount":0,"isTokenNeeded":false,"contentType":"EJournal","customCoverage":{"beginCoverage":"2003-01-01","endCoverage":"2004-01-01"},"proxy":{"id":"<n>","inherited":true},"allowEbscoToAddTitles":false,"packageToken":null,"packageType":"Custom"}'
     http_version: 
-  recorded_at: Thu, 12 Apr 2018 16:29:21 GMT
+  recorded_at: Fri, 04 May 2018 02:43:11 GMT
 - request:
     method: put
     uri: https://api.ebsco.io/rm/rmaccounts/TEST_CUSTOMER_ID/vendors/123355/packages/2845506
     body:
       encoding: UTF-8
-      string: '{"isSelected":true,"allowEbscoToAddTitles":false,"isHidden":true,"customCoverage":{"beginCoverage":"2003-01-01","endCoverage":"2004-01-01"},"packageName":"I
-        got a new package name","contentType":"AggregatedFullText"}'
+      string: '{"isSelected":true,"allowEbscoToAddTitles":null,"packageName":null,"isHidden":true}'
     headers:
-      User-Agent:
-      - Flexirest/1.5.5
-      Connection:
-      - Keep-Alive
-      Accept:
-      - application/json
       X-Api-Key:
       - TEST_API_KEY
       Content-Type:
       - application/json
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - application/json
+      Connection:
+      - close
+      Host:
+      - api.ebsco.io
+      User-Agent:
+      - http.rb/3.3.0
   response:
     status:
-      code: 204
-      message: No Content
+      code: 400
+      message: Bad Request
     headers:
       Content-Type:
-      - application/json
+      - application/json;charset=UTF-8
       Content-Length:
-      - '0'
+      - '84'
       Connection:
-      - keep-alive
+      - close
       Date:
-      - Thu, 12 Apr 2018 16:29:22 GMT
+      - Fri, 04 May 2018 02:43:12 GMT
       X-Amzn-Requestid:
-      - a7fa181a-3e6e-11e8-bf01-9f917221406c
+      - e3153b4e-4f44-11e8-9724-8bf2b243d420
       X-Amzn-Remapped-Connection:
       - keep-alive
       X-Amz-Apigw-Id:
-      - FPJnUFlOoAMF1Cw=
+      - GVxOAFtqoAMF-fA=
       X-Amzn-Remapped-Date:
-      - Thu, 12 Apr 2018 16:29:21 GMT
+      - Fri, 04 May 2018 02:43:11 GMT
       X-Cache:
-      - Miss from cloudfront
+      - Error from cloudfront
       Via:
-      - 1.1 07a4270348f84154cfba6750f17515e7.cloudfront.net (CloudFront)
+      - 1.1 a1bc06b7f7932216e8d406a348288eac.cloudfront.net (CloudFront)
       X-Amz-Cf-Id:
-      - MdNe1dhv25aOcqlSicmC-YLypBWYmcdFgfaRUHKqykBnOnDK86vC2g==
+      - AxjJ8Kvs4TZRiZQoSPJc0sURlW4aCal1JM1mkGnmWox6Z4aS86jZ2Q==
     body:
       encoding: UTF-8
-      string: ''
+      string: '{"errors":[{"code":1001,"subCode":0,"message":"Attribute PackageName
+        is missing."}]}'
     http_version: 
-  recorded_at: Thu, 12 Apr 2018 16:29:22 GMT
+  recorded_at: Fri, 04 May 2018 02:43:12 GMT
 - request:
     method: get
     uri: https://api.ebsco.io/rm/rmaccounts/TEST_CUSTOMER_ID/vendors/123355/packages/2845506
     body:
-      encoding: US-ASCII
+      encoding: UTF-8
       string: ''
     headers:
-      User-Agent:
-      - Flexirest/1.5.5
-      Connection:
-      - Keep-Alive
-      Accept:
-      - application/json
       X-Api-Key:
       - TEST_API_KEY
       Content-Type:
       - application/json
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - application/json
+      Connection:
+      - close
+      Host:
+      - api.ebsco.io
+      User-Agent:
+      - http.rb/3.3.0
   response:
     status:
       code: 200
@@ -239,30 +240,30 @@ http_interactions:
       Content-Type:
       - application/json;charset=UTF-8
       Content-Length:
-      - '497'
+      - '487'
       Connection:
-      - keep-alive
+      - close
       Date:
-      - Thu, 12 Apr 2018 16:29:22 GMT
+      - Fri, 04 May 2018 02:43:12 GMT
       X-Amzn-Requestid:
-      - a8151aa3-3e6e-11e8-a1f3-b3a9089eba4b
+      - e33175d5-4f44-11e8-94d0-51541d963490
       X-Amzn-Remapped-Connection:
       - keep-alive
       X-Amz-Apigw-Id:
-      - FPJnWHMrIAMF6Lw=
+      - GVxOCFYToAMFq1w=
       X-Amzn-Remapped-Date:
-      - Thu, 12 Apr 2018 16:29:21 GMT
+      - Fri, 04 May 2018 02:43:12 GMT
       X-Cache:
       - Miss from cloudfront
       Via:
-      - 1.1 6c3617aad8059817719e72cab06f7158.cloudfront.net (CloudFront)
+      - 1.1 9865fbd5c61131fde861cc79a5ba4ead.cloudfront.net (CloudFront)
       X-Amz-Cf-Id:
-      - 4UXRTbZueyrwm3_cPGrCBxd2J7S85ywG1zDZ1dSjj3df75YqPDtgiQ==
+      - lZv7bnBA9Gv0gn7ziiKwKRk2aH51IQLhyfBD05QEqXhMPpXK5wF52Q==
     body:
       encoding: UTF-8
       string: '{"packageId":2845506,"packageName":"I got a new package name","isCustom":true,"vendorId":123355,"vendorName":"API
         DEV CORPORATE CUSTOMER","titleCount":0,"isSelected":true,"visibilityData":{"isHidden":true,"reason":"Hidden
-        by Customer"},"selectedCount":0,"isTokenNeeded":false,"contentType":"AggregatedFullText","customCoverage":{"beginCoverage":"2003-01-01","endCoverage":"2004-01-01"},"proxy":{"id":"<n>","inherited":true},"allowEbscoToAddTitles":false,"packageToken":null,"packageType":"Custom"}'
+        by Customer"},"selectedCount":0,"isTokenNeeded":false,"contentType":"EJournal","customCoverage":{"beginCoverage":"2003-01-01","endCoverage":"2004-01-01"},"proxy":{"id":"<n>","inherited":true},"allowEbscoToAddTitles":false,"packageToken":null,"packageType":"Custom"}'
     http_version: 
-  recorded_at: Thu, 12 Apr 2018 16:29:22 GMT
+  recorded_at: Fri, 04 May 2018 02:43:12 GMT
 recorded_with: VCR 3.0.3

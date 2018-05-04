@@ -27,7 +27,7 @@ http_interactions:
       Server:
       - nginx/1.13.5
       Date:
-      - Fri, 04 May 2018 02:42:25 GMT
+      - Fri, 04 May 2018 04:57:43 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -36,15 +36,15 @@ http_interactions:
       - keep-alive
       X-Okapi-Trace:
       - 'GET mod-authtoken-1.4.1-SNAPSHOT.20 http://10.39.249.72:8081/configurations/entries..
-        : 202 1199us'
+        : 202 354790us'
       - 'GET mod-configuration-4.0.3-SNAPSHOT.29 http://10.39.252.104:8081/configurations/entries..
-        : 200 41563us'
+        : 200 41531us'
       Host:
       - okapi.frontside.io
       X-Real-Ip:
-      - 10.128.0.3
+      - 10.128.0.4
       X-Forwarded-For:
-      - 10.128.0.3
+      - 10.128.0.4
       X-Forwarded-Host:
       - okapi.frontside.io
       X-Forwarded-Port:
@@ -66,7 +66,7 @@ http_interactions:
       User-Agent:
       - Ruby
       X-Okapi-Request-Id:
-      - 741420/configurations
+      - 502789/configurations
       X-Okapi-Url:
       - http://10.39.243.220:80
       X-Okapi-Permissions-Required:
@@ -107,56 +107,5 @@ http_interactions:
           }
         }
     http_version: 
-  recorded_at: Fri, 04 May 2018 02:42:25 GMT
-- request:
-    method: get
-    uri: https://api.ebsco.io/rm/rmaccounts/TEST_CUSTOMER_ID/vendors/19/packages/6581
-    body:
-      encoding: UTF-8
-      string: ''
-    headers:
-      X-Api-Key:
-      - TEST_API_KEY
-      Content-Type:
-      - application/json
-      Accept:
-      - application/json
-      Connection:
-      - close
-      Host:
-      - api.ebsco.io
-      User-Agent:
-      - http.rb/3.3.0
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Content-Type:
-      - application/json;charset=UTF-8
-      Content-Length:
-      - '451'
-      Connection:
-      - close
-      Date:
-      - Fri, 04 May 2018 02:42:25 GMT
-      X-Amzn-Requestid:
-      - c72374f1-4f44-11e8-aac3-cb1199787e8c
-      X-Amzn-Remapped-Connection:
-      - keep-alive
-      X-Amz-Apigw-Id:
-      - GVxGsHE3oAMFdJw=
-      X-Amzn-Remapped-Date:
-      - Fri, 04 May 2018 02:42:24 GMT
-      X-Cache:
-      - Miss from cloudfront
-      Via:
-      - 1.1 e90303ba6db45a2785ea8e963e1ef010.cloudfront.net (CloudFront)
-      X-Amz-Cf-Id:
-      - 03Tnln70BfIxfsTklb74WCiU-QVuPtby9tyulk9_uZ1l1PIsrDAijQ==
-    body:
-      encoding: UTF-8
-      string: '{"packageId":6581,"packageName":"EBSCO Biotechnology Collection: India","isCustom":false,"vendorId":19,"vendorName":"EBSCO","titleCount":157,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"AggregatedFullText","customCoverage":{"beginCoverage":"","endCoverage":""},"proxy":{"id":"<n>","inherited":true},"allowEbscoToAddTitles":false,"packageToken":null,"packageType":"Complete"}'
-    http_version: 
-  recorded_at: Fri, 04 May 2018 02:42:25 GMT
+  recorded_at: Fri, 04 May 2018 04:57:43 GMT
 recorded_with: VCR 3.0.3

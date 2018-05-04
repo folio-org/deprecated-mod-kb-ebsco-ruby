@@ -27,7 +27,7 @@ http_interactions:
       Server:
       - nginx/1.13.5
       Date:
-      - Thu, 05 Apr 2018 04:22:17 GMT
+      - Fri, 04 May 2018 19:56:11 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -36,15 +36,15 @@ http_interactions:
       - keep-alive
       X-Okapi-Trace:
       - 'GET mod-authtoken-1.4.1-SNAPSHOT.20 http://10.39.249.72:8081/configurations/entries..
-        : 202 361192us'
+        : 202 351934us'
       - 'GET mod-configuration-4.0.3-SNAPSHOT.29 http://10.39.252.104:8081/configurations/entries..
-        : 200 50762us'
+        : 200 41721us'
       Host:
       - okapi.frontside.io
       X-Real-Ip:
-      - 10.36.3.1
+      - 10.36.4.1
       X-Forwarded-For:
-      - 10.36.3.1
+      - 10.36.4.1
       X-Forwarded-Host:
       - okapi.frontside.io
       X-Forwarded-Port:
@@ -66,7 +66,7 @@ http_interactions:
       User-Agent:
       - Ruby
       X-Okapi-Request-Id:
-      - 408109/configurations
+      - 705036/configurations
       X-Okapi-Url:
       - http://10.39.243.220:80
       X-Okapi-Permissions-Required:
@@ -107,7 +107,7 @@ http_interactions:
           }
         }
     http_version: 
-  recorded_at: Thu, 05 Apr 2018 04:22:17 GMT
+  recorded_at: Fri, 04 May 2018 19:56:11 GMT
 - request:
     method: get
     uri: https://api.ebsco.io/rm/rmaccounts/TEST_CUSTOMER_ID/vendors/19
@@ -135,28 +135,28 @@ http_interactions:
       Content-Type:
       - application/json;charset=UTF-8
       Content-Length:
-      - '158'
+      - '154'
       Connection:
       - keep-alive
       Date:
-      - Thu, 05 Apr 2018 04:22:18 GMT
+      - Fri, 04 May 2018 19:56:12 GMT
       X-Amzn-Requestid:
-      - ed0efcc4-3888-11e8-824a-af9a26177ab2
+      - 32181efa-4fd5-11e8-b786-d95d82aa0e3e
       X-Amzn-Remapped-Connection:
       - keep-alive
       X-Amz-Apigw-Id:
-      - E2ajCEXwoAMFTYw=
+      - GYIiZE8HIAMFUlQ=
       X-Amzn-Remapped-Date:
-      - Thu, 05 Apr 2018 04:22:18 GMT
+      - Fri, 04 May 2018 19:56:12 GMT
       X-Cache:
       - Miss from cloudfront
       Via:
-      - 1.1 74f392c3bbde3f12fab5155d1847c2cd.cloudfront.net (CloudFront)
+      - 1.1 4a7b695b8ae560fe9087da065a2b7812.cloudfront.net (CloudFront)
       X-Amz-Cf-Id:
-      - WQ_jhVRrEI3h1HD_O7sw1b1-LSCpcpeEUIyAAWihdKNpkg7OfTbCDA==
+      - I4ueBR3EyHtvsxtVsC8Qj3Y6ZbF_ZOfUVA-OsKkIjLHf66bWf7YvEw==
     body:
       encoding: UTF-8
-      string: '{"isCustomer":false,"packagesSelected":40,"packagesTotal":632,"vendorId":19,"vendorName":"EBSCO","proxy":{"id":"EZProxy","inherited":true},"vendorToken":null}'
+      string: '{"isCustomer":false,"packagesSelected":43,"packagesTotal":626,"vendorId":19,"vendorName":"EBSCO","proxy":{"id":"<n>","inherited":true},"vendorToken":null}'
     http_version: 
-  recorded_at: Thu, 05 Apr 2018 04:22:18 GMT
+  recorded_at: Fri, 04 May 2018 19:56:12 GMT
 recorded_with: VCR 3.0.3

@@ -10,13 +10,13 @@ class Title < RmApiResource
       filters = request.get_params.delete(:filter) || {}
 
       unless filters.is_a?(ActionController::Parameters) || filters.is_a?(Hash)
-        raise ActionController::BadRequest, 'Invalid filter parameter'
+        fail ActionController::BadRequest, 'Invalid filter parameter'
       end
 
       querykeys = filters.keys & %w[name isxn subject publisher]
 
       unless querykeys.size <= 1
-        raise ActionController::BadRequest, 'Conflicting filter parameters'
+        fail ActionController::BadRequest, 'Conflicting filter parameters'
       end
 
       titlename = filters[:name]
@@ -26,7 +26,7 @@ class Title < RmApiResource
       query = request.get_params.delete(:q)
 
       if query && querykeys.size == 1
-        raise ActionController::BadRequest, 'Conflicting query parameters'
+        fail ActionController::BadRequest, 'Conflicting query parameters'
       end
 
       if query

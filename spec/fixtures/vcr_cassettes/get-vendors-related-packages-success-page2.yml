@@ -2,6 +2,175 @@
 http_interactions:
 - request:
     method: get
+    uri: https://api.ebsco.io/rm/rmaccounts/TEST_CUSTOMER_ID/packages?contenttype=all&count=25&offset=2&orderby=packagename&search=&selection=all
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      X-Api-Key:
+      - TEST_API_KEY
+      Content-Type:
+      - application/json
+      Accept:
+      - application/json
+      Connection:
+      - close
+      Host:
+      - api.ebsco.io
+      User-Agent:
+      - http.rb/3.3.0
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json;charset=UTF-8
+      Content-Length:
+      - '9411'
+      Connection:
+      - close
+      Date:
+      - Fri, 04 May 2018 10:12:56 GMT
+      X-Amzn-Requestid:
+      - b6ce6637-4f83-11e8-8b1c-ebab8891d640
+      X-Amzn-Remapped-Connection:
+      - keep-alive
+      X-Amz-Apigw-Id:
+      - GWzGREkgIAMFqxg=
+      X-Amzn-Remapped-Date:
+      - Fri, 04 May 2018 10:12:55 GMT
+      X-Cache:
+      - Miss from cloudfront
+      Via:
+      - 1.1 d64756b4df47ce24d6c62b5a8de97e87.cloudfront.net (CloudFront)
+      X-Amz-Cf-Id:
+      - 5EjFiFtyffhvUfp-mzHiS6fiijpyZASPNv_ADN8V9PNMjNlAyg2xuA==
+    body:
+      encoding: UTF-8
+      string: '{"totalResults":10001,"packagesList":[{"packageId":19187,"packageName":"2014
+        Oxford Journals Collection (WALDO)","isCustom":false,"vendorId":63,"vendorName":"Oxford
+        University Press","titleCount":259,"isSelected":true,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":259,"isTokenNeeded":false,"contentType":"EJournal","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Complete"},{"packageId":19239,"packageName":"2014
+        Royal Society of Chemistry Gold Collection (WALDO)","isCustom":false,"vendorId":40,"vendorName":"Royal
+        Society of Chemistry","titleCount":44,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"EJournal","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Complete"},{"packageId":8145,"packageName":"20th
+        Century Religious Thought","isCustom":false,"vendorId":413,"vendorName":"Alexander
+        Street Press","titleCount":2630,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"AggregatedFullText","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Complete"},{"packageId":1153017,"packageName":"20th
+        Century Religious Thought (Digital Karl Barth Library Subscribers)","isCustom":false,"vendorId":413,"vendorName":"Alexander
+        Street Press","titleCount":2493,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"AggregatedFullText","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Complete"},{"packageId":6497,"packageName":"20th-Century
+        American Newspapers, Series 1","isCustom":false,"vendorId":72,"vendorName":"NewsBank","titleCount":3,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"AggregatedFullText","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Variable"},{"packageId":6498,"packageName":"20th-Century
+        American Newspapers, Series 2","isCustom":false,"vendorId":72,"vendorName":"NewsBank","titleCount":3,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"AggregatedFullText","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Variable"},{"packageId":6499,"packageName":"20th-Century
+        American Newspapers, Series 3","isCustom":false,"vendorId":72,"vendorName":"NewsBank","titleCount":4,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"AggregatedFullText","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Variable"},{"packageId":2039367,"packageName":"3D
+        Anatomy and Physiology","isCustom":false,"vendorId":117842,"vendorName":"Primal
+        Pictures","titleCount":1,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"OnlineReference","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Complete"},{"packageId":6077,"packageName":"4CAST","isCustom":false,"vendorId":858,"vendorName":"4Cast
+        LTD","titleCount":1,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"OnlineReference","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Complete"},{"packageId":6114,"packageName":"4D
+        Online Parts Universe","isCustom":false,"vendorId":454,"vendorName":"IHS Markit","titleCount":1,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"OnlineReference","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Complete"},{"packageId":1229744,"packageName":"5
+        Minute Consult","isCustom":false,"vendorId":16,"vendorName":"Ovid Technologies","titleCount":1,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"OnlineReference","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Complete"},{"packageId":4860,"packageName":"50
+        Lessons","isCustom":false,"vendorId":663,"vendorName":"Mind Resources","titleCount":1,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"OnlineReference","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Complete"},{"packageId":1367800,"packageName":"60
+        Minutes 1997-2014","isCustom":false,"vendorId":413,"vendorName":"Alexander
+        Street Press","titleCount":3468,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"AggregatedFullText","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Complete"},{"packageId":1207861,"packageName":"A
+        Biographical Dictionary of Later Han to the Three Kingdoms (23–220 AD) Online","isCustom":false,"vendorId":350,"vendorName":"Brill","titleCount":1,"isSelected":true,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":1,"isTokenNeeded":false,"contentType":"OnlineReference","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Complete"},{"packageId":1207860,"packageName":"A
+        Biographical Dictionary of the Qin, Former Han and Xin Periods (221 BC – AD
+        24) Online","isCustom":false,"vendorId":350,"vendorName":"Brill","titleCount":1,"isSelected":true,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":1,"isTokenNeeded":false,"contentType":"OnlineReference","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Complete"},{"packageId":1387517,"packageName":"A
+        Chronology of Australian Historic & Current Events","isCustom":false,"vendorId":127,"vendorName":"Informit","titleCount":1,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"AbstractAndIndex","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Complete"},{"packageId":1231238,"packageName":"À
+        la croisée des regards - BNDS","isCustom":false,"vendorId":1051,"vendorName":"Bibliothèque
+        Numérique de Droit de la Santé et D''éthique Médicale (BNDS)","titleCount":7,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"EBook","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Variable"},{"packageId":6858,"packageName":"A
+        to Z Maps Online","isCustom":false,"vendorId":865,"vendorName":"World Trade
+        Press","titleCount":1,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":true,"contentType":"OnlineReference","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Complete"},{"packageId":1266748,"packageName":"A.D.A.M.","isCustom":false,"vendorId":110669,"vendorName":"AdamCorp","titleCount":1,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"OnlineReference","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Complete"},{"packageId":1158490,"packageName":"A.D.A.M.
+        Medical Encyclopedia","isCustom":false,"vendorId":408,"vendorName":"National
+        Library of Medicine","titleCount":1,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"OnlineReference","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Complete"},{"packageId":12383,"packageName":"AAAI
+        Digital Library","isCustom":false,"vendorId":28825,"vendorName":"Association
+        for the Advancement of Artificial Intelligence","titleCount":31,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"AggregatedFullText","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Variable"},{"packageId":2679798,"packageName":"AACCI
+        Grain Science Online Library","isCustom":false,"vendorId":126210,"vendorName":"AACC
+        International","titleCount":19,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"EBook","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Variable"},{"packageId":21767,"packageName":"AACR
+        Journal COMBO","isCustom":false,"vendorId":338,"vendorName":"American Association
+        for Cancer Research","titleCount":2,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"EJournal","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Complete"},{"packageId":19375,"packageName":"AACR
+        Journal COMBO (KMLA)","isCustom":false,"vendorId":338,"vendorName":"American
+        Association for Cancer Research","titleCount":2,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"EJournal","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Complete"},{"packageId":2789772,"packageName":"AACR
+        Journal Suite","isCustom":false,"vendorId":338,"vendorName":"American Association
+        for Cancer Research","titleCount":11,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"EJournal","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Complete"}]}'
+    http_version: 
+  recorded_at: Fri, 04 May 2018 10:12:56 GMT
+- request:
+    method: get
+    uri: https://api.ebsco.io/rm/rmaccounts/TEST_CUSTOMER_ID/vendors/19/packages?contenttype=all&count=25&offset=2&orderby=packagename&search=&selection=all
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      X-Api-Key:
+      - TEST_API_KEY
+      Content-Type:
+      - application/json
+      Accept:
+      - application/json
+      Connection:
+      - close
+      Host:
+      - api.ebsco.io
+      User-Agent:
+      - http.rb/3.3.0
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json;charset=UTF-8
+      Content-Length:
+      - '9535'
+      Connection:
+      - close
+      Date:
+      - Fri, 04 May 2018 14:35:41 GMT
+      X-Amzn-Requestid:
+      - 6b772336-4fa8-11e8-b455-a37016e4f442
+      X-Amzn-Remapped-Connection:
+      - keep-alive
+      X-Amz-Apigw-Id:
+      - GXZliGqVIAMFujA=
+      X-Amzn-Remapped-Date:
+      - Fri, 04 May 2018 14:35:41 GMT
+      X-Cache:
+      - Miss from cloudfront
+      Via:
+      - 1.1 fc8718fc654846d5ff65e1100874c1fc.cloudfront.net (CloudFront)
+      X-Amz-Cf-Id:
+      - aL8WFgszVolFKWfOfcnSBPdEdulbqemyBYPv0TL3lyQejlsDAI3XSg==
+    body:
+      encoding: UTF-8
+      string: '{"totalResults":626,"packagesList":[{"packageId":7377,"packageName":"AMA
+        Archive (EBSCO)","isCustom":false,"vendorId":19,"vendorName":"EBSCO","titleCount":1,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"OnlineReference","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Complete"},{"packageId":1714911,"packageName":"AMA
+        Marketing Watch","isCustom":false,"vendorId":19,"vendorName":"EBSCO","titleCount":79,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"AggregatedFullText","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Complete"},{"packageId":2701,"packageName":"AMED
+        - The Allied and Complementary Medicine Database","isCustom":false,"vendorId":19,"vendorName":"EBSCO","titleCount":1,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"AbstractAndIndex","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Complete"},{"packageId":2532,"packageName":"America:
+        History & Life (EBSCO)","isCustom":false,"vendorId":19,"vendorName":"EBSCO","titleCount":1,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"AbstractAndIndex","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Complete"},{"packageId":4213,"packageName":"America:
+        History & Life with Full Text","isCustom":false,"vendorId":19,"vendorName":"EBSCO","titleCount":360,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"AggregatedFullText","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Complete"},{"packageId":1304773,"packageName":"America:
+        History & Life with Full Text Alumni Edition","isCustom":false,"vendorId":19,"vendorName":"EBSCO","titleCount":266,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"AggregatedFullText","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Complete"},{"packageId":3931,"packageName":"American
+        Antiquarian Society (AAS) Historical Periodicals Collection: Series 1 (1691-1820)","isCustom":false,"vendorId":19,"vendorName":"EBSCO","titleCount":568,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"AggregatedFullText","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Complete"},{"packageId":3926,"packageName":"American
+        Antiquarian Society (AAS) Historical Periodicals Collection: Series 2 (1821-1837)
+        ","isCustom":false,"vendorId":19,"vendorName":"EBSCO","titleCount":1268,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"AggregatedFullText","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Complete"},{"packageId":4369,"packageName":"American
+        Antiquarian Society (AAS) Historical Periodicals Collection: Series 3 (1838-1852)","isCustom":false,"vendorId":19,"vendorName":"EBSCO","titleCount":2076,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"AggregatedFullText","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Complete"},{"packageId":5122,"packageName":"American
+        Antiquarian Society (AAS) Historical periodicals Collection: Series 4 (1853-1865)","isCustom":false,"vendorId":19,"vendorName":"EBSCO","titleCount":1758,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"AggregatedFullText","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Complete"},{"packageId":5573,"packageName":"American
+        Antiquarian Society (AAS) Historical Periodicals Collection: Series 5","isCustom":false,"vendorId":19,"vendorName":"EBSCO","titleCount":2837,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"AggregatedFullText","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Complete"},{"packageId":2573,"packageName":"American
+        Bibliography of Slavic & Eastern European Studies","isCustom":false,"vendorId":19,"vendorName":"EBSCO","titleCount":1,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"AbstractAndIndex","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Complete"},{"packageId":1174091,"packageName":"American
+        Civil War, 1855-1868","isCustom":false,"vendorId":19,"vendorName":"EBSCO","titleCount":132,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"AggregatedFullText","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Complete"},{"packageId":2844,"packageName":"American
+        Heritage Children''s Dictionary","isCustom":false,"vendorId":19,"vendorName":"EBSCO","titleCount":1,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"OnlineReference","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Complete"},{"packageId":1127048,"packageName":"American
+        Literary Periodicals, 1782-1834","isCustom":false,"vendorId":19,"vendorName":"EBSCO","titleCount":208,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"AggregatedFullText","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Complete"},{"packageId":1127049,"packageName":"American
+        Literary Periodicals, 1835-1858","isCustom":false,"vendorId":19,"vendorName":"EBSCO","titleCount":250,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"AggregatedFullText","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Complete"},{"packageId":1127050,"packageName":"American
+        Literary Periodicals, 1859-1891","isCustom":false,"vendorId":19,"vendorName":"EBSCO","titleCount":184,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"AggregatedFullText","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Complete"},{"packageId":1714910,"packageName":"American
+        Medicine, Surgery, Dentistry Periodicals, 1786-1877","isCustom":false,"vendorId":19,"vendorName":"EBSCO","titleCount":225,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"AggregatedFullText","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Complete"},{"packageId":1154658,"packageName":"American
+        Political and Social Movements, 1815-1884","isCustom":false,"vendorId":19,"vendorName":"EBSCO","titleCount":221,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"AggregatedFullText","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Complete"},{"packageId":1104831,"packageName":"American
+        Political Periodicals - 1715-1891","isCustom":false,"vendorId":19,"vendorName":"EBSCO","titleCount":181,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"AggregatedFullText","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Complete"},{"packageId":1709922,"packageName":"American
+        Revolution Archives","isCustom":false,"vendorId":19,"vendorName":"EBSCO","titleCount":1,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"AbstractAndIndex","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Complete"},{"packageId":3930,"packageName":"American
+        Theological Library Association (ATLA) Historical Monographs Collection: Series
+        1","isCustom":false,"vendorId":19,"vendorName":"EBSCO","titleCount":14729,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"AggregatedFullText","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Complete"},{"packageId":3925,"packageName":"American
+        Theological Library Association (ATLA) Historical Monographs Collection: Series
+        2","isCustom":false,"vendorId":19,"vendorName":"EBSCO","titleCount":14869,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"AggregatedFullText","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Complete"},{"packageId":6107,"packageName":"Anthropological
+        Index Online","isCustom":false,"vendorId":19,"vendorName":"EBSCO","titleCount":1,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"AbstractAndIndex","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Complete"},{"packageId":6108,"packageName":"Anthropological
+        Literature (EBSCO)","isCustom":false,"vendorId":19,"vendorName":"EBSCO","titleCount":1,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"AbstractAndIndex","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Complete"}]}'
+    http_version: 
+  recorded_at: Fri, 04 May 2018 14:35:41 GMT
+- request:
+    method: get
     uri: https://okapi.frontside.io/configurations/entries?query=module=KB_EBSCO
     body:
       encoding: US-ASCII
@@ -27,7 +196,7 @@ http_interactions:
       Server:
       - nginx/1.13.5
       Date:
-      - Thu, 15 Feb 2018 21:01:42 GMT
+      - Mon, 07 May 2018 09:17:14 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -35,16 +204,16 @@ http_interactions:
       Connection:
       - keep-alive
       X-Okapi-Trace:
-      - 'GET mod-authtoken-1.2.0-SNAPSHOT.14 http://10.39.255.104:8081/configurations/entries..
-        : 202 355157us'
-      - 'GET mod-configuration-4.0.1-SNAPSHOT.23 http://10.39.243.63:8081/configurations/entries..
-        : 200 42504us'
+      - 'GET mod-authtoken-1.4.1-SNAPSHOT.20 http://10.39.249.72:8081/configurations/entries..
+        : 202 1277us'
+      - 'GET mod-configuration-4.0.3-SNAPSHOT.29 http://10.39.252.104:8081/configurations/entries..
+        : 200 41676us'
       Host:
       - okapi.frontside.io
       X-Real-Ip:
-      - 10.128.0.4
+      - 10.128.0.3
       X-Forwarded-For:
-      - 10.128.0.4
+      - 10.128.0.3
       X-Forwarded-Host:
       - okapi.frontside.io
       X-Forwarded-Port:
@@ -66,13 +235,13 @@ http_interactions:
       User-Agent:
       - Ruby
       X-Okapi-Request-Id:
-      - 972154/configurations
+      - 566124/configurations
       X-Okapi-Url:
-      - http://10.39.248.95:80
+      - http://10.39.243.220:80
       X-Okapi-Permissions-Required:
       - configuration.entries.collection.get
       X-Okapi-Module-Permissions:
-      - '{"mod-authtoken-1.2.0-SNAPSHOT.14":["perms.users.get"]}'
+      - '{"mod-authtoken-1.4.1-SNAPSHOT.20":["perms.users.get"]}'
       X-Okapi-Permissions:
       - '["configuration.entries.collection.get"]'
       X-Okapi-User-Id:
@@ -86,7 +255,7 @@ http_interactions:
       string: |-
         {
           "configs" : [ {
-            "id" : "c495bf9e-25f0-4c9a-9885-05f72f438df9",
+            "id" : "9f193b46-4cc5-4c99-b09f-374fe5415673",
             "module" : "KB_EBSCO",
             "configName" : "api_credentials",
             "code" : "kb.ebsco.credentials",
@@ -94,9 +263,9 @@ http_interactions:
             "enabled" : true,
             "value" : "customer-id=TEST_CUSTOMER_ID&api-key=TEST_API_KEY",
             "metadata" : {
-              "createdDate" : "2018-01-31T19:02:09.015+0000",
+              "createdDate" : "2018-03-28T14:49:56.794+0000",
               "createdByUserId" : "1ad737b0-d847-11e6-bf26-cec0c932ce01",
-              "updatedDate" : "2018-01-31T19:02:09.014+0000",
+              "updatedDate" : "2018-03-28T14:49:56.794+0000",
               "updatedByUserId" : "1ad737b0-d847-11e6-bf26-cec0c932ce01"
             }
           } ],
@@ -107,7 +276,7 @@ http_interactions:
           }
         }
     http_version: 
-  recorded_at: Thu, 15 Feb 2018 21:01:42 GMT
+  recorded_at: Mon, 07 May 2018 09:17:14 GMT
 - request:
     method: get
     uri: https://api.ebsco.io/rm/rmaccounts/TEST_CUSTOMER_ID/vendors/19
@@ -135,47 +304,49 @@ http_interactions:
       Content-Type:
       - application/json;charset=UTF-8
       Content-Length:
-      - '116'
+      - '154'
       Connection:
       - keep-alive
       Date:
-      - Thu, 15 Feb 2018 21:01:42 GMT
+      - Mon, 07 May 2018 09:17:14 GMT
       X-Amzn-Requestid:
-      - 6c601aa9-1293-11e8-87d6-dd16673b2eb4
+      - 6e519931-51d7-11e8-a1a2-4bbd038f7b36
       X-Amzn-Remapped-Connection:
       - keep-alive
+      X-Amz-Apigw-Id:
+      - GgjwJHsGIAMFWhg=
       X-Amzn-Remapped-Date:
-      - Thu, 15 Feb 2018 21:01:42 GMT
+      - Mon, 07 May 2018 09:17:14 GMT
       X-Cache:
       - Miss from cloudfront
       Via:
-      - 1.1 64a15e08bf29b0f17269963c144b4e8f.cloudfront.net (CloudFront)
+      - 1.1 b3866c48e4cb6dc0d3dbbcbdc1d92d00.cloudfront.net (CloudFront)
       X-Amz-Cf-Id:
-      - eiauNlqVSqbXtvydjCFfE56lHNNTY23r6F8bG0-xTa2Pnn7r_g2m4g==
+      - dKRexEPNXeo6RgUmaTxzBph6G6_U0KYsT3nNAI3A-LGb0BS-to-M1w==
     body:
       encoding: UTF-8
-      string: '{"vendorId":19,"vendorName":"EBSCO","vendorToken":null,"isCustomer":false,"packagesTotal":628,"packagesSelected":27}'
+      string: '{"isCustomer":false,"packagesSelected":43,"packagesTotal":626,"vendorId":19,"vendorName":"EBSCO","proxy":{"id":"<n>","inherited":true},"vendorToken":null}'
     http_version: 
-  recorded_at: Thu, 15 Feb 2018 21:01:42 GMT
+  recorded_at: Mon, 07 May 2018 09:17:14 GMT
 - request:
     method: get
-    uri: https://api.ebsco.io/rm/rmaccounts/TEST_CUSTOMER_ID/vendors/19/packages?contenttype=all&count=25&offset=2&orderby=packagename&search=&selection=all
+    uri: https://api.ebsco.io/rm/rmaccounts/TEST_CUSTOMER_ID/vendors/19/packages?contenttype=all&count=25&offset=2&orderby=packagename&search&selection=all
     body:
-      encoding: US-ASCII
+      encoding: UTF-8
       string: ''
     headers:
-      User-Agent:
-      - Flexirest/1.5.5
-      Connection:
-      - Keep-Alive
-      Accept:
-      - application/json
       X-Api-Key:
       - TEST_API_KEY
       Content-Type:
       - application/json
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - application/json
+      Connection:
+      - close
+      Host:
+      - api.ebsco.io
+      User-Agent:
+      - http.rb/3.3.0
   response:
     status:
       code: 200
@@ -184,54 +355,56 @@ http_interactions:
       Content-Type:
       - application/json;charset=UTF-8
       Content-Length:
-      - '8980'
+      - '9535'
       Connection:
-      - keep-alive
+      - close
       Date:
-      - Thu, 15 Feb 2018 21:01:42 GMT
+      - Mon, 07 May 2018 09:17:14 GMT
       X-Amzn-Requestid:
-      - 6c8afac8-1293-11e8-aaaa-8daf9272f5cb
+      - 6e6f5a7a-51d7-11e8-a605-516c728e0923
       X-Amzn-Remapped-Connection:
       - keep-alive
+      X-Amz-Apigw-Id:
+      - GgjwLHJjoAMFgEg=
       X-Amzn-Remapped-Date:
-      - Thu, 15 Feb 2018 21:01:42 GMT
+      - Mon, 07 May 2018 09:17:14 GMT
       X-Cache:
       - Miss from cloudfront
       Via:
-      - 1.1 404d53add95aa4775e7d032723912171.cloudfront.net (CloudFront)
+      - 1.1 c62f6c9a9fdf2356a904a1b156a05fe1.cloudfront.net (CloudFront)
       X-Amz-Cf-Id:
-      - Y4Ie42bJ3snwqEUFdstt09E94mUst1TJP2P4Fytx4bnBCXmeyeq2wg==
+      - spZqtEwDi9OBU_fJ8DNKVXgTgVZ2l0lNE0Z6U7Fe0tA8-K1lZdK5rg==
     body:
       encoding: UTF-8
-      string: '{"totalResults":628,"packagesList":[{"packageId":4242,"packageName":"Alternative
-        Press Index (EBSCO)","isCustom":false,"vendorId":19,"vendorName":"EBSCO","titleCount":1,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"AbstractAndIndex","customCoverage":{"beginCoverage":null,"endCoverage":null}},{"packageId":4288,"packageName":"Alternative
-        Press Index Archive (EBSCO)","isCustom":false,"vendorId":19,"vendorName":"EBSCO","titleCount":1,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"AbstractAndIndex","customCoverage":{"beginCoverage":null,"endCoverage":null}},{"packageId":7377,"packageName":"AMA
-        Archive (EBSCO)","isCustom":false,"vendorId":19,"vendorName":"EBSCO","titleCount":1,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"OnlineReference","customCoverage":{"beginCoverage":null,"endCoverage":null}},{"packageId":1714911,"packageName":"AMA
-        Marketing Watch","isCustom":false,"vendorId":19,"vendorName":"EBSCO","titleCount":79,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"AggregatedFullText","customCoverage":{"beginCoverage":null,"endCoverage":null}},{"packageId":2701,"packageName":"AMED
-        - The Allied and Complementary Medicine Database","isCustom":false,"vendorId":19,"vendorName":"EBSCO","titleCount":1,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"AbstractAndIndex","customCoverage":{"beginCoverage":null,"endCoverage":null}},{"packageId":2532,"packageName":"America:
-        History & Life (EBSCO)","isCustom":false,"vendorId":19,"vendorName":"EBSCO","titleCount":1,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"AbstractAndIndex","customCoverage":{"beginCoverage":null,"endCoverage":null}},{"packageId":4213,"packageName":"America:
-        History & Life with Full Text","isCustom":false,"vendorId":19,"vendorName":"EBSCO","titleCount":347,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"AggregatedFullText","customCoverage":{"beginCoverage":null,"endCoverage":null}},{"packageId":1304773,"packageName":"America:
-        History & Life with Full Text Alumni Edition","isCustom":false,"vendorId":19,"vendorName":"EBSCO","titleCount":266,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"AggregatedFullText","customCoverage":{"beginCoverage":null,"endCoverage":null}},{"packageId":3931,"packageName":"American
-        Antiquarian Society (AAS) Historical Periodicals Collection: Series 1 (1691-1820)","isCustom":false,"vendorId":19,"vendorName":"EBSCO","titleCount":568,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"AggregatedFullText","customCoverage":{"beginCoverage":null,"endCoverage":null}},{"packageId":3926,"packageName":"American
+      string: '{"totalResults":626,"packagesList":[{"packageId":7377,"packageName":"AMA
+        Archive (EBSCO)","isCustom":false,"vendorId":19,"vendorName":"EBSCO","titleCount":1,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"OnlineReference","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Complete"},{"packageId":1714911,"packageName":"AMA
+        Marketing Watch","isCustom":false,"vendorId":19,"vendorName":"EBSCO","titleCount":79,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"AggregatedFullText","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Complete"},{"packageId":2701,"packageName":"AMED
+        - The Allied and Complementary Medicine Database","isCustom":false,"vendorId":19,"vendorName":"EBSCO","titleCount":1,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"AbstractAndIndex","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Complete"},{"packageId":2532,"packageName":"America:
+        History & Life (EBSCO)","isCustom":false,"vendorId":19,"vendorName":"EBSCO","titleCount":1,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"AbstractAndIndex","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Complete"},{"packageId":4213,"packageName":"America:
+        History & Life with Full Text","isCustom":false,"vendorId":19,"vendorName":"EBSCO","titleCount":360,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"AggregatedFullText","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Complete"},{"packageId":1304773,"packageName":"America:
+        History & Life with Full Text Alumni Edition","isCustom":false,"vendorId":19,"vendorName":"EBSCO","titleCount":266,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"AggregatedFullText","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Complete"},{"packageId":3931,"packageName":"American
+        Antiquarian Society (AAS) Historical Periodicals Collection: Series 1 (1691-1820)","isCustom":false,"vendorId":19,"vendorName":"EBSCO","titleCount":568,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"AggregatedFullText","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Complete"},{"packageId":3926,"packageName":"American
         Antiquarian Society (AAS) Historical Periodicals Collection: Series 2 (1821-1837)
-        ","isCustom":false,"vendorId":19,"vendorName":"EBSCO","titleCount":1269,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"AggregatedFullText","customCoverage":{"beginCoverage":null,"endCoverage":null}},{"packageId":4369,"packageName":"American
-        Antiquarian Society (AAS) Historical Periodicals Collection: Series 3 (1838-1852)","isCustom":false,"vendorId":19,"vendorName":"EBSCO","titleCount":2076,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"AggregatedFullText","customCoverage":{"beginCoverage":null,"endCoverage":null}},{"packageId":5122,"packageName":"American
-        Antiquarian Society (AAS) Historical periodicals Collection: Series 4 (1853-1865)","isCustom":false,"vendorId":19,"vendorName":"EBSCO","titleCount":1758,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"AggregatedFullText","customCoverage":{"beginCoverage":null,"endCoverage":null}},{"packageId":5573,"packageName":"American
-        Antiquarian Society (AAS) Historical Periodicals Collection: Series 5 (1866-
-        1877)","isCustom":false,"vendorId":19,"vendorName":"EBSCO","titleCount":2837,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"AggregatedFullText","customCoverage":{"beginCoverage":null,"endCoverage":null}},{"packageId":2573,"packageName":"American
-        Bibliography of Slavic & Eastern European Studies","isCustom":false,"vendorId":19,"vendorName":"EBSCO","titleCount":1,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"AbstractAndIndex","customCoverage":{"beginCoverage":null,"endCoverage":null}},{"packageId":1174091,"packageName":"American
-        Civil War, 1855-1868","isCustom":false,"vendorId":19,"vendorName":"EBSCO","titleCount":132,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"AggregatedFullText","customCoverage":{"beginCoverage":null,"endCoverage":null}},{"packageId":1709929,"packageName":"American
-        Doctoral Dissertations, 1933 - 1955","isCustom":false,"vendorId":19,"vendorName":"EBSCO","titleCount":1,"isSelected":true,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":1,"isTokenNeeded":false,"contentType":"OnlineReference","customCoverage":{"beginCoverage":null,"endCoverage":null}},{"packageId":2844,"packageName":"American
-        Heritage Children''s Dictionary","isCustom":false,"vendorId":19,"vendorName":"EBSCO","titleCount":1,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"OnlineReference","customCoverage":{"beginCoverage":null,"endCoverage":null}},{"packageId":1127048,"packageName":"American
-        Literary Periodicals, 1782-1834","isCustom":false,"vendorId":19,"vendorName":"EBSCO","titleCount":208,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"AggregatedFullText","customCoverage":{"beginCoverage":null,"endCoverage":null}},{"packageId":1127049,"packageName":"American
-        Literary Periodicals, 1835-1858","isCustom":false,"vendorId":19,"vendorName":"EBSCO","titleCount":250,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"AggregatedFullText","customCoverage":{"beginCoverage":null,"endCoverage":null}},{"packageId":1127050,"packageName":"American
-        Literary Periodicals, 1859-1891","isCustom":false,"vendorId":19,"vendorName":"EBSCO","titleCount":184,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"AggregatedFullText","customCoverage":{"beginCoverage":null,"endCoverage":null}},{"packageId":1714910,"packageName":"American
-        Medicine, Surgery, Dentistry Periodicals, 1786-1877","isCustom":false,"vendorId":19,"vendorName":"EBSCO","titleCount":225,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"AggregatedFullText","customCoverage":{"beginCoverage":null,"endCoverage":null}},{"packageId":1154658,"packageName":"American
-        Political and Social Movements, 1815-1884","isCustom":false,"vendorId":19,"vendorName":"EBSCO","titleCount":221,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"AggregatedFullText","customCoverage":{"beginCoverage":null,"endCoverage":null}},{"packageId":1104831,"packageName":"American
-        Political Periodicals - 1715-1891","isCustom":false,"vendorId":19,"vendorName":"EBSCO","titleCount":163,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"AggregatedFullText","customCoverage":{"beginCoverage":null,"endCoverage":null}},{"packageId":1709922,"packageName":"American
-        Revolution Archives","isCustom":false,"vendorId":19,"vendorName":"EBSCO","titleCount":1,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"AbstractAndIndex","customCoverage":{"beginCoverage":null,"endCoverage":null}},{"packageId":3930,"packageName":"American
+        ","isCustom":false,"vendorId":19,"vendorName":"EBSCO","titleCount":1268,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"AggregatedFullText","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Complete"},{"packageId":4369,"packageName":"American
+        Antiquarian Society (AAS) Historical Periodicals Collection: Series 3 (1838-1852)","isCustom":false,"vendorId":19,"vendorName":"EBSCO","titleCount":2076,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"AggregatedFullText","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Complete"},{"packageId":5122,"packageName":"American
+        Antiquarian Society (AAS) Historical periodicals Collection: Series 4 (1853-1865)","isCustom":false,"vendorId":19,"vendorName":"EBSCO","titleCount":1758,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"AggregatedFullText","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Complete"},{"packageId":5573,"packageName":"American
+        Antiquarian Society (AAS) Historical Periodicals Collection: Series 5","isCustom":false,"vendorId":19,"vendorName":"EBSCO","titleCount":2837,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"AggregatedFullText","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Complete"},{"packageId":2573,"packageName":"American
+        Bibliography of Slavic & Eastern European Studies","isCustom":false,"vendorId":19,"vendorName":"EBSCO","titleCount":1,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"AbstractAndIndex","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Complete"},{"packageId":1174091,"packageName":"American
+        Civil War, 1855-1868","isCustom":false,"vendorId":19,"vendorName":"EBSCO","titleCount":132,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"AggregatedFullText","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Complete"},{"packageId":2844,"packageName":"American
+        Heritage Children''s Dictionary","isCustom":false,"vendorId":19,"vendorName":"EBSCO","titleCount":1,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"OnlineReference","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Complete"},{"packageId":1127048,"packageName":"American
+        Literary Periodicals, 1782-1834","isCustom":false,"vendorId":19,"vendorName":"EBSCO","titleCount":208,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"AggregatedFullText","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Complete"},{"packageId":1127049,"packageName":"American
+        Literary Periodicals, 1835-1858","isCustom":false,"vendorId":19,"vendorName":"EBSCO","titleCount":250,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"AggregatedFullText","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Complete"},{"packageId":1127050,"packageName":"American
+        Literary Periodicals, 1859-1891","isCustom":false,"vendorId":19,"vendorName":"EBSCO","titleCount":184,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"AggregatedFullText","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Complete"},{"packageId":1714910,"packageName":"American
+        Medicine, Surgery, Dentistry Periodicals, 1786-1877","isCustom":false,"vendorId":19,"vendorName":"EBSCO","titleCount":225,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"AggregatedFullText","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Complete"},{"packageId":1154658,"packageName":"American
+        Political and Social Movements, 1815-1884","isCustom":false,"vendorId":19,"vendorName":"EBSCO","titleCount":221,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"AggregatedFullText","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Complete"},{"packageId":1104831,"packageName":"American
+        Political Periodicals - 1715-1891","isCustom":false,"vendorId":19,"vendorName":"EBSCO","titleCount":181,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"AggregatedFullText","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Complete"},{"packageId":1709922,"packageName":"American
+        Revolution Archives","isCustom":false,"vendorId":19,"vendorName":"EBSCO","titleCount":1,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"AbstractAndIndex","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Complete"},{"packageId":3930,"packageName":"American
         Theological Library Association (ATLA) Historical Monographs Collection: Series
-        1","isCustom":false,"vendorId":19,"vendorName":"EBSCO","titleCount":14729,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"AggregatedFullText","customCoverage":{"beginCoverage":null,"endCoverage":null}}]}'
+        1","isCustom":false,"vendorId":19,"vendorName":"EBSCO","titleCount":14729,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"AggregatedFullText","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Complete"},{"packageId":3925,"packageName":"American
+        Theological Library Association (ATLA) Historical Monographs Collection: Series
+        2","isCustom":false,"vendorId":19,"vendorName":"EBSCO","titleCount":14869,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"AggregatedFullText","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Complete"},{"packageId":6107,"packageName":"Anthropological
+        Index Online","isCustom":false,"vendorId":19,"vendorName":"EBSCO","titleCount":1,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"AbstractAndIndex","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Complete"},{"packageId":6108,"packageName":"Anthropological
+        Literature (EBSCO)","isCustom":false,"vendorId":19,"vendorName":"EBSCO","titleCount":1,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"AbstractAndIndex","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Complete"}]}'
     http_version: 
-  recorded_at: Thu, 15 Feb 2018 21:01:42 GMT
+  recorded_at: Mon, 07 May 2018 09:17:14 GMT
 recorded_with: VCR 3.0.3

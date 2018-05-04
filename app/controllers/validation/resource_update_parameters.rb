@@ -28,7 +28,7 @@ module Validation
 
     validate :identifiers_list_valid?, unless: -> { identifiersList.blank? }
 
-    def identifiers_list_valid? # rubocop:disable Metrics/AbcSize
+    def identifiers_list_valid?
       identifiersList.each do |identifier|
         errors.add(:IdentifierId, ':Invalid/Exceeded Length of Identifier id') unless
         identifier['id']&.instance_of?(String) && identifier['id'].length <= 20

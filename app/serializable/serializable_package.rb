@@ -7,47 +7,43 @@ class SerializablePackage < SerializableJSONAPIResource
   has_one :vendor
   has_one :provider
 
-  attributes :vendorId,
-             :packageId,
-             :contentType,
-             :titleCount,
-             :selectedCount,
-             :customCoverage,
-             :isSelected,
-             :allowKbToAddTitles,
-             :vendorName,
-             :isCustom,
-             :packageType
+  attributes :allow_kb_to_add_titles,
+             :content_type,
+             :custom_coverage,
+             :is_custom,
+             :is_selected,
+             :name,
+             :package_id,
+             :package_type,
+             :provider_id,
+             :provider_name,
+             :selected_count,
+             :title_count
 
-  attribute :providerId do
-    @object.vendorId
+  attribute :vendor_id do
+    @object.provider_id
   end
 
-  attribute :providerName do
-    @object.vendorName
+  attribute :vendor_name do
+    @object.provider_name
   end
 
-  attribute :name do
-    @object.packageName
-  end
+  attribute :visibility_data do
+    visibility = @object.visibility_data
 
-  attribute :allowKbToAddTitles do
-    @object.allowEbscoToAddTitles
-  end
-
-  attribute :visibilityData do
-    visibility = @object.visibilityData
-
-    if visibility[:isHidden]
+    if visibility[:is_hidden]
       visibility[:reason] =
         visibility[:reason] == 'Hidden by EP' ? 'Set by system' : ''
     end
-    visibility
+    visibility.transform_keys { |key| key.to_s.camelize(:lower).to_sym }
   end
 
-  attribute :contentType do
+  attribute :custom_coverage do
+    @object.custom_coverage.transform_keys { |key| key.to_s.camelize(:lower).to_sym }
+  end
+
+  attribute :content_type do
     content_types = {
-      all: 'All',
       aggregatedfulltext: 'Aggregated Full Text',
       abstractandindex: 'Abstract and Index',
       ebook: 'E-Book',
@@ -57,8 +53,8 @@ class SerializablePackage < SerializableJSONAPIResource
       onlinereference: 'Online Reference'
     }
 
-    content_type_key = @object.contentType.downcase.to_sym
+    content_type_key = @object.content_type.downcase.to_sym
 
-    content_types[content_type_key] || @object.contentType
+    content_types[content_type_key] || @object.content_type
   end
 end

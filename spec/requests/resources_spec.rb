@@ -667,4 +667,73 @@ RSpec.describe 'Resources', type: :request do
       expect(visibility.reason).to eq('Set by system')
     end
   end
+
+  describe 'creating a resource' do
+    let(:create_headers) do
+      okapi_headers.merge(
+        'Content-Type': 'application/vnd.api+json'
+      )
+    end
+
+    let(:package_id) { '19-2516' }
+    let(:title_id) { 907_372 }
+    let(:resource_id) { "#{package_id}-#{title_id}" }
+
+    let(:body) { Map JSON.parse response.body }
+
+    let(:params) do
+      {
+        data: {
+          type: 'resources',
+          attributes: {
+            packageId: package_id,
+            titleId: title_id
+          }
+        }
+      }
+    end
+
+    context 'linking a package that is not a custom package' do
+      let(:package_id) { '19-2516' }
+
+      before do
+        VCR.use_cassette('resource-link-to-managed-package') do
+          post '/eholdings/resources/', params: params, as: :json,
+                                        headers: create_headers
+        end
+      end
+
+      it 'returns some kind of validation error' do
+        expect(response).to have_http_status(422)
+        expect(body.key?('errors')).to be true
+        expect(body.errors.first.detail).to eq 'Packageid Cannot associate Title with a managed Package'
+      end
+    end
+    context 'with a custom package' do
+      let(:package_id) { '123355-2864301' }
+      before do
+        VCR.use_cassette('resource-link-to-custom-package') do
+          post '/eholdings/resources/', params: params, as: :json,
+                                        headers: create_headers
+        end
+      end
+      it 'returns a 200 response code and the created resource in the body' do
+        expect(response).to have_http_status(200)
+        expect(body.key?('data')).to be true
+        expect(body.data.id).to eq resource_id.to_s
+      end
+      describe 'fetching the resource specified by the newly created id' do
+        before do
+          VCR.use_cassette('resource-fetch-custom') do
+            get "/eholdings/resources/#{resource_id}",
+                headers: okapi_headers
+          end
+        end
+
+        it 'returns the same resource' do
+          expect(body.data.id).to eq resource_id
+        end
+      end
+    end
+  end
 end

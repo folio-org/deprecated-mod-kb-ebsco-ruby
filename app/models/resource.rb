@@ -24,7 +24,7 @@ class Resource < RmApiResource
       filters = request.get_params.delete(:filter) || {}
 
       unless filters.is_a?(ActionController::Parameters) || filters.is_a?(Hash)
-        raise ActionController::BadRequest, 'Invalid filter parameter'
+        fail ActionController::BadRequest, 'Invalid filter parameter'
       end
 
       request.get_params[:selection] =
@@ -77,10 +77,9 @@ class Resource < RmApiResource
   end
 
   def package
-    Package.configure(config).find(
-      vendor_id: resource.vendorId,
-      package_id: resource.packageId
-    )
+    PackagesRepository.new(config: config).find!(
+      "#{resource.vendorId}-#{resource.packageId}"
+    ).data
   end
 
   def resource
@@ -96,7 +95,7 @@ class Resource < RmApiResource
     save!
   end
 
-  def save! # rubocop:disable Metrics/AbcSize
+  def save!
     attributes = update_fields
     resource_attributes = resource_update_fields
 
@@ -132,14 +131,12 @@ class Resource < RmApiResource
   end
 
   def self.create_resource(params)
-    package_id = params['packageId']
-    create_params = params.to_hash.except('packageId')
-    rm_api_create = { vendor_id: provider_id, package_id: package_id }.merge(create_params)
-    resource_response = create rm_api_create
+    update(params)
+
     find(
-      vendor_id: provider_id,
-      package_id: package_id,
-      title_id: resource_response[:titleId]
+      vendor_id: params[:vendor_id],
+      package_id: params[:package_id],
+      title_id: params[:title_id]
     )
   end
 

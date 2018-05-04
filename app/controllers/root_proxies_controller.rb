@@ -5,7 +5,7 @@ class RootProxiesController < ApplicationController
     render jsonapi: root_proxies.all, include: params[:include]
   end
 
-  def update # rubocop:disable Metrics/AbcSize
+  def update
     data_attributes = JSON.parse(request.body.read)['data']['attributes'] || {}
     root_proxy_id = params[:id]
 

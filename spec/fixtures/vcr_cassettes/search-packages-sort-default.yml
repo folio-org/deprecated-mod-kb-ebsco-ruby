@@ -27,7 +27,7 @@ http_interactions:
       Server:
       - nginx/1.13.5
       Date:
-      - Thu, 01 Mar 2018 19:45:27 GMT
+      - Fri, 04 May 2018 02:41:49 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -35,10 +35,10 @@ http_interactions:
       Connection:
       - keep-alive
       X-Okapi-Trace:
-      - 'GET mod-authtoken-1.2.0-SNAPSHOT.14 http://10.39.255.104:8081/configurations/entries..
-        : 202 719772us'
-      - 'GET mod-configuration-4.0.1-SNAPSHOT.23 http://10.39.243.63:8081/configurations/entries..
-        : 200 43980us'
+      - 'GET mod-authtoken-1.4.1-SNAPSHOT.20 http://10.39.249.72:8081/configurations/entries..
+        : 202 1181us'
+      - 'GET mod-configuration-4.0.3-SNAPSHOT.29 http://10.39.252.104:8081/configurations/entries..
+        : 200 42154us'
       Host:
       - okapi.frontside.io
       X-Real-Ip:
@@ -66,13 +66,13 @@ http_interactions:
       User-Agent:
       - Ruby
       X-Okapi-Request-Id:
-      - 718641/configurations
+      - '085979/configurations'
       X-Okapi-Url:
-      - http://10.39.248.95:80
+      - http://10.39.243.220:80
       X-Okapi-Permissions-Required:
       - configuration.entries.collection.get
       X-Okapi-Module-Permissions:
-      - '{"mod-authtoken-1.2.0-SNAPSHOT.14":["perms.users.get"]}'
+      - '{"mod-authtoken-1.4.1-SNAPSHOT.20":["perms.users.get"]}'
       X-Okapi-Permissions:
       - '["configuration.entries.collection.get"]'
       X-Okapi-User-Id:
@@ -86,7 +86,7 @@ http_interactions:
       string: |-
         {
           "configs" : [ {
-            "id" : "c495bf9e-25f0-4c9a-9885-05f72f438df9",
+            "id" : "9f193b46-4cc5-4c99-b09f-374fe5415673",
             "module" : "KB_EBSCO",
             "configName" : "api_credentials",
             "code" : "kb.ebsco.credentials",
@@ -94,9 +94,9 @@ http_interactions:
             "enabled" : true,
             "value" : "customer-id=TEST_CUSTOMER_ID&api-key=TEST_API_KEY",
             "metadata" : {
-              "createdDate" : "2018-01-31T19:02:09.015+0000",
+              "createdDate" : "2018-03-28T14:49:56.794+0000",
               "createdByUserId" : "1ad737b0-d847-11e6-bf26-cec0c932ce01",
-              "updatedDate" : "2018-01-31T19:02:09.014+0000",
+              "updatedDate" : "2018-03-28T14:49:56.794+0000",
               "updatedByUserId" : "1ad737b0-d847-11e6-bf26-cec0c932ce01"
             }
           } ],
@@ -107,26 +107,26 @@ http_interactions:
           }
         }
     http_version: 
-  recorded_at: Thu, 01 Mar 2018 19:45:27 GMT
+  recorded_at: Fri, 04 May 2018 02:41:49 GMT
 - request:
     method: get
     uri: https://api.ebsco.io/rm/rmaccounts/TEST_CUSTOMER_ID/packages?contenttype=all&count=25&offset=1&orderby=relevance&search=academic%20search&selection=all
     body:
-      encoding: US-ASCII
+      encoding: UTF-8
       string: ''
     headers:
-      User-Agent:
-      - Flexirest/1.5.5
-      Connection:
-      - Keep-Alive
-      Accept:
-      - application/json
       X-Api-Key:
       - TEST_API_KEY
       Content-Type:
       - application/json
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - application/json
+      Connection:
+      - close
+      Host:
+      - api.ebsco.io
+      User-Agent:
+      - http.rb/3.3.0
   response:
     status:
       code: 200
@@ -135,27 +135,74 @@ http_interactions:
       Content-Type:
       - application/json;charset=UTF-8
       Content-Length:
-      - '9526'
+      - '9544'
       Connection:
-      - keep-alive
+      - close
       Date:
-      - Thu, 01 Mar 2018 19:45:27 GMT
+      - Fri, 04 May 2018 02:41:49 GMT
       X-Amzn-Requestid:
-      - 173c1a7d-1d89-11e8-ae64-155ed3612cf4
+      - b1b5c4e7-4f44-11e8-8a91-bf2602364a05
       X-Amzn-Remapped-Connection:
       - keep-alive
+      X-Amz-Apigw-Id:
+      - GVxBEEK9oAMFa5A=
       X-Amzn-Remapped-Date:
-      - Thu, 01 Mar 2018 19:45:27 GMT
+      - Fri, 04 May 2018 02:41:49 GMT
       X-Cache:
       - Miss from cloudfront
       Via:
-      - 1.1 332c2a81639993be433911889dec5fcd.cloudfront.net (CloudFront)
+      - 1.1 40771aeb308f1b1a112f21c14f905436.cloudfront.net (CloudFront)
       X-Amz-Cf-Id:
-      - hjWkaTd9ZUgQKc0cUVXqJ5F_xHAiFobaiHkh8XMKnR7W9A02XEz4zg==
+      - HFbKfTLELQ9CPmG5CIjxM757KTPBgQ6D_ORwJxX886M1zka5NdyWmA==
     body:
-      encoding: ASCII-8BIT
-      string: !binary |-
-        eyJ0b3RhbFJlc3VsdHMiOjE3OSwicGFja2FnZXNMaXN0IjpbeyJwYWNrYWdlSWQiOjEwNzMsInBhY2thZ2VOYW1lIjoiQWNhZGVtaWMgU2VhcmNoIEFsdW1uaSBFZGl0aW9uIiwiaXNDdXN0b20iOmZhbHNlLCJ2ZW5kb3JJZCI6MTksInZlbmRvck5hbWUiOiJFQlNDTyIsInRpdGxlQ291bnQiOjM3NTMsImlzU2VsZWN0ZWQiOnRydWUsInZpc2liaWxpdHlEYXRhIjp7ImlzSGlkZGVuIjp0cnVlLCJyZWFzb24iOiJIaWRkZW4gYnkgRVAifSwic2VsZWN0ZWRDb3VudCI6Mzc1MywiaXNUb2tlbk5lZWRlZCI6ZmFsc2UsImNvbnRlbnRUeXBlIjoiQWdncmVnYXRlZEZ1bGxUZXh0IiwiY3VzdG9tQ292ZXJhZ2UiOnsiYmVnaW5Db3ZlcmFnZSI6IiIsImVuZENvdmVyYWdlIjoiIn0sInBhY2thZ2VUeXBlIjoiQ29tcGxldGUifSx7InBhY2thZ2VJZCI6MTYxNSwicGFja2FnZU5hbWUiOiJBY2FkZW1pYyBTZWFyY2ggQ29tcGxldGUiLCJpc0N1c3RvbSI6ZmFsc2UsInZlbmRvcklkIjoxOSwidmVuZG9yTmFtZSI6IkVCU0NPIiwidGl0bGVDb3VudCI6MTA2NjcsImlzU2VsZWN0ZWQiOnRydWUsInZpc2liaWxpdHlEYXRhIjp7ImlzSGlkZGVuIjp0cnVlLCJyZWFzb24iOiJIaWRkZW4gYnkgQ3VzdG9tZXIifSwic2VsZWN0ZWRDb3VudCI6MTA2NjUsImlzVG9rZW5OZWVkZWQiOmZhbHNlLCJjb250ZW50VHlwZSI6IkFnZ3JlZ2F0ZWRGdWxsVGV4dCIsImN1c3RvbUNvdmVyYWdlIjp7ImJlZ2luQ292ZXJhZ2UiOiIiLCJlbmRDb3ZlcmFnZSI6IiJ9LCJwYWNrYWdlVHlwZSI6IkNvbXBsZXRlIn0seyJwYWNrYWdlSWQiOjE1OCwicGFja2FnZU5hbWUiOiJBY2FkZW1pYyBTZWFyY2ggRWxpdGUiLCJpc0N1c3RvbSI6ZmFsc2UsInZlbmRvcklkIjoxOSwidmVuZG9yTmFtZSI6IkVCU0NPIiwidGl0bGVDb3VudCI6MzUyMiwiaXNTZWxlY3RlZCI6dHJ1ZSwidmlzaWJpbGl0eURhdGEiOnsiaXNIaWRkZW4iOnRydWUsInJlYXNvbiI6IkhpZGRlbiBieSBFUCJ9LCJzZWxlY3RlZENvdW50IjoxLCJpc1Rva2VuTmVlZGVkIjpmYWxzZSwiY29udGVudFR5cGUiOiJBZ2dyZWdhdGVkRnVsbFRleHQiLCJjdXN0b21Db3ZlcmFnZSI6eyJiZWdpbkNvdmVyYWdlIjoiIiwiZW5kQ292ZXJhZ2UiOiIifSwicGFja2FnZVR5cGUiOiJDb21wbGV0ZSJ9LHsicGFja2FnZUlkIjoxMzI3MjMxLCJwYWNrYWdlTmFtZSI6IkFjYWRlbWljIFNlYXJjaCBJbmRleCIsImlzQ3VzdG9tIjpmYWxzZSwidmVuZG9ySWQiOjE5LCJ2ZW5kb3JOYW1lIjoiRUJTQ08iLCJ0aXRsZUNvdW50IjoxLCJpc1NlbGVjdGVkIjp0cnVlLCJ2aXNpYmlsaXR5RGF0YSI6eyJpc0hpZGRlbiI6dHJ1ZSwicmVhc29uIjoiSGlkZGVuIGJ5IEVQIn0sInNlbGVjdGVkQ291bnQiOjEsImlzVG9rZW5OZWVkZWQiOmZhbHNlLCJjb250ZW50VHlwZSI6IkFic3RyYWN0QW5kSW5kZXgiLCJjdXN0b21Db3ZlcmFnZSI6eyJiZWdpbkNvdmVyYWdlIjoiIiwiZW5kQ292ZXJhZ2UiOiIifSwicGFja2FnZVR5cGUiOiJDb21wbGV0ZSJ9LHsicGFja2FnZUlkIjo0MDY1LCJwYWNrYWdlTmFtZSI6IkFjYWRlbWljIFNlYXJjaCBNYWluIEVkaXRpb24gIiwiaXNDdXN0b20iOmZhbHNlLCJ2ZW5kb3JJZCI6MTksInZlbmRvck5hbWUiOiJFQlNDTyIsInRpdGxlQ291bnQiOjMwMDcsImlzU2VsZWN0ZWQiOnRydWUsInZpc2liaWxpdHlEYXRhIjp7ImlzSGlkZGVuIjp0cnVlLCJyZWFzb24iOiJIaWRkZW4gYnkgQ3VzdG9tZXIifSwic2VsZWN0ZWRDb3VudCI6MzAwNywiaXNUb2tlbk5lZWRlZCI6ZmFsc2UsImNvbnRlbnRUeXBlIjoiQWdncmVnYXRlZEZ1bGxUZXh0IiwiY3VzdG9tQ292ZXJhZ2UiOnsiYmVnaW5Db3ZlcmFnZSI6IiIsImVuZENvdmVyYWdlIjoiIn0sInBhY2thZ2VUeXBlIjoiQ29tcGxldGUifSx7InBhY2thZ2VJZCI6MTYwLCJwYWNrYWdlTmFtZSI6IkFjYWRlbWljIFNlYXJjaCBQcmVtaWVyIiwiaXNDdXN0b20iOmZhbHNlLCJ2ZW5kb3JJZCI6MTksInZlbmRvck5hbWUiOiJFQlNDTyIsInRpdGxlQ291bnQiOjYxMzYsImlzU2VsZWN0ZWQiOnRydWUsInZpc2liaWxpdHlEYXRhIjp7ImlzSGlkZGVuIjp0cnVlLCJyZWFzb24iOiJIaWRkZW4gYnkgQ3VzdG9tZXIifSwic2VsZWN0ZWRDb3VudCI6NjEzNiwiaXNUb2tlbk5lZWRlZCI6ZmFsc2UsImNvbnRlbnRUeXBlIjoiQWdncmVnYXRlZEZ1bGxUZXh0IiwiY3VzdG9tQ292ZXJhZ2UiOnsiYmVnaW5Db3ZlcmFnZSI6IiIsImVuZENvdmVyYWdlIjoiIn0sInBhY2thZ2VUeXBlIjoiQ29tcGxldGUifSx7InBhY2thZ2VJZCI6MjMzMzA1NCwicGFja2FnZU5hbWUiOiJBY2FkZW1pYyBTZWFyY2ggVWx0aW1hdGUiLCJpc0N1c3RvbSI6ZmFsc2UsInZlbmRvcklkIjoxOSwidmVuZG9yTmFtZSI6IkVCU0NPIiwidGl0bGVDb3VudCI6MTM0MDQsImlzU2VsZWN0ZWQiOnRydWUsInZpc2liaWxpdHlEYXRhIjp7ImlzSGlkZGVuIjp0cnVlLCJyZWFzb24iOiJIaWRkZW4gYnkgRVAifSwic2VsZWN0ZWRDb3VudCI6MSwiaXNUb2tlbk5lZWRlZCI6ZmFsc2UsImNvbnRlbnRUeXBlIjoiQWdncmVnYXRlZEZ1bGxUZXh0IiwiY3VzdG9tQ292ZXJhZ2UiOnsiYmVnaW5Db3ZlcmFnZSI6IiIsImVuZENvdmVyYWdlIjoiIn0sInBhY2thZ2VUeXBlIjoiQ29tcGxldGUifSx7InBhY2thZ2VJZCI6MTI1MTI1MSwicGFja2FnZU5hbWUiOiJCQVNFOiBCaWVsZWZlbGQgQWNhZGVtaWMgU2VhcmNoIEVuZ2luZSIsImlzQ3VzdG9tIjpmYWxzZSwidmVuZG9ySWQiOjkxNTQ4LCJ2ZW5kb3JOYW1lIjoiVW5pdmVyc2l0w6R0c2JpYmxpb3RoZWsgQmllbGVmZWxkICIsInRpdGxlQ291bnQiOjEsImlzU2VsZWN0ZWQiOnRydWUsInZpc2liaWxpdHlEYXRhIjp7ImlzSGlkZGVuIjpmYWxzZSwicmVhc29uIjoiIn0sInNlbGVjdGVkQ291bnQiOjEsImlzVG9rZW5OZWVkZWQiOmZhbHNlLCJjb250ZW50VHlwZSI6Ik9ubGluZVJlZmVyZW5jZSIsImN1c3RvbUNvdmVyYWdlIjp7ImJlZ2luQ292ZXJhZ2UiOiIiLCJlbmRDb3ZlcmFnZSI6IiJ9LCJwYWNrYWdlVHlwZSI6IkNvbXBsZXRlIn0seyJwYWNrYWdlSWQiOjI2OTc1MDEsInBhY2thZ2VOYW1lIjoiQUJDLUNMSU8gV09STEQgUkVMSUdJT05TIC0gQUNBREVNSUMgRUQiLCJpc0N1c3RvbSI6ZmFsc2UsInZlbmRvcklkIjoxOSwidmVuZG9yTmFtZSI6IkVCU0NPIiwidGl0bGVDb3VudCI6MSwiaXNTZWxlY3RlZCI6dHJ1ZSwidmlzaWJpbGl0eURhdGEiOnsiaXNIaWRkZW4iOnRydWUsInJlYXNvbiI6IkhpZGRlbiBieSBFUCJ9LCJzZWxlY3RlZENvdW50IjoxLCJpc1Rva2VuTmVlZGVkIjpmYWxzZSwiY29udGVudFR5cGUiOiJPbmxpbmVSZWZlcmVuY2UiLCJjdXN0b21Db3ZlcmFnZSI6eyJiZWdpbkNvdmVyYWdlIjoiIiwiZW5kQ292ZXJhZ2UiOiIifSwicGFja2FnZVR5cGUiOiJDb21wbGV0ZSJ9LHsicGFja2FnZUlkIjozNCwicGFja2FnZU5hbWUiOiJBY2FkZW1pYyBBU0FQIiwiaXNDdXN0b20iOmZhbHNlLCJ2ZW5kb3JJZCI6MTgsInZlbmRvck5hbWUiOiJHYWxlIHwgQ2VuZ2FnZSIsInRpdGxlQ291bnQiOjY0NCwiaXNTZWxlY3RlZCI6ZmFsc2UsInZpc2liaWxpdHlEYXRhIjp7ImlzSGlkZGVuIjpmYWxzZSwicmVhc29uIjoiIn0sInNlbGVjdGVkQ291bnQiOjAsImlzVG9rZW5OZWVkZWQiOmZhbHNlLCJjb250ZW50VHlwZSI6IkFnZ3JlZ2F0ZWRGdWxsVGV4dCIsImN1c3RvbUNvdmVyYWdlIjp7ImJlZ2luQ292ZXJhZ2UiOiIiLCJlbmRDb3ZlcmFnZSI6IiJ9LCJwYWNrYWdlVHlwZSI6IkNvbXBsZXRlIn0seyJwYWNrYWdlSWQiOjE2NjUsInBhY2thZ2VOYW1lIjoiQWNhZGVtaWMgSm91cm5hbHMiLCJpc0N1c3RvbSI6ZmFsc2UsInZlbmRvcklkIjoyOTMsInZlbmRvck5hbWUiOiJBY2FkZW1pYyBKb3VybmFscyIsInRpdGxlQ291bnQiOjExMSwiaXNTZWxlY3RlZCI6ZmFsc2UsInZpc2liaWxpdHlEYXRhIjp7ImlzSGlkZGVuIjpmYWxzZSwicmVhc29uIjoiIn0sInNlbGVjdGVkQ291bnQiOjAsImlzVG9rZW5OZWVkZWQiOmZhbHNlLCJjb250ZW50VHlwZSI6IkVKb3VybmFsIiwiY3VzdG9tQ292ZXJhZ2UiOnsiYmVnaW5Db3ZlcmFnZSI6IiIsImVuZENvdmVyYWdlIjoiIn0sInBhY2thZ2VUeXBlIjoiVmFyaWFibGUifSx7InBhY2thZ2VJZCI6Mjc3MzM2MiwicGFja2FnZU5hbWUiOiJBY2FkZW1pYyBKb3VybmFscyBvbiBOYXR1cmUuY29tIEFsbCAoSlVTVElDRSkiLCJpc0N1c3RvbSI6ZmFsc2UsInZlbmRvcklkIjozNiwidmVuZG9yTmFtZSI6IlNwcmluZ2VyIE5hdHVyZSIsInRpdGxlQ291bnQiOjQwLCJpc1NlbGVjdGVkIjpmYWxzZSwidmlzaWJpbGl0eURhdGEiOnsiaXNIaWRkZW4iOmZhbHNlLCJyZWFzb24iOiIifSwic2VsZWN0ZWRDb3VudCI6MCwiaXNUb2tlbk5lZWRlZCI6ZmFsc2UsImNvbnRlbnRUeXBlIjoiRUpvdXJuYWwiLCJjdXN0b21Db3ZlcmFnZSI6eyJiZWdpbkNvdmVyYWdlIjoiIiwiZW5kQ292ZXJhZ2UiOiIifSwicGFja2FnZVR5cGUiOiJDb21wbGV0ZSJ9LHsicGFja2FnZUlkIjoxMzU3LCJwYWNrYWdlTmFtZSI6IkFjYWRlbWljIE9uZUZpbGUiLCJpc0N1c3RvbSI6ZmFsc2UsInZlbmRvcklkIjoxOCwidmVuZG9yTmFtZSI6IkdhbGUgfCBDZW5nYWdlIiwidGl0bGVDb3VudCI6OTIxMiwiaXNTZWxlY3RlZCI6dHJ1ZSwidmlzaWJpbGl0eURhdGEiOnsiaXNIaWRkZW4iOmZhbHNlLCJyZWFzb24iOiIifSwic2VsZWN0ZWRDb3VudCI6OTIxMiwiaXNUb2tlbk5lZWRlZCI6ZmFsc2UsImNvbnRlbnRUeXBlIjoiQWdncmVnYXRlZEZ1bGxUZXh0IiwiY3VzdG9tQ292ZXJhZ2UiOnsiYmVnaW5Db3ZlcmFnZSI6IjIwMTItMDEtMDIiLCJlbmRDb3ZlcmFnZSI6IiJ9LCJwYWNrYWdlVHlwZSI6IkNvbXBsZXRlIn0seyJwYWNrYWdlSWQiOjIxNDk0NTYsInBhY2thZ2VOYW1lIjoiQWNhZGVtaWMgVmlkZW8gT25saW5lOiBQcmVtaXVtIC0gQXVzdHJhbGlhIiwiaXNDdXN0b20iOmZhbHNlLCJ2ZW5kb3JJZCI6NDEzLCJ2ZW5kb3JOYW1lIjoiQWxleGFuZGVyIFN0cmVldCBQcmVzcyIsInRpdGxlQ291bnQiOjYxNDk5LCJpc1NlbGVjdGVkIjpmYWxzZSwidmlzaWJpbGl0eURhdGEiOnsiaXNIaWRkZW4iOmZhbHNlLCJyZWFzb24iOiIifSwic2VsZWN0ZWRDb3VudCI6MCwiaXNUb2tlbk5lZWRlZCI6ZmFsc2UsImNvbnRlbnRUeXBlIjoiQWdncmVnYXRlZEZ1bGxUZXh0IiwiY3VzdG9tQ292ZXJhZ2UiOnsiYmVnaW5Db3ZlcmFnZSI6IiIsImVuZENvdmVyYWdlIjoiIn0sInBhY2thZ2VUeXBlIjoiQ29tcGxldGUifSx7InBhY2thZ2VJZCI6MjE2NjcyNiwicGFja2FnZU5hbWUiOiJBY2FkZW1pYyBWaWRlbyBPbmxpbmU6IFByZW1pdW0gLSBDYW5hZGEiLCJpc0N1c3RvbSI6ZmFsc2UsInZlbmRvcklkIjo0MTMsInZlbmRvck5hbWUiOiJBbGV4YW5kZXIgU3RyZWV0IFByZXNzIiwidGl0bGVDb3VudCI6NjI3NDMsImlzU2VsZWN0ZWQiOmZhbHNlLCJ2aXNpYmlsaXR5RGF0YSI6eyJpc0hpZGRlbiI6ZmFsc2UsInJlYXNvbiI6IiJ9LCJzZWxlY3RlZENvdW50IjowLCJpc1Rva2VuTmVlZGVkIjpmYWxzZSwiY29udGVudFR5cGUiOiJBZ2dyZWdhdGVkRnVsbFRleHQiLCJjdXN0b21Db3ZlcmFnZSI6eyJiZWdpbkNvdmVyYWdlIjoiIiwiZW5kQ292ZXJhZ2UiOiIifSwicGFja2FnZVR5cGUiOiJDb21wbGV0ZSJ9LHsicGFja2FnZUlkIjoyMTc4Mjc5LCJwYWNrYWdlTmFtZSI6IkFjYWRlbWljIFZpZGVvIE9ubGluZTogUHJlbWl1bSAtIEphcGFuIiwiaXNDdXN0b20iOmZhbHNlLCJ2ZW5kb3JJZCI6NDEzLCJ2ZW5kb3JOYW1lIjoiQWxleGFuZGVyIFN0cmVldCBQcmVzcyIsInRpdGxlQ291bnQiOjU5MjAyLCJpc1NlbGVjdGVkIjpmYWxzZSwidmlzaWJpbGl0eURhdGEiOnsiaXNIaWRkZW4iOmZhbHNlLCJyZWFzb24iOiIifSwic2VsZWN0ZWRDb3VudCI6MCwiaXNUb2tlbk5lZWRlZCI6ZmFsc2UsImNvbnRlbnRUeXBlIjoiQWdncmVnYXRlZEZ1bGxUZXh0IiwiY3VzdG9tQ292ZXJhZ2UiOnsiYmVnaW5Db3ZlcmFnZSI6IiIsImVuZENvdmVyYWdlIjoiIn0sInBhY2thZ2VUeXBlIjoiQ29tcGxldGUifSx7InBhY2thZ2VJZCI6MjQ4MDM2OSwicGFja2FnZU5hbWUiOiJBY2FkZW1pYyBWaWRlbyBPbmxpbmU6IFByZW1pdW0gLSBLb3JlYSIsImlzQ3VzdG9tIjpmYWxzZSwidmVuZG9ySWQiOjQxMywidmVuZG9yTmFtZSI6IkFsZXhhbmRlciBTdHJlZXQgUHJlc3MiLCJ0aXRsZUNvdW50Ijo1Nzg4OSwiaXNTZWxlY3RlZCI6ZmFsc2UsInZpc2liaWxpdHlEYXRhIjp7ImlzSGlkZGVuIjpmYWxzZSwicmVhc29uIjoiIn0sInNlbGVjdGVkQ291bnQiOjAsImlzVG9rZW5OZWVkZWQiOmZhbHNlLCJjb250ZW50VHlwZSI6IkFnZ3JlZ2F0ZWRGdWxsVGV4dCIsImN1c3RvbUNvdmVyYWdlIjp7ImJlZ2luQ292ZXJhZ2UiOiIiLCJlbmRDb3ZlcmFnZSI6IiJ9LCJwYWNrYWdlVHlwZSI6IkNvbXBsZXRlIn0seyJwYWNrYWdlSWQiOjIzNTkyNTgsInBhY2thZ2VOYW1lIjoiQWNhZGVtaWMgVmlkZW8gT25saW5lOiBQcmVtaXVtIC0gVW5pdGVkIFN0YXRlcyIsImlzQ3VzdG9tIjpmYWxzZSwidmVuZG9ySWQiOjQxMywidmVuZG9yTmFtZSI6IkFsZXhhbmRlciBTdHJlZXQgUHJlc3MiLCJ0aXRsZUNvdW50Ijo2Mjk5NCwiaXNTZWxlY3RlZCI6ZmFsc2UsInZpc2liaWxpdHlEYXRhIjp7ImlzSGlkZGVuIjpmYWxzZSwicmVhc29uIjoiIn0sInNlbGVjdGVkQ291bnQiOjAsImlzVG9rZW5OZWVkZWQiOmZhbHNlLCJjb250ZW50VHlwZSI6IkFnZ3JlZ2F0ZWRGdWxsVGV4dCIsImN1c3RvbUNvdmVyYWdlIjp7ImJlZ2luQ292ZXJhZ2UiOiIiLCJlbmRDb3ZlcmFnZSI6IiJ9LCJwYWNrYWdlVHlwZSI6IkNvbXBsZXRlIn0seyJwYWNrYWdlSWQiOjY1MjgsInBhY2thZ2VOYW1lIjoiQUNTIEFjYWRlbWljIENvcmUgKyIsImlzQ3VzdG9tIjpmYWxzZSwidmVuZG9ySWQiOjM3LCJ2ZW5kb3JOYW1lIjoiQW1lcmljYW4gQ2hlbWljYWwgU29jaWV0eSIsInRpdGxlQ291bnQiOjU3LCJpc1NlbGVjdGVkIjpmYWxzZSwidmlzaWJpbGl0eURhdGEiOnsiaXNIaWRkZW4iOmZhbHNlLCJyZWFzb24iOiIifSwic2VsZWN0ZWRDb3VudCI6MCwiaXNUb2tlbk5lZWRlZCI6ZmFsc2UsImNvbnRlbnRUeXBlIjoiRUpvdXJuYWwiLCJjdXN0b21Db3ZlcmFnZSI6eyJiZWdpbkNvdmVyYWdlIjoiIiwiZW5kQ292ZXJhZ2UiOiIifSwicGFja2FnZVR5cGUiOiJDb21wbGV0ZSJ9LHsicGFja2FnZUlkIjo3MjMyLCJwYWNrYWdlTmFtZSI6IkFmcmljYW4gQW1lcmljYW4gRXhwZXJpZW5jZSAoQWNhZGVtaWMpIiwiaXNDdXN0b20iOmZhbHNlLCJ2ZW5kb3JJZCI6NTgzLCJ2ZW5kb3JOYW1lIjoiQUJDLUNMSU8iLCJ0aXRsZUNvdW50IjoxLCJpc1NlbGVjdGVkIjpmYWxzZSwidmlzaWJpbGl0eURhdGEiOnsiaXNIaWRkZW4iOmZhbHNlLCJyZWFzb24iOiIifSwic2VsZWN0ZWRDb3VudCI6MCwiaXNUb2tlbk5lZWRlZCI6ZmFsc2UsImNvbnRlbnRUeXBlIjoiT25saW5lUmVmZXJlbmNlIiwiY3VzdG9tQ292ZXJhZ2UiOnsiYmVnaW5Db3ZlcmFnZSI6IiIsImVuZENvdmVyYWdlIjoiIn0sInBhY2thZ2VUeXBlIjoiQ29tcGxldGUifSx7InBhY2thZ2VJZCI6MjU0MjI3NSwicGFja2FnZU5hbWUiOiJCbG9vbXNidXJ5IEVjb25vbWljcyBMYW5kbWFyayBUZXh0cyAoQmxvb21zYnVyeSBBY2FkZW1pYyBDb2xsZWN0aW9ucyBzZXJpZXMpIiwiaXNDdXN0b20iOmZhbHNlLCJ2ZW5kb3JJZCI6Njk0LCJ2ZW5kb3JOYW1lIjoiQmxvb21zYnVyeSBQdWJsaXNoaW5nIiwidGl0bGVDb3VudCI6MjYsImlzU2VsZWN0ZWQiOmZhbHNlLCJ2aXNpYmlsaXR5RGF0YSI6eyJpc0hpZGRlbiI6ZmFsc2UsInJlYXNvbiI6IiJ9LCJzZWxlY3RlZENvdW50IjowLCJpc1Rva2VuTmVlZGVkIjpmYWxzZSwiY29udGVudFR5cGUiOiJFQm9vayIsImN1c3RvbUNvdmVyYWdlIjp7ImJlZ2luQ292ZXJhZ2UiOiIiLCJlbmRDb3ZlcmFnZSI6IiJ9LCJwYWNrYWdlVHlwZSI6IkNvbXBsZXRlIn0seyJwYWNrYWdlSWQiOjI1NDI5MzksInBhY2thZ2VOYW1lIjoiQmxvb21zYnVyeSBIaXN0b3J5IExhbmRtYXJrIFRleHRzIChCbG9vbXNidXJ5IEFjYWRlbWljIENvbGxlY3Rpb25zKSIsImlzQ3VzdG9tIjpmYWxzZSwidmVuZG9ySWQiOjY5NCwidmVuZG9yTmFtZSI6IkJsb29tc2J1cnkgUHVibGlzaGluZyIsInRpdGxlQ291bnQiOjIzLCJpc1NlbGVjdGVkIjpmYWxzZSwidmlzaWJpbGl0eURhdGEiOnsiaXNIaWRkZW4iOmZhbHNlLCJyZWFzb24iOiIifSwic2VsZWN0ZWRDb3VudCI6MCwiaXNUb2tlbk5lZWRlZCI6ZmFsc2UsImNvbnRlbnRUeXBlIjoiRUJvb2siLCJjdXN0b21Db3ZlcmFnZSI6eyJiZWdpbkNvdmVyYWdlIjoiIiwiZW5kQ292ZXJhZ2UiOiIifSwicGFja2FnZVR5cGUiOiJDb21wbGV0ZSJ9LHsicGFja2FnZUlkIjoyNTQzMTE4LCJwYWNrYWdlTmFtZSI6IkJsb29tc2J1cnkgSmFwYW5lc2UgSGlzdG9yeSBMYW5kbWFyayBUZXh0cyAoQmxvb21zYnVyeSBBY2FkZW1pYyBDb2xsZWN0aW9ucyBzZXJpZXMpIiwiaXNDdXN0b20iOmZhbHNlLCJ2ZW5kb3JJZCI6Njk0LCJ2ZW5kb3JOYW1lIjoiQmxvb21zYnVyeSBQdWJsaXNoaW5nIiwidGl0bGVDb3VudCI6MzcsImlzU2VsZWN0ZWQiOmZhbHNlLCJ2aXNpYmlsaXR5RGF0YSI6eyJpc0hpZGRlbiI6ZmFsc2UsInJlYXNvbiI6IiJ9LCJzZWxlY3RlZENvdW50IjowLCJpc1Rva2VuTmVlZGVkIjpmYWxzZSwiY29udGVudFR5cGUiOiJFQm9vayIsImN1c3RvbUNvdmVyYWdlIjp7ImJlZ2luQ292ZXJhZ2UiOiIiLCJlbmRDb3ZlcmFnZSI6IiJ9LCJwYWNrYWdlVHlwZSI6IkNvbXBsZXRlIn0seyJwYWNrYWdlSWQiOjI1NDI5MDMsInBhY2thZ2VOYW1lIjoiQmxvb21zYnVyeSBMaW5ndWlzdGljcyBMYW5kbWFyayBUZXh0cyAoQmxvb21zYnVyeSBBY2FkZW1pYyBDb2xsZWN0aW9ucykiLCJpc0N1c3RvbSI6ZmFsc2UsInZlbmRvcklkIjo2OTQsInZlbmRvck5hbWUiOiJCbG9vbXNidXJ5IFB1Ymxpc2hpbmciLCJ0aXRsZUNvdW50IjoxOSwiaXNTZWxlY3RlZCI6ZmFsc2UsInZpc2liaWxpdHlEYXRhIjp7ImlzSGlkZGVuIjpmYWxzZSwicmVhc29uIjoiIn0sInNlbGVjdGVkQ291bnQiOjAsImlzVG9rZW5OZWVkZWQiOmZhbHNlLCJjb250ZW50VHlwZSI6IkVCb29rIiwiY3VzdG9tQ292ZXJhZ2UiOnsiYmVnaW5Db3ZlcmFnZSI6IiIsImVuZENvdmVyYWdlIjoiIn0sInBhY2thZ2VUeXBlIjoiQ29tcGxldGUifSx7InBhY2thZ2VJZCI6MjU0MjkzOCwicGFja2FnZU5hbWUiOiJCbG9vbXNidXJ5IExpdGVyYXJ5IENyaXRpY2lzbSBMYW5kbWFyayBUZXh0cyAoQmxvb21zYnVyeSBBY2FkZW1pYyBDb2xsZWN0aW9ucyBzZXJpZXMpIiwiaXNDdXN0b20iOmZhbHNlLCJ2ZW5kb3JJZCI6Njk0LCJ2ZW5kb3JOYW1lIjoiQmxvb21zYnVyeSBQdWJsaXNoaW5nIiwidGl0bGVDb3VudCI6NTYsImlzU2VsZWN0ZWQiOmZhbHNlLCJ2aXNpYmlsaXR5RGF0YSI6eyJpc0hpZGRlbiI6ZmFsc2UsInJlYXNvbiI6IiJ9LCJzZWxlY3RlZENvdW50IjowLCJpc1Rva2VuTmVlZGVkIjpmYWxzZSwiY29udGVudFR5cGUiOiJFQm9vayIsImN1c3RvbUNvdmVyYWdlIjp7ImJlZ2luQ292ZXJhZ2UiOiIiLCJlbmRDb3ZlcmFnZSI6IiJ9LCJwYWNrYWdlVHlwZSI6IkNvbXBsZXRlIn1dfQ==
+      encoding: UTF-8
+      string: '{"totalResults":186,"packagesList":[{"packageId":1073,"packageName":"Academic
+        Search Alumni Edition","isCustom":false,"vendorId":19,"vendorName":"EBSCO","titleCount":3735,"isSelected":true,"visibilityData":{"isHidden":true,"reason":"Hidden
+        by EP"},"selectedCount":3735,"isTokenNeeded":false,"contentType":"AggregatedFullText","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Complete"},{"packageId":1615,"packageName":"Academic
+        Search Complete","isCustom":false,"vendorId":19,"vendorName":"EBSCO","titleCount":10611,"isSelected":true,"visibilityData":{"isHidden":true,"reason":"Hidden
+        by EP"},"selectedCount":10610,"isTokenNeeded":false,"contentType":"AggregatedFullText","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Complete"},{"packageId":158,"packageName":"Academic
+        Search Elite","isCustom":false,"vendorId":19,"vendorName":"EBSCO","titleCount":3505,"isSelected":true,"visibilityData":{"isHidden":true,"reason":"Hidden
+        by EP"},"selectedCount":1,"isTokenNeeded":false,"contentType":"AggregatedFullText","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Complete"},{"packageId":1327231,"packageName":"Academic
+        Search Index","isCustom":false,"vendorId":19,"vendorName":"EBSCO","titleCount":1,"isSelected":true,"visibilityData":{"isHidden":true,"reason":"Hidden
+        by EP"},"selectedCount":1,"isTokenNeeded":false,"contentType":"AbstractAndIndex","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Complete"},{"packageId":4065,"packageName":"Academic
+        Search Main Edition ","isCustom":false,"vendorId":19,"vendorName":"EBSCO","titleCount":3004,"isSelected":true,"visibilityData":{"isHidden":true,"reason":"Hidden
+        by Customer"},"selectedCount":3004,"isTokenNeeded":false,"contentType":"AggregatedFullText","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Complete"},{"packageId":160,"packageName":"Academic
+        Search Premier","isCustom":false,"vendorId":19,"vendorName":"EBSCO","titleCount":6098,"isSelected":true,"visibilityData":{"isHidden":true,"reason":"Hidden
+        by Customer"},"selectedCount":6092,"isTokenNeeded":false,"contentType":"AggregatedFullText","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Complete"},{"packageId":2333054,"packageName":"Academic
+        Search Ultimate","isCustom":false,"vendorId":19,"vendorName":"EBSCO","titleCount":13341,"isSelected":true,"visibilityData":{"isHidden":true,"reason":"Hidden
+        by EP"},"selectedCount":1,"isTokenNeeded":false,"contentType":"AggregatedFullText","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Complete"},{"packageId":1251251,"packageName":"BASE:
+        Bielefeld Academic Search Engine","isCustom":false,"vendorId":91548,"vendorName":"Universitätsbibliothek
+        Bielefeld ","titleCount":1,"isSelected":true,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":1,"isTokenNeeded":false,"contentType":"OnlineReference","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Complete"},{"packageId":34,"packageName":"Academic
+        ASAP","isCustom":false,"vendorId":18,"vendorName":"Gale | Cengage","titleCount":647,"isSelected":true,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":644,"isTokenNeeded":false,"contentType":"AggregatedFullText","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Complete"},{"packageId":1665,"packageName":"Academic
+        Journals","isCustom":false,"vendorId":293,"vendorName":"Academic Journals","titleCount":111,"isSelected":true,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":1,"isTokenNeeded":false,"contentType":"EJournal","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Variable"},{"packageId":2773362,"packageName":"Academic
+        Journals on Nature.com All (JUSTICE)","isCustom":false,"vendorId":36,"vendorName":"Springer
+        Nature","titleCount":40,"isSelected":true,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":1,"isTokenNeeded":false,"contentType":"EJournal","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Complete"},{"packageId":1357,"packageName":"Academic
+        OneFile","isCustom":false,"vendorId":18,"vendorName":"Gale | Cengage","titleCount":9216,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"AggregatedFullText","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Complete"},{"packageId":2149456,"packageName":"Academic
+        Video Online: Premium - Australia","isCustom":false,"vendorId":413,"vendorName":"Alexander
+        Street Press","titleCount":57161,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"AggregatedFullText","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Complete"},{"packageId":2166726,"packageName":"Academic
+        Video Online: Premium - Canada","isCustom":false,"vendorId":413,"vendorName":"Alexander
+        Street Press","titleCount":62743,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"AggregatedFullText","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Complete"},{"packageId":2178279,"packageName":"Academic
+        Video Online: Premium - Japan","isCustom":false,"vendorId":413,"vendorName":"Alexander
+        Street Press","titleCount":57487,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"AggregatedFullText","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Complete"},{"packageId":2480369,"packageName":"Academic
+        Video Online: Premium - Korea","isCustom":false,"vendorId":413,"vendorName":"Alexander
+        Street Press","titleCount":54516,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"AggregatedFullText","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Complete"},{"packageId":2359258,"packageName":"Academic
+        Video Online: Premium - United States","isCustom":false,"vendorId":413,"vendorName":"Alexander
+        Street Press","titleCount":61596,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"AggregatedFullText","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Complete"},{"packageId":6528,"packageName":"ACS
+        Academic Core +","isCustom":false,"vendorId":37,"vendorName":"American Chemical
+        Society","titleCount":57,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"EJournal","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Complete"},{"packageId":7232,"packageName":"African
+        American Experience (Academic)","isCustom":false,"vendorId":583,"vendorName":"ABC-CLIO","titleCount":1,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"OnlineReference","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Complete"},{"packageId":2542275,"packageName":"Bloomsbury
+        Economics Landmark Texts (Bloomsbury Academic Collections series)","isCustom":false,"vendorId":694,"vendorName":"Bloomsbury
+        Publishing","titleCount":26,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"EBook","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Complete"},{"packageId":2542939,"packageName":"Bloomsbury
+        History Landmark Texts (Bloomsbury Academic Collections)","isCustom":false,"vendorId":694,"vendorName":"Bloomsbury
+        Publishing","titleCount":23,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"EBook","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Complete"},{"packageId":2543118,"packageName":"Bloomsbury
+        Japanese History Landmark Texts (Bloomsbury Academic Collections series)","isCustom":false,"vendorId":694,"vendorName":"Bloomsbury
+        Publishing","titleCount":37,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"EBook","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Complete"},{"packageId":2542903,"packageName":"Bloomsbury
+        Linguistics Landmark Texts (Bloomsbury Academic Collections)","isCustom":false,"vendorId":694,"vendorName":"Bloomsbury
+        Publishing","titleCount":19,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"EBook","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Complete"},{"packageId":2542938,"packageName":"Bloomsbury
+        Literary Criticism Landmark Texts (Bloomsbury Academic Collections series)","isCustom":false,"vendorId":694,"vendorName":"Bloomsbury
+        Publishing","titleCount":56,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"EBook","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Complete"},{"packageId":2543399,"packageName":"Bloomsbury
+        Philosophy Landmark Texts (Bloomsbury Academic Collections series)","isCustom":false,"vendorId":694,"vendorName":"Bloomsbury
+        Publishing","titleCount":14,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"EBook","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Complete"}]}'
     http_version: 
-  recorded_at: Thu, 01 Mar 2018 19:45:27 GMT
+  recorded_at: Fri, 04 May 2018 02:41:49 GMT
 recorded_with: VCR 3.0.3

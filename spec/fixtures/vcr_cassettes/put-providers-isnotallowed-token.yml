@@ -27,7 +27,7 @@ http_interactions:
       Server:
       - nginx/1.13.5
       Date:
-      - Mon, 02 Apr 2018 16:03:10 GMT
+      - Fri, 04 May 2018 19:56:20 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -36,15 +36,15 @@ http_interactions:
       - keep-alive
       X-Okapi-Trace:
       - 'GET mod-authtoken-1.4.1-SNAPSHOT.20 http://10.39.249.72:8081/configurations/entries..
-        : 202 402897us'
+        : 202 1302us'
       - 'GET mod-configuration-4.0.3-SNAPSHOT.29 http://10.39.252.104:8081/configurations/entries..
-        : 200 49743us'
+        : 200 42489us'
       Host:
       - okapi.frontside.io
       X-Real-Ip:
-      - 10.128.0.3
+      - 10.128.0.4
       X-Forwarded-For:
-      - 10.128.0.3
+      - 10.128.0.4
       X-Forwarded-Host:
       - okapi.frontside.io
       X-Forwarded-Port:
@@ -66,7 +66,7 @@ http_interactions:
       User-Agent:
       - Ruby
       X-Okapi-Request-Id:
-      - 150365/configurations
+      - 113296/configurations
       X-Okapi-Url:
       - http://10.39.243.220:80
       X-Okapi-Permissions-Required:
@@ -107,7 +107,7 @@ http_interactions:
           }
         }
     http_version: 
-  recorded_at: Mon, 02 Apr 2018 16:03:10 GMT
+  recorded_at: Fri, 04 May 2018 19:56:20 GMT
 - request:
     method: get
     uri: https://api.ebsco.io/rm/rmaccounts/TEST_CUSTOMER_ID/vendors/22
@@ -135,31 +135,31 @@ http_interactions:
       Content-Type:
       - application/json;charset=UTF-8
       Content-Length:
-      - '180'
+      - '176'
       Connection:
       - keep-alive
       Date:
-      - Mon, 02 Apr 2018 16:03:11 GMT
+      - Fri, 04 May 2018 19:56:20 GMT
       X-Amzn-Requestid:
-      - 5767e610-368f-11e8-bfed-6b2a57f42339
+      - 373d907b-4fd5-11e8-9235-3d466c9d711b
       X-Amzn-Remapped-Connection:
       - keep-alive
       X-Amz-Apigw-Id:
-      - EuIZ1F1_IAMFniA=
+      - GYIjwHjMoAMFydg=
       X-Amzn-Remapped-Date:
-      - Mon, 02 Apr 2018 16:03:10 GMT
+      - Fri, 04 May 2018 19:56:20 GMT
       X-Cache:
       - Miss from cloudfront
       Via:
-      - 1.1 2d357730b9d8c4fff788ffa9b0881e8f.cloudfront.net (CloudFront)
+      - 1.1 296faebadd40feee8b2eb0e10d5786d2.cloudfront.net (CloudFront)
       X-Amz-Cf-Id:
-      - qkSfCvkD7wOGzpX26LgQgIzlAfM0dfz-yPTFvsKmpXNZHosppZyw0A==
+      - 4bbpRuuFkxwM5o9K0MlaNwqNSVHhSy75PPG_uehR9UQ8Lzoh2843tA==
     body:
       encoding: UTF-8
-      string: '{"isCustomer":false,"packagesSelected":25,"packagesTotal":835,"vendorId":22,"vendorName":"Proquest
-        Info & Learning Co","proxy":{"id":"EZProxy","inherited":true},"vendorToken":null}'
+      string: '{"isCustomer":false,"packagesSelected":30,"packagesTotal":840,"vendorId":22,"vendorName":"Proquest
+        Info & Learning Co","proxy":{"id":"<n>","inherited":true},"vendorToken":null}'
     http_version: 
-  recorded_at: Mon, 02 Apr 2018 16:03:11 GMT
+  recorded_at: Fri, 04 May 2018 19:56:20 GMT
 - request:
     method: put
     uri: https://api.ebsco.io/rm/rmaccounts/TEST_CUSTOMER_ID/vendors/22
@@ -191,25 +191,25 @@ http_interactions:
       Connection:
       - keep-alive
       Date:
-      - Mon, 02 Apr 2018 16:03:11 GMT
+      - Fri, 04 May 2018 19:56:21 GMT
       X-Amzn-Requestid:
-      - 57872d5b-368f-11e8-bac7-bb312a6f46bf
+      - 376d7a74-4fd5-11e8-88f5-df89ef53ba2d
       X-Amzn-Remapped-Connection:
       - keep-alive
       X-Amz-Apigw-Id:
-      - EuIZ3FPfoAMF_Sw=
+      - GYIjzF6TIAMF2CA=
       X-Amzn-Remapped-Date:
-      - Mon, 02 Apr 2018 16:03:11 GMT
+      - Fri, 04 May 2018 19:56:21 GMT
       X-Cache:
       - Error from cloudfront
       Via:
-      - 1.1 74f392c3bbde3f12fab5155d1847c2cd.cloudfront.net (CloudFront)
+      - 1.1 02192a27c967e955f8c815efa939bfc8.cloudfront.net (CloudFront)
       X-Amz-Cf-Id:
-      - fA_X9EnX_9wnThcn-9EydkBzqlALgXbwceoq5nD3hAZe2okRs_j9uw==
+      - "-RILEWsUGKAAUB3dBALa7L0fiGt-swvtTrVHSHyWig9qYEmbC9z6Qw=="
     body:
       encoding: UTF-8
       string: '{"errors":[{"code":1010,"subCode":0,"message":"Vendor does not allow
         token"}]}'
     http_version: 
-  recorded_at: Mon, 02 Apr 2018 16:03:11 GMT
+  recorded_at: Fri, 04 May 2018 19:56:21 GMT
 recorded_with: VCR 3.0.3

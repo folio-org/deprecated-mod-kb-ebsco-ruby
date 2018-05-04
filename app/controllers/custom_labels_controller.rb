@@ -5,7 +5,7 @@ class CustomLabelsController < ApplicationController
     render jsonapi: custom_labels.all, include: params[:include]
   end
 
-  def update # rubocop:disable Metrics/AbcSize
+  def update
     data_attributes = JSON.parse(request.body.read)['data']['attributes'] || {}
     label_id = params[:id].to_i
 

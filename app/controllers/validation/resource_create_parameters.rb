@@ -28,18 +28,18 @@ module Validation
         url.downcase.start_with?('https://', 'http://')
     end
 
-    def identifiers_list_valid? # rubocop:disable Metrics/AbcSize
+    def identifiers_list_valid?
       identifiersList.each do |identifier|
         errors.add(:IdentifierId, ':Invalid Identifier id') unless
           identifier['id']&.instance_of?(String) && identifier['id'].length <= 20
         errors.add(:IdentifierType, ':Invalid Identifier type') unless
-          identifier['type']&.between?(0, 1)
+          identifier['type']&.between?(0, 7)
         errors.add(:IdentifierSubType, ':Invalid Identifier subtype') unless
           identifier['subtype']&.between?(1, 2)
       end
     end
 
-    def initialize(params = {}) # rubocop:disable Metrics/AbcSize
+    def initialize(params = {})
       @titleName = params[:titleName]
       @pubType = params[:pubType]
       @packageId = params[:packageId]

@@ -58,4 +58,7 @@ VCR.configure do |config|
   config.filter_sensitive_data('TEST_OKAPI_TOKEN') do
     ENV.fetch('TEST_OKAPI_TOKEN', 'test-okapi-token')
   end
+
+  record_mode = ENV.fetch('VCR', 'once').to_sym
+  config.default_cassette_options = { record: record_mode }
 end

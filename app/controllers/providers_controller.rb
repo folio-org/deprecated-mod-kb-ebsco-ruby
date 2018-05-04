@@ -42,8 +42,8 @@ class ProvidersController < ApplicationController
       sort: params[:sort]
     )
 
-    render jsonapi: @packages.packagesList.to_a,
-           meta: { totalResults: @packages.totalResults }
+    render jsonapi: @packages.data,
+           meta: @packages.meta
   end
 
   private
@@ -64,3 +64,4 @@ class ProvidersController < ApplicationController
       )
   end
 end
+g

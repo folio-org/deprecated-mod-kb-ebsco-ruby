@@ -15,7 +15,7 @@ RSpec.describe 'Packages', type: :request do
     it 'gets a list of resources' do
       expect(response).to have_http_status(200)
       expect(json.data.length).to equal(25)
-      expect(json.meta.totalResults).to equal(111)
+      expect(json.meta.totalResults).to equal(114)
     end
 
     describe 'with pagination' do
@@ -30,7 +30,7 @@ RSpec.describe 'Packages', type: :request do
       it 'gets a different list of resources' do
         expect(response).to have_http_status(200)
         expect(json2.data.length).to equal(25)
-        expect(json2.meta.totalResults).to equal(111)
+        expect(json2.meta.totalResults).to equal(114)
         expect(json.data.first.id).not_to eql(json2.data.first.id)
       end
     end
@@ -48,8 +48,8 @@ RSpec.describe 'Packages', type: :request do
 
     it 'gets a list of ebook packages' do
       expect(response).to have_http_status(200)
-      expect(json_f.data.length).to equal(5)
-      expect(json_f.meta.totalResults).to equal(5)
+      expect(json_f.data.length).to equal(6)
+      expect(json_f.meta.totalResults).to equal(6)
       expect(json_f.data.first.attributes.contentType).to eql('E-Book')
     end
 
@@ -101,7 +101,7 @@ RSpec.describe 'Packages', type: :request do
     it 'contains a list of alphabetically A-Z sorted resources' do
       expect(response).to have_http_status(200)
       expect(json_n.data.length).to equal(25)
-      expect(json_n.meta.totalResults).to equal(179)
+      expect(json_n.meta.totalResults).to equal(186)
       expect(json_n.data.first.type).to eq('packages')
       sorted_array = json_n.data.sort_by { |p| p.attributes.name.downcase }
       expect(json_n.data).to eq(sorted_array)
@@ -121,7 +121,7 @@ RSpec.describe 'Packages', type: :request do
     it 'contains a list of relevancy sorted resources' do
       expect(response).to have_http_status(200)
       expect(json_n.data.length).to equal(25)
-      expect(json_n.meta.totalResults).to equal(179)
+      expect(json_n.meta.totalResults).to equal(186)
       expect(json_n.data.first.type).to eq('packages')
       expect(json_n.data[0].attributes.name.downcase).to include(
         'academic search'
@@ -144,7 +144,7 @@ RSpec.describe 'Packages', type: :request do
     it 'contains a list of relevancy sorted resources' do
       expect(response).to have_http_status(200)
       expect(json_n.data.length).to equal(25)
-      expect(json_n.meta.totalResults).to equal(179)
+      expect(json_n.meta.totalResults).to equal(186)
       expect(json_n.data.first.type).to eq('packages')
       expect(json_n.data[0].attributes.name.downcase).to include(
         'academic search'
@@ -208,9 +208,7 @@ RSpec.describe 'Packages', type: :request do
     end
 
     it 'returns a valid visibility reason' do
-      expect(json.data.attributes.visibilityData.reason).to(
-        eq('Set by system')
-      )
+      expect(json.data.attributes.visibilityData.reason).to eq ''
     end
   end
 
@@ -288,7 +286,7 @@ RSpec.describe 'Packages', type: :request do
       it 'gets a different list of resources' do
         expect(response).to have_http_status(200)
         expect(json2.data.length).to equal(25)
-        expect(json2.meta.totalResults).to equal(159)
+        expect(json2.meta.totalResults).to equal(157)
         expect(json.data.first.id).not_to eql(json2.data.first.id)
       end
     end
@@ -403,7 +401,7 @@ RSpec.describe 'Packages', type: :request do
     let!(:json) { Map JSON.parse response.body }
 
     it 'responds with a list of resources' do
-      expect(json.data.length).to eq(8)
+      expect(json.data.length).to eq(9)
     end
 
     it 'does not return identifiers for the resources' do
@@ -907,7 +905,7 @@ RSpec.describe 'Packages', type: :request do
   describe 'getting a hidden by customer package' do
     before do
       VCR.use_cassette('get-package-reason-hidden-by-customer') do
-        get '/eholdings/packages/19-2697502',
+        get '/eholdings/packages/19-4065',
             headers: okapi_headers
       end
     end
@@ -1036,6 +1034,8 @@ RSpec.describe 'Packages', type: :request do
           "data": {
             "type": 'packages',
             "attributes": {
+              "isSelected": true,
+              "name": 'I got a newer package name',
               "contentType": 'Aggregated Full Text'
             }
           }
@@ -1099,7 +1099,7 @@ RSpec.describe 'Packages', type: :request do
     describe 'delete a custom package successfully' do
       before do
         VCR.use_cassette('delete-custom-package') do
-          delete '/eholdings/packages/123355-2848230',
+          delete '/eholdings/packages/123355-2848971',
                  headers: okapi_headers
         end
       end
@@ -1112,7 +1112,7 @@ RSpec.describe 'Packages', type: :request do
     describe 'trying to delete a deleted package results in error' do
       before do
         VCR.use_cassette('delete-deleted-custom-package') do
-          delete '/eholdings/packages/123355-2848230',
+          delete '/eholdings/packages/123355-2848971',
                  headers: okapi_headers
         end
       end
@@ -1156,7 +1156,7 @@ RSpec.describe 'Packages', type: :request do
       end
 
       before do
-        VCR.use_cassette('post-custom-package') do
+        VCR.use_cassette('post-custom-package-no-packagename') do
           post '/eholdings/packages/',
                params: params, as: :json, headers: update_headers
         end
@@ -1173,14 +1173,14 @@ RSpec.describe 'Packages', type: :request do
           "data": {
             "type": 'packages',
             "attributes": {
-              "name": 'totally new name'
+              "name": 'VCR Package 1.1'
             }
           }
         }
       end
 
       before do
-        VCR.use_cassette('post-custom-package') do
+        VCR.use_cassette('post-custom-package-no-content-type') do
           post '/eholdings/packages/',
                params: params, as: :json, headers: update_headers
         end
@@ -1197,7 +1197,7 @@ RSpec.describe 'Packages', type: :request do
           "data": {
             "type": 'packages',
             "attributes": {
-              "name": 'new name',
+              "name": 'VCR Package 1.6',
               "contentType": 'E-Book',
               "customCoverage": {
                 "beginCoverage": '2003-01-01',
@@ -1222,7 +1222,7 @@ RSpec.describe 'Packages', type: :request do
       let!(:json) { Map JSON.parse response.body }
 
       it 'returns a fully formed custom package' do
-        expect(json.data.attributes.name).to eq 'new name'
+        expect(json.data.attributes.name).to eq 'VCR Package 1.6'
         expect(json.data.attributes.contentType).to eq 'E-Book'
         expect(json.data.attributes.customCoverage.beginCoverage)
           .to eq '2003-01-01'
@@ -1237,7 +1237,7 @@ RSpec.describe 'Packages', type: :request do
           "data": {
             "type": 'packages',
             "attributes": {
-              "name": 'new name',
+              "name": 'VCR Package 1.2',
               "contentType": 'E-Book'
             }
           }
@@ -1263,7 +1263,7 @@ RSpec.describe 'Packages', type: :request do
             "type": 'packages',
             "attributes": {
               "contentType": 'something',
-              "name": 'testing content type again'
+              "name": 'VCR Package 1.5'
             }
           }
         }

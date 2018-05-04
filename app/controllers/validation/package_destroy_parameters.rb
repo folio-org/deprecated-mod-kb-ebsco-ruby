@@ -10,7 +10,7 @@ module Validation
       # Package can be deleted only if its custom
       # Check for that
       errors.add(:package, 'cannot be deleted') unless
-        @package.isCustom
+        @package.is_custom
     end
 
     def initialize(package)

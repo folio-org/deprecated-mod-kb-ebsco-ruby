@@ -27,7 +27,7 @@ http_interactions:
       Server:
       - nginx/1.13.5
       Date:
-      - Thu, 15 Feb 2018 21:01:28 GMT
+      - Fri, 04 May 2018 02:41:36 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -35,16 +35,16 @@ http_interactions:
       Connection:
       - keep-alive
       X-Okapi-Trace:
-      - 'GET mod-authtoken-1.2.0-SNAPSHOT.14 http://10.39.255.104:8081/configurations/entries..
-        : 202 359168us'
-      - 'GET mod-configuration-4.0.1-SNAPSHOT.23 http://10.39.243.63:8081/configurations/entries..
-        : 200 45109us'
+      - 'GET mod-authtoken-1.4.1-SNAPSHOT.20 http://10.39.249.72:8081/configurations/entries..
+        : 202 945us'
+      - 'GET mod-configuration-4.0.3-SNAPSHOT.29 http://10.39.252.104:8081/configurations/entries..
+        : 200 41773us'
       Host:
       - okapi.frontside.io
       X-Real-Ip:
-      - 10.36.0.1
+      - 10.128.0.3
       X-Forwarded-For:
-      - 10.36.0.1
+      - 10.128.0.3
       X-Forwarded-Host:
       - okapi.frontside.io
       X-Forwarded-Port:
@@ -66,13 +66,13 @@ http_interactions:
       User-Agent:
       - Ruby
       X-Okapi-Request-Id:
-      - 194340/configurations
+      - 998465/configurations
       X-Okapi-Url:
-      - http://10.39.248.95:80
+      - http://10.39.243.220:80
       X-Okapi-Permissions-Required:
       - configuration.entries.collection.get
       X-Okapi-Module-Permissions:
-      - '{"mod-authtoken-1.2.0-SNAPSHOT.14":["perms.users.get"]}'
+      - '{"mod-authtoken-1.4.1-SNAPSHOT.20":["perms.users.get"]}'
       X-Okapi-Permissions:
       - '["configuration.entries.collection.get"]'
       X-Okapi-User-Id:
@@ -86,7 +86,7 @@ http_interactions:
       string: |-
         {
           "configs" : [ {
-            "id" : "c495bf9e-25f0-4c9a-9885-05f72f438df9",
+            "id" : "9f193b46-4cc5-4c99-b09f-374fe5415673",
             "module" : "KB_EBSCO",
             "configName" : "api_credentials",
             "code" : "kb.ebsco.credentials",
@@ -94,9 +94,9 @@ http_interactions:
             "enabled" : true,
             "value" : "customer-id=TEST_CUSTOMER_ID&api-key=TEST_API_KEY",
             "metadata" : {
-              "createdDate" : "2018-01-31T19:02:09.015+0000",
+              "createdDate" : "2018-03-28T14:49:56.794+0000",
               "createdByUserId" : "1ad737b0-d847-11e6-bf26-cec0c932ce01",
-              "updatedDate" : "2018-01-31T19:02:09.014+0000",
+              "updatedDate" : "2018-03-28T14:49:56.794+0000",
               "updatedByUserId" : "1ad737b0-d847-11e6-bf26-cec0c932ce01"
             }
           } ],
@@ -107,26 +107,26 @@ http_interactions:
           }
         }
     http_version: 
-  recorded_at: Thu, 15 Feb 2018 21:01:28 GMT
+  recorded_at: Fri, 04 May 2018 02:41:36 GMT
 - request:
     method: get
     uri: https://api.ebsco.io/rm/rmaccounts/TEST_CUSTOMER_ID/packages?contenttype=all&count=25&offset=1&orderby=relevance&search=ebsco&selection=all
     body:
-      encoding: US-ASCII
+      encoding: UTF-8
       string: ''
     headers:
-      User-Agent:
-      - Flexirest/1.5.5
-      Connection:
-      - Keep-Alive
-      Accept:
-      - application/json
       X-Api-Key:
       - TEST_API_KEY
       Content-Type:
       - application/json
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - application/json
+      Connection:
+      - close
+      Host:
+      - api.ebsco.io
+      User-Agent:
+      - http.rb/3.3.0
   response:
     status:
       code: 200
@@ -135,61 +135,63 @@ http_interactions:
       Content-Type:
       - application/json;charset=UTF-8
       Content-Length:
-      - '8640'
+      - '9165'
       Connection:
-      - keep-alive
+      - close
       Date:
-      - Thu, 15 Feb 2018 21:01:28 GMT
+      - Fri, 04 May 2018 02:41:38 GMT
       X-Amzn-Requestid:
-      - 642181c0-1293-11e8-8fd6-97e636f6bea2
+      - aa214e67-4f44-11e8-a1c8-27a5b75d484a
       X-Amzn-Remapped-Connection:
       - keep-alive
+      X-Amz-Apigw-Id:
+      - GVw_FEvvoAMF__A=
       X-Amzn-Remapped-Date:
-      - Thu, 15 Feb 2018 21:01:28 GMT
+      - Fri, 04 May 2018 02:41:38 GMT
       X-Cache:
       - Miss from cloudfront
       Via:
-      - 1.1 9c49cf68cf2287c443a3527dd202d688.cloudfront.net (CloudFront)
+      - 1.1 0cd6949155fdc875b62d453c5f6c0005.cloudfront.net (CloudFront)
       X-Amz-Cf-Id:
-      - FYVbZs5p_5LKVPeW3EXPx26C4C-ceS1FO-51DK36WZMV4uQkd0r-Jg==
+      - OT0-L_1HZP6UIJmjxtFsbj9_m-cqRlfSR63VUKovs0sxuspNG83uUg==
     body:
       encoding: UTF-8
-      string: '{"totalResults":111,"packagesList":[{"packageId":6581,"packageName":"EBSCO
-        Biotechnology Collection: India","isCustom":false,"vendorId":19,"vendorName":"EBSCO","titleCount":159,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"AggregatedFullText","customCoverage":{"beginCoverage":null,"endCoverage":null}},{"packageId":3964,"packageName":"EBSCO
-        Business Basics","isCustom":false,"vendorId":19,"vendorName":"EBSCO","titleCount":527,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"AggregatedFullText","customCoverage":{"beginCoverage":null,"endCoverage":null}},{"packageId":6856,"packageName":"EBSCO
-        Chemical Engineering Collection: India","isCustom":false,"vendorId":19,"vendorName":"EBSCO","titleCount":149,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"AggregatedFullText","customCoverage":{"beginCoverage":null,"endCoverage":null}},{"packageId":6027,"packageName":"EBSCO
-        Citations","isCustom":false,"vendorId":19,"vendorName":"EBSCO","titleCount":1,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"OnlineReference","customCoverage":{"beginCoverage":null,"endCoverage":null}},{"packageId":4841,"packageName":"EBSCO
-        Discovery Service","isCustom":false,"vendorId":19,"vendorName":"EBSCO","titleCount":1,"isSelected":true,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":1,"isTokenNeeded":false,"contentType":"OnlineReference","customCoverage":{"beginCoverage":null,"endCoverage":null}},{"packageId":5207,"packageName":"EBSCO
-        eBooks","isCustom":false,"vendorId":19,"vendorName":"EBSCO","titleCount":1343622,"isSelected":true,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":1343622,"isTokenNeeded":false,"contentType":"EBook","customCoverage":{"beginCoverage":null,"endCoverage":null}},{"packageId":2415701,"packageName":"EBSCO
-        eBooks 2008 (TAEBC)","isCustom":false,"vendorId":19,"vendorName":"EBSCO","titleCount":496,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"EBook","customCoverage":{"beginCoverage":null,"endCoverage":null}},{"packageId":2415702,"packageName":"EBSCO
-        eBooks 2009 (TAEBC)","isCustom":false,"vendorId":19,"vendorName":"EBSCO","titleCount":236,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"EBook","customCoverage":{"beginCoverage":null,"endCoverage":null}},{"packageId":2415703,"packageName":"EBSCO
-        eBooks 2010 (TAEBC)","isCustom":false,"vendorId":19,"vendorName":"EBSCO","titleCount":583,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"EBook","customCoverage":{"beginCoverage":null,"endCoverage":null}},{"packageId":2299217,"packageName":"EBSCO
-        eClassics Collection (EBSCOhost)","isCustom":false,"vendorId":19,"vendorName":"EBSCO","titleCount":25,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"EBook","customCoverage":{"beginCoverage":null,"endCoverage":null}},{"packageId":6582,"packageName":"EBSCO
-        Engineering Collection: India","isCustom":false,"vendorId":19,"vendorName":"EBSCO","titleCount":1074,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"AggregatedFullText","customCoverage":{"beginCoverage":null,"endCoverage":null}},{"packageId":6857,"packageName":"EBSCO
-        Environmental Engineering Collection: India","isCustom":false,"vendorId":19,"vendorName":"EBSCO","titleCount":400,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"AggregatedFullText","customCoverage":{"beginCoverage":null,"endCoverage":null}},{"packageId":6859,"packageName":"EBSCO
-        Geotechnology Collection: India","isCustom":false,"vendorId":19,"vendorName":"EBSCO","titleCount":100,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"AggregatedFullText","customCoverage":{"beginCoverage":null,"endCoverage":null}},{"packageId":3950,"packageName":"EBSCO
-        MegaFILE","isCustom":false,"vendorId":19,"vendorName":"EBSCO","titleCount":19722,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"AggregatedFullText","customCoverage":{"beginCoverage":null,"endCoverage":null}},{"packageId":6860,"packageName":"EBSCO
-        Nanotechnology Collection: India","isCustom":false,"vendorId":19,"vendorName":"EBSCO","titleCount":108,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"AggregatedFullText","customCoverage":{"beginCoverage":null,"endCoverage":null}},{"packageId":1726,"packageName":"EBSCO
+      string: '{"totalResults":114,"packagesList":[{"packageId":6581,"packageName":"EBSCO
+        Biotechnology Collection: India","isCustom":false,"vendorId":19,"vendorName":"EBSCO","titleCount":157,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"AggregatedFullText","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Complete"},{"packageId":3964,"packageName":"EBSCO
+        Business Basics","isCustom":false,"vendorId":19,"vendorName":"EBSCO","titleCount":527,"isSelected":true,"visibilityData":{"isHidden":true,"reason":"Hidden
+        by EP"},"selectedCount":527,"isTokenNeeded":false,"contentType":"AggregatedFullText","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Complete"},{"packageId":6856,"packageName":"EBSCO
+        Chemical Engineering Collection: India","isCustom":false,"vendorId":19,"vendorName":"EBSCO","titleCount":148,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"AggregatedFullText","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Complete"},{"packageId":6027,"packageName":"EBSCO
+        Citations","isCustom":false,"vendorId":19,"vendorName":"EBSCO","titleCount":1,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"OnlineReference","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Complete"},{"packageId":4841,"packageName":"EBSCO
+        Discovery Service","isCustom":false,"vendorId":19,"vendorName":"EBSCO","titleCount":1,"isSelected":true,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":1,"isTokenNeeded":false,"contentType":"OnlineReference","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Complete"},{"packageId":5207,"packageName":"EBSCO
+        eBooks","isCustom":false,"vendorId":19,"vendorName":"EBSCO","titleCount":1434868,"isSelected":true,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":1434867,"isTokenNeeded":false,"contentType":"EBook","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Selectable"},{"packageId":2796989,"packageName":"EBSCO
+        eBooks (CSUC)","isCustom":false,"vendorId":19,"vendorName":"EBSCO","titleCount":1200,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"EBook","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Complete"},{"packageId":2415701,"packageName":"EBSCO
+        eBooks 2008 (TAEBC)","isCustom":false,"vendorId":19,"vendorName":"EBSCO","titleCount":496,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"EBook","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Complete"},{"packageId":2415702,"packageName":"EBSCO
+        eBooks 2009 (TAEBC)","isCustom":false,"vendorId":19,"vendorName":"EBSCO","titleCount":236,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"EBook","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Complete"},{"packageId":2415703,"packageName":"EBSCO
+        eBooks 2010 (TAEBC)","isCustom":false,"vendorId":19,"vendorName":"EBSCO","titleCount":583,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"EBook","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Complete"},{"packageId":2299217,"packageName":"EBSCO
+        eClassics Collection (EBSCOhost)","isCustom":false,"vendorId":19,"vendorName":"EBSCO","titleCount":25,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"EBook","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Complete"},{"packageId":6582,"packageName":"EBSCO
+        Engineering Collection: India","isCustom":false,"vendorId":19,"vendorName":"EBSCO","titleCount":1063,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"AggregatedFullText","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Complete"},{"packageId":6857,"packageName":"EBSCO
+        Environmental Engineering Collection: India","isCustom":false,"vendorId":19,"vendorName":"EBSCO","titleCount":400,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"AggregatedFullText","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Complete"},{"packageId":6859,"packageName":"EBSCO
+        Geotechnology Collection: India","isCustom":false,"vendorId":19,"vendorName":"EBSCO","titleCount":100,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"AggregatedFullText","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Complete"},{"packageId":3950,"packageName":"EBSCO
+        MegaFILE","isCustom":false,"vendorId":19,"vendorName":"EBSCO","titleCount":19663,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"AggregatedFullText","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Complete"},{"packageId":6860,"packageName":"EBSCO
+        Nanotechnology Collection: India","isCustom":false,"vendorId":19,"vendorName":"EBSCO","titleCount":107,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"AggregatedFullText","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Complete"},{"packageId":1726,"packageName":"EBSCO
         Open Access Arts Collection","isCustom":false,"vendorId":273,"vendorName":"EBSCO
-        Open Access Lists","titleCount":381,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"AggregatedFullText","customCoverage":{"beginCoverage":null,"endCoverage":null}},{"packageId":1703,"packageName":"EBSCO
+        Open Access Lists","titleCount":377,"isSelected":true,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":377,"isTokenNeeded":false,"contentType":"AggregatedFullText","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Complete"},{"packageId":1703,"packageName":"EBSCO
         Open Access Biology Collection","isCustom":false,"vendorId":273,"vendorName":"EBSCO
-        Open Access Lists","titleCount":1198,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"AggregatedFullText","customCoverage":{"beginCoverage":null,"endCoverage":null}},{"packageId":1656,"packageName":"EBSCO
+        Open Access Lists","titleCount":1194,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"AggregatedFullText","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Complete"},{"packageId":1656,"packageName":"EBSCO
         Open Access Business and Economics Collection","isCustom":false,"vendorId":273,"vendorName":"EBSCO
-        Open Access Lists","titleCount":852,"isSelected":true,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":1,"isTokenNeeded":false,"contentType":"AggregatedFullText","customCoverage":{"beginCoverage":null,"endCoverage":null}},{"packageId":1657,"packageName":"EBSCO
+        Open Access Lists","titleCount":847,"isSelected":true,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":1,"isTokenNeeded":false,"contentType":"AggregatedFullText","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Complete"},{"packageId":1657,"packageName":"EBSCO
         Open Access Computer Science Collection","isCustom":false,"vendorId":273,"vendorName":"EBSCO
-        Open Access Lists","titleCount":483,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"AggregatedFullText","customCoverage":{"beginCoverage":null,"endCoverage":null}},{"packageId":3732,"packageName":"EBSCO
+        Open Access Lists","titleCount":480,"isSelected":true,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":480,"isTokenNeeded":false,"contentType":"AggregatedFullText","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Complete"},{"packageId":3732,"packageName":"EBSCO
         Open Access Education Collection","isCustom":false,"vendorId":273,"vendorName":"EBSCO
-        Open Access Lists","titleCount":625,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"AggregatedFullText","customCoverage":{"beginCoverage":null,"endCoverage":null}},{"packageId":1707,"packageName":"EBSCO
+        Open Access Lists","titleCount":619,"isSelected":true,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":619,"isTokenNeeded":false,"contentType":"AggregatedFullText","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Complete"},{"packageId":1707,"packageName":"EBSCO
         Open Access Environmental Collection","isCustom":false,"vendorId":273,"vendorName":"EBSCO
-        Open Access Lists","titleCount":518,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"AggregatedFullText","customCoverage":{"beginCoverage":null,"endCoverage":null}},{"packageId":1816,"packageName":"EBSCO
+        Open Access Lists","titleCount":515,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"AggregatedFullText","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Complete"},{"packageId":1816,"packageName":"EBSCO
         Open Access French Collection","isCustom":false,"vendorId":273,"vendorName":"EBSCO
-        Open Access Lists","titleCount":117,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"AggregatedFullText","customCoverage":{"beginCoverage":null,"endCoverage":null}},{"packageId":1813,"packageName":"EBSCO
+        Open Access Lists","titleCount":116,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"AggregatedFullText","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Complete"},{"packageId":1813,"packageName":"EBSCO
         Open Access German Collection","isCustom":false,"vendorId":273,"vendorName":"EBSCO
-        Open Access Lists","titleCount":56,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"AggregatedFullText","customCoverage":{"beginCoverage":null,"endCoverage":null}},{"packageId":1728,"packageName":"EBSCO
+        Open Access Lists","titleCount":56,"isSelected":true,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":56,"isTokenNeeded":false,"contentType":"AggregatedFullText","customCoverage":{"beginCoverage":"2018-01-16","endCoverage":"2018-01-27"},"packageType":"Complete"},{"packageId":1728,"packageName":"EBSCO
         Open Access History Collection","isCustom":false,"vendorId":273,"vendorName":"EBSCO
-        Open Access Lists","titleCount":505,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"AggregatedFullText","customCoverage":{"beginCoverage":null,"endCoverage":null}},{"packageId":1812,"packageName":"EBSCO
-        Open Access Journals","isCustom":false,"vendorId":273,"vendorName":"EBSCO
-        Open Access Lists","titleCount":15654,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"AggregatedFullText","customCoverage":{"beginCoverage":null,"endCoverage":null}}]}'
+        Open Access Lists","titleCount":502,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"AggregatedFullText","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Complete"}]}'
     http_version: 
-  recorded_at: Thu, 15 Feb 2018 21:01:28 GMT
+  recorded_at: Fri, 04 May 2018 02:41:38 GMT
 recorded_with: VCR 3.0.3

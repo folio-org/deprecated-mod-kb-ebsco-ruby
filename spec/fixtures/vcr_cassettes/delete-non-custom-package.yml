@@ -27,7 +27,7 @@ http_interactions:
       Server:
       - nginx/1.13.5
       Date:
-      - Wed, 18 Apr 2018 18:50:43 GMT
+      - Fri, 04 May 2018 04:13:39 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -36,15 +36,15 @@ http_interactions:
       - keep-alive
       X-Okapi-Trace:
       - 'GET mod-authtoken-1.4.1-SNAPSHOT.20 http://10.39.249.72:8081/configurations/entries..
-        : 202 1405us'
+        : 202 1313us'
       - 'GET mod-configuration-4.0.3-SNAPSHOT.29 http://10.39.252.104:8081/configurations/entries..
-        : 200 42961us'
+        : 200 41214us'
       Host:
       - okapi.frontside.io
       X-Real-Ip:
-      - 10.36.3.1
+      - 10.128.0.4
       X-Forwarded-For:
-      - 10.36.3.1
+      - 10.128.0.4
       X-Forwarded-Host:
       - okapi.frontside.io
       X-Forwarded-Port:
@@ -66,7 +66,7 @@ http_interactions:
       User-Agent:
       - Ruby
       X-Okapi-Request-Id:
-      - 158852/configurations
+      - 269971/configurations
       X-Okapi-Url:
       - http://10.39.243.220:80
       X-Okapi-Permissions-Required:
@@ -107,26 +107,26 @@ http_interactions:
           }
         }
     http_version: 
-  recorded_at: Wed, 18 Apr 2018 18:50:43 GMT
+  recorded_at: Fri, 04 May 2018 04:13:39 GMT
 - request:
     method: get
     uri: https://api.ebsco.io/rm/rmaccounts/TEST_CUSTOMER_ID/vendors/583/packages/4345
     body:
-      encoding: US-ASCII
+      encoding: UTF-8
       string: ''
     headers:
-      User-Agent:
-      - Flexirest/1.5.5
-      Connection:
-      - Keep-Alive
-      Accept:
-      - application/json
       X-Api-Key:
       - TEST_API_KEY
       Content-Type:
       - application/json
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - application/json
+      Connection:
+      - close
+      Host:
+      - api.ebsco.io
+      User-Agent:
+      - http.rb/3.3.0
   response:
     status:
       code: 200
@@ -135,29 +135,28 @@ http_interactions:
       Content-Type:
       - application/json;charset=UTF-8
       Content-Length:
-      - '470'
+      - '433'
       Connection:
-      - keep-alive
+      - close
       Date:
-      - Wed, 18 Apr 2018 18:50:43 GMT
+      - Fri, 04 May 2018 04:13:39 GMT
       X-Amzn-Requestid:
-      - 65fd3593-4339-11e8-acbf-771d8d46cca4
+      - 86179e40-4f51-11e8-a346-53440f0e90f2
       X-Amzn-Remapped-Connection:
       - keep-alive
       X-Amz-Apigw-Id:
-      - FjP8mG1SoAMF9RA=
+      - GV-eDFrpoAMFr_g=
       X-Amzn-Remapped-Date:
-      - Wed, 18 Apr 2018 18:50:42 GMT
+      - Fri, 04 May 2018 04:13:39 GMT
       X-Cache:
       - Miss from cloudfront
       Via:
-      - 1.1 641a0f932299b827b56d2560405082d5.cloudfront.net (CloudFront)
+      - 1.1 6f4c292df8fb7b5bd5bfa8aff66748aa.cloudfront.net (CloudFront)
       X-Amz-Cf-Id:
-      - k8HGjYYZWp_81sp5P8GLlUYQENGM6xUI1UdnUYG0W028xjbLyRaCWg==
+      - oDHhwnH5qJJe6bqFKmr0xHxKczq8w5y-VQqjcF45lSBPhiL3tyTeLw==
     body:
       encoding: UTF-8
-      string: '{"packageId":4345,"packageName":"ABC-CLIO eBook Collection","isCustom":false,"vendorId":583,"vendorName":"ABC-CLIO","titleCount":9428,"isSelected":true,"visibilityData":{"isHidden":true,"reason":"Hidden
-        by Customer"},"selectedCount":9402,"isTokenNeeded":false,"contentType":"EBook","customCoverage":{"beginCoverage":"2010-01-21","endCoverage":"2018-02-21"},"proxy":{"id":"<n>","inherited":true},"allowEbscoToAddTitles":false,"packageToken":null,"packageType":"Variable"}'
+      string: '{"packageId":4345,"packageName":"ABC-CLIO eBook Collection","isCustom":false,"vendorId":583,"vendorName":"ABC-CLIO","titleCount":9428,"isSelected":true,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":9428,"isTokenNeeded":false,"contentType":"EBook","customCoverage":{"beginCoverage":"","endCoverage":""},"proxy":{"id":"<n>","inherited":true},"allowEbscoToAddTitles":false,"packageToken":null,"packageType":"Variable"}'
     http_version: 
-  recorded_at: Wed, 18 Apr 2018 18:50:43 GMT
+  recorded_at: Fri, 04 May 2018 04:13:39 GMT
 recorded_with: VCR 3.0.3

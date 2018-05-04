@@ -63,7 +63,7 @@ class TitlesController < ApplicationController
     json = JSON.parse request.body.read
 
     unless json['included']&.first
-      raise ActionController::BadRequest, 'Missing resource'
+      fail ActionController::BadRequest, 'Missing resource'
     end
 
     resource_params = json['data']['attributes'].merge(

@@ -27,7 +27,7 @@ http_interactions:
       Server:
       - nginx/1.13.5
       Date:
-      - Mon, 02 Apr 2018 18:35:39 GMT
+      - Fri, 04 May 2018 02:42:54 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -36,15 +36,15 @@ http_interactions:
       - keep-alive
       X-Okapi-Trace:
       - 'GET mod-authtoken-1.4.1-SNAPSHOT.20 http://10.39.249.72:8081/configurations/entries..
-        : 202 2042us'
+        : 202 354076us'
       - 'GET mod-configuration-4.0.3-SNAPSHOT.29 http://10.39.252.104:8081/configurations/entries..
-        : 200 44232us'
+        : 200 43145us'
       Host:
       - okapi.frontside.io
       X-Real-Ip:
-      - 10.36.3.1
+      - 10.128.0.4
       X-Forwarded-For:
-      - 10.36.3.1
+      - 10.128.0.4
       X-Forwarded-Host:
       - okapi.frontside.io
       X-Forwarded-Port:
@@ -66,7 +66,7 @@ http_interactions:
       User-Agent:
       - Ruby
       X-Okapi-Request-Id:
-      - 592802/configurations
+      - 120341/configurations
       X-Okapi-Url:
       - http://10.39.243.220:80
       X-Okapi-Permissions-Required:
@@ -107,26 +107,26 @@ http_interactions:
           }
         }
     http_version: 
-  recorded_at: Mon, 02 Apr 2018 18:35:39 GMT
+  recorded_at: Fri, 04 May 2018 02:42:54 GMT
 - request:
     method: get
     uri: https://api.ebsco.io/rm/rmaccounts/TEST_CUSTOMER_ID/vendors/1/packages/1
     body:
-      encoding: US-ASCII
+      encoding: UTF-8
       string: ''
     headers:
-      User-Agent:
-      - Flexirest/1.5.5
-      Connection:
-      - Keep-Alive
-      Accept:
-      - application/json
       X-Api-Key:
       - TEST_API_KEY
       Content-Type:
       - application/json
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - application/json
+      Connection:
+      - close
+      Host:
+      - api.ebsco.io
+      User-Agent:
+      - http.rb/3.3.0
   response:
     status:
       code: 404
@@ -137,26 +137,26 @@ http_interactions:
       Content-Length:
       - '67'
       Connection:
-      - keep-alive
+      - close
       Date:
-      - Mon, 02 Apr 2018 18:35:40 GMT
+      - Fri, 04 May 2018 02:42:54 GMT
       X-Amzn-Requestid:
-      - a4ad30d9-36a4-11e8-82c2-c5a3690e7b3a
+      - d8c7728e-4f44-11e8-a4a3-855e82e1a482
       X-Amzn-Remapped-Connection:
       - keep-alive
       X-Amz-Apigw-Id:
-      - EuevYGldIAMFelw=
+      - GVxLUH1JIAMF7cQ=
       X-Amzn-Remapped-Date:
-      - Mon, 02 Apr 2018 18:35:40 GMT
+      - Fri, 04 May 2018 02:42:54 GMT
       X-Cache:
       - Error from cloudfront
       Via:
-      - 1.1 83d82856eafc6ceb7ba06a257022fa7c.cloudfront.net (CloudFront)
+      - 1.1 01ecdc212033db2688d221d4212e4efd.cloudfront.net (CloudFront)
       X-Amz-Cf-Id:
-      - UFqlkT2ZJksqh1hlsP4_6CPVOAMlUkEO7zKuzMU9rrD7YATxhYtavA==
+      - 0oVX7wd42xREPmLE_1-oK0wUjJZKYY7_TXvmyWG0_N3cIT2jaQZ0NQ==
     body:
       encoding: UTF-8
       string: '{"errors":[{"code":1001,"subCode":0,"message":"Vendor not found"}]}'
     http_version: 
-  recorded_at: Mon, 02 Apr 2018 18:35:40 GMT
+  recorded_at: Fri, 04 May 2018 02:42:54 GMT
 recorded_with: VCR 3.0.3

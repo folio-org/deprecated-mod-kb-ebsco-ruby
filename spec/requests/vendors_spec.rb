@@ -15,7 +15,7 @@ RSpec.describe 'Vendors', type: :request do
     it 'gets a list of resources' do
       expect(response).to have_http_status(200)
       expect(json.data.length).to equal(25)
-      expect(json.meta.totalResults).to equal(101)
+      expect(json.meta.totalResults).to equal(106)
     end
 
     describe 'with pagination' do
@@ -30,7 +30,7 @@ RSpec.describe 'Vendors', type: :request do
       it 'gets a different list of resources' do
         expect(response).to have_http_status(200)
         expect(json2.data.length).to equal(25)
-        expect(json2.meta.totalResults).to equal(101)
+        expect(json2.meta.totalResults).to equal(106)
         expect(json.data.first.id).not_to eql(json2.data.first.id)
       end
     end
@@ -73,6 +73,7 @@ RSpec.describe 'Vendors', type: :request do
     let!(:json) { Map JSON.parse response.body }
 
     it 'gets associated package records' do
+      # binding.pry
       expect(response).to have_http_status(200)
       expect(json.included.first.type).to eq('packages')
       expect(json.included.length).to eq(25)
@@ -93,7 +94,7 @@ RSpec.describe 'Vendors', type: :request do
       expect(response).to have_http_status(200)
       expect(json.data.first.type).to eq('packages')
       expect(json.data.length).to eq(25)
-      expect(json.meta.totalResults).to equal(628)
+      expect(json.meta.totalResults).to equal(626)
     end
 
     describe 'with pagination' do
@@ -108,7 +109,7 @@ RSpec.describe 'Vendors', type: :request do
       it 'gets a different list of resources' do
         expect(response).to have_http_status(200)
         expect(json2.data.length).to equal(25)
-        expect(json2.meta.totalResults).to equal(628)
+        expect(json2.meta.totalResults).to equal(626)
         expect(json.data.first.id).not_to eql(json2.data.first.id)
       end
     end

@@ -27,7 +27,7 @@ http_interactions:
       Server:
       - nginx/1.13.5
       Date:
-      - Mon, 02 Apr 2018 18:35:35 GMT
+      - Mon, 07 May 2018 09:10:18 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -36,15 +36,15 @@ http_interactions:
       - keep-alive
       X-Okapi-Trace:
       - 'GET mod-authtoken-1.4.1-SNAPSHOT.20 http://10.39.249.72:8081/configurations/entries..
-        : 202 2709us'
+        : 202 1401us'
       - 'GET mod-configuration-4.0.3-SNAPSHOT.29 http://10.39.252.104:8081/configurations/entries..
-        : 200 45427us'
+        : 200 42579us'
       Host:
       - okapi.frontside.io
       X-Real-Ip:
-      - 10.36.4.1
+      - 10.128.0.4
       X-Forwarded-For:
-      - 10.36.4.1
+      - 10.128.0.4
       X-Forwarded-Host:
       - okapi.frontside.io
       X-Forwarded-Port:
@@ -66,7 +66,7 @@ http_interactions:
       User-Agent:
       - Ruby
       X-Okapi-Request-Id:
-      - 637868/configurations
+      - 569853/configurations
       X-Okapi-Url:
       - http://10.39.243.220:80
       X-Okapi-Permissions-Required:
@@ -107,26 +107,26 @@ http_interactions:
           }
         }
     http_version: 
-  recorded_at: Mon, 02 Apr 2018 18:35:35 GMT
+  recorded_at: Mon, 07 May 2018 09:10:18 GMT
 - request:
     method: get
     uri: https://api.ebsco.io/rm/rmaccounts/TEST_CUSTOMER_ID/vendors/19/packages/6581
     body:
-      encoding: US-ASCII
+      encoding: UTF-8
       string: ''
     headers:
-      User-Agent:
-      - Flexirest/1.5.5
-      Connection:
-      - Keep-Alive
-      Accept:
-      - application/json
       X-Api-Key:
       - TEST_API_KEY
       Content-Type:
       - application/json
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - application/json
+      Connection:
+      - close
+      Host:
+      - api.ebsco.io
+      User-Agent:
+      - http.rb/3.3.0
   response:
     status:
       code: 200
@@ -135,30 +135,81 @@ http_interactions:
       Content-Type:
       - application/json;charset=UTF-8
       Content-Length:
-      - '455'
+      - '451'
       Connection:
-      - keep-alive
+      - close
       Date:
-      - Mon, 02 Apr 2018 18:35:35 GMT
+      - Mon, 07 May 2018 09:10:18 GMT
       X-Amzn-Requestid:
-      - a1fd7958-36a4-11e8-8ad3-b3ed2f96b288
+      - 76821dd5-51d6-11e8-8a20-b198ee4185fc
       X-Amzn-Remapped-Connection:
       - keep-alive
       X-Amz-Apigw-Id:
-      - EueurF-oIAMFdnw=
+      - GgivLE8WIAMF6kQ=
       X-Amzn-Remapped-Date:
-      - Mon, 02 Apr 2018 18:35:35 GMT
+      - Mon, 07 May 2018 09:10:18 GMT
       X-Cache:
       - Miss from cloudfront
       Via:
-      - 1.1 b5434ae2f27f51f7ce619d0889d77d8d.cloudfront.net (CloudFront)
+      - 1.1 d57e92f55da6364b30f6b45e435b7b20.cloudfront.net (CloudFront)
       X-Amz-Cf-Id:
-      - BY6Yig6HxXoOOJcNA2DQxbs8Npn8at2rvKTWte6FB7vv9fu2xsr8kw==
+      - kBEZ8BaDNSfduJP-wlMgPg_OUTzt6G93vtXXViFpRw_7yFpL_Y_x4Q==
     body:
       encoding: UTF-8
-      string: '{"packageId":6581,"packageName":"EBSCO Biotechnology Collection: India","isCustom":false,"vendorId":19,"vendorName":"EBSCO","titleCount":159,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"AggregatedFullText","customCoverage":{"beginCoverage":"","endCoverage":""},"proxy":{"id":"EZProxy","inherited":true},"allowEbscoToAddTitles":false,"packageToken":null,"packageType":"Complete"}'
+      string: '{"packageId":6581,"packageName":"EBSCO Biotechnology Collection: India","isCustom":false,"vendorId":19,"vendorName":"EBSCO","titleCount":157,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"AggregatedFullText","customCoverage":{"beginCoverage":"","endCoverage":""},"proxy":{"id":"<n>","inherited":true},"allowEbscoToAddTitles":false,"packageToken":null,"packageType":"Complete"}'
     http_version: 
-  recorded_at: Mon, 02 Apr 2018 18:35:35 GMT
+  recorded_at: Mon, 07 May 2018 09:10:18 GMT
+- request:
+    method: get
+    uri: https://api.ebsco.io/rm/rmaccounts/TEST_CUSTOMER_ID/vendors/19/packages/6581
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      X-Api-Key:
+      - TEST_API_KEY
+      Content-Type:
+      - application/json
+      Accept:
+      - application/json
+      Connection:
+      - close
+      Host:
+      - api.ebsco.io
+      User-Agent:
+      - http.rb/3.3.0
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json;charset=UTF-8
+      Content-Length:
+      - '451'
+      Connection:
+      - close
+      Date:
+      - Mon, 07 May 2018 09:10:19 GMT
+      X-Amzn-Requestid:
+      - 76a4e7c9-51d6-11e8-8c40-314860e064ee
+      X-Amzn-Remapped-Connection:
+      - keep-alive
+      X-Amz-Apigw-Id:
+      - GgivOHp8oAMFdOA=
+      X-Amzn-Remapped-Date:
+      - Mon, 07 May 2018 09:10:19 GMT
+      X-Cache:
+      - Miss from cloudfront
+      Via:
+      - 1.1 3b1807627d3f1dc0cdeb157fc313627b.cloudfront.net (CloudFront)
+      X-Amz-Cf-Id:
+      - vBkKSthYPAuRFn3tQgwOl1Gj-g6w4mbkqWmPk6Jdr4lCzhswlRwcbA==
+    body:
+      encoding: UTF-8
+      string: '{"packageId":6581,"packageName":"EBSCO Biotechnology Collection: India","isCustom":false,"vendorId":19,"vendorName":"EBSCO","titleCount":157,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"AggregatedFullText","customCoverage":{"beginCoverage":"","endCoverage":""},"proxy":{"id":"<n>","inherited":true},"allowEbscoToAddTitles":false,"packageToken":null,"packageType":"Complete"}'
+    http_version: 
+  recorded_at: Mon, 07 May 2018 09:10:19 GMT
 - request:
     method: get
     uri: https://api.ebsco.io/rm/rmaccounts/TEST_CUSTOMER_ID/vendors/19/packages/6581/titles?count=25&offset=1&orderby=relevance&resourcetype=newsletter&search=bioworld&searchfield=titlename&selection=all
@@ -190,15 +241,15 @@ http_interactions:
       Connection:
       - keep-alive
       Date:
-      - Mon, 02 Apr 2018 18:35:36 GMT
+      - Mon, 07 May 2018 09:10:19 GMT
       X-Amzn-Requestid:
-      - a21595fc-36a4-11e8-889e-b583320d684c
+      - 76c19757-51d6-11e8-84d4-e34a94329d80
       X-Amzn-Remapped-Content-Length:
       - '2515'
       X-Amzn-Remapped-Connection:
       - keep-alive
       X-Amz-Apigw-Id:
-      - EueusHqgoAMFWww=
+      - GgivQFVbIAMFhHg=
       X-Amzn-Remapped-Server:
       - Microsoft-IIS/8.5
       Cache-Control:
@@ -210,15 +261,15 @@ http_interactions:
       Pragma:
       - no-cache
       X-Amzn-Remapped-Date:
-      - Mon, 02 Apr 2018 18:35:35 GMT
+      - Mon, 07 May 2018 09:10:18 GMT
       X-Aspnet-Version:
       - 4.0.30319
       X-Cache:
       - Miss from cloudfront
       Via:
-      - 1.1 aa68f5b22238752251dcb5f9488ca0bf.cloudfront.net (CloudFront)
+      - 1.1 30aeb6ef25a393db74fabfc78bbd79e3.cloudfront.net (CloudFront)
       X-Amz-Cf-Id:
-      - djHyf_WCJmgSBaLEcLRAlEGT8BbujtOIZAwsR8Awka1_Neds6KF8Ug==
+      - 2HF81glgaS4WWf0Dii42blfDorMvpmeHMz_kSH6hatCZ_Dwoqz4SQg==
     body:
       encoding: UTF-8
       string: '{"totalResults":2,"titles":[{"titleId":10741,"titleName":"Bioworld
@@ -229,5 +280,5 @@ http_interactions:
         Sciences"}],"isTitleCustom":false,"pubType":"Newsletter","customerResourcesList":[{"titleId":10744,"packageId":6581,"packageName":"EBSCO
         Biotechnology Collection: India","packageType":"Complete","isPackageCustom":false,"vendorId":19,"vendorName":"EBSCO","locationId":4829529,"isSelected":false,"isTokenNeeded":false,"visibilityData":{"isHidden":false,"reason":""},"managedCoverageList":[{"beginCoverage":"2007-04-02","endCoverage":"2011-09-26"}],"customCoverageList":[],"coverageStatement":null,"managedEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"customEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"url":"http://search.ebscohost.com/direct.asp?db=bti&jid=2SCO&scope=site","userDefinedField1":null,"userDefinedField2":null,"userDefinedField3":null,"userDefinedField4":null,"userDefinedField5":null}]}]}'
     http_version: 
-  recorded_at: Mon, 02 Apr 2018 18:35:36 GMT
+  recorded_at: Mon, 07 May 2018 09:10:19 GMT
 recorded_with: VCR 3.0.3
