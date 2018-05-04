@@ -31,7 +31,7 @@ module Validation
     def identifiers_list_valid? # rubocop:disable Metrics/AbcSize
       identifiersList.each do |identifier|
         errors.add(:IdentifierId, ':Invalid Identifier id') unless
-          identifier['id'] && identifier['id'].instance_of?(String) && identifier['id'].length <= 20
+          identifier['id']&.instance_of?(String) && identifier['id'].length <= 20
         errors.add(:IdentifierType, ':Invalid Identifier type') unless
           identifier['type']&.between?(0, 1)
         errors.add(:IdentifierSubType, ':Invalid Identifier subtype') unless
