@@ -29,6 +29,15 @@ class TitlesController < ApplicationController
       render jsonapi_errors: resource_validation.errors,
              status: :unprocessable_entity
     end
+  # combined_resource may raise this exception
+  rescue JSON::ParserError, NoMethodError
+    error = {
+      title: 'Invalid JSON',
+      detail: 'The provided JSON payload could not be parsed'
+    }
+
+    render jsonapi_errors: [error],
+           status: :unprocessable_entity
   end
 
   def show

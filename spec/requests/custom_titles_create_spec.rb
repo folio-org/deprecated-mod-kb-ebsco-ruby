@@ -1061,5 +1061,23 @@ RSpec.describe 'Custom Titles Create', type: :request do
           .to eq('Online')
       end
     end
+
+    describe 'with an invalid payload' do
+      before do
+        VCR.use_cassette('post-custom-title-invalid-payload') do
+          post '/eholdings/titles', headers: create_headers
+        end
+      end
+
+      let!(:json) { Map JSON.parse response.body }
+
+      it 'returns an error status' do
+        expect(response).to have_http_status(422)
+      end
+
+      it 'returns expected error message title' do
+        expect(json.errors.first.title).to eql('Invalid JSON')
+      end
+    end
   end
 end
