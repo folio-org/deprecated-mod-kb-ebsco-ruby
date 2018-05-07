@@ -74,9 +74,6 @@ pipeline {
 
         sh "sudo /bin/bash -l -c '. /usr/share/rvm/scripts/rvm && bundle install'"
 
-        echo "Run Ruby linter - rubocop..."
-        sh "/bin/bash -l -c '. /usr/share/rvm/scripts/rvm && rubocop'"
-
         echo "Run unit tests..."
         sh "/bin/bash -l -c '. /usr/share/rvm/scripts/rvm && rake spec'"
       }
@@ -135,5 +132,3 @@ pipeline {
   }
 
 }
-
-
