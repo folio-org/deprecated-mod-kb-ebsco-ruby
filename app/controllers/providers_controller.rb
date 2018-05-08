@@ -64,4 +64,3 @@ class ProvidersController < ApplicationController
       )
   end
 end
-g
