@@ -31,3 +31,9 @@ Metrics/LineLength:
 # Template tokens are fine
 Style/FormatStringToken:
   Enabled: false
+
+Style/SignalException:
+  EnforcedStyle: semantic
+
+Metrics/AbcSize:
+  Max: 30

@@ -9,11 +9,36 @@ class ResourcesController < ApplicationController
                           only: %i[create update],
                           class: DeserializableResource
   def create
+    # A resource represents the relationship between a package
+    # and title.  So in this `create` method we're really just
+    # associating a title (managed or custom) with a package (custom only)
+    # via the `isSelected` property.
+
+    provider_id, package_id = resource_create_params[:packageId].split('-')
+    title_id = resource_create_params[:titleId]
+
+    package = PackagesRepository.new(config: config)
+                                .find!(resource_create_params[:packageId])
+                                .data
+    title = Title.configure(config).find(title_id)
+
     resource_validation =
-      Validation::ResourceCreateParameters.new(resource_params)
+      Validation::ResourceAssociateParameters.new(
+        packageId: resource_create_params[:packageId],
+        titleId: title_id,
+        package: package,
+        title: title
+      )
 
     if resource_validation.valid?
-      @resource = resources.create_resource(resource_params)
+      @resource = resources.create_resource(
+        vendor_id: provider_id.to_i,
+        package_id: package_id.to_i,
+        title_id: title_id.to_i,
+        isSelected: true,
+        titleName: title.titleName,
+        pubType: title.pubType
+      )
       render jsonapi: @resource
     else
       render jsonapi_errors: resource_validation.errors,
@@ -66,6 +91,15 @@ class ResourcesController < ApplicationController
     Resource.configure config
   end
 
+  def resource_create_params
+    params
+      .require(:resource)
+      .permit(
+        :titleId,
+        :packageId
+      )
+  end
+
   def resource_params
     # NOTE: deserialization happens before param parsing, so we
     # use the RMAPI property names here
@@ -82,6 +116,7 @@ class ResourcesController < ApplicationController
         :description,
         :url,
         :packageId,
+        :titleId,
         visibilityData: %i[isHidden reason],
         customCoverageList: [
           %i[beginCoverage endCoverage]

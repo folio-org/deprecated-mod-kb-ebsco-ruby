@@ -27,7 +27,7 @@ http_interactions:
       Server:
       - nginx/1.13.5
       Date:
-      - Thu, 05 Apr 2018 15:58:40 GMT
+      - Fri, 04 May 2018 19:56:16 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -36,15 +36,15 @@ http_interactions:
       - keep-alive
       X-Okapi-Trace:
       - 'GET mod-authtoken-1.4.1-SNAPSHOT.20 http://10.39.249.72:8081/configurations/entries..
-        : 202 363131us'
+        : 202 1258us'
       - 'GET mod-configuration-4.0.3-SNAPSHOT.29 http://10.39.252.104:8081/configurations/entries..
-        : 200 42877us'
+        : 200 41321us'
       Host:
       - okapi.frontside.io
       X-Real-Ip:
-      - 10.128.0.3
+      - 10.128.0.4
       X-Forwarded-For:
-      - 10.128.0.3
+      - 10.128.0.4
       X-Forwarded-Host:
       - okapi.frontside.io
       X-Forwarded-Port:
@@ -66,7 +66,7 @@ http_interactions:
       User-Agent:
       - Ruby
       X-Okapi-Request-Id:
-      - 709006/configurations
+      - '024268/configurations'
       X-Okapi-Url:
       - http://10.39.243.220:80
       X-Okapi-Permissions-Required:
@@ -107,7 +107,7 @@ http_interactions:
           }
         }
     http_version: 
-  recorded_at: Thu, 05 Apr 2018 15:58:40 GMT
+  recorded_at: Fri, 04 May 2018 19:56:16 GMT
 - request:
     method: get
     uri: https://api.ebsco.io/rm/rmaccounts/TEST_CUSTOMER_ID/vendors/19
@@ -135,49 +135,49 @@ http_interactions:
       Content-Type:
       - application/json;charset=UTF-8
       Content-Length:
-      - '158'
+      - '154'
       Connection:
       - keep-alive
       Date:
-      - Thu, 05 Apr 2018 15:58:40 GMT
+      - Fri, 04 May 2018 19:56:16 GMT
       X-Amzn-Requestid:
-      - 354b9ac9-38ea-11e8-b700-732fe81678f9
+      - 3497ec07-4fd5-11e8-bf95-57d5d7dd2a1f
       X-Amzn-Remapped-Connection:
       - keep-alive
       X-Amz-Apigw-Id:
-      - E4AjiGrCIAMFcqg=
+      - GYIjDH2ZoAMF2FA=
       X-Amzn-Remapped-Date:
-      - Thu, 05 Apr 2018 15:58:40 GMT
+      - Fri, 04 May 2018 19:56:16 GMT
       X-Cache:
       - Miss from cloudfront
       Via:
-      - 1.1 a170a9e8f9393700a8de4715a0943846.cloudfront.net (CloudFront)
+      - 1.1 dc553909528b8b63475c922dc07d8ba6.cloudfront.net (CloudFront)
       X-Amz-Cf-Id:
-      - W_pGY_PVqzvkCMQj8_IKR2x6LTHpm4TtXuzrGI8n5HwcWVuLrZogag==
+      - ChbSKCWHcyiaYAN91IYuGJuXbSIYK-L7eV1jsTLktgQOsQgwr40agg==
     body:
       encoding: UTF-8
-      string: '{"isCustomer":false,"packagesSelected":40,"packagesTotal":632,"vendorId":19,"vendorName":"EBSCO","proxy":{"id":"EZProxy","inherited":true},"vendorToken":null}'
+      string: '{"isCustomer":false,"packagesSelected":43,"packagesTotal":626,"vendorId":19,"vendorName":"EBSCO","proxy":{"id":"<n>","inherited":true},"vendorToken":null}'
     http_version: 
-  recorded_at: Thu, 05 Apr 2018 15:58:40 GMT
+  recorded_at: Fri, 04 May 2018 19:56:16 GMT
 - request:
     method: get
     uri: https://api.ebsco.io/rm/rmaccounts/TEST_CUSTOMER_ID/vendors/19/packages?contenttype=all&count=25&offset=1&orderby=relevance&search=communication%20abstracts&selection=all
     body:
-      encoding: US-ASCII
+      encoding: UTF-8
       string: ''
     headers:
-      User-Agent:
-      - Flexirest/1.5.5
-      Connection:
-      - Keep-Alive
-      Accept:
-      - application/json
       X-Api-Key:
       - TEST_API_KEY
       Content-Type:
       - application/json
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - application/json
+      Connection:
+      - close
+      Host:
+      - api.ebsco.io
+      User-Agent:
+      - http.rb/3.3.0
   response:
     status:
       code: 200
@@ -186,32 +186,33 @@ http_interactions:
       Content-Type:
       - application/json;charset=UTF-8
       Content-Length:
-      - '8962'
+      - '8972'
       Connection:
-      - keep-alive
+      - close
       Date:
-      - Thu, 05 Apr 2018 15:58:54 GMT
+      - Fri, 04 May 2018 19:56:16 GMT
       X-Amzn-Requestid:
-      - 3b8080dc-38ea-11e8-bbe3-a1f44f4328f9
+      - 34d717c2-4fd5-11e8-a346-9dc2f1232ec9
       X-Amzn-Remapped-Connection:
       - keep-alive
       X-Amz-Apigw-Id:
-      - E4AlKGh_IAMF2rw=
+      - GYIjHEzTIAMF9dw=
       X-Amzn-Remapped-Date:
-      - Thu, 05 Apr 2018 15:58:54 GMT
+      - Fri, 04 May 2018 19:56:16 GMT
       X-Cache:
       - Miss from cloudfront
       Via:
-      - 1.1 ac3474fe463b33f1439c8d949f9a075f.cloudfront.net (CloudFront)
+      - 1.1 81871f1c889cc44b6c25e3ef722a3801.cloudfront.net (CloudFront)
       X-Amz-Cf-Id:
-      - 4oewhJNAe3QQ2xTeYGNTEmAQvGG1bw8tjL08lY_46Oy5-pDwuXtIow==
+      - 9OcPemV8cio_zmq-G4Ly4mG4C0EUp6Z0rX9oYTGKQH9BpSVndZaVEw==
     body:
       encoding: UTF-8
       string: '{"totalResults":49,"packagesList":[{"packageId":4240,"packageName":"Communication
         Abstracts (EBSCO)","isCustom":false,"vendorId":19,"vendorName":"EBSCO","titleCount":1,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"AbstractAndIndex","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Complete"},{"packageId":792,"packageName":"Communication
         & Mass Media Complete","isCustom":false,"vendorId":19,"vendorName":"EBSCO","titleCount":559,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"AggregatedFullText","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Complete"},{"packageId":20087,"packageName":"Communication
-        Source","isCustom":false,"vendorId":19,"vendorName":"EBSCO","titleCount":784,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"AggregatedFullText","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Complete"},{"packageId":2516,"packageName":"Abstracts
-        in Social Gerontology","isCustom":false,"vendorId":19,"vendorName":"EBSCO","titleCount":1,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"AbstractAndIndex","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Complete"},{"packageId":5420,"packageName":"Applied
+        Source","isCustom":false,"vendorId":19,"vendorName":"EBSCO","titleCount":785,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"AggregatedFullText","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Complete"},{"packageId":2516,"packageName":"Abstracts
+        in Social Gerontology","isCustom":false,"vendorId":19,"vendorName":"EBSCO","titleCount":1,"isSelected":true,"visibilityData":{"isHidden":true,"reason":"Hidden
+        by EP"},"selectedCount":1,"isTokenNeeded":false,"contentType":"AbstractAndIndex","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Complete"},{"packageId":5420,"packageName":"Applied
         Science & Technology Abstracts (H.W. Wilson)","isCustom":false,"vendorId":19,"vendorName":"EBSCO","titleCount":1,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"AbstractAndIndex","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Complete"},{"packageId":5459,"packageName":"Art
         Abstracts (H.W. Wilson)","isCustom":false,"vendorId":19,"vendorName":"EBSCO","titleCount":1,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"AbstractAndIndex","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Complete"},{"packageId":2706,"packageName":"Biological
         Abstracts (EBSCO)","isCustom":false,"vendorId":19,"vendorName":"EBSCO","titleCount":1,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"AbstractAndIndex","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Complete"},{"packageId":2707,"packageName":"Biological
@@ -221,7 +222,7 @@ http_interactions:
         Abstracts 1990-present (EBSCO)","isCustom":false,"vendorId":19,"vendorName":"EBSCO","titleCount":1,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"AbstractAndIndex","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Complete"},{"packageId":2855,"packageName":"CAB
         Abstracts Archive (EBSCO)","isCustom":false,"vendorId":19,"vendorName":"EBSCO","titleCount":1,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"AbstractAndIndex","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Complete"},{"packageId":4241,"packageName":"Criminal
         Justice Abstracts (EBSCO)","isCustom":false,"vendorId":19,"vendorName":"EBSCO","titleCount":1,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"AbstractAndIndex","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Complete"},{"packageId":4734,"packageName":"Criminal
-        Justice Abstracts with Full Text","isCustom":false,"vendorId":19,"vendorName":"EBSCO","titleCount":347,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"AggregatedFullText","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Complete"},{"packageId":2525,"packageName":"Current
+        Justice Abstracts with Full Text","isCustom":false,"vendorId":19,"vendorName":"EBSCO","titleCount":346,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"AggregatedFullText","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Complete"},{"packageId":2525,"packageName":"Current
         Abstracts","isCustom":false,"vendorId":19,"vendorName":"EBSCO","titleCount":1,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"AbstractAndIndex","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Complete"},{"packageId":5390,"packageName":"Education
         Abstracts (H.W. Wilson)","isCustom":false,"vendorId":19,"vendorName":"EBSCO","titleCount":1,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"AbstractAndIndex","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Complete"},{"packageId":2517,"packageName":"Educational
         Administration Abstracts","isCustom":false,"vendorId":19,"vendorName":"EBSCO","titleCount":1,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"AbstractAndIndex","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Complete"},{"packageId":5466,"packageName":"Ergonomic
@@ -230,9 +231,9 @@ http_interactions:
         Science and Technology Abstracts (EBSCO)","isCustom":false,"vendorId":19,"vendorName":"EBSCO","titleCount":1,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"AbstractAndIndex","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Complete"},{"packageId":5427,"packageName":"General
         Science Abstracts (H.W. Wilson)","isCustom":false,"vendorId":19,"vendorName":"EBSCO","titleCount":1,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"AbstractAndIndex","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Complete"},{"packageId":2526,"packageName":"Historical
         Abstracts (EBSCO)","isCustom":false,"vendorId":19,"vendorName":"EBSCO","titleCount":1,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"AbstractAndIndex","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Complete"},{"packageId":4214,"packageName":"Historical
-        Abstracts with Full Text","isCustom":false,"vendorId":19,"vendorName":"EBSCO","titleCount":598,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"AggregatedFullText","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Complete"},{"packageId":1306697,"packageName":"Historical
-        Abstracts with Full Text Alumni Edition","isCustom":false,"vendorId":19,"vendorName":"EBSCO","titleCount":455,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"AggregatedFullText","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Complete"},{"packageId":2519,"packageName":"Human
+        Abstracts with Full Text","isCustom":false,"vendorId":19,"vendorName":"EBSCO","titleCount":641,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"AggregatedFullText","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Complete"},{"packageId":1306697,"packageName":"Historical
+        Abstracts with Full Text Alumni Edition","isCustom":false,"vendorId":19,"vendorName":"EBSCO","titleCount":493,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"AggregatedFullText","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Complete"},{"packageId":2519,"packageName":"Human
         Resources Abstracts","isCustom":false,"vendorId":19,"vendorName":"EBSCO","titleCount":1,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"AbstractAndIndex","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Complete"}]}'
     http_version: 
-  recorded_at: Thu, 05 Apr 2018 15:58:54 GMT
+  recorded_at: Fri, 04 May 2018 19:56:17 GMT
 recorded_with: VCR 3.0.3

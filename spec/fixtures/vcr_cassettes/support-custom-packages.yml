@@ -27,7 +27,7 @@ http_interactions:
       Server:
       - nginx/1.13.5
       Date:
-      - Fri, 13 Apr 2018 13:30:37 GMT
+      - Fri, 04 May 2018 19:55:56 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -36,15 +36,15 @@ http_interactions:
       - keep-alive
       X-Okapi-Trace:
       - 'GET mod-authtoken-1.4.1-SNAPSHOT.20 http://10.39.249.72:8081/configurations/entries..
-        : 202 357100us'
+        : 202 1229us'
       - 'GET mod-configuration-4.0.3-SNAPSHOT.29 http://10.39.252.104:8081/configurations/entries..
-        : 200 42477us'
+        : 200 41292us'
       Host:
       - okapi.frontside.io
       X-Real-Ip:
-      - 10.36.3.1
+      - 10.128.0.4
       X-Forwarded-For:
-      - 10.36.3.1
+      - 10.128.0.4
       X-Forwarded-Host:
       - okapi.frontside.io
       X-Forwarded-Port:
@@ -66,7 +66,7 @@ http_interactions:
       User-Agent:
       - Ruby
       X-Okapi-Request-Id:
-      - 123991/configurations
+      - 843155/configurations
       X-Okapi-Url:
       - http://10.39.243.220:80
       X-Okapi-Permissions-Required:
@@ -107,7 +107,7 @@ http_interactions:
           }
         }
     http_version: 
-  recorded_at: Fri, 13 Apr 2018 13:30:36 GMT
+  recorded_at: Fri, 04 May 2018 19:55:57 GMT
 - request:
     method: get
     uri: https://api.ebsco.io/rm/rmaccounts/TEST_CUSTOMER_ID/vendors/123355
@@ -139,25 +139,25 @@ http_interactions:
       Connection:
       - keep-alive
       Date:
-      - Fri, 13 Apr 2018 13:30:37 GMT
+      - Fri, 04 May 2018 19:55:57 GMT
       X-Amzn-Requestid:
-      - d9e2acb3-3f1e-11e8-908d-29f7dc558aa4
+      - 2931fbd5-4fd5-11e8-9a1f-e10112b2f5d4
       X-Amzn-Remapped-Connection:
       - keep-alive
       X-Amz-Apigw-Id:
-      - FSCXjEOPoAMFteg=
+      - GYIgEERnoAMFUmA=
       X-Amzn-Remapped-Date:
-      - Fri, 13 Apr 2018 13:30:37 GMT
+      - Fri, 04 May 2018 19:55:57 GMT
       X-Cache:
       - Miss from cloudfront
       Via:
-      - 1.1 a6e6de55f7ddbeeba09f3954e960354f.cloudfront.net (CloudFront)
+      - 1.1 bfdd5909914586f5bc4851846228c27f.cloudfront.net (CloudFront)
       X-Amz-Cf-Id:
-      - OlM8mXZ-etEjJtyjiBfZhz5zILUq4z-rCflWBkVtHKYegRm7CHIM1A==
+      - "-VJZy6LniaKapiWBqaN7dZ0uD7_fmfK4LKBr4e9rdURIolmKBBqeCg=="
     body:
       encoding: UTF-8
-      string: '{"isCustomer":true,"packagesSelected":41,"packagesTotal":41,"vendorId":123355,"vendorName":"API
+      string: '{"isCustomer":true,"packagesSelected":71,"packagesTotal":71,"vendorId":123355,"vendorName":"API
         DEV CORPORATE CUSTOMER","proxy":{"id":"<n>","inherited":true},"vendorToken":null}'
     http_version: 
-  recorded_at: Fri, 13 Apr 2018 13:30:36 GMT
+  recorded_at: Fri, 04 May 2018 19:55:57 GMT
 recorded_with: VCR 3.0.3

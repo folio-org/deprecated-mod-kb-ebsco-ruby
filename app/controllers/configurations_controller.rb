@@ -6,7 +6,7 @@ class ConfigurationsController < ApplicationController
   end
 
   # TODO: Use ActionController::Parameters
-  def update # rubocop:disable Metrics/AbcSize
+  def update
     data_attributes = JSON.parse(request.body.read)['data']['attributes'] || {}
 
     config.customer_id = data_attributes['customerId']

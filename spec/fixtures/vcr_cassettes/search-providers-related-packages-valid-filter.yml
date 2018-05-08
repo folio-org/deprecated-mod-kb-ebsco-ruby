@@ -27,7 +27,7 @@ http_interactions:
       Server:
       - nginx/1.13.5
       Date:
-      - Thu, 05 Apr 2018 15:48:05 GMT
+      - Fri, 04 May 2018 19:56:13 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -36,15 +36,15 @@ http_interactions:
       - keep-alive
       X-Okapi-Trace:
       - 'GET mod-authtoken-1.4.1-SNAPSHOT.20 http://10.39.249.72:8081/configurations/entries..
-        : 202 1473us'
+        : 202 1319us'
       - 'GET mod-configuration-4.0.3-SNAPSHOT.29 http://10.39.252.104:8081/configurations/entries..
-        : 200 42876us'
+        : 200 41259us'
       Host:
       - okapi.frontside.io
       X-Real-Ip:
-      - 10.128.0.5
+      - 10.36.3.1
       X-Forwarded-For:
-      - 10.128.0.5
+      - 10.36.3.1
       X-Forwarded-Host:
       - okapi.frontside.io
       X-Forwarded-Port:
@@ -66,7 +66,7 @@ http_interactions:
       User-Agent:
       - Ruby
       X-Okapi-Request-Id:
-      - 891291/configurations
+      - 351804/configurations
       X-Okapi-Url:
       - http://10.39.243.220:80
       X-Okapi-Permissions-Required:
@@ -107,7 +107,7 @@ http_interactions:
           }
         }
     http_version: 
-  recorded_at: Thu, 05 Apr 2018 15:48:05 GMT
+  recorded_at: Fri, 04 May 2018 19:56:13 GMT
 - request:
     method: get
     uri: https://api.ebsco.io/rm/rmaccounts/TEST_CUSTOMER_ID/vendors/19
@@ -135,49 +135,49 @@ http_interactions:
       Content-Type:
       - application/json;charset=UTF-8
       Content-Length:
-      - '158'
+      - '154'
       Connection:
       - keep-alive
       Date:
-      - Thu, 05 Apr 2018 15:48:05 GMT
+      - Fri, 04 May 2018 19:56:14 GMT
       X-Amzn-Requestid:
-      - bad09531-38e8-11e8-b38e-97b79d6c5df4
+      - 333e76ea-4fd5-11e8-a9bb-e51a8ff02b2c
       X-Amzn-Remapped-Connection:
       - keep-alive
       X-Amz-Apigw-Id:
-      - E3_AUE3sIAMF4UA=
+      - GYIitG-MIAMFa7w=
       X-Amzn-Remapped-Date:
-      - Thu, 05 Apr 2018 15:48:05 GMT
+      - Fri, 04 May 2018 19:56:13 GMT
       X-Cache:
       - Miss from cloudfront
       Via:
-      - 1.1 901034d5d4414b1ff9a2fe4433360a1d.cloudfront.net (CloudFront)
+      - 1.1 0ffb9964022445351e635c66ad0176ff.cloudfront.net (CloudFront)
       X-Amz-Cf-Id:
-      - 4A5jXPlfsExvu2IeIp-GoK3dzOXbdjI7K2Shg55cFjY8o741h94FbQ==
+      - WfMIW9meUqOoP2v-SdUKDVi_Qh2cL6EgcXQ6rGBjoadcYke1SNRkdA==
     body:
       encoding: UTF-8
-      string: '{"isCustomer":false,"packagesSelected":40,"packagesTotal":632,"vendorId":19,"vendorName":"EBSCO","proxy":{"id":"EZProxy","inherited":true},"vendorToken":null}'
+      string: '{"isCustomer":false,"packagesSelected":43,"packagesTotal":626,"vendorId":19,"vendorName":"EBSCO","proxy":{"id":"<n>","inherited":true},"vendorToken":null}'
     http_version: 
-  recorded_at: Thu, 05 Apr 2018 15:48:05 GMT
+  recorded_at: Fri, 04 May 2018 19:56:14 GMT
 - request:
     method: get
     uri: https://api.ebsco.io/rm/rmaccounts/TEST_CUSTOMER_ID/vendors/19/packages?contenttype=aggregatedfulltext&count=25&offset=1&orderby=relevance&search=abstract&selection=all
     body:
-      encoding: US-ASCII
+      encoding: UTF-8
       string: ''
     headers:
-      User-Agent:
-      - Flexirest/1.5.5
-      Connection:
-      - Keep-Alive
-      Accept:
-      - application/json
       X-Api-Key:
       - TEST_API_KEY
       Content-Type:
       - application/json
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - application/json
+      Connection:
+      - close
+      Host:
+      - api.ebsco.io
+      User-Agent:
+      - http.rb/3.3.0
   response:
     status:
       code: 200
@@ -188,34 +188,34 @@ http_interactions:
       Content-Length:
       - '2311'
       Connection:
-      - keep-alive
+      - close
       Date:
-      - Thu, 05 Apr 2018 15:48:08 GMT
+      - Fri, 04 May 2018 19:56:14 GMT
       X-Amzn-Requestid:
-      - bb171437-38e8-11e8-bfb4-85bcd6ab9267
+      - 3373b742-4fd5-11e8-9f88-b5677d9818f1
       X-Amzn-Remapped-Connection:
       - keep-alive
       X-Amz-Apigw-Id:
-      - E3_AZGdcIAMFSiw=
+      - GYIiwFE8IAMFTTg=
       X-Amzn-Remapped-Date:
-      - Thu, 05 Apr 2018 15:48:08 GMT
+      - Fri, 04 May 2018 19:56:14 GMT
       X-Cache:
       - Miss from cloudfront
       Via:
-      - 1.1 2f7eec78b53c7625bd656dcd08ed1823.cloudfront.net (CloudFront)
+      - 1.1 88972e3933cc06dd11a6fa704a208631.cloudfront.net (CloudFront)
       X-Amz-Cf-Id:
-      - RGnRKI1menPVCuL00CN9jBHbPfagmX4f1ymUgfogZZvC1gc08L74qQ==
+      - FqhO-Pt192mJ-ZH3gA8ND-oIWU68wB4xIufmno484vtOQSEycqbBrg==
     body:
       encoding: UTF-8
       string: '{"totalResults":6,"packagesList":[{"packageId":5458,"packageName":"Business
         Abstracts with Full Text (H.W. Wilson)","isCustom":false,"vendorId":19,"vendorName":"EBSCO","titleCount":435,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"AggregatedFullText","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Complete"},{"packageId":4734,"packageName":"Criminal
-        Justice Abstracts with Full Text","isCustom":false,"vendorId":19,"vendorName":"EBSCO","titleCount":347,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"AggregatedFullText","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Complete"},{"packageId":4214,"packageName":"Historical
-        Abstracts with Full Text","isCustom":false,"vendorId":19,"vendorName":"EBSCO","titleCount":598,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"AggregatedFullText","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Complete"},{"packageId":1306697,"packageName":"Historical
-        Abstracts with Full Text Alumni Edition","isCustom":false,"vendorId":19,"vendorName":"EBSCO","titleCount":455,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"AggregatedFullText","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Complete"},{"packageId":1252,"packageName":"Library,
+        Justice Abstracts with Full Text","isCustom":false,"vendorId":19,"vendorName":"EBSCO","titleCount":346,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"AggregatedFullText","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Complete"},{"packageId":4214,"packageName":"Historical
+        Abstracts with Full Text","isCustom":false,"vendorId":19,"vendorName":"EBSCO","titleCount":641,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"AggregatedFullText","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Complete"},{"packageId":1306697,"packageName":"Historical
+        Abstracts with Full Text Alumni Edition","isCustom":false,"vendorId":19,"vendorName":"EBSCO","titleCount":493,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"AggregatedFullText","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Complete"},{"packageId":1252,"packageName":"Library,
         Information Science & Technology Abstracts with Full Text","isCustom":false,"vendorId":19,"vendorName":"EBSCO","titleCount":360,"isSelected":true,"visibilityData":{"isHidden":true,"reason":"Hidden
         by EP"},"selectedCount":360,"isTokenNeeded":false,"contentType":"AggregatedFullText","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Complete"},{"packageId":2320562,"packageName":"RILM
         Abstracts of Music Literature with Full Text","isCustom":false,"vendorId":19,"vendorName":"EBSCO","titleCount":1,"isSelected":true,"visibilityData":{"isHidden":true,"reason":"Hidden
         by EP"},"selectedCount":1,"isTokenNeeded":false,"contentType":"AggregatedFullText","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Complete"}]}'
     http_version: 
-  recorded_at: Thu, 05 Apr 2018 15:48:09 GMT
+  recorded_at: Fri, 04 May 2018 19:56:14 GMT
 recorded_with: VCR 3.0.3

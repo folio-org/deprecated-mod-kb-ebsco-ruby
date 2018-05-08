@@ -27,7 +27,7 @@ http_interactions:
       Server:
       - nginx/1.13.5
       Date:
-      - Thu, 19 Apr 2018 19:36:24 GMT
+      - Fri, 04 May 2018 05:05:54 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -36,15 +36,15 @@ http_interactions:
       - keep-alive
       X-Okapi-Trace:
       - 'GET mod-authtoken-1.4.1-SNAPSHOT.20 http://10.39.249.72:8081/configurations/entries..
-        : 202 872us'
+        : 202 358412us'
       - 'GET mod-configuration-4.0.3-SNAPSHOT.29 http://10.39.252.104:8081/configurations/entries..
-        : 200 42397us'
+        : 200 42160us'
       Host:
       - okapi.frontside.io
       X-Real-Ip:
-      - 10.128.0.4
+      - 10.36.4.1
       X-Forwarded-For:
-      - 10.128.0.4
+      - 10.36.4.1
       X-Forwarded-Host:
       - okapi.frontside.io
       X-Forwarded-Port:
@@ -66,7 +66,7 @@ http_interactions:
       User-Agent:
       - Ruby
       X-Okapi-Request-Id:
-      - 680551/configurations
+      - 539905/configurations
       X-Okapi-Url:
       - http://10.39.243.220:80
       X-Okapi-Permissions-Required:
@@ -107,7 +107,7 @@ http_interactions:
           }
         }
     http_version: 
-  recorded_at: Thu, 19 Apr 2018 19:36:24 GMT
+  recorded_at: Fri, 04 May 2018 05:05:54 GMT
 - request:
     method: get
     uri: https://api.ebsco.io/rm/rmaccounts/TEST_CUSTOMER_ID/vendors?count=25&offset=1&orderby=relevance&search=TEST_CUSTOMER_ID
@@ -139,46 +139,46 @@ http_interactions:
       Connection:
       - keep-alive
       Date:
-      - Thu, 19 Apr 2018 19:36:24 GMT
+      - Fri, 04 May 2018 05:05:57 GMT
       X-Amzn-Requestid:
-      - f1dd28e8-4408-11e8-93f3-ff40b447f0f7
+      - d420418a-4f58-11e8-aa61-9de1c6bb24a7
       X-Amzn-Remapped-Connection:
       - keep-alive
       X-Amz-Apigw-Id:
-      - FmpkzGELoAMFelw=
+      - GWGIRGR4IAMFw4A=
       X-Amzn-Remapped-Date:
-      - Thu, 19 Apr 2018 19:36:24 GMT
+      - Fri, 04 May 2018 05:05:57 GMT
       X-Cache:
       - Miss from cloudfront
       Via:
-      - 1.1 3847afea4c7772c5c3865860bb8c0b78.cloudfront.net (CloudFront)
+      - 1.1 663b9ec2cd0b34391786d62f92365deb.cloudfront.net (CloudFront)
       X-Amz-Cf-Id:
-      - MgC7K3zlOnrFnOUfaosQba6soybbA8vguBPOfL7ApZVSCPeArUQ5GQ==
+      - uUfOWlxkiSN4p89wP2A54gRcCdGqQtQquPQZj74dFwqFhrnGnQyO4Q==
     body:
       encoding: UTF-8
       string: '{"totalResults":1,"vendors":[{"vendorId":123355,"vendorName":"API DEV
-        CORPORATE CUSTOMER","isCustomer":true,"packagesTotal":62,"packagesSelected":62,"vendorToken":null}]}'
+        CORPORATE CUSTOMER","isCustomer":true,"packagesTotal":71,"packagesSelected":71,"vendorToken":null}]}'
     http_version: 
-  recorded_at: Thu, 19 Apr 2018 19:36:24 GMT
+  recorded_at: Fri, 04 May 2018 05:05:57 GMT
 - request:
     method: post
     uri: https://api.ebsco.io/rm/rmaccounts/TEST_CUSTOMER_ID/vendors/123355/packages/
     body:
       encoding: UTF-8
-      string: '{"packageName":"new name","contentType":"EBook"}'
+      string: '{"contentType":3,"packageName":"VCR Package 1.2"}'
     headers:
-      User-Agent:
-      - Flexirest/1.5.5
-      Connection:
-      - Keep-Alive
-      Accept:
-      - application/json
       X-Api-Key:
       - TEST_API_KEY
       Content-Type:
       - application/json
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - application/json
+      Connection:
+      - close
+      Host:
+      - api.ebsco.io
+      User-Agent:
+      - http.rb/3.3.0
   response:
     status:
       code: 400
@@ -189,27 +189,27 @@ http_interactions:
       Content-Length:
       - '103'
       Connection:
-      - keep-alive
+      - close
       Date:
-      - Thu, 19 Apr 2018 19:36:24 GMT
+      - Fri, 04 May 2018 05:05:57 GMT
       X-Amzn-Requestid:
-      - f202ffbe-4408-11e8-9b37-ddc88d628b7a
+      - d441854e-4f58-11e8-97cb-93bea3765473
       X-Amzn-Remapped-Connection:
       - keep-alive
       X-Amz-Apigw-Id:
-      - Fmpk1GxboAMF7fw=
+      - GWGITFMuoAMF-zw=
       X-Amzn-Remapped-Date:
-      - Thu, 19 Apr 2018 19:36:23 GMT
+      - Fri, 04 May 2018 05:05:57 GMT
       X-Cache:
       - Error from cloudfront
       Via:
-      - 1.1 e3228acb4b07b21eba94234a10678aed.cloudfront.net (CloudFront)
+      - 1.1 4ee3d5920fafcf4bca394fd489654c8c.cloudfront.net (CloudFront)
       X-Amz-Cf-Id:
-      - tfTOwTuYGt0cqsph_DcQTlB4CCmU6e2I2yOx1hV97g-ox2XQQL0ZNw==
+      - VwVET_2GaZbePxgvuEHqZhTuSj_lgXDRCl7WCVk2B0HlUOaEq98A-w==
     body:
       encoding: UTF-8
       string: '{"errors":[{"code":1009,"subCode":0,"message":"Custom Package with
         the provided name already exists"}]}'
     http_version: 
-  recorded_at: Thu, 19 Apr 2018 19:36:24 GMT
+  recorded_at: Fri, 04 May 2018 05:05:57 GMT
 recorded_with: VCR 3.0.3

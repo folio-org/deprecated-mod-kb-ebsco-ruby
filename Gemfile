@@ -14,6 +14,10 @@ gem 'dotenv-rails', groups: %i[development test]
 gem 'flexirest'
 gem 'jsonapi-rails'
 gem 'okapi', '~> 2.0'
+
+gem 'active_attr'
+gem 'http'
+
 gem 'puma', '~> 3.7'
 gem 'rails', '~> 5.1.2'
 

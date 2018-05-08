@@ -10,7 +10,8 @@ class DeserializableResource < JSONAPI::Deserializable::Resource
              :edition,
              :description,
              :url,
-             :packageId
+             :packageId,
+             :titleId
 
   attribute :name do |value|
     { titleName: value }
@@ -70,7 +71,6 @@ class DeserializableResource < JSONAPI::Deserializable::Resource
       'Linking': 6,
       'Invalid': 7
     }
-
     values.map do |identifier|
       type_key = identifier['type'].to_sym
       subtype_key = identifier['subtype'].to_sym

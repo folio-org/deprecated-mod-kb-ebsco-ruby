@@ -2,6 +2,57 @@
 http_interactions:
 - request:
     method: get
+    uri: https://api.ebsco.io/rm/rmaccounts/TEST_CUSTOMER_ID/vendors/123355/packages/2848230
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      X-Api-Key:
+      - TEST_API_KEY
+      Content-Type:
+      - application/json
+      Accept:
+      - application/json
+      Connection:
+      - close
+      Host:
+      - api.ebsco.io
+      User-Agent:
+      - http.rb/3.3.0
+  response:
+    status:
+      code: 404
+      message: Not Found
+    headers:
+      Content-Type:
+      - application/json;charset=UTF-8
+      Content-Length:
+      - '68'
+      Connection:
+      - close
+      Date:
+      - Fri, 04 May 2018 02:43:13 GMT
+      X-Amzn-Requestid:
+      - e3cf3d40-4f44-11e8-9b1a-2f30719f98e3
+      X-Amzn-Remapped-Connection:
+      - keep-alive
+      X-Amz-Apigw-Id:
+      - GVxONEYyoAMFrTQ=
+      X-Amzn-Remapped-Date:
+      - Fri, 04 May 2018 02:43:13 GMT
+      X-Cache:
+      - Error from cloudfront
+      Via:
+      - 1.1 89dbe128b639cdc1367dfadc360947d0.cloudfront.net (CloudFront)
+      X-Amz-Cf-Id:
+      - 2g6-bWFFNAduuf1a6_QeBblRqEUrhfFJUFQ7iJQ0iTY5NH3FA1mxdw==
+    body:
+      encoding: UTF-8
+      string: '{"errors":[{"code":1001,"subCode":0,"message":"Package not found"}]}'
+    http_version: 
+  recorded_at: Fri, 04 May 2018 02:43:13 GMT
+- request:
+    method: get
     uri: https://okapi.frontside.io/configurations/entries?query=module=KB_EBSCO
     body:
       encoding: US-ASCII
@@ -27,7 +78,7 @@ http_interactions:
       Server:
       - nginx/1.13.5
       Date:
-      - Wed, 18 Apr 2018 18:50:43 GMT
+      - Fri, 04 May 2018 04:13:38 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -36,15 +87,15 @@ http_interactions:
       - keep-alive
       X-Okapi-Trace:
       - 'GET mod-authtoken-1.4.1-SNAPSHOT.20 http://10.39.249.72:8081/configurations/entries..
-        : 202 1759us'
+        : 202 902us'
       - 'GET mod-configuration-4.0.3-SNAPSHOT.29 http://10.39.252.104:8081/configurations/entries..
-        : 200 44419us'
+        : 200 41600us'
       Host:
       - okapi.frontside.io
       X-Real-Ip:
-      - 10.36.4.1
+      - 10.128.0.4
       X-Forwarded-For:
-      - 10.36.4.1
+      - 10.128.0.4
       X-Forwarded-Host:
       - okapi.frontside.io
       X-Forwarded-Port:
@@ -66,7 +117,7 @@ http_interactions:
       User-Agent:
       - Ruby
       X-Okapi-Request-Id:
-      - 847273/configurations
+      - 963690/configurations
       X-Okapi-Url:
       - http://10.39.243.220:80
       X-Okapi-Permissions-Required:
@@ -107,26 +158,26 @@ http_interactions:
           }
         }
     http_version: 
-  recorded_at: Wed, 18 Apr 2018 18:50:43 GMT
+  recorded_at: Fri, 04 May 2018 04:13:38 GMT
 - request:
     method: get
-    uri: https://api.ebsco.io/rm/rmaccounts/TEST_CUSTOMER_ID/vendors/123355/packages/2848230
+    uri: https://api.ebsco.io/rm/rmaccounts/TEST_CUSTOMER_ID/vendors/123355/packages/2848971
     body:
-      encoding: US-ASCII
+      encoding: UTF-8
       string: ''
     headers:
-      User-Agent:
-      - Flexirest/1.5.5
-      Connection:
-      - Keep-Alive
-      Accept:
-      - application/json
       X-Api-Key:
       - TEST_API_KEY
       Content-Type:
       - application/json
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - application/json
+      Connection:
+      - close
+      Host:
+      - api.ebsco.io
+      User-Agent:
+      - http.rb/3.3.0
   response:
     status:
       code: 404
@@ -137,26 +188,26 @@ http_interactions:
       Content-Length:
       - '68'
       Connection:
-      - keep-alive
+      - close
       Date:
-      - Wed, 18 Apr 2018 18:50:43 GMT
+      - Fri, 04 May 2018 04:13:39 GMT
       X-Amzn-Requestid:
-      - 65ca8d4c-4339-11e8-8098-ebb23b3c2b18
+      - 85ce3871-4f51-11e8-a505-3b5a17e82221
       X-Amzn-Remapped-Connection:
       - keep-alive
       X-Amz-Apigw-Id:
-      - FjP8iGfBoAMF36w=
+      - GV-d-EWjIAMF9RA=
       X-Amzn-Remapped-Date:
-      - Wed, 18 Apr 2018 18:50:42 GMT
+      - Fri, 04 May 2018 04:13:38 GMT
       X-Cache:
       - Error from cloudfront
       Via:
-      - 1.1 89dbe128b639cdc1367dfadc360947d0.cloudfront.net (CloudFront)
+      - 1.1 27e9da6719f6373893565138c47b2497.cloudfront.net (CloudFront)
       X-Amz-Cf-Id:
-      - bbWtFdH1035zdrqD-hdxMbOy3L5lubLiNE753WcqI_W2aQ4qAhi3ww==
+      - jyfxGNQGYfq-p6hz59PP-LujFg1Vv1844AbdYPUHkYrXOIsvnZbE8Q==
     body:
       encoding: UTF-8
       string: '{"errors":[{"code":1001,"subCode":0,"message":"Package not found"}]}'
     http_version: 
-  recorded_at: Wed, 18 Apr 2018 18:50:43 GMT
+  recorded_at: Fri, 04 May 2018 04:13:39 GMT
 recorded_with: VCR 3.0.3

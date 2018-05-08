@@ -20,10 +20,10 @@ class Vendor < RmApiResource
   end
 
   def find_packages(**params)
-    Package.configure(config).find_by_vendor(vendor_id: id, **params)
+    PackagesRepository.new(config: config).where! params.merge(vendor_id: id)
   end
 
   def packages
-    find_packages.packagesList.to_a
+    find_packages.data
   end
 end

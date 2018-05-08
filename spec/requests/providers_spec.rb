@@ -15,7 +15,7 @@ RSpec.describe 'Providers', type: :request do
     it 'gets a list of resources' do
       expect(response).to have_http_status(200)
       expect(json.data.length).to equal(25)
-      expect(json.meta.totalResults).to equal(101)
+      expect(json.meta.totalResults).to equal(106)
       expect(json.data.first.type).to eq('providers')
     end
 
@@ -35,7 +35,7 @@ RSpec.describe 'Providers', type: :request do
       it 'gets a different list of resources' do
         expect(response).to have_http_status(200)
         expect(json2.data.length).to equal(25)
-        expect(json2.meta.totalResults).to equal(101)
+        expect(json2.meta.totalResults).to equal(106)
         expect(json.data.first.id).not_to eql(json2.data.first.id)
         expect(json.data.first.type).to eq('providers')
       end
@@ -57,8 +57,8 @@ RSpec.describe 'Providers', type: :request do
 
       it 'contains a list of alphabetically A-Z sorted resources' do
         expect(response).to have_http_status(200)
-        expect(json_n.data.length).to equal(20)
-        expect(json_n.meta.totalResults).to equal(20)
+        expect(json_n.data.length).to equal(22)
+        expect(json_n.meta.totalResults).to equal(22)
         expect(json_n.data.first.type).to eq('providers')
         sorted_array = json_n.data.sort_by { |p| p.attributes.name.downcase }
         expect(json_n.data).to eq(sorted_array)
@@ -77,8 +77,8 @@ RSpec.describe 'Providers', type: :request do
 
       it 'contains a list of relevancy sorted resources' do
         expect(response).to have_http_status(200)
-        expect(json_n.data.length).to equal(20)
-        expect(json_n.meta.totalResults).to equal(20)
+        expect(json_n.data.length).to equal(22)
+        expect(json_n.meta.totalResults).to equal(22)
         expect(json_n.data.first.type).to eq('providers')
         expect(json_n.data[0].attributes.name.downcase).to include(
           'higher education'
@@ -100,8 +100,8 @@ RSpec.describe 'Providers', type: :request do
 
       it 'contains a list of relevancy sorted resources' do
         expect(response).to have_http_status(200)
-        expect(json_n.data.length).to equal(20)
-        expect(json_n.meta.totalResults).to equal(20)
+        expect(json_n.data.length).to equal(22)
+        expect(json_n.meta.totalResults).to equal(22)
         expect(json_n.data.first.type).to eq('providers')
         expect(json_n.data[0].attributes.name.downcase).to include(
           'higher education'
@@ -124,7 +124,7 @@ RSpec.describe 'Providers', type: :request do
       it 'contains a list of alphabetically sorted resources' do
         expect(response).to have_http_status(200)
         expect(json_n.data.length).to equal(25)
-        expect(json_n.meta.totalResults).to equal(1716)
+        expect(json_n.meta.totalResults).to equal(1782)
         expect(json_n.data.first.type).to eq('providers')
         sorted_array = json_n.data.sort_by { |p| p.attributes.name.downcase }
         expect(json_n.data).to eq(sorted_array)
@@ -197,7 +197,7 @@ RSpec.describe 'Providers', type: :request do
       expect(json.data.attributes.providerToken).to include(
         'factName' => '[[galesiteid]]',
         'prompt' => '/itweb/',
-        'value' => '2304505'
+        'value' => nil
       )
     end
 
@@ -287,7 +287,7 @@ RSpec.describe 'Providers', type: :request do
       expect(response).to have_http_status(200)
       expect(json.data.first.type).to eq('packages')
       expect(json.data.length).to eq(25)
-      expect(json.meta.totalResults).to equal(632)
+      expect(json.meta.totalResults).to equal(626)
       expect(json.data.first.attributes).to(
         include(
           'vendorId',
@@ -320,7 +320,7 @@ RSpec.describe 'Providers', type: :request do
       it 'gets a different list of resources' do
         expect(response).to have_http_status(200)
         expect(json2.data.length).to equal(25)
-        expect(json2.meta.totalResults).to equal(632)
+        expect(json2.meta.totalResults).to equal(626)
         expect(json.data.first.id).not_to eql(json2.data.first.id)
       end
 

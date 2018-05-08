@@ -15,7 +15,7 @@ class ProxyController < ApplicationController
 
   private
 
-  def proxied_response # rubocop:disable Metrics/AbcSize
+  def proxied_response
     # Create the HTTP object
     http = Net::HTTP.new(rmapi_uri.host, rmapi_uri.port)
     http.use_ssl = true

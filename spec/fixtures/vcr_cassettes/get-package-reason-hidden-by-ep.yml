@@ -2,6 +2,57 @@
 http_interactions:
 - request:
     method: get
+    uri: https://api.ebsco.io/rm/rmaccounts/TEST_CUSTOMER_ID/vendors/19/packages/626
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      X-Api-Key:
+      - TEST_API_KEY
+      Content-Type:
+      - application/json
+      Accept:
+      - application/json
+      Connection:
+      - close
+      Host:
+      - api.ebsco.io
+      User-Agent:
+      - http.rb/3.3.0
+  response:
+    status:
+      code: 404
+      message: Not Found
+    headers:
+      Content-Type:
+      - application/json;charset=UTF-8
+      Content-Length:
+      - '68'
+      Connection:
+      - close
+      Date:
+      - Fri, 04 May 2018 02:45:59 GMT
+      X-Amzn-Requestid:
+      - 46c71523-4f45-11e8-a53c-a1e8a1668716
+      X-Amzn-Remapped-Connection:
+      - keep-alive
+      X-Amz-Apigw-Id:
+      - GVxoJFxLoAMFkYQ=
+      X-Amzn-Remapped-Date:
+      - Fri, 04 May 2018 02:45:58 GMT
+      X-Cache:
+      - Error from cloudfront
+      Via:
+      - 1.1 9137d054c423ede4794f3621c7d50adb.cloudfront.net (CloudFront)
+      X-Amz-Cf-Id:
+      - n5km3prHG2XDf87xHY3x3ukI1Ky2ZoFOazQzaxYTj_nHg3TfGasBxw==
+    body:
+      encoding: UTF-8
+      string: '{"errors":[{"code":1001,"subCode":0,"message":"Package not found"}]}'
+    http_version: 
+  recorded_at: Fri, 04 May 2018 02:45:59 GMT
+- request:
+    method: get
     uri: https://okapi.frontside.io/configurations/entries?query=module=KB_EBSCO
     body:
       encoding: US-ASCII
@@ -27,7 +78,7 @@ http_interactions:
       Server:
       - nginx/1.13.5
       Date:
-      - Wed, 17 Jan 2018 23:32:04 GMT
+      - Fri, 04 May 2018 02:48:39 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -35,16 +86,16 @@ http_interactions:
       Connection:
       - keep-alive
       X-Okapi-Trace:
-      - 'GET mod-authtoken-1.2.0-SNAPSHOT.14 http://10.39.255.104:8081/configurations/entries..
-        : 202 353860us'
-      - 'GET mod-configuration-4.0.1-SNAPSHOT.23 http://10.39.243.63:8081/configurations/entries..
-        : 200 42735us'
+      - 'GET mod-authtoken-1.4.1-SNAPSHOT.20 http://10.39.249.72:8081/configurations/entries..
+        : 202 1419us'
+      - 'GET mod-configuration-4.0.3-SNAPSHOT.29 http://10.39.252.104:8081/configurations/entries..
+        : 200 41717us'
       Host:
       - okapi.frontside.io
       X-Real-Ip:
-      - 10.36.1.1
+      - 10.128.0.3
       X-Forwarded-For:
-      - 10.36.1.1
+      - 10.128.0.3
       X-Forwarded-Host:
       - okapi.frontside.io
       X-Forwarded-Port:
@@ -66,13 +117,13 @@ http_interactions:
       User-Agent:
       - Ruby
       X-Okapi-Request-Id:
-      - 290950/configurations
+      - 431335/configurations
       X-Okapi-Url:
-      - http://10.39.248.95:80
+      - http://10.39.243.220:80
       X-Okapi-Permissions-Required:
       - configuration.entries.collection.get
       X-Okapi-Module-Permissions:
-      - '{"mod-authtoken-1.2.0-SNAPSHOT.14":["perms.users.get"]}'
+      - '{"mod-authtoken-1.4.1-SNAPSHOT.20":["perms.users.get"]}'
       X-Okapi-Permissions:
       - '["configuration.entries.collection.get"]'
       X-Okapi-User-Id:
@@ -86,7 +137,7 @@ http_interactions:
       string: |-
         {
           "configs" : [ {
-            "id" : "fa776aae-7473-4bf9-aa33-08f2a314cb04",
+            "id" : "9f193b46-4cc5-4c99-b09f-374fe5415673",
             "module" : "KB_EBSCO",
             "configName" : "api_credentials",
             "code" : "kb.ebsco.credentials",
@@ -94,9 +145,9 @@ http_interactions:
             "enabled" : true,
             "value" : "customer-id=TEST_CUSTOMER_ID&api-key=TEST_API_KEY",
             "metadata" : {
-              "createdDate" : "2017-11-02T15:56:49.186+0000",
+              "createdDate" : "2018-03-28T14:49:56.794+0000",
               "createdByUserId" : "1ad737b0-d847-11e6-bf26-cec0c932ce01",
-              "updatedDate" : "2017-11-02T15:56:49.186+0000",
+              "updatedDate" : "2018-03-28T14:49:56.794+0000",
               "updatedByUserId" : "1ad737b0-d847-11e6-bf26-cec0c932ce01"
             }
           } ],
@@ -107,69 +158,57 @@ http_interactions:
           }
         }
     http_version: 
-  recorded_at: Wed, 17 Jan 2018 23:32:04 GMT
+  recorded_at: Fri, 04 May 2018 02:48:39 GMT
 - request:
     method: get
     uri: https://api.ebsco.io/rm/rmaccounts/TEST_CUSTOMER_ID/vendors/19/packages/2516
     body:
-      encoding: US-ASCII
+      encoding: UTF-8
       string: ''
     headers:
-      User-Agent:
-      - Flexirest/1.5.5
-      Connection:
-      - Keep-Alive
-      Accept:
-      - application/json
       X-Api-Key:
       - TEST_API_KEY
       Content-Type:
       - application/json
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - application/json
+      Connection:
+      - close
+      Host:
+      - api.ebsco.io
+      User-Agent:
+      - http.rb/3.3.0
   response:
     status:
       code: 200
       message: OK
     headers:
       Content-Type:
-      - application/json; charset=utf-8
+      - application/json;charset=UTF-8
       Content-Length:
-      - '348'
+      - '450'
       Connection:
-      - keep-alive
+      - close
       Date:
-      - Wed, 17 Jan 2018 23:32:05 GMT
+      - Fri, 04 May 2018 02:48:39 GMT
       X-Amzn-Requestid:
-      - a00e6a2d-fbde-11e7-ba40-2fd4e0eb238b
-      X-Amzn-Remapped-Content-Length:
-      - '348'
+      - a64b4af2-4f45-11e8-ad43-631565a78d91
       X-Amzn-Remapped-Connection:
       - keep-alive
-      X-Amzn-Remapped-Server:
-      - Microsoft-IIS/8.5
-      Cache-Control:
-      - no-cache
-      Expires:
-      - "-1"
-      X-Powered-By:
-      - ASP.NET
-      Pragma:
-      - no-cache
+      X-Amz-Apigw-Id:
+      - GVyBMFBfIAMFvBw=
       X-Amzn-Remapped-Date:
-      - Wed, 17 Jan 2018 23:32:05 GMT
-      X-Aspnet-Version:
-      - 4.0.30319
+      - Fri, 04 May 2018 02:48:38 GMT
       X-Cache:
       - Miss from cloudfront
       Via:
-      - 1.1 ff57cfb1ab4e48e1d0a484a3a45384f4.cloudfront.net (CloudFront)
+      - 1.1 3da3508da5df5956549a94ec250a7674.cloudfront.net (CloudFront)
       X-Amz-Cf-Id:
-      - z5wleL9o8ytuJMtguCFywuWDxq0ieG-Og_sGHIq6XiaddAjYTCtCjg==
+      - AyMmRYmavMCtup1fUFQUei339cOYHXTXh7jXW4NRrfhqCQE35YEP4Q==
     body:
       encoding: UTF-8
       string: '{"packageId":2516,"packageName":"Abstracts in Social Gerontology","isCustom":false,"vendorId":19,"vendorName":"EBSCO","titleCount":1,"isSelected":true,"visibilityData":{"isHidden":true,"reason":"Hidden
-        by EP"},"selectedCount":1,"isTokenNeeded":false,"contentType":"AbstractAndIndex","customCoverage":{"beginCoverage":"2018-01-04","endCoverage":""}}'
+        by EP"},"selectedCount":1,"isTokenNeeded":false,"contentType":"AbstractAndIndex","customCoverage":{"beginCoverage":"","endCoverage":""},"proxy":{"id":"<n>","inherited":true},"allowEbscoToAddTitles":true,"packageToken":null,"packageType":"Complete"}'
     http_version: 
-  recorded_at: Wed, 17 Jan 2018 23:32:05 GMT
+  recorded_at: Fri, 04 May 2018 02:48:39 GMT
 recorded_with: VCR 3.0.3
