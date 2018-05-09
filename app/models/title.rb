@@ -97,8 +97,17 @@ class Title < RmApiResource
     # RM API returns a Malformed request if either contributorsList
     # or identifiersList are empty arrays; if they are, don't
     # send them in the payload
-    create_params.delete(:contributorsList) unless params[:contributorsList]
-    create_params.delete(:identifiersList) unless params[:identifiersList]
+    # rubocop:disable Style/NumericPredicate
+    # rubocop:disable Style/ZeroLengthPredicate
+    unless params[:contributorsList] && params[:contributorsList].length > 0
+      create_params.delete(:contributorsList)
+    end
+
+    unless params[:identifiersList] && params[:identifiersList].length > 0
+      create_params.delete(:identifiersList)
+    end
+    # rubocop:enable Style/ZeroLengthPredicate
+    # rubocop:enable Style/NumericPredicate
 
     rm_api_create = { vendor_id: provider_id, package_id: package_id }.merge(create_params)
     resource_response = Resource.configure(config).create rm_api_create
