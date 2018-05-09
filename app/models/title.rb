@@ -93,6 +93,13 @@ class Title < RmApiResource
   def self.create_title(params)
     provider_id, package_id = params[:packageId].split('-')
     create_params = params.to_hash.except(:packageId)
+
+    # RM API returns a Malformed request if either contributorsList
+    # or identifiersList are empty arrays; if they are, don't
+    # send them in the payload
+    create_params.delete(:contributorsList) unless params[:contributorsList]
+    create_params.delete(:identifiersList) unless params[:identifiersList]
+
     rm_api_create = { vendor_id: provider_id, package_id: package_id }.merge(create_params)
     resource_response = Resource.configure(config).create rm_api_create
     find resource_response[:titleId]

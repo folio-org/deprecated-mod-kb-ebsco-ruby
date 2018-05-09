@@ -702,6 +702,43 @@ RSpec.describe 'Custom Titles Create', type: :request do
       end
     end
 
+    describe 'with empty contributors and identifiers' do
+      let(:params) do
+        {
+          'data' => {
+            'type' => 'titles',
+            'attributes' => {
+              'name' => 'New Title Testing Invalid Contributor',
+              'publicationType' => 'Book',
+              "contributors": [],
+              "identifiers": []
+            }
+          },
+          'included' => [
+            {
+              'type' => 'resources',
+              'attributes' => {
+                'packageId' => '123355-2845504'
+              }
+            }
+          ]
+        }
+      end
+
+      before do
+        VCR.use_cassette('post-custom-title-empty-contributors-identifiers') do
+          post '/eholdings/titles',
+               params: params, as: :json, headers: create_headers
+        end
+      end
+
+      let!(:json) { Map JSON.parse response.body }
+
+      it 'responds with OK status' do
+        expect(response).to have_http_status(200)
+      end
+    end
+
     describe 'with invalid identifier id' do
       let(:params) do
         {
