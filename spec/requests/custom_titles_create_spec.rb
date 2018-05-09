@@ -708,7 +708,7 @@ RSpec.describe 'Custom Titles Create', type: :request do
           'data' => {
             'type' => 'titles',
             'attributes' => {
-              'name' => 'New Title Testing Invalid Contributor',
+              'name' => 'New Title Testing Invalid Contributor Uh-huh',
               'publicationType' => 'Book',
               "contributors": [],
               "identifiers": []

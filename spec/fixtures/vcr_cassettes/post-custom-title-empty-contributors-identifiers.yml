@@ -27,7 +27,7 @@ http_interactions:
       Server:
       - nginx/1.13.5
       Date:
-      - Wed, 09 May 2018 04:46:49 GMT
+      - Wed, 09 May 2018 13:38:39 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -36,15 +36,15 @@ http_interactions:
       - keep-alive
       X-Okapi-Trace:
       - 'GET mod-authtoken-1.4.1-SNAPSHOT.20 http://10.39.253.209:8081/configurations/entries..
-        : 202 358611us'
+        : 202 356595us'
       - 'GET mod-configuration-4.0.3-SNAPSHOT.29 http://10.39.244.97:8081/configurations/entries..
-        : 200 45156us'
+        : 200 48128us'
       Host:
       - okapi.frontside.io
       X-Real-Ip:
-      - 10.128.0.4
+      - 10.128.0.3
       X-Forwarded-For:
-      - 10.128.0.4
+      - 10.128.0.3
       X-Forwarded-Host:
       - okapi.frontside.io
       X-Forwarded-Port:
@@ -66,7 +66,7 @@ http_interactions:
       User-Agent:
       - Ruby
       X-Okapi-Request-Id:
-      - 683385/configurations
+      - 345409/configurations
       X-Okapi-Url:
       - http://10.39.242.98:80
       X-Okapi-Permissions-Required:
@@ -107,13 +107,13 @@ http_interactions:
           }
         }
     http_version: 
-  recorded_at: Wed, 09 May 2018 04:46:49 GMT
+  recorded_at: Wed, 09 May 2018 13:38:39 GMT
 - request:
     method: post
     uri: https://api.ebsco.io/rm/rmaccounts/TEST_CUSTOMER_ID/vendors/123355/packages/2845504/titles
     body:
       encoding: UTF-8
-      string: '{"titleName":"New Title Testing Invalid Contributor","pubType":"book"}'
+      string: '{"titleName":"New Title Testing Invalid Contributor Uh-huh","pubType":"book"}'
     headers:
       User-Agent:
       - Flexirest/1.6.7
@@ -139,29 +139,29 @@ http_interactions:
       Connection:
       - keep-alive
       Date:
-      - Wed, 09 May 2018 04:46:50 GMT
+      - Wed, 09 May 2018 13:38:39 GMT
       X-Amzn-Requestid:
-      - fc6f8078-5343-11e8-8a91-bf2602364a05
+      - 48146ebc-538e-11e8-90b0-252b2ea68c2d
       X-Amzn-Remapped-Connection:
       - keep-alive
       X-Amz-Apigw-Id:
-      - GmiBBFgnoAMFa5A=
+      - Gnv66ETOoAMFQOQ=
       X-Amzn-Remapped-Date:
-      - Wed, 09 May 2018 04:46:50 GMT
+      - Wed, 09 May 2018 13:38:39 GMT
       X-Cache:
       - Miss from cloudfront
       Via:
-      - 1.1 72882d2d20025ce740b1efae5c3e8544.cloudfront.net (CloudFront)
+      - 1.1 2551e3c0d0aa2d66ee9930d482b2497c.cloudfront.net (CloudFront)
       X-Amz-Cf-Id:
-      - 0tmdrUwqDczYWiffBF9sK-kdyKmHVdnuB4sjOEtlKuc4GODq1WkyRg==
+      - 1k5ewnavKnHTYm-I8SWQloCKJywZp10XkAV-nn9isrqXVj3Bel_Ywg==
     body:
       encoding: UTF-8
-      string: '{"titleId":17267343}'
+      string: '{"titleId":17269671}'
     http_version: 
-  recorded_at: Wed, 09 May 2018 04:46:50 GMT
+  recorded_at: Wed, 09 May 2018 13:38:39 GMT
 - request:
     method: get
-    uri: https://api.ebsco.io/rm/rmaccounts/TEST_CUSTOMER_ID/titles/17267343
+    uri: https://api.ebsco.io/rm/rmaccounts/TEST_CUSTOMER_ID/titles/17269671
     body:
       encoding: US-ASCII
       string: ''
@@ -186,19 +186,19 @@ http_interactions:
       Content-Type:
       - application/json; charset=utf-8
       Content-Length:
-      - '921'
+      - '928'
       Connection:
       - keep-alive
       Date:
-      - Wed, 09 May 2018 04:46:50 GMT
+      - Wed, 09 May 2018 13:38:39 GMT
       X-Amzn-Requestid:
-      - fcb1e0bd-5343-11e8-a505-3b5a17e82221
+      - 4850180b-538e-11e8-a4a3-855e82e1a482
       X-Amzn-Remapped-Content-Length:
-      - '921'
+      - '928'
       X-Amzn-Remapped-Connection:
       - keep-alive
       X-Amz-Apigw-Id:
-      - GmiBGHWPIAMF9RA=
+      - Gnv6-HcmIAMF7cQ=
       X-Amzn-Remapped-Server:
       - Microsoft-IIS/8.5
       Cache-Control:
@@ -210,19 +210,20 @@ http_interactions:
       Pragma:
       - no-cache
       X-Amzn-Remapped-Date:
-      - Wed, 09 May 2018 04:46:50 GMT
+      - Wed, 09 May 2018 13:38:39 GMT
       X-Aspnet-Version:
       - 4.0.30319
       X-Cache:
       - Miss from cloudfront
       Via:
-      - 1.1 89cb9fcdbd0314a45e84448b824c18db.cloudfront.net (CloudFront)
+      - 1.1 3f79bd6e6d566524132d180c9c1505f9.cloudfront.net (CloudFront)
       X-Amz-Cf-Id:
-      - dHdCAJ4lK5g6dZA8LjY_pFuPOSXPjTXMQPNiH2FxIhvKzLOHKvtsYQ==
+      - "-mR7hc14VOKXCKTgucoF3x6ZQndBFST0rfOVw8PUNq1H2qFXz2nVhw=="
     body:
       encoding: UTF-8
-      string: '{"titleId":17267343,"titleName":"New Title Testing Invalid Contributor","publisherName":null,"identifiersList":[],"subjectsList":[],"isTitleCustom":true,"pubType":"Book","customerResourcesList":[{"titleId":17267343,"packageId":2845504,"packageName":"\"HAHAHA\"","packageType":"Custom","proxy":{"id":"<n>","inherited":true},"isPackageCustom":true,"vendorId":123355,"vendorName":"API
+      string: '{"titleId":17269671,"titleName":"New Title Testing Invalid Contributor
+        Uh-huh","publisherName":null,"identifiersList":[],"subjectsList":[],"isTitleCustom":true,"pubType":"Book","customerResourcesList":[{"titleId":17269671,"packageId":2845504,"packageName":"\"HAHAHA\"","packageType":"Custom","proxy":{"id":"<n>","inherited":true},"isPackageCustom":true,"vendorId":123355,"vendorName":"API
         DEV CORPORATE CUSTOMER","locationId":0,"isSelected":true,"isTokenNeeded":false,"visibilityData":{"isHidden":false,"reason":""},"managedCoverageList":[],"customCoverageList":[],"coverageStatement":null,"managedEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"customEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"url":null,"userDefinedField1":null,"userDefinedField2":null,"userDefinedField3":null,"userDefinedField4":null,"userDefinedField5":null}],"description":null,"edition":null,"isPeerReviewed":false,"contributorsList":[]}'
     http_version: 
-  recorded_at: Wed, 09 May 2018 04:46:50 GMT
+  recorded_at: Wed, 09 May 2018 13:38:39 GMT
 recorded_with: VCR 3.0.3
