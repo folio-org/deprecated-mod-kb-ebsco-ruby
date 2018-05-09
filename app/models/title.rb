@@ -91,7 +91,7 @@ class Title < RmApiResource
   # we actually create a resource here, but then return the resulting
   # title that was also created
   def self.create_title(params)
-    package_id = params[:packageId]
+    provider_id, package_id = params[:packageId].split('-')
     create_params = params.to_hash.except(:packageId)
     rm_api_create = { vendor_id: provider_id, package_id: package_id }.merge(create_params)
     resource_response = Resource.configure(config).create rm_api_create
