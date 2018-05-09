@@ -24,7 +24,7 @@ RSpec.describe 'Custom Titles Create', type: :request do
             {
               'type' => 'resources',
               'attributes' => {
-                'packageId' => '2845504'
+                'packageId' => '123355-2845504'
               }
             }
           ]
@@ -86,7 +86,7 @@ RSpec.describe 'Custom Titles Create', type: :request do
             {
               'type' => 'resources',
               'attributes' => {
-                'packageId' => '2845504'
+                'packageId' => '123355-2845504'
               }
             }
           ]
@@ -121,7 +121,7 @@ RSpec.describe 'Custom Titles Create', type: :request do
             {
               'type' => 'resources',
               'attributes' => {
-                'packageId' => '2845504'
+                'packageId' => '123355-2845504'
               }
             }
           ]
@@ -159,7 +159,7 @@ RSpec.describe 'Custom Titles Create', type: :request do
             {
               'type' => 'resources',
               'attributes' => {
-                'packageId' => '2845504'
+                'packageId' => '123355-2845504'
               }
             }
           ]
@@ -194,7 +194,7 @@ RSpec.describe 'Custom Titles Create', type: :request do
             {
               'type' => 'resources',
               'attributes' => {
-                'packageId' => '2845504'
+                'packageId' => '123355-2845504'
               }
             }
           ]
@@ -230,7 +230,7 @@ RSpec.describe 'Custom Titles Create', type: :request do
             {
               'type' => 'resources',
               'attributes' => {
-                'packageId' => '2845504'
+                'packageId' => '123355-2845504'
               }
             }
           ]
@@ -332,7 +332,7 @@ RSpec.describe 'Custom Titles Create', type: :request do
             {
               'type' => 'resources',
               'attributes' => {
-                'packageId' => '2512592'
+                'packageId' => '123355-2512592'
               }
             }
           ]
@@ -368,7 +368,7 @@ RSpec.describe 'Custom Titles Create', type: :request do
             {
               'type' => 'resources',
               'attributes' => {
-                'packageId' => '9999999'
+                'packageId' => '9999999-9999999'
               }
             }
           ]
@@ -385,8 +385,8 @@ RSpec.describe 'Custom Titles Create', type: :request do
       let!(:json) { Map JSON.parse response.body }
 
       it 'returns an error status' do
-        expect(response).to have_http_status(400)
-        expect(json.errors.first.title).to eql('Custom Title can not be added to the provided package')
+        expect(response).to have_http_status(404)
+        expect(json.errors.first.title).to eql('Provider not found')
       end
     end
 
@@ -430,7 +430,7 @@ RSpec.describe 'Custom Titles Create', type: :request do
             {
               'type' => 'resources',
               'attributes' => {
-                'packageId' => '2845504'
+                'packageId' => '123355-2845504'
               }
             }
           ]
@@ -518,7 +518,7 @@ RSpec.describe 'Custom Titles Create', type: :request do
             {
               'type' => 'resources',
               'attributes' => {
-                'packageId' => '2845504'
+                'packageId' => '123355-2845504'
               }
             }
           ]
@@ -555,7 +555,7 @@ RSpec.describe 'Custom Titles Create', type: :request do
             {
               'type' => 'resources',
               'attributes' => {
-                'packageId' => '2845504'
+                'packageId' => '123355-2845504'
               }
             }
           ]
@@ -593,7 +593,7 @@ RSpec.describe 'Custom Titles Create', type: :request do
             {
               'type' => 'resources',
               'attributes' => {
-                'packageId' => '2845504'
+                'packageId' => '123355-2845504'
               }
             }
           ]
@@ -631,7 +631,7 @@ RSpec.describe 'Custom Titles Create', type: :request do
             {
               'type' => 'resources',
               'attributes' => {
-                'packageId' => '2845504'
+                'packageId' => '123355-2845504'
               }
             }
           ]
@@ -677,7 +677,7 @@ RSpec.describe 'Custom Titles Create', type: :request do
             {
               'type' => 'resources',
               'attributes' => {
-                'packageId' => '2845504'
+                'packageId' => '123355-2845504'
               }
             }
           ]
@@ -723,7 +723,7 @@ RSpec.describe 'Custom Titles Create', type: :request do
             {
               'type' => 'resources',
               'attributes' => {
-                'packageId' => '2845504'
+                'packageId' => '123355-2845504'
               }
             }
           ]
@@ -770,7 +770,7 @@ RSpec.describe 'Custom Titles Create', type: :request do
             {
               'type' => 'resources',
               'attributes' => {
-                'packageId' => '2845504'
+                'packageId' => '123355-2845504'
               }
             }
           ]
@@ -815,7 +815,7 @@ RSpec.describe 'Custom Titles Create', type: :request do
             {
               'type' => 'resources',
               'attributes' => {
-                'packageId' => '2845504'
+                'packageId' => '123355-2845504'
               }
             }
           ]
@@ -861,7 +861,7 @@ RSpec.describe 'Custom Titles Create', type: :request do
             {
               'type' => 'resources',
               'attributes' => {
-                'packageId' => '2845504'
+                'packageId' => '123355-2845504'
               }
             }
           ]
@@ -912,7 +912,7 @@ RSpec.describe 'Custom Titles Create', type: :request do
             {
               'type' => 'resources',
               'attributes' => {
-                'packageId' => '2845504'
+                'packageId' => '123355-2845504'
               }
             }
           ]
@@ -972,7 +972,7 @@ RSpec.describe 'Custom Titles Create', type: :request do
             {
               'type' => 'resources',
               'attributes' => {
-                'packageId' => '2845504'
+                'packageId' => '123355-2845504'
               }
             }
           ]
@@ -1023,7 +1023,7 @@ RSpec.describe 'Custom Titles Create', type: :request do
             {
               'type' => 'resources',
               'attributes' => {
-                'packageId' => '2845504'
+                'packageId' => '123355-2845504'
               }
             }
           ]
