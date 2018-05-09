@@ -26,6 +26,10 @@ RSpec.describe 'Configurations', type: :request do
     ]
   end
 
+  let(:masked_api_key) do
+    '*' * 40
+  end
+
   describe 'setting the configuration when it has never been set before' do
     before do
       VCR.use_cassette('put-configuration') do
@@ -52,7 +56,7 @@ RSpec.describe 'Configurations', type: :request do
 
       it 'contains valid attributes' do
         expect(json.data.attributes.customerId).to eql(customer_id)
-        expect(json.data.attributes.apiKey).to eql(api_key)
+        expect(json.data.attributes.apiKey).to eql(masked_api_key)
       end
     end
   end
