@@ -100,26 +100,25 @@ class PackagesRepository
 
   def where!(params)
     request do
+      vendor_id = params.fetch(:vendor_id, nil)
+
       if params[:filter]
         fail BadRequest, 'Invalid filter parameter' unless params[:filter].respond_to?(:dig)
         if params.dig(:filter, :custom)
           # The 'custom' filter option is unique in that
-          # it is not passed through to RMAPI.  Instead,
-          # we have to poll for packages until all are consumed and
-          # then apply the filtering here (for now).  This
-          # will be extremely inefficient, but we've accepted that.
-          # Presumably an API enhancement will come at some point.
+          # it is not passed through to RMAPI.
           #
           # TODO: remove mutation. params sent to rmapi should be completely
           # mapped from scratch every time, not a munge of controller params
           # (cowboyd 5/3/2018)
           params[:filter].delete(:custom)
 
-          return custom_packages!(params)
+          # All custom packages have the same vendor_id per tenant
+          vendor_id = Provider.configure(@config).provider_id
         end
       end
 
-      path = params.fetch(:vendor_id, nil) ? "/vendors/#{params[:vendor_id]}/packages" : '/packages'
+      path = vendor_id ? "/vendors/#{vendor_id}/packages" : '/packages'
       status, body = rmapi(:get, path, params: query_params(params))
       Result.new(
         data: body[:packages_list]&.map { |hash| to_package hash },
@@ -128,37 +127,6 @@ class PackagesRepository
         meta: { totalResults: body[:total_results] }
       )
     end
-  end
-
-  def custom_packages!(params)
-    # We need to essentially run the logic in `all!`
-    # repeatedly here until all pages of packages are exhausted.
-    # Maximum page size is 100.
-
-    path = params.fetch(:vendor_id, nil) ? "/vendors/#{params[:vendor_id]}/packages" : '/packages'
-
-    custom_packages = []
-
-    params = query_params(params).merge(count: 100, offset: 1)
-    status = nil
-    body = {}
-    loop do
-      status, body = rmapi(:get, path, params: params)
-      Result.new(status: status, message: 'Failed to fetch custom packages') unless status.success?
-      packages = body[:packages_list].map { |hash| to_package(hash) }
-
-      # If we hit an empty page we've exhausted all packages
-      break if packages.empty?
-
-      custom_packages.concat(packages.select(&:is_custom))
-      params[:offset] = params[:offset] + 1
-    end
-
-    Result.new(
-      data: custom_packages,
-      status: status,
-      meta: { totalResults: custom_packages.length }
-    )
   end
 
   private

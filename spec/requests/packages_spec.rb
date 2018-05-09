@@ -1287,4 +1287,20 @@ RSpec.describe 'Packages', type: :request do
       end
     end
   end
+
+  describe 'filtering by custom' do
+    before do
+      VCR.use_cassette('get-all-custom-packages') do
+        get '/eholdings/packages?filter[custom]=true&count=100', headers: okapi_headers
+      end
+    end
+
+    let!(:json) { Map JSON.parse response.body }
+
+    it 'gets a list of custom packages' do
+      expect(response).to have_http_status(200)
+      expect(json.data.length).to equal(74)
+      expect(json.data.first.attributes.isCustom).to be true
+    end
+  end
 end
