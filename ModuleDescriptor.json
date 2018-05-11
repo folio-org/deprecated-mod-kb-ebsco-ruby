@@ -16,11 +16,11 @@
         },
         {
           "methods": [ "GET", "PUT", "DELETE" ],
-          "pathPattern": "/eholdings/custom-labels/*"
+          "pathPattern": "/eholdings/custom-labels*"
         },
         {
           "methods": [ "GET", "PUT" ],
-          "pathPattern": "/eholdings/root-proxies/*"
+          "pathPattern": "/eholdings/root-proxies*"
         },
         {
           "methods": [ "GET" ],
