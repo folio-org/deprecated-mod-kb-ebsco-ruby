@@ -73,7 +73,6 @@ RSpec.describe 'Vendors', type: :request do
     let!(:json) { Map JSON.parse response.body }
 
     it 'gets associated package records' do
-      # binding.pry
       expect(response).to have_http_status(200)
       expect(json.included.first.type).to eq('packages')
       expect(json.included.length).to eq(25)
