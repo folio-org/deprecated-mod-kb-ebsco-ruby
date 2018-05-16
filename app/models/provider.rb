@@ -53,7 +53,8 @@ class Provider < RmApiResource
     attributes = update_fields
     self.class.update(
       id: vendorId,
-      vendorToken: attributes[:vendorToken]
+      vendorToken: attributes[:vendorToken],
+      proxy: attributes[:proxy]
     )
     refresh!
   end
@@ -76,7 +77,8 @@ class Provider < RmApiResource
 
   def update_fields
     to_hash.with_indifferent_access.slice(
-      :vendorToken
+      :vendorToken,
+      :proxy
     )
   end
 end

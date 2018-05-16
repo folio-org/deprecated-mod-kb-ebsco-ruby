@@ -151,13 +151,19 @@ RSpec.describe 'Providers', type: :request do
           'packagesTotal',
           'packagesSelected',
           'providerToken',
-          'supportsCustomPackages'
+          'supportsCustomPackages',
+          'proxy'
         )
       )
     end
 
     it 'returns null provider token' do
       expect(json.data.attributes.providerToken).to eq(nil)
+    end
+
+    it 'returns proxy' do
+      expect(json.data.attributes.proxy.id).to eq('EZProxy')
+      expect(json.data.attributes.proxy.inherited).to eq(true)
     end
 
     it 'returns false for supports custom packages' do
@@ -582,6 +588,49 @@ RSpec.describe 'Providers', type: :request do
         it 'results in error' do
           expect(response).to have_http_status(422)
           expect(json.errors.first.title).to eql('Invalid value')
+        end
+      end
+    end
+
+    describe 'combined update to providers setting token and updating proxy' do
+      describe 'setting token value and proxy should succeed' do
+        let(:params) do
+          {
+            'data' => {
+              'type' => 'providers',
+              'attributes' => {
+                'providerToken' => {
+                  'value' => '99'
+                },
+                'proxy' => {
+                  'id' => '<n>'
+                }
+              }
+            }
+          }
+        end
+
+        before do
+          VCR.use_cassette('put-providers-token') do
+            put '/eholdings/providers/18',
+                params: params, as: :json, headers: update_headers
+          end
+        end
+
+        it 'responds with OK status' do
+          expect(response).to have_http_status(200)
+        end
+
+        let!(:json) { Map JSON.parse response.body }
+        let!(:value) { json.data.attributes.providerToken.value }
+
+        it 'has token value' do
+          expect(json.data.attributes.providerToken.value).to eq('99')
+        end
+
+        it 'has proxy value with inherited false' do
+          expect(json.data.attributes.proxy.id).to eq('<n>')
+          expect(json.data.attributes.proxy.inherited).to eq(false)
         end
       end
     end

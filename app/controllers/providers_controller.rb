@@ -60,7 +60,8 @@ class ProvidersController < ApplicationController
     params
       .require(:provider)
       .permit(
-        vendorToken: [:value]
+        vendorToken: [:value],
+        proxy: %i[id inherited]
       )
   end
 end
