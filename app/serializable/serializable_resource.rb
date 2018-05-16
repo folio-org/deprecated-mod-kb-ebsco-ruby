@@ -158,4 +158,7 @@ class SerializableResource < SerializableJSONAPIResource
   attribute :customCoverages do
     @object.resource.customCoverageList
   end
+  attribute :proxy do
+    @object.resource.proxy
+  end
 end

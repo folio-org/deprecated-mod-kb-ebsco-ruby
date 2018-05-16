@@ -11,7 +11,8 @@ class DeserializableResource < JSONAPI::Deserializable::Resource
              :description,
              :url,
              :packageId,
-             :titleId
+             :titleId,
+             :proxy
 
   attribute :name do |value|
     { titleName: value }

@@ -116,7 +116,8 @@ class Resource < RmApiResource
       publisherName: attributes[:publisherName],
       edition: attributes[:edition],
       description: attributes[:description],
-      url: resource_attributes[:url]
+      url: resource_attributes[:url],
+      proxy: resource_attributes[:proxy]
     )
     refresh!
   end
@@ -195,7 +196,8 @@ class Resource < RmApiResource
         :identifiersList,
         :customEmbargoPeriod,
         :coverageStatement,
-        :url
+        :url,
+        :proxy
       )
     else
       resource.to_hash.with_indifferent_access.slice(
@@ -203,7 +205,8 @@ class Resource < RmApiResource
         :visibilityData,
         :customCoverageList,
         :customEmbargoPeriod,
-        :coverageStatement
+        :coverageStatement,
+        :proxy
       )
     end
   end
