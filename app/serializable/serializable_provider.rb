@@ -8,7 +8,8 @@ class SerializableProvider < SerializableJSONAPIResource
   end
 
   attributes :packagesTotal,
-             :packagesSelected
+             :packagesSelected,
+             :proxy
 
   attribute :providerToken do
     @object.vendorToken
