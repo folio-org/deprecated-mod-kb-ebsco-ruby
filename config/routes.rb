@@ -35,9 +35,12 @@ Rails.application.routes.draw do
               only: %i[index update destroy]
 
     resources :proxy_types,
-              path: '/proxy-types',
+              path: 'proxy-types',
               only: [:index]
-    resource :root_proxy, only: %i[show update]
+
+    resource :root_proxy,
+             path: 'root-proxy',
+             only: %i[show update]
 
     resource :configuration, only: %i[show update]
     resource :status, only: [:show]

@@ -1,11 +1,11 @@
 # frozen_string_literal: true
 
-class ProxyTypesRepository
+class RootProxiesRepository
   attr_reader :base_url, :headers
 
   def initialize(config:)
     @config = config
-    @base_url = "#{rmapi_url}/rm/rmaccounts/#{config.customer_id}/proxies"
+    @base_url = "#{rmapi_url}/rm/rmaccounts/#{config.customer_id}"
 
     @headers = {
       'X-Api-Key': config.api_key,
@@ -14,17 +14,30 @@ class ProxyTypesRepository
     }
   end
 
-  def all!
-    where!
-  end
-
-  def where!
+  def find!
     request do
       status, body = rmapi(:get, '')
       Result.new(
-        data: body.map { |hash| to_proxy_type hash },
+        data: to_root_proxy(body[:proxy]),
         status: status
       )
+    end
+  end
+
+  def update!(attrs)
+    request do
+      payload = attrs.to_hash.deep_symbolize_keys
+
+      # if you update a root-proxy independently with sending the
+      # custom-labels along all the custom if any will be erased.
+      # so we need to get the custom labels and post those along
+      # with the root-proxy
+      payload[:proxy] = { id: payload.delete(:proxyTypeId) }
+
+      rmapi(:put, '', json: payload)
+
+      status, body = rmapi(:get, '')
+      Result.new(data: to_root_proxy(body[:proxy]), status: status)
     end
   end
 
@@ -74,11 +87,11 @@ class ProxyTypesRepository
   def normalize_response_body(response)
     body = response.body.to_s
     return unless body.length.positive?
-    JSON.parse(response.body.to_s).map { |proxy| proxy.deep_transform_keys { |key| key.underscore.to_sym } }
+    JSON.parse(response.body.to_s).deep_transform_keys { |key| key.underscore.to_sym }
   end
 
-  def to_proxy_type(hash)
-    ProxyType.new(hash)
+  def to_root_proxy(hash)
+    RootProxy.new(id: 'eholdings/root-proxy', proxy_type_id: hash[:id])
   end
 
   def request

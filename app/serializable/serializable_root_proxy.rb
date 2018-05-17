@@ -1,11 +1,9 @@
 # frozen_string_literal: true
 
 class SerializableRootProxy < SerializableJSONAPIResource
-  type 'rootProxy'
+  type 'rootProxies'
 
   # Custom Label attributes
-  attributes :id,
-             :name,
-             :url_mask,
-             :selected
+  attributes :id
+  attributes :proxy_type_id
 end
