@@ -45,11 +45,12 @@ RSpec.describe 'Resources', type: :request do
         'url',
         'vendorId',
         'vendorName',
-        'visibilityData'
+        'visibilityData',
+        'proxy'
       )
     end
 
-    it "has a composite pacakge id of '{vendor_id}-{package_id}'" do
+    it "has a composite package id of '{vendor_id}-{package_id}'" do
       expect(attributes.packageId).to eq('22-1887786')
     end
 
@@ -58,7 +59,7 @@ RSpec.describe 'Resources', type: :request do
     end
 
     it 'has a selected value' do
-      expect(attributes.isSelected).to be false
+      expect(attributes.isSelected).to be true
     end
 
     it 'has a manage coverage' do
@@ -118,7 +119,16 @@ RSpec.describe 'Resources', type: :request do
         expect(attributes.identifiers[2].subtype).to eq('Print')
       end
       it 'identifier has a human readable subtype' do
-        expect(attributes.identifiers[2].type).to eq('ZDBID')
+        expect(attributes.identifiers[2].type).to eq('ISBN')
+      end
+    end
+
+    describe 'with proxy' do
+      it 'contains proxy id' do
+        expect(attributes.proxy.id).to eq('EZProxy')
+      end
+      it 'contains proxy inheritance' do
+        expect(attributes.proxy.inherited).to eq(true)
       end
     end
   end
@@ -387,6 +397,10 @@ RSpec.describe 'Resources', type: :request do
                 'isSelected' => true,
                 'visibilityData' => {
                   'isHidden' => true
+                },
+                'proxy' => {
+                  'id' => 'EZProxy',
+                  'inherited' => false
                 }
               }
             }
@@ -409,6 +423,14 @@ RSpec.describe 'Resources', type: :request do
 
         it 'is no longer visible' do
           expect(visibility.isHidden).to be true
+        end
+
+        it 'updated proxy correctly' do
+          expect(json.data.attributes.proxy.id).to eq('EZProxy')
+        end
+
+        it 'does not change inheritance value, always from RM API' do
+          expect(json.data.attributes.proxy.inherited).to eq(true)
         end
       end
 
