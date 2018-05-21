@@ -51,6 +51,10 @@ class Provider < RmApiResource
 
   def save!
     attributes = update_fields
+    # RM API gives an error when we pass inherited as true along with updated proxy value
+    # Hard code it to false; it should not affect the state of inherited that RM API maintains
+    attributes[:proxy][:inherited] = false
+
     self.class.update(
       id: vendorId,
       vendorToken: attributes[:vendorToken],

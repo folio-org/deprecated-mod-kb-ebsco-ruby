@@ -362,7 +362,10 @@ RSpec.describe 'Resources', type: :request do
             'data' => {
               'type' => 'resources',
               'attributes' => {
-                'isSelected' => true
+                'isSelected' => true,
+                'proxy' => {
+                  'id' => 'EZProxy'
+                }
               }
             }
           }
@@ -399,8 +402,7 @@ RSpec.describe 'Resources', type: :request do
                   'isHidden' => true
                 },
                 'proxy' => {
-                  'id' => 'EZProxy',
-                  'inherited' => false
+                  'id' => 'EZProxy'
                 }
               }
             }
@@ -446,7 +448,10 @@ RSpec.describe 'Resources', type: :request do
                     'beginCoverage' => '2003-01-01',
                     'endCoverage' => '2004-01-01'
                   }
-                ]
+                ],
+                'proxy' => {
+                  'id' => 'EZProxy'
+                }
               }
             }
           }
@@ -487,6 +492,9 @@ RSpec.describe 'Resources', type: :request do
                 'customEmbargoPeriod' => {
                   'embargoUnit' => 'Days',
                   'embargoValue' => 7
+                },
+                'proxy' => {
+                  'id' => 'EZProxy'
                 }
               }
             }

@@ -27,7 +27,7 @@ http_interactions:
       Server:
       - nginx/1.13.5
       Date:
-      - Wed, 20 Dec 2017 20:03:54 GMT
+      - Mon, 21 May 2018 21:13:41 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -35,16 +35,16 @@ http_interactions:
       Connection:
       - keep-alive
       X-Okapi-Trace:
-      - 'GET mod-authtoken-1.1.1-SNAPSHOT.7 http://10.39.243.223:8081/configurations/entries..
-        : 202'
-      - 'GET mod-configuration-3.0.1-SNAPSHOT.18 http://10.39.247.37:8081/configurations/entries..
-        : 200 42670us'
+      - 'GET mod-authtoken-1.4.1-SNAPSHOT.20 http://10.39.253.209:8081/configurations/entries..
+        : 202 360195us'
+      - 'GET mod-configuration-4.0.3-SNAPSHOT.29 http://10.39.244.97:8081/configurations/entries..
+        : 200 43159us'
       Host:
       - okapi.frontside.io
       X-Real-Ip:
-      - 10.128.0.5
+      - 10.128.0.4
       X-Forwarded-For:
-      - 10.128.0.5
+      - 10.128.0.4
       X-Forwarded-Host:
       - okapi.frontside.io
       X-Forwarded-Port:
@@ -66,13 +66,13 @@ http_interactions:
       User-Agent:
       - Ruby
       X-Okapi-Request-Id:
-      - 732011/configurations
+      - 907623/configurations
       X-Okapi-Url:
-      - http://10.39.247.213:80
+      - http://10.39.242.98:80
       X-Okapi-Permissions-Required:
       - configuration.entries.collection.get
       X-Okapi-Module-Permissions:
-      - '{"mod-authtoken-1.1.1-SNAPSHOT.7":["perms.users.get"]}'
+      - '{"mod-authtoken-1.4.1-SNAPSHOT.20":["perms.users.get"]}'
       X-Okapi-Permissions:
       - '["configuration.entries.collection.get"]'
       X-Okapi-User-Id:
@@ -86,7 +86,7 @@ http_interactions:
       string: |-
         {
           "configs" : [ {
-            "id" : "0f7643e0-25b5-487a-816e-17484ec17e1b",
+            "id" : "a6d98284-5c46-4698-a6fe-f9d1594aecfc",
             "module" : "KB_EBSCO",
             "configName" : "api_credentials",
             "code" : "kb.ebsco.credentials",
@@ -94,9 +94,9 @@ http_interactions:
             "enabled" : true,
             "value" : "customer-id=TEST_CUSTOMER_ID&api-key=TEST_API_KEY",
             "metadata" : {
-              "createdDate" : "2017-12-12T18:31:12.750+0000",
+              "createdDate" : "2018-05-07T20:35:44.622+0000",
               "createdByUserId" : "1ad737b0-d847-11e6-bf26-cec0c932ce01",
-              "updatedDate" : "2017-12-12T18:31:12.750+0000",
+              "updatedDate" : "2018-05-07T20:35:44.622+0000",
               "updatedByUserId" : "1ad737b0-d847-11e6-bf26-cec0c932ce01"
             }
           } ],
@@ -107,7 +107,7 @@ http_interactions:
           }
         }
     http_version: 
-  recorded_at: Wed, 20 Dec 2017 20:03:54 GMT
+  recorded_at: Mon, 21 May 2018 21:13:41 GMT
 - request:
     method: get
     uri: https://api.ebsco.io/rm/rmaccounts/TEST_CUSTOMER_ID/vendors/22/packages/1887786/titles/1440285
@@ -116,7 +116,7 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - Flexirest/1.5.5
+      - Flexirest/1.6.7
       Connection:
       - Keep-Alive
       Accept:
@@ -135,17 +135,19 @@ http_interactions:
       Content-Type:
       - application/json; charset=utf-8
       Content-Length:
-      - '1548'
+      - '1642'
       Connection:
       - keep-alive
       Date:
-      - Wed, 20 Dec 2017 20:03:54 GMT
+      - Mon, 21 May 2018 21:13:41 GMT
       X-Amzn-Requestid:
-      - e7b0941b-e5c0-11e7-8720-f756771a4a96
+      - d63214f4-5d3b-11e8-ae74-c19d14ede573
       X-Amzn-Remapped-Content-Length:
-      - '1548'
+      - '1642'
       X-Amzn-Remapped-Connection:
       - keep-alive
+      X-Amz-Apigw-Id:
+      - HQV00EcwoAMFmtg=
       X-Amzn-Remapped-Server:
       - Microsoft-IIS/8.5
       Cache-Control:
@@ -157,35 +159,38 @@ http_interactions:
       Pragma:
       - no-cache
       X-Amzn-Remapped-Date:
-      - Wed, 20 Dec 2017 20:03:54 GMT
+      - Mon, 21 May 2018 21:13:40 GMT
       X-Aspnet-Version:
       - 4.0.30319
       X-Cache:
       - Miss from cloudfront
       Via:
-      - 1.1 106d08be45f5967314966d4d8b406722.cloudfront.net (CloudFront)
+      - 1.1 5eeb97aa7733a60bc509534d9745abc7.cloudfront.net (CloudFront)
       X-Amz-Cf-Id:
-      - urYinc4rfpNTx9z6DcHmw1BZN5SsAlL11QYdXe3Ju_CV3_FDtuSoow==
+      - upht5fTd5lQt5LbDwkCJtCECQECQayMmsmfDcr6CXdyr2QCli9Q3oA==
     body:
       encoding: UTF-8
-      string: '{"description":null,"edition":null,"isPeerReviewed":false,"contributorsList":[{"type":"author","contributor":"Havard,
-        Margaret"},{"type":"author","contributor":"Tiziani, Adriana."}],"titleId":1440285,"titleName":"Havard''s
-        Nursing Guide to Drugs (Nursing Guide to Drugs)","publisherName":"Elsevier","identifiersList":[{"id":"1440285","source":"AtoZ","subtype":0,"type":9},{"id":"475765","source":"ResourceIdentifier","subtype":0,"type":16},{"id":"978-0-7295-3913-5","source":"ResourceIdentifier","subtype":1,"type":6},{"id":"978-0-7295-7913-1","source":"ResourceIdentifier","subtype":2,"type":8}],"subjectsList":[{"type":"BISAC","subject":"MEDICAL
+      string: '{"titleId":1440285,"titleName":"Havard''s Nursing Guide to Drugs (Nursing
+        Guide to Drugs)","publisherName":"Elsevier","identifiersList":[{"id":"1440285","source":"AtoZ","subtype":0,"type":9},{"id":"475765","source":"ResourceIdentifier","subtype":0,"type":7},{"id":"978-0-7295-3913-5","source":"ResourceIdentifier","subtype":1,"type":1},{"id":"978-0-7295-7913-1","source":"ResourceIdentifier","subtype":2,"type":1}],"subjectsList":[{"type":"BISAC","subject":"MEDICAL
         / Nursing / Pharmacology"}],"isTitleCustom":false,"pubType":"Book","customerResourcesList":[{"titleId":1440285,"packageId":1887786,"packageName":"ProQuest
-        Ebook Central","isPackageCustom":false,"vendorId":22,"vendorName":"Proquest
+        Ebook Central","packageType":"Variable","proxy":{"id":"EZProxy","inherited":false},"isPackageCustom":false,"vendorId":22,"vendorName":"Proquest
         Info & Learning Co","locationId":17545807,"isSelected":true,"isTokenNeeded":true,"visibilityData":{"isHidden":true,"reason":"Hidden
-        by Customer"},"managedCoverageList":[{"beginCoverage":"2010-01-01","endCoverage":"2010-12-31"}],"customCoverageList":[{"beginCoverage":"2003-01-01","endCoverage":"2004-01-01"}],"coverageStatement":null,"managedEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"customEmbargoPeriod":{"embargoUnit":"Months","embargoValue":5},"url":"http://ebookcentral.proquest.com/lib/[[SiteID]]/detail.action?docID=1722033","userDefinedField1":null,"userDefinedField2":null,"userDefinedField3":null,"userDefinedField4":null,"userDefinedField5":null}]}'
+        by Customer"},"managedCoverageList":[{"beginCoverage":"2010-01-01","endCoverage":"2010-12-31"}],"customCoverageList":[{"beginCoverage":"2003-01-01","endCoverage":"2004-01-01"}],"coverageStatement":"Only
+        2000s issues available.","managedEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"customEmbargoPeriod":{"embargoUnit":"Months","embargoValue":5},"url":"https://ebookcentral.proquest.com/lib/[[SiteID]]/detail.action?docID=1722033","userDefinedField1":null,"userDefinedField2":null,"userDefinedField3":null,"userDefinedField4":null,"userDefinedField5":null}],"description":null,"edition":null,"isPeerReviewed":false,"contributorsList":[{"type":"author","contributor":"Havard,
+        Margaret"},{"type":"author","contributor":"Tiziani, Adriana."}]}'
     http_version: 
-  recorded_at: Wed, 20 Dec 2017 20:03:54 GMT
+  recorded_at: Mon, 21 May 2018 21:13:41 GMT
 - request:
     method: put
     uri: https://api.ebsco.io/rm/rmaccounts/TEST_CUSTOMER_ID/vendors/22/packages/1887786/titles/1440285
     body:
       encoding: UTF-8
-      string: '{"isSelected":true,"isHidden":true,"customCoverageList":[{"beginCoverage":"2003-01-01","endCoverage":"2004-01-01"}],"customEmbargoPeriod":{"embargoUnit":"Days","embargoValue":7}}'
+      string: '{"isSelected":true,"isHidden":true,"customCoverageList":[{"beginCoverage":"2003-01-01","endCoverage":"2004-01-01"}],"contributorsList":null,"identifiersList":null,"customEmbargoPeriod":{"embargoUnit":"Days","embargoValue":7},"coverageStatement":"Only
+        2000s issues available.","titleName":"Havard''s Nursing Guide to Drugs (Nursing
+        Guide to Drugs)","pubType":"Book","isPeerReviewed":false,"publisherName":"Elsevier","edition":null,"description":null,"url":null,"proxy":{"id":"EZProxy","inherited":false}}'
     headers:
       User-Agent:
-      - Flexirest/1.5.5
+      - Flexirest/1.6.7
       Connection:
       - Keep-Alive
       Accept:
@@ -208,11 +213,13 @@ http_interactions:
       Connection:
       - keep-alive
       Date:
-      - Wed, 20 Dec 2017 20:03:54 GMT
+      - Mon, 21 May 2018 21:13:41 GMT
       X-Amzn-Requestid:
-      - e7c8614c-e5c0-11e7-95c0-db10846f208a
+      - d6496d43-5d3b-11e8-afe4-b1360d945b94
       X-Amzn-Remapped-Connection:
       - keep-alive
+      X-Amz-Apigw-Id:
+      - HQV02EbfIAMFrwg=
       X-Amzn-Remapped-Server:
       - Microsoft-IIS/8.5
       Cache-Control:
@@ -224,20 +231,20 @@ http_interactions:
       Pragma:
       - no-cache
       X-Amzn-Remapped-Date:
-      - Wed, 20 Dec 2017 20:03:54 GMT
+      - Mon, 21 May 2018 21:13:41 GMT
       X-Aspnet-Version:
       - 4.0.30319
       X-Cache:
       - Miss from cloudfront
       Via:
-      - 1.1 d69720531b393bbe46e33088d4ad3a49.cloudfront.net (CloudFront)
+      - 1.1 7f23b91f6dbc2ee888cb465c633163d4.cloudfront.net (CloudFront)
       X-Amz-Cf-Id:
-      - MjkADr6t34mB5oO-_Iv8r6cNbQPCVJ8U2YH10tJPJmwQnf1r5M14yA==
+      - PlNzEbxsp3MTgwhfCHs01KabNF995plKq_YVrKLSOU0jzEh0ORbJpg==
     body:
       encoding: UTF-8
       string: ''
     http_version: 
-  recorded_at: Wed, 20 Dec 2017 20:03:54 GMT
+  recorded_at: Mon, 21 May 2018 21:13:41 GMT
 - request:
     method: get
     uri: https://api.ebsco.io/rm/rmaccounts/TEST_CUSTOMER_ID/vendors/22/packages/1887786/titles/1440285
@@ -246,7 +253,7 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - Flexirest/1.5.5
+      - Flexirest/1.6.7
       Connection:
       - Keep-Alive
       Accept:
@@ -265,17 +272,19 @@ http_interactions:
       Content-Type:
       - application/json; charset=utf-8
       Content-Length:
-      - '1546'
+      - '1640'
       Connection:
       - keep-alive
       Date:
-      - Wed, 20 Dec 2017 20:03:54 GMT
+      - Mon, 21 May 2018 21:13:41 GMT
       X-Amzn-Requestid:
-      - e80ff276-e5c0-11e7-a70c-fb4d7956e7f1
+      - d672eebf-5d3b-11e8-905e-199c5bea6673
       X-Amzn-Remapped-Content-Length:
-      - '1546'
+      - '1640'
       X-Amzn-Remapped-Connection:
       - keep-alive
+      X-Amz-Apigw-Id:
+      - HQV05FXYIAMF9dw=
       X-Amzn-Remapped-Server:
       - Microsoft-IIS/8.5
       Cache-Control:
@@ -287,24 +296,25 @@ http_interactions:
       Pragma:
       - no-cache
       X-Amzn-Remapped-Date:
-      - Wed, 20 Dec 2017 20:03:54 GMT
+      - Mon, 21 May 2018 21:13:41 GMT
       X-Aspnet-Version:
       - 4.0.30319
       X-Cache:
       - Miss from cloudfront
       Via:
-      - 1.1 00a1d8f37a58e42d70fb6d319f45045f.cloudfront.net (CloudFront)
+      - 1.1 47d6834f4a1b452aaf7621406b34f3c1.cloudfront.net (CloudFront)
       X-Amz-Cf-Id:
-      - sm3cFNZJVBnoR4-NuIAxFkWVrl5Ct22lLrCAx1qFab3YgtlBZXeDJQ==
+      - hRCxeyZVHmDFDiEnE8M8SXGy521EhKJqoUGjuO0Zwzm3ZDjakH86jg==
     body:
       encoding: UTF-8
-      string: '{"description":null,"edition":null,"isPeerReviewed":false,"contributorsList":[{"type":"author","contributor":"Havard,
-        Margaret"},{"type":"author","contributor":"Tiziani, Adriana."}],"titleId":1440285,"titleName":"Havard''s
-        Nursing Guide to Drugs (Nursing Guide to Drugs)","publisherName":"Elsevier","identifiersList":[{"id":"1440285","source":"AtoZ","subtype":0,"type":9},{"id":"475765","source":"ResourceIdentifier","subtype":0,"type":16},{"id":"978-0-7295-3913-5","source":"ResourceIdentifier","subtype":1,"type":6},{"id":"978-0-7295-7913-1","source":"ResourceIdentifier","subtype":2,"type":8}],"subjectsList":[{"type":"BISAC","subject":"MEDICAL
+      string: '{"titleId":1440285,"titleName":"Havard''s Nursing Guide to Drugs (Nursing
+        Guide to Drugs)","publisherName":"Elsevier","identifiersList":[{"id":"1440285","source":"AtoZ","subtype":0,"type":9},{"id":"475765","source":"ResourceIdentifier","subtype":0,"type":7},{"id":"978-0-7295-3913-5","source":"ResourceIdentifier","subtype":1,"type":1},{"id":"978-0-7295-7913-1","source":"ResourceIdentifier","subtype":2,"type":1}],"subjectsList":[{"type":"BISAC","subject":"MEDICAL
         / Nursing / Pharmacology"}],"isTitleCustom":false,"pubType":"Book","customerResourcesList":[{"titleId":1440285,"packageId":1887786,"packageName":"ProQuest
-        Ebook Central","isPackageCustom":false,"vendorId":22,"vendorName":"Proquest
+        Ebook Central","packageType":"Variable","proxy":{"id":"EZProxy","inherited":false},"isPackageCustom":false,"vendorId":22,"vendorName":"Proquest
         Info & Learning Co","locationId":17545807,"isSelected":true,"isTokenNeeded":true,"visibilityData":{"isHidden":true,"reason":"Hidden
-        by Customer"},"managedCoverageList":[{"beginCoverage":"2010-01-01","endCoverage":"2010-12-31"}],"customCoverageList":[{"beginCoverage":"2003-01-01","endCoverage":"2004-01-01"}],"coverageStatement":null,"managedEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"customEmbargoPeriod":{"embargoUnit":"Days","embargoValue":7},"url":"http://ebookcentral.proquest.com/lib/[[SiteID]]/detail.action?docID=1722033","userDefinedField1":null,"userDefinedField2":null,"userDefinedField3":null,"userDefinedField4":null,"userDefinedField5":null}]}'
+        by Customer"},"managedCoverageList":[{"beginCoverage":"2010-01-01","endCoverage":"2010-12-31"}],"customCoverageList":[{"beginCoverage":"2003-01-01","endCoverage":"2004-01-01"}],"coverageStatement":"Only
+        2000s issues available.","managedEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"customEmbargoPeriod":{"embargoUnit":"Days","embargoValue":7},"url":"https://ebookcentral.proquest.com/lib/[[SiteID]]/detail.action?docID=1722033","userDefinedField1":null,"userDefinedField2":null,"userDefinedField3":null,"userDefinedField4":null,"userDefinedField5":null}],"description":null,"edition":null,"isPeerReviewed":false,"contributorsList":[{"type":"author","contributor":"Havard,
+        Margaret"},{"type":"author","contributor":"Tiziani, Adriana."}]}'
     http_version: 
-  recorded_at: Wed, 20 Dec 2017 20:03:54 GMT
+  recorded_at: Mon, 21 May 2018 21:13:41 GMT
 recorded_with: VCR 3.0.3
