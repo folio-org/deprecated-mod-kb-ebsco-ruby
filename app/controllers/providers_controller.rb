@@ -14,11 +14,13 @@ class ProvidersController < ApplicationController
     )
 
     render jsonapi: @providers.vendors.to_a,
-           meta: { totalResults: @providers.totalResults }
+           meta: { totalResults: @providers.totalResults },
+           class: { Provider: SerializableProviderList }
   end
 
   def show
-    render jsonapi: @provider, include: params[:include]
+    render jsonapi: @provider,
+           include: params[:include]
   end
 
   def update

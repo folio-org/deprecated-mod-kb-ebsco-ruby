@@ -27,7 +27,7 @@ http_interactions:
       Server:
       - nginx/1.13.5
       Date:
-      - Fri, 04 May 2018 19:55:48 GMT
+      - Tue, 22 May 2018 15:37:34 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -35,16 +35,16 @@ http_interactions:
       Connection:
       - keep-alive
       X-Okapi-Trace:
-      - 'GET mod-authtoken-1.4.1-SNAPSHOT.20 http://10.39.249.72:8081/configurations/entries..
-        : 202 1290us'
-      - 'GET mod-configuration-4.0.3-SNAPSHOT.29 http://10.39.252.104:8081/configurations/entries..
-        : 200 41773us'
+      - 'GET mod-authtoken-1.4.1-SNAPSHOT.20 http://10.39.253.209:8081/configurations/entries..
+        : 202 357652us'
+      - 'GET mod-configuration-4.0.3-SNAPSHOT.29 http://10.39.244.97:8081/configurations/entries..
+        : 200 43031us'
       Host:
       - okapi.frontside.io
       X-Real-Ip:
-      - 10.36.3.1
+      - 10.128.0.3
       X-Forwarded-For:
-      - 10.36.3.1
+      - 10.128.0.3
       X-Forwarded-Host:
       - okapi.frontside.io
       X-Forwarded-Port:
@@ -66,9 +66,9 @@ http_interactions:
       User-Agent:
       - Ruby
       X-Okapi-Request-Id:
-      - 524360/configurations
+      - 691051/configurations
       X-Okapi-Url:
-      - http://10.39.243.220:80
+      - http://10.39.242.98:80
       X-Okapi-Permissions-Required:
       - configuration.entries.collection.get
       X-Okapi-Module-Permissions:
@@ -86,7 +86,7 @@ http_interactions:
       string: |-
         {
           "configs" : [ {
-            "id" : "9f193b46-4cc5-4c99-b09f-374fe5415673",
+            "id" : "a6d98284-5c46-4698-a6fe-f9d1594aecfc",
             "module" : "KB_EBSCO",
             "configName" : "api_credentials",
             "code" : "kb.ebsco.credentials",
@@ -94,9 +94,9 @@ http_interactions:
             "enabled" : true,
             "value" : "customer-id=TEST_CUSTOMER_ID&api-key=TEST_API_KEY",
             "metadata" : {
-              "createdDate" : "2018-03-28T14:49:56.794+0000",
+              "createdDate" : "2018-05-07T20:35:44.622+0000",
               "createdByUserId" : "1ad737b0-d847-11e6-bf26-cec0c932ce01",
-              "updatedDate" : "2018-03-28T14:49:56.794+0000",
+              "updatedDate" : "2018-05-07T20:35:44.622+0000",
               "updatedByUserId" : "1ad737b0-d847-11e6-bf26-cec0c932ce01"
             }
           } ],
@@ -107,7 +107,7 @@ http_interactions:
           }
         }
     http_version: 
-  recorded_at: Fri, 04 May 2018 19:55:48 GMT
+  recorded_at: Tue, 22 May 2018 15:37:34 GMT
 - request:
     method: get
     uri: https://api.ebsco.io/rm/rmaccounts/TEST_CUSTOMER_ID/vendors?count=25&offset=1&orderby=relevance&search=e
@@ -116,7 +116,7 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - Flexirest/1.5.5
+      - Flexirest/1.6.7
       Connection:
       - Keep-Alive
       Accept:
@@ -139,25 +139,25 @@ http_interactions:
       Connection:
       - keep-alive
       Date:
-      - Fri, 04 May 2018 19:55:48 GMT
+      - Tue, 22 May 2018 15:37:34 GMT
       X-Amzn-Requestid:
-      - 23f24bf0-4fd5-11e8-9e35-616468569867
+      - 0c2165f1-5dd6-11e8-a3f6-1d4c6add8574
       X-Amzn-Remapped-Connection:
       - keep-alive
       X-Amz-Apigw-Id:
-      - GYIesFTJIAMFbiA=
+      - HS3huEe7oAMFzoA=
       X-Amzn-Remapped-Date:
-      - Fri, 04 May 2018 19:55:47 GMT
+      - Tue, 22 May 2018 15:37:34 GMT
       X-Cache:
       - Miss from cloudfront
       Via:
-      - 1.1 f0ef92e52918ab5129ebd66f2f633cbb.cloudfront.net (CloudFront)
+      - 1.1 2f7eec78b53c7625bd656dcd08ed1823.cloudfront.net (CloudFront)
       X-Amz-Cf-Id:
-      - ce55miJh5ddXpYidsVosY73qVVqXu4m2i_aZ6shftAgEgChOj2YmXg==
+      - tiZGbKthTiYo34uPCA08w2oIe23hG9YxPxAgdWxYafgttclquTDOCg==
     body:
       encoding: ASCII-8BIT
       string: !binary |-
-        eyJ0b3RhbFJlc3VsdHMiOjEwNiwidmVuZG9ycyI6W3sidmVuZG9ySWQiOjU2NSwidmVuZG9yTmFtZSI6IkUgJiBFIFB1Ymxpc2hpbmcsIExMQyIsImlzQ3VzdG9tZXIiOmZhbHNlLCJwYWNrYWdlc1RvdGFsIjoxLCJwYWNrYWdlc1NlbGVjdGVkIjowLCJ2ZW5kb3JUb2tlbiI6bnVsbH0seyJ2ZW5kb3JJZCI6Njg5LCJ2ZW5kb3JOYW1lIjoiRS4gU2Nod2VpemVyYmFydHNjaGUgVmVybGFnc2J1Y2hoYW5kbHVuZyIsImlzQ3VzdG9tZXIiOmZhbHNlLCJwYWNrYWdlc1RvdGFsIjoxLCJwYWNrYWdlc1NlbGVjdGVkIjoxLCJ2ZW5kb3JUb2tlbiI6bnVsbH0seyJ2ZW5kb3JJZCI6NTgzODksInZlbmRvck5hbWUiOiJFQUdFIFB1YmxpY2F0aW9ucyIsImlzQ3VzdG9tZXIiOmZhbHNlLCJwYWNrYWdlc1RvdGFsIjoxLCJwYWNrYWdlc1NlbGVjdGVkIjowLCJ2ZW5kb3JUb2tlbiI6bnVsbH0seyJ2ZW5kb3JJZCI6MTE0LCJ2ZW5kb3JOYW1lIjoiRWFzdCBWaWV3IFB1YmxpY2F0aW9ucyIsImlzQ3VzdG9tZXIiOmZhbHNlLCJwYWNrYWdlc1RvdGFsIjo4MSwicGFja2FnZXNTZWxlY3RlZCI6NCwidmVuZG9yVG9rZW4iOm51bGx9LHsidmVuZG9ySWQiOjEyMzEzNCwidmVuZG9yTmFtZSI6IkVCQyBQdWJsaXNoaW5nIFB2dC4gTHRkIiwiaXNDdXN0b21lciI6ZmFsc2UsInBhY2thZ2VzVG90YWwiOjEsInBhY2thZ2VzU2VsZWN0ZWQiOjEsInZlbmRvclRva2VuIjpudWxsfSx7InZlbmRvcklkIjo0NTYsInZlbmRvck5hbWUiOiJFYmlxdWl0eSBQbGMuIiwiaXNDdXN0b21lciI6ZmFsc2UsInBhY2thZ2VzVG90YWwiOjEsInBhY2thZ2VzU2VsZWN0ZWQiOjAsInZlbmRvclRva2VuIjpudWxsfSx7InZlbmRvcklkIjoxMDI3LCJ2ZW5kb3JOYW1lIjoiRUJvb2tzIENvcnBvcmF0aW9uIExpbWl0ZWQiLCJpc0N1c3RvbWVyIjpmYWxzZSwicGFja2FnZXNUb3RhbCI6MCwicGFja2FnZXNTZWxlY3RlZCI6MCwidmVuZG9yVG9rZW4iOm51bGx9LHsidmVuZG9ySWQiOjI2OSwidmVuZG9yTmFtZSI6IkVicmFyeSIsImlzQ3VzdG9tZXIiOmZhbHNlLCJwYWNrYWdlc1RvdGFsIjozNywicGFja2FnZXNTZWxlY3RlZCI6MiwidmVuZG9yVG9rZW4iOiIzNCJ9LHsidmVuZG9ySWQiOjE5LCJ2ZW5kb3JOYW1lIjoiRUJTQ08iLCJpc0N1c3RvbWVyIjpmYWxzZSwicGFja2FnZXNUb3RhbCI6NjI2LCJwYWNrYWdlc1NlbGVjdGVkIjo0MywidmVuZG9yVG9rZW4iOm51bGx9LHsidmVuZG9ySWQiOjI3MywidmVuZG9yTmFtZSI6IkVCU0NPIE9wZW4gQWNjZXNzIExpc3RzIiwiaXNDdXN0b21lciI6ZmFsc2UsInBhY2thZ2VzVG90YWwiOjIzLCJwYWNrYWdlc1NlbGVjdGVkIjo2LCJ2ZW5kb3JUb2tlbiI6bnVsbH0seyJ2ZW5kb3JJZCI6NDE5LCJ2ZW5kb3JOYW1lIjoiZWNjaCIsImlzQ3VzdG9tZXIiOmZhbHNlLCJwYWNrYWdlc1RvdGFsIjoyLCJwYWNrYWdlc1NlbGVjdGVkIjowLCJ2ZW5kb3JUb2tlbiI6bnVsbH0seyJ2ZW5kb3JJZCI6Njc2NTAsInZlbmRvck5hbWUiOiJFQ0cgTGlicmFyeSIsImlzQ3VzdG9tZXIiOmZhbHNlLCJwYWNrYWdlc1RvdGFsIjoxLCJwYWNrYWdlc1NlbGVjdGVkIjowLCJ2ZW5kb3JUb2tlbiI6bnVsbH0seyJ2ZW5kb3JJZCI6NTA2LCJ2ZW5kb3JOYW1lIjoiRUNNV0YgUHVibGljYXRpb25zIiwiaXNDdXN0b21lciI6ZmFsc2UsInBhY2thZ2VzVG90YWwiOjEsInBhY2thZ2VzU2VsZWN0ZWQiOjAsInZlbmRvclRva2VuIjpudWxsfSx7InZlbmRvcklkIjoxMDkxLCJ2ZW5kb3JOYW1lIjoiRWNvTGV4IiwiaXNDdXN0b21lciI6ZmFsc2UsInBhY2thZ2VzVG90YWwiOjEsInBhY2thZ2VzU2VsZWN0ZWQiOjAsInZlbmRvclRva2VuIjpudWxsfSx7InZlbmRvcklkIjo5MzU3MCwidmVuZG9yTmFtZSI6IkVjb25vZGF5IEluYy4iLCJpc0N1c3RvbWVyIjpmYWxzZSwicGFja2FnZXNUb3RhbCI6MSwicGFja2FnZXNTZWxlY3RlZCI6MCwidmVuZG9yVG9rZW4iOm51bGx9LHsidmVuZG9ySWQiOjExMTQsInZlbmRvck5hbWUiOiJFY29ub21hZ2ljLmNvbSIsImlzQ3VzdG9tZXIiOmZhbHNlLCJwYWNrYWdlc1RvdGFsIjoxLCJwYWNrYWdlc1NlbGVjdGVkIjowLCJ2ZW5kb3JUb2tlbiI6bnVsbH0seyJ2ZW5kb3JJZCI6OTQyLCJ2ZW5kb3JOYW1lIjoiRWNvbm9tw6F0aWNhIiwiaXNDdXN0b21lciI6ZmFsc2UsInBhY2thZ2VzVG90YWwiOjEsInBhY2thZ2VzU2VsZWN0ZWQiOjAsInZlbmRvclRva2VuIjpudWxsfSx7InZlbmRvcklkIjoxMjM1MTUsInZlbmRvck5hbWUiOiJFY29ub21lbmEgQW5hbHl0aWNzIiwiaXNDdXN0b21lciI6ZmFsc2UsInBhY2thZ2VzVG90YWwiOjEsInBhY2thZ2VzU2VsZWN0ZWQiOjAsInZlbmRvclRva2VuIjpudWxsfSx7InZlbmRvcklkIjoxMDYwLCJ2ZW5kb3JOYW1lIjoiRWNvbm9taWMgYW5kIFNvY2lhbCBSZXNlYXJjaCBDb3VuY2lsIiwiaXNDdXN0b21lciI6ZmFsc2UsInBhY2thZ2VzVG90YWwiOjEsInBhY2thZ2VzU2VsZWN0ZWQiOjAsInZlbmRvclRva2VuIjpudWxsfSx7InZlbmRvcklkIjoxNTYsInZlbmRvck5hbWUiOiJFY29ub21pc3QgSW50ZWxsaWdlbmNlIFVuaXQiLCJpc0N1c3RvbWVyIjpmYWxzZSwicGFja2FnZXNUb3RhbCI6MTUsInBhY2thZ2VzU2VsZWN0ZWQiOjEsInZlbmRvclRva2VuIjpudWxsfSx7InZlbmRvcklkIjoxMTk0OCwidmVuZG9yTmFtZSI6IkVjb3BvaW50IEluYy4iLCJpc0N1c3RvbWVyIjpmYWxzZSwicGFja2FnZXNUb3RhbCI6MSwicGFja2FnZXNTZWxlY3RlZCI6MCwidmVuZG9yVG9rZW4iOm51bGx9LHsidmVuZG9ySWQiOjEyNzk0NSwidmVuZG9yTmFtZSI6IkVDUkkgSW5zdGl0dXRlIiwiaXNDdXN0b21lciI6ZmFsc2UsInBhY2thZ2VzVG90YWwiOjEsInBhY2thZ2VzU2VsZWN0ZWQiOjAsInZlbmRvclRva2VuIjpudWxsfSx7InZlbmRvcklkIjo4MDUsInZlbmRvck5hbWUiOiJFREQiLCJpc0N1c3RvbWVyIjpmYWxzZSwicGFja2FnZXNUb3RhbCI6MSwicGFja2FnZXNTZWxlY3RlZCI6MCwidmVuZG9yVG9rZW4iOm51bGx9LHsidmVuZG9ySWQiOjMxNywidmVuZG9yTmFtZSI6IkVkaW5idXJnaCBVbml2ZXJzaXR5IFByZXNzIiwiaXNDdXN0b21lciI6ZmFsc2UsInBhY2thZ2VzVG90YWwiOjYsInBhY2thZ2VzU2VsZWN0ZWQiOjAsInZlbmRvclRva2VuIjpudWxsfSx7InZlbmRvcklkIjozMjUsInZlbmRvck5hbWUiOiJFZGl0aWFsaXMiLCJpc0N1c3RvbWVyIjpmYWxzZSwicGFja2FnZXNUb3RhbCI6MSwicGFja2FnZXNTZWxlY3RlZCI6MCwidmVuZG9yVG9rZW4iOm51bGx9XX0=
+        eyJ0b3RhbFJlc3VsdHMiOjEwNSwidmVuZG9ycyI6W3sidmVuZG9ySWQiOjU2NSwidmVuZG9yTmFtZSI6IkUgJiBFIFB1Ymxpc2hpbmcsIExMQyIsImlzQ3VzdG9tZXIiOmZhbHNlLCJwYWNrYWdlc1RvdGFsIjoxLCJwYWNrYWdlc1NlbGVjdGVkIjoxLCJ2ZW5kb3JUb2tlbiI6bnVsbH0seyJ2ZW5kb3JJZCI6Njg5LCJ2ZW5kb3JOYW1lIjoiRS4gU2Nod2VpemVyYmFydHNjaGUgVmVybGFnc2J1Y2hoYW5kbHVuZyIsImlzQ3VzdG9tZXIiOmZhbHNlLCJwYWNrYWdlc1RvdGFsIjoxLCJwYWNrYWdlc1NlbGVjdGVkIjoxLCJ2ZW5kb3JUb2tlbiI6bnVsbH0seyJ2ZW5kb3JJZCI6NTgzODksInZlbmRvck5hbWUiOiJFQUdFIFB1YmxpY2F0aW9ucyIsImlzQ3VzdG9tZXIiOmZhbHNlLCJwYWNrYWdlc1RvdGFsIjoxLCJwYWNrYWdlc1NlbGVjdGVkIjowLCJ2ZW5kb3JUb2tlbiI6bnVsbH0seyJ2ZW5kb3JJZCI6MTE0LCJ2ZW5kb3JOYW1lIjoiRWFzdCBWaWV3IFB1YmxpY2F0aW9ucyIsImlzQ3VzdG9tZXIiOmZhbHNlLCJwYWNrYWdlc1RvdGFsIjo4MSwicGFja2FnZXNTZWxlY3RlZCI6NCwidmVuZG9yVG9rZW4iOm51bGx9LHsidmVuZG9ySWQiOjEyMzEzNCwidmVuZG9yTmFtZSI6IkVCQyBQdWJsaXNoaW5nIFB2dC4gTHRkIiwiaXNDdXN0b21lciI6ZmFsc2UsInBhY2thZ2VzVG90YWwiOjEsInBhY2thZ2VzU2VsZWN0ZWQiOjEsInZlbmRvclRva2VuIjpudWxsfSx7InZlbmRvcklkIjo0NTYsInZlbmRvck5hbWUiOiJFYmlxdWl0eSBQbGMuIiwiaXNDdXN0b21lciI6ZmFsc2UsInBhY2thZ2VzVG90YWwiOjEsInBhY2thZ2VzU2VsZWN0ZWQiOjEsInZlbmRvclRva2VuIjpudWxsfSx7InZlbmRvcklkIjoxMDI3LCJ2ZW5kb3JOYW1lIjoiRUJvb2tzIENvcnBvcmF0aW9uIExpbWl0ZWQiLCJpc0N1c3RvbWVyIjpmYWxzZSwicGFja2FnZXNUb3RhbCI6MCwicGFja2FnZXNTZWxlY3RlZCI6MCwidmVuZG9yVG9rZW4iOm51bGx9LHsidmVuZG9ySWQiOjI2OSwidmVuZG9yTmFtZSI6IkVicmFyeSIsImlzQ3VzdG9tZXIiOmZhbHNlLCJwYWNrYWdlc1RvdGFsIjozNywicGFja2FnZXNTZWxlY3RlZCI6MiwidmVuZG9yVG9rZW4iOiIzNCJ9LHsidmVuZG9ySWQiOjE5LCJ2ZW5kb3JOYW1lIjoiRUJTQ08iLCJpc0N1c3RvbWVyIjpmYWxzZSwicGFja2FnZXNUb3RhbCI6NjI3LCJwYWNrYWdlc1NlbGVjdGVkIjo0NSwidmVuZG9yVG9rZW4iOm51bGx9LHsidmVuZG9ySWQiOjI3MywidmVuZG9yTmFtZSI6IkVCU0NPIE9wZW4gQWNjZXNzIExpc3RzIiwiaXNDdXN0b21lciI6ZmFsc2UsInBhY2thZ2VzVG90YWwiOjIzLCJwYWNrYWdlc1NlbGVjdGVkIjo2LCJ2ZW5kb3JUb2tlbiI6bnVsbH0seyJ2ZW5kb3JJZCI6NDE5LCJ2ZW5kb3JOYW1lIjoiZWNjaCIsImlzQ3VzdG9tZXIiOmZhbHNlLCJwYWNrYWdlc1RvdGFsIjoyLCJwYWNrYWdlc1NlbGVjdGVkIjowLCJ2ZW5kb3JUb2tlbiI6bnVsbH0seyJ2ZW5kb3JJZCI6Njc2NTAsInZlbmRvck5hbWUiOiJFQ0cgTGlicmFyeSIsImlzQ3VzdG9tZXIiOmZhbHNlLCJwYWNrYWdlc1RvdGFsIjoxLCJwYWNrYWdlc1NlbGVjdGVkIjowLCJ2ZW5kb3JUb2tlbiI6bnVsbH0seyJ2ZW5kb3JJZCI6NTA2LCJ2ZW5kb3JOYW1lIjoiRUNNV0YgUHVibGljYXRpb25zIiwiaXNDdXN0b21lciI6ZmFsc2UsInBhY2thZ2VzVG90YWwiOjEsInBhY2thZ2VzU2VsZWN0ZWQiOjAsInZlbmRvclRva2VuIjpudWxsfSx7InZlbmRvcklkIjoxMDkxLCJ2ZW5kb3JOYW1lIjoiRWNvTGV4IiwiaXNDdXN0b21lciI6ZmFsc2UsInBhY2thZ2VzVG90YWwiOjEsInBhY2thZ2VzU2VsZWN0ZWQiOjAsInZlbmRvclRva2VuIjpudWxsfSx7InZlbmRvcklkIjo5MzU3MCwidmVuZG9yTmFtZSI6IkVjb25vZGF5IEluYy4iLCJpc0N1c3RvbWVyIjpmYWxzZSwicGFja2FnZXNUb3RhbCI6MSwicGFja2FnZXNTZWxlY3RlZCI6MCwidmVuZG9yVG9rZW4iOm51bGx9LHsidmVuZG9ySWQiOjExMTQsInZlbmRvck5hbWUiOiJFY29ub21hZ2ljLmNvbSIsImlzQ3VzdG9tZXIiOmZhbHNlLCJwYWNrYWdlc1RvdGFsIjoxLCJwYWNrYWdlc1NlbGVjdGVkIjowLCJ2ZW5kb3JUb2tlbiI6bnVsbH0seyJ2ZW5kb3JJZCI6OTQyLCJ2ZW5kb3JOYW1lIjoiRWNvbm9tw6F0aWNhIiwiaXNDdXN0b21lciI6ZmFsc2UsInBhY2thZ2VzVG90YWwiOjEsInBhY2thZ2VzU2VsZWN0ZWQiOjAsInZlbmRvclRva2VuIjpudWxsfSx7InZlbmRvcklkIjoxMjM1MTUsInZlbmRvck5hbWUiOiJFY29ub21lbmEgQW5hbHl0aWNzIiwiaXNDdXN0b21lciI6ZmFsc2UsInBhY2thZ2VzVG90YWwiOjEsInBhY2thZ2VzU2VsZWN0ZWQiOjAsInZlbmRvclRva2VuIjpudWxsfSx7InZlbmRvcklkIjoxMDYwLCJ2ZW5kb3JOYW1lIjoiRWNvbm9taWMgYW5kIFNvY2lhbCBSZXNlYXJjaCBDb3VuY2lsIiwiaXNDdXN0b21lciI6ZmFsc2UsInBhY2thZ2VzVG90YWwiOjEsInBhY2thZ2VzU2VsZWN0ZWQiOjAsInZlbmRvclRva2VuIjpudWxsfSx7InZlbmRvcklkIjoxNTYsInZlbmRvck5hbWUiOiJFY29ub21pc3QgSW50ZWxsaWdlbmNlIFVuaXQiLCJpc0N1c3RvbWVyIjpmYWxzZSwicGFja2FnZXNUb3RhbCI6MTUsInBhY2thZ2VzU2VsZWN0ZWQiOjEsInZlbmRvclRva2VuIjpudWxsfSx7InZlbmRvcklkIjoxMTk0OCwidmVuZG9yTmFtZSI6IkVjb3BvaW50IEluYy4iLCJpc0N1c3RvbWVyIjpmYWxzZSwicGFja2FnZXNUb3RhbCI6MSwicGFja2FnZXNTZWxlY3RlZCI6MCwidmVuZG9yVG9rZW4iOm51bGx9LHsidmVuZG9ySWQiOjEyNzk0NSwidmVuZG9yTmFtZSI6IkVDUkkgSW5zdGl0dXRlIiwiaXNDdXN0b21lciI6ZmFsc2UsInBhY2thZ2VzVG90YWwiOjEsInBhY2thZ2VzU2VsZWN0ZWQiOjAsInZlbmRvclRva2VuIjpudWxsfSx7InZlbmRvcklkIjo4MDUsInZlbmRvck5hbWUiOiJFREQiLCJpc0N1c3RvbWVyIjpmYWxzZSwicGFja2FnZXNUb3RhbCI6MSwicGFja2FnZXNTZWxlY3RlZCI6MCwidmVuZG9yVG9rZW4iOm51bGx9LHsidmVuZG9ySWQiOjMxNywidmVuZG9yTmFtZSI6IkVkaW5idXJnaCBVbml2ZXJzaXR5IFByZXNzIiwiaXNDdXN0b21lciI6ZmFsc2UsInBhY2thZ2VzVG90YWwiOjYsInBhY2thZ2VzU2VsZWN0ZWQiOjAsInZlbmRvclRva2VuIjpudWxsfSx7InZlbmRvcklkIjozMjUsInZlbmRvck5hbWUiOiJFZGl0aWFsaXMiLCJpc0N1c3RvbWVyIjpmYWxzZSwicGFja2FnZXNUb3RhbCI6MSwicGFja2FnZXNTZWxlY3RlZCI6MCwidmVuZG9yVG9rZW4iOm51bGx9XX0=
     http_version: 
-  recorded_at: Fri, 04 May 2018 19:55:48 GMT
+  recorded_at: Tue, 22 May 2018 15:37:34 GMT
 recorded_with: VCR 3.0.3
