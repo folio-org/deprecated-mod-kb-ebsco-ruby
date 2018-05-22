@@ -15,7 +15,8 @@ RSpec.describe 'Packages', type: :request do
     it 'gets a list of resources' do
       expect(response).to have_http_status(200)
       expect(json.data.length).to equal(25)
-      expect(json.meta.totalResults).to equal(114)
+      expect(json.meta.totalResults).to equal(115)
+      expect(json.data.first.attributes).to_not include('allowKbToAddTitles')
     end
 
     describe 'with pagination' do
@@ -197,7 +198,8 @@ RSpec.describe 'Packages', type: :request do
         'isSelected',
         'vendorName',
         'isCustom',
-        'packageType'
+        'packageType',
+        'allowKbToAddTitles'
       )
       expect(json.data.attributes.vendorId).to eq(19)
       expect(json.data.attributes.packageId).to eq(6581)
@@ -208,7 +210,7 @@ RSpec.describe 'Packages', type: :request do
     end
 
     it 'returns a valid visibility reason' do
-      expect(json.data.attributes.visibilityData.reason).to eq ''
+      expect(json.data.attributes.visibilityData.reason).to eq 'Set by system'
     end
   end
 
