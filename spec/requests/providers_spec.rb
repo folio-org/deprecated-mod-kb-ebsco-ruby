@@ -15,8 +15,9 @@ RSpec.describe 'Providers', type: :request do
     it 'gets a list of resources' do
       expect(response).to have_http_status(200)
       expect(json.data.length).to equal(25)
-      expect(json.meta.totalResults).to equal(106)
+      expect(json.meta.totalResults).to equal(105)
       expect(json.data.first.type).to eq('providers')
+      expect(json.data.first.attributes).to_not include('proxy')
     end
 
     it 'contains relationships data' do
