@@ -6,7 +6,9 @@ class PackagesController < ApplicationController
 
   def index
     @result = packages.where! params
-    render jsonapi: @result.data, meta: @result.meta
+    render jsonapi: @result.data,
+           meta: @result.meta,
+           class: { Package: SerializablePackageList }
   end
 
   def show
