@@ -16,6 +16,12 @@ RSpec.describe 'Titles', type: :request do
       expect(response).to have_http_status(200)
       expect(json.data.length).to equal(25)
       expect(json.meta.totalResults).to equal(61)
+      expect(json.data.first.attributes).to_not include(
+        'description',
+        'edition',
+        'isPeerReviewed',
+        'contributors'
+      )
     end
 
     describe 'with pagination' do
@@ -298,7 +304,8 @@ RSpec.describe 'Titles', type: :request do
         'isPeerReviewed',
         'contributors',
         'identifiers',
-        'subjects'
+        'subjects',
+        'edition'
       )
       expect(json.data.relationships).to include('resources')
     end

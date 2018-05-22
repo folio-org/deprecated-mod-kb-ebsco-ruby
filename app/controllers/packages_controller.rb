@@ -4,6 +4,12 @@ class PackagesController < ApplicationController
   deserializable_resource :package, only: %i[create update],
                                     class: DeserializablePackage
 
+  # Please Note below that we use 2 different serializers -
+  # SerializablePackageList in the index method and SerializablePackage
+  # in other methods. This is a temporary workaround because RM API shows a
+  # discrepancy between attributes it provides in a list vs. attributes it
+  # provides in a detailed record. When RM API team fixes the issue on their end,
+  # we can get rid of the SerializablePackageList class and just use SerializablePackage
   def index
     @result = packages.where! params
     render jsonapi: @result.data,
