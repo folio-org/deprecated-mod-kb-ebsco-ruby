@@ -3,6 +3,12 @@
 class TitlesController < ApplicationController
   before_action :set_title, only: %i[show resources]
 
+  # Please Note below that we use 2 different serializers -
+  # SerializableTitleList in the index method and SerializableTitle
+  # in other methods. This is a temporary workaround because RM API shows a
+  # discrepancy between attributes it provides in a list vs. attributes it
+  # provides in a detailed record. When RM API team fixes the issue on their end,
+  # we can get rid of the SerializableTitleList class and just use SerializableTitle
   def index
     @titles = titles.all(
       q: params[:q],
@@ -12,7 +18,8 @@ class TitlesController < ApplicationController
     )
 
     render jsonapi: @titles.titles.to_a,
-           meta: { totalResults: @titles.totalResults }
+           meta: { totalResults: @titles.totalResults },
+           class: { Title: SerializableTitleList }
   end
 
   def create

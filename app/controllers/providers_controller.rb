@@ -6,6 +6,12 @@ class ProvidersController < ApplicationController
   deserializable_resource :provider, only: :update,
                                      class: DeserializableProvider
 
+  # Please Note below that we use 2 different serializers -
+  # SerializableProviderList in the index method and SerializableProvider
+  # in other methods. This is a temporary workaround because RM API shows a
+  # discrepancy between attributes it provides in a list vs. attributes it
+  # provides in a detailed record. When RM API team fixes the issue on their end,
+  # we can get rid of the SerializableProviderList class and just use SerializableProvider
   def index
     @providers = providers.all(
       q: params[:q],
