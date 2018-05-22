@@ -149,7 +149,7 @@ class ResourcesController < ApplicationController
         :edition,
         :description,
         :url,
-        proxy: %i[id inherited],
+        proxy: [:id],
         visibilityData: %i[isHidden reason],
         customCoverageList: [
           %i[beginCoverage endCoverage]
