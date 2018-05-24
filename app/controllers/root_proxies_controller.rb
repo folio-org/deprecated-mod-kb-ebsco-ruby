@@ -27,7 +27,7 @@ class RootProxiesController < ApplicationController
 
   def root_proxy_params
     params
-      .require(:root_proxy)
+      .fetch(:root_proxy, {})
       .permit(
         :proxyTypeId
       )
