@@ -27,7 +27,7 @@ http_interactions:
       Server:
       - nginx/1.13.5
       Date:
-      - Thu, 24 May 2018 22:34:41 GMT
+      - Fri, 25 May 2018 03:13:20 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -36,15 +36,15 @@ http_interactions:
       - keep-alive
       X-Okapi-Trace:
       - 'GET mod-authtoken-1.4.1-SNAPSHOT.20 http://10.39.253.209:8081/configurations/entries..
-        : 202 360878us'
+        : 202 357510us'
       - 'GET mod-configuration-4.0.3-SNAPSHOT.29 http://10.39.244.97:8081/configurations/entries..
-        : 200 42109us'
+        : 200 43438us'
       Host:
       - okapi.frontside.io
       X-Real-Ip:
-      - 10.128.0.5
+      - 10.36.3.1
       X-Forwarded-For:
-      - 10.128.0.5
+      - 10.36.3.1
       X-Forwarded-Host:
       - okapi.frontside.io
       X-Forwarded-Port:
@@ -66,7 +66,7 @@ http_interactions:
       User-Agent:
       - Ruby
       X-Okapi-Request-Id:
-      - 913895/configurations
+      - 397550/configurations
       X-Okapi-Url:
       - http://10.39.242.98:80
       X-Okapi-Permissions-Required:
@@ -107,7 +107,7 @@ http_interactions:
           }
         }
     http_version: 
-  recorded_at: Thu, 24 May 2018 22:34:22 GMT
+  recorded_at: Fri, 25 May 2018 03:13:20 GMT
 - request:
     method: get
     uri: https://api.ebsco.io/rm/rmaccounts/TEST_CUSTOMER_ID/proxies
@@ -139,24 +139,24 @@ http_interactions:
       Connection:
       - close
       Date:
-      - Thu, 24 May 2018 22:34:42 GMT
+      - Fri, 25 May 2018 03:13:20 GMT
       X-Amzn-Requestid:
-      - a6b042be-5fa2-11e8-a5a2-0f99a8c4b1bc
+      - 9374a360-5fc9-11e8-acbf-e9b674cb686b
       X-Amzn-Remapped-Connection:
       - keep-alive
       X-Amz-Apigw-Id:
-      - HaagUFseIAMFr_g=
+      - HbDUhHHeoAMFxTg=
       X-Amzn-Remapped-Date:
-      - Thu, 24 May 2018 22:34:42 GMT
+      - Fri, 25 May 2018 03:13:20 GMT
       X-Cache:
       - Miss from cloudfront
       Via:
-      - 1.1 8afd14030d0efa39cea23517afb3058c.cloudfront.net (CloudFront)
+      - 1.1 7f23b91f6dbc2ee888cb465c633163d4.cloudfront.net (CloudFront)
       X-Amz-Cf-Id:
-      - fgBwZiuf3W213X5OhU_nnKAw_4E72E6xtV290yGeF2LL1SC6MAG2QQ==
+      - ThegKgC4Wng2rGT8jJVSK8-5xyR2b6P0tQf6ogDM4vTAbaAIaV4D1w==
     body:
       encoding: UTF-8
       string: '[{"id":"<n>","name":"None","urlMask":""},{"id":"EZProxy","name":"EZProxy","urlMask":"http://ezproxy.myinstitute.edu/login?url={targetURL}"},{"id":"TestingFolio","name":"TestingFolio","urlMask":"https://folio.frontside.io"}]'
     http_version: 
-  recorded_at: Thu, 24 May 2018 22:34:22 GMT
+  recorded_at: Fri, 25 May 2018 03:13:20 GMT
 recorded_with: VCR 3.0.3

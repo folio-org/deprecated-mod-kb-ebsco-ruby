@@ -32,7 +32,14 @@ class RootProxiesRepository
       # custom-labels along all the custom if any will be erased.
       # so we need to get the custom labels and post those along
       # with the root-proxy
+
+      _, custom_label_body = rmapi(:get, '')
+
+      cleaned = custom_label_body[:labels].reject { |n| n[:display_label] == '' }
+                                          .map { |n| n.deep_transform_keys { |key| key.to_s.camelize(:lower) } }
+
       payload[:proxy] = { id: payload.delete(:proxyTypeId) }
+      payload[:labels] = cleaned
 
       rmapi(:put, '', json: payload)
 
