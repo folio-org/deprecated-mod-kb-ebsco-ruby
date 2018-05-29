@@ -1,0 +1,20 @@
+collection:
+  description: Collection of available <<resourcePathName>> in eholdings.
+  get:
+    description: Get a list of <<resourcePathName>> based on the search field.
+    responses:
+      200:
+        body:
+          application/vnd.api+json:
+  post:
+    description: |
+      Add a new <<resourcePathName|!singularize>> to eholdings.
+    body:
+      application/vnd.api+json:
+        type: <<resourcePathName|!singularize>>
+    responses:
+      200:
+        body:
+          application/vnd.api+json:
+            example: |
+              { "message": "The <<resourcePathName|!singularize>> has been successfully created" }
