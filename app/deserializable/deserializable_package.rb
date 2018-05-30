@@ -5,8 +5,8 @@ class DeserializablePackage < JSONAPI::Deserializable::Resource
              :contentType,
              :customCoverage,
              :isSelected,
-             :name,
-             :visibilityData
+             :visibilityData,
+             :name
 
   attribute :contentType do |value|
     content_types = {

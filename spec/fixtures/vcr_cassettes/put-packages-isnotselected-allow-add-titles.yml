@@ -27,7 +27,7 @@ http_interactions:
       Server:
       - nginx/1.13.5
       Date:
-      - Fri, 04 May 2018 02:42:25 GMT
+      - Wed, 30 May 2018 11:08:07 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -35,16 +35,16 @@ http_interactions:
       Connection:
       - keep-alive
       X-Okapi-Trace:
-      - 'GET mod-authtoken-1.4.1-SNAPSHOT.20 http://10.39.249.72:8081/configurations/entries..
-        : 202 1540us'
-      - 'GET mod-configuration-4.0.3-SNAPSHOT.29 http://10.39.252.104:8081/configurations/entries..
-        : 200 43426us'
+      - 'GET mod-authtoken-1.4.1-SNAPSHOT.20 http://10.39.253.209:8081/configurations/entries..
+        : 202 355699us'
+      - 'GET mod-configuration-4.0.3-SNAPSHOT.29 http://10.39.244.97:8081/configurations/entries..
+        : 200 41544us'
       Host:
       - okapi.frontside.io
       X-Real-Ip:
-      - 10.128.0.5
+      - 10.36.3.1
       X-Forwarded-For:
-      - 10.128.0.5
+      - 10.36.3.1
       X-Forwarded-Host:
       - okapi.frontside.io
       X-Forwarded-Port:
@@ -66,9 +66,9 @@ http_interactions:
       User-Agent:
       - Ruby
       X-Okapi-Request-Id:
-      - 157932/configurations
+      - 647909/configurations
       X-Okapi-Url:
-      - http://10.39.243.220:80
+      - http://10.39.242.98:80
       X-Okapi-Permissions-Required:
       - configuration.entries.collection.get
       X-Okapi-Module-Permissions:
@@ -86,7 +86,7 @@ http_interactions:
       string: |-
         {
           "configs" : [ {
-            "id" : "9f193b46-4cc5-4c99-b09f-374fe5415673",
+            "id" : "a6d98284-5c46-4698-a6fe-f9d1594aecfc",
             "module" : "KB_EBSCO",
             "configName" : "api_credentials",
             "code" : "kb.ebsco.credentials",
@@ -94,9 +94,9 @@ http_interactions:
             "enabled" : true,
             "value" : "customer-id=TEST_CUSTOMER_ID&api-key=TEST_API_KEY",
             "metadata" : {
-              "createdDate" : "2018-03-28T14:49:56.794+0000",
+              "createdDate" : "2018-05-07T20:35:44.622+0000",
               "createdByUserId" : "1ad737b0-d847-11e6-bf26-cec0c932ce01",
-              "updatedDate" : "2018-03-28T14:49:56.794+0000",
+              "updatedDate" : "2018-05-07T20:35:44.622+0000",
               "updatedByUserId" : "1ad737b0-d847-11e6-bf26-cec0c932ce01"
             }
           } ],
@@ -107,7 +107,7 @@ http_interactions:
           }
         }
     http_version: 
-  recorded_at: Fri, 04 May 2018 02:42:25 GMT
+  recorded_at: Wed, 30 May 2018 11:08:07 GMT
 - request:
     method: get
     uri: https://api.ebsco.io/rm/rmaccounts/TEST_CUSTOMER_ID/vendors/19/packages/6581
@@ -135,28 +135,81 @@ http_interactions:
       Content-Type:
       - application/json;charset=UTF-8
       Content-Length:
-      - '451'
+      - '473'
       Connection:
       - close
       Date:
-      - Fri, 04 May 2018 02:42:25 GMT
+      - Wed, 30 May 2018 11:08:07 GMT
       X-Amzn-Requestid:
-      - c76fe6e9-4f44-11e8-92d8-172d7899b621
+      - bb7391c8-63f9-11e8-91ea-0d2aa529bd57
       X-Amzn-Remapped-Connection:
       - keep-alive
       X-Amz-Apigw-Id:
-      - GVxGxGM5oAMFg9Q=
+      - HsnjtGVoIAMFhVA=
       X-Amzn-Remapped-Date:
-      - Fri, 04 May 2018 02:42:25 GMT
+      - Wed, 30 May 2018 11:08:07 GMT
       X-Cache:
       - Miss from cloudfront
       Via:
-      - 1.1 655ceee114a61672fa30ade2501aa4b4.cloudfront.net (CloudFront)
+      - 1.1 caeaab1dec28e8247466740025a521a6.cloudfront.net (CloudFront)
       X-Amz-Cf-Id:
-      - UIf7czjDqo2RAg0JfSSGhoyXf07l5VI759EtyfJlv6kfTlfP3_5Quw==
+      - zvuA_BFtxINiHYB4COwdNozp-mF2qb75ZeqvP6mnIluAkAs8TtPHwQ==
     body:
       encoding: UTF-8
-      string: '{"packageId":6581,"packageName":"EBSCO Biotechnology Collection: India","isCustom":false,"vendorId":19,"vendorName":"EBSCO","titleCount":157,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"AggregatedFullText","customCoverage":{"beginCoverage":"","endCoverage":""},"proxy":{"id":"<n>","inherited":true},"allowEbscoToAddTitles":false,"packageToken":null,"packageType":"Complete"}'
+      string: '{"packageId":6581,"packageName":"EBSCO Biotechnology Collection: India","isCustom":false,"vendorId":19,"vendorName":"EBSCO","titleCount":157,"isSelected":true,"visibilityData":{"isHidden":true,"reason":"Hidden
+        by Customer"},"selectedCount":157,"isTokenNeeded":false,"contentType":"AggregatedFullText","customCoverage":{"beginCoverage":"","endCoverage":""},"proxy":{"id":"EZProxy","inherited":true},"allowEbscoToAddTitles":false,"packageToken":null,"packageType":"Complete"}'
     http_version: 
-  recorded_at: Fri, 04 May 2018 02:42:25 GMT
+  recorded_at: Wed, 30 May 2018 11:08:07 GMT
+- request:
+    method: get
+    uri: https://api.ebsco.io/rm/rmaccounts/TEST_CUSTOMER_ID/vendors/19/packages/6581
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      X-Api-Key:
+      - TEST_API_KEY
+      Content-Type:
+      - application/json
+      Accept:
+      - application/json
+      Connection:
+      - close
+      Host:
+      - api.ebsco.io
+      User-Agent:
+      - http.rb/3.3.0
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json;charset=UTF-8
+      Content-Length:
+      - '473'
+      Connection:
+      - close
+      Date:
+      - Wed, 30 May 2018 11:08:08 GMT
+      X-Amzn-Requestid:
+      - bb954b17-63f9-11e8-84cf-f1cb7fa813e0
+      X-Amzn-Remapped-Connection:
+      - keep-alive
+      X-Amz-Apigw-Id:
+      - HsnjvEMNoAMFZxA=
+      X-Amzn-Remapped-Date:
+      - Wed, 30 May 2018 11:08:07 GMT
+      X-Cache:
+      - Miss from cloudfront
+      Via:
+      - 1.1 e000b4829c397da077a65028075a32a8.cloudfront.net (CloudFront)
+      X-Amz-Cf-Id:
+      - VBRJF2-8xVNZA60AZ_Lwz2myzI13FpbOV3ZzvzPhuuJMzm9zeSWOvw==
+    body:
+      encoding: UTF-8
+      string: '{"packageId":6581,"packageName":"EBSCO Biotechnology Collection: India","isCustom":false,"vendorId":19,"vendorName":"EBSCO","titleCount":157,"isSelected":true,"visibilityData":{"isHidden":true,"reason":"Hidden
+        by Customer"},"selectedCount":157,"isTokenNeeded":false,"contentType":"AggregatedFullText","customCoverage":{"beginCoverage":"","endCoverage":""},"proxy":{"id":"EZProxy","inherited":true},"allowEbscoToAddTitles":false,"packageToken":null,"packageType":"Complete"}'
+    http_version: 
+  recorded_at: Wed, 30 May 2018 11:08:08 GMT
 recorded_with: VCR 3.0.3

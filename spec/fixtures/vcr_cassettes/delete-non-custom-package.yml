@@ -27,7 +27,7 @@ http_interactions:
       Server:
       - nginx/1.13.5
       Date:
-      - Fri, 04 May 2018 04:13:39 GMT
+      - Wed, 30 May 2018 12:35:40 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -35,10 +35,10 @@ http_interactions:
       Connection:
       - keep-alive
       X-Okapi-Trace:
-      - 'GET mod-authtoken-1.4.1-SNAPSHOT.20 http://10.39.249.72:8081/configurations/entries..
-        : 202 1313us'
-      - 'GET mod-configuration-4.0.3-SNAPSHOT.29 http://10.39.252.104:8081/configurations/entries..
-        : 200 41214us'
+      - 'GET mod-authtoken-1.4.1-SNAPSHOT.20 http://10.39.253.209:8081/configurations/entries..
+        : 202 1227us'
+      - 'GET mod-configuration-4.0.3-SNAPSHOT.29 http://10.39.244.97:8081/configurations/entries..
+        : 200 42734us'
       Host:
       - okapi.frontside.io
       X-Real-Ip:
@@ -66,9 +66,9 @@ http_interactions:
       User-Agent:
       - Ruby
       X-Okapi-Request-Id:
-      - 269971/configurations
+      - 676569/configurations
       X-Okapi-Url:
-      - http://10.39.243.220:80
+      - http://10.39.242.98:80
       X-Okapi-Permissions-Required:
       - configuration.entries.collection.get
       X-Okapi-Module-Permissions:
@@ -86,7 +86,7 @@ http_interactions:
       string: |-
         {
           "configs" : [ {
-            "id" : "9f193b46-4cc5-4c99-b09f-374fe5415673",
+            "id" : "a6d98284-5c46-4698-a6fe-f9d1594aecfc",
             "module" : "KB_EBSCO",
             "configName" : "api_credentials",
             "code" : "kb.ebsco.credentials",
@@ -94,9 +94,9 @@ http_interactions:
             "enabled" : true,
             "value" : "customer-id=TEST_CUSTOMER_ID&api-key=TEST_API_KEY",
             "metadata" : {
-              "createdDate" : "2018-03-28T14:49:56.794+0000",
+              "createdDate" : "2018-05-07T20:35:44.622+0000",
               "createdByUserId" : "1ad737b0-d847-11e6-bf26-cec0c932ce01",
-              "updatedDate" : "2018-03-28T14:49:56.794+0000",
+              "updatedDate" : "2018-05-07T20:35:44.622+0000",
               "updatedByUserId" : "1ad737b0-d847-11e6-bf26-cec0c932ce01"
             }
           } ],
@@ -107,7 +107,7 @@ http_interactions:
           }
         }
     http_version: 
-  recorded_at: Fri, 04 May 2018 04:13:39 GMT
+  recorded_at: Wed, 30 May 2018 12:35:40 GMT
 - request:
     method: get
     uri: https://api.ebsco.io/rm/rmaccounts/TEST_CUSTOMER_ID/vendors/583/packages/4345
@@ -135,28 +135,28 @@ http_interactions:
       Content-Type:
       - application/json;charset=UTF-8
       Content-Length:
-      - '433'
+      - '436'
       Connection:
       - close
       Date:
-      - Fri, 04 May 2018 04:13:39 GMT
+      - Wed, 30 May 2018 12:35:40 GMT
       X-Amzn-Requestid:
-      - 86179e40-4f51-11e8-a346-53440f0e90f2
+      - f685fba0-6405-11e8-b253-9d614a7f2c57
       X-Amzn-Remapped-Connection:
       - keep-alive
       X-Amz-Apigw-Id:
-      - GV-eDFrpoAMFr_g=
+      - Hs0YgGwYIAMFeqA=
       X-Amzn-Remapped-Date:
-      - Fri, 04 May 2018 04:13:39 GMT
+      - Wed, 30 May 2018 12:35:40 GMT
       X-Cache:
       - Miss from cloudfront
       Via:
-      - 1.1 6f4c292df8fb7b5bd5bfa8aff66748aa.cloudfront.net (CloudFront)
+      - 1.1 66114286e54efb82c700272100713f2f.cloudfront.net (CloudFront)
       X-Amz-Cf-Id:
-      - oDHhwnH5qJJe6bqFKmr0xHxKczq8w5y-VQqjcF45lSBPhiL3tyTeLw==
+      - KsV69_s2QTsH-3dG6I90b1_tMFbBVO1UzL5ftzdU-iE0HFXltEcUsQ==
     body:
       encoding: UTF-8
-      string: '{"packageId":4345,"packageName":"ABC-CLIO eBook Collection","isCustom":false,"vendorId":583,"vendorName":"ABC-CLIO","titleCount":9428,"isSelected":true,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":9428,"isTokenNeeded":false,"contentType":"EBook","customCoverage":{"beginCoverage":"","endCoverage":""},"proxy":{"id":"<n>","inherited":true},"allowEbscoToAddTitles":false,"packageToken":null,"packageType":"Variable"}'
+      string: '{"packageId":4345,"packageName":"ABC-CLIO eBook Collection","isCustom":false,"vendorId":583,"vendorName":"ABC-CLIO","titleCount":9428,"isSelected":true,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":9427,"isTokenNeeded":false,"contentType":"EBook","customCoverage":{"beginCoverage":"","endCoverage":""},"proxy":{"id":"EZProxy","inherited":true},"allowEbscoToAddTitles":true,"packageToken":null,"packageType":"Variable"}'
     http_version: 
-  recorded_at: Fri, 04 May 2018 04:13:39 GMT
+  recorded_at: Wed, 30 May 2018 12:35:40 GMT
 recorded_with: VCR 3.0.3

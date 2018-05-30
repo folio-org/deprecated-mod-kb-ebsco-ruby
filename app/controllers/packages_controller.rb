@@ -23,17 +23,38 @@ class PackagesController < ApplicationController
   end
 
   def create
-    @result = packages.create! package_create_params
-    render jsonapi: @result.data
+    package_create_validation = Validation::CustomPackageParameters.new(package_create_params)
+    if package_create_validation.valid?
+      @result = packages.create! package_create_params
+      render jsonapi: @result.data
+    else
+      render jsonapi_errors: package_create_validation.errors,
+             status: :unprocessable_entity
+    end
   end
 
   def update
-    @result = packages.update! params[:id], package_update_params
-    render jsonapi: @result.data
+    package_update_validation = Validation::PackageParameters.new(package_update_params)
+    if package.is_custom
+      package_update_validation = Validation::CustomPackageParameters.new(package_update_params)
+    end
+    if package_update_validation.valid?
+      @result = packages.update! params[:id], package_update_params
+      render jsonapi: @result.data
+    else
+      render jsonapi_errors: package_update_validation.errors,
+             status: :unprocessable_entity
+    end
   end
 
   def destroy
-    packages.destroy! params[:id]
+    package_destroy_validation = Validation::PackageDestroyParameters.new(package)
+    if package_destroy_validation.valid?
+      packages.destroy! params[:id]
+    else
+      render jsonapi_errors: package_destroy_validation.errors,
+             status: :bad_request
+    end
   end
 
   # Relationships

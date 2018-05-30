@@ -42,13 +42,9 @@ class ApplicationController < ActionController::API
 
   def catch_repository_errors
     yield
-  rescue PackagesRepository::BadRequest => e
-    render jsonapi_errors: [title: e.message], status: :bad_request
-  rescue PackagesRepository::RequestError => e
-    render jsonapi_errors: [title: e.result.message], status: e.result.status
-  rescue PackagesRepository::ValidationError => e
-    status = %w[create update].include?(action_name.to_s) ? :unprocessable_entity : :bad_request
-    render jsonapi_errors: e.validation.errors, status: status
+  rescue RmapiRepository::RequestError => e
+    render jsonapi_errors: [title: e.message],
+           status: e.status
   end
 
   def catch_flexirest_exceptions
