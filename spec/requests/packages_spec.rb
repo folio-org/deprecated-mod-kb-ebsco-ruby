@@ -952,7 +952,7 @@ RSpec.describe 'Packages', type: :request do
     end
 
     it 'gets a successful response' do
-      expect(response).to have_http_status(200)
+      expect(response).to have_http_status(400)
     end
   end
 
@@ -969,7 +969,9 @@ RSpec.describe 'Packages', type: :request do
           "data": {
             "type": 'packages',
             "attributes": {
-              "name": 'I got a new package name'
+              "isSelected": true,
+              "name": 'name of the ages forever and ever',
+              "contentType": 'Aggregated Full Text'
             }
           }
         }
@@ -989,7 +991,7 @@ RSpec.describe 'Packages', type: :request do
       let!(:json) { Map JSON.parse response.body }
 
       it 'has the new name' do
-        expect(json.data.attributes.name).to eq('I got a new package name')
+        expect(json.data.attributes.name).to eq('name of the ages forever and ever')
       end
     end
 
@@ -1003,7 +1005,9 @@ RSpec.describe 'Packages', type: :request do
                 "beginCoverage": '2003-01-01',
                 "endCoverage": '2004-01-01'
               },
-              "isSelected": true
+              "isSelected": true,
+              "name": 'name of the ages forever and ever',
+              "contentType": 'Aggregated Full Text'
             }
           }
         }
@@ -1069,6 +1073,8 @@ RSpec.describe 'Packages', type: :request do
             "type": 'packages',
             "attributes": {
               "isSelected": true,
+              "name": 'name of the ages forever and ever',
+              "contentType": 'Aggregated Full Text',
               "visibilityData": {
                 "isHidden": true,
                 "reason": ''

@@ -1,162 +1,105 @@
 # frozen_string_literal: true
 
-class PackagesRepository
-  attr_reader :vendor_id, :package_id, :base_url, :headers
-
-  def initialize(config:)
-    @config = config
-    @base_url = "#{rmapi_url}/rm/rmaccounts/#{config.customer_id}"
-
-    @headers = {
-      'X-Api-Key': config.api_key,
-      'Content-Type': 'application/json',
-      'Accept': 'application/json'
-    }
-  end
-
-  # CRUD Operations
+class PackagesRepository < RmapiRepository
   def find!(id)
-    request do
-      # binding.pry
-      vendor_id, package_id = id.split('-')
-      status, body = rmapi(:get, "/vendors/#{vendor_id}/packages/#{package_id}")
-      Result.new(data: to_package(body), status: status, included: body[:included])
-    end
+    vendor_id, package_id = id.split('-')
+    status, body = request(:get, "/vendors/#{vendor_id}/packages/#{package_id}")
+    Result.new(data: to_package(body), status: status, included: body[:included])
   end
 
   def create!(attrs)
-    request do
-      payload = attrs.to_hash.deep_symbolize_keys
-      payload[:packageName] = payload.delete(:name)
-      package_validation = Validation::CustomPackageParameters.new(payload)
-      fail ValidationError, package_validation unless package_validation.valid?
+    payload = attrs.to_hash.deep_symbolize_keys
+    payload[:packageName] = payload.delete(:name)
 
-      content_type_enum = {
-        aggregatedfulltext: 1,
-        abstractandindex: 2,
-        ebook: 3,
-        ejournal: 4,
-        print: 5,
-        unknown: 6,
-        onlinereference: 7
-      }
-      payload[:contentType] = content_type_enum[payload[:contentType]&.downcase&.to_sym] || 6
+    content_type_enum = {
+      aggregatedfulltext: 1,
+      abstractandindex: 2,
+      ebook: 3,
+      ejournal: 4,
+      print: 5,
+      unknown: 6,
+      onlinereference: 7
+    }
+    payload[:contentType] = content_type_enum[payload[:contentType]&.downcase&.to_sym] || 6
 
-      vendor_id = Provider.configure(@config).provider_id
-      create_status, create_body = rmapi(:post, "/vendors/#{vendor_id}/packages/", json: payload)
+    vendor_id = Provider.configure(@config).provider_id
+    _, create_body = request(:post, "/vendors/#{vendor_id}/packages/", json: payload)
 
-      if create_status.success?
-        package_id = create_body[:package_id]
-        status, body = rmapi(:get, "/vendors/#{vendor_id}/packages/#{package_id}")
-        Result.new(data: to_package(body), status: status)
-      else
-        Result.new(status: create_status, data: nil)
-      end
-    end
+    package_id = create_body[:package_id]
+
+    status, body = request(:get, "/vendors/#{vendor_id}/packages/#{package_id}")
+    Result.new(data: to_package(body), status: status)
   end
 
   def update!(id, attrs)
-    request do
-      package_validation = Validation::PackageParameters.new(attrs)
-      fail ValidationError, package_validation unless package_validation.valid?
+    vendor_id, package_id = id.split('-')
 
-      vendor_id, package_id = id.split('-')
+    existing_package = find!(id).data
 
-      payload = attrs.to_hash.deep_symbolize_keys
-      payload[:allowEbscoToAddTitles] = payload.delete(:allowKbToAddTitles)
-      payload[:packageName] = payload.delete(:name)
-      payload[:isHidden] = payload.dig(:visibilityData, :isHidden)
-      payload.delete(:visibilityData)
-      content_type_enum = {
-        aggregatedfulltext: 1,
-        abstractandindex: 2,
-        ebook: 3,
-        ejournal: 4,
-        print: 5,
-        unknown: 6,
-        onlinereference: 7
-      }
+    payload = attrs.to_hash.deep_symbolize_keys
+    payload[:allowEbscoToAddTitles] = payload.delete(:allowKbToAddTitles)
+    payload[:isHidden] = payload.dig(:visibilityData, :isHidden)
+    payload.delete(:visibilityData)
+    content_type_enum = {
+      aggregatedfulltext: 1,
+      abstractandindex: 2,
+      ebook: 3,
+      ejournal: 4,
+      print: 5,
+      unknown: 6,
+      onlinereference: 7
+    }
+    if existing_package.is_custom
       payload[:contentType] = content_type_enum[payload[:contentType]&.downcase&.to_sym] || 6
-
-      rmapi(:put, "/vendors/#{vendor_id}/packages/#{package_id}", json: payload)
-
-      status, body = rmapi(:get, "/vendors/#{vendor_id}/packages/#{package_id}")
-      Result.new(data: to_package(body), status: status)
+      payload[:packageName] = payload.delete(:name)
     end
+
+    request(:put, "/vendors/#{vendor_id}/packages/#{package_id}", json: payload)
+
+    status, body = request(:get, "/vendors/#{vendor_id}/packages/#{package_id}")
+    Result.new(data: to_package(body), status: status)
   end
 
   def destroy!(id)
-    request do
-      package = find!(id).data
-      package_validation = Validation::PackageDestroyParameters.new(package)
-      fail ValidationError, package_validation unless package_validation.valid?
+    vendor_id, package_id = id.split('-')
+    status, _no_content = request(:put, "/vendors/#{vendor_id}/packages/#{package_id}", json: { isSelected: false })
 
-      vendor_id, package_id = id.split('-')
-      status, _no_content = rmapi(:put, "/vendors/#{vendor_id}/packages/#{package_id}", json: { isSelected: false })
-
-      Result.new(data: {}, status: status)
-    end
+    Result.new(data: {}, status: status)
   end
 
   def where!(params)
-    request do
-      vendor_id = params.fetch(:vendor_id, nil)
+    vendor_id = params.fetch(:vendor_id, nil)
 
-      if params[:filter]
-        fail BadRequest, 'Invalid filter parameter' unless params[:filter].respond_to?(:dig)
-        if params.dig(:filter, :custom)
-          # The 'custom' filter option is unique in that
-          # it is not passed through to RMAPI.
-          #
-          # TODO: remove mutation. params sent to rmapi should be completely
-          # mapped from scratch every time, not a munge of controller params
-          # (cowboyd 5/3/2018)
-          params[:filter].delete(:custom)
+    # TODO: controller?
+    if params[:filter]
+      fail RequestError.new('Invalid filter parameter', 400) unless params[:filter].respond_to?(:dig)
+      if params.dig(:filter, :custom)
+        # The 'custom' filter option is unique in that
+        # it is not passed through to RMAPI.
+        #
+        # TODO: remove mutation. params sent to rmapi should be completely
+        # mapped from scratch every time, not a munge of controller params
+        # (cowboyd 5/3/2018)
+        params[:filter].delete(:custom)
 
-          # All custom packages have the same vendor_id per tenant
-          vendor_id = Provider.configure(@config).provider_id
-        end
+        # All custom packages have the same vendor_id per
+
+        vendor_id = Provider.configure(@config).provider_id
       end
-
-      path = vendor_id ? "/vendors/#{vendor_id}/packages" : '/packages'
-      status, body = rmapi(:get, path, params: query_params(params))
-      Result.new(
-        data: body[:packages_list]&.map { |hash| to_package hash },
-        included: body[:included],
-        status: status,
-        meta: { totalResults: body[:total_results] }
-      )
     end
+
+    path = vendor_id ? "/vendors/#{vendor_id}/packages" : '/packages'
+    status, body = request(:get, path, params: query_params(params))
+    Result.new(
+      data: body[:packages_list]&.map { |hash| to_package hash },
+      included: body[:included],
+      status: status,
+      meta: { totalResults: body[:total_results] }
+    )
   end
 
   private
 
-  # superclass for repository errors
-  class RepositoryError < StandardError; end
-
-  # the request can't be made because something is wrong with it
-  class BadRequest < RepositoryError; end
-
-  # the request was made, but it failed
-  class RequestError < RepositoryError
-    attr_reader :result
-    def initialize(result)
-      super result.message
-      @result = result
-    end
-  end
-
-  # there was a problem with the parameters / body passed
-  # to the request
-  class ValidationError < RepositoryError
-    attr_reader :validation
-    def initialize(validation)
-      super('bad request')
-      @validation = validation
-    end
-  end
-
-  # TODO: split into Success and Error subclasses
   class Result
     attr_reader :data, :meta, :status, :message, :included
 
@@ -168,21 +111,7 @@ class PackagesRepository
       @included = included
     end
 
-    def return!
-      fail RequestError, self unless success?
-      self
-    end
-
     delegate :success?, to: :status
-  end
-
-  def rmapi(verb, fragment, **options)
-    response = HTTP.headers(headers).request(verb, "#{base_url}#{fragment}", options)
-    [response.status, normalize_response_body(response)]
-  end
-
-  def rmapi_url
-    Rails.application.config.rmapi_base_url
   end
 
   def normalize_response_body(response)
@@ -241,9 +170,5 @@ class PackagesRepository
       package.allow_kb_to_add_titles = hash[:allow_ebsco_to_add_titles]
       package.name = hash[:package_name]
     end
-  end
-
-  def request
-    yield.return!
   end
 end
