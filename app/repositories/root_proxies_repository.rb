@@ -1,69 +1,37 @@
 # frozen_string_literal: true
 
-class RootProxiesRepository
-  attr_reader :base_url, :headers
-
-  def initialize(config:)
-    @config = config
-    @base_url = "#{rmapi_url}/rm/rmaccounts/#{config.customer_id}"
-
-    @headers = {
-      'X-Api-Key': config.api_key,
-      'Content-Type': 'application/json',
-      'Accept': 'application/json'
-    }
-  end
-
+class RootProxiesRepository < RmapiRepository
   def find!
-    request do
-      status, body = rmapi(:get, '')
-      Result.new(
-        data: to_root_proxy(body[:proxy]),
-        status: status
-      )
-    end
+    status, body = request(:get, '')
+    Result.new(
+      data: to_root_proxy(body[:proxy]),
+      status: status
+    )
   end
 
   def update!(attrs)
-    request do
-      payload = attrs.to_hash.deep_symbolize_keys
+    payload = attrs.to_hash.deep_symbolize_keys
 
-      # if you update a root-proxy independently with sending the
-      # custom-labels along all the custom if any will be erased.
-      # so we need to get the custom labels and post those along
-      # with the root-proxy
+    # if you update a root-proxy independently with sending the
+    # custom-labels along all the custom if any will be erased.
+    # so we need to get the custom labels and post those along
+    # with the root-proxy
 
-      _, custom_label_body = rmapi(:get, '')
+    _, custom_label_body = request(:get, '')
 
-      cleaned = custom_label_body[:labels].reject { |n| n[:display_label] == '' }
-                                          .map { |n| n.deep_transform_keys { |key| key.to_s.camelize(:lower) } }
+    cleaned = custom_label_body[:labels].reject { |n| n[:display_label] == '' }
+                                        .map { |n| n.deep_transform_keys { |key| key.to_s.camelize(:lower) } }
 
-      payload[:proxy] = { id: payload.delete(:proxyTypeId) }
-      payload[:labels] = cleaned
+    payload[:proxy] = { id: payload.delete(:proxyTypeId) }
+    payload[:labels] = cleaned
 
-      rmapi(:put, '', json: payload)
+    request(:put, '', json: payload)
 
-      status, body = rmapi(:get, '')
-      Result.new(data: to_root_proxy(body[:proxy]), status: status)
-    end
+    status, body = request(:get, '')
+    Result.new(data: to_root_proxy(body[:proxy]), status: status)
   end
 
   private
-
-  # superclass for repository errors
-  class RepositoryError < StandardError; end
-
-  # the request can't be made because something is wrong with it
-  class BadRequest < RepositoryError; end
-
-  # the request was made, but it failed
-  class RequestError < RepositoryError
-    attr_reader :result
-    def initialize(result)
-      super result.message
-      @result = result
-    end
-  end
 
   # TODO: split into Success and Error subclasses
   class Result
@@ -82,15 +50,6 @@ class RootProxiesRepository
     delegate :success?, to: :status
   end
 
-  def rmapi(verb, fragment, **options)
-    response = HTTP.headers(headers).request(verb, "#{base_url}#{fragment}", options)
-    [response.status, normalize_response_body(response)]
-  end
-
-  def rmapi_url
-    Rails.application.config.rmapi_base_url
-  end
-
   def normalize_response_body(response)
     body = response.body.to_s
     return unless body.length.positive?
@@ -99,9 +58,5 @@ class RootProxiesRepository
 
   def to_root_proxy(hash)
     RootProxy.new(id: 'eholdings/root-proxy', proxy_type_id: hash[:id])
-  end
-
-  def request
-    yield.return!
   end
 end

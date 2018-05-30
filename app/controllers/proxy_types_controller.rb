@@ -2,7 +2,7 @@
 
 class ProxyTypesController < ApplicationController
   def index
-    @result = proxy_types.where!
+    @result = proxy_types.all!
     render jsonapi: @result.data
   end
 

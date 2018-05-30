@@ -27,7 +27,7 @@ http_interactions:
       Server:
       - nginx/1.13.5
       Date:
-      - Fri, 25 May 2018 04:22:50 GMT
+      - Wed, 30 May 2018 20:33:30 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -36,15 +36,15 @@ http_interactions:
       - keep-alive
       X-Okapi-Trace:
       - 'GET mod-authtoken-1.4.1-SNAPSHOT.20 http://10.39.253.209:8081/configurations/entries..
-        : 202 356531us'
+        : 202 1545us'
       - 'GET mod-configuration-4.0.3-SNAPSHOT.29 http://10.39.244.97:8081/configurations/entries..
-        : 200 43084us'
+        : 200 48605us'
       Host:
       - okapi.frontside.io
       X-Real-Ip:
-      - 10.128.0.4
+      - 10.128.0.5
       X-Forwarded-For:
-      - 10.128.0.4
+      - 10.128.0.5
       X-Forwarded-Host:
       - okapi.frontside.io
       X-Forwarded-Port:
@@ -66,7 +66,7 @@ http_interactions:
       User-Agent:
       - Ruby
       X-Okapi-Request-Id:
-      - '078685/configurations'
+      - 441595/configurations
       X-Okapi-Url:
       - http://10.39.242.98:80
       X-Okapi-Permissions-Required:
@@ -86,7 +86,7 @@ http_interactions:
       string: |-
         {
           "configs" : [ {
-            "id" : "a6d98284-5c46-4698-a6fe-f9d1594aecfc",
+            "id" : "9f64114f-fb25-4361-b40c-503daedc92a9",
             "module" : "KB_EBSCO",
             "configName" : "api_credentials",
             "code" : "kb.ebsco.credentials",
@@ -94,9 +94,9 @@ http_interactions:
             "enabled" : true,
             "value" : "customer-id=TEST_CUSTOMER_ID&api-key=TEST_API_KEY",
             "metadata" : {
-              "createdDate" : "2018-05-07T20:35:44.622+0000",
+              "createdDate" : "2018-05-30T19:06:25.809+0000",
               "createdByUserId" : "1ad737b0-d847-11e6-bf26-cec0c932ce01",
-              "updatedDate" : "2018-05-07T20:35:44.622+0000",
+              "updatedDate" : "2018-05-30T19:06:25.809+0000",
               "updatedByUserId" : "1ad737b0-d847-11e6-bf26-cec0c932ce01"
             }
           } ],
@@ -107,7 +107,7 @@ http_interactions:
           }
         }
     http_version: 
-  recorded_at: Fri, 25 May 2018 04:22:50 GMT
+  recorded_at: Wed, 30 May 2018 20:33:30 GMT
 - request:
     method: get
     uri: https://api.ebsco.io/rm/rmaccounts/TEST_CUSTOMER_ID/proxies
@@ -139,26 +139,26 @@ http_interactions:
       Connection:
       - close
       Date:
-      - Fri, 25 May 2018 04:22:51 GMT
+      - Wed, 30 May 2018 20:33:30 GMT
       X-Amzn-Requestid:
-      - 49690e7b-5fd3-11e8-b5e0-6d70d245840c
+      - b719468d-6448-11e8-8f09-8339ee33bc9e
       X-Amzn-Remapped-Connection:
       - keep-alive
       X-Amz-Apigw-Id:
-      - HbNgNE4eIAMFYQQ=
+      - Ht6YLEceIAMFdtg=
       X-Amzn-Remapped-Date:
-      - Fri, 25 May 2018 04:22:51 GMT
+      - Wed, 30 May 2018 20:33:30 GMT
       X-Cache:
       - Miss from cloudfront
       Via:
-      - 1.1 7f23b91f6dbc2ee888cb465c633163d4.cloudfront.net (CloudFront)
+      - 1.1 d1c6b0af1d2d0f3694496e7cbde73924.cloudfront.net (CloudFront)
       X-Amz-Cf-Id:
-      - Fh_Dv7NdQb4xnJ0-r4mJ610ZO3etPSE3eKnkUxqlKbgY4r7dgqOKYw==
+      - qOKpniMJcdsDiS27tnt-4eEeNgWCCoKxWNaEOcjtFBnrHeZtTRtRfA==
     body:
       encoding: UTF-8
       string: '[{"id":"<n>","name":"None","urlMask":""},{"id":"EZProxy","name":"EZProxy","urlMask":"http://ezproxy.myinstitute.edu/login?url={targetURL}"},{"id":"TestingFolio","name":"TestingFolio","urlMask":"https://folio.frontside.io"}]'
     http_version: 
-  recorded_at: Fri, 25 May 2018 04:22:51 GMT
+  recorded_at: Wed, 30 May 2018 20:33:30 GMT
 - request:
     method: get
     uri: https://api.ebsco.io/rm/rmaccounts/TEST_CUSTOMER_ID
@@ -186,36 +186,38 @@ http_interactions:
       Content-Type:
       - application/json;charset=UTF-8
       Content-Length:
-      - '519'
+      - '531'
       Connection:
       - close
       Date:
-      - Fri, 25 May 2018 04:22:51 GMT
+      - Wed, 30 May 2018 20:33:31 GMT
       X-Amzn-Requestid:
-      - 49a0243b-5fd3-11e8-adba-97ad627ccda6
+      - b737cb7f-6448-11e8-a962-ab317f163c75
       X-Amzn-Remapped-Connection:
       - keep-alive
       X-Amz-Apigw-Id:
-      - HbNgQG1SIAMF-6w=
+      - Ht6YNHiioAMFfPQ=
       X-Amzn-Remapped-Date:
-      - Fri, 25 May 2018 04:22:51 GMT
+      - Wed, 30 May 2018 20:33:30 GMT
       X-Cache:
       - Miss from cloudfront
       Via:
-      - 1.1 5ea17ec24e220cfd5bc26fea52e3a29c.cloudfront.net (CloudFront)
+      - 1.1 ded72cd2ec35ccfc935b5442dfad81c9.cloudfront.net (CloudFront)
       X-Amz-Cf-Id:
-      - MvgdYHNEeyECRa7fqHW2XWTRatYu_MA9yUwKihCS9G35gIG7zQy_ew==
+      - s_b7jUrjrzQ1x8HunxaQnrQlT9BFy0-9jCcrRnMrUk0iH8NrklYobw==
     body:
       encoding: UTF-8
-      string: '{"proxy":{"id":"<n>"},"labels":[{"id":1,"displayLabel":"BigTest","displayOnFullTextFinder":false,"displayOnPublicationFinder":false},{"id":2,"displayLabel":"Frontside","displayOnFullTextFinder":false,"displayOnPublicationFinder":false},{"id":3,"displayLabel":"","displayOnFullTextFinder":false,"displayOnPublicationFinder":false},{"id":4,"displayLabel":"","displayOnFullTextFinder":false,"displayOnPublicationFinder":false},{"id":5,"displayLabel":"","displayOnFullTextFinder":false,"displayOnPublicationFinder":false}]}'
+      string: '{"proxy":{"id":"EZProxy"},"labels":[{"id":1,"displayLabel":"","displayOnFullTextFinder":false,"displayOnPublicationFinder":false},{"id":2,"displayLabel":"Frontside","displayOnFullTextFinder":false,"displayOnPublicationFinder":false},{"id":3,"displayLabel":"Hello
+        third label","displayOnFullTextFinder":true,"displayOnPublicationFinder":true},{"id":4,"displayLabel":"","displayOnFullTextFinder":false,"displayOnPublicationFinder":false},{"id":5,"displayLabel":"","displayOnFullTextFinder":false,"displayOnPublicationFinder":false}]}'
     http_version: 
-  recorded_at: Fri, 25 May 2018 04:22:51 GMT
+  recorded_at: Wed, 30 May 2018 20:33:31 GMT
 - request:
     method: put
     uri: https://api.ebsco.io/rm/rmaccounts/TEST_CUSTOMER_ID
     body:
       encoding: UTF-8
-      string: '{"proxy":{"id":"EZProxy"},"labels":[{"id":1,"displayLabel":"BigTest","displayOnFullTextFinder":false,"displayOnPublicationFinder":false},{"id":2,"displayLabel":"Frontside","displayOnFullTextFinder":false,"displayOnPublicationFinder":false}]}'
+      string: '{"proxy":{"id":"EZProxy"},"labels":[{"id":2,"displayLabel":"Frontside","displayOnFullTextFinder":false,"displayOnPublicationFinder":false},{"id":3,"displayLabel":"Hello
+        third label","displayOnFullTextFinder":true,"displayOnPublicationFinder":true}]}'
     headers:
       X-Api-Key:
       - TEST_API_KEY
@@ -241,26 +243,26 @@ http_interactions:
       Connection:
       - close
       Date:
-      - Fri, 25 May 2018 04:23:20 GMT
+      - Wed, 30 May 2018 20:33:31 GMT
       X-Amzn-Requestid:
-      - 5abcf0ef-5fd3-11e8-84bb-67e23b13ef85
+      - b756c568-6448-11e8-bba7-d9bd38da770a
       X-Amzn-Remapped-Connection:
       - keep-alive
       X-Amz-Apigw-Id:
-      - HbNkvH36oAMFj-Q=
+      - Ht6YPGXuIAMFw9w=
       X-Amzn-Remapped-Date:
-      - Fri, 25 May 2018 04:23:20 GMT
+      - Wed, 30 May 2018 20:33:30 GMT
       X-Cache:
       - Miss from cloudfront
       Via:
-      - 1.1 92e459346829b56068b240340d6508a6.cloudfront.net (CloudFront)
+      - 1.1 8ac2d04f7193cd95abfeb911e77fd3ab.cloudfront.net (CloudFront)
       X-Amz-Cf-Id:
-      - xnks3Tjc9Tf8ic88SLmnT_HlLRRKX9blfQeKVFZie6ThUQyLX0ONzg==
+      - UGbNeP2GZG2rJBu_Dip4p_M_Ju0nfMhnDQXY_-3hDNBlLFJTvA5WIw==
     body:
       encoding: ASCII-8BIT
       string: ''
     http_version: 
-  recorded_at: Fri, 25 May 2018 04:23:20 GMT
+  recorded_at: Wed, 30 May 2018 20:33:31 GMT
 - request:
     method: get
     uri: https://api.ebsco.io/rm/rmaccounts/TEST_CUSTOMER_ID
@@ -288,28 +290,29 @@ http_interactions:
       Content-Type:
       - application/json;charset=UTF-8
       Content-Length:
-      - '523'
+      - '531'
       Connection:
       - close
       Date:
-      - Fri, 25 May 2018 04:23:39 GMT
+      - Wed, 30 May 2018 20:33:31 GMT
       X-Amzn-Requestid:
-      - 6675bb7e-5fd3-11e8-a6e9-9b9abd7f2385
+      - b781095f-6448-11e8-9886-a98a90fa816d
       X-Amzn-Remapped-Connection:
       - keep-alive
       X-Amz-Apigw-Id:
-      - HbNn0HTRoAMFQuw=
+      - Ht6YRFBjoAMFYPg=
       X-Amzn-Remapped-Date:
-      - Fri, 25 May 2018 04:23:39 GMT
+      - Wed, 30 May 2018 20:33:30 GMT
       X-Cache:
       - Miss from cloudfront
       Via:
-      - 1.1 d3424c9f9521e1ec049f487748144c76.cloudfront.net (CloudFront)
+      - 1.1 a170a9e8f9393700a8de4715a0943846.cloudfront.net (CloudFront)
       X-Amz-Cf-Id:
-      - QCj4oQ7YC4w5dNscLlmQgnTr14WaiKx5FGR7AWtVBvEvhP4jD4Rldw==
+      - iU5LYnD8I11hv4ePc4llYQfpm075a0HNCY5hDurrV8f8N6Qvwxli4A==
     body:
       encoding: UTF-8
-      string: '{"proxy":{"id":"EZProxy"},"labels":[{"id":1,"displayLabel":"BigTest","displayOnFullTextFinder":false,"displayOnPublicationFinder":false},{"id":2,"displayLabel":"Frontside","displayOnFullTextFinder":false,"displayOnPublicationFinder":false},{"id":3,"displayLabel":"","displayOnFullTextFinder":false,"displayOnPublicationFinder":false},{"id":4,"displayLabel":"","displayOnFullTextFinder":false,"displayOnPublicationFinder":false},{"id":5,"displayLabel":"","displayOnFullTextFinder":false,"displayOnPublicationFinder":false}]}'
+      string: '{"proxy":{"id":"EZProxy"},"labels":[{"id":1,"displayLabel":"","displayOnFullTextFinder":false,"displayOnPublicationFinder":false},{"id":2,"displayLabel":"Frontside","displayOnFullTextFinder":false,"displayOnPublicationFinder":false},{"id":3,"displayLabel":"Hello
+        third label","displayOnFullTextFinder":true,"displayOnPublicationFinder":true},{"id":4,"displayLabel":"","displayOnFullTextFinder":false,"displayOnPublicationFinder":false},{"id":5,"displayLabel":"","displayOnFullTextFinder":false,"displayOnPublicationFinder":false}]}'
     http_version: 
-  recorded_at: Fri, 25 May 2018 04:23:39 GMT
+  recorded_at: Wed, 30 May 2018 20:33:31 GMT
 recorded_with: VCR 3.0.3

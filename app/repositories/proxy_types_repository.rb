@@ -1,49 +1,19 @@
 # frozen_string_literal: true
 
-class ProxyTypesRepository
-  attr_reader :base_url, :headers
-
-  def initialize(config:)
-    @config = config
-    @base_url = "#{rmapi_url}/rm/rmaccounts/#{config.customer_id}/proxies"
-
-    @headers = {
-      'X-Api-Key': config.api_key,
-      'Content-Type': 'application/json',
-      'Accept': 'application/json'
-    }
-  end
-
+class ProxyTypesRepository < RmapiRepository
   def all!
     where!
   end
 
   def where!
-    request do
-      status, body = rmapi(:get, '')
-      Result.new(
-        data: body.map { |hash| to_proxy_type hash },
-        status: status
-      )
-    end
+    status, body = rmapi(:get, '/proxies')
+    Result.new(
+      data: body.map { |hash| to_proxy_type hash },
+      status: status
+    )
   end
 
   private
-
-  # superclass for repository errors
-  class RepositoryError < StandardError; end
-
-  # the request can't be made because something is wrong with it
-  class BadRequest < RepositoryError; end
-
-  # the request was made, but it failed
-  class RequestError < RepositoryError
-    attr_reader :result
-    def initialize(result)
-      super result.message
-      @result = result
-    end
-  end
 
   # TODO: split into Success and Error subclasses
   class Result
@@ -79,9 +49,5 @@ class ProxyTypesRepository
 
   def to_proxy_type(hash)
     ProxyType.new(hash)
-  end
-
-  def request
-    yield.return!
   end
 end
