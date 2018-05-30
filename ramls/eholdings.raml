@@ -8,10 +8,50 @@ documentation:
   - title: mod-kb-ebsco (category)
     content: Implements the eholdings interface using the EBSCO kb as a backend.
 
-
-/eholdings/vendors:
-  displayName: Vendors
-
+traits:
+  indexable:
+    queryParameters: 
+      q:
+        displayName: Query
+        type: string
+        description: Text entered in search field
+        example: Basket Weaving
+        required: true
+      page:
+        displayName: Page
+        type: number
+        description: Page offset from which results are retrieved
+        example: 1
+        minimum: 1
+        required: false
+      count:
+        displayName: Count
+        type: number
+        description: The maximum number of results to return in the response.
+        example: 10
+        minimum: 0
+        maximum: 100
+        required: false
+      sort:
+        displayName: Sort options
+        enum: [name, relevance]
+        description: Option by which results are sorted
+        default: relevance
+        required: false
+  filterable:
+    queryParameters:
+      filter[selected]:
+        displayName: Selection status
+        enum: [true, false, ebsco]
+        description: Filter to narrow down results based on selection status
+        required: false
+      filter[type]:
+        displayName: Content type
+        enum: [all, aggregatefulltext, abstractandindex, ebook, ejournal, print, unknown, onlinereference]
+        description: Filter to narrow  down results based on content type
+        default: all
+        required: false
+  
 /eholdings/packages:
   displayName: Packages
   get:
@@ -563,3 +603,78 @@ documentation:
                     }
                   }
                   
+/eholdings/providers:
+  displayName: Providers
+  description: Collection of available providers in eholdings.
+  get:
+    description: Get a list of providers based on the search field.
+    is: [indexable]
+    responses: 
+      200:
+        body:
+          application/vnd.api+json:
+            description: List of providers matching the provider name and the total number of providers found.
+  /{provider_id}:
+    description: Entity representing a provider
+    get:
+      description: Get the provider with providerId = {provider_id}
+      queryParameters:
+        include:
+          displayName: Nested resource
+          type: string
+          description: Name of nested resource to include
+          default: packages
+          required: false
+      responses: 
+        200:
+          body: 
+            application/vnd.api+json:
+              description: Provider details from EPKB for a specific provider ID.
+        404:
+          description: Not Found
+          body:
+            application/vnd.api+json:
+              example: |
+                {
+                  "errors": [
+                    {
+                      "title": ""
+                    }
+                  ],
+                  "jsonapi": {
+                    "version": "1.0"
+                  }
+                }
+    put:
+      description: |
+        This operation allows you to update provider proxy and token values for a specifix provider ID.
+      queryParameters:
+        providerToken:
+          displayName: Provider token
+          type: string
+          description: |
+            Tokens are variables in content URLs that identify the customer.
+            The token is text within the URL that needs to be replaced with an institute-specific value.
+          example: "[[galesiteid]]"
+          required: false
+        proxy:
+          displayName: Proxy ID
+          type: string
+          example: EZ_proxy
+          required: false
+      responses: 
+        204:
+          application/vnd.api+json:
+            description: The server has successfully fulfilled the PUT request.
+        500:
+          application/vnd.api+json:
+            description: Unexpected error.
+    /packages:
+      get:
+        description: |
+          This operation allows you to retrieve a list of packages from EPKB for a provider including customer context.
+        is: [indexable, filterable]
+        responses: 
+          200:
+            body: 
+              application/vnd.api+json:
