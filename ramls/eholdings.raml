@@ -1,7 +1,8 @@
-#%RAML 0.8
-title: "mod-kb-ebsco"
+#%RAML 1.0
+title: mod-kb-ebsco
 baseUri: https://github.com/folio-org/mod-kb-ebsco
 version: v1
+mediaType: "application/vnd.api+json"
 
 documentation:
   - title: mod-kb-ebsco (category)
@@ -10,3 +11,555 @@ documentation:
 
 /eholdings/vendors:
   displayName: Vendors
+
+/eholdings/packages:
+  displayName: Packages
+  get:
+    description: Retrieve a collection of packages
+    queryParameters: 
+      q:
+        displayName: Search query
+        type: string
+        description: String to search for to get a collection of packages
+        example: ABC-CLIO
+        required: true
+      page:
+        displayName: Page offset
+        type: integer
+        minimum: 1
+        maximum: 2147483647
+        description: Page offset to retrieve results from Ebsco KB
+        example: 1
+        required: false
+      count:
+        displayName: Count
+        type: integer
+        minimum: 0
+        maximum: 100
+        description: Count of number of results to retrieve from Ebsco KB
+        example: 100
+        required: false
+      sort:
+        displayName: Sort options
+        type: string
+        enum: [name, relevance]
+        description: Option by which results are sorted
+        example: name
+        required: false
+      filter[selected]:
+        displayName: Selection status
+        type: string
+        enum: [true, false, ebsco, all]
+        description: Filter to narrow down results based on selection status
+        example: false
+        required: false
+      filter[type]:
+        displayName: Content type
+        type: string
+        enum: [all, aggregatedfulltext, abstractandindex, ebook, ejournal, print, onlinereference, unknown]
+        description: Filter to narrow down results based on content type
+        example: print
+        required: false
+      filter[custom]:
+        displayName: Custom Packages List
+        type: string
+        enum: [true, false]
+        description: Filter to get list of custom packages
+        example: true
+        required: false
+    responses:
+      200:
+        description: OK
+        body:
+          application/vnd.api+json:
+            example: |
+              {
+                "data": [
+                  {
+                    "id": "0-1117849",
+                    "type": "packages",
+                    "attributes": {
+                      "contentType": "Unknown",
+                      "customCoverage": {
+                        "beginCoverage": "",
+                        "endCoverage": ""
+                      },
+                      "isCustom": false,
+                      "isSelected": false,
+                      "name": "",
+                      "packageId": 1117849,
+                      "packageType": "Complete",
+                      "providerId": 0,
+                      "providerName": "System Account",
+                      "selectedCount": 0,
+                      "titleCount": 0,
+                      "vendorId": 0,
+                      "vendorName": "System Account",
+                      "visibilityData": {
+                        "isHidden": false,
+                        "reason": ""
+                      }
+                    },
+                    "relationships": {
+                      "resources": {
+                        "meta": {
+                          "included": false
+                        }
+                      },
+                      "vendor": {
+                        "meta": {
+                          "included": false
+                        }
+                      },
+                      "provider": {
+                        "meta": {
+                          "included": false
+                        }
+                      }
+                    }
+                  }
+                ]
+              }
+      400:
+        description: Bad Request
+        body:
+          application/vnd.api+json:
+            example: |
+              {
+                "errors": [
+                  {
+                    "title": "Invalid filter parameter"
+                  }
+                ],
+                "jsonapi": {
+                  "version": "1.0"
+                }
+              }
+  post:
+    description: Create a custom package
+    body:
+      application/vnd.api+json:
+        properties:
+          name:
+            description: Name of the custom package to be created
+            type: string
+            example: My test package
+            required: true
+          contentType:
+            description: Content type of the custom package to be created
+            type: string
+            enum: [all, aggregatedfulltext, abstractandindex, ebook, ejournal, print, onlinereference, unknown]
+            example: unknown
+            required: true
+          customCoverage:
+            description: Coverage dates of the custom package to be created
+            type: object
+            required: false
+            properties:
+              beginCoverage: string
+              endCoverage: string
+            example: |
+              {
+                "beginCoverage": "2003-01-01",
+                "endCoverage": "2003-12-01"
+              }
+    responses:
+      200:
+        description: OK
+        body:
+          application/vnd.api+json:
+            example: |
+              {
+                "data": {
+                  "id": "123355-2880981",
+                  "type": "packages",
+                  "attributes": {
+                    "contentType": "E-Book",
+                    "customCoverage": {
+                      "beginCoverage": "2003-01-01",
+                      "endCoverage": "2004-01-01"
+                    },
+                    "isCustom": true,
+                    "isSelected": true,
+                    "name": "yet another custom package again",
+                    "packageId": 2880981,
+                    "packageType": "Custom",
+                    "providerId": 123355,
+                    "providerName": "API DEV CORPORATE CUSTOMER",
+                    "selectedCount": 0,
+                    "titleCount": 0,
+                    "vendorId": 123355,
+                    "vendorName": "API DEV CORPORATE CUSTOMER",
+                    "visibilityData": {
+                      "isHidden": false,
+                      "reason": ""
+                    },
+                    "allowKbToAddTitles": false
+                  },
+                  "relationships": {
+                    "resources": {
+                      "meta": {
+                        "included": false
+                      }
+                    },
+                    "vendor": {
+                      "meta": {
+                        "included": false
+                      }
+                    },
+                    "provider": {
+                      "meta": {
+                        "included": false
+                      }
+                    }
+                  }
+                },
+                "jsonapi": {
+                  "version": "1.0"
+                }
+              }
+      400:
+        description: Bad Request
+        body:
+          application/vnd.api+json:
+              example: |
+                {
+                  "errors": [
+                    {
+                      "title": ""
+                    }
+                  ],
+                  "jsonapi": {
+                    "version": "1.0"
+                  }
+                }
+  /{packageId}:
+    get:
+      description: Retrieve a specific package
+      queryParameters:
+        include:
+          displayName: Nested resources or provider
+          type: string
+          enum: [resources, provider]
+          description: Include resources or provider in response
+          example: resources
+          required: false   
+      responses:
+        200:
+          description: OK
+          body:
+            application/vnd.api+json:
+              example: |
+                {
+                  "data": {
+                    "id": "123355-2848228",
+                    "type": "packages",
+                    "attributes": {
+                      "contentType": "E-Journal",
+                      "customCoverage": {
+                        "beginCoverage": "2003-01-01",
+                        "endCoverage": "2004-01-01"
+                      },
+                      "isCustom": true,
+                      "isSelected": true,
+                      "name": "SD's test package for documentation again",
+                      "packageId": 2848228,
+                      "packageType": "Custom",
+                      "providerId": 123355,
+                      "providerName": "API DEV CORPORATE CUSTOMER",
+                      "selectedCount": 0,
+                      "titleCount": 0,
+                      "vendorId": 123355,
+                      "vendorName": "API DEV CORPORATE CUSTOMER",
+                      "visibilityData": {
+                        "isHidden": true,
+                        "reason": ""
+                      },
+                      "allowKbToAddTitles": false
+                    },
+                    "relationships": {
+                      "resources": {
+                        "meta": {
+                          "included": false
+                        }
+                      },
+                      "vendor": {
+                        "meta": {
+                          "included": false
+                        }
+                      },
+                      "provider": {
+                        "meta": {
+                          "included": false
+                        }
+                      }
+                    }
+                  },
+                  "jsonapi": {
+                    "version": "1.0"
+                  }
+                }
+        400:
+          description: Bad Request
+          body:
+            application/vnd.api+json:
+              example: |
+                {
+                  "errors": [
+                    {
+                      "title": ""
+                    }
+                  ],
+                  "jsonapi": {
+                    "version": "1.0"
+                  }
+                }
+        404:
+          description: Not Found
+          body:
+            application/vnd.api+json:
+              example: |
+                {
+                  "errors": [
+                    {
+                      "title": ""
+                    }
+                  ],
+                  "jsonapi": {
+                    "version": "1.0"
+                  }
+                }
+    put:
+      description: Update a managed package
+      body:
+        application/vnd.api+json:
+          properties:
+            name:
+              description: |
+                Name of the custom package to be updated.
+                Note that this attribute can be updated ONLY FOR A CUSTOM PACKAGE. 
+              type: string
+              example: My test package
+              required: true
+            contentType:
+              description: |
+                Content type of the custom package to be updated.
+                Note that this attribute can be updated ONLY FOR A CUSTOM PACKAGE.
+              type: string
+              enum: [all, aggregatedfulltext, abstractandindex, ebook, ejournal, print, onlinereference, unknown]
+              example: unknown
+              required: true
+            customCoverage:
+              description: Coverage dates of the custom package to be updated
+              type: object
+              required: false
+              properties:
+                beginCoverage: string
+                endCoverage: string
+              example: |
+                {
+                  "beginCoverage": "2003-01-01",
+                  "endCoverage": "2003-12-01"
+                }
+            isSelected:
+              description: Selection of the managed package to be updated
+              type: boolean
+              example: true
+              required: false
+            allowKbToAddTitles:
+              description: |
+                Automatically allow KB to add titles for a managed package.
+                Note that this attribute can be updated ONLY FOR A MANAGED PACKAGE.
+              type: boolean
+              example: true
+              required: false
+            visibilityData:
+              description: Indicates whether package should be hidden or visible to patrons
+              type: object
+              required: false
+              properties:
+                isHidden: boolean
+              example: |
+                {
+                  "isHidden": true
+                }
+      responses:
+        200:
+          description: OK
+          body:
+            application/vnd.api+json:
+              example: |
+                {
+                  "data": {
+                    "id": "123355-2880981",
+                    "type": "packages",
+                    "attributes": {
+                      "contentType": "E-Book",
+                      "customCoverage": {
+                        "beginCoverage": "2003-01-01",
+                        "endCoverage": "2004-01-01"
+                      },
+                      "isCustom": true,
+                      "isSelected": true,
+                      "name": "yet another custom package again",
+                      "packageId": 2880981,
+                      "packageType": "Custom",
+                      "providerId": 123355,
+                      "providerName": "API DEV CORPORATE CUSTOMER",
+                      "selectedCount": 0,
+                      "titleCount": 0,
+                      "vendorId": 123355,
+                      "vendorName": "API DEV CORPORATE CUSTOMER",
+                      "visibilityData": {
+                        "isHidden": true,
+                        "reason": ""
+                      },
+                      "allowKbToAddTitles": true
+                    },
+                    "relationships": {
+                      "resources": {
+                        "meta": {
+                          "included": false
+                        }
+                      },
+                      "vendor": {
+                        "meta": {
+                          "included": false
+                        }
+                      },
+                      "provider": {
+                        "meta": {
+                          "included": false
+                        }
+                      }
+                    }
+                  },
+                  "jsonapi": {
+                    "version": "1.0"
+                  }
+                }
+        400:
+          description: Bad Request
+          body:
+            application/vnd.api+json:
+                example: |
+                  {
+                    "errors": [
+                      {
+                        "title": ""
+                      }
+                    ],
+                    "jsonapi": {
+                      "version": "1.0"
+                    }
+                  }
+        404:
+          description: Not Found
+          body:
+            application/vnd.api+json:
+              example: |
+                {
+                  "errors": [
+                    {
+                      "title": ""
+                    }
+                  ],
+                  "jsonapi": {
+                    "version": "1.0"
+                  }
+                }
+    delete:
+      description: Delete a specific custom package
+      responses:
+        204:
+          description: No Content
+    /resources:
+      get:
+        description: Include all resources belonging to a specific package
+        responses:
+          200:
+            description: OK
+            body:
+              application/vnd.api+json:
+                example: |
+                  {
+                    "data": {
+                      "id": "19-6581",
+                      "type": "packages",
+                      "attributes": {
+                        "contentType": "Aggregated Full Text",
+                        "customCoverage": {
+                          "beginCoverage": "",
+                          "endCoverage": ""
+                        },
+                        "isCustom": false,
+                        "isSelected": false,
+                        "name": "EBSCO Biotechnology Collection: India",
+                        "packageId": 6581,
+                        "packageType": "Complete",
+                        "providerId": 19,
+                        "providerName": "EBSCO",
+                        "selectedCount": 0,
+                        "titleCount": 157,
+                        "vendorId": 19,
+                        "vendorName": "EBSCO",
+                        "visibilityData": {
+                          "isHidden": false,
+                          "reason": ""
+                        },
+                        "allowKbToAddTitles": false
+                      },
+                      "relationships": {
+                        "resources": {
+                          "data": [
+                          {
+                            "type": "resources",
+                            "id": "19-6581-581242"
+                          }
+                        }
+                        "vendor": {},
+                        "provider": {}
+                      }
+                    }
+                    "included": [
+                    {
+                      "id": "19-6581-581242",
+                      "type": "resources",
+                      "attributes": {
+                      "description": null,
+                      "edition": null,
+                      "isPeerReviewed": null,
+                      "isTitleCustom": false,
+                      "publisherName": "Wroclaw University of Environmental & Life Sciences",
+                      "titleId": 581242,
+                      "contributors": [],
+                      "identifiers": [],
+                      "name": "Acta Scientiarum Polonorum. Biotechnologia",
+                      "publicationType": "Journal",
+                      "subjects": [],
+                      "coverageStatement": null,
+                      "customEmbargoPeriod": {},
+                      "isPackageCustom": false,
+                      "isSelected": false,
+                      "isTokenNeeded": false,
+                      "locationId": 4829613,
+                      "managedEmbargoPeriod": {},
+                      "packageId": "19-6581",
+                      "packageName": "EBSCO Biotechnology Collection: India",
+                      "url": "http://search.ebscohost.com/direct.asp?db=bti&jid=97C7&scope=site",
+                      "vendorId": 19,
+                      "vendorName": "EBSCO",
+                      "providerId": 19,
+                      "providerName": "EBSCO",
+                      "visibilityData": {},
+                      "managedCoverages": [],
+                      "customCoverages": [],
+                      "proxy": null
+                    },
+                    "relationships": {}
+                    ],
+                    "jsonapi": {
+                      "version": "1.0"
+                    }
+                  }
+                  
