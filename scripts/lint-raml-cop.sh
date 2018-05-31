@@ -7,7 +7,7 @@ help_msg="Some assistance is at https://dev.folio.org/guides/raml-cop"
 ramls_dir="ramls"
 
 # Space-separated list of sub-directory paths that need to be avoided.
-prune_dirs="raml-util"
+prune_dirs="raml-util types"
 
 if ! cmd=$(command -v raml-cop); then
   echo "raml-cop is not available. Do 'npm install -g raml-cop'"
