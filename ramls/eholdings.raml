@@ -266,7 +266,7 @@ traits:
                 {
                   "errors": [
                     {
-                      "title": ""
+                      "title": "{"errors":[{"code":1009,"subCode":0,"message":"Custom Package with the provided name already exists"}]}"
                     }
                   ],
                   "jsonapi": {
@@ -347,7 +347,7 @@ traits:
                 {
                   "errors": [
                     {
-                      "title": ""
+                      "title": "{"errors":[{"code":1006,"subCode":0,"message":"Invalid value for orderby. Acceptable values are: Relevance, 0, PackageName, 1"},{"code":1005,"subCode":0,"message":"Parameter Count is missing."},{"code":1005,"subCode":0,"message":"Parameter Offset is missing."},{"code":1005,"subCode":0,"message":"Parameter OrderBy is missing."}]}"
                     }
                   ],
                   "jsonapi": {
@@ -362,7 +362,7 @@ traits:
                 {
                   "errors": [
                     {
-                      "title": ""
+                      "title": "{"errors":[{"code":1001,"subCode":0,"message":"Vendor not found"}]}"
                     }
                   ],
                   "jsonapi": {
@@ -486,7 +486,7 @@ traits:
                   {
                     "errors": [
                       {
-                        "title": ""
+                        "title": "{"errors":[{"code":1005,"subCode":0,"message":"Attribute IsSelected is missing."}]}"
                       }
                     ],
                     "jsonapi": {
@@ -501,7 +501,29 @@ traits:
                 {
                   "errors": [
                     {
-                      "title": ""
+                      "title": "{"errors":[{"code":1001,"subCode":0,"message":"Vendor not found"}]}"
+                    }
+                  ],
+                  "jsonapi": {
+                    "version": "1.0"
+                  }
+                }
+        422:
+          description: Unprocessable Entity
+          body:
+            application/vnd.api+json:
+              example: |
+                {
+                  "errors": [
+                    {
+                      "title": "Invalid beginCoverage",
+                      "detail": "Begincoverage must be blank",
+                      "source": {}
+                    },
+                    {
+                      "title": "Invalid endCoverage",
+                      "detail": "Endcoverage must be blank",
+                      "source": {}
                     }
                   ],
                   "jsonapi": {
