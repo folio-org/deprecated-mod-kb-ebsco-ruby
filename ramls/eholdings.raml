@@ -1,4 +1,4 @@
-#%RAML 0.8
+#%RAML 1.0
 title: "mod-kb-ebsco"
 baseUri: https://github.com/folio-org/mod-kb-ebsco
 version: v1
@@ -7,6 +7,58 @@ documentation:
   - title: mod-kb-ebsco (category)
     content: Implements the eholdings interface using the EBSCO kb as a backend.
 
+resourceTypes: 
+	collection: !include types/collection.raml
+	collection-item: !include types/collection-item.raml
 
 /eholdings/vendors:
   displayName: Vendors
+
+/eholdings/packages:
+  displayName: Packages
+  type:
+  	collection:
+  	  exampleCollection: !include list_of_packages.sample	   
+  get:
+		queryParameters:
+			q:
+				displayName: Query
+				type: string
+				description: Text entered in packages search field
+				example: ABC-CLIO
+				required: true
+			page:
+				displayName: Page
+				type: number
+				description: Page offset from which results are retrieved
+				example: 1
+				required: false
+			count:
+				displayName: Count
+				type: number
+				description: Count of number of results to be retrieved
+				example: 50
+				required: false
+			sort:
+				displayName: Sort options
+				type: string
+				description: Option by which results are sorted
+				example: name
+				required: false
+			filter[selected]:
+				displayName: Selection status
+				type: string
+				description: Filter to narrow down results based on selection status
+				example: false
+				required: false
+			filter[type]:
+				displayName: Content type
+				type: string
+				description: Filter to narrow down results based on content type
+				example: print
+				required: false
+	/{packageId}:
+	  type:
+	    collection-item:
+	      exampleItem: !include package_by_id.sample
+

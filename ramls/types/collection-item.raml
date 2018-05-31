@@ -1,0 +1,16 @@
+collection-item:
+  description: Entity representing a <<resourcePathName|!singularize>>
+  get:
+    description: |
+      Get the <<resourcePathName|!singularize>>
+      with <<resourcePathName|!singularize>>Id =
+      {<<resourcePathName|!singularize>>Id}
+    responses:
+      200:
+        body:
+          application/vnd.api+json:
+      404:
+        body:
+          application/vnd.api+json:
+            example: |
+              {"message": "<<resourcePathName|!singularize>> not found" }
