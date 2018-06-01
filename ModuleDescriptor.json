@@ -19,8 +19,12 @@
           "pathPattern": "/eholdings/custom-labels*"
         },
         {
-          "methods": [ "GET", "PUT" ],
-          "pathPattern": "/eholdings/root-proxies*"
+          "methods": [ "GET"],
+          "pathPattern": "/eholdings/proxy-types"
+        },
+        {
+          "methods": ["GET", "PUT"],
+          "pathPattern": "/eholdings/root-proxy"
         },
         {
           "methods": [ "GET" ],
