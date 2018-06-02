@@ -1,8 +1,9 @@
 # frozen_string_literal: true
 
-class RootProxy
+class ProxyType
   include ActiveAttr::Model
 
   attribute :id
-  attribute :proxy_type_id
+  attribute :name
+  attribute :url_mask
 end

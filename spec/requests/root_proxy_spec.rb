@@ -6,7 +6,7 @@ RSpec.describe 'Root Proxies', type: :request do
   describe 'getting list of root proxies' do
     before do
       VCR.use_cassette('get-root-proxies-success') do
-        get '/eholdings/root-proxies',
+        get '/eholdings/proxy-types',
             headers: okapi_headers
       end
     end
@@ -17,11 +17,11 @@ RSpec.describe 'Root Proxies', type: :request do
     it 'gets a successful response' do
       expect(response).to have_http_status(200)
     end
-    it "is of type 'rootProxy'" do
-      expect(json.data.first.type).to eq('rootProxy')
+    it "is of type 'proxyType'" do
+      expect(json.data.first.type).to eq('proxyType')
     end
 
-    describe 'check each root proxy attributes' do
+    describe 'check attributes of proxyType' do
       it 'has id key' do
         expect(attributes).to have_key(:id)
       end
@@ -30,9 +30,6 @@ RSpec.describe 'Root Proxies', type: :request do
       end
       it 'has url mask key' do
         expect(attributes).to have_key(:urlMask)
-      end
-      it 'has selected key' do
-        expect(attributes).to have_key(:selected)
       end
     end
   end
@@ -47,11 +44,12 @@ RSpec.describe 'Root Proxies', type: :request do
     describe 'select a different root proxy' do
       let(:params) do
         {
-          'data' => {
-            'id' => 'EZProxy',
-            'type' => 'rootProxy',
-            'attributes' => {
-              'id' => 'EZProxy'
+          "data": {
+            "type": 'rootProxies',
+            "id": 'EZProxy',
+            "attributes": {
+              "id": 'eholdings/root-proxy',
+              "proxyTypeId": 'EZProxy'
             }
           }
         }
@@ -59,7 +57,7 @@ RSpec.describe 'Root Proxies', type: :request do
 
       before do
         VCR.use_cassette('put-root-proxy-success') do
-          put '/eholdings/root-proxies/EZProxy',
+          put '/eholdings/root-proxy',
               params: params, as: :json, headers: update_headers
         end
       end
@@ -72,17 +70,11 @@ RSpec.describe 'Root Proxies', type: :request do
       let!(:attributes) { json.data.attributes }
 
       describe 'check attributes of new root proxy' do
+        it 'has id of eholdings/root-proxy' do
+          expect(attributes.id).to eq('eholdings/root-proxy')
+        end
         it 'has id of EZProxy' do
-          expect(attributes.id).to eq('EZProxy')
-        end
-        it 'has name equals nil because its not updated' do
-          expect(attributes.name).to be_nil
-        end
-        it 'has urlmask equals nil because its not updated' do
-          expect(attributes.urlMask).to be_nil
-        end
-        it 'has selection set to true' do
-          expect(attributes.selected).to eq(true)
+          expect(attributes.proxyTypeId).to eq('EZProxy')
         end
       end
     end
@@ -90,11 +82,12 @@ RSpec.describe 'Root Proxies', type: :request do
     describe 'update a root proxy with non-matching ids' do
       let(:params) do
         {
-          'data' => {
-            'id' => 'EZProxy',
-            'type' => 'rootProxy',
-            'attributes' => {
-              'id' => 'EZProxy'
+          "data": {
+            "id": 'eholdings/root-proxy',
+            "type": 'rootProxies',
+            "attributes": {
+              "id": 'eholdings/root-proxy',
+              "proxyTypeId": 'EZProxyPOPS'
             }
           }
         }
@@ -102,12 +95,12 @@ RSpec.describe 'Root Proxies', type: :request do
 
       before do
         VCR.use_cassette('put-root-proxy-non-matching') do
-          put '/eholdings/root-proxies/some_value',
+          put '/eholdings/root-proxy',
               params: params, as: :json, headers: update_headers
         end
       end
 
-      it 'results in error' do
+      it 'fails Validation' do
         expect(response).to have_http_status(422)
       end
     end
@@ -115,11 +108,11 @@ RSpec.describe 'Root Proxies', type: :request do
     describe 'update root proxy with invalid value' do
       let(:params) do
         {
-          'data' => {
-            'id' => 'test-123',
-            'type' => 'rootProxy',
-            'attributes' => {
-              'id' => 'test-123'
+          "data": {
+            "id": 'eholdings/root-proxy',
+            "type": 'rootProxies',
+            "attributes": {
+              "id": 'eholdings/root-proxy'
             }
           }
         }
@@ -127,7 +120,7 @@ RSpec.describe 'Root Proxies', type: :request do
 
       before do
         VCR.use_cassette('put-root-proxy-invalid') do
-          put '/eholdings/root-proxies/test-123',
+          put '/eholdings/root-proxy',
               params: params, as: :json, headers: update_headers
         end
       end
@@ -140,10 +133,10 @@ RSpec.describe 'Root Proxies', type: :request do
     describe 'update a root proxy without a body' do
       let(:params) do
         {
-          'data' => {
-            'id' => 'EZProxy',
-            'type' => 'rootProxy',
-            'attributes' => {
+          "data": {
+            "type": 'rootProxies',
+            "id": 'EZProxy',
+            "attributes": {
             }
           }
         }
@@ -151,7 +144,7 @@ RSpec.describe 'Root Proxies', type: :request do
 
       before do
         VCR.use_cassette('put-root-proxy-with-empty-body') do
-          put '/eholdings/root-proxies/EZProxy',
+          put '/eholdings/root-proxy',
               params: params, as: :json, headers: update_headers
         end
       end

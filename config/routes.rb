@@ -34,9 +34,13 @@ Rails.application.routes.draw do
               path: '/custom-labels',
               only: %i[index update destroy]
 
-    resources :root_proxies,
-              path: '/root-proxies',
-              only: %i[index update]
+    resources :proxy_types,
+              path: 'proxy-types',
+              only: [:index]
+
+    resource :root_proxy,
+             path: 'root-proxy',
+             only: %i[show update]
 
     resource :configuration, only: %i[show update]
     resource :status, only: [:show]
