@@ -34,7 +34,8 @@ traits:
         required: false
       sort:
         displayName: Sort options
-        enum: [name, relevance]
+        type: string
+        enum: ["name", "relevance"]
         description: Option by which results are sorted
         default: relevance
         required: false
@@ -42,12 +43,14 @@ traits:
     queryParameters:
       filter[selected]:
         displayName: Selection status
-        enum: [true, false, ebsco]
+        type: string
+        enum: ["true", "false", "ebsco"]
         description: Filter to narrow down results based on selection status
         required: false
       filter[type]:
         displayName: Content type
-        enum: [all, aggregatefulltext, abstractandindex, ebook, ejournal, print, unknown, onlinereference]
+        type: string
+        enum: ["all", "aggregatefulltext", "abstractandindex", "ebook", "ejournal", "print", "unknown", "onlinereference"]
         description: Filter to narrow  down results based on content type
         default: all
         required: false
@@ -56,6 +59,15 @@ traits:
   displayName: Packages
   get:
     description: Retrieve a collection of packages
+    headers:
+      X-OKAPI-URL:
+        example: https://sampleurl.io
+      X-OKAPI-TENANT:
+        example: sample tenant
+      X-OKAPI-TOKEN:
+        example: aabbccddee
+      Content-Type: 
+        example: application/vnd.api+json
     queryParameters: 
       q:
         displayName: Search query
@@ -82,30 +94,30 @@ traits:
       sort:
         displayName: Sort options
         type: string
-        enum: [name, relevance]
+        enum: ["name", "relevance"]
         description: Option by which results are sorted
         example: name
         required: false
       filter[selected]:
         displayName: Selection status
         type: string
-        enum: [true, false, ebsco, all]
+        enum: ["true", "false", "ebsco", "all"]
         description: Filter to narrow down results based on selection status
-        example: false
+        example: "false"
         required: false
       filter[type]:
         displayName: Content type
         type: string
-        enum: [all, aggregatedfulltext, abstractandindex, ebook, ejournal, print, onlinereference, unknown]
+        enum: ["all", "aggregatedfulltext", "abstractandindex", "ebook", "ejournal", "print", "onlinereference", "unknown"]
         description: Filter to narrow down results based on content type
         example: print
         required: false
       filter[custom]:
         displayName: Custom Packages List
         type: string
-        enum: [true, false]
+        enum: ["true", "false"]
         description: Filter to get list of custom packages
-        example: true
+        example: "true"
         required: false
     responses:
       200:
@@ -177,6 +189,15 @@ traits:
               }
   post:
     description: Create a custom package
+    headers:
+      X-OKAPI-URL:
+        example: https://sampleurl.io
+      X-OKAPI-TENANT:
+        example: sample tenant
+      X-OKAPI-TOKEN:
+        example: aabbccddee
+      Content-Type: 
+        example: application/vnd.api+json
     body:
       application/vnd.api+json:
         properties:
@@ -188,7 +209,7 @@ traits:
           contentType:
             description: Content type of the custom package to be created
             type: string
-            enum: [all, aggregatedfulltext, abstractandindex, ebook, ejournal, print, onlinereference, unknown]
+            enum: ["all", "aggregatedfulltext", "abstractandindex", "ebook", "ejournal", "print", "onlinereference", "unknown"]
             example: unknown
             required: true
           customCoverage:
@@ -266,7 +287,7 @@ traits:
                 {
                   "errors": [
                     {
-                      "title": "{"errors":[{"code":1009,"subCode":0,"message":"Custom Package with the provided name already exists"}]}"
+                      "title": {"errors":[{"code":1009,"subCode":0,"message":"Custom Package with the provided name already exists"}]}
                     }
                   ],
                   "jsonapi": {
@@ -275,12 +296,23 @@ traits:
                 }
   /{packageId}:
     get:
-      description: Retrieve a specific package
+      description: |
+        Retrieve a specific package given packageId.
+        Note that packageId is providerId-packageId
+      headers:
+        X-OKAPI-URL:
+          example: https://sampleurl.io
+        X-OKAPI-TENANT:
+          example: sample tenant
+        X-OKAPI-TOKEN:
+          example: aabbccddee
+        Content-Type: 
+          example: application/vnd.api+json
       queryParameters:
         include:
           displayName: Nested resources or provider
           type: string
-          enum: [resources, provider]
+          enum: ["resources", "provider"]
           description: Include resources or provider in response
           example: resources
           required: false   
@@ -302,7 +334,7 @@ traits:
                       },
                       "isCustom": true,
                       "isSelected": true,
-                      "name": "SD's test package for documentation again",
+                      "name": "test package for documentation again",
                       "packageId": 2848228,
                       "packageType": "Custom",
                       "providerId": 123355,
@@ -345,11 +377,9 @@ traits:
             application/vnd.api+json:
               example: |
                 {
-                  "errors": [
-                    {
-                      "title": "{"errors":[{"code":1006,"subCode":0,"message":"Invalid value for orderby. Acceptable values are: Relevance, 0, PackageName, 1"},{"code":1005,"subCode":0,"message":"Parameter Count is missing."},{"code":1005,"subCode":0,"message":"Parameter Offset is missing."},{"code":1005,"subCode":0,"message":"Parameter OrderBy is missing."}]}"
-                    }
-                  ],
+                  "errors": [{
+                      "title": {"errors":[{"code":1006,"subCode":0,"message":"Invalid value for orderby. Acceptable values are: Relevance, 0, PackageName, 1"},{"code":1005,"subCode":0,"message":"Parameter Count is missing."},{"code":1005,"subCode":0,"message":"Parameter Offset is missing."},{"code":1005,"subCode":0,"message":"Parameter OrderBy is missing."}]}
+                    }],
                   "jsonapi": {
                     "version": "1.0"
                   }
@@ -362,7 +392,7 @@ traits:
                 {
                   "errors": [
                     {
-                      "title": "{"errors":[{"code":1001,"subCode":0,"message":"Vendor not found"}]}"
+                      "title": {"errors":[{"code":1001,"subCode":0,"message":"Vendor not found"}]}
                     }
                   ],
                   "jsonapi": {
@@ -370,7 +400,18 @@ traits:
                   }
                 }
     put:
-      description: Update a managed package
+      description: |
+        Update a managed or custom package using packageId
+        Note that packageId is providerId-packageId
+      headers:
+        X-OKAPI-URL:
+          example: https://sampleurl.io
+        X-OKAPI-TENANT:
+          example: sample tenant
+        X-OKAPI-TOKEN:
+          example: aabbccddee
+        Content-Type: 
+          example: application/vnd.api+json
       body:
         application/vnd.api+json:
           properties:
@@ -390,7 +431,9 @@ traits:
               example: unknown
               required: true
             customCoverage:
-              description: Coverage dates of the custom package to be updated
+              description: |
+                Coverage dates of the custom or managed package to be updated.
+                Note that this attribute can be updated BOTH FOR CUSTOM PACKAGES AND MANAGED PACKAGES.
               type: object
               required: false
               properties:
@@ -402,7 +445,10 @@ traits:
                   "endCoverage": "2003-12-01"
                 }
             isSelected:
-              description: Selection of the managed package to be updated
+              description: |
+                Selection of the managed or custom package to be updated.
+                Note that selection can be updated for BOTH CUSTOM AND MANAGED PACKAGES.
+                For custom packages, if this is set to false, it deletes the package.
               type: boolean
               example: true
               required: false
@@ -414,7 +460,9 @@ traits:
               example: true
               required: false
             visibilityData:
-              description: Indicates whether package should be hidden or visible to patrons
+              description: |
+                Indicates whether package should be hidden or visible to patrons.
+                Note that this attribute can be updated both for CUSTOM AND MANAGED PACKAGES.
               type: object
               required: false
               properties:
@@ -422,7 +470,7 @@ traits:
               example: |
                 {
                   "isHidden": true
-                }
+                } 
       responses:
         200:
           description: OK
@@ -486,7 +534,7 @@ traits:
                   {
                     "errors": [
                       {
-                        "title": "{"errors":[{"code":1005,"subCode":0,"message":"Attribute IsSelected is missing."}]}"
+                        "title": {"errors":[{"code":1005,"subCode":0,"message":"Attribute IsSelected is missing."}]}
                       }
                     ],
                     "jsonapi": {
@@ -501,7 +549,7 @@ traits:
                 {
                   "errors": [
                     {
-                      "title": "{"errors":[{"code":1001,"subCode":0,"message":"Vendor not found"}]}"
+                      "title": {"errors":[{"code":1001,"subCode":0,"message":"Vendor not found"}]}
                     }
                   ],
                   "jsonapi": {
@@ -531,13 +579,33 @@ traits:
                   }
                 }
     delete:
-      description: Delete a specific custom package
+      description: |
+        Delete a specific custom package using packageId.
+        Note that packageId is providerId-packageId
+      headers:
+        X-OKAPI-URL:
+          example: https://sampleurl.io
+        X-OKAPI-TENANT:
+          example: sample tenant
+        X-OKAPI-TOKEN:
+          example: aabbccddee
+        Content-Type: 
+          example: application/vnd.api+json
       responses:
         204:
           description: No Content
     /resources:
       get:
         description: Include all resources belonging to a specific package
+        headers: 
+          X-OKAPI-URL:
+            example: https://sampleurl.io
+          X-OKAPI-TENANT:
+            example: sample tenant
+          X-OKAPI-TOKEN:
+            example: aabbccddee
+          Content-Type: 
+            example: application/vnd.api+json
         responses:
           200:
             description: OK
@@ -545,81 +613,220 @@ traits:
               application/vnd.api+json:
                 example: |
                   {
-                    "data": {
-                      "id": "19-6581",
-                      "type": "packages",
-                      "attributes": {
-                        "contentType": "Aggregated Full Text",
-                        "customCoverage": {
-                          "beginCoverage": "",
-                          "endCoverage": ""
+                      "data": [
+                        {
+                          "id": "19-6581-581242",
+                          "type": "resources",
+                          "attributes": {
+                            "description": null,
+                            "edition": null,
+                            "isPeerReviewed": null,
+                            "isTitleCustom": false,
+                            "publisherName": "Wroclaw University of Environmental & Life Sciences",
+                            "titleId": 581242,
+                            "contributors": [],
+                            "identifiers": [
+                              {
+                                "id": "1644-065X",
+                                "type": "ISSN",
+                                "subtype": "Print"
+                              },
+                              {
+                                "id": "2083-8654",
+                                "type": "ISSN",
+                                "subtype": "Online"
+                              },
+                              {
+                                "id": "97C7",
+                                "type": "Mid",
+                                "subtype": "Empty"
+                              },
+                              {
+                                "id": "581242",
+                                "type": "BHM",
+                                "subtype": "Empty"
+                              }
+                            ],
+                            "name": "Acta Scientiarum Polonorum. Biotechnologia",
+                            "publicationType": "Journal",
+                            "subjects": [
+                              {
+                                "type": "TLI",
+                                "subject": "Biological Engineering"
+                              }
+                            ],
+                            "coverageStatement": null,
+                            "customEmbargoPeriod": {
+                              "embargoUnit": null,
+                              "embargoValue": 0
+                            },
+                            "isPackageCustom": false,
+                            "isSelected": false,
+                            "isTokenNeeded": false,
+                            "locationId": 4829613,
+                            "managedEmbargoPeriod": {
+                              "embargoUnit": null,
+                              "embargoValue": 0
+                            },
+                            "packageId": "19-6581",
+                            "packageName": "EBSCO Biotechnology Collection: India",
+                            "url": "http://search.ebscohost.com/direct.asp?db=bti&jid=97C7&scope=site",
+                            "vendorId": 19,
+                            "vendorName": "EBSCO",
+                            "providerId": 19,
+                            "providerName": "EBSCO",
+                            "visibilityData": {
+                              "isHidden": false,
+                              "reason": ""
+                            },
+                            "managedCoverages": [
+                              {
+                                "beginCoverage": "2008-12-01",
+                                "endCoverage": ""
+                              }
+                            ],
+                            "customCoverages": [],
+                            "proxy": null
+                          },
+                          "relationships": {
+                            "vendor": {
+                              "meta": {
+                                "included": false
+                              }
+                            },
+                            "provider": {
+                              "meta": {
+                                "included": false
+                              }
+                            },
+                            "title": {
+                              "meta": {
+                                "included": false
+                              }
+                            },
+                            "package": {
+                              "meta": {
+                                "included": false
+                              }
+                            }
+                          }
                         },
-                        "isCustom": false,
-                        "isSelected": false,
-                        "name": "EBSCO Biotechnology Collection: India",
-                        "packageId": 6581,
-                        "packageType": "Complete",
-                        "providerId": 19,
-                        "providerName": "EBSCO",
-                        "selectedCount": 0,
-                        "titleCount": 157,
-                        "vendorId": 19,
-                        "vendorName": "EBSCO",
-                        "visibilityData": {
-                          "isHidden": false,
-                          "reason": ""
+                        {
+                          "id": "19-6581-2467485",
+                          "type": "resources",
+                          "attributes": {
+                            "description": null,
+                            "edition": null,
+                            "isPeerReviewed": null,
+                            "isTitleCustom": false,
+                            "publisherName": "AVS: Science & Technology of Materials, Interfaces, and Processing",
+                            "titleId": 2467485,
+                            "contributors": [],
+                            "identifiers": [
+                            {
+                              "id": "1934-8630",
+                              "type": "ISSN",
+                              "subtype": "Print"
+                            },
+                            {
+                              "id": "1559-4106",
+                              "type": "ISSN",
+                              "subtype": "Online"
+                            },
+                            {
+                              "id": "102667066",
+                              "type": "SPID",
+                              "subtype": "Empty"
+                            },
+                            {
+                              "id": "122153798",
+                              "type": "SPID",
+                              "subtype": "Empty"
+                            },
+                            {
+                              "id": "714936",
+                              "type": "EjsJournalID",
+                              "subtype": "Empty"
+                            },
+                            {
+                              "id": "2F7L",
+                              "type": "Mid",
+                              "subtype": "Empty"
+                            },
+                            {
+                              "id": "2248363",
+                              "type": "BHM",
+                              "subtype": "Empty"
+                            }
+                          ],
+                          "name": "Biointerphases",
+                          "publicationType": "Journal",
+                          "subjects": [
+                            {
+                              "type": "TLI",
+                              "subject": "Physics"
+                            }
+                          ],
+                          "coverageStatement": null,
+                          "customEmbargoPeriod": {
+                            "embargoUnit": null,
+                            "embargoValue": 0
+                          },
+                          "isPackageCustom": false,
+                          "isSelected": false,
+                          "isTokenNeeded": false,
+                          "locationId": 4829582,
+                          "managedEmbargoPeriod": {
+                            "embargoUnit": null,
+                            "embargoValue": 0
+                          },
+                          "packageId": "19-6581",
+                          "packageName": "EBSCO Biotechnology Collection: India",
+                          "url": "http://search.ebscohost.com/direct.asp?db=bti&jid=2F7L&scope=site",
+                          "vendorId": 19,
+                          "vendorName": "EBSCO",
+                          "providerId": 19,
+                          "providerName": "EBSCO",
+                          "visibilityData": {
+                            "isHidden": false,
+                            "reason": ""
+                          },
+                          "managedCoverages": [
+                            {
+                              "beginCoverage": "2006-12-01",
+                              "endCoverage": ""
+                            }
+                          ],
+                          "customCoverages": [],
+                          "proxy": null
                         },
-                        "allowKbToAddTitles": false
-                      },
-                      "relationships": {
-                        "resources": {
-                          "data": [
-                          {
-                            "type": "resources",
-                            "id": "19-6581-581242"
+                        "relationships": {
+                          "vendor": {
+                            "meta": {
+                              "included": false
+                            }
+                          },
+                          "provider": {
+                            "meta": {
+                              "included": false
+                            }
+                          },
+                          "title": {
+                            "meta": {
+                              "included": false
+                            }
+                          },
+                          "package": {
+                            "meta": {
+                              "included": false
+                            }
                           }
                         }
-                        "vendor": {},
-                        "provider": {}
                       }
-                    }
-                    "included": [
-                    {
-                      "id": "19-6581-581242",
-                      "type": "resources",
-                      "attributes": {
-                      "description": null,
-                      "edition": null,
-                      "isPeerReviewed": null,
-                      "isTitleCustom": false,
-                      "publisherName": "Wroclaw University of Environmental & Life Sciences",
-                      "titleId": 581242,
-                      "contributors": [],
-                      "identifiers": [],
-                      "name": "Acta Scientiarum Polonorum. Biotechnologia",
-                      "publicationType": "Journal",
-                      "subjects": [],
-                      "coverageStatement": null,
-                      "customEmbargoPeriod": {},
-                      "isPackageCustom": false,
-                      "isSelected": false,
-                      "isTokenNeeded": false,
-                      "locationId": 4829613,
-                      "managedEmbargoPeriod": {},
-                      "packageId": "19-6581",
-                      "packageName": "EBSCO Biotechnology Collection: India",
-                      "url": "http://search.ebscohost.com/direct.asp?db=bti&jid=97C7&scope=site",
-                      "vendorId": 19,
-                      "vendorName": "EBSCO",
-                      "providerId": 19,
-                      "providerName": "EBSCO",
-                      "visibilityData": {},
-                      "managedCoverages": [],
-                      "customCoverages": [],
-                      "proxy": null
-                    },
-                    "relationships": {}
                     ],
+                    "meta": {
+                      "totalResults": 157
+                    },
                     "jsonapi": {
                       "version": "1.0"
                     }
@@ -631,6 +838,15 @@ traits:
   get:
     description: Get a list of providers based on the search field.
     is: [indexable]
+    headers:
+      X-OKAPI-URL:
+        example: https://sampleurl.io
+      X-OKAPI-TENANT:
+        example: sample tenant
+      X-OKAPI-TOKEN:
+        example: aabbccddee
+      Content-Type: 
+        example: application/vnd.api+json
     responses: 
       200:
         body:
@@ -640,6 +856,15 @@ traits:
     description: Entity representing a provider
     get:
       description: Get the provider with providerId = {provider_id}
+      headers:
+        X-OKAPI-URL:
+          example: https://sampleurl.io
+        X-OKAPI-TENANT:
+          example: sample tenant
+        X-OKAPI-TOKEN:
+          example: aabbccddee
+        Content-Type: 
+          example: application/vnd.api+json
       queryParameters:
         include:
           displayName: Nested resource
@@ -670,6 +895,15 @@ traits:
     put:
       description: |
         This operation allows you to update provider proxy and token values for a specifix provider ID.
+      headers:
+        X-OKAPI-URL:
+          example: https://sampleurl.io
+        X-OKAPI-TENANT:
+          example: sample tenant
+        X-OKAPI-TOKEN:
+          example: aabbccddee
+        Content-Type: 
+          example: application/vnd.api+json
       queryParameters:
         providerToken:
           displayName: Provider token
@@ -686,16 +920,27 @@ traits:
           required: false
       responses: 
         204:
-          application/vnd.api+json:
-            description: The server has successfully fulfilled the PUT request.
+          body:
+            application/vnd.api+json:
+              description: The server has successfully fulfilled the PUT request.
         500:
-          application/vnd.api+json:
-            description: Unexpected error.
+          body:
+            application/vnd.api+json:
+              description: Unexpected error.
     /packages:
       get:
         description: |
           This operation allows you to retrieve a list of packages from EPKB for a provider including customer context.
         is: [indexable, filterable]
+        headers:
+          X-OKAPI-URL:
+            example: https://sampleurl.io
+          X-OKAPI-TENANT:
+            example: sample tenant
+          X-OKAPI-TOKEN:
+            example: aabbccddee
+          Content-Type: 
+            example: application/vnd.api+json
         responses: 
           200:
             body: 
