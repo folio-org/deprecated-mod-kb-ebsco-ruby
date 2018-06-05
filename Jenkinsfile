@@ -92,7 +92,7 @@ pipeline {
     stage('Publish Docker image') {
       when {
         anyOf {
-          branch 'master'; tag pattern: "^v\\d+\\.\\d+\\.\\d+$", comparator: "REGEXP"
+          branch 'master'; tag pattern: "^v\\d+\\.\\d+\\.\\d+\$", comparator: "REGEXP"
         }
       }
       steps {
@@ -110,7 +110,7 @@ pipeline {
     stage('Publish Module Descriptor') {
       when {
         anyOf {
-          branch 'master'; tag pattern: "^v\\d+\\.\\d+\\.\\d+$", comparator: "REGEXP"
+          branch 'master'; tag pattern: "^v\\d+\\.\\d+\\.\\d+\$", comparator: "REGEXP"
         }
       }
       steps {
