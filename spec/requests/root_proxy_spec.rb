@@ -18,7 +18,7 @@ RSpec.describe 'Root Proxies', type: :request do
       expect(response).to have_http_status(200)
     end
     it "is of type 'proxyType'" do
-      expect(json.data.first.type).to eq('proxyType')
+      expect(json.data.first.type).to eq('proxyTypes')
     end
 
     describe 'check attributes of proxyType' do
