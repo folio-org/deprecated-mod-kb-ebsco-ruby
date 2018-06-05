@@ -66,12 +66,11 @@ pipeline {
             env.dockerRepo = 'folioci'
             echo "This is a snapshot build."
           }
+        }
 
         echo "Building Ruby artifact: ${env.name} Version: ${env.version}"
-
         sh "/bin/bash -l -c '. /usr/share/rvm/scripts/rvm && rvm use ${env.RUBY_VERSION}'"
         sh "sudo /bin/bash -l -c '. /usr/share/rvm/scripts/rvm && gem install bundler'"
-
         sh "sudo /bin/bash -l -c '. /usr/share/rvm/scripts/rvm && bundle install'"
 
         echo "Run unit tests..."
