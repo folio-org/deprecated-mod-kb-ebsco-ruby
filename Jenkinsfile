@@ -114,7 +114,7 @@ pipeline {
         script {
           if (env.snapshot) {
             def foliociLib = new org.folio.foliociCommands()
-            foliociLib.updateModDescriptorId('ModuleDescriptor.json')
+            foliociLib.updateModDescriptor('ModuleDescriptor.json')
           }
         }
         postModuleDescriptor('ModuleDescriptor.json')
