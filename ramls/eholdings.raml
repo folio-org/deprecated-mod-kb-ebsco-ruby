@@ -811,6 +811,53 @@ types:
         body:
           application/vnd.api+json:
             description: List of providers matching the provider name and the total number of providers found.
+            example: |
+              {
+                "data":[
+                  {
+                    "id":"19",
+                    "type":"providers",
+                    "attributes":{
+                      "name":"EBSCO",
+                      "packagesTotal":627,
+                      "packagesSelected":49,
+                      "providerToken":null,
+                      "supportsCustomPackages":false
+                    },
+                    "relationships":{
+                      "packages":{
+                        "meta":{
+                          "included":false
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "id":"273",
+                    "type":"providers",
+                    "attributes":{
+                      "name":"EBSCO Open Access Lists",
+                      "packagesTotal":23,
+                      "packagesSelected":6,
+                      "providerToken":null,
+                      "supportsCustomPackages":false
+                    },
+                    "relationships":{
+                      "packages":{
+                        "meta":{
+                          "included":false
+                        }
+                      }
+                    }
+                  }
+                ],
+                "meta":{
+                  "totalResults":2
+                },
+                "jsonapi":{
+                  "version":"1.0"
+                }
+              }
   /{provider_id}:
     description: Entity representing a provider
     get:
@@ -827,6 +874,131 @@ types:
           body: 
             application/vnd.api+json:
               description: Provider details from EPKB for a specific provider ID.
+              example: |
+                {
+                  "data":{
+                    "id":"419",
+                    "type":"providers",
+                    "attributes":{
+                      "name":"ecch",
+                      "packagesTotal":2,
+                      "packagesSelected":0,
+                      "providerToken":null,
+                      "supportsCustomPackages":false,
+                      "proxy":{
+                        "id":"EZProxy",
+                        "inherited":true
+                      }
+                    },
+                    "relationships":{
+                      "packages":{
+                        "data":[
+                          {
+                            "type":"packages",
+                            "id":"419-3402"
+                          },
+                          {
+                            "type":"packages",
+                            "id":"419-3291"
+                          }
+                        ]
+                      }
+                    }
+                  },
+                  "included":[
+                    {
+                      "id":"419-3402",
+                      "type":"packages",
+                      "attributes":{
+                        "contentType":"Abstract and Index",
+                        "customCoverage":{
+                          "beginCoverage":"",
+                          "endCoverage":""
+                        },
+                        "isCustom":false,
+                        "isSelected":false,
+                        "name":"Case Online Information System - COLIS",
+                        "packageId":3402,
+                        "packageType":"Complete",
+                        "providerId":419,
+                        "providerName":"ecch",
+                        "selectedCount":0,
+                        "titleCount":1,
+                        "vendorId":419,
+                        "vendorName":"ecch",
+                        "visibilityData":{
+                          "isHidden":false,
+                          "reason":""
+                        },
+                        "allowKbToAddTitles":null
+                      },
+                      "relationships":{
+                        "resources":{
+                          "meta":{
+                            "included":false
+                          }
+                        },
+                        "vendor":{
+                          "meta":{
+                            "included":false
+                          }
+                        },
+                        "provider":{
+                          "meta":{
+                            "included":false
+                          }
+                        }
+                      }
+                    },
+                    {
+                      "id":"419-3291",
+                      "type":"packages",
+                      "attributes":{
+                        "contentType":"Abstract and Index",
+                        "customCoverage":{
+                          "beginCoverage":"",
+                          "endCoverage":""
+                        },
+                        "isCustom":false,
+                        "isSelected":false,
+                        "name":"European Case Clearing House Collection",
+                        "packageId":3291,
+                        "packageType":"Complete",
+                        "providerId":419,
+                        "providerName":"ecch",
+                        "selectedCount":0,
+                        "titleCount":1,
+                        "vendorId":419,
+                        "vendorName":"ecch",
+                        "visibilityData":{
+                          "isHidden":false,
+                          "reason":""
+                        },
+                        "allowKbToAddTitles":null
+                      },
+                      "relationships":{
+                        "resources":{
+                          "meta":{
+                            "included":false
+                          }
+                        },
+                        "vendor":{
+                          "meta":{
+                            "included":false
+                          }
+                        },
+                        "provider":{
+                          "meta":{
+                            "included":false
+                          }
+                        }
+                      }
+                    }
+                  ],
+                  "jsonapi":{
+                    "version":"1.0"
+                  }
+                }
         404:
           description: Not Found
           body:
@@ -862,10 +1034,43 @@ types:
           type: proxy
           required: false
       responses: 
-        204:
+        200:
           body:
             application/vnd.api+json:
               description: The server has successfully fulfilled the PUT request.
+              example: |
+                {
+                  "data": {
+                    "id": "18",
+                    "type": "providers",
+                    "attributes": {
+                      "name": "Gale | Cengage",
+                      "packagesTotal": 243,
+                      "packagesSelected": 18,
+                      "providerToken": {
+                        "factName": "[[galesiteid]]",
+                        "prompt": "/itweb/",
+                        "helpText": "\u003cul\u003e\r\n \u003cli\u003eEnter your Gale\u003csup\u003e®\u003c/sup\u003e site ID in the space provided below. The site ID may contain a combination of alpha/numeric characters, varying in length. \u003cblockquote style="margin-right: 0px;" dir="ltr"\u003e\r\n \u003cp\u003e Example: The site ID immediately follows /itweb/ in a URL. The site ID in the following URL is \u003ci\u003eaa11bb22\u003c/i\u003e. \u003c/p\u003e\r\n \u003c/blockquote\u003e\u003c/li\u003e\r\n\u003c/ul\u003e\r\n\u003cblockquote style="margin-right: 0px;" dir="ltr"\u003e\u003cblockquote style="margin-right: 0px;" dir="ltr"\u003e\r\n\u003cp\u003e\u003cspan style="text-decoration: underline;"\u003ehttp://infotrac.galegroup.com/itweb/aa11bb22?db=AIM\u003c/span\u003e\u003c/p\u003e\r\n\u003c/blockquote\u003e\u003c/blockquote\u003e\u003cbr /\u003e\r\n\u003cul\u003e\r\n \u003cli\u003eIf no site ID is specified, your Gale Group links may not function properly, as Gale Group requires this information for authentication. \u003c/li\u003e\r\n \u003cli\u003eIf you are unable to locate the site ID, please contact Gale Group. For contact information, visit: \u003ca href="http://access.gale.com/authentication/\"\u003ehttp://access.gale.com/authentication/\u003c/a\u003e. \u003c/li\u003e\r\n\u003c/ul\u003e\r\n",
+                        "value": "99"
+                      },
+                      "supportsCustomPackages": false,
+                      "proxy": {
+                        "id": "\u003cn\u003e",
+                        "inherited": false
+                      }
+                    },
+                    "relationships": {
+                      "packages": {
+                        "meta": {
+                          "included": false
+                        }
+                      }
+                    }
+                  },
+                  "jsonapi": {
+                    "version": "1.0"
+                  }
+                }
         500:
           body:
             application/vnd.api+json:
@@ -877,7 +1082,60 @@ types:
         is: [indexable, filterable]
         responses: 
           200:
-            body: 
+            description: OK
+            body:
+              application/vnd.api+json:
+                example: |
+                  {
+                    "data": [
+                      {
+                        "id": "0-1117849",
+                        "type": "packages",
+                        "attributes": {
+                          "contentType": "Unknown",
+                          "customCoverage": {
+                            "beginCoverage": "",
+                            "endCoverage": ""
+                          },
+                          "isCustom": false,
+                          "isSelected": false,
+                          "name": "",
+                          "packageId": 1117849,
+                          "packageType": "Complete",
+                          "providerId": 0,
+                          "providerName": "System Account",
+                          "selectedCount": 0,
+                          "titleCount": 0,
+                          "vendorId": 0,
+                          "vendorName": "System Account",
+                          "visibilityData": {
+                            "isHidden": false,
+                            "reason": ""
+                          }
+                        },
+                        "relationships": {
+                          "resources": {
+                            "meta": {
+                              "included": false
+                            }
+                          },
+                          "vendor": {
+                            "meta": {
+                              "included": false
+                            }
+                          },
+                          "provider": {
+                            "meta": {
+                              "included": false
+                            }
+                          }
+                        }
+                      }
+                    ]
+                  }
+          400:
+            description: Bad Request
+            body:
               application/vnd.api+json:
 /eholdings/resources:
   displayName: Resources
