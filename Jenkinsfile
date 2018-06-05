@@ -125,7 +125,7 @@ pipeline {
     stage('Publish API docs') { 
       when {
         anyOf {
-          branch 'master'; tag pattern: "^v\\d+\\.\\d+\\.\\d+$", comparator: "REGEXP"
+          branch 'master'; tag pattern: "^v\\d+\\.\\d+\\.\\d+\$", comparator: "REGEXP"
         }
       }
       steps { 
