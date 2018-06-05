@@ -49,23 +49,23 @@ pipeline {
         script {
           def foliociLib = new org.folio.foliociCommands()
 
-          // always 'true' for now
-          env.snapshot = true
-
           env.project_name = foliociLib.getProjName()
           env.name = env.project_name
 
           // getting current version from MD.  Not ideal. Good enough for now.
           def version = foliociLib.getModuleDescriptorIdVer('ModuleDescriptor.json')
 
-          if (env.snapshot) {
-            echo "This is a snapshot release"
-            env.version = "${version}-SNAPSHOT.${env.BUILD_NUMBER}"
+          // if release tag
+          if ( env.BRANCH_NAME ==~ /^v\d+\.\d+\.\d+$/ ) {
+            env.version = version
+            env.dockerRepo = 'folioorg'
+            echo "This is a release build."
           }
           else {
-            env.version = version
+            env.version = "${version}-SNAPSHOT.${env.BUILD_NUMBER}"
+            env.dockerRepo = 'folioci'
+            echo "This is a snapshot build."
           }
-        }
 
         echo "Building Ruby artifact: ${env.name} Version: ${env.version}"
 
@@ -83,8 +83,7 @@ pipeline {
       steps {
         echo "Building Docker image..."
         script {
-          def dockerRepo = 'folioci'
-          env.dockerImage = "$dockerRepo/${env.name}"
+          env.dockerImage = "${env.dockerRepo}/${env.name}"
           docker.build("${env.dockerImage}:${env.version}", '--no-cache .')
         }
       }
@@ -92,7 +91,9 @@ pipeline {
 
     stage('Publish Docker image') {
       when {
-        branch 'master'
+        anyOf {
+          branch 'master'; tag pattern: "^v\\d+\\.\\d+\\.\\d+$", comparator: "REGEXP"
+        }
       }
       steps {
         echo "Pushing Docker image ${env.name} to Docker Hub..."
@@ -108,14 +109,14 @@ pipeline {
 
     stage('Publish Module Descriptor') {
       when {
-        branch 'master'
+        anyOf {
+          branch 'master'; tag pattern: "^v\\d+\\.\\d+\\.\\d+$", comparator: "REGEXP"
+        }
       }
       steps {
         script {
-          if (env.snapshot) {
-            def foliociLib = new org.folio.foliociCommands()
-            foliociLib.updateModDescriptor('ModuleDescriptor.json')
-          }
+          def foliociLib = new org.folio.foliociCommands()
+          foliociLib.updateModDescriptor('ModuleDescriptor.json')
         }
         postModuleDescriptor('ModuleDescriptor.json')
       }
@@ -123,7 +124,9 @@ pipeline {
 
     stage('Publish API docs') { 
       when {
-        branch 'master'
+        anyOf {
+          branch 'master'; tag pattern: "^v\\d+\\.\\d+\\.\\d+$", comparator: "REGEXP"
+        }
       }
       steps { 
         echo "Publishing API docs"
