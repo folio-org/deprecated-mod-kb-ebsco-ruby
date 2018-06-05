@@ -766,4 +766,52 @@ RSpec.describe 'Resources', type: :request do
       end
     end
   end
+
+  describe 'deleting a resource' do
+    describe 'delete a custom resource associated with custom package successfully' do
+      before do
+        VCR.use_cassette('delete-custom-resource-custom-package') do
+          delete '/eholdings/resources/123355-2845510-17059786',
+                 headers: okapi_headers
+        end
+      end
+
+      it 'gets a 204 No Content response' do
+        expect(response).to have_http_status(204)
+      end
+    end
+
+    describe 'trying to delete a deleted resource results in error' do
+      before do
+        VCR.use_cassette('delete-deleted-custom-resource') do
+          delete '/eholdings/resources/123355-2843714-17059786',
+                 headers: okapi_headers
+        end
+      end
+
+      let!(:json) { Map JSON.parse response.body }
+
+      it 'gets a not found response' do
+        expect(response).to have_http_status(404)
+        expect(json.errors.first.title).to eq 'Title not found'
+      end
+    end
+
+    describe 'trying to delete a resource associated with managed package' do
+      before do
+        VCR.use_cassette('delete-resource-managed-package') do
+          delete '/eholdings/resources/117-1757-394532',
+                 headers: okapi_headers
+        end
+      end
+
+      let!(:json) { Map JSON.parse response.body }
+
+      it 'gets a bad request response' do
+        expect(response).to have_http_status(400)
+        expect(json.errors.first.detail).to eq 'Resource cannot be deleted'
+        expect(json.errors.first.title).to eq 'Invalid resource'
+      end
+    end
+  end
 end
