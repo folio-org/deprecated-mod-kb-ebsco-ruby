@@ -57,6 +57,6 @@ class RootProxiesRepository < RmapiRepository
   end
 
   def to_root_proxy(hash)
-    RootProxy.new(id: 'eholdings/root-proxy', proxy_type_id: hash[:id])
+    RootProxy.new(id: 'root-proxy', proxy_type_id: hash[:id])
   end
 end

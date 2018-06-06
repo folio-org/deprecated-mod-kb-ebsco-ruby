@@ -71,7 +71,7 @@ RSpec.describe 'Root Proxies', type: :request do
 
       describe 'check attributes of new root proxy' do
         it 'has id of eholdings/root-proxy' do
-          expect(attributes.id).to eq('eholdings/root-proxy')
+          expect(attributes.id).to eq('root-proxy')
         end
         it 'has id of EZProxy' do
           expect(attributes.proxyTypeId).to eq('EZProxy')
