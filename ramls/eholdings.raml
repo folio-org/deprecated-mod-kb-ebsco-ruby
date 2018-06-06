@@ -54,7 +54,45 @@ traits:
         description: Filter to narrow  down results based on content type
         default: all
         required: false
-  
+
+types:
+  customCoverage: # normal object type declaration
+    type: object
+    properties: 
+      beginCoverage: string
+      endCoverage: string
+    example: |
+      {
+        "beginCoverage": "2003-01-01",
+        "endCoverage": "2003-12-01"
+      }
+  visibilityData:
+    type: object
+    properties:
+      isHidden: boolean
+    example: |
+      {
+        "isHidden": true
+      } 
+  proxy:
+    type: object
+    properties:
+      id: string
+    example: |
+      {
+        "id": "EZ_Proxy"
+      }
+  customEmbargoPeriod:
+    type: object
+    properties:
+      embargoValue: number
+      embargoUnit: string
+    example: |
+      {
+        "embargoValue": 4,
+        "embargoUnit": "Weeks"
+      }
+
 /eholdings/packages:
   displayName: Packages
   get:
@@ -214,16 +252,8 @@ traits:
             required: true
           customCoverage:
             description: Coverage dates of the custom package to be created
-            type: object
+            type: customCoverage
             required: false
-            properties:
-              beginCoverage: string
-              endCoverage: string
-            example: |
-              {
-                "beginCoverage": "2003-01-01",
-                "endCoverage": "2003-12-01"
-              }
     responses:
       200:
         description: OK
@@ -434,16 +464,8 @@ traits:
               description: |
                 Coverage dates of the custom or managed package to be updated.
                 Note that this attribute can be updated BOTH FOR CUSTOM PACKAGES AND MANAGED PACKAGES.
-              type: object
+              type: customCoverage
               required: false
-              properties:
-                beginCoverage: string
-                endCoverage: string
-              example: |
-                {
-                  "beginCoverage": "2003-01-01",
-                  "endCoverage": "2003-12-01"
-                }
             isSelected:
               description: |
                 Selection of the managed or custom package to be updated.
@@ -463,14 +485,8 @@ traits:
               description: |
                 Indicates whether package should be hidden or visible to patrons.
                 Note that this attribute can be updated both for CUSTOM AND MANAGED PACKAGES.
-              type: object
+              type: visibilityData
               required: false
-              properties:
-                isHidden: boolean
-              example: |
-                {
-                  "isHidden": true
-                } 
       responses:
         200:
           description: OK
@@ -915,8 +931,7 @@ traits:
           required: false
         proxy:
           displayName: Proxy ID
-          type: string
-          example: EZ_proxy
+          type: proxy
           required: false
       responses: 
         204:
@@ -945,3 +960,589 @@ traits:
           200:
             body: 
               application/vnd.api+json:
+/eholdings/resources:
+  displayName: Resources
+  post:
+    description: Create a relation between an existing custom package and an existing custom/managed title.
+    headers:
+      X-OKAPI-URL:
+        example: https://sampleurl.io
+      X-OKAPI-TENANT:
+        example: sample tenant
+      X-OKAPI-TOKEN:
+        example: aabbccddee
+      Content-Type: 
+        example: application/vnd.api+json
+    body:
+      application/vnd.api+json:
+        properties:
+          packageId:
+            description: |
+              Id of the custom package to which the managed/custom title is to be associated.
+              Note that packageId is a combination of vendorId-packageId.
+            type: string
+            example: 123355-2845510
+            required: true
+          titleId:
+            description: Id of the managed/custom title that needs to be associated to a custom package.
+            type: string
+            example: "17059786"
+            required: true
+          url:
+            description: Custom URL displaying the relationship between the custom package and custom/managed title.
+            type: string
+            required: false
+            example: https://hello.io
+    responses:
+      200:
+        description: OK
+        body:
+          application/vnd.api+json:
+            example: |
+              {
+                "data": {
+                  "id": "123355-2845510-17059786",
+                  "type": "resources",
+                  "attributes": {
+                    "description": null,
+                    "edition": null,
+                    "isPeerReviewed": false,
+                    "isTitleCustom": true,
+                    "publisherName": null,
+                    "titleId": 17059786,
+                    "contributors": [],
+                    "identifiers": [],
+                    "name": "SD custom title",
+                    "publicationType": "Book",
+                    "subjects": [],
+                    "coverageStatement": null,
+                    "customEmbargoPeriod": {
+                      "embargoUnit": null,
+                      "embargoValue": 0
+                    },
+                    "isPackageCustom": true,
+                    "isSelected": true,
+                    "isTokenNeeded": false,
+                    "locationId": 0,
+                    "managedEmbargoPeriod": {
+                      "embargoUnit": null,
+                      "embargoValue": 0
+                    },
+                    "packageId": "123355-2845510",
+                    "packageName": "Testing2",
+                    "url": null,
+                    "vendorId": 123355,
+                    "vendorName": "API DEV CORPORATE CUSTOMER",
+                    "providerId": 123355,
+                    "providerName": "API DEV CORPORATE CUSTOMER",
+                    "visibilityData": {
+                      "isHidden": false,
+                      "reason": ""
+                    },
+                    "managedCoverages": [],
+                    "customCoverages": [],
+                    "proxy": {
+                      "id": "<n>",
+                      "inherited": true
+                    }
+                  },
+                  "relationships": {
+                    "vendor": {
+                      "meta": {
+                        "included": false
+                      }
+                    },
+                    "provider": {
+                      "meta": {
+                        "included": false
+                      }
+                    },
+                    "title": {
+                      "meta": {
+                        "included": false
+                      }
+                    },
+                    "package": {
+                      "meta": {
+                        "included": false
+                      }
+                    }
+                  }
+                },
+                "jsonapi": {
+                  "version": "1.0"
+                }
+              }
+      400:
+        description: Bad Request
+      422:
+        description: Unprocessable Entity
+        body:
+          application/vnd.api+json:
+            example: |
+              {
+                "errors": [
+                  {
+                    "title": "Invalid PackageId",
+                    "detail": "Packageid Cannot associate Title with a managed Package",
+                    "source": {}
+                  }
+                ],
+                "jsonapi": {
+                  "version": "1.0"
+                }
+              }
+  /{resourceId}:
+    get:
+      description: |
+        Retrieve a specific resource given resourceId.
+        Note that a resource is a managed/custom title associated with a managed/custom package.
+        resourceId is providerId-packageId-titleId
+      headers:
+        X-OKAPI-URL:
+          example: https://sampleurl.io
+        X-OKAPI-TENANT:
+          example: sample tenant
+        X-OKAPI-TOKEN:
+          example: aabbccddee
+        Content-Type: 
+          example: application/vnd.api+json
+      queryParameters:
+        include:
+          displayName: Nested provider, package or title
+          type: string
+          enum: ["provider", "package", "title"]
+          description: Include provider, package or title in response
+          example: provider
+          required: false   
+      responses:
+        200:
+          description: OK
+          body:
+            application/vnd.api+json:
+              example: |
+                {
+                  "data": {
+                    "id": "22-1887786-1440285",
+                    "type": "resources",
+                    "attributes": {
+                      "description": null,
+                      "edition": null,
+                      "isPeerReviewed": false,
+                      "isTitleCustom": false,
+                      "publisherName": "Elsevier",
+                      "titleId": 1440285,
+                      "contributors": [
+                        {
+                          "type": "Author",
+                          "contributor": "Havard, Margaret"
+                        },
+                        {
+                          "type": "Author",
+                          "contributor": "Tiziani, Adriana."
+                        }
+                      ],
+                      "identifiers": [
+                        {
+                          "id": "1440285",
+                          "type": "BHM",
+                          "subtype": "Empty"
+                        },
+                        {
+                          "id": "475765",
+                          "type": "EPBookID",
+                          "subtype": "Empty"
+                        },
+                        {
+                          "id": "978-0-7295-3913-5",
+                          "type": "ISBN",
+                          "subtype": "Print"
+                        },
+                        {
+                          "id": "978-0-7295-7913-1",
+                          "type": "ISBN",
+                          "subtype": "Online"
+                        }
+                      ],
+                      "name": "Havard's Nursing Guide to Drugs (Nursing Guide to Drugs)",
+                      "publicationType": "Book",
+                      "subjects": [
+                        {
+                          "type": "BISAC",
+                          "subject": "MEDICAL / Nursing / Pharmacology"
+                        }
+                      ],
+                      "coverageStatement": "Only 2000s issues available.",
+                      "customEmbargoPeriod": {
+                        "embargoUnit": "Days",
+                        "embargoValue": 7
+                      },
+                      "isPackageCustom": false,
+                      "isSelected": true,
+                      "isTokenNeeded": true,
+                      "locationId": 17545807,
+                      "managedEmbargoPeriod": {
+                        "embargoUnit": null,
+                        "embargoValue": 0
+                      },
+                      "packageId": "22-1887786",
+                      "packageName": "ProQuest Ebook Central",
+                      "url": "https://ebookcentral.proquest.com/lib/[[SiteID]]/detail.action?docID=1722033",
+                      "vendorId": 22,
+                      "vendorName": "Proquest Info & Learning Co",
+                      "providerId": 22,
+                      "providerName": "Proquest Info & Learning Co",
+                      "visibilityData": {
+                        "isHidden": true,
+                        "reason": ""
+                      },
+                      "managedCoverages": [
+                        {
+                          "beginCoverage": "2010-01-01",
+                          "endCoverage": "2010-12-31"
+                        }
+                      ],
+                      "customCoverages": [
+                        {
+                          "beginCoverage": "2003-01-01",
+                          "endCoverage": "2004-01-01"
+                        }
+                      ],
+                      "proxy": {
+                        "id": "EZProxy",
+                        "inherited": false
+                      }
+                    },
+                    "relationships": {
+                      "vendor": {
+                        "meta": {
+                          "included": false
+                        }
+                      },
+                      "provider": {
+                        "data": {
+                          "type": "providers",
+                          "id": "22"
+                        }
+                      },
+                      "title": {
+                        "meta": {
+                          "included": false
+                        }
+                      },
+                      "package": {
+                        "meta": {
+                          "included": false
+                        }
+                      }
+                    }
+                  },
+                  "included": [
+                    {
+                      "id": "22",
+                      "type": "providers",
+                      "attributes": {
+                        "name": "Proquest Info & Learning Co",
+                        "packagesTotal": 840,
+                        "packagesSelected": 30,
+                        "providerToken": null,
+                        "supportsCustomPackages": false,
+                        "proxy": {
+                          "id": "EZProxy",
+                          "inherited": true
+                        }
+                      },
+                      "relationships": {
+                        "packages": {
+                          "meta": {
+                            "included": false
+                          }
+                        }
+                      }
+                    }
+                  ],
+                  "jsonapi": {
+                    "version": "1.0"
+                  }
+                }
+        400:
+          description: Bad Request
+        404:
+          description: Not Found
+          body:
+            application/vnd.api+json:
+              example: |
+                {
+                  "errors": [
+                    {
+                      "title": "Title not found"
+                    }
+                  ],
+                  "jsonapi": {
+                    "version": "1.0"
+                  }
+                }
+    put:
+      description: |
+        Update a managed or custom resource using resourceId
+        Note that resourceId is providerId-packageId-titleId
+      headers:
+        X-OKAPI-URL:
+          example: https://sampleurl.io
+        X-OKAPI-TENANT:
+          example: sample tenant
+        X-OKAPI-TOKEN:
+          example: aabbccddee
+        Content-Type: 
+          example: application/vnd.api+json
+      body:
+        application/vnd.api+json:
+          properties:
+            url:
+              description: |
+                Custom URL of a custom resource.
+                Note that this attribute can be updated ONLY FOR A CUSTOM RESOURCE. 
+              type: string
+              example: "https://hello.io"
+              required: false
+            customCoverages:
+              description: |
+                Coverage dates of the custom or managed resource to be updated.
+                Note that this attribute can be updated BOTH FOR CUSTOM RESOURCES AND MANAGED RESOURCES.
+              type: array
+              items: customCoverage
+              required: false
+              example:
+                - # start item 1
+                  beginCoverage: 2018-06-03
+                  endCoverage: 2018-06-04
+                - # start item 2
+                  beginCoverage: 2018-06-05
+                  endCoverage: 2018-06-06
+            isSelected:
+              description: |
+                Selection of the managed or custom resource to be updated.
+                Note that selection can be updated for BOTH CUSTOM AND MANAGED RESOURCES.
+                For custom resources, if this is set to false, it disassociates the resource from the contained custom package.
+                If the title is custom and is not associated with any other package, then the title will be deleted from the knowledge base.
+                This param is required for a custom resource and is optional for a managed resource.
+              type: boolean
+              example: true
+              required: true
+            visibilityData:
+              description: |
+                Indicates whether resource should be hidden or visible to patrons.
+                Note that this attribute can be updated both for CUSTOM AND MANAGED RESOURCES.
+              type: visibilityData
+              required: false
+            coverageStatement:
+              description: |
+                Coverage Statement of a managed or custom resource.
+                Note that this attribute can be updated both for CUSTOM AND MANAGED RESOURCES.
+              type: string
+              required: false
+              example: "Sample coverage statement"
+            customEmbargoPeriod:
+              description: |
+                Custom Embargo of a managed or custom resource.
+                Note that this attribute can be updated both for CUSTOM AND MANAGED RESOURCES.
+              type: customEmbargoPeriod
+              required: false
+            proxy:
+              description: |
+                Ability to update selection of proxy for a custom or managed resource.
+                Note that this attribute can be updated both for CUSTOM AND MANAGED RESOURCES.
+              type: proxy
+              required: false
+      responses:
+        200:
+          description: OK
+          body:
+            application/vnd.api+json:
+              example: |
+                {
+                  "data": {
+                    "id": "123355-2845510-17059786",
+                    "type": "resources",
+                    "attributes": {
+                      "description": null,
+                      "edition": null,
+                      "isPeerReviewed": false,
+                      "isTitleCustom": true,
+                      "publisherName": null,
+                      "titleId": 17059786,
+                      "contributors": [],
+                      "identifiers": [],
+                      "name": "SD custom title",
+                      "publicationType": "Book",
+                      "subjects": [],
+                      "coverageStatement": "hello",
+                      "customEmbargoPeriod": {
+                        "embargoUnit": "Weeks",
+                        "embargoValue": 4
+                      },
+                      "isPackageCustom": true,
+                      "isSelected": true,
+                      "isTokenNeeded": false,
+                      "locationId": 39248032,
+                      "managedEmbargoPeriod": {
+                        "embargoUnit": null,
+                        "embargoValue": 0
+                      },
+                      "packageId": "123355-2845510",
+                      "packageName": "\"Testing2\"",
+                      "url": "https://hello.io",
+                      "vendorId": 123355,
+                      "vendorName": "API DEV CORPORATE CUSTOMER",
+                      "providerId": 123355,
+                      "providerName": "API DEV CORPORATE CUSTOMER",
+                      "visibilityData": {
+                        "isHidden": true,
+                        "reason": ""
+                      },
+                      "managedCoverages": [],
+                      "customCoverages": [
+                        {
+                          "beginCoverage": "2018-06-05",
+                          "endCoverage": "2018-06-07"
+                        },
+                        {
+                          "beginCoverage": "2018-06-08",
+                          "endCoverage": "2018-06-10"
+                        }
+                      ],
+                      "proxy": {
+                        "id": "<n>",
+                        "inherited": true
+                      }
+                    },
+                    "relationships": {
+                      "vendor": {
+                        "meta": {
+                          "included": false
+                        }
+                      },
+                      "provider": {
+                        "meta": {
+                          "included": false
+                        }
+                      },
+                      "title": {
+                        "meta": {
+                          "included": false
+                        }
+                      },
+                      "package": {
+                        "meta": {
+                          "included": false
+                        }
+                      }
+                    }
+                  },
+                  "jsonapi": {
+                    "version": "1.0"
+                  }
+                }
+        400:
+          description: Bad Request
+          body:
+            application/vnd.api+json:
+                example: |
+                  {
+                    "errors": [
+                      {
+                        "title": "CoverageList cannot contain overlapping dates."
+                      }
+                    ],
+                    "jsonapi": {
+                      "version": "1.0"
+                    }
+                  }
+        404:
+          description: Not Found
+          body:
+            application/vnd.api+json:
+              example: |
+                {
+                  "errors": [
+                    {
+                      "title": "Title not found"
+                    }
+                  ],
+                  "jsonapi": {
+                    "version": "1.0"
+                  }
+                }
+        422:
+          description: Unprocessable Entity
+          body:
+            application/vnd.api+json:
+              example: |
+                {
+                  "errors": [
+                    {
+                      "title": "Invalid beginCoverage",
+                      "detail": "Begincoverage must be blank",
+                      "source": {}
+                    },
+                    {
+                      "title": "Invalid endCoverage",
+                      "detail": "Endcoverage must be blank",
+                      "source": {}
+                    }
+                  ],
+                  "jsonapi": {
+                    "version": "1.0"
+                  }
+                }
+    delete:
+      description: |
+        Delete the association between a custom/managed title and a custom package using resourceId.
+        Note that resourceId is providerId-packageId-titleId
+        If the title is custom and is not associated with any other package, then the title will be deleted from the knowledge base.
+      headers:
+        X-OKAPI-URL:
+          example: https://sampleurl.io
+        X-OKAPI-TENANT:
+          example: sample tenant
+        X-OKAPI-TOKEN:
+          example: aabbccddee
+        Content-Type: 
+          example: application/vnd.api+json
+      responses:
+        204:
+          description: No Content
+        400:
+          description: Bad Request
+          body:
+            application/vnd.api+json:
+              example: |
+                {
+                  "errors": [
+                    {
+                      "title": "Invalid resource",
+                      "detail": "Resource cannot be deleted",
+                      "source": {}
+                    }
+                  ],
+                  "jsonapi": {
+                    "version": "1.0"
+                  }
+                }
+        404:
+          description: Not Found
+          body:
+            application/vnd.api+json:
+              example: |
+                {
+                  "errors": [
+                    {
+                      "title": "Title not found"
+                    }
+                  ],
+                  "jsonapi": {
+                    "version": "1.0"
+                  }
+                }
+
+
