@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class SerializableProxyType < SerializableJSONAPIResource
-  type 'proxyType'
+  type 'proxyTypes'
 
   # Custom Label attributes
   attributes :id,
