@@ -97,15 +97,6 @@ types:
   displayName: Packages
   get:
     description: Retrieve a collection of packages
-    headers:
-      X-OKAPI-URL:
-        example: https://sampleurl.io
-      X-OKAPI-TENANT:
-        example: sample tenant
-      X-OKAPI-TOKEN:
-        example: aabbccddee
-      Content-Type: 
-        example: application/vnd.api+json
     queryParameters: 
       q:
         displayName: Search query
@@ -228,12 +219,6 @@ types:
   post:
     description: Create a custom package
     headers:
-      X-OKAPI-URL:
-        example: https://sampleurl.io
-      X-OKAPI-TENANT:
-        example: sample tenant
-      X-OKAPI-TOKEN:
-        example: aabbccddee
       Content-Type: 
         example: application/vnd.api+json
     body:
@@ -329,15 +314,6 @@ types:
       description: |
         Retrieve a specific package given packageId.
         Note that packageId is providerId-packageId
-      headers:
-        X-OKAPI-URL:
-          example: https://sampleurl.io
-        X-OKAPI-TENANT:
-          example: sample tenant
-        X-OKAPI-TOKEN:
-          example: aabbccddee
-        Content-Type: 
-          example: application/vnd.api+json
       queryParameters:
         include:
           displayName: Nested resources or provider
@@ -434,12 +410,6 @@ types:
         Update a managed or custom package using packageId
         Note that packageId is providerId-packageId
       headers:
-        X-OKAPI-URL:
-          example: https://sampleurl.io
-        X-OKAPI-TENANT:
-          example: sample tenant
-        X-OKAPI-TOKEN:
-          example: aabbccddee
         Content-Type: 
           example: application/vnd.api+json
       body:
@@ -598,30 +568,12 @@ types:
       description: |
         Delete a specific custom package using packageId.
         Note that packageId is providerId-packageId
-      headers:
-        X-OKAPI-URL:
-          example: https://sampleurl.io
-        X-OKAPI-TENANT:
-          example: sample tenant
-        X-OKAPI-TOKEN:
-          example: aabbccddee
-        Content-Type: 
-          example: application/vnd.api+json
       responses:
         204:
           description: No Content
     /resources:
       get:
         description: Include all resources belonging to a specific package
-        headers: 
-          X-OKAPI-URL:
-            example: https://sampleurl.io
-          X-OKAPI-TENANT:
-            example: sample tenant
-          X-OKAPI-TOKEN:
-            example: aabbccddee
-          Content-Type: 
-            example: application/vnd.api+json
         responses:
           200:
             description: OK
@@ -854,15 +806,6 @@ types:
   get:
     description: Get a list of providers based on the search field.
     is: [indexable]
-    headers:
-      X-OKAPI-URL:
-        example: https://sampleurl.io
-      X-OKAPI-TENANT:
-        example: sample tenant
-      X-OKAPI-TOKEN:
-        example: aabbccddee
-      Content-Type: 
-        example: application/vnd.api+json
     responses: 
       200:
         body:
@@ -872,15 +815,6 @@ types:
     description: Entity representing a provider
     get:
       description: Get the provider with providerId = {provider_id}
-      headers:
-        X-OKAPI-URL:
-          example: https://sampleurl.io
-        X-OKAPI-TENANT:
-          example: sample tenant
-        X-OKAPI-TOKEN:
-          example: aabbccddee
-        Content-Type: 
-          example: application/vnd.api+json
       queryParameters:
         include:
           displayName: Nested resource
@@ -912,12 +846,6 @@ types:
       description: |
         This operation allows you to update provider proxy and token values for a specifix provider ID.
       headers:
-        X-OKAPI-URL:
-          example: https://sampleurl.io
-        X-OKAPI-TENANT:
-          example: sample tenant
-        X-OKAPI-TOKEN:
-          example: aabbccddee
         Content-Type: 
           example: application/vnd.api+json
       queryParameters:
@@ -947,15 +875,6 @@ types:
         description: |
           This operation allows you to retrieve a list of packages from EPKB for a provider including customer context.
         is: [indexable, filterable]
-        headers:
-          X-OKAPI-URL:
-            example: https://sampleurl.io
-          X-OKAPI-TENANT:
-            example: sample tenant
-          X-OKAPI-TOKEN:
-            example: aabbccddee
-          Content-Type: 
-            example: application/vnd.api+json
         responses: 
           200:
             body: 
@@ -965,12 +884,6 @@ types:
   post:
     description: Create a relation between an existing custom package and an existing custom/managed title.
     headers:
-      X-OKAPI-URL:
-        example: https://sampleurl.io
-      X-OKAPI-TENANT:
-        example: sample tenant
-      X-OKAPI-TOKEN:
-        example: aabbccddee
       Content-Type: 
         example: application/vnd.api+json
     body:
@@ -1098,15 +1011,6 @@ types:
         Retrieve a specific resource given resourceId.
         Note that a resource is a managed/custom title associated with a managed/custom package.
         resourceId is providerId-packageId-titleId
-      headers:
-        X-OKAPI-URL:
-          example: https://sampleurl.io
-        X-OKAPI-TENANT:
-          example: sample tenant
-        X-OKAPI-TOKEN:
-          example: aabbccddee
-        Content-Type: 
-          example: application/vnd.api+json
       queryParameters:
         include:
           displayName: Nested provider, package or title
@@ -1287,12 +1191,6 @@ types:
         Update a managed or custom resource using resourceId
         Note that resourceId is providerId-packageId-titleId
       headers:
-        X-OKAPI-URL:
-          example: https://sampleurl.io
-        X-OKAPI-TENANT:
-          example: sample tenant
-        X-OKAPI-TOKEN:
-          example: aabbccddee
         Content-Type: 
           example: application/vnd.api+json
       body:
@@ -1500,15 +1398,6 @@ types:
         Delete the association between a custom/managed title and a custom package using resourceId.
         Note that resourceId is providerId-packageId-titleId
         If the title is custom and is not associated with any other package, then the title will be deleted from the knowledge base.
-      headers:
-        X-OKAPI-URL:
-          example: https://sampleurl.io
-        X-OKAPI-TENANT:
-          example: sample tenant
-        X-OKAPI-TOKEN:
-          example: aabbccddee
-        Content-Type: 
-          example: application/vnd.api+json
       responses:
         204:
           description: No Content
