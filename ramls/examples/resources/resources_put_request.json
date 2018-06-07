@@ -1,5 +1,6 @@
 {
   "data": {
+    "type": "resources",
     "attributes": {
       "url": "https://hello.io",
       "isSelected": true,
