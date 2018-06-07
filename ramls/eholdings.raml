@@ -153,69 +153,12 @@ types:
         description: OK
         body:
           application/vnd.api+json:
-            example: |
-              {
-                "data": [
-                  {
-                    "id": "0-1117849",
-                    "type": "packages",
-                    "attributes": {
-                      "contentType": "Unknown",
-                      "customCoverage": {
-                        "beginCoverage": "",
-                        "endCoverage": ""
-                      },
-                      "isCustom": false,
-                      "isSelected": false,
-                      "name": "",
-                      "packageId": 1117849,
-                      "packageType": "Complete",
-                      "providerId": 0,
-                      "providerName": "System Account",
-                      "selectedCount": 0,
-                      "titleCount": 0,
-                      "vendorId": 0,
-                      "vendorName": "System Account",
-                      "visibilityData": {
-                        "isHidden": false,
-                        "reason": ""
-                      }
-                    },
-                    "relationships": {
-                      "resources": {
-                        "meta": {
-                          "included": false
-                        }
-                      },
-                      "vendor": {
-                        "meta": {
-                          "included": false
-                        }
-                      },
-                      "provider": {
-                        "meta": {
-                          "included": false
-                        }
-                      }
-                    }
-                  }
-                ]
-              }
+            example: !include /examples/packages/packages_get_200_response.json        
       400:
         description: Bad Request
         body:
           application/vnd.api+json:
-            example: |
-              {
-                "errors": [
-                  {
-                    "title": "Invalid filter parameter"
-                  }
-                ],
-                "jsonapi": {
-                  "version": "1.0"
-                }
-              }
+            example: !include /examples/packages/packages_get_400_response.json
   post:
     description: Create a custom package
     headers:
@@ -224,91 +167,43 @@ types:
     body:
       application/vnd.api+json:
         properties:
-          name:
-            description: Name of the custom package to be created
-            type: string
-            example: My test package
+          data:
+            description: Needed because of JSON API
+            type: object
             required: true
-          contentType:
-            description: Content type of the custom package to be created
-            type: string
-            enum: ["all", "aggregatedfulltext", "abstractandindex", "ebook", "ejournal", "print", "onlinereference", "unknown"]
-            example: unknown
-            required: true
-          customCoverage:
-            description: Coverage dates of the custom package to be created
-            type: customCoverage
-            required: false
+            properties:
+              attributes:
+                description: Needed because of JSON API
+                type: object
+                required: true
+                properties:
+                  name:
+                    description: Name of the custom package to be created
+                    type: string
+                    example: My test package
+                    required: true
+                  contentType:
+                    description: Content type of the custom package to be created
+                    type: string
+                    enum: ["all", "aggregatedfulltext", "abstractandindex", "ebook", "ejournal", "print", "onlinereference", "unknown"]
+                    example: unknown
+                    required: true
+                  customCoverage:
+                    description: Coverage dates of the custom package to be created
+                    type: customCoverage
+                    required: false
+        example: !include examples/packages/packages_post_request.json
     responses:
       200:
         description: OK
         body:
           application/vnd.api+json:
-            example: |
-              {
-                "data": {
-                  "id": "123355-2880981",
-                  "type": "packages",
-                  "attributes": {
-                    "contentType": "E-Book",
-                    "customCoverage": {
-                      "beginCoverage": "2003-01-01",
-                      "endCoverage": "2004-01-01"
-                    },
-                    "isCustom": true,
-                    "isSelected": true,
-                    "name": "yet another custom package again",
-                    "packageId": 2880981,
-                    "packageType": "Custom",
-                    "providerId": 123355,
-                    "providerName": "API DEV CORPORATE CUSTOMER",
-                    "selectedCount": 0,
-                    "titleCount": 0,
-                    "vendorId": 123355,
-                    "vendorName": "API DEV CORPORATE CUSTOMER",
-                    "visibilityData": {
-                      "isHidden": false,
-                      "reason": ""
-                    },
-                    "allowKbToAddTitles": false
-                  },
-                  "relationships": {
-                    "resources": {
-                      "meta": {
-                        "included": false
-                      }
-                    },
-                    "vendor": {
-                      "meta": {
-                        "included": false
-                      }
-                    },
-                    "provider": {
-                      "meta": {
-                        "included": false
-                      }
-                    }
-                  }
-                },
-                "jsonapi": {
-                  "version": "1.0"
-                }
-              }
+            example: !include /examples/packages/packages_post_200_response.json
       400:
         description: Bad Request
         body:
           application/vnd.api+json:
-              example: |
-                {
-                  "errors": [
-                    {
-                      "title": {"errors":[{"code":1009,"subCode":0,"message":"Custom Package with the provided name already exists"}]}
-                    }
-                  ],
-                  "jsonapi": {
-                    "version": "1.0"
-                  }
-                }
+              example: !include /examples/packages/packages_post_400_response.json
   /{packageId}:
     get:
       description: |
@@ -327,84 +222,17 @@ types:
           description: OK
           body:
             application/vnd.api+json:
-              example: |
-                {
-                  "data": {
-                    "id": "123355-2848228",
-                    "type": "packages",
-                    "attributes": {
-                      "contentType": "E-Journal",
-                      "customCoverage": {
-                        "beginCoverage": "2003-01-01",
-                        "endCoverage": "2004-01-01"
-                      },
-                      "isCustom": true,
-                      "isSelected": true,
-                      "name": "test package for documentation again",
-                      "packageId": 2848228,
-                      "packageType": "Custom",
-                      "providerId": 123355,
-                      "providerName": "API DEV CORPORATE CUSTOMER",
-                      "selectedCount": 0,
-                      "titleCount": 0,
-                      "vendorId": 123355,
-                      "vendorName": "API DEV CORPORATE CUSTOMER",
-                      "visibilityData": {
-                        "isHidden": true,
-                        "reason": ""
-                      },
-                      "allowKbToAddTitles": false
-                    },
-                    "relationships": {
-                      "resources": {
-                        "meta": {
-                          "included": false
-                        }
-                      },
-                      "vendor": {
-                        "meta": {
-                          "included": false
-                        }
-                      },
-                      "provider": {
-                        "meta": {
-                          "included": false
-                        }
-                      }
-                    }
-                  },
-                  "jsonapi": {
-                    "version": "1.0"
-                  }
-                }
+              example: !include /examples/packages/packages_packageId_get_200_response.json
         400:
           description: Bad Request
           body:
             application/vnd.api+json:
-              example: |
-                {
-                  "errors": [{
-                      "title": {"errors":[{"code":1006,"subCode":0,"message":"Invalid value for orderby. Acceptable values are: Relevance, 0, PackageName, 1"},{"code":1005,"subCode":0,"message":"Parameter Count is missing."},{"code":1005,"subCode":0,"message":"Parameter Offset is missing."},{"code":1005,"subCode":0,"message":"Parameter OrderBy is missing."}]}
-                    }],
-                  "jsonapi": {
-                    "version": "1.0"
-                  }
-                }
+              example: !include /examples/packages/packages_packageId_get_400_response.json
         404:
           description: Not Found
           body:
             application/vnd.api+json:
-              example: |
-                {
-                  "errors": [
-                    {
-                      "title": {"errors":[{"code":1001,"subCode":0,"message":"Vendor not found"}]}
-                    }
-                  ],
-                  "jsonapi": {
-                    "version": "1.0"
-                  }
-                }
+              example: !include examples/packages/packages_packageId_get_404_response.json
     put:
       description: |
         Update a managed or custom package using packageId
@@ -415,155 +243,80 @@ types:
       body:
         application/vnd.api+json:
           properties:
-            name:
-              description: |
-                Name of the custom package to be updated.
-                Note that this attribute can be updated ONLY FOR A CUSTOM PACKAGE. 
-              type: string
-              example: My test package
+            data:
+              description: Needed because of JSON API
+              type: object
               required: true
-            contentType:
-              description: |
-                Content type of the custom package to be updated.
-                Note that this attribute can be updated ONLY FOR A CUSTOM PACKAGE.
-              type: string
-              enum: [all, aggregatedfulltext, abstractandindex, ebook, ejournal, print, onlinereference, unknown]
-              example: unknown
-              required: true
-            customCoverage:
-              description: |
-                Coverage dates of the custom or managed package to be updated.
-                Note that this attribute can be updated BOTH FOR CUSTOM PACKAGES AND MANAGED PACKAGES.
-              type: customCoverage
-              required: false
-            isSelected:
-              description: |
-                Selection of the managed or custom package to be updated.
-                Note that selection can be updated for BOTH CUSTOM AND MANAGED PACKAGES.
-                For custom packages, if this is set to false, it deletes the package.
-              type: boolean
-              example: true
-              required: false
-            allowKbToAddTitles:
-              description: |
-                Automatically allow KB to add titles for a managed package.
-                Note that this attribute can be updated ONLY FOR A MANAGED PACKAGE.
-              type: boolean
-              example: true
-              required: false
-            visibilityData:
-              description: |
-                Indicates whether package should be hidden or visible to patrons.
-                Note that this attribute can be updated both for CUSTOM AND MANAGED PACKAGES.
-              type: visibilityData
-              required: false
+              properties:
+                attributes:
+                  description: Needed because of JSON API
+                  type: object
+                  required: true
+                  properties:
+                    name:
+                      description: |
+                        Name of the custom package to be updated.
+                        Note that this attribute can be updated ONLY FOR A CUSTOM PACKAGE. 
+                      type: string
+                      example: My test package
+                      required: true
+                    contentType:
+                      description: |
+                        Content type of the custom package to be updated.
+                        Note that this attribute can be updated ONLY FOR A CUSTOM PACKAGE.
+                      type: string
+                      enum: [all, aggregatedfulltext, abstractandindex, ebook, ejournal, print, onlinereference, unknown]
+                      example: unknown
+                      required: true
+                    customCoverage:
+                      description: |
+                        Coverage dates of the custom or managed package to be updated.
+                        Note that this attribute can be updated BOTH FOR CUSTOM PACKAGES AND MANAGED PACKAGES.
+                      type: customCoverage
+                      required: false
+                    isSelected:
+                      description: |
+                        Selection of the managed or custom package to be updated.
+                        Note that selection can be updated for BOTH CUSTOM AND MANAGED PACKAGES.
+                        For custom packages, if this is set to false, it deletes the package.
+                      type: boolean
+                      example: true
+                      required: false
+                    allowKbToAddTitles:
+                      description: |
+                        Automatically allow KB to add titles for a managed package.
+                        Note that this attribute can be updated ONLY FOR A MANAGED PACKAGE.
+                      type: boolean
+                      example: true
+                      required: false
+                    visibilityData:
+                      description: |
+                        Indicates whether package should be hidden or visible to patrons.
+                        Note that this attribute can be updated both for CUSTOM AND MANAGED PACKAGES.
+                      type: visibilityData
+                      required: false
+          example: !include examples/packages/packages_put_request.json
       responses:
         200:
           description: OK
           body:
             application/vnd.api+json:
-              example: |
-                {
-                  "data": {
-                    "id": "123355-2880981",
-                    "type": "packages",
-                    "attributes": {
-                      "contentType": "E-Book",
-                      "customCoverage": {
-                        "beginCoverage": "2003-01-01",
-                        "endCoverage": "2004-01-01"
-                      },
-                      "isCustom": true,
-                      "isSelected": true,
-                      "name": "yet another custom package again",
-                      "packageId": 2880981,
-                      "packageType": "Custom",
-                      "providerId": 123355,
-                      "providerName": "API DEV CORPORATE CUSTOMER",
-                      "selectedCount": 0,
-                      "titleCount": 0,
-                      "vendorId": 123355,
-                      "vendorName": "API DEV CORPORATE CUSTOMER",
-                      "visibilityData": {
-                        "isHidden": true,
-                        "reason": ""
-                      },
-                      "allowKbToAddTitles": true
-                    },
-                    "relationships": {
-                      "resources": {
-                        "meta": {
-                          "included": false
-                        }
-                      },
-                      "vendor": {
-                        "meta": {
-                          "included": false
-                        }
-                      },
-                      "provider": {
-                        "meta": {
-                          "included": false
-                        }
-                      }
-                    }
-                  },
-                  "jsonapi": {
-                    "version": "1.0"
-                  }
-                }
+              example: !include examples/packages/packages_packageId_put_200_response.json
         400:
           description: Bad Request
           body:
             application/vnd.api+json:
-                example: |
-                  {
-                    "errors": [
-                      {
-                        "title": {"errors":[{"code":1005,"subCode":0,"message":"Attribute IsSelected is missing."}]}
-                      }
-                    ],
-                    "jsonapi": {
-                      "version": "1.0"
-                    }
-                  }
+                example: !include examples/packages/packages_packageId_put_400_response.json
         404:
           description: Not Found
           body:
             application/vnd.api+json:
-              example: |
-                {
-                  "errors": [
-                    {
-                      "title": {"errors":[{"code":1001,"subCode":0,"message":"Vendor not found"}]}
-                    }
-                  ],
-                  "jsonapi": {
-                    "version": "1.0"
-                  }
-                }
+              example: !include /examples/packages/packages_packageId_put_404_response.json
         422:
           description: Unprocessable Entity
           body:
             application/vnd.api+json:
-              example: |
-                {
-                  "errors": [
-                    {
-                      "title": "Invalid beginCoverage",
-                      "detail": "Begincoverage must be blank",
-                      "source": {}
-                    },
-                    {
-                      "title": "Invalid endCoverage",
-                      "detail": "Endcoverage must be blank",
-                      "source": {}
-                    }
-                  ],
-                  "jsonapi": {
-                    "version": "1.0"
-                  }
-                }
+              example: !include /examples/packages/packages_packageId_put_422_response.json
     delete:
       description: |
         Delete a specific custom package using packageId.
@@ -579,226 +332,7 @@ types:
             description: OK
             body:
               application/vnd.api+json:
-                example: |
-                  {
-                      "data": [
-                        {
-                          "id": "19-6581-581242",
-                          "type": "resources",
-                          "attributes": {
-                            "description": null,
-                            "edition": null,
-                            "isPeerReviewed": null,
-                            "isTitleCustom": false,
-                            "publisherName": "Wroclaw University of Environmental & Life Sciences",
-                            "titleId": 581242,
-                            "contributors": [],
-                            "identifiers": [
-                              {
-                                "id": "1644-065X",
-                                "type": "ISSN",
-                                "subtype": "Print"
-                              },
-                              {
-                                "id": "2083-8654",
-                                "type": "ISSN",
-                                "subtype": "Online"
-                              },
-                              {
-                                "id": "97C7",
-                                "type": "Mid",
-                                "subtype": "Empty"
-                              },
-                              {
-                                "id": "581242",
-                                "type": "BHM",
-                                "subtype": "Empty"
-                              }
-                            ],
-                            "name": "Acta Scientiarum Polonorum. Biotechnologia",
-                            "publicationType": "Journal",
-                            "subjects": [
-                              {
-                                "type": "TLI",
-                                "subject": "Biological Engineering"
-                              }
-                            ],
-                            "coverageStatement": null,
-                            "customEmbargoPeriod": {
-                              "embargoUnit": null,
-                              "embargoValue": 0
-                            },
-                            "isPackageCustom": false,
-                            "isSelected": false,
-                            "isTokenNeeded": false,
-                            "locationId": 4829613,
-                            "managedEmbargoPeriod": {
-                              "embargoUnit": null,
-                              "embargoValue": 0
-                            },
-                            "packageId": "19-6581",
-                            "packageName": "EBSCO Biotechnology Collection: India",
-                            "url": "http://search.ebscohost.com/direct.asp?db=bti&jid=97C7&scope=site",
-                            "vendorId": 19,
-                            "vendorName": "EBSCO",
-                            "providerId": 19,
-                            "providerName": "EBSCO",
-                            "visibilityData": {
-                              "isHidden": false,
-                              "reason": ""
-                            },
-                            "managedCoverages": [
-                              {
-                                "beginCoverage": "2008-12-01",
-                                "endCoverage": ""
-                              }
-                            ],
-                            "customCoverages": [],
-                            "proxy": null
-                          },
-                          "relationships": {
-                            "vendor": {
-                              "meta": {
-                                "included": false
-                              }
-                            },
-                            "provider": {
-                              "meta": {
-                                "included": false
-                              }
-                            },
-                            "title": {
-                              "meta": {
-                                "included": false
-                              }
-                            },
-                            "package": {
-                              "meta": {
-                                "included": false
-                              }
-                            }
-                          }
-                        },
-                        {
-                          "id": "19-6581-2467485",
-                          "type": "resources",
-                          "attributes": {
-                            "description": null,
-                            "edition": null,
-                            "isPeerReviewed": null,
-                            "isTitleCustom": false,
-                            "publisherName": "AVS: Science & Technology of Materials, Interfaces, and Processing",
-                            "titleId": 2467485,
-                            "contributors": [],
-                            "identifiers": [
-                            {
-                              "id": "1934-8630",
-                              "type": "ISSN",
-                              "subtype": "Print"
-                            },
-                            {
-                              "id": "1559-4106",
-                              "type": "ISSN",
-                              "subtype": "Online"
-                            },
-                            {
-                              "id": "102667066",
-                              "type": "SPID",
-                              "subtype": "Empty"
-                            },
-                            {
-                              "id": "122153798",
-                              "type": "SPID",
-                              "subtype": "Empty"
-                            },
-                            {
-                              "id": "714936",
-                              "type": "EjsJournalID",
-                              "subtype": "Empty"
-                            },
-                            {
-                              "id": "2F7L",
-                              "type": "Mid",
-                              "subtype": "Empty"
-                            },
-                            {
-                              "id": "2248363",
-                              "type": "BHM",
-                              "subtype": "Empty"
-                            }
-                          ],
-                          "name": "Biointerphases",
-                          "publicationType": "Journal",
-                          "subjects": [
-                            {
-                              "type": "TLI",
-                              "subject": "Physics"
-                            }
-                          ],
-                          "coverageStatement": null,
-                          "customEmbargoPeriod": {
-                            "embargoUnit": null,
-                            "embargoValue": 0
-                          },
-                          "isPackageCustom": false,
-                          "isSelected": false,
-                          "isTokenNeeded": false,
-                          "locationId": 4829582,
-                          "managedEmbargoPeriod": {
-                            "embargoUnit": null,
-                            "embargoValue": 0
-                          },
-                          "packageId": "19-6581",
-                          "packageName": "EBSCO Biotechnology Collection: India",
-                          "url": "http://search.ebscohost.com/direct.asp?db=bti&jid=2F7L&scope=site",
-                          "vendorId": 19,
-                          "vendorName": "EBSCO",
-                          "providerId": 19,
-                          "providerName": "EBSCO",
-                          "visibilityData": {
-                            "isHidden": false,
-                            "reason": ""
-                          },
-                          "managedCoverages": [
-                            {
-                              "beginCoverage": "2006-12-01",
-                              "endCoverage": ""
-                            }
-                          ],
-                          "customCoverages": [],
-                          "proxy": null
-                        },
-                        "relationships": {
-                          "vendor": {
-                            "meta": {
-                              "included": false
-                            }
-                          },
-                          "provider": {
-                            "meta": {
-                              "included": false
-                            }
-                          },
-                          "title": {
-                            "meta": {
-                              "included": false
-                            }
-                          },
-                          "package": {
-                            "meta": {
-                              "included": false
-                            }
-                          }
-                        }
-                      }
-                    ],
-                    "meta": {
-                      "totalResults": 157
-                    },
-                    "jsonapi": {
-                      "version": "1.0"
-                    }
-                  }
+                example: !include /examples/packages/packages_packageId_resources_get_200_response.json
                   
 /eholdings/providers:
   displayName: Providers
@@ -1147,122 +681,47 @@ types:
     body:
       application/vnd.api+json:
         properties:
-          packageId:
-            description: |
-              Id of the custom package to which the managed/custom title is to be associated.
-              Note that packageId is a combination of vendorId-packageId.
-            type: string
-            example: 123355-2845510
+          data:
+            description: Needed because of JSON API
+            type: object
             required: true
-          titleId:
-            description: Id of the managed/custom title that needs to be associated to a custom package.
-            type: string
-            example: "17059786"
-            required: true
-          url:
-            description: Custom URL displaying the relationship between the custom package and custom/managed title.
-            type: string
-            required: false
-            example: https://hello.io
+            properties:
+              attributes:
+                description: Needed because of JSON API
+                type: object
+                required: true
+                properties:
+                  packageId:
+                    description: |
+                      Id of the custom package to which the managed/custom title is to be associated.
+                      Note that packageId is a combination of vendorId-packageId.
+                    type: string
+                    example: 123355-2845510
+                    required: true
+                  titleId:
+                    description: Id of the managed/custom title that needs to be associated to a custom package.
+                    type: string
+                    example: "17059786"
+                    required: true
+                  url:
+                    description: Custom URL displaying the relationship between the custom package and custom/managed title.
+                    type: string
+                    required: false
+                    example: https://hello.io
+        example: !include /examples/resources/resources_post_request.json
     responses:
       200:
         description: OK
         body:
           application/vnd.api+json:
-            example: |
-              {
-                "data": {
-                  "id": "123355-2845510-17059786",
-                  "type": "resources",
-                  "attributes": {
-                    "description": null,
-                    "edition": null,
-                    "isPeerReviewed": false,
-                    "isTitleCustom": true,
-                    "publisherName": null,
-                    "titleId": 17059786,
-                    "contributors": [],
-                    "identifiers": [],
-                    "name": "SD custom title",
-                    "publicationType": "Book",
-                    "subjects": [],
-                    "coverageStatement": null,
-                    "customEmbargoPeriod": {
-                      "embargoUnit": null,
-                      "embargoValue": 0
-                    },
-                    "isPackageCustom": true,
-                    "isSelected": true,
-                    "isTokenNeeded": false,
-                    "locationId": 0,
-                    "managedEmbargoPeriod": {
-                      "embargoUnit": null,
-                      "embargoValue": 0
-                    },
-                    "packageId": "123355-2845510",
-                    "packageName": "Testing2",
-                    "url": null,
-                    "vendorId": 123355,
-                    "vendorName": "API DEV CORPORATE CUSTOMER",
-                    "providerId": 123355,
-                    "providerName": "API DEV CORPORATE CUSTOMER",
-                    "visibilityData": {
-                      "isHidden": false,
-                      "reason": ""
-                    },
-                    "managedCoverages": [],
-                    "customCoverages": [],
-                    "proxy": {
-                      "id": "<n>",
-                      "inherited": true
-                    }
-                  },
-                  "relationships": {
-                    "vendor": {
-                      "meta": {
-                        "included": false
-                      }
-                    },
-                    "provider": {
-                      "meta": {
-                        "included": false
-                      }
-                    },
-                    "title": {
-                      "meta": {
-                        "included": false
-                      }
-                    },
-                    "package": {
-                      "meta": {
-                        "included": false
-                      }
-                    }
-                  }
-                },
-                "jsonapi": {
-                  "version": "1.0"
-                }
-              }
+            example: !include /examples/resources/resources_post_200_response.json
       400:
         description: Bad Request
       422:
         description: Unprocessable Entity
         body:
           application/vnd.api+json:
-            example: |
-              {
-                "errors": [
-                  {
-                    "title": "Invalid PackageId",
-                    "detail": "Packageid Cannot associate Title with a managed Package",
-                    "source": {}
-                  }
-                ],
-                "jsonapi": {
-                  "version": "1.0"
-                }
-              }
+            example: !include /examples/resources/resources_post_422_response.json
   /{resourceId}:
     get:
       description: |
@@ -1282,168 +741,14 @@ types:
           description: OK
           body:
             application/vnd.api+json:
-              example: |
-                {
-                  "data": {
-                    "id": "22-1887786-1440285",
-                    "type": "resources",
-                    "attributes": {
-                      "description": null,
-                      "edition": null,
-                      "isPeerReviewed": false,
-                      "isTitleCustom": false,
-                      "publisherName": "Elsevier",
-                      "titleId": 1440285,
-                      "contributors": [
-                        {
-                          "type": "Author",
-                          "contributor": "Havard, Margaret"
-                        },
-                        {
-                          "type": "Author",
-                          "contributor": "Tiziani, Adriana."
-                        }
-                      ],
-                      "identifiers": [
-                        {
-                          "id": "1440285",
-                          "type": "BHM",
-                          "subtype": "Empty"
-                        },
-                        {
-                          "id": "475765",
-                          "type": "EPBookID",
-                          "subtype": "Empty"
-                        },
-                        {
-                          "id": "978-0-7295-3913-5",
-                          "type": "ISBN",
-                          "subtype": "Print"
-                        },
-                        {
-                          "id": "978-0-7295-7913-1",
-                          "type": "ISBN",
-                          "subtype": "Online"
-                        }
-                      ],
-                      "name": "Havard's Nursing Guide to Drugs (Nursing Guide to Drugs)",
-                      "publicationType": "Book",
-                      "subjects": [
-                        {
-                          "type": "BISAC",
-                          "subject": "MEDICAL / Nursing / Pharmacology"
-                        }
-                      ],
-                      "coverageStatement": "Only 2000s issues available.",
-                      "customEmbargoPeriod": {
-                        "embargoUnit": "Days",
-                        "embargoValue": 7
-                      },
-                      "isPackageCustom": false,
-                      "isSelected": true,
-                      "isTokenNeeded": true,
-                      "locationId": 17545807,
-                      "managedEmbargoPeriod": {
-                        "embargoUnit": null,
-                        "embargoValue": 0
-                      },
-                      "packageId": "22-1887786",
-                      "packageName": "ProQuest Ebook Central",
-                      "url": "https://ebookcentral.proquest.com/lib/[[SiteID]]/detail.action?docID=1722033",
-                      "vendorId": 22,
-                      "vendorName": "Proquest Info & Learning Co",
-                      "providerId": 22,
-                      "providerName": "Proquest Info & Learning Co",
-                      "visibilityData": {
-                        "isHidden": true,
-                        "reason": ""
-                      },
-                      "managedCoverages": [
-                        {
-                          "beginCoverage": "2010-01-01",
-                          "endCoverage": "2010-12-31"
-                        }
-                      ],
-                      "customCoverages": [
-                        {
-                          "beginCoverage": "2003-01-01",
-                          "endCoverage": "2004-01-01"
-                        }
-                      ],
-                      "proxy": {
-                        "id": "EZProxy",
-                        "inherited": false
-                      }
-                    },
-                    "relationships": {
-                      "vendor": {
-                        "meta": {
-                          "included": false
-                        }
-                      },
-                      "provider": {
-                        "data": {
-                          "type": "providers",
-                          "id": "22"
-                        }
-                      },
-                      "title": {
-                        "meta": {
-                          "included": false
-                        }
-                      },
-                      "package": {
-                        "meta": {
-                          "included": false
-                        }
-                      }
-                    }
-                  },
-                  "included": [
-                    {
-                      "id": "22",
-                      "type": "providers",
-                      "attributes": {
-                        "name": "Proquest Info & Learning Co",
-                        "packagesTotal": 840,
-                        "packagesSelected": 30,
-                        "providerToken": null,
-                        "supportsCustomPackages": false,
-                        "proxy": {
-                          "id": "EZProxy",
-                          "inherited": true
-                        }
-                      },
-                      "relationships": {
-                        "packages": {
-                          "meta": {
-                            "included": false
-                          }
-                        }
-                      }
-                    }
-                  ],
-                  "jsonapi": {
-                    "version": "1.0"
-                  }
-                }
+              example: !include /examples/resources/resources_resourceId_get_200_response.json
         400:
           description: Bad Request
         404:
           description: Not Found
           body:
             application/vnd.api+json:
-              example: |
-                {
-                  "errors": [
-                    {
-                      "title": "Title not found"
-                    }
-                  ],
-                  "jsonapi": {
-                    "version": "1.0"
-                  }
-                }
+              example: !include /examples/resources/resources_resourceId_get_404_response.json
     put:
       description: |
         Update a managed or custom resource using resourceId
@@ -1454,203 +759,94 @@ types:
       body:
         application/vnd.api+json:
           properties:
-            url:
-              description: |
-                Custom URL of a custom resource.
-                Note that this attribute can be updated ONLY FOR A CUSTOM RESOURCE. 
-              type: string
-              example: "https://hello.io"
-              required: false
-            customCoverages:
-              description: |
-                Coverage dates of the custom or managed resource to be updated.
-                Note that this attribute can be updated BOTH FOR CUSTOM RESOURCES AND MANAGED RESOURCES.
-              type: array
-              items: customCoverage
-              required: false
-              example:
-                - # start item 1
-                  beginCoverage: 2018-06-03
-                  endCoverage: 2018-06-04
-                - # start item 2
-                  beginCoverage: 2018-06-05
-                  endCoverage: 2018-06-06
-            isSelected:
-              description: |
-                Selection of the managed or custom resource to be updated.
-                Note that selection can be updated for BOTH CUSTOM AND MANAGED RESOURCES.
-                For custom resources, if this is set to false, it disassociates the resource from the contained custom package.
-                If the title is custom and is not associated with any other package, then the title will be deleted from the knowledge base.
-                This param is required for a custom resource and is optional for a managed resource.
-              type: boolean
-              example: true
+            data:
+              description: Needed because of JSON API
+              type: object
               required: true
-            visibilityData:
-              description: |
-                Indicates whether resource should be hidden or visible to patrons.
-                Note that this attribute can be updated both for CUSTOM AND MANAGED RESOURCES.
-              type: visibilityData
-              required: false
-            coverageStatement:
-              description: |
-                Coverage Statement of a managed or custom resource.
-                Note that this attribute can be updated both for CUSTOM AND MANAGED RESOURCES.
-              type: string
-              required: false
-              example: "Sample coverage statement"
-            customEmbargoPeriod:
-              description: |
-                Custom Embargo of a managed or custom resource.
-                Note that this attribute can be updated both for CUSTOM AND MANAGED RESOURCES.
-              type: customEmbargoPeriod
-              required: false
-            proxy:
-              description: |
-                Ability to update selection of proxy for a custom or managed resource.
-                Note that this attribute can be updated both for CUSTOM AND MANAGED RESOURCES.
-              type: proxy
-              required: false
+              properties:
+                attributes:
+                  description: Needed because of JSON API
+                  type: object
+                  required: true
+                  properties:
+                    url:
+                      description: |
+                        Custom URL of a custom resource.
+                        Note that this attribute can be updated ONLY FOR A CUSTOM RESOURCE. 
+                      type: string
+                      example: "https://hello.io"
+                      required: false
+                    customCoverages:
+                      description: |
+                        Coverage dates of the custom or managed resource to be updated.
+                        Note that this attribute can be updated BOTH FOR CUSTOM RESOURCES AND MANAGED RESOURCES.
+                      type: array
+                      items: customCoverage
+                      required: false
+                      example:
+                        - # start item 1
+                          beginCoverage: 2018-06-03
+                          endCoverage: 2018-06-04
+                        - # start item 2
+                          beginCoverage: 2018-06-05
+                          endCoverage: 2018-06-06
+                    isSelected:
+                      description: |
+                        Selection of the managed or custom resource to be updated.
+                        Note that selection can be updated for BOTH CUSTOM AND MANAGED RESOURCES.
+                        For custom resources, if this is set to false, it disassociates the resource from the contained custom package.
+                        If the title is custom and is not associated with any other package, then the title will be deleted from the knowledge base.
+                        This param is required for a custom resource and is optional for a managed resource.
+                      type: boolean
+                      example: true
+                      required: true
+                    visibilityData:
+                      description: |
+                        Indicates whether resource should be hidden or visible to patrons.
+                        Note that this attribute can be updated both for CUSTOM AND MANAGED RESOURCES.
+                      type: visibilityData
+                      required: false
+                    coverageStatement:
+                      description: |
+                        Coverage Statement of a managed or custom resource.
+                        Note that this attribute can be updated both for CUSTOM AND MANAGED RESOURCES.
+                      type: string
+                      required: false
+                      example: "Sample coverage statement"
+                    customEmbargoPeriod:
+                      description: |
+                        Custom Embargo of a managed or custom resource.
+                        Note that this attribute can be updated both for CUSTOM AND MANAGED RESOURCES.
+                      type: customEmbargoPeriod
+                      required: false
+                    proxy:
+                      description: |
+                        Ability to update selection of proxy for a custom or managed resource.
+                        Note that this attribute can be updated both for CUSTOM AND MANAGED RESOURCES.
+                      type: proxy
+                      required: false
+          example: !include examples/resources/resources_put_request.json
       responses:
         200:
           description: OK
           body:
             application/vnd.api+json:
-              example: |
-                {
-                  "data": {
-                    "id": "123355-2845510-17059786",
-                    "type": "resources",
-                    "attributes": {
-                      "description": null,
-                      "edition": null,
-                      "isPeerReviewed": false,
-                      "isTitleCustom": true,
-                      "publisherName": null,
-                      "titleId": 17059786,
-                      "contributors": [],
-                      "identifiers": [],
-                      "name": "SD custom title",
-                      "publicationType": "Book",
-                      "subjects": [],
-                      "coverageStatement": "hello",
-                      "customEmbargoPeriod": {
-                        "embargoUnit": "Weeks",
-                        "embargoValue": 4
-                      },
-                      "isPackageCustom": true,
-                      "isSelected": true,
-                      "isTokenNeeded": false,
-                      "locationId": 39248032,
-                      "managedEmbargoPeriod": {
-                        "embargoUnit": null,
-                        "embargoValue": 0
-                      },
-                      "packageId": "123355-2845510",
-                      "packageName": "\"Testing2\"",
-                      "url": "https://hello.io",
-                      "vendorId": 123355,
-                      "vendorName": "API DEV CORPORATE CUSTOMER",
-                      "providerId": 123355,
-                      "providerName": "API DEV CORPORATE CUSTOMER",
-                      "visibilityData": {
-                        "isHidden": true,
-                        "reason": ""
-                      },
-                      "managedCoverages": [],
-                      "customCoverages": [
-                        {
-                          "beginCoverage": "2018-06-05",
-                          "endCoverage": "2018-06-07"
-                        },
-                        {
-                          "beginCoverage": "2018-06-08",
-                          "endCoverage": "2018-06-10"
-                        }
-                      ],
-                      "proxy": {
-                        "id": "<n>",
-                        "inherited": true
-                      }
-                    },
-                    "relationships": {
-                      "vendor": {
-                        "meta": {
-                          "included": false
-                        }
-                      },
-                      "provider": {
-                        "meta": {
-                          "included": false
-                        }
-                      },
-                      "title": {
-                        "meta": {
-                          "included": false
-                        }
-                      },
-                      "package": {
-                        "meta": {
-                          "included": false
-                        }
-                      }
-                    }
-                  },
-                  "jsonapi": {
-                    "version": "1.0"
-                  }
-                }
+              example: !include /examples/resources/resources_resourceId_put_200_response.json
         400:
           description: Bad Request
           body:
             application/vnd.api+json:
-                example: |
-                  {
-                    "errors": [
-                      {
-                        "title": "CoverageList cannot contain overlapping dates."
-                      }
-                    ],
-                    "jsonapi": {
-                      "version": "1.0"
-                    }
-                  }
+                example: !include /examples/resources/resources_resourceId_put_400_response.json
         404:
           description: Not Found
           body:
             application/vnd.api+json:
-              example: |
-                {
-                  "errors": [
-                    {
-                      "title": "Title not found"
-                    }
-                  ],
-                  "jsonapi": {
-                    "version": "1.0"
-                  }
-                }
+              example: !include /examples/resources/resources_resourceId_put_404_response.json
         422:
           description: Unprocessable Entity
           body:
             application/vnd.api+json:
-              example: |
-                {
-                  "errors": [
-                    {
-                      "title": "Invalid beginCoverage",
-                      "detail": "Begincoverage must be blank",
-                      "source": {}
-                    },
-                    {
-                      "title": "Invalid endCoverage",
-                      "detail": "Endcoverage must be blank",
-                      "source": {}
-                    }
-                  ],
-                  "jsonapi": {
-                    "version": "1.0"
-                  }
-                }
+              example: !include /examples/resources/resources_resourceId_put_422_response.json
     delete:
       description: |
         Delete the association between a custom/managed title and a custom package using resourceId.
@@ -1663,33 +859,11 @@ types:
           description: Bad Request
           body:
             application/vnd.api+json:
-              example: |
-                {
-                  "errors": [
-                    {
-                      "title": "Invalid resource",
-                      "detail": "Resource cannot be deleted",
-                      "source": {}
-                    }
-                  ],
-                  "jsonapi": {
-                    "version": "1.0"
-                  }
-                }
+              example: !include /examples/resources/resources_resourceId_delete_400_response.json
         404:
           description: Not Found
           body:
             application/vnd.api+json:
-              example: |
-                {
-                  "errors": [
-                    {
-                      "title": "Title not found"
-                    }
-                  ],
-                  "jsonapi": {
-                    "version": "1.0"
-                  }
-                }
+              example: !include /examples/resources/resources_resourceId_delete_404_response.json
 
 
