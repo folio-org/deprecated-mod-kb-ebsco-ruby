@@ -1,0 +1,26 @@
+{
+  "data": {
+    "attributes": {
+      "url": "https://hello.io",
+      "isSelected": true,
+      "visibilityData": {
+        "isHidden": true
+      },
+      "customCoverages": [{
+        "beginCoverage": "2018-06-05",
+        "endCoverage": "2018-06-07"
+      }, {
+        "beginCoverage": "2018-06-08",
+        "endCoverage": "2018-06-10"
+      }],
+      "coverageStatement": "hello",
+      "customEmbargoPeriod": {
+        "embargoValue": 4,
+        "embargoUnit": "Weeks"
+      },
+      "proxy": {
+        "id": "<n>"
+      }
+    }
+  }
+}
