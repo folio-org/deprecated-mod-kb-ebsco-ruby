@@ -226,6 +226,42 @@ RSpec.describe 'Resources', type: :request do
     end
   end
 
+  describe 'trying to get an invalid resource gives the expected errors' do
+    describe 'getting a specific resource without title id' do
+      before do
+        VCR.use_cassette('get-resource-without-title-id') do
+          get '/eholdings/resources/22-1887786',
+              headers: okapi_headers
+        end
+      end
+
+      let!(:json) { Map JSON.parse response.body }
+
+      it 'returns a 400 bad request error' do
+        expect(response).to have_http_status(400)
+        expect(json.errors.first.title).to eq 'Invalid title_id'
+        expect(json.errors.first.detail).to eq 'Title can\'t be blank'
+      end
+    end
+
+    describe 'getting a specific resource with invalid package id' do
+      before do
+        VCR.use_cassette('get-resource-with-invalid-package-id') do
+          get '/eholdings/resources/22-abcdef-17059786',
+              headers: okapi_headers
+        end
+      end
+
+      let!(:json) { Map JSON.parse response.body }
+
+      it 'returns a 400 bad request error' do
+        expect(response).to have_http_status(400)
+        expect(json.errors.first.title).to eq 'Invalid package_id'
+        expect(json.errors.first.detail).to eq 'Package :Invalid package id'
+      end
+    end
+  end
+
   describe 'updating a resource' do
     let(:update_headers) do
       okapi_headers.merge(
@@ -645,6 +681,76 @@ RSpec.describe 'Resources', type: :request do
         end
       end
     end
+
+    describe 'trying to update an invalid resource gives the expected errors' do
+      describe 'updating a specific resource without title id' do
+        let(:params) do
+          {
+            'data' => {
+              'type' => 'resources',
+              'attributes' => {
+                'isSelected' => true,
+                'visibilityData' => {
+                  'isHidden' => true
+                },
+                'proxy' => {
+                  'id' => 'EZProxy'
+                }
+              }
+            }
+          }
+        end
+
+        before do
+          VCR.use_cassette('put-resource-without-title-id') do
+            put '/eholdings/resources/22-1887786',
+                params: params, as: :json, headers: update_headers
+          end
+        end
+
+        let!(:json) { Map JSON.parse response.body }
+
+        it 'returns a 400 bad request error' do
+          expect(response).to have_http_status(400)
+          expect(json.errors.first.title).to eq 'Invalid title_id'
+          expect(json.errors.first.detail).to eq 'Title can\'t be blank'
+        end
+      end
+
+      describe 'updating a specific resource with empty provider id' do
+        let(:params) do
+          {
+            'data' => {
+              'type' => 'resources',
+              'attributes' => {
+                'isSelected' => true,
+                'visibilityData' => {
+                  'isHidden' => true
+                },
+                'proxy' => {
+                  'id' => 'EZProxy'
+                }
+              }
+            }
+          }
+        end
+
+        before do
+          VCR.use_cassette('put-resource-with-invalid-provider-id') do
+            put '/eholdings/resources/abc-1887786-17059786',
+                params: params, as: :json, headers: update_headers
+          end
+        end
+
+        let!(:json) { Map JSON.parse response.body }
+
+        it 'returns a 400 bad request error' do
+          expect(response).to have_http_status(400)
+          expect(json.errors.first.title).to eq 'Invalid vendor_id'
+          expect(json.errors.first.detail).to eq 'Vendor :Invalid vendor id'
+        end
+      end
+    end
   end
 
   describe 'getting a non-existing resource' do
@@ -811,6 +917,40 @@ RSpec.describe 'Resources', type: :request do
         expect(response).to have_http_status(400)
         expect(json.errors.first.detail).to eq 'Resource cannot be deleted'
         expect(json.errors.first.title).to eq 'Invalid resource'
+      end
+    end
+
+    describe 'trying to delete a resource without providing title id gives expected errors' do
+      before do
+        VCR.use_cassette('delete-resource-without-title-id') do
+          delete '/eholdings/resources/117-394532',
+                 headers: okapi_headers
+        end
+      end
+
+      let!(:json) { Map JSON.parse response.body }
+
+      it 'gets a bad request response' do
+        expect(response).to have_http_status(400)
+        expect(json.errors.first.detail).to eq 'Title can\'t be blank'
+        expect(json.errors.first.title).to eq 'Invalid title_id'
+      end
+    end
+
+    describe 'trying to delete a resource with invalid title id gives expected errors' do
+      before do
+        VCR.use_cassette('delete-resource-with-invalid-title-id') do
+          delete '/eholdings/resources/117-394532-abc',
+                 headers: okapi_headers
+        end
+      end
+
+      let!(:json) { Map JSON.parse response.body }
+
+      it 'gets a bad request response' do
+        expect(response).to have_http_status(400)
+        expect(json.errors.first.detail).to eq 'Title :Invalid title id'
+        expect(json.errors.first.title).to eq 'Invalid title_id'
       end
     end
   end
