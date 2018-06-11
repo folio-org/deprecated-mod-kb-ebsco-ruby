@@ -79,7 +79,15 @@ class ResourcesController < ApplicationController
   private
 
   def set_resource
-    @resource = resources.find resource_id
+    resource_id_validation =
+      Validation::ResourceID.new(resource_id)
+
+    if resource_id_validation.valid?
+      @resource = resources.find resource_id
+    else
+      render jsonapi_errors: resource_id_validation.errors,
+             status: :bad_request
+    end
   end
 
   def resource_id
