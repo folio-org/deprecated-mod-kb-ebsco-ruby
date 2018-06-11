@@ -282,6 +282,29 @@ RSpec.describe 'Titles', type: :request do
     end
   end
 
+  describe 'identifiers are sorted by subtype and type' do
+    before do
+      VCR.use_cassette('search-titles-sort-identifiers') do
+        get '/eholdings/titles/?page=1&filter[name]=a',
+            headers: okapi_headers
+      end
+    end
+
+    let!(:json_n) { Map JSON.parse response.body }
+
+    it 'contains identifiers that are sorted by subtype and type' do
+      expect(response).to have_http_status(200)
+      expect(json_n.data.length).to equal(25)
+      expect(json_n.data.third.id).to eq('169441')
+      expect(json_n.data.third.attributes.identifiers.length).to eq(4)
+      expect(json_n.data.third.attributes.identifiers[0].subtype).to eq('Empty')
+      expect(json_n.data.third.attributes.identifiers[1].subtype).to eq('Print')
+      expect(json_n.data.third.attributes.identifiers[2].subtype).to eq('Online')
+      expect(json_n.data.third.attributes.identifiers[0].type).to eq('BHM')
+      expect(json_n.data.third.attributes.identifiers[1].type).to eq('ISBN')
+    end
+  end
+
   describe 'getting a specific title' do
     before do
       VCR.use_cassette('get-titles-success') do
@@ -340,6 +363,28 @@ RSpec.describe 'Titles', type: :request do
 
     it 'returns the correct included type' do
       expect(json.included.first.type).to eq('resources')
+    end
+  end
+
+  describe 'getting a specific title with identifiers sorted by subtype and type' do
+    before do
+      VCR.use_cassette('get-titles-sorted-identifiers') do
+        get '/eholdings/titles/169441',
+            headers: okapi_headers
+      end
+    end
+
+    let!(:json) { Map JSON.parse response.body }
+
+    it 'contains identifiers that are sorted by subtype and type' do
+      expect(response).to have_http_status(200)
+      expect(json.data.id).to eq('169441')
+      expect(json.data.attributes.identifiers.length).to eq(4)
+      expect(json.data.attributes.identifiers[0].subtype).to eq('Empty')
+      expect(json.data.attributes.identifiers[1].subtype).to eq('Print')
+      expect(json.data.attributes.identifiers[2].subtype).to eq('Online')
+      expect(json.data.attributes.identifiers[0].type).to eq('BHM')
+      expect(json.data.attributes.identifiers[1].type).to eq('ISBN')
     end
   end
 
