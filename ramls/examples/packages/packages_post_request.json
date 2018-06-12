@@ -1,5 +1,6 @@
  {
    "data": {
+     "type": "packages",
      "attributes": {
        "name": "yet another custom package",
        "contentType": "unknown",

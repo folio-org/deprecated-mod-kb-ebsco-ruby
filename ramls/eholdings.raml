@@ -153,12 +153,12 @@ types:
         description: OK
         body:
           application/vnd.api+json:
-            example: !include /examples/packages/packages_get_200_response.json        
+            example: !include examples/packages/packages_get_200_response.json        
       400:
         description: Bad Request
         body:
           application/vnd.api+json:
-            example: !include /examples/packages/packages_get_400_response.json
+            example: !include examples/packages/packages_get_400_response.json
   post:
     description: Create a custom package
     headers:
@@ -172,6 +172,7 @@ types:
             type: object
             required: true
             properties:
+              type: string
               attributes:
                 description: Needed because of JSON API
                 type: object
@@ -198,12 +199,12 @@ types:
         description: OK
         body:
           application/vnd.api+json:
-            example: !include /examples/packages/packages_post_200_response.json
+            example: !include examples/packages/packages_post_200_response.json
       400:
         description: Bad Request
         body:
           application/vnd.api+json:
-              example: !include /examples/packages/packages_post_400_response.json
+              example: !include examples/packages/packages_post_400_response.json
   /{packageId}:
     get:
       description: |
@@ -222,12 +223,12 @@ types:
           description: OK
           body:
             application/vnd.api+json:
-              example: !include /examples/packages/packages_packageId_get_200_response.json
+              example: !include examples/packages/packages_packageId_get_200_response.json
         400:
           description: Bad Request
           body:
             application/vnd.api+json:
-              example: !include /examples/packages/packages_packageId_get_400_response.json
+              example: !include examples/packages/packages_packageId_get_400_response.json
         404:
           description: Not Found
           body:
@@ -248,6 +249,7 @@ types:
               type: object
               required: true
               properties:
+                type: string
                 attributes:
                   description: Needed because of JSON API
                   type: object
@@ -311,12 +313,12 @@ types:
           description: Not Found
           body:
             application/vnd.api+json:
-              example: !include /examples/packages/packages_packageId_put_404_response.json
+              example: !include examples/packages/packages_packageId_put_404_response.json
         422:
           description: Unprocessable Entity
           body:
             application/vnd.api+json:
-              example: !include /examples/packages/packages_packageId_put_422_response.json
+              example: !include examples/packages/packages_packageId_put_422_response.json
     delete:
       description: |
         Delete a specific custom package using packageId.
@@ -332,7 +334,7 @@ types:
             description: OK
             body:
               application/vnd.api+json:
-                example: !include /examples/packages/packages_packageId_resources_get_200_response.json
+                example: !include examples/packages/packages_packageId_resources_get_200_response.json
                   
 /eholdings/providers:
   displayName: Providers
@@ -345,53 +347,7 @@ types:
         body:
           application/vnd.api+json:
             description: List of providers matching the provider name and the total number of providers found.
-            example: |
-              {
-                "data":[
-                  {
-                    "id":"19",
-                    "type":"providers",
-                    "attributes":{
-                      "name":"EBSCO",
-                      "packagesTotal":627,
-                      "packagesSelected":49,
-                      "providerToken":null,
-                      "supportsCustomPackages":false
-                    },
-                    "relationships":{
-                      "packages":{
-                        "meta":{
-                          "included":false
-                        }
-                      }
-                    }
-                  },
-                  {
-                    "id":"273",
-                    "type":"providers",
-                    "attributes":{
-                      "name":"EBSCO Open Access Lists",
-                      "packagesTotal":23,
-                      "packagesSelected":6,
-                      "providerToken":null,
-                      "supportsCustomPackages":false
-                    },
-                    "relationships":{
-                      "packages":{
-                        "meta":{
-                          "included":false
-                        }
-                      }
-                    }
-                  }
-                ],
-                "meta":{
-                  "totalResults":2
-                },
-                "jsonapi":{
-                  "version":"1.0"
-                }
-              }
+            example: !include examples/providers/providers_get_200_response.json
   /{provider_id}:
     description: Entity representing a provider
     get:
@@ -408,203 +364,54 @@ types:
           body: 
             application/vnd.api+json:
               description: Provider details from EPKB for a specific provider ID.
-              example: |
-                {
-                  "data":{
-                    "id":"419",
-                    "type":"providers",
-                    "attributes":{
-                      "name":"ecch",
-                      "packagesTotal":2,
-                      "packagesSelected":0,
-                      "providerToken":null,
-                      "supportsCustomPackages":false,
-                      "proxy":{
-                        "id":"EZProxy",
-                        "inherited":true
-                      }
-                    },
-                    "relationships":{
-                      "packages":{
-                        "data":[
-                          {
-                            "type":"packages",
-                            "id":"419-3402"
-                          },
-                          {
-                            "type":"packages",
-                            "id":"419-3291"
-                          }
-                        ]
-                      }
-                    }
-                  },
-                  "included":[
-                    {
-                      "id":"419-3402",
-                      "type":"packages",
-                      "attributes":{
-                        "contentType":"Abstract and Index",
-                        "customCoverage":{
-                          "beginCoverage":"",
-                          "endCoverage":""
-                        },
-                        "isCustom":false,
-                        "isSelected":false,
-                        "name":"Case Online Information System - COLIS",
-                        "packageId":3402,
-                        "packageType":"Complete",
-                        "providerId":419,
-                        "providerName":"ecch",
-                        "selectedCount":0,
-                        "titleCount":1,
-                        "vendorId":419,
-                        "vendorName":"ecch",
-                        "visibilityData":{
-                          "isHidden":false,
-                          "reason":""
-                        },
-                        "allowKbToAddTitles":null
-                      },
-                      "relationships":{
-                        "resources":{
-                          "meta":{
-                            "included":false
-                          }
-                        },
-                        "vendor":{
-                          "meta":{
-                            "included":false
-                          }
-                        },
-                        "provider":{
-                          "meta":{
-                            "included":false
-                          }
-                        }
-                      }
-                    },
-                    {
-                      "id":"419-3291",
-                      "type":"packages",
-                      "attributes":{
-                        "contentType":"Abstract and Index",
-                        "customCoverage":{
-                          "beginCoverage":"",
-                          "endCoverage":""
-                        },
-                        "isCustom":false,
-                        "isSelected":false,
-                        "name":"European Case Clearing House Collection",
-                        "packageId":3291,
-                        "packageType":"Complete",
-                        "providerId":419,
-                        "providerName":"ecch",
-                        "selectedCount":0,
-                        "titleCount":1,
-                        "vendorId":419,
-                        "vendorName":"ecch",
-                        "visibilityData":{
-                          "isHidden":false,
-                          "reason":""
-                        },
-                        "allowKbToAddTitles":null
-                      },
-                      "relationships":{
-                        "resources":{
-                          "meta":{
-                            "included":false
-                          }
-                        },
-                        "vendor":{
-                          "meta":{
-                            "included":false
-                          }
-                        },
-                        "provider":{
-                          "meta":{
-                            "included":false
-                          }
-                        }
-                      }
-                    }
-                  ],
-                  "jsonapi":{
-                    "version":"1.0"
-                  }
-                }
+              example: !include examples/providers/providers_providerId_get_200_response.json
         404:
           description: Not Found
           body:
             application/vnd.api+json:
-              example: |
-                {
-                  "errors": [
-                    {
-                      "title": ""
-                    }
-                  ],
-                  "jsonapi": {
-                    "version": "1.0"
-                  }
-                }
+              example: !include examples/providers/providers_providerId_404_response.json
     put:
       description: |
         This operation allows you to update provider proxy and token values for a specifix provider ID.
       headers:
         Content-Type: 
           example: application/vnd.api+json
-      queryParameters:
-        providerToken:
-          displayName: Provider token
-          type: string
-          description: |
-            Tokens are variables in content URLs that identify the customer.
-            The token is text within the URL that needs to be replaced with an institute-specific value.
-          example: "[[galesiteid]]"
-          required: false
-        proxy:
-          displayName: Proxy ID
-          type: proxy
-          required: false
+      body:
+        application/vnd.api+json:
+          properties:
+            data:
+              description: Needed because of JSON API
+              type: object
+              required: true
+              properties:
+                type: string
+                attributes:
+                  description: Needed because of JSON API
+                  type: object
+                  required: true
+                  properties:
+                    providerToken:
+                      displayName: Provider token
+                      type: object
+                      description: |
+                        Tokens are variables in content URLs that identify the customer.
+                        The token is text within the URL that needs to be replaced with an institute-specific value.
+                      example: |
+                        {
+                          "value": "hellotoken"
+                        }
+                      required: false
+                    proxy:
+                      displayName: Proxy ID
+                      type: proxy
+                      required: false
+          example: !include examples/providers/providers_providerId_put_request.json
       responses: 
         200:
           body:
             application/vnd.api+json:
               description: The server has successfully fulfilled the PUT request.
-              example: |
-                {
-                  "data": {
-                    "id": "18",
-                    "type": "providers",
-                    "attributes": {
-                      "name": "Gale | Cengage",
-                      "packagesTotal": 243,
-                      "packagesSelected": 18,
-                      "providerToken": {
-                        "factName": "[[galesiteid]]",
-                        "prompt": "/itweb/",
-                        "helpText": "\u003cul\u003e\r\n \u003cli\u003eEnter your Gale\u003csup\u003e®\u003c/sup\u003e site ID in the space provided below. The site ID may contain a combination of alpha/numeric characters, varying in length. \u003cblockquote style="margin-right: 0px;" dir="ltr"\u003e\r\n \u003cp\u003e Example: The site ID immediately follows /itweb/ in a URL. The site ID in the following URL is \u003ci\u003eaa11bb22\u003c/i\u003e. \u003c/p\u003e\r\n \u003c/blockquote\u003e\u003c/li\u003e\r\n\u003c/ul\u003e\r\n\u003cblockquote style="margin-right: 0px;" dir="ltr"\u003e\u003cblockquote style="margin-right: 0px;" dir="ltr"\u003e\r\n\u003cp\u003e\u003cspan style="text-decoration: underline;"\u003ehttp://infotrac.galegroup.com/itweb/aa11bb22?db=AIM\u003c/span\u003e\u003c/p\u003e\r\n\u003c/blockquote\u003e\u003c/blockquote\u003e\u003cbr /\u003e\r\n\u003cul\u003e\r\n \u003cli\u003eIf no site ID is specified, your Gale Group links may not function properly, as Gale Group requires this information for authentication. \u003c/li\u003e\r\n \u003cli\u003eIf you are unable to locate the site ID, please contact Gale Group. For contact information, visit: \u003ca href="http://access.gale.com/authentication/\"\u003ehttp://access.gale.com/authentication/\u003c/a\u003e. \u003c/li\u003e\r\n\u003c/ul\u003e\r\n",
-                        "value": "99"
-                      },
-                      "supportsCustomPackages": false,
-                      "proxy": {
-                        "id": "\u003cn\u003e",
-                        "inherited": false
-                      }
-                    },
-                    "relationships": {
-                      "packages": {
-                        "meta": {
-                          "included": false
-                        }
-                      }
-                    }
-                  },
-                  "jsonapi": {
-                    "version": "1.0"
-                  }
-                }
+              example: !include examples/providers/providers_providerId_put_200_response.json
         500:
           body:
             application/vnd.api+json:
@@ -619,54 +426,7 @@ types:
             description: OK
             body:
               application/vnd.api+json:
-                example: |
-                  {
-                    "data": [
-                      {
-                        "id": "0-1117849",
-                        "type": "packages",
-                        "attributes": {
-                          "contentType": "Unknown",
-                          "customCoverage": {
-                            "beginCoverage": "",
-                            "endCoverage": ""
-                          },
-                          "isCustom": false,
-                          "isSelected": false,
-                          "name": "",
-                          "packageId": 1117849,
-                          "packageType": "Complete",
-                          "providerId": 0,
-                          "providerName": "System Account",
-                          "selectedCount": 0,
-                          "titleCount": 0,
-                          "vendorId": 0,
-                          "vendorName": "System Account",
-                          "visibilityData": {
-                            "isHidden": false,
-                            "reason": ""
-                          }
-                        },
-                        "relationships": {
-                          "resources": {
-                            "meta": {
-                              "included": false
-                            }
-                          },
-                          "vendor": {
-                            "meta": {
-                              "included": false
-                            }
-                          },
-                          "provider": {
-                            "meta": {
-                              "included": false
-                            }
-                          }
-                        }
-                      }
-                    ]
-                  }
+                example: !include examples/providers/providers_providerId_packages_get_200_response.json
           400:
             description: Bad Request
             body:
@@ -686,6 +446,7 @@ types:
             type: object
             required: true
             properties:
+              type: string
               attributes:
                 description: Needed because of JSON API
                 type: object
@@ -708,20 +469,20 @@ types:
                     type: string
                     required: false
                     example: https://hello.io
-        example: !include /examples/resources/resources_post_request.json
+        example: !include examples/resources/resources_post_request.json
     responses:
       200:
         description: OK
         body:
           application/vnd.api+json:
-            example: !include /examples/resources/resources_post_200_response.json
+            example: !include examples/resources/resources_post_200_response.json
       400:
         description: Bad Request
       422:
         description: Unprocessable Entity
         body:
           application/vnd.api+json:
-            example: !include /examples/resources/resources_post_422_response.json
+            example: !include examples/resources/resources_post_422_response.json
   /{resourceId}:
     get:
       description: |
@@ -741,14 +502,14 @@ types:
           description: OK
           body:
             application/vnd.api+json:
-              example: !include /examples/resources/resources_resourceId_get_200_response.json
+              example: !include examples/resources/resources_resourceId_get_200_response.json
         400:
           description: Bad Request
         404:
           description: Not Found
           body:
             application/vnd.api+json:
-              example: !include /examples/resources/resources_resourceId_get_404_response.json
+              example: !include examples/resources/resources_resourceId_get_404_response.json
     put:
       description: |
         Update a managed or custom resource using resourceId
@@ -764,6 +525,7 @@ types:
               type: object
               required: true
               properties:
+                type: string
                 attributes:
                   description: Needed because of JSON API
                   type: object
@@ -831,22 +593,22 @@ types:
           description: OK
           body:
             application/vnd.api+json:
-              example: !include /examples/resources/resources_resourceId_put_200_response.json
+              example: !include examples/resources/resources_resourceId_put_200_response.json
         400:
           description: Bad Request
           body:
             application/vnd.api+json:
-                example: !include /examples/resources/resources_resourceId_put_400_response.json
+                example: !include examples/resources/resources_resourceId_put_400_response.json
         404:
           description: Not Found
           body:
             application/vnd.api+json:
-              example: !include /examples/resources/resources_resourceId_put_404_response.json
+              example: !include examples/resources/resources_resourceId_put_404_response.json
         422:
           description: Unprocessable Entity
           body:
             application/vnd.api+json:
-              example: !include /examples/resources/resources_resourceId_put_422_response.json
+              example: !include examples/resources/resources_resourceId_put_422_response.json
     delete:
       description: |
         Delete the association between a custom/managed title and a custom package using resourceId.
@@ -859,11 +621,11 @@ types:
           description: Bad Request
           body:
             application/vnd.api+json:
-              example: !include /examples/resources/resources_resourceId_delete_400_response.json
+              example: !include examples/resources/resources_resourceId_delete_400_response.json
         404:
           description: Not Found
           body:
             application/vnd.api+json:
-              example: !include /examples/resources/resources_resourceId_delete_404_response.json
+              example: !include examples/resources/resources_resourceId_delete_404_response.json
 
 
