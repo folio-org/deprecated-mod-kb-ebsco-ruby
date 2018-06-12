@@ -1,0 +1,193 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://okapi.frontside.io/configurations/entries?query=module=KB_EBSCO
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Content-Type:
+      - application/json
+      Accept:
+      - application/json
+      X-Okapi-Tenant:
+      - fs
+      X-Okapi-Token:
+      - TEST_OKAPI_TOKEN
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx/1.13.5
+      Date:
+      - Mon, 11 Jun 2018 20:44:42 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      X-Okapi-Trace:
+      - 'GET mod-authtoken-1.4.1-SNAPSHOT.21 http://10.39.255.17:8081/configurations/entries..
+        : 202 322174us'
+      - 'GET mod-configuration-4.0.4-SNAPSHOT.36 http://10.39.247.129:8081/configurations/entries..
+        : 200 47918us'
+      Host:
+      - okapi.frontside.io
+      X-Real-Ip:
+      - 10.36.4.1
+      X-Forwarded-For:
+      - 10.36.4.1
+      X-Forwarded-Host:
+      - okapi.frontside.io
+      X-Forwarded-Port:
+      - '443'
+      X-Forwarded-Proto:
+      - https
+      X-Original-Uri:
+      - "/configurations/entries?query=module=KB_EBSCO"
+      X-Scheme:
+      - https
+      X-Auth-Request-Redirect:
+      - "/configurations/entries?query=module=KB_EBSCO"
+      Accept:
+      - application/json
+      X-Okapi-Tenant:
+      - fs
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      User-Agent:
+      - Ruby
+      X-Okapi-Request-Id:
+      - 818981/configurations
+      X-Okapi-Url:
+      - http://10.39.254.87:80
+      X-Okapi-Permissions:
+      - '["configuration.entries.collection.get","configuration.entries.collection.get"]'
+      X-Okapi-User-Id:
+      - 1ad737b0-d847-11e6-bf26-cec0c932ce01
+      X-Okapi-Token:
+      - TEST_OKAPI_TOKEN
+      Strict-Transport-Security:
+      - max-age=15724800; includeSubDomains;
+    body:
+      encoding: ASCII-8BIT
+      string: |-
+        {
+          "configs" : [ {
+            "id" : "f3fe0127-17a7-49ac-99ec-3c2cb4778b59",
+            "module" : "KB_EBSCO",
+            "configName" : "api_credentials",
+            "code" : "kb.ebsco.credentials",
+            "description" : "EBSCO Credentials",
+            "enabled" : true,
+            "value" : "customer-id=TEST_CUSTOMER_ID&api-key=TEST_API_KEY",
+            "metadata" : {
+              "createdDate" : "2018-05-31T21:45:09.727+0000",
+              "createdByUserId" : "1ad737b0-d847-11e6-bf26-cec0c932ce01",
+              "updatedDate" : "2018-05-31T21:45:09.727+0000",
+              "updatedByUserId" : "1ad737b0-d847-11e6-bf26-cec0c932ce01"
+            }
+          }, {
+            "id" : "78d23296-5e3f-47be-aebb-f5932abd5e5d",
+            "module" : "KB_EBSCO",
+            "configName" : "api_credentials",
+            "code" : "kb.ebsco.credentials",
+            "description" : "EBSCO Credentials",
+            "enabled" : true,
+            "value" : "customer-id=TEST_CUSTOMER_ID&api-key=TEST_API_KEY",
+            "metadata" : {
+              "createdDate" : "2018-06-08T23:07:06.835+0000",
+              "createdByUserId" : "1ad737b0-d847-11e6-bf26-cec0c932ce01",
+              "updatedDate" : "2018-06-08T23:07:06.835+0000",
+              "updatedByUserId" : "1ad737b0-d847-11e6-bf26-cec0c932ce01"
+            }
+          } ],
+          "totalRecords" : 2,
+          "resultInfo" : {
+            "totalRecords" : 2,
+            "facets" : [ ]
+          }
+        }
+    http_version: 
+  recorded_at: Mon, 11 Jun 2018 20:44:42 GMT
+- request:
+    method: get
+    uri: https://api.ebsco.io/rm/rmaccounts/TEST_CUSTOMER_ID/titles/169441
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Flexirest/1.6.7
+      Connection:
+      - Keep-Alive
+      Accept:
+      - application/json
+      X-Api-Key:
+      - TEST_API_KEY
+      Content-Type:
+      - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '4321'
+      Connection:
+      - keep-alive
+      Date:
+      - Mon, 11 Jun 2018 20:44:42 GMT
+      X-Amzn-Requestid:
+      - 44b25d6c-6db8-11e8-986c-3bdd5a40fead
+      X-Amzn-Remapped-Content-Length:
+      - '4321'
+      X-Amzn-Remapped-Connection:
+      - keep-alive
+      X-Amz-Apigw-Id:
+      - IVfRMEmroAMF3QA=
+      X-Amzn-Remapped-Server:
+      - Microsoft-IIS/8.5
+      Cache-Control:
+      - no-cache
+      Expires:
+      - "-1"
+      X-Powered-By:
+      - ASP.NET
+      Pragma:
+      - no-cache
+      X-Amzn-Remapped-Date:
+      - Mon, 11 Jun 2018 20:44:42 GMT
+      X-Aspnet-Version:
+      - 4.0.30319
+      X-Cache:
+      - Miss from cloudfront
+      Via:
+      - 1.1 a5d569cb3db7d3a17cfa847456b00932.cloudfront.net (CloudFront)
+      X-Amz-Cf-Id:
+      - irf-DsAEV0EsBCxKT6BXcOluaEXnW_hg9t9Lp0aOme7ENKgTsuZN1Q==
+    body:
+      encoding: UTF-8
+      string: '{"titleId":169441,"titleName":"A Better World for All: Progress Towards
+        the International Development Goals","publisherName":"OECD Publications Centre","identifiersList":[{"id":"169441","source":"AtoZ","subtype":0,"type":9},{"id":"978-1-280-03078-9","source":"ResourceIdentifier","subtype":2,"type":1},{"id":"978-92-64-18255-4","source":"ResourceIdentifier","subtype":1,"type":1},{"id":"978-92-64-18256-1","source":"ResourceIdentifier","subtype":2,"type":1}],"subjectsList":[{"type":"TLI","subject":"Development
+        Economics"}],"isTitleCustom":false,"pubType":"Book","customerResourcesList":[{"titleId":169441,"packageId":1022,"packageName":"OECD-iLibrary
+        Books & Papers","packageType":"Variable","proxy":{"id":"EZProxy","inherited":true},"isPackageCustom":false,"vendorId":89,"vendorName":"OECD","locationId":826750,"isSelected":false,"isTokenNeeded":false,"visibilityData":{"isHidden":false,"reason":""},"managedCoverageList":[{"beginCoverage":"2000-01-01","endCoverage":"2000-12-31"}],"customCoverageList":[],"coverageStatement":null,"managedEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"customEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"url":"https://dx.doi.org/10.1787/9789264182561-en","userDefinedField1":null,"userDefinedField2":null,"userDefinedField3":null,"userDefinedField4":null,"userDefinedField5":null},{"titleId":169441,"packageId":3949,"packageName":"OECD-iLibrary
+        Books, Papers & Statistics","packageType":"Variable","proxy":{"id":"<n>","inherited":true},"isPackageCustom":false,"vendorId":89,"vendorName":"OECD","locationId":2278298,"isSelected":false,"isTokenNeeded":false,"visibilityData":{"isHidden":false,"reason":""},"managedCoverageList":[{"beginCoverage":"2000-01-01","endCoverage":"2000-12-31"}],"customCoverageList":[],"coverageStatement":null,"managedEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"customEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"url":"http://dx.doi.org/10.1787/9789264182561-en","userDefinedField1":null,"userDefinedField2":null,"userDefinedField3":null,"userDefinedField4":null,"userDefinedField5":null},{"titleId":169441,"packageId":1966297,"packageName":"OECD-iLibrary
+        Development","packageType":"Complete","proxy":{"id":"<n>","inherited":true},"isPackageCustom":false,"vendorId":89,"vendorName":"OECD","locationId":18395819,"isSelected":false,"isTokenNeeded":false,"visibilityData":{"isHidden":false,"reason":""},"managedCoverageList":[{"beginCoverage":"2000-01-01","endCoverage":"2000-12-31"}],"customCoverageList":[],"coverageStatement":null,"managedEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"customEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"url":"http://dx.doi.org/10.1787/9789264182561-en","userDefinedField1":null,"userDefinedField2":null,"userDefinedField3":null,"userDefinedField4":null,"userDefinedField5":null},{"titleId":169441,"packageId":2510819,"packageName":"OECD
+        (DRAA)","packageType":"Complete","proxy":{"id":"<n>","inherited":true},"isPackageCustom":false,"vendorId":89,"vendorName":"OECD","locationId":36117697,"isSelected":false,"isTokenNeeded":false,"visibilityData":{"isHidden":false,"reason":""},"managedCoverageList":[],"customCoverageList":[],"coverageStatement":null,"managedEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"customEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"url":"http://dx.doi.org/10.1787/9789264182561-en","userDefinedField1":null,"userDefinedField2":null,"userDefinedField3":null,"userDefinedField4":null,"userDefinedField5":null},{"titleId":169441,"packageId":1861142,"packageName":"MyiLibrary","packageType":"Variable","proxy":{"id":"EZProxy","inherited":true},"isPackageCustom":false,"vendorId":58388,"vendorName":"Ingram
+        Content Group, Inc.","locationId":8036366,"isSelected":false,"isTokenNeeded":false,"visibilityData":{"isHidden":false,"reason":""},"managedCoverageList":[{"beginCoverage":"2000-01-01","endCoverage":"2000-12-31"}],"customCoverageList":[],"coverageStatement":null,"managedEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"customEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"url":"http://lib.myilibrary.com?id=3078","userDefinedField1":null,"userDefinedField2":null,"userDefinedField3":null,"userDefinedField4":null,"userDefinedField5":null}],"description":null,"edition":null,"isPeerReviewed":false,"contributorsList":[]}'
+    http_version: 
+  recorded_at: Mon, 11 Jun 2018 20:44:42 GMT
+recorded_with: VCR 3.0.3
