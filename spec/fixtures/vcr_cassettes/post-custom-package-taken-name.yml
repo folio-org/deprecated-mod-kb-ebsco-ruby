@@ -1,58 +1,6 @@
 ---
 http_interactions:
 - request:
-    method: post
-    uri: https://api.ebsco.io/rm/rmaccounts/TEST_CUSTOMER_ID/vendors/123355/packages/
-    body:
-      encoding: UTF-8
-      string: '{"contentType":3,"packageName":"VCR Package 1.2"}'
-    headers:
-      X-Api-Key:
-      - TEST_API_KEY
-      Content-Type:
-      - application/json
-      Accept:
-      - application/json
-      Connection:
-      - close
-      Host:
-      - api.ebsco.io
-      User-Agent:
-      - http.rb/3.3.0
-  response:
-    status:
-      code: 400
-      message: Bad Request
-    headers:
-      Content-Type:
-      - application/json;charset=UTF-8
-      Content-Length:
-      - '103'
-      Connection:
-      - close
-      Date:
-      - Fri, 04 May 2018 05:05:57 GMT
-      X-Amzn-Requestid:
-      - d441854e-4f58-11e8-97cb-93bea3765473
-      X-Amzn-Remapped-Connection:
-      - keep-alive
-      X-Amz-Apigw-Id:
-      - GWGITFMuoAMF-zw=
-      X-Amzn-Remapped-Date:
-      - Fri, 04 May 2018 05:05:57 GMT
-      X-Cache:
-      - Error from cloudfront
-      Via:
-      - 1.1 4ee3d5920fafcf4bca394fd489654c8c.cloudfront.net (CloudFront)
-      X-Amz-Cf-Id:
-      - VwVET_2GaZbePxgvuEHqZhTuSj_lgXDRCl7WCVk2B0HlUOaEq98A-w==
-    body:
-      encoding: UTF-8
-      string: '{"errors":[{"code":1009,"subCode":0,"message":"Custom Package with
-        the provided name already exists"}]}'
-    http_version: 
-  recorded_at: Fri, 04 May 2018 05:05:57 GMT
-- request:
     method: get
     uri: https://okapi.frontside.io/configurations/entries?query=module=KB_EBSCO
     body:
@@ -79,7 +27,7 @@ http_interactions:
       Server:
       - nginx/1.13.5
       Date:
-      - Wed, 30 May 2018 11:43:36 GMT
+      - Tue, 12 Jun 2018 20:41:17 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -87,16 +35,16 @@ http_interactions:
       Connection:
       - keep-alive
       X-Okapi-Trace:
-      - 'GET mod-authtoken-1.4.1-SNAPSHOT.20 http://10.39.253.209:8081/configurations/entries..
-        : 202 1385us'
-      - 'GET mod-configuration-4.0.3-SNAPSHOT.29 http://10.39.244.97:8081/configurations/entries..
-        : 200 42672us'
+      - 'GET mod-authtoken-1.4.1-SNAPSHOT.21 http://10.39.255.17:8081/configurations/entries..
+        : 202 337468us'
+      - 'GET mod-configuration-4.0.4-SNAPSHOT.36 http://10.39.247.129:8081/configurations/entries..
+        : 200 50254us'
       Host:
       - okapi.frontside.io
       X-Real-Ip:
-      - 10.128.0.4
+      - 10.128.0.5
       X-Forwarded-For:
-      - 10.128.0.4
+      - 10.128.0.5
       X-Forwarded-Host:
       - okapi.frontside.io
       X-Forwarded-Port:
@@ -118,15 +66,11 @@ http_interactions:
       User-Agent:
       - Ruby
       X-Okapi-Request-Id:
-      - 585956/configurations
+      - 164701/configurations
       X-Okapi-Url:
-      - http://10.39.242.98:80
-      X-Okapi-Permissions-Required:
-      - configuration.entries.collection.get
-      X-Okapi-Module-Permissions:
-      - '{"mod-authtoken-1.4.1-SNAPSHOT.20":["perms.users.get"]}'
+      - http://10.39.254.87:80
       X-Okapi-Permissions:
-      - '["configuration.entries.collection.get"]'
+      - '["configuration.entries.collection.get","configuration.entries.collection.get"]'
       X-Okapi-User-Id:
       - 1ad737b0-d847-11e6-bf26-cec0c932ce01
       X-Okapi-Token:
@@ -138,28 +82,42 @@ http_interactions:
       string: |-
         {
           "configs" : [ {
-            "id" : "a6d98284-5c46-4698-a6fe-f9d1594aecfc",
+            "id" : "f3fe0127-17a7-49ac-99ec-3c2cb4778b59",
             "module" : "KB_EBSCO",
             "configName" : "api_credentials",
             "code" : "kb.ebsco.credentials",
-            "description" : "EBSCO RM-API Credentials",
+            "description" : "EBSCO Credentials",
             "enabled" : true,
             "value" : "customer-id=TEST_CUSTOMER_ID&api-key=TEST_API_KEY",
             "metadata" : {
-              "createdDate" : "2018-05-07T20:35:44.622+0000",
+              "createdDate" : "2018-05-31T21:45:09.727+0000",
               "createdByUserId" : "1ad737b0-d847-11e6-bf26-cec0c932ce01",
-              "updatedDate" : "2018-05-07T20:35:44.622+0000",
+              "updatedDate" : "2018-05-31T21:45:09.727+0000",
+              "updatedByUserId" : "1ad737b0-d847-11e6-bf26-cec0c932ce01"
+            }
+          }, {
+            "id" : "78d23296-5e3f-47be-aebb-f5932abd5e5d",
+            "module" : "KB_EBSCO",
+            "configName" : "api_credentials",
+            "code" : "kb.ebsco.credentials",
+            "description" : "EBSCO Credentials",
+            "enabled" : true,
+            "value" : "customer-id=TEST_CUSTOMER_ID&api-key=TEST_API_KEY",
+            "metadata" : {
+              "createdDate" : "2018-06-08T23:07:06.835+0000",
+              "createdByUserId" : "1ad737b0-d847-11e6-bf26-cec0c932ce01",
+              "updatedDate" : "2018-06-08T23:07:06.835+0000",
               "updatedByUserId" : "1ad737b0-d847-11e6-bf26-cec0c932ce01"
             }
           } ],
-          "totalRecords" : 1,
+          "totalRecords" : 2,
           "resultInfo" : {
-            "totalRecords" : 1,
+            "totalRecords" : 2,
             "facets" : [ ]
           }
         }
     http_version: 
-  recorded_at: Wed, 30 May 2018 11:43:36 GMT
+  recorded_at: Tue, 12 Jun 2018 20:41:18 GMT
 - request:
     method: get
     uri: https://api.ebsco.io/rm/rmaccounts/TEST_CUSTOMER_ID/vendors?count=25&offset=1&orderby=relevance&search=TEST_CUSTOMER_ID
@@ -191,25 +149,77 @@ http_interactions:
       Connection:
       - keep-alive
       Date:
-      - Wed, 30 May 2018 11:43:36 GMT
+      - Tue, 12 Jun 2018 20:41:18 GMT
       X-Amzn-Requestid:
-      - b04ed750-63fe-11e8-98ba-d18830dd2dc0
+      - f537bcb9-6e80-11e8-a87c-737023729d74
       X-Amzn-Remapped-Connection:
       - keep-alive
       X-Amz-Apigw-Id:
-      - HsswVGStoAMFzkA=
+      - IYxtPFbUIAMFZCg=
       X-Amzn-Remapped-Date:
-      - Wed, 30 May 2018 11:43:36 GMT
+      - Tue, 12 Jun 2018 20:41:18 GMT
       X-Cache:
       - Miss from cloudfront
       Via:
-      - 1.1 94fb69b274bb5ab206667cb69fcc5932.cloudfront.net (CloudFront)
+      - 1.1 9865fbd5c61131fde861cc79a5ba4ead.cloudfront.net (CloudFront)
       X-Amz-Cf-Id:
-      - UjtRzpBT3qHh4j4bkVDshmoucRZTFeV0HTdCHnF9oEU4WK8RcABQoA==
+      - LZqIRpa1ixQwDe6l_D0kCvflr4sY7G7zmAjA-UfDe-7NHNI72i_kSw==
     body:
       encoding: UTF-8
       string: '{"totalResults":1,"vendors":[{"vendorId":123355,"vendorName":"API DEV
-        CORPORATE CUSTOMER","isCustomer":true,"packagesTotal":112,"packagesSelected":112,"vendorToken":null}]}'
+        CORPORATE CUSTOMER","isCustomer":true,"packagesTotal":122,"packagesSelected":122,"vendorToken":null}]}'
     http_version: 
-  recorded_at: Wed, 30 May 2018 11:43:36 GMT
+  recorded_at: Tue, 12 Jun 2018 20:41:18 GMT
+- request:
+    method: post
+    uri: https://api.ebsco.io/rm/rmaccounts/TEST_CUSTOMER_ID/vendors/123355/packages/
+    body:
+      encoding: UTF-8
+      string: '{"contentType":3,"packageName":"VCR Package 1.2"}'
+    headers:
+      X-Api-Key:
+      - TEST_API_KEY
+      Content-Type:
+      - application/json
+      Accept:
+      - application/json
+      Connection:
+      - close
+      Host:
+      - api.ebsco.io
+      User-Agent:
+      - http.rb/3.3.0
+  response:
+    status:
+      code: 400
+      message: Bad Request
+    headers:
+      Content-Type:
+      - application/json;charset=UTF-8
+      Content-Length:
+      - '103'
+      Connection:
+      - close
+      Date:
+      - Tue, 12 Jun 2018 20:41:18 GMT
+      X-Amzn-Requestid:
+      - f557ef65-6e80-11e8-83e8-b3d9d54afc80
+      X-Amzn-Remapped-Connection:
+      - keep-alive
+      X-Amz-Apigw-Id:
+      - IYxtRFXSIAMF15w=
+      X-Amzn-Remapped-Date:
+      - Tue, 12 Jun 2018 20:41:18 GMT
+      X-Cache:
+      - Error from cloudfront
+      Via:
+      - 1.1 20710af5b67bb4f49570084055f06277.cloudfront.net (CloudFront)
+      X-Amz-Cf-Id:
+      - lPI7xBDrQbjG-k4EDKo2DKabIT03PIa-ce_J0EFdnw8TXR04LW0njQ==
+    body:
+      encoding: UTF-8
+      string: '{"errors":[{"code":1009,"subCode":0,"message":"Custom Package with
+        the provided name already exists"}]}'
+    http_version: 
+  recorded_at: Tue, 12 Jun 2018 20:41:18 GMT
 recorded_with: VCR 3.0.3

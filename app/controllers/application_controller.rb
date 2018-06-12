@@ -43,8 +43,16 @@ class ApplicationController < ActionController::API
   def catch_repository_errors
     yield
   rescue RmapiRepository::RequestError => e
-    render jsonapi_errors: [title: e.message],
-           status: e.status
+    begin
+      # If the error is from RM API, its in JSON
+      json = JSON.parse(e.message)
+      render jsonapi_errors: get_json_error_hash(json),
+             status: e.status
+    rescue JSON::ParserError
+      # If the error is from within our code, its a plain string
+      render jsonapi_errors: [title: e.message],
+             status: e.status
+    end
   end
 
   def catch_flexirest_exceptions
@@ -64,6 +72,16 @@ class ApplicationController < ActionController::API
       end
     elsif error.result.respond_to?(:errors)
       error.result[:errors].items.to_a.map do |err|
+        { "title": map_provider(err.to_hash['message']) }
+      end
+    else
+      []
+    end
+  end
+
+  def get_json_error_hash(error)
+    if error['errors']
+      error['errors'].map do |err|
         { "title": map_provider(err.to_hash['message']) }
       end
     else
