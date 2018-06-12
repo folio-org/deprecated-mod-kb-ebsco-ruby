@@ -1259,8 +1259,14 @@ RSpec.describe 'Packages', type: :request do
         end
       end
 
+      let!(:json_error) { Map JSON.parse response.body }
+
       it 'responds with an error' do
         expect(response).to have_http_status(400)
+      end
+
+      it 'gives the expected error message' do
+        expect(json_error.errors.first.title).to eql('Custom Package with the provided name already exists')
       end
     end
 
