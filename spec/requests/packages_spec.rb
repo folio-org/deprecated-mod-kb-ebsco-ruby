@@ -77,15 +77,60 @@ RSpec.describe 'Packages', type: :request do
   describe 'with an invalid filter param' do
     before do
       VCR.use_cassette('search-packages-filter-invalid') do
-        get '/eholdings/packages/?q=ebsc&filter=invalid', headers: okapi_headers
+        get '/eholdings/packages/?q=ebsco&filter=invalid', headers: okapi_headers
       end
     end
 
     let!(:json_f) { Map JSON.parse response.body }
 
     it 'returns a bad request error' do
-      expect(response).to have_http_status(400)
-      expect(json_f.errors.first.title).to eql('Invalid filter parameter')
+      expect(response).to have_http_status(422)
+      expect(json_f.errors.first.title).to eql('Invalid selectedFilter')
+    end
+  end
+
+  describe 'with an invalid query param filter[selected]' do
+    before do
+      VCR.use_cassette('search-packages-invalid-query-param-selected') do
+        get '/eholdings/packages/?q=ebsco&filter[selected]=doNotEnter', headers: okapi_headers
+      end
+    end
+
+    let!(:json_f) { Map JSON.parse response.body }
+
+    it 'returns a bad request error' do
+      expect(response).to have_http_status(422)
+      expect(json_f.errors.first.title).to eql('Invalid selectedFilter')
+    end
+  end
+
+  describe 'with an invalid query param filter[type]' do
+    before do
+      VCR.use_cassette('search-packages-invalid-query-param-type') do
+        get '/eholdings/packages/?q=ebsco&filter[type]=doNotEnter', headers: okapi_headers
+      end
+    end
+
+    let!(:json_f) { Map JSON.parse response.body }
+
+    it 'returns a bad request error' do
+      expect(response).to have_http_status(422)
+      expect(json_f.errors.first.title).to eql('Invalid contentTypeFilter')
+    end
+  end
+
+  describe 'with an invalid query param sort' do
+    before do
+      VCR.use_cassette('search-packages-invalid-query-param-sort') do
+        get '/eholdings/packages/?q=ebsco&sort=doNotEnter', headers: okapi_headers
+      end
+    end
+
+    let!(:json_f) { Map JSON.parse response.body }
+
+    it 'returns a bad request error' do
+      expect(response).to have_http_status(422)
+      expect(json_f.errors.first.title).to eql('Invalid sortFilter')
     end
   end
 
