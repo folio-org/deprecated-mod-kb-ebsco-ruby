@@ -10,7 +10,7 @@ documentation:
 
 traits:
   indexable:
-    queryParameters: 
+    queryParameters:
       q:
         displayName: Query
         type: string
@@ -58,7 +58,7 @@ traits:
 types:
   customCoverage: # normal object type declaration
     type: object
-    properties: 
+    properties:
       beginCoverage: string
       endCoverage: string
     example: |
@@ -73,7 +73,7 @@ types:
     example: |
       {
         "isHidden": true
-      } 
+      }
   proxy:
     type: object
     properties:
@@ -92,12 +92,26 @@ types:
         "embargoValue": 4,
         "embargoUnit": "Weeks"
       }
+  includedPackageId:
+    type: object
+    properties:
+      type: string
+      attributes:
+        properties:
+          packageId: string
+    example: |
+      {
+        "type": "resources",
+        "attributes": {
+          "packageId": "123-456"
+        }
+      }
 
 /eholdings/packages:
   displayName: Packages
   get:
     description: Retrieve a collection of packages
-    queryParameters: 
+    queryParameters:
       q:
         displayName: Search query
         type: string
@@ -153,7 +167,7 @@ types:
         description: OK
         body:
           application/vnd.api+json:
-            example: !include examples/packages/packages_get_200_response.json        
+            example: !include examples/packages/packages_get_200_response.json
       400:
         description: Bad Request
         body:
@@ -162,7 +176,7 @@ types:
   post:
     description: Create a custom package
     headers:
-      Content-Type: 
+      Content-Type:
         example: application/vnd.api+json
     body:
       application/vnd.api+json:
@@ -217,7 +231,7 @@ types:
           enum: ["resources", "provider"]
           description: Include resources or provider in response
           example: resources
-          required: false   
+          required: false
       responses:
         200:
           description: OK
@@ -239,7 +253,7 @@ types:
         Update a managed or custom package using packageId
         Note that packageId is providerId-packageId
       headers:
-        Content-Type: 
+        Content-Type:
           example: application/vnd.api+json
       body:
         application/vnd.api+json:
@@ -258,7 +272,7 @@ types:
                     name:
                       description: |
                         Name of the custom package to be updated.
-                        Note that this attribute can be updated ONLY FOR A CUSTOM PACKAGE. 
+                        Note that this attribute can be updated ONLY FOR A CUSTOM PACKAGE.
                       type: string
                       example: My test package
                       required: true
@@ -335,14 +349,14 @@ types:
             body:
               application/vnd.api+json:
                 example: !include examples/packages/packages_packageId_resources_get_200_response.json
-                  
+
 /eholdings/providers:
   displayName: Providers
   description: Collection of available providers in eholdings.
   get:
     description: Get a list of providers based on the search field.
     is: [indexable]
-    responses: 
+    responses:
       200:
         body:
           application/vnd.api+json:
@@ -359,9 +373,9 @@ types:
           description: Name of nested resource to include
           default: packages
           required: false
-      responses: 
+      responses:
         200:
-          body: 
+          body:
             application/vnd.api+json:
               description: Provider details from EPKB for a specific provider ID.
               example: !include examples/providers/providers_providerId_get_200_response.json
@@ -374,7 +388,7 @@ types:
       description: |
         This operation allows you to update provider proxy and token values for a specifix provider ID.
       headers:
-        Content-Type: 
+        Content-Type:
           example: application/vnd.api+json
       body:
         application/vnd.api+json:
@@ -406,7 +420,7 @@ types:
                       type: proxy
                       required: false
           example: !include examples/providers/providers_providerId_put_request.json
-      responses: 
+      responses:
         200:
           body:
             application/vnd.api+json:
@@ -421,7 +435,7 @@ types:
         description: |
           This operation allows you to retrieve a list of packages from EPKB for a provider including customer context.
         is: [indexable, filterable]
-        responses: 
+        responses:
           200:
             description: OK
             body:
@@ -436,7 +450,7 @@ types:
   post:
     description: Create a relation between an existing custom package and an existing custom/managed title.
     headers:
-      Content-Type: 
+      Content-Type:
         example: application/vnd.api+json
     body:
       application/vnd.api+json:
@@ -496,7 +510,7 @@ types:
           enum: ["provider", "package", "title"]
           description: Include provider, package or title in response
           example: provider
-          required: false   
+          required: false
       responses:
         200:
           description: OK
@@ -515,7 +529,7 @@ types:
         Update a managed or custom resource using resourceId
         Note that resourceId is providerId-packageId-titleId
       headers:
-        Content-Type: 
+        Content-Type:
           example: application/vnd.api+json
       body:
         application/vnd.api+json:
@@ -534,7 +548,7 @@ types:
                     url:
                       description: |
                         Custom URL of a custom resource.
-                        Note that this attribute can be updated ONLY FOR A CUSTOM RESOURCE. 
+                        Note that this attribute can be updated ONLY FOR A CUSTOM RESOURCE.
                       type: string
                       example: "https://hello.io"
                       required: false
@@ -628,4 +642,83 @@ types:
             application/vnd.api+json:
               example: !include examples/resources/resources_resourceId_delete_404_response.json
 
-
+/eholdings/titles:
+  displayName: Titles
+  description: Collection of available titles in eholdings.
+  get:
+    description: Get a set of titles matching the given search criteria.
+    is: [indexable]
+    responses:
+      200:
+        body:
+          application/vnd.api+json:
+            description: An array of titles comprising the results of the query.  The array will be paged if its length exceeds the value set with the `count` query param, or the default `count` of 25 in its stead.  The included metadata gives us the total result count outside of the paged context.
+            example: !include examples/titles/titles_get_200_response.json
+  /{title_id}:
+    description: Entity representing a title
+    get:
+      description: Get the title by its unique identifier.
+      queryParameters:
+        include:
+          displayName: Related Resources
+          type: string
+          enum: ["resources"]
+          description: Include related resource obects, each representing a partnering of this title with a package.  Any bogus value, like `include=deciduousTrees`, will be silently ignored.
+          example: "resources"
+          required: false
+      responses:
+        200:
+          body:
+            application/vnd.api+json:
+              description: EPKB data for the title matching {title_id}
+              example: !include examples/titles/titles_titleId_get_200_response.json
+        404:
+          description: Not Found
+          body:
+            application/vnd.api+json:
+              example: !include examples/titles/titles_titleId_get_404_response.json
+  post:
+    description: Create a new Custom Title.
+    headers:
+      Content-Type:
+        example: application/vnd.api+json
+    body:
+      application/vnd.api+json:
+        properties:
+          data:
+            description: Needed because of JSON API
+            type: object
+            required: true
+            properties:
+              type: string
+              attributes:
+                description: Needed because of JSON API
+                type: object
+                required: true
+                properties:
+                  name:
+                    description: |
+                      Name of the new title that is to be created.
+                    type: string
+                    example: "A New Title For You"
+                    required: true
+                  publicationType:
+                    description: Publication type for new title.
+                    type: string
+                    enum: ["All", "Audiobook", "Book", "Book Series", "Database", "Journal", "Newsletter", "Newspaper", "Proceedings", "Report", "Streaming Audio", "Streaming Video", "Thesis & Dissertation", "Website", "Unspecified"]
+                    example: "Book"
+                    required: true
+          included:
+            description: Resource used to create new title.
+            type: array
+            required: true
+            items: includedPackageId
+        example: !include examples/titles/titles_post_request.json
+    responses:
+      200:
+        description: OK
+        body:
+          application/vnd.api+json:
+            example: !include examples/titles/titles_post_200_response.json
+      400:
+        description: Bad
