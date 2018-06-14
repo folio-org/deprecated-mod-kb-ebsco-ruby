@@ -20,7 +20,7 @@ class PackagesController < ApplicationController
              class: { Package: SerializablePackageList }
     else
       render jsonapi_errors: package_query_params_validation.errors,
-             status: :unprocessable_entity
+             status: :bad_request
     end
   end
 

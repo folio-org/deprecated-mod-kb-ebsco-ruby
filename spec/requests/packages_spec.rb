@@ -84,7 +84,7 @@ RSpec.describe 'Packages', type: :request do
     let!(:json_f) { Map JSON.parse response.body }
 
     it 'returns a bad request error' do
-      expect(response).to have_http_status(422)
+      expect(response).to have_http_status(400)
       expect(json_f.errors.first.title).to eql('Invalid selectedFilter')
     end
   end
@@ -99,7 +99,7 @@ RSpec.describe 'Packages', type: :request do
     let!(:json_f) { Map JSON.parse response.body }
 
     it 'returns a bad request error' do
-      expect(response).to have_http_status(422)
+      expect(response).to have_http_status(400)
       expect(json_f.errors.first.title).to eql('Invalid selectedFilter')
     end
   end
@@ -114,7 +114,7 @@ RSpec.describe 'Packages', type: :request do
     let!(:json_f) { Map JSON.parse response.body }
 
     it 'returns a bad request error' do
-      expect(response).to have_http_status(422)
+      expect(response).to have_http_status(400)
       expect(json_f.errors.first.title).to eql('Invalid contentTypeFilter')
     end
   end
@@ -129,7 +129,7 @@ RSpec.describe 'Packages', type: :request do
     let!(:json_f) { Map JSON.parse response.body }
 
     it 'returns a bad request error' do
-      expect(response).to have_http_status(422)
+      expect(response).to have_http_status(400)
       expect(json_f.errors.first.title).to eql('Invalid sortFilter')
     end
   end
