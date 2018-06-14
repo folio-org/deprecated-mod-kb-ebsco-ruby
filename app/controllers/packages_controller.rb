@@ -11,10 +11,17 @@ class PackagesController < ApplicationController
   # provides in a detailed record. When RM API team fixes the issue on their end,
   # we can get rid of the SerializablePackageList class and just use SerializablePackage
   def index
-    @result = packages.where! params
-    render jsonapi: @result.data,
-           meta: @result.meta,
-           class: { Package: SerializablePackageList }
+    package_query_params_validation = Validation::PackageQueryParameters.new(params)
+
+    if package_query_params_validation.valid?
+      @result = packages.where! params
+      render jsonapi: @result.data,
+             meta: @result.meta,
+             class: { Package: SerializablePackageList }
+    else
+      render jsonapi_errors: package_query_params_validation.errors,
+             status: :unprocessable_entity
+    end
   end
 
   def show
