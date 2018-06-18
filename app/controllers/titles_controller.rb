@@ -10,16 +10,23 @@ class TitlesController < ApplicationController
   # provides in a detailed record. When RM API team fixes the issue on their end,
   # we can get rid of the SerializableTitleList class and just use SerializableTitle
   def index
-    @titles = titles.all(
-      q: params[:q],
-      page: params[:page],
-      filter: params[:filter],
-      sort: params[:sort]
-    )
+    title_query_params_validation = Validation::TitleQueryParameters.new(params)
 
-    render jsonapi: @titles.titles.to_a,
-           meta: { totalResults: @titles.totalResults },
-           class: { Title: SerializableTitleList }
+    if title_query_params_validation.valid?
+      @titles = titles.all(
+        q: params[:q],
+        page: params[:page],
+        filter: params[:filter],
+        sort: params[:sort]
+      )
+
+      render jsonapi: @titles.titles.to_a,
+             meta: { totalResults: @titles.totalResults },
+             class: { Title: SerializableTitleList }
+    else
+      render jsonapi_errors: title_query_params_validation.errors,
+             status: :bad_request
+    end
   end
 
   def create
