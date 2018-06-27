@@ -8,7 +8,9 @@ rvm:
 
 install:
   - bundle install
+  - yarn global add raml-cop
 
 script:
   - rubocop
+  - ./scripts/lint-raml-cop.sh
   - COVERAGE=true rake spec
