@@ -89,7 +89,52 @@ RSpec.describe 'Titles', type: :request do
 
       it 'returns a bad request error' do
         expect(response).to have_http_status(400)
-        expect(json_f.errors.first.title).to eql('Invalid filter parameter')
+        expect(json_f.errors.first.title).to eql('Invalid selectedFilter')
+      end
+    end
+
+    describe 'with an invalid query param filter[selected]' do
+      before do
+        VCR.use_cassette('search-titles-invalid-query-param-selected') do
+          get '/eholdings/titles/?q=ebsco&filter[selected]=doNotEnter', headers: okapi_headers
+        end
+      end
+
+      let!(:json_f) { Map JSON.parse response.body }
+
+      it 'returns a bad request error' do
+        expect(response).to have_http_status(400)
+        expect(json_f.errors.first.title).to eql('Invalid selectedFilter')
+      end
+    end
+
+    describe 'with an invalid query param filter[type]' do
+      before do
+        VCR.use_cassette('search-titles-invalid-query-param-type') do
+          get '/eholdings/titles/?q=ebsco&filter[type]=doNotEnter', headers: okapi_headers
+        end
+      end
+
+      let!(:json_f) { Map JSON.parse response.body }
+
+      it 'returns a bad request error' do
+        expect(response).to have_http_status(400)
+        expect(json_f.errors.first.title).to eql('Invalid contentTypeFilter')
+      end
+    end
+
+    describe 'with an invalid query param searchField' do
+      before do
+        VCR.use_cassette('search-titles-invalid-query-param-search-field') do
+          get '/eholdings/titles/?q=ebsco&searchfield=doNotEnter', headers: okapi_headers
+        end
+      end
+
+      let!(:json_f) { Map JSON.parse response.body }
+
+      it 'returns a bad request error' do
+        expect(response).to have_http_status(400)
+        expect(json_f.errors.first.title).to eql('Invalid searchField')
       end
     end
 
@@ -118,7 +163,9 @@ RSpec.describe 'Titles', type: :request do
                 headers: okapi_headers
           end
         end
+
         let!(:json_t2) { Map JSON.parse response.body }
+
         it 'gets a different list of resources' do
           expect(response).to have_http_status(200)
           expect(json_t2.data.length).to equal(25)
