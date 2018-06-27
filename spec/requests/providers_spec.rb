@@ -381,6 +381,21 @@ RSpec.describe 'Providers', type: :request do
       end
     end
 
+    describe 'with an invalid query param sort' do
+      # VCR not needed here because a request will not be made because the
+      # validation will fail and not make the request to RMAPI
+      before do
+        get '/eholdings/providers/?q=ebsco&sort=doNotEnter', headers: okapi_headers
+      end
+
+      let!(:json_f) { Map JSON.parse response.body }
+
+      it 'returns a bad request error' do
+        expect(response).to have_http_status(400)
+        expect(json_f.errors.first.title).to eql('Invalid sortFilter')
+      end
+    end
+
     describe 'with valid filter options' do
       before do
         VCR.use_cassette('search-providers-related-packages-valid-filter') do

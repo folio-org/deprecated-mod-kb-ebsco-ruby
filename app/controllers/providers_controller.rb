@@ -13,15 +13,22 @@ class ProvidersController < ApplicationController
   # provides in a detailed record. When RM API team fixes the issue on their end,
   # we can get rid of the SerializableProviderList class and just use SerializableProvider
   def index
-    @providers = providers.all(
-      q: params[:q],
-      page: params[:page],
-      sort: params[:sort]
-    )
+    provider_query_params_validation = Validation::ProviderQueryParameters.new(params)
 
-    render jsonapi: @providers.vendors.to_a,
-           meta: { totalResults: @providers.totalResults },
-           class: { Provider: SerializableProviderList }
+    if provider_query_params_validation.valid?
+      @providers = providers.all(
+        q: params[:q],
+        page: params[:page],
+        sort: params[:sort]
+      )
+
+      render jsonapi: @providers.vendors.to_a,
+             meta: { totalResults: @providers.totalResults },
+             class: { Provider: SerializableProviderList }
+    else
+      render jsonapi_errors: provider_query_params_validation.errors,
+             status: :bad_request
+    end
   end
 
   def show
