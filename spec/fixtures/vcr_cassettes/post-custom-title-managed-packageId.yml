@@ -27,7 +27,7 @@ http_interactions:
       Server:
       - nginx/1.13.5
       Date:
-      - Thu, 28 Jun 2018 23:22:12 GMT
+      - Thu, 28 Jun 2018 23:22:13 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -36,15 +36,15 @@ http_interactions:
       - keep-alive
       X-Okapi-Trace:
       - 'GET mod-authtoken-1.4.1-SNAPSHOT.21 http://10.39.255.17:8081/configurations/entries..
-        : 202 1609us'
+        : 202 1540us'
       - 'GET mod-configuration-4.0.4-SNAPSHOT.36 http://10.39.247.129:8081/configurations/entries..
-        : 200 42174us'
+        : 200 42278us'
       Host:
       - okapi.frontside.io
       X-Real-Ip:
-      - 10.128.0.3
+      - 10.128.0.5
       X-Forwarded-For:
-      - 10.128.0.3
+      - 10.128.0.5
       X-Forwarded-Host:
       - okapi.frontside.io
       X-Forwarded-Port:
@@ -66,7 +66,7 @@ http_interactions:
       User-Agent:
       - Ruby
       X-Okapi-Request-Id:
-      - 591574/configurations
+      - 498515/configurations
       X-Okapi-Url:
       - http://10.39.254.87:80
       X-Okapi-Permissions:
@@ -103,13 +103,13 @@ http_interactions:
           }
         }
     http_version: 
-  recorded_at: Thu, 28 Jun 2018 23:22:12 GMT
+  recorded_at: Thu, 28 Jun 2018 23:22:13 GMT
 - request:
     method: post
-    uri: https://api.ebsco.io/rm/rmaccounts/TEST_CUSTOMER_ID/vendors/123355/packages/2918760/titles
+    uri: https://api.ebsco.io/rm/rmaccounts/TEST_CUSTOMER_ID/vendors/123355/packages/2512592/titles
     body:
       encoding: UTF-8
-      string: '{"titleName":"The Mages New Title","edition":"","publisherName":"","pubType":"unspecified","isPeerReviewed":false,"description":""}'
+      string: '{"titleName":"Goblins New Title","edition":"","publisherName":"","pubType":"journal","isPeerReviewed":false,"description":""}'
     headers:
       User-Agent:
       - Flexirest/1.6.7
@@ -125,101 +125,35 @@ http_interactions:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
   response:
     status:
-      code: 200
-      message: OK
+      code: 400
+      message: Bad Request
     headers:
       Content-Type:
       - application/json;charset=UTF-8
       Content-Length:
-      - '20'
+      - '104'
       Connection:
       - keep-alive
       Date:
-      - Thu, 28 Jun 2018 23:22:12 GMT
+      - Thu, 28 Jun 2018 23:22:13 GMT
       X-Amzn-Requestid:
-      - 1604b42a-7b2a-11e8-8b60-91aab496b54f
+      - 16aa9145-7b2a-11e8-acec-3d599801b392
       X-Amzn-Remapped-Connection:
       - keep-alive
       X-Amz-Apigw-Id:
-      - JN4RrF8JIAMF05A=
+      - JN4R1FADoAMF3aA=
       X-Amzn-Remapped-Date:
-      - Thu, 28 Jun 2018 23:22:11 GMT
+      - Thu, 28 Jun 2018 23:22:13 GMT
       X-Cache:
-      - Miss from cloudfront
+      - Error from cloudfront
       Via:
-      - 1.1 f49012242a4f84f01f6dfcdeba18b241.cloudfront.net (CloudFront)
+      - 1.1 0c9b2c7f2bb4de1a6bfc1944dd0b4e44.cloudfront.net (CloudFront)
       X-Amz-Cf-Id:
-      - h8UYMD2FuP_x9-CrL4jE4p9rkmD7nu7iIXWD2RMAijNVHPpoIFPc6A==
+      - DWrririHOXCAiyvSSI_-iaX8mjN_hZF8xBycRVF0RpxaRkKFhVo3aQ==
     body:
       encoding: UTF-8
-      string: '{"titleId":18343083}'
+      string: '{"errors":[{"code":1006,"subCode":0,"message":"Custom Title can not
+        be added to the provided package"}]}'
     http_version: 
-  recorded_at: Thu, 28 Jun 2018 23:22:12 GMT
-- request:
-    method: get
-    uri: https://api.ebsco.io/rm/rmaccounts/TEST_CUSTOMER_ID/titles/18343083
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      User-Agent:
-      - Flexirest/1.6.7
-      Connection:
-      - Keep-Alive
-      Accept:
-      - application/json
-      X-Api-Key:
-      - TEST_API_KEY
-      Content-Type:
-      - application/json
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Content-Type:
-      - application/json; charset=utf-8
-      Content-Length:
-      - '917'
-      Connection:
-      - keep-alive
-      Date:
-      - Thu, 28 Jun 2018 23:22:12 GMT
-      X-Amzn-Requestid:
-      - 16447cb1-7b2a-11e8-bd33-17e598cb5149
-      X-Amzn-Remapped-Content-Length:
-      - '917'
-      X-Amzn-Remapped-Connection:
-      - keep-alive
-      X-Amz-Apigw-Id:
-      - JN4RvG68oAMFVtw=
-      X-Amzn-Remapped-Server:
-      - Microsoft-IIS/8.5
-      Cache-Control:
-      - no-cache
-      Expires:
-      - "-1"
-      X-Powered-By:
-      - ASP.NET
-      Pragma:
-      - no-cache
-      X-Amzn-Remapped-Date:
-      - Thu, 28 Jun 2018 23:22:12 GMT
-      X-Aspnet-Version:
-      - 4.0.30319
-      X-Cache:
-      - Miss from cloudfront
-      Via:
-      - 1.1 e7e29d0eded63a37a4752639a0b543bf.cloudfront.net (CloudFront)
-      X-Amz-Cf-Id:
-      - 3Cy2OyDJF_UQDuRvD_qIRgjs7LPb2ctY3NUGOjLRHueACBiceTqs2A==
-    body:
-      encoding: UTF-8
-      string: '{"titleId":18343083,"titleName":"The Mages New Title","publisherName":null,"identifiersList":[],"subjectsList":[],"isTitleCustom":true,"pubType":"Unspecified","customerResourcesList":[{"titleId":18343083,"packageId":2918760,"packageName":"Title
-        testing package","packageType":"Custom","proxy":{"id":"<n>","inherited":true},"isPackageCustom":true,"vendorId":123355,"vendorName":"API
-        DEV CORPORATE CUSTOMER","locationId":0,"isSelected":true,"isTokenNeeded":false,"visibilityData":{"isHidden":false,"reason":""},"managedCoverageList":[],"customCoverageList":[],"coverageStatement":null,"managedEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"customEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"url":null,"userDefinedField1":null,"userDefinedField2":null,"userDefinedField3":null,"userDefinedField4":null,"userDefinedField5":null}],"description":"","edition":"","isPeerReviewed":false,"contributorsList":[]}'
-    http_version: 
-  recorded_at: Thu, 28 Jun 2018 23:22:12 GMT
+  recorded_at: Thu, 28 Jun 2018 23:22:13 GMT
 recorded_with: VCR 3.0.3

@@ -10,29 +10,29 @@ RSpec.describe 'Custom Titles Create', type: :request do
   end
 
   let(:payload) do
-    {
-      'data'=> {
-        'type'=> 'titles',
-        'attributes'=> {
-          'name'=> 'Beetlegeuce Test Title',
-          'edition'=> '',
-          'publisherName'=> '',
-          'publicationType'=> 'Journal',
-          'isPeerReviewed'=> false,
-          'contributors'=> [],
-          'identifiers'=> [],
-          'description'=> ''
-        }
-      },
-      'included'=> [
-        {
-          'type'=> 'resources',
-          'attributes'=> {
-            'packageId'=> '123355-2918760'
-          }
-        }
-      ]
-    }
+    Map({
+          'data' => {
+            'type' => 'titles',
+            'attributes' => {
+              'name' => 'Goblins New Title',
+              'edition' => '',
+              'publisherName' => '',
+              'publicationType' => 'Journal',
+              'isPeerReviewed' => false,
+              'contributors' => [],
+              'identifiers' => [],
+              'description' => ''
+            }
+          },
+          'included' => [
+            {
+              'type' => 'resources',
+              'attributes' => {
+                'packageId' => '123355-2918760'
+              }
+            }
+          ]
+        })
   end
 
   describe 'with minimum required fields' do
@@ -53,20 +53,20 @@ RSpec.describe 'Custom Titles Create', type: :request do
 
     it 'has a list of attributes' do
       expect(attributes).to include(
-        'contributors',
-        'description',
-        'identifiers',
-        'isPeerReviewed',
-        'isTitleCustom',
-        'name',
-        'publicationType',
-        'publisherName',
-        'subjects'
-      )
+                              'contributors',
+                              'description',
+                              'identifiers',
+                              'isPeerReviewed',
+                              'isTitleCustom',
+                              'name',
+                              'publicationType',
+                              'publisherName',
+                              'subjects'
+                            )
     end
 
     it 'has the new name' do
-      expect(json.data.attributes.name).to eq('Beetlegeuce Test Title')
+      expect(json.data.attributes.name).to eq('Goblins New Title')
     end
 
     it 'has the new publication type' do
@@ -74,29 +74,32 @@ RSpec.describe 'Custom Titles Create', type: :request do
     end
 
     it 'has the newly generated id' do
-      expect(json.data.id).to eq('18277752')
+      expect(json.data.id.length).to be > 1
     end
   end
 
   describe 'with an existing name' do
-    before do
-      params = payload.merge(
+
+    let(:params) do
+      payload.deep_merge(
         {
           'data' => {
             'attributes' => {
-              'publicationType' => 'Book'
+              'name' => 'Goblins New Title'
             }
           }
         }
       )
+    end
 
+    let(:json) { Map JSON.parse response.body }
+
+    before do
       VCR.use_cassette('post-custom-title-existing-name') do
         post '/eholdings/titles',
              params: params, as: :json, headers: create_headers
       end
     end
-
-    let!(:json) { Map JSON.parse response.body }
 
     it 'responds with bad request' do
       expect(response).to have_http_status(400)
@@ -105,17 +108,28 @@ RSpec.describe 'Custom Titles Create', type: :request do
   end
 
   describe 'with missing name' do
-    before do
-      params = payload
-      params.data.attributes.delete('name')
 
+    let(:params) do
+      payload.deep_merge(
+        {
+          'data' => {
+            'attributes' => {
+              'name' => nil
+            }
+          }
+        }
+      )
+
+    end
+
+    before do
       VCR.use_cassette('post-custom-title-missing-name') do
         post '/eholdings/titles',
              params: params, as: :json, headers: create_headers
       end
     end
 
-    let!(:json) { Map JSON.parse response.body }
+    let(:json) { Map JSON.parse response.body }
 
     it 'returns an error status' do
       expect(response).to have_http_status(422)
@@ -124,10 +138,10 @@ RSpec.describe 'Custom Titles Create', type: :request do
   end
 
   describe 'with a name that exceeds maximum size' do
-    let(:largeName) { '0' * 401 }
+    let(:largeName) { 'anappropriatetitleisprettyshortbuteitherinterestingordescriptiveforexampleyouwouldnotwanttotellastorywithyourtitlelikeonceuponatimetherewasareallynicedragonwhodidntwanttodestroyanyonestownbutpeoplewerestillreallyrudetohimandsentotherpeopletotrytoslayhimthatisasuperlongnamethatwouldneverworkinarealworldapplicationandyouwouldntwanttousesomethingthatjustdoesntworkandomgwhatareyouevendoingpleasestoptyping' }
 
-    before do
-      params = payload.merge(
+    let(:params) do
+      payload.deep_merge(
         {
           'data' => {
             'attributes' => {
@@ -136,14 +150,16 @@ RSpec.describe 'Custom Titles Create', type: :request do
           }
         }
       )
+    end
 
+    let(:json) { Map JSON.parse response.body }
+
+    before do
       VCR.use_cassette('post-custom-title-long-name') do
         post '/eholdings/titles',
              params: params, as: :json, headers: create_headers
       end
     end
-
-    let!(:json) { Map JSON.parse response.body }
 
     it 'returns an error status' do
       expect(response).to have_http_status(422)
@@ -151,52 +167,33 @@ RSpec.describe 'Custom Titles Create', type: :request do
     end
   end
 
-  describe 'with missing publication type' do
-
-    before do
-      params = payload
-      params.data.attributes.delete('publicationType')
-
-      VCR.use_cassette('post-custom-title-missing-pubtype') do
-        post '/eholdings/titles',
-             params: params, as: :json, headers: create_headers
-      end
-    end
-
-    let!(:json) { Map JSON.parse response.body }
-
-    it 'returns an error status' do
-      expect(response).to have_http_status(422)
-      expect(json.errors.first.title).to eql('Invalid pubType')
-    end
-  end
-
   describe 'with publication type outside list of known values' do
-
-    before do
-      params = payload.merge(
+    let(:params) do
+      payload.deep_merge(
         {
           'data' => {
             'attributes' => {
-              'name' => 'Bears Test Title',
+              'name' => 'The Mages New Title',
               'publicationType' => 'Made Up'
             }
           }
         }
       )
+    end
 
+    before do
       VCR.use_cassette('post-custom-title-invalid-pubtype') do
         post '/eholdings/titles',
              params: params, as: :json, headers: create_headers
       end
     end
 
+    let(:json) { Map JSON.parse response.body }
+    let(:attributes) { json.data.attributes }
+
     it 'responds with OK status' do
       expect(response).to have_http_status(200)
     end
-
-    let!(:json) { Map JSON.parse response.body }
-    let!(:attributes) { json.data.attributes }
 
     it 'has unspecified publication type' do
       expect(json.data.attributes.publicationType).to eq('Unspecified')
@@ -204,18 +201,16 @@ RSpec.describe 'Custom Titles Create', type: :request do
   end
 
   describe 'with missing included resource' do
+    let(:params) { payload.merge included: [] }
 
     before do
-      params = payload
-      params.delete('included')
-
       VCR.use_cassette('post-custom-title-missing-resource') do
         post '/eholdings/titles',
              params: params, as: :json, headers: create_headers
       end
     end
 
-    let!(:json) { Map JSON.parse response.body }
+    let(:json) { Map JSON.parse response.body }
 
     it 'returns an error status' do
       expect(response).to have_http_status(400)
@@ -225,17 +220,16 @@ RSpec.describe 'Custom Titles Create', type: :request do
 
   describe 'with missing package id' do
 
-    before do
-      params = payload
-      params.included[0].delete('packageId')
+    let(:params) { payload.merge included: [payload.included.first.merge(attributes: {})] }
 
+    before do
       VCR.use_cassette('post-custom-title-missing-packageId') do
         post '/eholdings/titles',
              params: params, as: :json, headers: create_headers
       end
     end
 
-    let!(:json) { Map JSON.parse response.body }
+    let(:json) { Map JSON.parse response.body }
 
     it 'returns an error status' do
       expect(response).to have_http_status(422)
@@ -245,17 +239,26 @@ RSpec.describe 'Custom Titles Create', type: :request do
 
   describe 'with a managed package id' do
 
-    before do
-      params = payload
-      params.included[0].attributes.packageId = '123355-2512592'
+    let(:params) do
+      payload.deep_merge(
+        {
+          'included' => [
+            'attributes' => {
+              'packageId' => '123355-2512592'
+            }
+          ]
+        }
+      )
+    end
 
+    before do
       VCR.use_cassette('post-custom-title-managed-packageId') do
         post '/eholdings/titles',
              params: params, as: :json, headers: create_headers
       end
     end
 
-    let!(:json) { Map JSON.parse response.body }
+    let(:json) { Map JSON.parse response.body }
 
     it 'returns an error status' do
       expect(response).to have_http_status(400)
@@ -265,17 +268,26 @@ RSpec.describe 'Custom Titles Create', type: :request do
 
   describe 'with invalid package id' do
 
-    before do
-      params = payload
-      params.included[0].attributes.packageId = '9999999-9999999'
+    let(:params) do
+      payload.deep_merge(
+        {
+          'included' => [
+            'attributes' => {
+              'packageId' => '9999999-9999999'
+            }
+          ]
+        }
+      )
+    end
 
+    before do
       VCR.use_cassette('post-custom-title-invalid-packageId') do
         post '/eholdings/titles',
              params: params, as: :json, headers: create_headers
       end
     end
 
-    let!(:json) { Map JSON.parse response.body }
+    let(:json) { Map JSON.parse response.body }
 
     it 'returns an error status' do
       expect(response).to have_http_status(404)
@@ -284,105 +296,106 @@ RSpec.describe 'Custom Titles Create', type: :request do
   end
 
   describe 'with all fields' do
-
-    before do
-      params = payload.merge(
+    let(:params) do
+      payload.deep_merge(
         {
           'data' => {
             'attributes' => {
-              'name' => 'Fallout Title Testing All Fields',
+              'name' => 'Retro Temple Test All Fields',
               'publicationType' => 'Book',
               'publisherName' => 'test publisher',
               'isPeerReviewed' => true,
               'edition' => 'test edition',
               'description' => 'test description',
-              'contributors': [
+              'contributors' => [
                 {
-                  'type': 'Editor',
-                  'contributor': 'some editor'
+                  'type' => 'Editor',
+                  'contributor' => 'some editor'
                 },
                 {
-                  'type': 'Illustrator',
-                  'contributor': 'some illustrator'
+                  'type' => 'Illustrator',
+                  'contributor' => 'some illustrator'
                 }
               ],
-              'identifiers': [
+              'identifiers' => [
                 {
-                  'id': '12347',
-                  'type': 'ISBN',
-                  'subtype': 'Print'
+                  'id' => '12347',
+                  'type' => 'ISBN',
+                  'subtype' => 'Print'
                 },
                 {
-                  'id': '98547',
-                  'type': 'ISSN',
-                  'subtype': 'Online'
+                  'id' => '98547',
+                  'type' => 'ISSN',
+                  'subtype' => 'Online'
                 }
               ]
             }
           }
         }
       )
+    end
 
+    before do
       VCR.use_cassette('post-custom-title-all-fields') do
         post '/eholdings/titles',
              params: params, as: :json, headers: create_headers
       end
     end
 
+    let(:json) { Map JSON.parse response.body }
+    let(:attributes) { json.data.attributes }
+
     it 'responds with OK status' do
       expect(response).to have_http_status(200)
     end
 
-    let!(:json) { Map JSON.parse response.body }
-    let!(:attributes) { json.data.attributes }
-
     it 'has the new resource name' do
-      expect(json.data.attributes.name).to eq('Fallout Title Testing All Fields')
+      expect(attributes.name).to eq('Retro Temple Test All Fields')
     end
 
     it 'has the new publicationType' do
-      expect(json.data.attributes.publicationType).to eq('Book')
+      expect(attributes.publicationType).to eq('Book')
     end
 
     it 'has the new publisherName' do
-      expect(json.data.attributes.publisherName).to eq('test publisher')
+      expect(attributes.publisherName).to eq('test publisher')
     end
 
     it 'has the new isPeerReviewed' do
-      expect(json.data.attributes.isPeerReviewed).to eq(true)
+      expect(attributes.isPeerReviewed).to eq(true)
     end
 
     it 'has the new edition' do
-      expect(json.data.attributes.edition).to eq('test edition')
+      expect(attributes.edition).to eq('test edition')
     end
 
     it 'has the new description' do
-      expect(json.data.attributes.description).to eq('test description')
+      expect(attributes.description).to eq('test description')
     end
 
     it 'has the list of contributors' do
-      expect(json.data.attributes.contributors[0].type)
+      expect(attributes.contributors[0].type)
         .to eq('editor')
-      expect(json.data.attributes.contributors[0].contributor)
+      expect(attributes.contributors[0].contributor)
         .to eq('some editor')
-      expect(json.data.attributes.contributors[1].type)
+      expect(attributes.contributors[1].type)
         .to eq('illustrator')
-      expect(json.data.attributes.contributors[1].contributor)
+      expect(attributes.contributors[1].contributor)
         .to eq('some illustrator')
     end
 
     it 'has the list of identifiers' do
-      expect(json.data.attributes.identifiers[0].id)
+      expect(attributes.identifiers[0].id)
         .to eq('12347')
-      expect(json.data.attributes.identifiers[0].type)
+      expect(attributes.identifiers[0].type)
         .to eq('ISBN')
-      expect(json.data.attributes.identifiers[0].subtype)
+      expect(attributes.identifiers[0].subtype)
         .to eq('Print')
-      expect(json.data.attributes.identifiers[1].id)
+      expect(attributes.identifiers[1].id)
         .to eq('98547')
-      expect(json.data.attributes.identifiers[1].type)
+      expect(attributes.identifiers[1].type)
         .to eq('ISSN')
-      expect(json.data.attributes.identifiers[1].subtype)
+      expect(attributes.identifiers[1].subtype)
         .to eq('Online')
     end
   end
@@ -390,8 +403,8 @@ RSpec.describe 'Custom Titles Create', type: :request do
   describe 'with publisher name that exceeds maximum size' do
     let(:largePublisherName) { '0' * 251 }
 
-    before do
-      params = payload.merge(
+    let(:params) do
+      payload.deep_merge(
         {
           'data' => {
             'attributes' => {
@@ -400,14 +413,16 @@ RSpec.describe 'Custom Titles Create', type: :request do
           }
         }
       )
+    end
 
+    before do
       VCR.use_cassette('post-custom-title-long-publishername') do
         post '/eholdings/titles',
              params: params, as: :json, headers: create_headers
       end
     end
 
-    let!(:json) { Map JSON.parse response.body }
+    let(:json) { Map JSON.parse response.body }
 
     it 'returns an error status' do
       expect(response).to have_http_status(422)
@@ -416,9 +431,8 @@ RSpec.describe 'Custom Titles Create', type: :request do
   end
 
   describe 'with peer reviewed that is not true/false' do
-
-    before do
-      params = payload.merge(
+    let(:params) do
+      payload.deep_merge(
         {
           'data' => {
             'attributes' => {
@@ -427,14 +441,16 @@ RSpec.describe 'Custom Titles Create', type: :request do
           }
         }
       )
+    end
 
+    before do
       VCR.use_cassette('post-custom-title-invalid-peer-review') do
         post '/eholdings/titles',
              params: params, as: :json, headers: create_headers
       end
     end
 
-    let!(:json) { Map JSON.parse response.body }
+    let(:json) { Map JSON.parse response.body }
 
     it 'returns an error status' do
       expect(response).to have_http_status(422)
@@ -445,8 +461,8 @@ RSpec.describe 'Custom Titles Create', type: :request do
   describe 'with edition that exceeds maximum size' do
     let(:largeEdition) { '0' * 251 }
 
-    before do
-      params = payload.merge(
+    let(:params) do
+      payload.deep_merge(
         {
           'data' => {
             'attributes' => {
@@ -455,14 +471,16 @@ RSpec.describe 'Custom Titles Create', type: :request do
           }
         }
       )
+    end
 
+    before do
       VCR.use_cassette('post-custom-title-long-edition') do
         post '/eholdings/titles',
              params: params, as: :json, headers: create_headers
       end
     end
 
-    let!(:json) { Map JSON.parse response.body }
+    let(:json) { Map JSON.parse response.body }
 
     it 'returns an error status' do
       expect(response).to have_http_status(422)
@@ -473,8 +491,8 @@ RSpec.describe 'Custom Titles Create', type: :request do
   describe 'with description that exceeds maximum size' do
     let(:largeDescription) { '0' * 1501 }
 
-    before do
-      params = payload.merge(
+    let(:params) do
+      payload.deep_merge(
         {
           'data' => {
             'attributes' => {
@@ -483,14 +501,16 @@ RSpec.describe 'Custom Titles Create', type: :request do
           }
         }
       )
+    end
 
+    before do
       VCR.use_cassette('post-custom-title-long-description') do
         post '/eholdings/titles',
              params: params, as: :json, headers: create_headers
       end
     end
 
-    let!(:json) { Map JSON.parse response.body }
+    let(:json) { Map JSON.parse response.body }
 
     it 'returns an error status' do
       expect(response).to have_http_status(422)
@@ -499,34 +519,35 @@ RSpec.describe 'Custom Titles Create', type: :request do
   end
 
   describe 'with invalid contributor type' do
-
-    before do
-      params = payload.merge(
+    let(:params) do
+      payload.deep_merge(
         {
           'data' => {
             'attributes' => {
-              'contributors': [
+              'contributors' => [
                 {
-                  'type': 'invalid type',
-                  'contributor': 'some editor'
+                  'type' => 'invalid type',
+                  'contributor' => 'some editor'
                 },
                 {
-                  'type': 'Illustrator',
-                  'contributor': 'some illustrator'
+                  'type' => 'Illustrator',
+                  'contributor' => 'some illustrator'
                 }
               ]
             }
           }
         }
       )
+    end
 
+    before do
       VCR.use_cassette('post-custom-title-invalid-contributor-type') do
         post '/eholdings/titles',
              params: params, as: :json, headers: create_headers
       end
     end
 
-    let!(:json) { Map JSON.parse response.body }
+    let(:json) { Map JSON.parse response.body }
 
     it 'returns an error status' do
       expect(response).to have_http_status(400)
@@ -539,30 +560,32 @@ RSpec.describe 'Custom Titles Create', type: :request do
 
   describe 'with invalid identifier id' do
 
-    before do
-      params = payload.merge(
+    let(:params) do
+      payload.deep_merge(
         {
           'data' => {
             'attributes' => {
-              'identifiers': [
+              'identifiers' => [
                 {
-                  'id': 12_345, # cannot be an integer, has to be a string
-                  'type': 'ISBN',
-                  'subtype': 'Print'
+                  'id' => 12_345, # cannot be an integer, has to be a string
+                  'type' => 'ISBN',
+                  'subtype' => 'Print'
                 }
               ]
             }
           }
         }
       )
+    end
 
+    before do
       VCR.use_cassette('post-custom-title-invalid-identifier-id') do
         post '/eholdings/titles',
              params: params, as: :json, headers: create_headers
       end
     end
 
-    let!(:json) { Map JSON.parse response.body }
+    let(:json) { Map JSON.parse response.body }
 
     it 'returns an error status' do
       expect(response).to have_http_status(422)
@@ -576,30 +599,32 @@ RSpec.describe 'Custom Titles Create', type: :request do
   describe 'with invalid identifier id length' do
     let(:longIdentifierId) { '0' * 21 }
 
-    before do
-      params = payload.merge(
+    let(:params) do
+      payload.deep_merge(
         {
           'data' => {
             'attributes' => {
-              'identifiers': [
+              'identifiers' => [
                 {
-                  'id': longIdentifierId,
-                  'type': 'ISBN',
-                  'subtype': 'Print'
+                  'id' => longIdentifierId,
+                  'type' => 'ISBN',
+                  'subtype' => 'Print'
                 }
               ]
             }
           }
         }
       )
+    end
 
+    before do
       VCR.use_cassette('post-custom-title-invalid-identifier-id-length') do
         post '/eholdings/titles',
              params: params, as: :json, headers: create_headers
       end
     end
 
-    let!(:json) { Map JSON.parse response.body }
+    let(:json) { Map JSON.parse response.body }
 
     it 'returns an error status' do
       expect(response).to have_http_status(422)
@@ -612,29 +637,31 @@ RSpec.describe 'Custom Titles Create', type: :request do
 
   describe 'with missing identifier id' do
 
-    before do
-      params = payload.merge(
+    let(:params) do
+      payload.deep_merge(
         {
           'data' => {
             'attributes' => {
-              'identifiers': [
+              'identifiers' => [
                 {
-                  'type': 'ISBN',
-                  'subtype': 'Print'
+                  'type' => 'ISBN',
+                  'subtype' => 'Print'
                 }
               ]
             }
           }
         }
       )
+    end
 
+    before do
       VCR.use_cassette('post-custom-title-missing-identifier-id') do
         post '/eholdings/titles',
              params: params, as: :json, headers: create_headers
       end
     end
 
-    let!(:json) { Map JSON.parse response.body }
+    let(:json) { Map JSON.parse response.body }
 
     it 'returns an error status' do
       expect(response).to have_http_status(422)
@@ -647,30 +674,32 @@ RSpec.describe 'Custom Titles Create', type: :request do
 
   describe 'with invalid identifier type' do
 
-    before do
-      params = payload.merge(
+    let(:params) do
+      payload.deep_merge(
         {
           'data' => {
             'attributes' => {
-              'identifiers': [
+              'identifiers' => [
                 {
-                  'id': '12345',
-                  'type': 'Invalid Type',
-                  'subtype': 'Print'
+                  'id' => '12345',
+                  'type' => 'Invalid Type',
+                  'subtype' => 'Print'
                 }
               ]
             }
           }
         }
       )
+    end
 
+    before do
       VCR.use_cassette('post-custom-title-invalid-identifier-type') do
         post '/eholdings/titles',
              params: params, as: :json, headers: create_headers
       end
     end
 
-    let!(:json) { Map JSON.parse response.body }
+    let(:json) { Map JSON.parse response.body }
 
     it 'returns an error status' do
       expect(response).to have_http_status(422)
@@ -683,86 +712,88 @@ RSpec.describe 'Custom Titles Create', type: :request do
 
   describe 'with valid identifier types' do
 
-    before do
-      params = payload.merge(
+    let(:params) do
+      payload.deep_merge(
         {
           'data' => {
             'attributes' => {
-              'name' => 'Davis Test Valid Identifier Types',
-              'identifiers': [
+              'name' => 'Owl Bat Valid Identifier',
+              'identifiers' => [
                 {
-                  'id': '12345',
-                  'type': 'ISSN',
-                  'subtype': 'Print'
+                  'id' => '12345',
+                  'type' => 'ISSN',
+                  'subtype' => 'Print'
                 },
                 {
-                  'id': '12345',
-                  'type': 'ISBN',
-                  'subtype': 'Print'
+                  'id' => '12345',
+                  'type' => 'ISBN',
+                  'subtype' => 'Print'
                 }
               ]
             }
           }
         }
       )
+    end
 
+    let(:json) { Map JSON.parse response.body }
+    let(:attributes) { json.data.attributes }
+
+    before do
       VCR.use_cassette('post-custom-title-valid-identifier-types') do
         post '/eholdings/titles',
              params: params, as: :json, headers: create_headers
       end
     end
 
-    let!(:json) { Map JSON.parse response.body }
-
     it 'responds with OK status' do
       expect(response).to have_http_status(200)
     end
 
-    let!(:json) { Map JSON.parse response.body }
-    let!(:attributes) { json.data.attributes }
-
     it 'has the expected list of identifiers' do
-      expect(json.data.attributes.identifiers[0].id)
+      expect(attributes.identifiers[0].id)
         .to eq('12345')
-      expect(json.data.attributes.identifiers[0].type)
+      expect(attributes.identifiers[0].type)
         .to eq('ISSN')
-      expect(json.data.attributes.identifiers[0].subtype)
+      expect(attributes.identifiers[0].subtype)
         .to eq('Print')
-      expect(json.data.attributes.identifiers[1].id)
+      expect(attributes.identifiers[1].id)
         .to eq('12345')
-      expect(json.data.attributes.identifiers[1].type)
+      expect(attributes.identifiers[1].type)
         .to eq('ISBN')
-      expect(json.data.attributes.identifiers[1].subtype)
+      expect(attributes.identifiers[1].subtype)
         .to eq('Print')
     end
   end
 
   describe 'with invalid identifier subtype' do
 
-    before do
-      params = payload.merge(
+    let(:params) do
+      payload.deep_merge(
         {
           'data' => {
             'attributes' => {
-              'identifiers': [
+              'identifiers' => [
                 {
-                  'id': '12345',
-                 'type': 'ISSN',
-                 'subtype': 'Invalid subtype'
+                  'id' => '12345',
+                  'type' => 'ISSN',
+                  'subtype' => 'Invalid subtype'
                 }
               ]
             }
           }
         }
       )
+    end
 
+    let(:json) { Map JSON.parse response.body }
+
+    before do
       VCR.use_cassette('post-custom-title-invalid-identifier-type') do
         post '/eholdings/titles',
              params: params, as: :json, headers: create_headers
       end
     end
-
-    let!(:json) { Map JSON.parse response.body }
 
     it 'returns an error status' do
       expect(response).to have_http_status(422)
@@ -774,57 +805,55 @@ RSpec.describe 'Custom Titles Create', type: :request do
   end
 
   describe 'with valid identifier subtypes' do
-
-    before do
-      params = payload.merge(
+    let(:params) do
+      payload.deep_merge(
         {
           'data' => {
             'attributes' => {
-              'name' => 'Hagrid Valid Subtype',
-              'identifiers': [
+              'name' => 'Olivander Valid Subtype',
+              'identifiers' => [
                 {
-                  'id': '12345',
-                  'type': 'ISSN',
-                  'subtype': 'Print'
+                  'id' => '12345',
+                  'type' => 'ISSN',
+                  'subtype' => 'Print'
                 },
                 {
-                  'id': '12345',
-                  'type': 'ISBN',
-                  'subtype': 'Online'
+                  'id' => '12345',
+                  'type' => 'ISBN',
+                  'subtype' => 'Online'
                 }
               ]
             }
           }
         }
       )
+    end
+    let(:json) { Map JSON.parse response.body }
+    let(:attributes) { json.data.attributes }
 
+    before do
       VCR.use_cassette('post-custom-title-valid-identifier-subtypes') do
         post '/eholdings/titles',
              params: params, as: :json, headers: create_headers
       end
     end
 
-    let!(:json) { Map JSON.parse response.body }
-
     it 'responds with OK status' do
       expect(response).to have_http_status(200)
     end
 
-    let!(:json) { Map JSON.parse response.body }
-    let!(:attributes) { json.data.attributes }
-
     it 'has the expected list of identifiers' do
-      expect(json.data.attributes.identifiers[0].id)
+      expect(attributes.identifiers[0].id)
         .to eq('12345')
-      expect(json.data.attributes.identifiers[0].type)
+      expect(attributes.identifiers[0].type)
         .to eq('ISSN')
-      expect(json.data.attributes.identifiers[0].subtype)
+      expect(attributes.identifiers[0].subtype)
         .to eq('Print')
-      expect(json.data.attributes.identifiers[1].id)
+      expect(attributes.identifiers[1].id)
         .to eq('12345')
-      expect(json.data.attributes.identifiers[1].type)
+      expect(attributes.identifiers[1].type)
         .to eq('ISBN')
-      expect(json.data.attributes.identifiers[1].subtype)
+      expect(attributes.identifiers[1].subtype)
         .to eq('Online')
     end
   end

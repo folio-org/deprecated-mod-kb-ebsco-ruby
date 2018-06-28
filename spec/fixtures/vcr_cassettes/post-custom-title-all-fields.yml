@@ -27,7 +27,7 @@ http_interactions:
       Server:
       - nginx/1.13.5
       Date:
-      - Thu, 28 Jun 2018 16:12:01 GMT
+      - Thu, 28 Jun 2018 23:22:14 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -36,15 +36,15 @@ http_interactions:
       - keep-alive
       X-Okapi-Trace:
       - 'GET mod-authtoken-1.4.1-SNAPSHOT.21 http://10.39.255.17:8081/configurations/entries..
-        : 202 1356us'
+        : 202 1804us'
       - 'GET mod-configuration-4.0.4-SNAPSHOT.36 http://10.39.247.129:8081/configurations/entries..
-        : 200 43095us'
+        : 200 41367us'
       Host:
       - okapi.frontside.io
       X-Real-Ip:
-      - 10.128.0.4
+      - 10.128.0.3
       X-Forwarded-For:
-      - 10.128.0.4
+      - 10.128.0.3
       X-Forwarded-Host:
       - okapi.frontside.io
       X-Forwarded-Port:
@@ -66,7 +66,7 @@ http_interactions:
       User-Agent:
       - Ruby
       X-Okapi-Request-Id:
-      - 418853/configurations
+      - 452920/configurations
       X-Okapi-Url:
       - http://10.39.254.87:80
       X-Okapi-Permissions:
@@ -103,16 +103,16 @@ http_interactions:
           }
         }
     http_version: 
-  recorded_at: Thu, 28 Jun 2018 16:12:01 GMT
+  recorded_at: Thu, 28 Jun 2018 23:22:14 GMT
 - request:
     method: post
     uri: https://api.ebsco.io/rm/rmaccounts/TEST_CUSTOMER_ID/vendors/123355/packages/2918760/titles
     body:
       encoding: UTF-8
-      string: '{"titleName":"Fallout Title Testing All Fields","pubType":"book","publisherName":"test
-        publisher","isPeerReviewed":true,"edition":"test edition","description":"test
-        description","contributorsList":[{"type":"Editor","contributor":"some editor"},{"type":"Illustrator","contributor":"some
-        illustrator"}],"identifiersList":[{"id":"12347","type":1,"subtype":1},{"id":"98547","type":0,"subtype":2}]}'
+      string: '{"titleName":"Retro Temple Test All Fields","edition":"test edition","publisherName":"test
+        publisher","pubType":"book","isPeerReviewed":true,"contributorsList":[{"type":"Editor","contributor":"some
+        editor"},{"type":"Illustrator","contributor":"some illustrator"}],"identifiersList":[{"id":"12347","type":1,"subtype":1},{"id":"98547","type":0,"subtype":2}],"description":"test
+        description"}'
     headers:
       User-Agent:
       - Flexirest/1.6.7
@@ -138,29 +138,29 @@ http_interactions:
       Connection:
       - keep-alive
       Date:
-      - Thu, 28 Jun 2018 16:12:02 GMT
+      - Thu, 28 Jun 2018 23:22:14 GMT
       X-Amzn-Requestid:
-      - fdd78d4f-7aed-11e8-9036-618ac043f42b
+      - 17532dde-7b2a-11e8-b845-59797c68e625
       X-Amzn-Remapped-Connection:
       - keep-alive
       X-Amz-Apigw-Id:
-      - JM5QzFyAIAMFcfw=
+      - JN4SAHB8IAMF1Gg=
       X-Amzn-Remapped-Date:
-      - Thu, 28 Jun 2018 16:12:02 GMT
+      - Thu, 28 Jun 2018 23:22:14 GMT
       X-Cache:
       - Miss from cloudfront
       Via:
-      - 1.1 5bd9bab11fd8ad5d2dea405e259e8910.cloudfront.net (CloudFront)
+      - 1.1 4433cfc63e9b5d5c7330b53b6a102c94.cloudfront.net (CloudFront)
       X-Amz-Cf-Id:
-      - Vcd-zgE9O0S0Wpf-xS38gHCzAnG7VbpYLXMRK6-YROqKGzsid-O6Ag==
+      - 5hEPjOLylKvmInI7GpwB9tJKtdT9rI08yD3mcQg25lvkkW54yNTxHg==
     body:
       encoding: UTF-8
-      string: '{"titleId":18287889}'
+      string: '{"titleId":18343084}'
     http_version: 
-  recorded_at: Thu, 28 Jun 2018 16:12:02 GMT
+  recorded_at: Thu, 28 Jun 2018 23:22:14 GMT
 - request:
     method: get
-    uri: https://api.ebsco.io/rm/rmaccounts/TEST_CUSTOMER_ID/titles/18287889
+    uri: https://api.ebsco.io/rm/rmaccounts/TEST_CUSTOMER_ID/titles/18343084
     body:
       encoding: US-ASCII
       string: ''
@@ -185,19 +185,19 @@ http_interactions:
       Content-Type:
       - application/json; charset=utf-8
       Content-Length:
-      - '1194'
+      - '1190'
       Connection:
       - keep-alive
       Date:
-      - Thu, 28 Jun 2018 16:12:02 GMT
+      - Thu, 28 Jun 2018 23:22:14 GMT
       X-Amzn-Requestid:
-      - fe09e7fc-7aed-11e8-8f36-9d8431256126
+      - 1785af7f-7b2a-11e8-8b97-9f40219372c0
       X-Amzn-Remapped-Content-Length:
-      - '1194'
+      - '1190'
       X-Amzn-Remapped-Connection:
       - keep-alive
       X-Amz-Apigw-Id:
-      - JM5Q2FcxoAMFUUA=
+      - JN4SEEDyIAMF1Ow=
       X-Amzn-Remapped-Server:
       - Microsoft-IIS/8.5
       Cache-Control:
@@ -209,23 +209,23 @@ http_interactions:
       Pragma:
       - no-cache
       X-Amzn-Remapped-Date:
-      - Thu, 28 Jun 2018 16:12:02 GMT
+      - Thu, 28 Jun 2018 23:22:14 GMT
       X-Aspnet-Version:
       - 4.0.30319
       X-Cache:
       - Miss from cloudfront
       Via:
-      - 1.1 1e0f6d91fb358639e6808cb6d2638da0.cloudfront.net (CloudFront)
+      - 1.1 06df2f0e5cefb5e7b8be41ff25b6fd8a.cloudfront.net (CloudFront)
       X-Amz-Cf-Id:
-      - QLYJB7sKcQfXRybHuMXIdtj_ZU7Yy3y6MHKfGtZXV85NWmkixvAcag==
+      - jee2PMUv7FBCRSBZ3tXYo1WEpSSUnY1OkmtEqCR5JS87o9u4te8g9Q==
     body:
       encoding: UTF-8
-      string: '{"titleId":18287889,"titleName":"Fallout Title Testing All Fields","publisherName":"test
-        publisher","identifiersList":[{"id":"12347","source":"ResourceIdentifier","subtype":1,"type":1},{"id":"98547","source":"ResourceIdentifier","subtype":2,"type":0}],"subjectsList":[],"isTitleCustom":true,"pubType":"Book","customerResourcesList":[{"titleId":18287889,"packageId":2918760,"packageName":"Title
+      string: '{"titleId":18343084,"titleName":"Retro Temple Test All Fields","publisherName":"test
+        publisher","identifiersList":[{"id":"12347","source":"ResourceIdentifier","subtype":1,"type":1},{"id":"98547","source":"ResourceIdentifier","subtype":2,"type":0}],"subjectsList":[],"isTitleCustom":true,"pubType":"Book","customerResourcesList":[{"titleId":18343084,"packageId":2918760,"packageName":"Title
         testing package","packageType":"Custom","proxy":{"id":"<n>","inherited":true},"isPackageCustom":true,"vendorId":123355,"vendorName":"API
         DEV CORPORATE CUSTOMER","locationId":0,"isSelected":true,"isTokenNeeded":false,"visibilityData":{"isHidden":false,"reason":""},"managedCoverageList":[],"customCoverageList":[],"coverageStatement":null,"managedEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"customEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"url":null,"userDefinedField1":null,"userDefinedField2":null,"userDefinedField3":null,"userDefinedField4":null,"userDefinedField5":null}],"description":"test
         description","edition":"test edition","isPeerReviewed":true,"contributorsList":[{"type":"editor","contributor":"some
         editor"},{"type":"illustrator","contributor":"some illustrator"}]}'
     http_version: 
-  recorded_at: Thu, 28 Jun 2018 16:12:02 GMT
+  recorded_at: Thu, 28 Jun 2018 23:22:14 GMT
 recorded_with: VCR 3.0.3
