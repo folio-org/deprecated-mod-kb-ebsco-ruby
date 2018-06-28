@@ -10,29 +10,29 @@ RSpec.describe 'Custom Titles Create', type: :request do
   end
 
   let(:payload) do
-    Map({
-          'data' => {
-            'type' => 'titles',
-            'attributes' => {
-              'name' => 'Goblins New Title',
-              'edition' => '',
-              'publisherName' => '',
-              'publicationType' => 'Journal',
-              'isPeerReviewed' => false,
-              'contributors' => [],
-              'identifiers' => [],
-              'description' => ''
-            }
-          },
-          'included' => [
-            {
-              'type' => 'resources',
-              'attributes' => {
-                'packageId' => '123355-2918760'
-              }
-            }
-          ]
-        })
+    Map(
+      'data' => {
+        'type' => 'titles',
+        'attributes' => {
+          'name' => 'Goblins New Title',
+          'edition' => '',
+          'publisherName' => '',
+          'publicationType' => 'Journal',
+          'isPeerReviewed' => false,
+          'contributors' => [],
+          'identifiers' => [],
+          'description' => ''
+        }
+      },
+      'included' => [
+        {
+          'type' => 'resources',
+          'attributes' => {
+            'packageId' => '123355-2918760'
+          }
+        }
+      ]
+    )
   end
 
   describe 'with minimum required fields' do
@@ -53,16 +53,16 @@ RSpec.describe 'Custom Titles Create', type: :request do
 
     it 'has a list of attributes' do
       expect(attributes).to include(
-                              'contributors',
-                              'description',
-                              'identifiers',
-                              'isPeerReviewed',
-                              'isTitleCustom',
-                              'name',
-                              'publicationType',
-                              'publisherName',
-                              'subjects'
-                            )
+        'contributors',
+        'description',
+        'identifiers',
+        'isPeerReviewed',
+        'isTitleCustom',
+        'name',
+        'publicationType',
+        'publisherName',
+        'subjects'
+      )
     end
 
     it 'has the new name' do
@@ -79,14 +79,11 @@ RSpec.describe 'Custom Titles Create', type: :request do
   end
 
   describe 'with an existing name' do
-
     let(:params) do
       payload.deep_merge(
-        {
-          'data' => {
-            'attributes' => {
-              'name' => 'Goblins New Title'
-            }
+        'data' => {
+          'attributes' => {
+            'name' => 'Goblins New Title'
           }
         }
       )
@@ -108,18 +105,14 @@ RSpec.describe 'Custom Titles Create', type: :request do
   end
 
   describe 'with missing name' do
-
     let(:params) do
       payload.deep_merge(
-        {
-          'data' => {
-            'attributes' => {
-              'name' => nil
-            }
+        'data' => {
+          'attributes' => {
+            'name' => nil
           }
         }
       )
-
     end
 
     before do
@@ -142,11 +135,9 @@ RSpec.describe 'Custom Titles Create', type: :request do
 
     let(:params) do
       payload.deep_merge(
-        {
-          'data' => {
-            'attributes' => {
-              'name' => largeName
-            }
+        'data' => {
+          'attributes' => {
+            'name' => largeName
           }
         }
       )
@@ -170,12 +161,10 @@ RSpec.describe 'Custom Titles Create', type: :request do
   describe 'with publication type outside list of known values' do
     let(:params) do
       payload.deep_merge(
-        {
-          'data' => {
-            'attributes' => {
-              'name' => 'The Mages New Title',
-              'publicationType' => 'Made Up'
-            }
+        'data' => {
+          'attributes' => {
+            'name' => 'The Mages New Title',
+            'publicationType' => 'Made Up'
           }
         }
       )
@@ -219,7 +208,6 @@ RSpec.describe 'Custom Titles Create', type: :request do
   end
 
   describe 'with missing package id' do
-
     let(:params) { payload.merge included: [payload.included.first.merge(attributes: {})] }
 
     before do
@@ -238,16 +226,13 @@ RSpec.describe 'Custom Titles Create', type: :request do
   end
 
   describe 'with a managed package id' do
-
     let(:params) do
       payload.deep_merge(
-        {
-          'included' => [
-            'attributes' => {
-              'packageId' => '123355-2512592'
-            }
-          ]
-        }
+        'included' => [
+          'attributes' => {
+            'packageId' => '123355-2512592'
+          }
+        ]
       )
     end
 
@@ -267,16 +252,13 @@ RSpec.describe 'Custom Titles Create', type: :request do
   end
 
   describe 'with invalid package id' do
-
     let(:params) do
       payload.deep_merge(
-        {
-          'included' => [
-            'attributes' => {
-              'packageId' => '9999999-9999999'
-            }
-          ]
-        }
+        'included' => [
+          'attributes' => {
+            'packageId' => '9999999-9999999'
+          }
+        ]
       )
     end
 
@@ -298,38 +280,36 @@ RSpec.describe 'Custom Titles Create', type: :request do
   describe 'with all fields' do
     let(:params) do
       payload.deep_merge(
-        {
-          'data' => {
-            'attributes' => {
-              'name' => 'Retro Temple Test All Fields',
-              'publicationType' => 'Book',
-              'publisherName' => 'test publisher',
-              'isPeerReviewed' => true,
-              'edition' => 'test edition',
-              'description' => 'test description',
-              'contributors' => [
-                {
-                  'type' => 'Editor',
-                  'contributor' => 'some editor'
-                },
-                {
-                  'type' => 'Illustrator',
-                  'contributor' => 'some illustrator'
-                }
-              ],
-              'identifiers' => [
-                {
-                  'id' => '12347',
-                  'type' => 'ISBN',
-                  'subtype' => 'Print'
-                },
-                {
-                  'id' => '98547',
-                  'type' => 'ISSN',
-                  'subtype' => 'Online'
-                }
-              ]
-            }
+        'data' => {
+          'attributes' => {
+            'name' => 'Retro Temple Test All Fields',
+            'publicationType' => 'Book',
+            'publisherName' => 'test publisher',
+            'isPeerReviewed' => true,
+            'edition' => 'test edition',
+            'description' => 'test description',
+            'contributors' => [
+              {
+                'type' => 'Editor',
+                'contributor' => 'some editor'
+              },
+              {
+                'type' => 'Illustrator',
+                'contributor' => 'some illustrator'
+              }
+            ],
+            'identifiers' => [
+              {
+                'id' => '12347',
+                'type' => 'ISBN',
+                'subtype' => 'Print'
+              },
+              {
+                'id' => '98547',
+                'type' => 'ISSN',
+                'subtype' => 'Online'
+              }
+            ]
           }
         }
       )
@@ -405,11 +385,9 @@ RSpec.describe 'Custom Titles Create', type: :request do
 
     let(:params) do
       payload.deep_merge(
-        {
-          'data' => {
-            'attributes' => {
-              'publisherName' => largePublisherName
-            }
+        'data' => {
+          'attributes' => {
+            'publisherName' => largePublisherName
           }
         }
       )
@@ -433,11 +411,9 @@ RSpec.describe 'Custom Titles Create', type: :request do
   describe 'with peer reviewed that is not true/false' do
     let(:params) do
       payload.deep_merge(
-        {
-          'data' => {
-            'attributes' => {
-              'isPeerReviewed' => 'invalid'
-            }
+        'data' => {
+          'attributes' => {
+            'isPeerReviewed' => 'invalid'
           }
         }
       )
@@ -463,11 +439,9 @@ RSpec.describe 'Custom Titles Create', type: :request do
 
     let(:params) do
       payload.deep_merge(
-        {
-          'data' => {
-            'attributes' => {
-              'edition' => largeEdition
-            }
+        'data' => {
+          'attributes' => {
+            'edition' => largeEdition
           }
         }
       )
@@ -493,11 +467,9 @@ RSpec.describe 'Custom Titles Create', type: :request do
 
     let(:params) do
       payload.deep_merge(
-        {
-          'data' => {
-            'attributes' => {
-              'description' => largeDescription
-            }
+        'data' => {
+          'attributes' => {
+            'description' => largeDescription
           }
         }
       )
@@ -521,20 +493,18 @@ RSpec.describe 'Custom Titles Create', type: :request do
   describe 'with invalid contributor type' do
     let(:params) do
       payload.deep_merge(
-        {
-          'data' => {
-            'attributes' => {
-              'contributors' => [
-                {
-                  'type' => 'invalid type',
-                  'contributor' => 'some editor'
-                },
-                {
-                  'type' => 'Illustrator',
-                  'contributor' => 'some illustrator'
-                }
-              ]
-            }
+        'data' => {
+          'attributes' => {
+            'contributors' => [
+              {
+                'type' => 'invalid type',
+                'contributor' => 'some editor'
+              },
+              {
+                'type' => 'Illustrator',
+                'contributor' => 'some illustrator'
+              }
+            ]
           }
         }
       )
@@ -559,20 +529,17 @@ RSpec.describe 'Custom Titles Create', type: :request do
   end
 
   describe 'with invalid identifier id' do
-
     let(:params) do
       payload.deep_merge(
-        {
-          'data' => {
-            'attributes' => {
-              'identifiers' => [
-                {
-                  'id' => 12_345, # cannot be an integer, has to be a string
-                  'type' => 'ISBN',
-                  'subtype' => 'Print'
-                }
-              ]
-            }
+        'data' => {
+          'attributes' => {
+            'identifiers' => [
+              {
+                'id' => 12_345, # cannot be an integer, has to be a string
+                'type' => 'ISBN',
+                'subtype' => 'Print'
+              }
+            ]
           }
         }
       )
@@ -601,17 +568,15 @@ RSpec.describe 'Custom Titles Create', type: :request do
 
     let(:params) do
       payload.deep_merge(
-        {
-          'data' => {
-            'attributes' => {
-              'identifiers' => [
-                {
-                  'id' => longIdentifierId,
-                  'type' => 'ISBN',
-                  'subtype' => 'Print'
-                }
-              ]
-            }
+        'data' => {
+          'attributes' => {
+            'identifiers' => [
+              {
+                'id' => longIdentifierId,
+                'type' => 'ISBN',
+                'subtype' => 'Print'
+              }
+            ]
           }
         }
       )
@@ -636,19 +601,16 @@ RSpec.describe 'Custom Titles Create', type: :request do
   end
 
   describe 'with missing identifier id' do
-
     let(:params) do
       payload.deep_merge(
-        {
-          'data' => {
-            'attributes' => {
-              'identifiers' => [
-                {
-                  'type' => 'ISBN',
-                  'subtype' => 'Print'
-                }
-              ]
-            }
+        'data' => {
+          'attributes' => {
+            'identifiers' => [
+              {
+                'type' => 'ISBN',
+                'subtype' => 'Print'
+              }
+            ]
           }
         }
       )
@@ -673,20 +635,17 @@ RSpec.describe 'Custom Titles Create', type: :request do
   end
 
   describe 'with invalid identifier type' do
-
     let(:params) do
       payload.deep_merge(
-        {
-          'data' => {
-            'attributes' => {
-              'identifiers' => [
-                {
-                  'id' => '12345',
-                  'type' => 'Invalid Type',
-                  'subtype' => 'Print'
-                }
-              ]
-            }
+        'data' => {
+          'attributes' => {
+            'identifiers' => [
+              {
+                'id' => '12345',
+                'type' => 'Invalid Type',
+                'subtype' => 'Print'
+              }
+            ]
           }
         }
       )
@@ -711,26 +670,23 @@ RSpec.describe 'Custom Titles Create', type: :request do
   end
 
   describe 'with valid identifier types' do
-
     let(:params) do
       payload.deep_merge(
-        {
-          'data' => {
-            'attributes' => {
-              'name' => 'Owl Bat Valid Identifier',
-              'identifiers' => [
-                {
-                  'id' => '12345',
-                  'type' => 'ISSN',
-                  'subtype' => 'Print'
-                },
-                {
-                  'id' => '12345',
-                  'type' => 'ISBN',
-                  'subtype' => 'Print'
-                }
-              ]
-            }
+        'data' => {
+          'attributes' => {
+            'name' => 'Owl Bat Valid Identifier',
+            'identifiers' => [
+              {
+                'id' => '12345',
+                'type' => 'ISSN',
+                'subtype' => 'Print'
+              },
+              {
+                'id' => '12345',
+                'type' => 'ISBN',
+                'subtype' => 'Print'
+              }
+            ]
           }
         }
       )
@@ -767,20 +723,17 @@ RSpec.describe 'Custom Titles Create', type: :request do
   end
 
   describe 'with invalid identifier subtype' do
-
     let(:params) do
       payload.deep_merge(
-        {
-          'data' => {
-            'attributes' => {
-              'identifiers' => [
-                {
-                  'id' => '12345',
-                  'type' => 'ISSN',
-                  'subtype' => 'Invalid subtype'
-                }
-              ]
-            }
+        'data' => {
+          'attributes' => {
+            'identifiers' => [
+              {
+                'id' => '12345',
+                'type' => 'ISSN',
+                'subtype' => 'Invalid subtype'
+              }
+            ]
           }
         }
       )
@@ -807,23 +760,21 @@ RSpec.describe 'Custom Titles Create', type: :request do
   describe 'with valid identifier subtypes' do
     let(:params) do
       payload.deep_merge(
-        {
-          'data' => {
-            'attributes' => {
-              'name' => 'Olivander Valid Subtype',
-              'identifiers' => [
-                {
-                  'id' => '12345',
-                  'type' => 'ISSN',
-                  'subtype' => 'Print'
-                },
-                {
-                  'id' => '12345',
-                  'type' => 'ISBN',
-                  'subtype' => 'Online'
-                }
-              ]
-            }
+        'data' => {
+          'attributes' => {
+            'name' => 'Olivander Valid Subtype',
+            'identifiers' => [
+              {
+                'id' => '12345',
+                'type' => 'ISSN',
+                'subtype' => 'Print'
+              },
+              {
+                'id' => '12345',
+                'type' => 'ISBN',
+                'subtype' => 'Online'
+              }
+            ]
           }
         }
       )
