@@ -27,7 +27,7 @@ http_interactions:
       Server:
       - nginx/1.13.5
       Date:
-      - Wed, 02 May 2018 20:18:11 GMT
+      - Thu, 28 Jun 2018 23:22:13 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -35,16 +35,16 @@ http_interactions:
       Connection:
       - keep-alive
       X-Okapi-Trace:
-      - 'GET mod-authtoken-1.4.1-SNAPSHOT.20 http://10.39.249.72:8081/configurations/entries..
-        : 202 1388us'
-      - 'GET mod-configuration-4.0.3-SNAPSHOT.29 http://10.39.252.104:8081/configurations/entries..
-        : 200 43038us'
+      - 'GET mod-authtoken-1.4.1-SNAPSHOT.21 http://10.39.255.17:8081/configurations/entries..
+        : 202 1540us'
+      - 'GET mod-configuration-4.0.4-SNAPSHOT.36 http://10.39.247.129:8081/configurations/entries..
+        : 200 42278us'
       Host:
       - okapi.frontside.io
       X-Real-Ip:
-      - 10.36.3.1
+      - 10.128.0.5
       X-Forwarded-For:
-      - 10.36.3.1
+      - 10.128.0.5
       X-Forwarded-Host:
       - okapi.frontside.io
       X-Forwarded-Port:
@@ -66,15 +66,11 @@ http_interactions:
       User-Agent:
       - Ruby
       X-Okapi-Request-Id:
-      - 229363/configurations
+      - 498515/configurations
       X-Okapi-Url:
-      - http://10.39.243.220:80
-      X-Okapi-Permissions-Required:
-      - configuration.entries.collection.get
-      X-Okapi-Module-Permissions:
-      - '{"mod-authtoken-1.4.1-SNAPSHOT.20":["perms.users.get"]}'
+      - http://10.39.254.87:80
       X-Okapi-Permissions:
-      - '["configuration.entries.collection.get"]'
+      - '["configuration.entries.collection.get","configuration.entries.collection.get"]'
       X-Okapi-User-Id:
       - 1ad737b0-d847-11e6-bf26-cec0c932ce01
       X-Okapi-Token:
@@ -86,7 +82,7 @@ http_interactions:
       string: |-
         {
           "configs" : [ {
-            "id" : "9f193b46-4cc5-4c99-b09f-374fe5415673",
+            "id" : "28fd0ce0-108e-4471-8a7b-4645319fd707",
             "module" : "KB_EBSCO",
             "configName" : "api_credentials",
             "code" : "kb.ebsco.credentials",
@@ -94,9 +90,9 @@ http_interactions:
             "enabled" : true,
             "value" : "customer-id=TEST_CUSTOMER_ID&api-key=TEST_API_KEY",
             "metadata" : {
-              "createdDate" : "2018-03-28T14:49:56.794+0000",
+              "createdDate" : "2018-06-26T13:23:48.592+0000",
               "createdByUserId" : "1ad737b0-d847-11e6-bf26-cec0c932ce01",
-              "updatedDate" : "2018-03-28T14:49:56.794+0000",
+              "updatedDate" : "2018-06-26T13:23:48.592+0000",
               "updatedByUserId" : "1ad737b0-d847-11e6-bf26-cec0c932ce01"
             }
           } ],
@@ -107,68 +103,16 @@ http_interactions:
           }
         }
     http_version: 
-  recorded_at: Wed, 02 May 2018 20:18:11 GMT
-- request:
-    method: get
-    uri: https://api.ebsco.io/rm/rmaccounts/TEST_CUSTOMER_ID/vendors?count=25&offset=1&orderby=relevance&search=TEST_CUSTOMER_ID
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      User-Agent:
-      - Flexirest/1.5.5
-      Connection:
-      - Keep-Alive
-      Accept:
-      - application/json
-      X-Api-Key:
-      - TEST_API_KEY
-      Content-Type:
-      - application/json
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Content-Type:
-      - application/json;charset=UTF-8
-      Content-Length:
-      - '170'
-      Connection:
-      - keep-alive
-      Date:
-      - Wed, 02 May 2018 20:18:11 GMT
-      X-Amzn-Requestid:
-      - efad6bfd-4e45-11e8-a24b-bf6594c27283
-      X-Amzn-Remapped-Connection:
-      - keep-alive
-      X-Amz-Apigw-Id:
-      - GRl4jG02IAMFeUg=
-      X-Amzn-Remapped-Date:
-      - Wed, 02 May 2018 20:18:11 GMT
-      X-Cache:
-      - Miss from cloudfront
-      Via:
-      - 1.1 827359063b85d918b26fb93316e9cd61.cloudfront.net (CloudFront)
-      X-Amz-Cf-Id:
-      - oEsTpLX77HUzS18ojQ_FAqjHbesgIKjXOZgY5i898aFfsGso5zZtGA==
-    body:
-      encoding: UTF-8
-      string: '{"totalResults":1,"vendors":[{"vendorId":123355,"vendorName":"API DEV
-        CORPORATE CUSTOMER","isCustomer":true,"packagesTotal":63,"packagesSelected":63,"vendorToken":null}]}'
-    http_version: 
-  recorded_at: Wed, 02 May 2018 20:18:11 GMT
+  recorded_at: Thu, 28 Jun 2018 23:22:13 GMT
 - request:
     method: post
     uri: https://api.ebsco.io/rm/rmaccounts/TEST_CUSTOMER_ID/vendors/123355/packages/2512592/titles
     body:
       encoding: UTF-8
-      string: '{"titleName":"My Title Testing","pubType":"unspecified"}'
+      string: '{"titleName":"Goblins New Title","edition":"","publisherName":"","pubType":"journal","isPeerReviewed":false,"description":""}'
     headers:
       User-Agent:
-      - Flexirest/1.5.5
+      - Flexirest/1.6.7
       Connection:
       - Keep-Alive
       Accept:
@@ -191,25 +135,25 @@ http_interactions:
       Connection:
       - keep-alive
       Date:
-      - Wed, 02 May 2018 20:18:11 GMT
+      - Thu, 28 Jun 2018 23:22:13 GMT
       X-Amzn-Requestid:
-      - efcab84c-4e45-11e8-a9b3-23f0e73d4072
+      - 16aa9145-7b2a-11e8-acec-3d599801b392
       X-Amzn-Remapped-Connection:
       - keep-alive
       X-Amz-Apigw-Id:
-      - GRl4lEGkIAMFV1A=
+      - JN4R1FADoAMF3aA=
       X-Amzn-Remapped-Date:
-      - Wed, 02 May 2018 20:18:11 GMT
+      - Thu, 28 Jun 2018 23:22:13 GMT
       X-Cache:
       - Error from cloudfront
       Via:
-      - 1.1 e7e29d0eded63a37a4752639a0b543bf.cloudfront.net (CloudFront)
+      - 1.1 0c9b2c7f2bb4de1a6bfc1944dd0b4e44.cloudfront.net (CloudFront)
       X-Amz-Cf-Id:
-      - _G4bBQx7Oxicbh9lqYe3e2Ne2CJYd-sQ4CwCAqAnbE6hrc-_JT8jTA==
+      - DWrririHOXCAiyvSSI_-iaX8mjN_hZF8xBycRVF0RpxaRkKFhVo3aQ==
     body:
       encoding: UTF-8
       string: '{"errors":[{"code":1006,"subCode":0,"message":"Custom Title can not
         be added to the provided package"}]}'
     http_version: 
-  recorded_at: Wed, 02 May 2018 20:18:11 GMT
+  recorded_at: Thu, 28 Jun 2018 23:22:13 GMT
 recorded_with: VCR 3.0.3

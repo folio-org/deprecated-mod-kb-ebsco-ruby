@@ -27,7 +27,7 @@ http_interactions:
       Server:
       - nginx/1.13.5
       Date:
-      - Wed, 02 May 2018 20:18:15 GMT
+      - Thu, 28 Jun 2018 23:22:16 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -35,10 +35,10 @@ http_interactions:
       Connection:
       - keep-alive
       X-Okapi-Trace:
-      - 'GET mod-authtoken-1.4.1-SNAPSHOT.20 http://10.39.249.72:8081/configurations/entries..
-        : 202 1265us'
-      - 'GET mod-configuration-4.0.3-SNAPSHOT.29 http://10.39.252.104:8081/configurations/entries..
-        : 200 41959us'
+      - 'GET mod-authtoken-1.4.1-SNAPSHOT.21 http://10.39.255.17:8081/configurations/entries..
+        : 202 1301us'
+      - 'GET mod-configuration-4.0.4-SNAPSHOT.36 http://10.39.247.129:8081/configurations/entries..
+        : 200 41688us'
       Host:
       - okapi.frontside.io
       X-Real-Ip:
@@ -66,15 +66,11 @@ http_interactions:
       User-Agent:
       - Ruby
       X-Okapi-Request-Id:
-      - 298934/configurations
+      - 613325/configurations
       X-Okapi-Url:
-      - http://10.39.243.220:80
-      X-Okapi-Permissions-Required:
-      - configuration.entries.collection.get
-      X-Okapi-Module-Permissions:
-      - '{"mod-authtoken-1.4.1-SNAPSHOT.20":["perms.users.get"]}'
+      - http://10.39.254.87:80
       X-Okapi-Permissions:
-      - '["configuration.entries.collection.get"]'
+      - '["configuration.entries.collection.get","configuration.entries.collection.get"]'
       X-Okapi-User-Id:
       - 1ad737b0-d847-11e6-bf26-cec0c932ce01
       X-Okapi-Token:
@@ -86,7 +82,7 @@ http_interactions:
       string: |-
         {
           "configs" : [ {
-            "id" : "9f193b46-4cc5-4c99-b09f-374fe5415673",
+            "id" : "28fd0ce0-108e-4471-8a7b-4645319fd707",
             "module" : "KB_EBSCO",
             "configName" : "api_credentials",
             "code" : "kb.ebsco.credentials",
@@ -94,9 +90,9 @@ http_interactions:
             "enabled" : true,
             "value" : "customer-id=TEST_CUSTOMER_ID&api-key=TEST_API_KEY",
             "metadata" : {
-              "createdDate" : "2018-03-28T14:49:56.794+0000",
+              "createdDate" : "2018-06-26T13:23:48.592+0000",
               "createdByUserId" : "1ad737b0-d847-11e6-bf26-cec0c932ce01",
-              "updatedDate" : "2018-03-28T14:49:56.794+0000",
+              "updatedDate" : "2018-06-26T13:23:48.592+0000",
               "updatedByUserId" : "1ad737b0-d847-11e6-bf26-cec0c932ce01"
             }
           } ],
@@ -107,68 +103,16 @@ http_interactions:
           }
         }
     http_version: 
-  recorded_at: Wed, 02 May 2018 20:18:15 GMT
-- request:
-    method: get
-    uri: https://api.ebsco.io/rm/rmaccounts/TEST_CUSTOMER_ID/vendors?count=25&offset=1&orderby=relevance&search=TEST_CUSTOMER_ID
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      User-Agent:
-      - Flexirest/1.5.5
-      Connection:
-      - Keep-Alive
-      Accept:
-      - application/json
-      X-Api-Key:
-      - TEST_API_KEY
-      Content-Type:
-      - application/json
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Content-Type:
-      - application/json;charset=UTF-8
-      Content-Length:
-      - '170'
-      Connection:
-      - keep-alive
-      Date:
-      - Wed, 02 May 2018 20:18:15 GMT
-      X-Amzn-Requestid:
-      - f242e461-4e45-11e8-ac90-e37206b0f489
-      X-Amzn-Remapped-Connection:
-      - keep-alive
-      X-Amz-Apigw-Id:
-      - GRl5OG1HoAMFksA=
-      X-Amzn-Remapped-Date:
-      - Wed, 02 May 2018 20:18:15 GMT
-      X-Cache:
-      - Miss from cloudfront
-      Via:
-      - 1.1 8f60415505ef336ae223e56abdc2ef6c.cloudfront.net (CloudFront)
-      X-Amz-Cf-Id:
-      - ndWjdKolvwGxy1pCWhDNWxpXYGW7PORMo9ls8UUyaD3PTNcrlOUBpQ==
-    body:
-      encoding: UTF-8
-      string: '{"totalResults":1,"vendors":[{"vendorId":123355,"vendorName":"API DEV
-        CORPORATE CUSTOMER","isCustomer":true,"packagesTotal":63,"packagesSelected":63,"vendorToken":null}]}'
-    http_version: 
-  recorded_at: Wed, 02 May 2018 20:18:15 GMT
+  recorded_at: Thu, 28 Jun 2018 23:22:17 GMT
 - request:
     method: post
-    uri: https://api.ebsco.io/rm/rmaccounts/TEST_CUSTOMER_ID/vendors/123355/packages/2845504/titles
+    uri: https://api.ebsco.io/rm/rmaccounts/TEST_CUSTOMER_ID/vendors/123355/packages/2918760/titles
     body:
       encoding: UTF-8
-      string: '{"titleName":"New Title Testing Valid Identifier SubTypes","pubType":"book","identifiersList":[{"id":"12345","type":0,"subtype":1},{"id":"12345","type":1,"subtype":2}]}'
+      string: '{"titleName":"Olivander Valid Subtype","edition":"","publisherName":"","pubType":"journal","isPeerReviewed":false,"identifiersList":[{"id":"12345","type":0,"subtype":1},{"id":"12345","type":1,"subtype":2}],"description":""}'
     headers:
       User-Agent:
-      - Flexirest/1.5.5
+      - Flexirest/1.6.7
       Connection:
       - Keep-Alive
       Accept:
@@ -191,35 +135,35 @@ http_interactions:
       Connection:
       - keep-alive
       Date:
-      - Wed, 02 May 2018 20:18:16 GMT
+      - Thu, 28 Jun 2018 23:22:17 GMT
       X-Amzn-Requestid:
-      - f25e8215-4e45-11e8-b80e-3fa980127afd
+      - 18ec4482-7b2a-11e8-9f03-a923d91b4077
       X-Amzn-Remapped-Connection:
       - keep-alive
       X-Amz-Apigw-Id:
-      - GRl5QGcloAMF0hA=
+      - JN4SbGz9IAMF1LA=
       X-Amzn-Remapped-Date:
-      - Wed, 02 May 2018 20:18:16 GMT
+      - Thu, 28 Jun 2018 23:22:17 GMT
       X-Cache:
       - Miss from cloudfront
       Via:
-      - 1.1 ec4375358288b9efc2e39724f9fffdc4.cloudfront.net (CloudFront)
+      - 1.1 e7b9c8b702f137e8b1b2c9deb5048e4b.cloudfront.net (CloudFront)
       X-Amz-Cf-Id:
-      - 8LJN26CHsAoosErRVEQCwwzVl5pP7MH7UDLOM9j0Brx7Z0VmEGq7rQ==
+      - VS_znOgAUAbJ3o3mQG489kT0q5QxH-54XNJQe_INi5BD6PD4tVy8fg==
     body:
       encoding: UTF-8
-      string: '{"titleId":17239275}'
+      string: '{"titleId":18343086}'
     http_version: 
-  recorded_at: Wed, 02 May 2018 20:18:16 GMT
+  recorded_at: Thu, 28 Jun 2018 23:22:17 GMT
 - request:
     method: get
-    uri: https://api.ebsco.io/rm/rmaccounts/TEST_CUSTOMER_ID/titles/17239275
+    uri: https://api.ebsco.io/rm/rmaccounts/TEST_CUSTOMER_ID/titles/18343086
     body:
       encoding: US-ASCII
       string: ''
     headers:
       User-Agent:
-      - Flexirest/1.5.5
+      - Flexirest/1.6.7
       Connection:
       - Keep-Alive
       Accept:
@@ -238,19 +182,19 @@ http_interactions:
       Content-Type:
       - application/json; charset=utf-8
       Content-Length:
-      - '1058'
+      - '1048'
       Connection:
       - keep-alive
       Date:
-      - Wed, 02 May 2018 20:18:16 GMT
+      - Thu, 28 Jun 2018 23:22:17 GMT
       X-Amzn-Requestid:
-      - f29a5274-4e45-11e8-b210-c1e986381554
+      - 1917c094-7b2a-11e8-bb5a-b5fc80767d62
       X-Amzn-Remapped-Content-Length:
-      - '1058'
+      - '1048'
       X-Amzn-Remapped-Connection:
       - keep-alive
       X-Amz-Apigw-Id:
-      - GRl5UG96oAMFr_g=
+      - JN4SeHeRoAMFshQ=
       X-Amzn-Remapped-Server:
       - Microsoft-IIS/8.5
       Cache-Control:
@@ -262,20 +206,20 @@ http_interactions:
       Pragma:
       - no-cache
       X-Amzn-Remapped-Date:
-      - Wed, 02 May 2018 20:18:16 GMT
+      - Thu, 28 Jun 2018 23:22:16 GMT
       X-Aspnet-Version:
       - 4.0.30319
       X-Cache:
       - Miss from cloudfront
       Via:
-      - 1.1 e9b460d4fbe79e1b34e06840ef460c69.cloudfront.net (CloudFront)
+      - 1.1 aec53e350eb708126515a3ede0bac65d.cloudfront.net (CloudFront)
       X-Amz-Cf-Id:
-      - MrEpZ-Toa2y_TShdoCFATR7-nOieAhN5-XMuVBWkJFk7is4gwsHJ-A==
+      - Y-n5K1Lly3AICOqxC8bPLTGkM7v3g1z_aaZtgKe9UkMDiJC-Zu7ypQ==
     body:
       encoding: UTF-8
-      string: '{"titleId":17239275,"titleName":"New Title Testing Valid Identifier
-        SubTypes","publisherName":null,"identifiersList":[{"id":"12345","source":"ResourceIdentifier","subtype":1,"type":0},{"id":"12345","source":"ResourceIdentifier","subtype":2,"type":1}],"subjectsList":[],"isTitleCustom":true,"pubType":"Book","customerResourcesList":[{"titleId":17239275,"packageId":2845504,"packageName":"\"HAHAHA\"","packageType":"Custom","proxy":{"id":"<n>","inherited":true},"isPackageCustom":true,"vendorId":123355,"vendorName":"API
-        DEV CORPORATE CUSTOMER","locationId":0,"isSelected":true,"isTokenNeeded":false,"visibilityData":{"isHidden":false,"reason":""},"managedCoverageList":[],"customCoverageList":[],"coverageStatement":null,"managedEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"customEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"url":null,"userDefinedField1":null,"userDefinedField2":null,"userDefinedField3":null,"userDefinedField4":null,"userDefinedField5":null}],"description":null,"edition":null,"isPeerReviewed":false,"contributorsList":[]}'
+      string: '{"titleId":18343086,"titleName":"Olivander Valid Subtype","publisherName":null,"identifiersList":[{"id":"12345","source":"ResourceIdentifier","subtype":1,"type":0},{"id":"12345","source":"ResourceIdentifier","subtype":2,"type":1}],"subjectsList":[],"isTitleCustom":true,"pubType":"Journal","customerResourcesList":[{"titleId":18343086,"packageId":2918760,"packageName":"Title
+        testing package","packageType":"Custom","proxy":{"id":"<n>","inherited":true},"isPackageCustom":true,"vendorId":123355,"vendorName":"API
+        DEV CORPORATE CUSTOMER","locationId":0,"isSelected":true,"isTokenNeeded":false,"visibilityData":{"isHidden":false,"reason":""},"managedCoverageList":[],"customCoverageList":[],"coverageStatement":null,"managedEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"customEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"url":null,"userDefinedField1":null,"userDefinedField2":null,"userDefinedField3":null,"userDefinedField4":null,"userDefinedField5":null}],"description":"","edition":"","isPeerReviewed":false,"contributorsList":[]}'
     http_version: 
-  recorded_at: Wed, 02 May 2018 20:18:16 GMT
+  recorded_at: Thu, 28 Jun 2018 23:22:17 GMT
 recorded_with: VCR 3.0.3

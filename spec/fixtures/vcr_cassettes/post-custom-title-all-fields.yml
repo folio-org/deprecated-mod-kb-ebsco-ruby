@@ -27,7 +27,7 @@ http_interactions:
       Server:
       - nginx/1.13.5
       Date:
-      - Wed, 02 May 2018 20:18:12 GMT
+      - Thu, 28 Jun 2018 23:22:14 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -35,16 +35,16 @@ http_interactions:
       Connection:
       - keep-alive
       X-Okapi-Trace:
-      - 'GET mod-authtoken-1.4.1-SNAPSHOT.20 http://10.39.249.72:8081/configurations/entries..
-        : 202 1181us'
-      - 'GET mod-configuration-4.0.3-SNAPSHOT.29 http://10.39.252.104:8081/configurations/entries..
-        : 200 42150us'
+      - 'GET mod-authtoken-1.4.1-SNAPSHOT.21 http://10.39.255.17:8081/configurations/entries..
+        : 202 1804us'
+      - 'GET mod-configuration-4.0.4-SNAPSHOT.36 http://10.39.247.129:8081/configurations/entries..
+        : 200 41367us'
       Host:
       - okapi.frontside.io
       X-Real-Ip:
-      - 10.128.0.4
+      - 10.128.0.3
       X-Forwarded-For:
-      - 10.128.0.4
+      - 10.128.0.3
       X-Forwarded-Host:
       - okapi.frontside.io
       X-Forwarded-Port:
@@ -66,15 +66,11 @@ http_interactions:
       User-Agent:
       - Ruby
       X-Okapi-Request-Id:
-      - 981040/configurations
+      - 452920/configurations
       X-Okapi-Url:
-      - http://10.39.243.220:80
-      X-Okapi-Permissions-Required:
-      - configuration.entries.collection.get
-      X-Okapi-Module-Permissions:
-      - '{"mod-authtoken-1.4.1-SNAPSHOT.20":["perms.users.get"]}'
+      - http://10.39.254.87:80
       X-Okapi-Permissions:
-      - '["configuration.entries.collection.get"]'
+      - '["configuration.entries.collection.get","configuration.entries.collection.get"]'
       X-Okapi-User-Id:
       - 1ad737b0-d847-11e6-bf26-cec0c932ce01
       X-Okapi-Token:
@@ -86,7 +82,7 @@ http_interactions:
       string: |-
         {
           "configs" : [ {
-            "id" : "9f193b46-4cc5-4c99-b09f-374fe5415673",
+            "id" : "28fd0ce0-108e-4471-8a7b-4645319fd707",
             "module" : "KB_EBSCO",
             "configName" : "api_credentials",
             "code" : "kb.ebsco.credentials",
@@ -94,9 +90,9 @@ http_interactions:
             "enabled" : true,
             "value" : "customer-id=TEST_CUSTOMER_ID&api-key=TEST_API_KEY",
             "metadata" : {
-              "createdDate" : "2018-03-28T14:49:56.794+0000",
+              "createdDate" : "2018-06-26T13:23:48.592+0000",
               "createdByUserId" : "1ad737b0-d847-11e6-bf26-cec0c932ce01",
-              "updatedDate" : "2018-03-28T14:49:56.794+0000",
+              "updatedDate" : "2018-06-26T13:23:48.592+0000",
               "updatedByUserId" : "1ad737b0-d847-11e6-bf26-cec0c932ce01"
             }
           } ],
@@ -107,71 +103,19 @@ http_interactions:
           }
         }
     http_version: 
-  recorded_at: Wed, 02 May 2018 20:18:12 GMT
-- request:
-    method: get
-    uri: https://api.ebsco.io/rm/rmaccounts/TEST_CUSTOMER_ID/vendors?count=25&offset=1&orderby=relevance&search=TEST_CUSTOMER_ID
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      User-Agent:
-      - Flexirest/1.5.5
-      Connection:
-      - Keep-Alive
-      Accept:
-      - application/json
-      X-Api-Key:
-      - TEST_API_KEY
-      Content-Type:
-      - application/json
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Content-Type:
-      - application/json;charset=UTF-8
-      Content-Length:
-      - '170'
-      Connection:
-      - keep-alive
-      Date:
-      - Wed, 02 May 2018 20:18:12 GMT
-      X-Amzn-Requestid:
-      - f06a2cdd-4e45-11e8-898b-a9fc4b4a47b9
-      X-Amzn-Remapped-Connection:
-      - keep-alive
-      X-Amz-Apigw-Id:
-      - GRl4wHu5oAMF4hw=
-      X-Amzn-Remapped-Date:
-      - Wed, 02 May 2018 20:18:12 GMT
-      X-Cache:
-      - Miss from cloudfront
-      Via:
-      - 1.1 2e60888b24fa442131e50f158ca360a6.cloudfront.net (CloudFront)
-      X-Amz-Cf-Id:
-      - 1aa70KfLQXY9qcj5axSfcnz-MZ3SHqcilNILs5FYT8WwweU_46fjxg==
-    body:
-      encoding: UTF-8
-      string: '{"totalResults":1,"vendors":[{"vendorId":123355,"vendorName":"API DEV
-        CORPORATE CUSTOMER","isCustomer":true,"packagesTotal":63,"packagesSelected":63,"vendorToken":null}]}'
-    http_version: 
-  recorded_at: Wed, 02 May 2018 20:18:12 GMT
+  recorded_at: Thu, 28 Jun 2018 23:22:14 GMT
 - request:
     method: post
-    uri: https://api.ebsco.io/rm/rmaccounts/TEST_CUSTOMER_ID/vendors/123355/packages/2845504/titles
+    uri: https://api.ebsco.io/rm/rmaccounts/TEST_CUSTOMER_ID/vendors/123355/packages/2918760/titles
     body:
       encoding: UTF-8
-      string: '{"titleName":"Totally New Title Testing All Fields","pubType":"book","publisherName":"test
-        publisher","isPeerReviewed":true,"edition":"test edition","description":"test
-        description","contributorsList":[{"type":"Editor","contributor":"some editor"},{"type":"Illustrator","contributor":"some
-        illustrator"}],"identifiersList":[{"id":"12347","type":1,"subtype":1},{"id":"98547","type":0,"subtype":2}]}'
+      string: '{"titleName":"Retro Temple Test All Fields","edition":"test edition","publisherName":"test
+        publisher","pubType":"book","isPeerReviewed":true,"contributorsList":[{"type":"Editor","contributor":"some
+        editor"},{"type":"Illustrator","contributor":"some illustrator"}],"identifiersList":[{"id":"12347","type":1,"subtype":1},{"id":"98547","type":0,"subtype":2}],"description":"test
+        description"}'
     headers:
       User-Agent:
-      - Flexirest/1.5.5
+      - Flexirest/1.6.7
       Connection:
       - Keep-Alive
       Accept:
@@ -194,35 +138,35 @@ http_interactions:
       Connection:
       - keep-alive
       Date:
-      - Wed, 02 May 2018 20:18:13 GMT
+      - Thu, 28 Jun 2018 23:22:14 GMT
       X-Amzn-Requestid:
-      - f0883bcb-4e45-11e8-b775-e71b7a056870
+      - 17532dde-7b2a-11e8-b845-59797c68e625
       X-Amzn-Remapped-Connection:
       - keep-alive
       X-Amz-Apigw-Id:
-      - GRl4xGbjoAMF5EQ=
+      - JN4SAHB8IAMF1Gg=
       X-Amzn-Remapped-Date:
-      - Wed, 02 May 2018 20:18:13 GMT
+      - Thu, 28 Jun 2018 23:22:14 GMT
       X-Cache:
       - Miss from cloudfront
       Via:
-      - 1.1 2d2e1e199c18b4b9392796150bff22d6.cloudfront.net (CloudFront)
+      - 1.1 4433cfc63e9b5d5c7330b53b6a102c94.cloudfront.net (CloudFront)
       X-Amz-Cf-Id:
-      - xJ2aYn5Z6_3M9DAIcj5uNinRyxHHIfJ7OAOTNWIPkSeI2W25xeR-lg==
+      - 5hEPjOLylKvmInI7GpwB9tJKtdT9rI08yD3mcQg25lvkkW54yNTxHg==
     body:
       encoding: UTF-8
-      string: '{"titleId":17239273}'
+      string: '{"titleId":18343084}'
     http_version: 
-  recorded_at: Wed, 02 May 2018 20:18:13 GMT
+  recorded_at: Thu, 28 Jun 2018 23:22:14 GMT
 - request:
     method: get
-    uri: https://api.ebsco.io/rm/rmaccounts/TEST_CUSTOMER_ID/titles/17239273
+    uri: https://api.ebsco.io/rm/rmaccounts/TEST_CUSTOMER_ID/titles/18343084
     body:
       encoding: US-ASCII
       string: ''
     headers:
       User-Agent:
-      - Flexirest/1.5.5
+      - Flexirest/1.6.7
       Connection:
       - Keep-Alive
       Accept:
@@ -241,19 +185,19 @@ http_interactions:
       Content-Type:
       - application/json; charset=utf-8
       Content-Length:
-      - '1187'
+      - '1190'
       Connection:
       - keep-alive
       Date:
-      - Wed, 02 May 2018 20:18:13 GMT
+      - Thu, 28 Jun 2018 23:22:14 GMT
       X-Amzn-Requestid:
-      - f0dd1220-4e45-11e8-a24a-ab33fe61241c
+      - 1785af7f-7b2a-11e8-8b97-9f40219372c0
       X-Amzn-Remapped-Content-Length:
-      - '1187'
+      - '1190'
       X-Amzn-Remapped-Connection:
       - keep-alive
       X-Amz-Apigw-Id:
-      - GRl43GZ6oAMFRDA=
+      - JN4SEEDyIAMF1Ow=
       X-Amzn-Remapped-Server:
       - Microsoft-IIS/8.5
       Cache-Control:
@@ -265,22 +209,23 @@ http_interactions:
       Pragma:
       - no-cache
       X-Amzn-Remapped-Date:
-      - Wed, 02 May 2018 20:18:13 GMT
+      - Thu, 28 Jun 2018 23:22:14 GMT
       X-Aspnet-Version:
       - 4.0.30319
       X-Cache:
       - Miss from cloudfront
       Via:
-      - 1.1 1e0f6d91fb358639e6808cb6d2638da0.cloudfront.net (CloudFront)
+      - 1.1 06df2f0e5cefb5e7b8be41ff25b6fd8a.cloudfront.net (CloudFront)
       X-Amz-Cf-Id:
-      - 3ZeZ-bIogDA77qYYmNdPmL6mUNeiFitVqWKPWjPw8KJRSBza4oNMUQ==
+      - jee2PMUv7FBCRSBZ3tXYo1WEpSSUnY1OkmtEqCR5JS87o9u4te8g9Q==
     body:
       encoding: UTF-8
-      string: '{"titleId":17239273,"titleName":"Totally New Title Testing All Fields","publisherName":"test
-        publisher","identifiersList":[{"id":"12347","source":"ResourceIdentifier","subtype":1,"type":1},{"id":"98547","source":"ResourceIdentifier","subtype":2,"type":0}],"subjectsList":[],"isTitleCustom":true,"pubType":"Book","customerResourcesList":[{"titleId":17239273,"packageId":2845504,"packageName":"\"HAHAHA\"","packageType":"Custom","proxy":{"id":"<n>","inherited":true},"isPackageCustom":true,"vendorId":123355,"vendorName":"API
+      string: '{"titleId":18343084,"titleName":"Retro Temple Test All Fields","publisherName":"test
+        publisher","identifiersList":[{"id":"12347","source":"ResourceIdentifier","subtype":1,"type":1},{"id":"98547","source":"ResourceIdentifier","subtype":2,"type":0}],"subjectsList":[],"isTitleCustom":true,"pubType":"Book","customerResourcesList":[{"titleId":18343084,"packageId":2918760,"packageName":"Title
+        testing package","packageType":"Custom","proxy":{"id":"<n>","inherited":true},"isPackageCustom":true,"vendorId":123355,"vendorName":"API
         DEV CORPORATE CUSTOMER","locationId":0,"isSelected":true,"isTokenNeeded":false,"visibilityData":{"isHidden":false,"reason":""},"managedCoverageList":[],"customCoverageList":[],"coverageStatement":null,"managedEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"customEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"url":null,"userDefinedField1":null,"userDefinedField2":null,"userDefinedField3":null,"userDefinedField4":null,"userDefinedField5":null}],"description":"test
         description","edition":"test edition","isPeerReviewed":true,"contributorsList":[{"type":"editor","contributor":"some
         editor"},{"type":"illustrator","contributor":"some illustrator"}]}'
     http_version: 
-  recorded_at: Wed, 02 May 2018 20:18:13 GMT
+  recorded_at: Thu, 28 Jun 2018 23:22:14 GMT
 recorded_with: VCR 3.0.3

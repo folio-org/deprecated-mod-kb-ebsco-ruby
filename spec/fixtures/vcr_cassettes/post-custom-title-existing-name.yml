@@ -27,7 +27,7 @@ http_interactions:
       Server:
       - nginx/1.13.5
       Date:
-      - Wed, 02 May 2018 20:18:09 GMT
+      - Thu, 28 Jun 2018 23:22:11 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -35,16 +35,16 @@ http_interactions:
       Connection:
       - keep-alive
       X-Okapi-Trace:
-      - 'GET mod-authtoken-1.4.1-SNAPSHOT.20 http://10.39.249.72:8081/configurations/entries..
-        : 202 981us'
-      - 'GET mod-configuration-4.0.3-SNAPSHOT.29 http://10.39.252.104:8081/configurations/entries..
-        : 200 41566us'
+      - 'GET mod-authtoken-1.4.1-SNAPSHOT.21 http://10.39.255.17:8081/configurations/entries..
+        : 202 1325us'
+      - 'GET mod-configuration-4.0.4-SNAPSHOT.36 http://10.39.247.129:8081/configurations/entries..
+        : 200 42240us'
       Host:
       - okapi.frontside.io
       X-Real-Ip:
-      - 10.128.0.5
+      - 10.36.4.1
       X-Forwarded-For:
-      - 10.128.0.5
+      - 10.36.4.1
       X-Forwarded-Host:
       - okapi.frontside.io
       X-Forwarded-Port:
@@ -66,15 +66,11 @@ http_interactions:
       User-Agent:
       - Ruby
       X-Okapi-Request-Id:
-      - 882693/configurations
+      - 243604/configurations
       X-Okapi-Url:
-      - http://10.39.243.220:80
-      X-Okapi-Permissions-Required:
-      - configuration.entries.collection.get
-      X-Okapi-Module-Permissions:
-      - '{"mod-authtoken-1.4.1-SNAPSHOT.20":["perms.users.get"]}'
+      - http://10.39.254.87:80
       X-Okapi-Permissions:
-      - '["configuration.entries.collection.get"]'
+      - '["configuration.entries.collection.get","configuration.entries.collection.get"]'
       X-Okapi-User-Id:
       - 1ad737b0-d847-11e6-bf26-cec0c932ce01
       X-Okapi-Token:
@@ -86,7 +82,7 @@ http_interactions:
       string: |-
         {
           "configs" : [ {
-            "id" : "9f193b46-4cc5-4c99-b09f-374fe5415673",
+            "id" : "28fd0ce0-108e-4471-8a7b-4645319fd707",
             "module" : "KB_EBSCO",
             "configName" : "api_credentials",
             "code" : "kb.ebsco.credentials",
@@ -94,9 +90,9 @@ http_interactions:
             "enabled" : true,
             "value" : "customer-id=TEST_CUSTOMER_ID&api-key=TEST_API_KEY",
             "metadata" : {
-              "createdDate" : "2018-03-28T14:49:56.794+0000",
+              "createdDate" : "2018-06-26T13:23:48.592+0000",
               "createdByUserId" : "1ad737b0-d847-11e6-bf26-cec0c932ce01",
-              "updatedDate" : "2018-03-28T14:49:56.794+0000",
+              "updatedDate" : "2018-06-26T13:23:48.592+0000",
               "updatedByUserId" : "1ad737b0-d847-11e6-bf26-cec0c932ce01"
             }
           } ],
@@ -107,68 +103,16 @@ http_interactions:
           }
         }
     http_version: 
-  recorded_at: Wed, 02 May 2018 20:18:09 GMT
-- request:
-    method: get
-    uri: https://api.ebsco.io/rm/rmaccounts/TEST_CUSTOMER_ID/vendors?count=25&offset=1&orderby=relevance&search=TEST_CUSTOMER_ID
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      User-Agent:
-      - Flexirest/1.5.5
-      Connection:
-      - Keep-Alive
-      Accept:
-      - application/json
-      X-Api-Key:
-      - TEST_API_KEY
-      Content-Type:
-      - application/json
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Content-Type:
-      - application/json;charset=UTF-8
-      Content-Length:
-      - '170'
-      Connection:
-      - keep-alive
-      Date:
-      - Wed, 02 May 2018 20:18:09 GMT
-      X-Amzn-Requestid:
-      - eeb095d0-4e45-11e8-ad46-81cbd00bb9fe
-      X-Amzn-Remapped-Connection:
-      - keep-alive
-      X-Amz-Apigw-Id:
-      - GRl4TG3moAMF0vg=
-      X-Amzn-Remapped-Date:
-      - Wed, 02 May 2018 20:18:09 GMT
-      X-Cache:
-      - Miss from cloudfront
-      Via:
-      - 1.1 e9b460d4fbe79e1b34e06840ef460c69.cloudfront.net (CloudFront)
-      X-Amz-Cf-Id:
-      - fQiYFmPqeHtti8ry_sSGoNW0_vjJXPySwodtAB9mXAWDhF2djB0Low==
-    body:
-      encoding: UTF-8
-      string: '{"totalResults":1,"vendors":[{"vendorId":123355,"vendorName":"API DEV
-        CORPORATE CUSTOMER","isCustomer":true,"packagesTotal":63,"packagesSelected":63,"vendorToken":null}]}'
-    http_version: 
-  recorded_at: Wed, 02 May 2018 20:18:10 GMT
+  recorded_at: Thu, 28 Jun 2018 23:22:11 GMT
 - request:
     method: post
-    uri: https://api.ebsco.io/rm/rmaccounts/TEST_CUSTOMER_ID/vendors/123355/packages/2845504/titles
+    uri: https://api.ebsco.io/rm/rmaccounts/TEST_CUSTOMER_ID/vendors/123355/packages/2918760/titles
     body:
       encoding: UTF-8
-      string: '{"titleName":"New Title Testing","pubType":"book"}'
+      string: '{"titleName":"Goblins New Title","edition":"","publisherName":"","pubType":"journal","isPeerReviewed":false,"description":""}'
     headers:
       User-Agent:
-      - Flexirest/1.5.5
+      - Flexirest/1.6.7
       Connection:
       - Keep-Alive
       Accept:
@@ -191,25 +135,25 @@ http_interactions:
       Connection:
       - keep-alive
       Date:
-      - Wed, 02 May 2018 20:18:10 GMT
+      - Thu, 28 Jun 2018 23:22:11 GMT
       X-Amzn-Requestid:
-      - eece2fb3-4e45-11e8-8c6f-ef96a5c9bff1
+      - 15a68f51-7b2a-11e8-a2c5-37c65f00bdac
       X-Amzn-Remapped-Connection:
       - keep-alive
       X-Amz-Apigw-Id:
-      - GRl4VEmtIAMFTeg=
+      - JN4RkHCLoAMFSBQ=
       X-Amzn-Remapped-Date:
-      - Wed, 02 May 2018 20:18:10 GMT
+      - Thu, 28 Jun 2018 23:22:11 GMT
       X-Cache:
       - Error from cloudfront
       Via:
-      - 1.1 0ae25fed904e0259c5db061e4b999b59.cloudfront.net (CloudFront)
+      - 1.1 85902ff1f49a5dc3b52b14024a37cf19.cloudfront.net (CloudFront)
       X-Amz-Cf-Id:
-      - kuAxcwgiXORMA2gBhdoQ72c0Qgs2BRjAYy3K87JsswLGofYdKsKDMA==
+      - 56iV_AVKsABLczGpjcgPNAWRS0KrTnZg88du8Cw1OXaCt0O-tWotlQ==
     body:
       encoding: UTF-8
       string: '{"errors":[{"code":1006,"subCode":0,"message":"Custom Title with the
         provided name already exists"}]}'
     http_version: 
-  recorded_at: Wed, 02 May 2018 20:18:10 GMT
+  recorded_at: Thu, 28 Jun 2018 23:22:11 GMT
 recorded_with: VCR 3.0.3

@@ -27,7 +27,7 @@ http_interactions:
       Server:
       - nginx/1.13.5
       Date:
-      - Wed, 09 May 2018 03:43:41 GMT
+      - Thu, 28 Jun 2018 23:22:13 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -35,16 +35,16 @@ http_interactions:
       Connection:
       - keep-alive
       X-Okapi-Trace:
-      - 'GET mod-authtoken-1.4.1-SNAPSHOT.20 http://10.39.253.209:8081/configurations/entries..
-        : 202 362702us'
-      - 'GET mod-configuration-4.0.3-SNAPSHOT.29 http://10.39.244.97:8081/configurations/entries..
-        : 200 44066us'
+      - 'GET mod-authtoken-1.4.1-SNAPSHOT.21 http://10.39.255.17:8081/configurations/entries..
+        : 202 1446us'
+      - 'GET mod-configuration-4.0.4-SNAPSHOT.36 http://10.39.247.129:8081/configurations/entries..
+        : 200 41848us'
       Host:
       - okapi.frontside.io
       X-Real-Ip:
-      - 10.36.4.1
+      - 10.128.0.5
       X-Forwarded-For:
-      - 10.36.4.1
+      - 10.128.0.5
       X-Forwarded-Host:
       - okapi.frontside.io
       X-Forwarded-Port:
@@ -66,15 +66,11 @@ http_interactions:
       User-Agent:
       - Ruby
       X-Okapi-Request-Id:
-      - 444057/configurations
+      - 385426/configurations
       X-Okapi-Url:
-      - http://10.39.242.98:80
-      X-Okapi-Permissions-Required:
-      - configuration.entries.collection.get
-      X-Okapi-Module-Permissions:
-      - '{"mod-authtoken-1.4.1-SNAPSHOT.20":["perms.users.get"]}'
+      - http://10.39.254.87:80
       X-Okapi-Permissions:
-      - '["configuration.entries.collection.get"]'
+      - '["configuration.entries.collection.get","configuration.entries.collection.get"]'
       X-Okapi-User-Id:
       - 1ad737b0-d847-11e6-bf26-cec0c932ce01
       X-Okapi-Token:
@@ -86,7 +82,7 @@ http_interactions:
       string: |-
         {
           "configs" : [ {
-            "id" : "a6d98284-5c46-4698-a6fe-f9d1594aecfc",
+            "id" : "28fd0ce0-108e-4471-8a7b-4645319fd707",
             "module" : "KB_EBSCO",
             "configName" : "api_credentials",
             "code" : "kb.ebsco.credentials",
@@ -94,9 +90,9 @@ http_interactions:
             "enabled" : true,
             "value" : "customer-id=TEST_CUSTOMER_ID&api-key=TEST_API_KEY",
             "metadata" : {
-              "createdDate" : "2018-05-07T20:35:44.622+0000",
+              "createdDate" : "2018-06-26T13:23:48.592+0000",
               "createdByUserId" : "1ad737b0-d847-11e6-bf26-cec0c932ce01",
-              "updatedDate" : "2018-05-07T20:35:44.622+0000",
+              "updatedDate" : "2018-06-26T13:23:48.592+0000",
               "updatedByUserId" : "1ad737b0-d847-11e6-bf26-cec0c932ce01"
             }
           } ],
@@ -107,13 +103,13 @@ http_interactions:
           }
         }
     http_version: 
-  recorded_at: Wed, 09 May 2018 03:43:41 GMT
+  recorded_at: Thu, 28 Jun 2018 23:22:13 GMT
 - request:
     method: post
     uri: https://api.ebsco.io/rm/rmaccounts/TEST_CUSTOMER_ID/vendors/9999999/packages/9999999/titles
     body:
       encoding: UTF-8
-      string: '{"titleName":"My Title Testing Bad Package Id","pubType":"unspecified"}'
+      string: '{"titleName":"Goblins New Title","edition":"","publisherName":"","pubType":"journal","isPeerReviewed":false,"description":""}'
     headers:
       User-Agent:
       - Flexirest/1.6.7
@@ -139,24 +135,24 @@ http_interactions:
       Connection:
       - keep-alive
       Date:
-      - Wed, 09 May 2018 03:43:42 GMT
+      - Thu, 28 Jun 2018 23:22:14 GMT
       X-Amzn-Requestid:
-      - 2aba53c4-533b-11e8-855d-052a594ad10c
+      - 16fef369-7b2a-11e8-a5bd-c7b2cc23ffc5
       X-Amzn-Remapped-Connection:
       - keep-alive
       X-Amz-Apigw-Id:
-      - GmYxLGdDIAMFaDg=
+      - JN4R7GoGoAMFWJA=
       X-Amzn-Remapped-Date:
-      - Wed, 09 May 2018 03:43:42 GMT
+      - Thu, 28 Jun 2018 23:22:13 GMT
       X-Cache:
       - Error from cloudfront
       Via:
-      - 1.1 aa9a6b87feabe1a30d21428a24c1a7d8.cloudfront.net (CloudFront)
+      - 1.1 f49012242a4f84f01f6dfcdeba18b241.cloudfront.net (CloudFront)
       X-Amz-Cf-Id:
-      - q2lZNRSX1Mk5-IkaklDawnKFJuySmOznElooadZ549XoDVAVybaf9g==
+      - ZqpmUju15FrJPZCFoq-a8f0M2azooQlRoIvTyz05obg4bAHCg6-B_g==
     body:
       encoding: UTF-8
       string: '{"errors":[{"code":1001,"subCode":0,"message":"Vendor not found"}]}'
     http_version: 
-  recorded_at: Wed, 09 May 2018 03:43:42 GMT
+  recorded_at: Thu, 28 Jun 2018 23:22:14 GMT
 recorded_with: VCR 3.0.3
