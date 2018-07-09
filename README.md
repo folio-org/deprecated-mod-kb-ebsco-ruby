@@ -44,6 +44,6 @@ To run tests that also generate a code coverage report at `/coverage`
 
 ## Additional information
 
-Other [modules](http://dev.folio.org/source-code/#server-side).
+Other [modules](https://dev.folio.org/source-code/#server-side).
 
-Other FOLIO Developer documentation is at [dev.folio.org](http://dev.folio.org/)
+Other FOLIO Developer documentation is at [dev.folio.org](https://dev.folio.org/)
