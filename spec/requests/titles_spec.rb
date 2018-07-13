@@ -15,7 +15,7 @@ RSpec.describe 'Titles', type: :request do
     it 'gets a list of resources' do
       expect(response).to have_http_status(200)
       expect(json.data.length).to equal(25)
-      expect(json.meta.totalResults).to equal(61)
+      expect(json.meta.totalResults).to equal(59)
       expect(json.data.first.attributes).to_not include(
         'description',
         'edition',
@@ -36,7 +36,7 @@ RSpec.describe 'Titles', type: :request do
       it 'gets a different list of resources' do
         expect(response).to have_http_status(200)
         expect(json2.data.length).to equal(25)
-        expect(json2.meta.totalResults).to equal(61)
+        expect(json2.meta.totalResults).to equal(59)
         expect(json.data.first.id).not_to eql(json2.data.first.id)
       end
     end
@@ -54,7 +54,7 @@ RSpec.describe 'Titles', type: :request do
       it 'gets a list of book resources' do
         expect(response).to have_http_status(200)
         expect(json_f.data.length).to equal(25)
-        expect(json_f.meta.totalResults).to equal(1296)
+        expect(json_f.meta.totalResults).to equal(3949)
         expect(json_f.data.first.attributes.publicationType).to eql('Book')
       end
 
@@ -71,9 +71,8 @@ RSpec.describe 'Titles', type: :request do
         it 'gets a list of unselected book resources' do
           expect(response).to have_http_status(200)
           expect(json_f2.data.length).to equal(25)
-          expect(json_f2.meta.totalResults).to equal(1278)
+          expect(json_f2.meta.totalResults).to equal(1474)
           expect(json_f2.data.first.attributes.publicationType).to eql('Book')
-          expect(json_f2.data.first.id).not_to eql(json_f.data.first.id)
         end
       end
     end
@@ -150,7 +149,7 @@ RSpec.describe 'Titles', type: :request do
       it 'gets a filtered list of resources' do
         expect(response).to have_http_status(200)
         expect(json_t.data.length).to equal(25)
-        expect(json_t.meta.totalResults).to equal(61)
+        expect(json_t.meta.totalResults).to equal(59)
         json_t.data.each do |title|
           expect(title.attributes.name.downcase).to include('ebsco')
         end
@@ -169,7 +168,7 @@ RSpec.describe 'Titles', type: :request do
         it 'gets a different list of resources' do
           expect(response).to have_http_status(200)
           expect(json_t2.data.length).to equal(25)
-          expect(json_t2.meta.totalResults).to equal(61)
+          expect(json_t2.meta.totalResults).to equal(59)
           expect(json_t2.data.first.id).not_to eql(json_t.data.first.id)
         end
       end
@@ -210,10 +209,10 @@ RSpec.describe 'Titles', type: :request do
       it 'gets a filtered list of resources' do
         expect(response).to have_http_status(200)
         expect(json_h.data.length).to equal(25)
-        expect(json_h.meta.totalResults).to equal(10_001)
+        expect(json_h.meta.totalResults).to equal(194_042)
         json_h.data.each do |title|
           expect(title.attributes.subjects.any? do |sub|
-            sub.subject.downcase.include?('history')
+            sub.name.downcase.include?('history')
           end).to be true
         end
       end
@@ -275,7 +274,7 @@ RSpec.describe 'Titles', type: :request do
     it 'contains a list of alphabetically A-Z sorted resources' do
       expect(response).to have_http_status(200)
       expect(json_n.data.length).to equal(25)
-      expect(json_n.meta.totalResults).to equal(5069)
+      expect(json_n.meta.totalResults).to equal(4444)
       expect(json_n.data.first.type).to eq('titles')
       expect(json_n.data[0].attributes.name.downcase).not_to include(
         'victorian fashion'
@@ -296,7 +295,7 @@ RSpec.describe 'Titles', type: :request do
     it 'contains a list of relevancy sorted resources' do
       expect(response).to have_http_status(200)
       expect(json_n.data.length).to equal(25)
-      expect(json_n.meta.totalResults).to equal(5064)
+      expect(json_n.meta.totalResults).to equal(4444)
       expect(json_n.data.first.type).to eq('titles')
       expect(json_n.data[0].attributes.name.downcase).to include(
         'victorian fashion'
@@ -319,7 +318,7 @@ RSpec.describe 'Titles', type: :request do
     it 'contains a list of relevancy sorted resources' do
       expect(response).to have_http_status(200)
       expect(json_n.data.length).to equal(25)
-      expect(json_n.meta.totalResults).to equal(5064)
+      expect(json_n.meta.totalResults).to equal(4444)
       expect(json_n.data.first.type).to eq('titles')
       expect(json_n.data[0].attributes.name.downcase).to include(
         'victorian fashion'
@@ -329,7 +328,7 @@ RSpec.describe 'Titles', type: :request do
     end
   end
 
-  describe 'identifiers are sorted by subtype and type' do
+  describe 'identifiers are sorted by subtype' do
     before do
       VCR.use_cassette('search-titles-sort-identifiers') do
         get '/eholdings/titles/?page=1&filter[name]=a',
@@ -342,13 +341,10 @@ RSpec.describe 'Titles', type: :request do
     it 'contains identifiers that are sorted by subtype and type' do
       expect(response).to have_http_status(200)
       expect(json_n.data.length).to equal(25)
-      expect(json_n.data.third.id).to eq('169441')
-      expect(json_n.data.third.attributes.identifiers.length).to eq(4)
-      expect(json_n.data.third.attributes.identifiers[0].subtype).to eq('Empty')
-      expect(json_n.data.third.attributes.identifiers[1].subtype).to eq('Print')
-      expect(json_n.data.third.attributes.identifiers[2].subtype).to eq('Online')
-      expect(json_n.data.third.attributes.identifiers[0].type).to eq('BHM')
-      expect(json_n.data.third.attributes.identifiers[1].type).to eq('ISBN')
+      expect(json_n.data[6].id).to eq('3119726')
+      expect(json_n.data[6].attributes.identifiers.length).to eq(2)
+      expect(json_n.data[6].attributes.identifiers[0].subtype).to eq('Empty')
+      expect(json_n.data[6].attributes.identifiers[1].subtype).to eq('Online')
     end
   end
 

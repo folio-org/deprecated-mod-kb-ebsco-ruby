@@ -71,6 +71,7 @@ class Title < RmApiResource
 
       request.get_params[:count] ||= 25
       request.get_params[:offset] = request.get_params.delete(:page) || 1
+      request.get_params[:advancedsearch] = true
     end
   end
 
