@@ -647,7 +647,74 @@ types:
   description: Collection of available titles in eholdings.
   get:
     description: Get a set of titles matching the given search criteria.
-    is: [indexable]
+    queryParameters:
+      q:
+        displayName: Query by Title Name
+        type: string
+        description: String to search title name to get a collection of titles
+        example: War and Peace
+        required: false
+      page:
+        displayName: Page offset
+        type: integer
+        minimum: 1
+        maximum: 2147483647
+        description: Page offset to retrieve results from Ebsco KB
+        example: 1
+        required: false
+      count:
+        displayName: Count
+        type: integer
+        minimum: 0
+        maximum: 100
+        description: Count of number of results to retrieve from Ebsco KB
+        example: 100
+        required: false
+      sort:
+        displayName: Sort options
+        type: string
+        enum: ["name", "relevance"]
+        description: Option by which results are sorted. Defaults to relevance if query or name if no query.
+        example: name
+        required: false
+      filter[selected]:
+        displayName: Selection status
+        type: string
+        enum: ["true", "false", "ebsco", "all"]
+        description: Filter to narrow down results based on selection status. Defaults to all.
+        example: "false"
+        required: false
+      filter[type]:
+        displayName: Resource type
+        type: string
+        enum: ["all", "audiobook", "book", "bookseries", "database", "journal", "newsletter", "newspaper", "proceedings", "report","streamingaudio", "streamingvideo","thesisdissertation",  "website", "unspecified"]
+        description: Filter to narrow down results based on resource type. Defaults to all.
+        example: book
+        required: false
+      filter[name]:
+        displayName: Query by Title Name
+        type: string
+        description: String to search title name to get a collection of titles
+        example: War and Peace
+        required: false
+      filter[isxn]:
+        displayName: Query by ISSN/ISBN
+        type: string
+        description: String to search ISSN and ISBN to get a collection of titles
+        example: 1050-3331
+        required: false
+      filter[subject]:
+        displayName: Query by Subject
+        type: string
+        description: String to search subjects to get a collection of titles
+        example: history
+        required: false
+      filter[publisher]:
+        displayName: Query by Publisher
+        type: string
+        description: String to search publishers to get a collection of titles
+        example: academic
+        required: false
     responses:
       200:
         body:
