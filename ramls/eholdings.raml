@@ -106,6 +106,40 @@ types:
           "packageId": "123-456"
         }
       }
+  customIdentifierType:
+    type: string
+    enum: ["ISSN", "ISBN"]
+    example: "ISSN"
+  customIdentifierSubType:
+    type: string
+    enum: ["Print", "Online"]
+    example: "Print"
+  identifier:
+    type: object
+    properties:
+      id: string
+      type: customIdentifierType
+      subtype: customIdentifierSubType
+    example: |
+       {
+          "id": "978-0-7295-3913-5",
+          "type": "ISBN",
+          "subtype": "Print"
+        }
+  contributorType:
+    type: string
+    enum: ["Author", "Editor", "Illustrator"]
+    example: "Author"
+  contributor:
+    type: object
+    properties:
+      type: contributorType
+      contributor: string
+    example: |
+      {
+        "type": "Author",
+        "contributor": "Tiziani, Adriana."
+      }
 
 /eholdings/packages:
   displayName: Packages
@@ -552,20 +586,93 @@ types:
                       type: string
                       example: "https://hello.io"
                       required: false
+                    name:
+                      description: |
+                        Title name for a custom resource.
+                        Note that this attribute can be updated ONLY FOR A CUSTOM RESOURCE.
+                      type: string
+                      example: "Sample Title"
+                      required: false
+                    isPeerReviewed:
+                      description: |
+                        Peer review indicator for a custom resource.
+                        Note that this attribute can be updated ONLY FOR A CUSTOM RESOURCE.
+                      type: boolean
+                      example: true
+                      required: false
+                    publicationType:
+                      description: |
+                        Publication Type for a custom resource.
+                        Note that this attribute can be updated ONLY FOR A CUSTOM RESOURCE.
+                      type: string
+                      enum: ["Audiobook", "Book", "Book Series", "Database", "Journal", "Newsletter", "Newspaper", "Proceedings", "Report", "Streaming Audio", "Streaming Video", "Thesis & Dissertation", "Website", "Unspecified"]
+                      example: "Newspaper"
+                      required: false    
+                    publisherName:
+                      description: |
+                        Publisher Name for a custom resource.
+                        Note that this attribute can be updated ONLY FOR A CUSTOM RESOURCE.
+                      type: string
+                      example: "ABC Publishing"
+                      required: false  
+                    edition:
+                      description: |
+                        Edition for a custom resource.
+                        Note that this attribute can be updated ONLY FOR A CUSTOM RESOURCE.
+                      type: string
+                      example: "5"
+                      required: false         
+                    description:
+                      description: |
+                        Description for a custom resource.
+                        Note that this attribute can be updated ONLY FOR A CUSTOM RESOURCE.
+                      type: string
+                      example: "Sample title description"
+                      required: false 
+                    contributors:
+                      description: |
+                        Contributors for a custom resource.
+                        Note that this attribute can be updated ONLY FOR A CUSTOM RESOURCE.
+                      type: array
+                      items: contributor
+                      example: 
+                        - # start item 1
+                          type: Author
+                          contributor: Havard, Margaret
+                        - # start item 2
+                          type: Illustrator
+                          contributor: Tiziani, Adriana
+                      required: false                
+                    identifiers:
+                      description: |
+                        Identifiers for a custom resource.
+                        Note that this attribute can be updated ONLY FOR A CUSTOM RESOURCE.
+                      type: array
+                      items: identifier
+                      example: 
+                        - # start item 1
+                          id: 978-0-7295-3913-5
+                          type: ISBN
+                          subtype: Print
+                        - # start item 2
+                          id: 1996-0794
+                          type: ISSN
+                          subtype: Print
+                      required: false           
                     customCoverages:
                       description: |
                         Coverage dates of the custom or managed resource to be updated.
                         Note that this attribute can be updated BOTH FOR CUSTOM RESOURCES AND MANAGED RESOURCES.
                       type: array
                       items: customCoverage
-                      required: false
                       example:
                         - # start item 1
                           beginCoverage: 2018-06-03
                           endCoverage: 2018-06-04
                         - # start item 2
                           beginCoverage: 2018-06-05
-                          endCoverage: 2018-06-06
+                          endCoverage: 2018-06-06  
+                      required: false
                     isSelected:
                       description: |
                         Selection of the managed or custom resource to be updated.
