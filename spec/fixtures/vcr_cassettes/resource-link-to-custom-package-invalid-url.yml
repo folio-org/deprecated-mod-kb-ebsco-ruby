@@ -1,0 +1,462 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://okapi.frontside.io/configurations/entries?query=module=KB_EBSCO
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Content-Type:
+      - application/json
+      Accept:
+      - application/json
+      X-Okapi-Tenant:
+      - fs
+      X-Okapi-Token:
+      - TEST_OKAPI_TOKEN
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx/1.13.5
+      Date:
+      - Mon, 23 Jul 2018 21:55:01 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      X-Okapi-Trace:
+      - 'GET mod-authtoken-1.4.1-SNAPSHOT.21 http://10.39.255.17:8081/configurations/entries..
+        : 202 313609us'
+      - 'GET mod-configuration-4.0.4-SNAPSHOT.36 http://10.39.247.129:8081/configurations/entries..
+        : 200 44569us'
+      Host:
+      - okapi.frontside.io
+      X-Real-Ip:
+      - 10.36.2.1
+      X-Forwarded-For:
+      - 10.36.2.1
+      X-Forwarded-Host:
+      - okapi.frontside.io
+      X-Forwarded-Port:
+      - '443'
+      X-Forwarded-Proto:
+      - https
+      X-Original-Uri:
+      - "/configurations/entries?query=module=KB_EBSCO"
+      X-Scheme:
+      - https
+      X-Auth-Request-Redirect:
+      - "/configurations/entries?query=module=KB_EBSCO"
+      Accept:
+      - application/json
+      X-Okapi-Tenant:
+      - fs
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      User-Agent:
+      - Ruby
+      X-Okapi-Request-Id:
+      - 714586/configurations
+      X-Okapi-Url:
+      - http://10.39.254.87:80
+      X-Okapi-Permissions:
+      - '["configuration.entries.collection.get","configuration.entries.collection.get"]'
+      X-Okapi-User-Id:
+      - 1ad737b0-d847-11e6-bf26-cec0c932ce01
+      X-Okapi-Token:
+      - TEST_OKAPI_TOKEN
+      Strict-Transport-Security:
+      - max-age=15724800; includeSubDomains;
+    body:
+      encoding: ASCII-8BIT
+      string: |-
+        {
+          "configs" : [ {
+            "id" : "28fd0ce0-108e-4471-8a7b-4645319fd707",
+            "module" : "KB_EBSCO",
+            "configName" : "api_credentials",
+            "code" : "kb.ebsco.credentials",
+            "description" : "EBSCO RM-API Credentials",
+            "enabled" : true,
+            "value" : "customer-id=TEST_CUSTOMER_ID&api-key=TEST_API_KEY",
+            "metadata" : {
+              "createdDate" : "2018-06-26T13:23:48.592+0000",
+              "createdByUserId" : "1ad737b0-d847-11e6-bf26-cec0c932ce01",
+              "updatedDate" : "2018-06-26T13:23:48.592+0000",
+              "updatedByUserId" : "1ad737b0-d847-11e6-bf26-cec0c932ce01"
+            }
+          } ],
+          "totalRecords" : 1,
+          "resultInfo" : {
+            "totalRecords" : 1,
+            "facets" : [ ]
+          }
+        }
+    http_version: 
+  recorded_at: Mon, 23 Jul 2018 21:55:01 GMT
+- request:
+    method: get
+    uri: https://api.ebsco.io/rm/rmaccounts/TEST_CUSTOMER_ID/vendors/123355/packages/2720678
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      X-Api-Key:
+      - TEST_API_KEY
+      Content-Type:
+      - application/json
+      Accept:
+      - application/json
+      Connection:
+      - close
+      Host:
+      - api.ebsco.io
+      User-Agent:
+      - http.rb/3.3.0
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json;charset=UTF-8
+      Content-Length:
+      - '461'
+      Connection:
+      - close
+      Date:
+      - Mon, 23 Jul 2018 21:55:01 GMT
+      X-Amzn-Requestid:
+      - 0ca225a3-8ec3-11e8-a264-29f6987d56f1
+      X-Amzn-Remapped-Connection:
+      - keep-alive
+      X-Amz-Apigw-Id:
+      - KgE8YHdwIAMFYRg=
+      X-Amzn-Remapped-Date:
+      - Mon, 23 Jul 2018 21:55:01 GMT
+      X-Cache:
+      - Miss from cloudfront
+      Via:
+      - 1.1 9ce63d3af60e77462dfef1ebe1eea8f0.cloudfront.net (CloudFront)
+      X-Amz-Cf-Id:
+      - UNuRCNTisndvOStrmp-fxor2B0yr8FalxjmV-tW7FtxxOpfNB31_kQ==
+    body:
+      encoding: UTF-8
+      string: '{"packageId":2720678,"packageName":"TEST_CUSTOMER_ID-custom-package","isCustom":true,"vendorId":123355,"vendorName":"API
+        DEV CORPORATE CUSTOMER","titleCount":13,"isSelected":true,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":13,"isTokenNeeded":false,"contentType":"Unknown","customCoverage":{"beginCoverage":"2010-05-01","endCoverage":""},"proxy":{"id":"<n>","inherited":true},"allowEbscoToAddTitles":false,"packageToken":null,"packageType":"Custom"}'
+    http_version: 
+  recorded_at: Mon, 23 Jul 2018 21:55:01 GMT
+- request:
+    method: get
+    uri: https://api.ebsco.io/rm/rmaccounts/TEST_CUSTOMER_ID/titles/3129599
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Flexirest/1.6.7
+      Connection:
+      - Keep-Alive
+      Accept:
+      - application/json
+      X-Api-Key:
+      - TEST_API_KEY
+      Content-Type:
+      - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '2023'
+      Connection:
+      - keep-alive
+      Date:
+      - Mon, 23 Jul 2018 21:55:01 GMT
+      X-Amzn-Requestid:
+      - 0cc4efb3-8ec3-11e8-bde0-cb7a39a5d4dc
+      X-Amzn-Remapped-Content-Length:
+      - '2023'
+      X-Amzn-Remapped-Connection:
+      - keep-alive
+      X-Amz-Apigw-Id:
+      - KgE8aFeGoAMF5Yw=
+      X-Amzn-Remapped-Server:
+      - Microsoft-IIS/8.5
+      Cache-Control:
+      - no-cache
+      Expires:
+      - "-1"
+      X-Powered-By:
+      - ASP.NET
+      Pragma:
+      - no-cache
+      X-Amzn-Remapped-Date:
+      - Mon, 23 Jul 2018 21:55:01 GMT
+      X-Aspnet-Version:
+      - 4.0.30319
+      X-Cache:
+      - Miss from cloudfront
+      Via:
+      - 1.1 f19281f08e79aa6c6634266c50732dd5.cloudfront.net (CloudFront)
+      X-Amz-Cf-Id:
+      - ybQyWbeBdvx5PaLfVvn4NBxRoGh0od0EbGuKmvjSovKh-rIJJT_pBA==
+    body:
+      encoding: UTF-8
+      string: '{"titleId":3129599,"titleName":"The Carole Lombard Handbook - Everything
+        you need to know about Carole Lombard","publisherName":"Emereo Publishing","identifiersList":[{"id":"2748990","source":"AtoZ","subtype":0,"type":9},{"id":"978-1-283-74485-0","source":"ResourceIdentifier","subtype":2,"type":1},{"id":"978-1-74304-061-4","source":"ResourceIdentifier","subtype":1,"type":1}],"subjectsList":[],"isTitleCustom":false,"pubType":"Book","customerResourcesList":[{"titleId":3129599,"packageId":1861142,"packageName":"MyiLibrary","packageType":"Variable","proxy":{"id":"TestingFolio","inherited":true},"isPackageCustom":false,"vendorId":58388,"vendorName":"Ingram
+        Content Group, Inc.","locationId":9453518,"isSelected":false,"isTokenNeeded":false,"visibilityData":{"isHidden":false,"reason":""},"managedCoverageList":[{"beginCoverage":"2012-01-01","endCoverage":"2012-12-31"}],"customCoverageList":[],"coverageStatement":null,"managedEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"customEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"url":"http://lib.myilibrary.com?id=405735","userDefinedField1":null,"userDefinedField2":null,"userDefinedField3":null,"userDefinedField4":null,"userDefinedField5":null},{"titleId":3129599,"packageId":2864301,"packageName":"joes_test3","packageType":"Custom","proxy":{"id":"TestingFolio","inherited":true},"isPackageCustom":true,"vendorId":123355,"vendorName":"API
+        DEV CORPORATE CUSTOMER","locationId":40606913,"isSelected":true,"isTokenNeeded":false,"visibilityData":{"isHidden":false,"reason":""},"managedCoverageList":[],"customCoverageList":[{"beginCoverage":"2018-05-08","endCoverage":"2018-05-31"}],"coverageStatement":null,"managedEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"customEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"url":"http://test.io","userDefinedField1":null,"userDefinedField2":null,"userDefinedField3":null,"userDefinedField4":null,"userDefinedField5":null}],"description":null,"edition":null,"isPeerReviewed":false,"contributorsList":[]}'
+    http_version: 
+  recorded_at: Mon, 23 Jul 2018 21:55:01 GMT
+- request:
+    method: get
+    uri: https://api.ebsco.io/rm/rmaccounts/TEST_CUSTOMER_ID/vendors/123355/packages/2720678/titles?count=25&offset=1&orderby=titlename&resourcetype=all&search=&searchfield=titlename&selection=all
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Flexirest/1.6.7
+      Connection:
+      - Keep-Alive
+      Accept:
+      - application/json
+      X-Api-Key:
+      - TEST_API_KEY
+      Content-Type:
+      - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '13592'
+      Connection:
+      - keep-alive
+      Date:
+      - Mon, 23 Jul 2018 21:55:02 GMT
+      X-Amzn-Requestid:
+      - 0cdc211e-8ec3-11e8-8db3-43723594679e
+      X-Amzn-Remapped-Content-Length:
+      - '13592'
+      X-Amzn-Remapped-Connection:
+      - keep-alive
+      X-Amz-Apigw-Id:
+      - KgE8cHV0oAMFS4w=
+      X-Amzn-Remapped-Server:
+      - Microsoft-IIS/8.5
+      Cache-Control:
+      - no-cache
+      Expires:
+      - "-1"
+      X-Powered-By:
+      - ASP.NET
+      Pragma:
+      - no-cache
+      X-Amzn-Remapped-Date:
+      - Mon, 23 Jul 2018 21:55:01 GMT
+      X-Aspnet-Version:
+      - 4.0.30319
+      X-Cache:
+      - Miss from cloudfront
+      Via:
+      - 1.1 01ecdc212033db2688d221d4212e4efd.cloudfront.net (CloudFront)
+      X-Amz-Cf-Id:
+      - k_Ruvqh-PURhyUmV_qjVxDebno6mit5bLZXH-IxNznuLdaMBXDOXWg==
+    body:
+      encoding: UTF-8
+      string: '{"totalResults":13,"titles":[{"titleId":15279463,"titleName":" mohan","publisherName":null,"identifiersList":[{"id":"issn
+        print","source":"ResourceIdentifier","subtype":1,"type":0},{"id":"issn online","source":"ResourceIdentifier","subtype":2,"type":0},{"id":"isbnt
+        prnt","source":"ResourceIdentifier","subtype":1,"type":1},{"id":"isbnonline","source":"ResourceIdentifier","subtype":2,"type":1}],"subjectsList":null,"isTitleCustom":true,"pubType":"Unspecified","customerResourcesList":[{"titleId":15279463,"packageId":2720678,"packageName":"TEST_CUSTOMER_ID-custom-package","packageType":"Custom","isPackageCustom":true,"vendorId":123355,"vendorName":"API
+        DEV CORPORATE CUSTOMER","locationId":0,"isSelected":true,"isTokenNeeded":false,"visibilityData":{"isHidden":false,"reason":""},"managedCoverageList":[],"customCoverageList":[{"beginCoverage":"2018-04-01","endCoverage":"2018-04-30"}],"coverageStatement":null,"managedEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"customEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"url":null,"userDefinedField1":null,"userDefinedField2":null,"userDefinedField3":null,"userDefinedField4":null,"userDefinedField5":null}]},{"titleId":15279456,"titleName":"<script>custom-title-74</script>","publisherName":null,"identifiersList":null,"subjectsList":null,"isTitleCustom":true,"pubType":"Book","customerResourcesList":[{"titleId":15279456,"packageId":2720678,"packageName":"TEST_CUSTOMER_ID-custom-package","packageType":"Custom","isPackageCustom":true,"vendorId":123355,"vendorName":"API
+        DEV CORPORATE CUSTOMER","locationId":0,"isSelected":true,"isTokenNeeded":false,"visibilityData":{"isHidden":true,"reason":"Hidden
+        by Customer"},"managedCoverageList":[],"customCoverageList":[{"beginCoverage":"2018-04-01","endCoverage":"2018-04-30"}],"coverageStatement":"","managedEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"customEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"url":null,"userDefinedField1":null,"userDefinedField2":null,"userDefinedField3":null,"userDefinedField4":null,"userDefinedField5":null}]},{"titleId":125590,"titleName":"A
+        and WMA Environmental Compliance News","publisherName":"Elsevier","identifiersList":[{"id":"1093-9253","source":"ResourceIdentifier","subtype":1,"type":0},{"id":"125590","source":"AtoZ","subtype":0,"type":9}],"subjectsList":[{"type":"TLI","subject":"Pollution
+        Control & Waste Management"}],"isTitleCustom":false,"pubType":"Journal","customerResourcesList":[{"titleId":125590,"packageId":2720678,"packageName":"TEST_CUSTOMER_ID-custom-package","packageType":"Custom","isPackageCustom":true,"vendorId":123355,"vendorName":"API
+        DEV CORPORATE CUSTOMER","locationId":0,"isSelected":true,"isTokenNeeded":false,"visibilityData":{"isHidden":false,"reason":""},"managedCoverageList":[],"customCoverageList":[{"beginCoverage":"2010-05-01","endCoverage":""}],"coverageStatement":null,"managedEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"customEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"url":null,"userDefinedField1":null,"userDefinedField2":null,"userDefinedField3":null,"userDefinedField4":null,"userDefinedField5":null}]},{"titleId":3208295,"titleName":"Carole
+        King 20 Success Facts - Everything You Need to Know About Carole King","publisherName":"Emereo
+        Publishing","identifiersList":[{"id":"978-1-4885-9703-9","source":"ResourceIdentifier","subtype":2,"type":1},{"id":"831768","source":"ResourceIdentifier","subtype":0,"type":7},{"id":"2814566","source":"AtoZ","subtype":0,"type":9}],"subjectsList":null,"isTitleCustom":false,"pubType":"Book","customerResourcesList":[{"titleId":3208295,"packageId":2720678,"packageName":"TEST_CUSTOMER_ID-custom-package","packageType":"Custom","isPackageCustom":true,"vendorId":123355,"vendorName":"API
+        DEV CORPORATE CUSTOMER","locationId":0,"isSelected":true,"isTokenNeeded":false,"visibilityData":{"isHidden":false,"reason":""},"managedCoverageList":[],"customCoverageList":[{"beginCoverage":"2010-05-01","endCoverage":""}],"coverageStatement":null,"managedEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"customEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"url":null,"userDefinedField1":null,"userDefinedField2":null,"userDefinedField3":null,"userDefinedField4":null,"userDefinedField5":null}]},{"titleId":11168976,"titleName":"Carole
+        Laurin: Reflections on Interprofessional Care - Patient Statement","publisherName":"Kanopy","identifiersList":[{"id":"3881308","source":"AtoZ","subtype":0,"type":9}],"subjectsList":null,"isTitleCustom":false,"pubType":"StreamingVideo","customerResourcesList":[{"titleId":11168976,"packageId":2720678,"packageName":"TEST_CUSTOMER_ID-custom-package","packageType":"Custom","isPackageCustom":true,"vendorId":123355,"vendorName":"API
+        DEV CORPORATE CUSTOMER","locationId":0,"isSelected":true,"isTokenNeeded":false,"visibilityData":{"isHidden":false,"reason":""},"managedCoverageList":[],"customCoverageList":[{"beginCoverage":"2010-05-01","endCoverage":""}],"coverageStatement":null,"managedEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"customEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"url":null,"userDefinedField1":null,"userDefinedField2":null,"userDefinedField3":null,"userDefinedField4":null,"userDefinedField5":null}]},{"titleId":17059814,"titleName":"custom-title-74april2018","publisherName":"EBSCO
+        Publishing","identifiersList":[{"id":"1234","source":"ResourceIdentifier","subtype":1,"type":1}],"subjectsList":null,"isTitleCustom":true,"pubType":"Book","customerResourcesList":[{"titleId":17059814,"packageId":2720678,"packageName":"TEST_CUSTOMER_ID-custom-package","packageType":"Custom","isPackageCustom":true,"vendorId":123355,"vendorName":"API
+        DEV CORPORATE CUSTOMER","locationId":38102096,"isSelected":true,"isTokenNeeded":false,"visibilityData":{"isHidden":false,"reason":""},"managedCoverageList":[],"customCoverageList":[{"beginCoverage":"2018-04-01","endCoverage":"2018-04-30"}],"coverageStatement":"Issues
+        on or after 6/1/1992","managedEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"customEmbargoPeriod":{"embargoUnit":"Days","embargoValue":1},"url":"http://www.ebsco.com","userDefinedField1":"String1","userDefinedField2":"String2","userDefinedField3":"String3","userDefinedField4":"String4","userDefinedField5":"String5"}]},{"titleId":17059815,"titleName":"custom-title-767april2018","publisherName":"EBSCO
+        Publishing","identifiersList":[{"id":"1234","source":"ResourceIdentifier","subtype":1,"type":1}],"subjectsList":null,"isTitleCustom":true,"pubType":"Book","customerResourcesList":[{"titleId":17059815,"packageId":2720678,"packageName":"TEST_CUSTOMER_ID-custom-package","packageType":"Custom","isPackageCustom":true,"vendorId":123355,"vendorName":"API
+        DEV CORPORATE CUSTOMER","locationId":38102097,"isSelected":true,"isTokenNeeded":false,"visibilityData":{"isHidden":false,"reason":""},"managedCoverageList":[],"customCoverageList":[{"beginCoverage":"2018-04-01","endCoverage":"2018-04-30"}],"coverageStatement":"Issues
+        on or after 6/1/1992","managedEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"customEmbargoPeriod":{"embargoUnit":"Days","embargoValue":1},"url":"http://www.ebsco.com","userDefinedField1":"String1","userDefinedField2":"String2","userDefinedField3":"String3","userDefinedField4":"String4","userDefinedField5":"String5"}]},{"titleId":18624568,"titleName":"Dmytro
+        CustomTitle","publisherName":"ebsco","identifiersList":[{"id":"1112 issnprint","source":"ResourceIdentifier","subtype":1,"type":0},{"id":"1111-issnonline","source":"ResourceIdentifier","subtype":2,"type":0},{"id":"2222-isbn-print","source":"ResourceIdentifier","subtype":1,"type":1},{"id":"4444-isbn
+        onlone","source":"ResourceIdentifier","subtype":2,"type":1}],"subjectsList":null,"isTitleCustom":true,"pubType":"Journal","customerResourcesList":[{"titleId":18624568,"packageId":2720678,"packageName":"TEST_CUSTOMER_ID-custom-package","packageType":"Custom","isPackageCustom":true,"vendorId":123355,"vendorName":"API
+        DEV CORPORATE CUSTOMER","locationId":40526684,"isSelected":true,"isTokenNeeded":false,"visibilityData":{"isHidden":false,"reason":""},"managedCoverageList":[],"customCoverageList":[{"beginCoverage":"2010-05-01","endCoverage":"2010-12-31"}],"coverageStatement":"test","managedEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"customEmbargoPeriod":{"embargoUnit":"Days","embargoValue":5},"url":"http://www.ebsco.com","userDefinedField1":null,"userDefinedField2":"111","userDefinedField3":"111","userDefinedField4":null,"userDefinedField5":null}]},{"titleId":32090,"titleName":"Harvard
+        Business Review","publisherName":"Harvard Business Review","identifiersList":[{"id":"0017-8012","source":"ResourceIdentifier","subtype":1,"type":0},{"id":"01751795","source":"ResourceIdentifier","subtype":0,"type":2},{"id":"HBR","source":"MFS","subtype":0,"type":8},{"id":"32090","source":"AtoZ","subtype":0,"type":9}],"subjectsList":[{"type":"TLI","subject":"Business
+        (General)"}],"isTitleCustom":false,"pubType":"Journal","customerResourcesList":[{"titleId":32090,"packageId":2720678,"packageName":"TEST_CUSTOMER_ID-custom-package","packageType":"Custom","isPackageCustom":true,"vendorId":123355,"vendorName":"API
+        DEV CORPORATE CUSTOMER","locationId":0,"isSelected":true,"isTokenNeeded":false,"visibilityData":{"isHidden":false,"reason":""},"managedCoverageList":[],"customCoverageList":[{"beginCoverage":"2018-04-01","endCoverage":"2018-04-30"}],"coverageStatement":null,"managedEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"customEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"url":null,"userDefinedField1":null,"userDefinedField2":null,"userDefinedField3":null,"userDefinedField4":null,"userDefinedField5":null}]},{"titleId":17094819,"titleName":"Mohan
+        PI10 Title","publisherName":"EBSCO Publishing","identifiersList":[{"id":"1234","source":"ResourceIdentifier","subtype":1,"type":1}],"subjectsList":null,"isTitleCustom":true,"pubType":"Book","customerResourcesList":[{"titleId":17094819,"packageId":2720678,"packageName":"TEST_CUSTOMER_ID-custom-package","packageType":"Custom","isPackageCustom":true,"vendorId":123355,"vendorName":"API
+        DEV CORPORATE CUSTOMER","locationId":38303851,"isSelected":true,"isTokenNeeded":false,"visibilityData":{"isHidden":false,"reason":""},"managedCoverageList":[],"customCoverageList":[{"beginCoverage":"2018-04-01","endCoverage":"2018-04-30"}],"coverageStatement":"Issues
+        on or after 6/1/1992","managedEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"customEmbargoPeriod":{"embargoUnit":"Days","embargoValue":1},"url":"http://www.ebsco.com","userDefinedField1":"String1","userDefinedField2":"String2","userDefinedField3":"String3","userDefinedField4":"String4","userDefinedField5":"String5"}]},{"titleId":17098623,"titleName":"Mohan
+        PI10 Title78","publisherName":"EBSCO Publishing","identifiersList":[{"id":"1234","source":"ResourceIdentifier","subtype":1,"type":1}],"subjectsList":null,"isTitleCustom":true,"pubType":"Book","customerResourcesList":[{"titleId":17098623,"packageId":2720678,"packageName":"TEST_CUSTOMER_ID-custom-package","packageType":"Custom","isPackageCustom":true,"vendorId":123355,"vendorName":"API
+        DEV CORPORATE CUSTOMER","locationId":38326102,"isSelected":true,"isTokenNeeded":false,"visibilityData":{"isHidden":false,"reason":""},"managedCoverageList":[],"customCoverageList":[{"beginCoverage":"2018-04-01","endCoverage":"2018-04-30"}],"coverageStatement":"Issues
+        on or after 6/1/1992","managedEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"customEmbargoPeriod":{"embargoUnit":"Days","embargoValue":1},"url":"http://www.ebsco.com","userDefinedField1":"String1","userDefinedField2":"String2","userDefinedField3":"String3","userDefinedField4":"String4","userDefinedField5":"String5"}]},{"titleId":16901098,"titleName":"Test
+        Custom Resource","publisherName":"Test a Publisher","identifiersList":null,"subjectsList":null,"isTitleCustom":true,"pubType":"Unspecified","customerResourcesList":[{"titleId":16901098,"packageId":2720678,"packageName":"TEST_CUSTOMER_ID-custom-package","packageType":"Custom","isPackageCustom":true,"vendorId":123355,"vendorName":"API
+        DEV CORPORATE CUSTOMER","locationId":39325749,"isSelected":true,"isTokenNeeded":false,"visibilityData":{"isHidden":true,"reason":"Hidden
+        by Customer"},"managedCoverageList":[],"customCoverageList":[{"beginCoverage":"2018-04-01","endCoverage":"2018-04-30"}],"coverageStatement":"","managedEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"customEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"url":"http://test","userDefinedField1":"","userDefinedField2":null,"userDefinedField3":"","userDefinedField4":null,"userDefinedField5":""}]},{"titleId":17140546,"titleName":"TTMT
+        rocks as always. Thank you for fixing DE30801 ","publisherName":"EBSCO Publishing","identifiersList":[{"id":"1234","source":"ResourceIdentifier","subtype":1,"type":1}],"subjectsList":null,"isTitleCustom":true,"pubType":"Book","customerResourcesList":[{"titleId":17140546,"packageId":2720678,"packageName":"TEST_CUSTOMER_ID-custom-package","packageType":"Custom","isPackageCustom":true,"vendorId":123355,"vendorName":"API
+        DEV CORPORATE CUSTOMER","locationId":38413406,"isSelected":true,"isTokenNeeded":false,"visibilityData":{"isHidden":false,"reason":""},"managedCoverageList":[],"customCoverageList":[{"beginCoverage":"No
+        Access","endCoverage":"No Access"}],"coverageStatement":"Issues on or after
+        6/1/1992","managedEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"customEmbargoPeriod":{"embargoUnit":"Days","embargoValue":1},"url":"http://www.ebsco.com","userDefinedField1":"String1","userDefinedField2":"String2","userDefinedField3":"String3","userDefinedField4":"String4","userDefinedField5":"String5"}]}]}'
+    http_version: 
+  recorded_at: Mon, 23 Jul 2018 21:55:02 GMT
+- request:
+    method: put
+    uri: https://api.ebsco.io/rm/rmaccounts/TEST_CUSTOMER_ID/vendors/123355/packages/2720678/titles/3129599
+    body:
+      encoding: UTF-8
+      string: '{"isSelected":true,"titleName":"The Carole Lombard Handbook - Everything
+        you need to know about Carole Lombard","pubType":"Book","url":"not a url"}'
+    headers:
+      User-Agent:
+      - Flexirest/1.6.7
+      Connection:
+      - Keep-Alive
+      Accept:
+      - application/json
+      X-Api-Key:
+      - TEST_API_KEY
+      Content-Type:
+      - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 204
+      message: No Content
+    headers:
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '0'
+      Connection:
+      - keep-alive
+      Date:
+      - Mon, 23 Jul 2018 21:55:02 GMT
+      X-Amzn-Requestid:
+      - 0cf415fc-8ec3-11e8-bffe-bf541de0c18f
+      X-Amzn-Remapped-Connection:
+      - keep-alive
+      X-Amz-Apigw-Id:
+      - KgE8dEOioAMF1Fg=
+      X-Amzn-Remapped-Server:
+      - Microsoft-IIS/8.5
+      Cache-Control:
+      - no-cache
+      Expires:
+      - "-1"
+      X-Powered-By:
+      - ASP.NET
+      Pragma:
+      - no-cache
+      X-Amzn-Remapped-Date:
+      - Mon, 23 Jul 2018 21:55:01 GMT
+      X-Aspnet-Version:
+      - 4.0.30319
+      X-Cache:
+      - Miss from cloudfront
+      Via:
+      - 1.1 655ceee114a61672fa30ade2501aa4b4.cloudfront.net (CloudFront)
+      X-Amz-Cf-Id:
+      - iRRnr30TUAwvj7qkx8aL-VxhXtn5KHRBtHodrAO01fbxi0i3BB9r3w==
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: 
+  recorded_at: Mon, 23 Jul 2018 21:55:02 GMT
+- request:
+    method: get
+    uri: https://api.ebsco.io/rm/rmaccounts/TEST_CUSTOMER_ID/vendors/123355/packages/2720678/titles/3129599
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Flexirest/1.6.7
+      Connection:
+      - Keep-Alive
+      Accept:
+      - application/json
+      X-Api-Key:
+      - TEST_API_KEY
+      Content-Type:
+      - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '1260'
+      Connection:
+      - keep-alive
+      Date:
+      - Mon, 23 Jul 2018 21:55:02 GMT
+      X-Amzn-Requestid:
+      - 0d4b36ec-8ec3-11e8-9ebd-694e4934675a
+      X-Amzn-Remapped-Content-Length:
+      - '1260'
+      X-Amzn-Remapped-Connection:
+      - keep-alive
+      X-Amz-Apigw-Id:
+      - KgE8jEFvIAMFtyg=
+      X-Amzn-Remapped-Server:
+      - Microsoft-IIS/8.5
+      Cache-Control:
+      - no-cache
+      Expires:
+      - "-1"
+      X-Powered-By:
+      - ASP.NET
+      Pragma:
+      - no-cache
+      X-Amzn-Remapped-Date:
+      - Mon, 23 Jul 2018 21:55:01 GMT
+      X-Aspnet-Version:
+      - 4.0.30319
+      X-Cache:
+      - Miss from cloudfront
+      Via:
+      - 1.1 20710af5b67bb4f49570084055f06277.cloudfront.net (CloudFront)
+      X-Amz-Cf-Id:
+      - FA35WdAdmBrAHNRmufsF7IKLXJvfZXRdkESs8uFuKAwt7W0I8CTRlA==
+    body:
+      encoding: UTF-8
+      string: '{"titleId":3129599,"titleName":"The Carole Lombard Handbook - Everything
+        you need to know about Carole Lombard","publisherName":"Emereo Publishing","identifiersList":[{"id":"2748990","source":"AtoZ","subtype":0,"type":9},{"id":"978-1-283-74485-0","source":"ResourceIdentifier","subtype":2,"type":1},{"id":"978-1-74304-061-4","source":"ResourceIdentifier","subtype":1,"type":1}],"subjectsList":[],"isTitleCustom":false,"pubType":"Book","customerResourcesList":[{"titleId":3129599,"packageId":2720678,"packageName":"TEST_CUSTOMER_ID-custom-package","packageType":"Custom","proxy":{"id":"<n>","inherited":true},"isPackageCustom":true,"vendorId":123355,"vendorName":"API
+        DEV CORPORATE CUSTOMER","locationId":40607357,"isSelected":true,"isTokenNeeded":false,"visibilityData":{"isHidden":false,"reason":""},"managedCoverageList":[],"customCoverageList":[{"beginCoverage":"2010-05-01","endCoverage":""}],"coverageStatement":null,"managedEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"customEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"url":"not
+        a url","userDefinedField1":null,"userDefinedField2":null,"userDefinedField3":null,"userDefinedField4":null,"userDefinedField5":null}],"description":null,"edition":null,"isPeerReviewed":false,"contributorsList":[]}'
+    http_version: 
+  recorded_at: Mon, 23 Jul 2018 21:55:02 GMT
+recorded_with: VCR 3.0.3

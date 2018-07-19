@@ -20,7 +20,6 @@ class DeserializableResource < JSONAPI::Deserializable::Resource
 
   attribute :publicationType do |value|
     publication_types = {
-      'All': 'all',
       'Audiobook': 'audiobook',
       'Book': 'book',
       'Book Series': 'bookseries',
