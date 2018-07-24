@@ -6,7 +6,7 @@ module Validation
   class ResourceAssociateParameters
     include ActiveModel::Validations
 
-    attr_accessor :titleId, :packageId, :title, :package
+    attr_accessor :titleId, :packageId, :title, :package, :url
 
     validates :titleId, presence: true
     validates :packageId, presence: true
@@ -14,6 +14,7 @@ module Validation
     validate :package_is_custom?
     validate :title_exists?
     validate :title_not_in_package?
+    validate :url_has_valid_format?, unless: -> { url.nil? }
 
     def package_is_custom?
       errors.add(:PackageId, 'Cannot associate Title with a managed Package') unless
@@ -33,11 +34,17 @@ module Validation
                   package.resources.map(&:titleId).include?(@titleId)
     end
 
+    def url_has_valid_format?
+      errors.add(:url, 'has invalid format') unless
+        url.downcase.start_with?('https://', 'http://')
+    end
+
     def initialize(params = {})
       @packageId = params[:packageId]
       @titleId = params[:titleId]
       @package = params[:package]
       @title = params[:title]
+      @url = params[:url]
     end
   end
 end

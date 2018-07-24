@@ -27,7 +27,7 @@ http_interactions:
       Server:
       - nginx/1.13.5
       Date:
-      - Mon, 07 May 2018 00:45:10 GMT
+      - Mon, 23 Jul 2018 18:29:08 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -35,10 +35,10 @@ http_interactions:
       Connection:
       - keep-alive
       X-Okapi-Trace:
-      - 'GET mod-authtoken-1.4.1-SNAPSHOT.20 http://10.39.249.72:8081/configurations/entries..
-        : 202 356206us'
-      - 'GET mod-configuration-4.0.3-SNAPSHOT.29 http://10.39.252.104:8081/configurations/entries..
-        : 200 42342us'
+      - 'GET mod-authtoken-1.4.1-SNAPSHOT.21 http://10.39.255.17:8081/configurations/entries..
+        : 202 310325us'
+      - 'GET mod-configuration-4.0.4-SNAPSHOT.36 http://10.39.247.129:8081/configurations/entries..
+        : 200 44294us'
       Host:
       - okapi.frontside.io
       X-Real-Ip:
@@ -66,15 +66,11 @@ http_interactions:
       User-Agent:
       - Ruby
       X-Okapi-Request-Id:
-      - 219778/configurations
+      - 367615/configurations
       X-Okapi-Url:
-      - http://10.39.243.220:80
-      X-Okapi-Permissions-Required:
-      - configuration.entries.collection.get
-      X-Okapi-Module-Permissions:
-      - '{"mod-authtoken-1.4.1-SNAPSHOT.20":["perms.users.get"]}'
+      - http://10.39.254.87:80
       X-Okapi-Permissions:
-      - '["configuration.entries.collection.get"]'
+      - '["configuration.entries.collection.get","configuration.entries.collection.get"]'
       X-Okapi-User-Id:
       - 1ad737b0-d847-11e6-bf26-cec0c932ce01
       X-Okapi-Token:
@@ -86,7 +82,7 @@ http_interactions:
       string: |-
         {
           "configs" : [ {
-            "id" : "9f193b46-4cc5-4c99-b09f-374fe5415673",
+            "id" : "28fd0ce0-108e-4471-8a7b-4645319fd707",
             "module" : "KB_EBSCO",
             "configName" : "api_credentials",
             "code" : "kb.ebsco.credentials",
@@ -94,9 +90,9 @@ http_interactions:
             "enabled" : true,
             "value" : "customer-id=TEST_CUSTOMER_ID&api-key=TEST_API_KEY",
             "metadata" : {
-              "createdDate" : "2018-03-28T14:49:56.794+0000",
+              "createdDate" : "2018-06-26T13:23:48.592+0000",
               "createdByUserId" : "1ad737b0-d847-11e6-bf26-cec0c932ce01",
-              "updatedDate" : "2018-03-28T14:49:56.794+0000",
+              "updatedDate" : "2018-06-26T13:23:48.592+0000",
               "updatedByUserId" : "1ad737b0-d847-11e6-bf26-cec0c932ce01"
             }
           } ],
@@ -107,7 +103,7 @@ http_interactions:
           }
         }
     http_version: 
-  recorded_at: Mon, 07 May 2018 00:45:10 GMT
+  recorded_at: Mon, 23 Jul 2018 18:29:08 GMT
 - request:
     method: get
     uri: https://api.ebsco.io/rm/rmaccounts/TEST_CUSTOMER_ID/vendors/19/packages/2516
@@ -135,40 +131,40 @@ http_interactions:
       Content-Type:
       - application/json;charset=UTF-8
       Content-Length:
-      - '450'
+      - '457'
       Connection:
       - close
       Date:
-      - Mon, 07 May 2018 00:45:10 GMT
+      - Mon, 23 Jul 2018 18:29:08 GMT
       X-Amzn-Requestid:
-      - e556e310-518f-11e8-b96a-5db83b59d1cd
+      - 49bb7fc0-8ea6-11e8-9f36-a784f53a0757
       X-Amzn-Remapped-Connection:
       - keep-alive
       X-Amz-Apigw-Id:
-      - GfYvgFetoAMF9qA=
+      - KfmyPHp6IAMFVeA=
       X-Amzn-Remapped-Date:
-      - Mon, 07 May 2018 00:45:10 GMT
+      - Mon, 23 Jul 2018 18:29:08 GMT
       X-Cache:
       - Miss from cloudfront
       Via:
-      - 1.1 a171e7841621158d2aaef33e456c3688.cloudfront.net (CloudFront)
+      - 1.1 e90303ba6db45a2785ea8e963e1ef010.cloudfront.net (CloudFront)
       X-Amz-Cf-Id:
-      - vTWcctuZbKH4wiyhmpUiNwgzvB40RbpcmVoJpbCXNeSe-JVXZtiolg==
+      - sez667rCs0eDlH2sg-sb2o5OA0-51oge_52kdWsfvo6QxeXRSqbXdQ==
     body:
       encoding: UTF-8
       string: '{"packageId":2516,"packageName":"Abstracts in Social Gerontology","isCustom":false,"vendorId":19,"vendorName":"EBSCO","titleCount":1,"isSelected":true,"visibilityData":{"isHidden":true,"reason":"Hidden
-        by EP"},"selectedCount":1,"isTokenNeeded":false,"contentType":"AbstractAndIndex","customCoverage":{"beginCoverage":"","endCoverage":""},"proxy":{"id":"<n>","inherited":true},"allowEbscoToAddTitles":true,"packageToken":null,"packageType":"Complete"}'
+        by Customer"},"selectedCount":1,"isTokenNeeded":false,"contentType":"AbstractAndIndex","customCoverage":{"beginCoverage":"","endCoverage":""},"proxy":{"id":"<n>","inherited":true},"allowEbscoToAddTitles":false,"packageToken":null,"packageType":"Complete"}'
     http_version: 
-  recorded_at: Mon, 07 May 2018 00:45:10 GMT
+  recorded_at: Mon, 23 Jul 2018 18:29:08 GMT
 - request:
     method: get
-    uri: https://api.ebsco.io/rm/rmaccounts/TEST_CUSTOMER_ID/titles/907372
+    uri: https://api.ebsco.io/rm/rmaccounts/TEST_CUSTOMER_ID/titles/3129599
     body:
       encoding: US-ASCII
       string: ''
     headers:
       User-Agent:
-      - Flexirest/1.5.5
+      - Flexirest/1.6.7
       Connection:
       - Keep-Alive
       Accept:
@@ -187,19 +183,19 @@ http_interactions:
       Content-Type:
       - application/json; charset=utf-8
       Content-Length:
-      - '1799'
+      - '2023'
       Connection:
       - keep-alive
       Date:
-      - Mon, 07 May 2018 00:45:11 GMT
+      - Mon, 23 Jul 2018 18:29:09 GMT
       X-Amzn-Requestid:
-      - e57e41d1-518f-11e8-8da3-a9b5cafcb9e9
+      - 49da78da-8ea6-11e8-9edc-55602380375c
       X-Amzn-Remapped-Content-Length:
-      - '1799'
+      - '2023'
       X-Amzn-Remapped-Connection:
       - keep-alive
       X-Amz-Apigw-Id:
-      - GfYvjHodoAMFTYw=
+      - KfmyRHw7IAMFv8A=
       X-Amzn-Remapped-Server:
       - Microsoft-IIS/8.5
       Cache-Control:
@@ -211,24 +207,23 @@ http_interactions:
       Pragma:
       - no-cache
       X-Amzn-Remapped-Date:
-      - Mon, 07 May 2018 00:45:11 GMT
+      - Mon, 23 Jul 2018 18:29:08 GMT
       X-Aspnet-Version:
       - 4.0.30319
       X-Cache:
       - Miss from cloudfront
       Via:
-      - 1.1 84c2cfdb50d7ba7b4db246b7bdf3a55c.cloudfront.net (CloudFront)
+      - 1.1 655ceee114a61672fa30ade2501aa4b4.cloudfront.net (CloudFront)
       X-Amz-Cf-Id:
-      - wV3yLsriwL9epyBCm4Bz-VnQafXtBd6i-cJZQv7t3oCnQVmAL71Z3g==
+      - gS3i9UrBCLmbTzL2Fok5DveKoNSm9itHLV0VWTTR3TGIavqq4Tj8bw==
     body:
       encoding: UTF-8
-      string: '{"titleId":907372,"titleName":"Abstract expression ","publisherName":"Alexander
-        Street Press","identifiersList":[{"id":"907372","source":"AtoZ","subtype":0,"type":9}],"subjectsList":[],"isTitleCustom":false,"pubType":"Journal","customerResourcesList":[{"titleId":907372,"packageId":3757,"packageName":"Alexander
-        Street Drama","packageType":"Complete","proxy":{"id":"<n>","inherited":true},"isPackageCustom":false,"vendorId":413,"vendorName":"Alexander
-        Street Press","locationId":3261868,"isSelected":true,"isTokenNeeded":false,"visibilityData":{"isHidden":false,"reason":""},"managedCoverageList":[{"beginCoverage":"2001-01-01","endCoverage":"2001-12-31"}],"customCoverageList":[],"coverageStatement":null,"managedEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"customEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"url":"http://www.aspresolver.com/aspresolver.asp?NADR;PL027712","userDefinedField1":null,"userDefinedField2":null,"userDefinedField3":null,"userDefinedField4":null,"userDefinedField5":null},{"titleId":907372,"packageId":2864301,"packageName":"joes_test3","packageType":"Custom","proxy":{"id":"<n>","inherited":true},"isPackageCustom":true,"vendorId":123355,"vendorName":"API
-        DEV CORPORATE CUSTOMER","locationId":0,"isSelected":true,"isTokenNeeded":false,"visibilityData":{"isHidden":false,"reason":""},"managedCoverageList":[],"customCoverageList":[{"beginCoverage":"2018-05-08","endCoverage":"2018-05-31"}],"coverageStatement":null,"managedEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"customEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"url":null,"userDefinedField1":null,"userDefinedField2":null,"userDefinedField3":null,"userDefinedField4":null,"userDefinedField5":null}],"description":null,"edition":null,"isPeerReviewed":false,"contributorsList":[]}'
+      string: '{"titleId":3129599,"titleName":"The Carole Lombard Handbook - Everything
+        you need to know about Carole Lombard","publisherName":"Emereo Publishing","identifiersList":[{"id":"2748990","source":"AtoZ","subtype":0,"type":9},{"id":"978-1-283-74485-0","source":"ResourceIdentifier","subtype":2,"type":1},{"id":"978-1-74304-061-4","source":"ResourceIdentifier","subtype":1,"type":1}],"subjectsList":[],"isTitleCustom":false,"pubType":"Book","customerResourcesList":[{"titleId":3129599,"packageId":1861142,"packageName":"MyiLibrary","packageType":"Variable","proxy":{"id":"TestingFolio","inherited":true},"isPackageCustom":false,"vendorId":58388,"vendorName":"Ingram
+        Content Group, Inc.","locationId":9453518,"isSelected":false,"isTokenNeeded":false,"visibilityData":{"isHidden":false,"reason":""},"managedCoverageList":[{"beginCoverage":"2012-01-01","endCoverage":"2012-12-31"}],"customCoverageList":[],"coverageStatement":null,"managedEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"customEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"url":"http://lib.myilibrary.com?id=405735","userDefinedField1":null,"userDefinedField2":null,"userDefinedField3":null,"userDefinedField4":null,"userDefinedField5":null},{"titleId":3129599,"packageId":2864301,"packageName":"joes_test3","packageType":"Custom","proxy":{"id":"TestingFolio","inherited":true},"isPackageCustom":true,"vendorId":123355,"vendorName":"API
+        DEV CORPORATE CUSTOMER","locationId":40606913,"isSelected":true,"isTokenNeeded":false,"visibilityData":{"isHidden":false,"reason":""},"managedCoverageList":[],"customCoverageList":[{"beginCoverage":"2018-05-08","endCoverage":"2018-05-31"}],"coverageStatement":null,"managedEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"customEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"url":"http://test.io","userDefinedField1":null,"userDefinedField2":null,"userDefinedField3":null,"userDefinedField4":null,"userDefinedField5":null}],"description":null,"edition":null,"isPeerReviewed":false,"contributorsList":[]}'
     http_version: 
-  recorded_at: Mon, 07 May 2018 00:45:11 GMT
+  recorded_at: Mon, 23 Jul 2018 18:29:09 GMT
 - request:
     method: get
     uri: https://api.ebsco.io/rm/rmaccounts/TEST_CUSTOMER_ID/vendors/19/packages/2516/titles?count=25&offset=1&orderby=titlename&resourcetype=all&search=&searchfield=titlename&selection=all
@@ -237,7 +232,7 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - Flexirest/1.5.5
+      - Flexirest/1.6.7
       Connection:
       - Keep-Alive
       Accept:
@@ -256,19 +251,19 @@ http_interactions:
       Content-Type:
       - application/json; charset=utf-8
       Content-Length:
-      - '1153'
+      - '1159'
       Connection:
       - keep-alive
       Date:
-      - Mon, 07 May 2018 00:45:12 GMT
+      - Mon, 23 Jul 2018 18:29:09 GMT
       X-Amzn-Requestid:
-      - e6384300-518f-11e8-8eea-d7f8c8fd1961
+      - 49f0e759-8ea6-11e8-bde0-cb7a39a5d4dc
       X-Amzn-Remapped-Content-Length:
-      - '1153'
+      - '1159'
       X-Amzn-Remapped-Connection:
       - keep-alive
       X-Amz-Apigw-Id:
-      - GfYvvFGFoAMFsRQ=
+      - KfmyTEoCoAMF5Yw=
       X-Amzn-Remapped-Server:
       - Microsoft-IIS/8.5
       Cache-Control:
@@ -280,21 +275,21 @@ http_interactions:
       Pragma:
       - no-cache
       X-Amzn-Remapped-Date:
-      - Mon, 07 May 2018 00:45:11 GMT
+      - Mon, 23 Jul 2018 18:29:08 GMT
       X-Aspnet-Version:
       - 4.0.30319
       X-Cache:
       - Miss from cloudfront
       Via:
-      - 1.1 400a1d6d49b59bb68b7dc9d180a3fe2d.cloudfront.net (CloudFront)
+      - 1.1 655ceee114a61672fa30ade2501aa4b4.cloudfront.net (CloudFront)
       X-Amz-Cf-Id:
-      - empbYIxIareOa1_nFiHRxaGPnAQq-P8itywGqFUNEbOgM3MX0NU1lw==
+      - 2YyW2RyABENp0LoBK-LKmRzK20_KQkuviQmL6McgedGotfKoKlwDPg==
     body:
       encoding: UTF-8
       string: '{"totalResults":1,"titles":[{"titleId":480368,"titleName":"Abstracts
         in Social Gerontology","publisherName":"SAGE Publications","identifiersList":[{"id":"1047-4862","source":"ResourceIdentifier","subtype":1,"type":0},{"id":"SGT","source":"MFS","subtype":0,"type":8},{"id":"480368","source":"AtoZ","subtype":0,"type":9}],"subjectsList":[{"type":"TLI","subject":"Gerontology"}],"isTitleCustom":false,"pubType":"Database","customerResourcesList":[{"titleId":480368,"packageId":2516,"packageName":"Abstracts
         in Social Gerontology","packageType":"Complete","isPackageCustom":false,"vendorId":19,"vendorName":"EBSCO","locationId":1737811,"isSelected":true,"isTokenNeeded":false,"visibilityData":{"isHidden":true,"reason":"Hidden
-        by EP"},"managedCoverageList":[],"customCoverageList":[],"coverageStatement":null,"managedEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"customEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"url":"http://search.ebscohost.com/login.aspx?authtype=cookie,ip,uid&profile=ehost&defaultdb=27h","userDefinedField1":null,"userDefinedField2":null,"userDefinedField3":null,"userDefinedField4":null,"userDefinedField5":null}]}]}'
+        by Customer"},"managedCoverageList":[],"customCoverageList":[],"coverageStatement":null,"managedEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"customEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"url":"http://search.ebscohost.com/login.aspx?authtype=cookie,ip,uid&profile=ehost&defaultdb=27h","userDefinedField1":null,"userDefinedField2":null,"userDefinedField3":null,"userDefinedField4":null,"userDefinedField5":null}]}]}'
     http_version: 
-  recorded_at: Mon, 07 May 2018 00:45:12 GMT
+  recorded_at: Mon, 23 Jul 2018 18:29:09 GMT
 recorded_with: VCR 3.0.3

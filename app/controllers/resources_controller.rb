@@ -8,6 +8,8 @@ class ResourcesController < ApplicationController
   deserializable_resource :resource,
                           only: %i[create update],
                           class: DeserializableResource
+
+  # rubocop:disable Metrics/AbcSize
   def create
     # A resource represents the relationship between a package
     # and title.  So in this `create` method we're really just
@@ -16,6 +18,7 @@ class ResourcesController < ApplicationController
 
     provider_id, package_id = resource_create_params[:packageId].split('-')
     title_id = resource_create_params[:titleId]
+    url = resource_create_params[:url]
 
     package = PackagesRepository.new(config: config)
                                 .find!(resource_create_params[:packageId])
@@ -27,7 +30,8 @@ class ResourcesController < ApplicationController
         packageId: resource_create_params[:packageId],
         titleId: title_id,
         package: package,
-        title: title
+        title: title,
+        url: url
       )
 
     if resource_validation.valid?
@@ -37,7 +41,8 @@ class ResourcesController < ApplicationController
         title_id: title_id.to_i,
         isSelected: true,
         titleName: title.titleName,
-        pubType: title.pubType
+        pubType: title.pubType,
+        url: url
       )
       render jsonapi: @resource
     else
@@ -45,6 +50,7 @@ class ResourcesController < ApplicationController
              status: :unprocessable_entity
     end
   end
+  # rubocop:enable Metrics/AbcSize
 
   def show
     render jsonapi: @resource,
@@ -104,7 +110,8 @@ class ResourcesController < ApplicationController
       .require(:resource)
       .permit(
         :titleId,
-        :packageId
+        :packageId,
+        :url
       )
   end
 
