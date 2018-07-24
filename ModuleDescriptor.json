@@ -45,22 +45,6 @@
         {
           "methods": [ "GET", "POST", "PUT", "DELETE" ],
           "pathPattern": "/eholdings/resources*"
-        },
-        {
-          "methods": [ "GET", "POST", "PUT", "PATCH", "DELETE" ],
-          "pathPattern": "/ebsco-rmapi/holdings*"
-        },
-        {
-          "methods": [ "GET", "POST", "PUT", "PATCH", "DELETE" ],
-          "pathPattern": "/ebsco-rmapi/packages*"
-        },
-        {
-          "methods": [ "GET", "POST", "PUT", "PATCH", "DELETE" ],
-          "pathPattern": "/ebsco-rmapi/vendors*"
-        },
-        {
-          "methods": [ "GET", "POST", "PUT", "PATCH", "DELETE" ],
-          "pathPattern": "/ebsco-rmapi/titles*"
         }
       ]
     }
