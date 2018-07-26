@@ -164,7 +164,6 @@ class PackagesRepository < RmapiRepository
   def to_package(hash)
     Package.new(hash) do |package|
       package.instance_variable_set :@resources, Resource.configure(@config)
-      package.instance_variable_set :@vendors, Vendor.configure(@config)
       package.instance_variable_set :@providers, Provider.configure(@config)
 
       package.allow_kb_to_add_titles = hash[:allow_ebsco_to_add_titles]

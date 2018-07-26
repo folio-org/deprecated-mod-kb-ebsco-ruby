@@ -133,33 +133,6 @@ RSpec.describe 'Resources', type: :request do
     end
   end
 
-  describe 'getting a resource with included vendor' do
-    before do
-      VCR.use_cassette('get-resources-vendor') do
-        get '/eholdings/resources/22-1887786-1440285?include=vendor',
-            headers: okapi_headers
-      end
-    end
-
-    let!(:json) { Map JSON.parse response.body }
-
-    it 'includes a vendor' do
-      # NOTE: has_one relationships are serialized as singleton hashes
-      # there might be a better way to handle this, but for now we
-      # wrap the relation in an array
-
-      # rubocop:disable Performance/FixedSize
-      expect([json.data.relationships.vendor.data].length).to eq(1)
-      # rubocop:enable Performance/FixedSize
-
-      expect(json.included.length).to eq(1)
-    end
-
-    it 'returns the correct included type' do
-      expect(json.included.first.type).to eq('vendors')
-    end
-  end
-
   describe 'getting a resource with included package' do
     before do
       VCR.use_cassette('get-resources-package') do
@@ -218,7 +191,6 @@ RSpec.describe 'Resources', type: :request do
 
     it 'includes the expected relationships' do
       expect(json.data.relationships).to include(
-        'vendor',
         'provider',
         'title',
         'package'

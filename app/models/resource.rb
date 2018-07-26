@@ -63,11 +63,6 @@ class Resource < RmApiResource
   end
 
   # Relationships
-  def vendor
-    Vendor.configure(config).find(resource.vendorId)
-  end
-
-  # Relationships
   def provider
     Provider.configure(config).find(resource.vendorId)
   end
