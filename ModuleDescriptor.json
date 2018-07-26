@@ -27,10 +27,6 @@
           "pathPattern": "/eholdings/root-proxy"
         },
         {
-          "methods": [ "GET" ],
-          "pathPattern": "/eholdings/vendors*"
-        },
-        {
           "methods": [ "GET", "PUT" ],
           "pathPattern": "/eholdings/providers*"
         },

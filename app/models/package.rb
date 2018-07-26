@@ -41,10 +41,6 @@ class Package
   end
 
   # Relationships
-  def vendor
-    @vendors.find provider_id
-  end
-
   def provider
     @providers.find provider_id
   end
