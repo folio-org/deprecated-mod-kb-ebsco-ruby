@@ -16,7 +16,7 @@ traits:
         type: string
         description: Text entered in search field
         example: Basket Weaving
-        required: true
+        required: false
       page:
         displayName: Page
         type: number
@@ -31,6 +31,7 @@ traits:
         example: 10
         minimum: 0
         maximum: 100
+        default: 25
         required: false
       sort:
         displayName: Sort options
@@ -151,7 +152,7 @@ types:
         type: string
         description: String to search for to get a collection of packages
         example: ABC-CLIO
-        required: true
+        required: false
       page:
         displayName: Page offset
         type: integer
@@ -167,6 +168,7 @@ types:
         maximum: 100
         description: Count of number of results to retrieve from Ebsco KB
         example: 100
+        default: 25
         required: false
       sort:
         displayName: Sort options
@@ -404,8 +406,9 @@ types:
         include:
           displayName: Nested resource
           type: string
+          enum: [ "packages" ]
           description: Name of nested resource to include
-          default: packages
+          default: "packages"
           required: false
       responses:
         200:
@@ -776,6 +779,7 @@ types:
         maximum: 100
         description: Count of number of results to retrieve from Ebsco KB
         example: 100
+        default: 25
         required: false
       sort:
         displayName: Sort options
