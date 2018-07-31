@@ -1362,4 +1362,19 @@ RSpec.describe 'Packages', type: :request do
       expect(json.data.first.attributes.isCustom).to be true
     end
   end
+
+  describe 'filtering by invalid custom' do
+    before do
+      VCR.use_cassette('get-custom-packages-invalid-filter') do
+        get '/eholdings/packages?filter[custom]=false&count=100', headers: okapi_headers
+      end
+    end
+
+    let!(:json) { Map JSON.parse response.body }
+
+    it 'returns an error status' do
+      expect(response).to have_http_status(400)
+      expect(json.errors.first.title).to eql('Invalid customFilter')
+    end
+  end
 end
