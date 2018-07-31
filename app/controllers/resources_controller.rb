@@ -58,8 +58,9 @@ class ResourcesController < ApplicationController
   end
 
   def update
+    is_title_custom = title_custom?
     resource_validation =
-      Validation::ResourceUpdateParameters.new(update_params)
+      Validation::ResourceUpdateParameters.new(is_title_custom, update_params)
 
     if resource_validation.valid?
       @resource.update update_params
@@ -113,6 +114,10 @@ class ResourcesController < ApplicationController
         :packageId,
         :url
       )
+  end
+
+  def title_custom?
+    @resource.isTitleCustom
   end
 
   def resource_params
