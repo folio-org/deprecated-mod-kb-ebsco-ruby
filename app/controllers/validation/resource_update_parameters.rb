@@ -38,6 +38,7 @@ module Validation
 
     validates :edition, length: { maximum: 250 }, allow_nil: true
     validate :identifiers_list_valid?, unless: -> { identifiersList.blank? }
+    validate :url_has_valid_format?, unless: -> { url.nil? }
 
     def identifiers_list_valid?
       identifiersList.each do |identifier|
@@ -48,6 +49,11 @@ module Validation
         errors.add(:IdentifierSubType, ':Invalid Identifier subtype') unless
           identifier['subtype']&.between?(0, 7)
       end
+    end
+
+    def url_has_valid_format?
+      errors.add(:url, 'has invalid format') unless
+        url.downcase.start_with?('https://', 'http://')
     end
 
     def initialize(is_title_custom, params = {})

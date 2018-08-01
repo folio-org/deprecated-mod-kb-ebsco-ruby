@@ -695,6 +695,55 @@ RSpec.describe 'Resources', type: :request do
           expect(json.errors[6].detail).to eq 'Url must be blank'
         end
       end
+
+      describe 'updating a resource with an invalid url' do
+        let(:params) do
+          {
+            'data' => {
+              'type' => 'resources',
+              'attributes' => {
+                'isSelected' => true,
+                'visibilityData' => {
+                  'isHidden' => false
+                },
+                'customEmbargoPeriod' => {
+                  'embargoUnit' => 'Months',
+                  'embargoValue' => 5
+                },
+                'customCoverages' => [
+                  {
+                    'beginCoverage' => '2005-01-01'
+                  },
+                  {
+                    'beginCoverage' => '2000-01-01',
+                    'endCoverage' => '2004-02-01'
+                  }
+                ],
+                'coverageStatement' => 'Only 2000s issues available.',
+                'url' => 'not a url'
+              }
+            }
+          }
+        end
+
+        before do
+          VCR.use_cassette('put-resources-update-invalid-url') do
+            put '/eholdings/resources/123355-2843714-17059805',
+                params: params, as: :json, headers: update_headers
+          end
+        end
+
+        it 'responds with expected error code' do
+          expect(response).to have_http_status(422)
+        end
+
+        let!(:json) { Map JSON.parse response.body }
+
+        it 'gives expected error messages in response' do
+          expect(json.errors.first.title).to eq 'Invalid url'
+          expect(json.errors.first.detail).to eq 'Url has invalid format'
+        end
+      end
     end
 
     describe 'trying to update an invalid resource gives the expected errors' do
