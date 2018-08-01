@@ -257,6 +257,21 @@ RSpec.describe 'Packages', type: :request do
     it 'returns a valid visibility reason' do
       expect(json.data.attributes.visibilityData.reason).to eq 'Set by system'
     end
+
+    describe 'getting a package with invalid package id' do
+      before do
+        VCR.use_cassette('get-package-missing-package-id-in-url') do
+          get '/eholdings/packages/19', headers: okapi_headers
+        end
+      end
+
+      let!(:json_f) { Map JSON.parse response.body }
+
+      it 'returns a bad request error' do
+        expect(response).to have_http_status(400)
+        expect(json_f.errors.first.title).to eql('Package and provider id are required')
+      end
+    end
   end
 
   describe 'getting a specific package with allow add titles' do
@@ -1185,6 +1200,22 @@ RSpec.describe 'Packages', type: :request do
 
       it 'gets a bad request response' do
         expect(response).to have_http_status(400)
+      end
+    end
+
+    describe 'trying to delete package with missing package id' do
+      before do
+        VCR.use_cassette('delete-package-missing-package-id-in-url') do
+          delete '/eholdings/packages/123355',
+                 headers: okapi_headers
+        end
+      end
+
+      let!(:json_f) { Map JSON.parse response.body }
+
+      it 'get a error response' do
+        expect(response).to have_http_status(400)
+        expect(json_f.errors.first.title).to eql('Package and provider id are required')
       end
     end
   end

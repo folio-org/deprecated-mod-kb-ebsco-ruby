@@ -3,6 +3,9 @@
 class PackagesRepository < RmapiRepository
   def find!(id)
     vendor_id, package_id = id.split('-')
+
+    fail RequestError.new('Package and provider id are required', 400) unless vendor_id && package_id
+
     status, body = request(:get, "/vendors/#{vendor_id}/packages/#{package_id}")
     Result.new(data: to_package(body), status: status, included: body[:included])
   end
@@ -62,6 +65,9 @@ class PackagesRepository < RmapiRepository
 
   def destroy!(id)
     vendor_id, package_id = id.split('-')
+
+    fail RequestError.new('Package and provider id are required', 400) unless vendor_id && package_id
+
     status, _no_content = request(:put, "/vendors/#{vendor_id}/packages/#{package_id}", json: { isSelected: false })
 
     Result.new(data: {}, status: status)
