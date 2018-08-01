@@ -50,15 +50,21 @@ class ProvidersController < ApplicationController
 
   # Relationships
   def packages
-    @packages = @provider.find_packages(
-      q: params[:q],
-      page: params[:page],
-      filter: params[:filter],
-      sort: params[:sort]
-    )
+    query_params_validation = Validation::ProviderPackagesQueryParameters.new(params)
 
-    render jsonapi: @packages.data,
-           meta: @packages.meta
+    if query_params_validation.valid?
+      @packages = @provider.find_packages(
+        q: params[:q],
+        page: params[:page],
+        filter: params[:filter],
+        sort: params[:sort]
+      )
+      render jsonapi: @packages.data,
+             meta: @packages.meta
+    else
+      render jsonapi_errors: query_params_validation.errors,
+             status: :bad_request
+    end
   end
 
   private
