@@ -27,7 +27,7 @@ http_interactions:
       Server:
       - nginx/1.13.5
       Date:
-      - Thu, 12 Apr 2018 23:52:32 GMT
+      - Mon, 30 Jul 2018 20:49:36 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -35,16 +35,16 @@ http_interactions:
       Connection:
       - keep-alive
       X-Okapi-Trace:
-      - 'GET mod-authtoken-1.4.1-SNAPSHOT.20 http://10.39.249.72:8081/configurations/entries..
-        : 202 357708us'
-      - 'GET mod-configuration-4.0.3-SNAPSHOT.29 http://10.39.252.104:8081/configurations/entries..
-        : 200 44425us'
+      - 'GET mod-authtoken-1.4.1-SNAPSHOT.21 http://10.39.255.17:8081/configurations/entries..
+        : 202 376230us'
+      - 'GET mod-configuration-4.0.4-SNAPSHOT.36 http://10.39.247.129:8081/configurations/entries..
+        : 200 68035us'
       Host:
       - okapi.frontside.io
       X-Real-Ip:
-      - 10.36.3.1
+      - 10.36.2.1
       X-Forwarded-For:
-      - 10.36.3.1
+      - 10.36.2.1
       X-Forwarded-Host:
       - okapi.frontside.io
       X-Forwarded-Port:
@@ -66,15 +66,11 @@ http_interactions:
       User-Agent:
       - Ruby
       X-Okapi-Request-Id:
-      - 731494/configurations
+      - 146145/configurations
       X-Okapi-Url:
-      - http://10.39.243.220:80
-      X-Okapi-Permissions-Required:
-      - configuration.entries.collection.get
-      X-Okapi-Module-Permissions:
-      - '{"mod-authtoken-1.4.1-SNAPSHOT.20":["perms.users.get"]}'
+      - http://10.39.254.87:80
       X-Okapi-Permissions:
-      - '["configuration.entries.collection.get"]'
+      - '["configuration.entries.collection.get","configuration.entries.collection.get"]'
       X-Okapi-User-Id:
       - 1ad737b0-d847-11e6-bf26-cec0c932ce01
       X-Okapi-Token:
@@ -86,7 +82,7 @@ http_interactions:
       string: |-
         {
           "configs" : [ {
-            "id" : "9f193b46-4cc5-4c99-b09f-374fe5415673",
+            "id" : "28fd0ce0-108e-4471-8a7b-4645319fd707",
             "module" : "KB_EBSCO",
             "configName" : "api_credentials",
             "code" : "kb.ebsco.credentials",
@@ -94,9 +90,9 @@ http_interactions:
             "enabled" : true,
             "value" : "customer-id=TEST_CUSTOMER_ID&api-key=TEST_API_KEY",
             "metadata" : {
-              "createdDate" : "2018-03-28T14:49:56.794+0000",
+              "createdDate" : "2018-06-26T13:23:48.592+0000",
               "createdByUserId" : "1ad737b0-d847-11e6-bf26-cec0c932ce01",
-              "updatedDate" : "2018-03-28T14:49:56.794+0000",
+              "updatedDate" : "2018-06-26T13:23:48.592+0000",
               "updatedByUserId" : "1ad737b0-d847-11e6-bf26-cec0c932ce01"
             }
           } ],
@@ -107,16 +103,16 @@ http_interactions:
           }
         }
     http_version: 
-  recorded_at: Thu, 12 Apr 2018 23:52:32 GMT
+  recorded_at: Mon, 30 Jul 2018 20:49:36 GMT
 - request:
     method: get
-    uri: https://api.ebsco.io/rm/rmaccounts/TEST_CUSTOMER_ID/vendors/123355/packages/2845510/titles/62477
+    uri: https://api.ebsco.io/rm/rmaccounts/TEST_CUSTOMER_ID/vendors/123355/packages/2843714/titles/17059805
     body:
       encoding: US-ASCII
       string: ''
     headers:
       User-Agent:
-      - Flexirest/1.5.5
+      - Flexirest/1.6.7
       Connection:
       - Keep-Alive
       Accept:
@@ -135,19 +131,19 @@ http_interactions:
       Content-Type:
       - application/json; charset=utf-8
       Content-Length:
-      - '2146'
+      - '1032'
       Connection:
       - keep-alive
       Date:
-      - Thu, 12 Apr 2018 23:52:33 GMT
+      - Mon, 30 Jul 2018 20:49:36 GMT
       X-Amzn-Requestid:
-      - 91625dc6-3eac-11e8-9117-99097ba1fc40
+      - 11c0ebff-943a-11e8-9541-7516c9dfee76
       X-Amzn-Remapped-Content-Length:
-      - '2146'
+      - '1032'
       X-Amzn-Remapped-Connection:
       - keep-alive
       X-Amz-Apigw-Id:
-      - FQKiJGZhIAMFUrw=
+      - K2_7BHzTIAMFuEg=
       X-Amzn-Remapped-Server:
       - Microsoft-IIS/8.5
       Cache-Control:
@@ -159,36 +155,35 @@ http_interactions:
       Pragma:
       - no-cache
       X-Amzn-Remapped-Date:
-      - Thu, 12 Apr 2018 23:52:33 GMT
+      - Mon, 30 Jul 2018 20:49:36 GMT
       X-Aspnet-Version:
       - 4.0.30319
       X-Cache:
       - Miss from cloudfront
       Via:
-      - 1.1 00a1d8f37a58e42d70fb6d319f45045f.cloudfront.net (CloudFront)
+      - 1.1 53639ba6f1000a6a161851e05908fd9b.cloudfront.net (CloudFront)
       X-Amz-Cf-Id:
-      - 4ryc0LNpcq_tgzZJFM3M6TmZSTrx8IvSIKms8yMgsnzSSEzBv_4XwA==
+      - tja7q3w9J95XgAMViCN6f14BtEEUjbwFluz7ODiW_JS4etaRpTmEiQ==
     body:
       encoding: UTF-8
-      string: '{"titleId":62477,"titleName":"Science","publisherName":"American Association
-        for the Advancement of Science","identifiersList":[{"id":"0036-8075","source":"ResourceIdentifier","subtype":1,"type":0},{"id":"01644869","source":"ResourceIdentifier","subtype":0,"type":2},{"id":"036991008","source":"ResourceIdentifier","subtype":0,"type":3},{"id":"101727","source":"ResourceIdentifier","subtype":0,"type":4},{"id":"1095-9203","source":"ResourceIdentifier","subtype":2,"type":0},{"id":"1496749","source":"ResourceIdentifier","subtype":0,"type":7},{"id":"62477","source":"AtoZ","subtype":0,"type":9},{"id":"803597004","source":"ResourceIdentifier","subtype":0,"type":3},{"id":"803597343","source":"ResourceIdentifier","subtype":0,"type":3},{"id":"803597355","source":"ResourceIdentifier","subtype":0,"type":3},{"id":"803916717","source":"ResourceIdentifier","subtype":0,"type":3},{"id":"804167179","source":"ResourceIdentifier","subtype":0,"type":3},{"id":"804240125","source":"ResourceIdentifier","subtype":0,"type":3},{"id":"SCI","source":"MFS","subtype":0,"type":8}],"subjectsList":[{"type":"TLI","subject":"Science
-        (General)"}],"isTitleCustom":false,"pubType":"Journal","customerResourcesList":[{"titleId":62477,"packageId":2845510,"packageName":"\"Testing2\"","packageType":"Custom","proxy":{"id":"<n>","inherited":true},"isPackageCustom":true,"vendorId":123355,"vendorName":"API
-        DEV CORPORATE CUSTOMER","locationId":0,"isSelected":true,"isTokenNeeded":false,"visibilityData":{"isHidden":false,"reason":""},"managedCoverageList":[],"customCoverageList":[{"beginCoverage":"2003-01-01","endCoverage":"2003-12-12"}],"coverageStatement":"Issues
-        on or after 6/1/1992","managedEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"customEmbargoPeriod":{"embargoUnit":"Days","embargoValue":1},"url":null,"userDefinedField1":null,"userDefinedField2":null,"userDefinedField3":null,"userDefinedField4":null,"userDefinedField5":null}],"description":"Contains
-        peer-reviewed articles, original research reports, a news section, editorials,
-        letters, and book reviews on timely science-related topics.","edition":null,"isPeerReviewed":true,"contributorsList":[]}'
+      string: '{"titleId":17059805,"titleName":"I have a great new title name","publisherName":"SD
+        Publishing","identifiersList":[],"subjectsList":[],"isTitleCustom":true,"pubType":"Book","customerResourcesList":[{"titleId":17059805,"packageId":2843714,"packageName":"SD''s
+        test package in TEST_CUSTOMER_ID","packageType":"Custom","proxy":{"id":"<n>","inherited":true},"isPackageCustom":true,"vendorId":123355,"vendorName":"API
+        DEV CORPORATE CUSTOMER","locationId":40526977,"isSelected":true,"isTokenNeeded":false,"visibilityData":{"isHidden":false,"reason":""},"managedCoverageList":[],"customCoverageList":[{"beginCoverage":"2003-01-01","endCoverage":"2003-12-12"}],"coverageStatement":"","managedEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"customEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"url":"http://hello.hello","userDefinedField1":null,"userDefinedField2":null,"userDefinedField3":null,"userDefinedField4":null,"userDefinedField5":null}],"description":"This
+        is a book","edition":"4","isPeerReviewed":true,"contributorsList":[]}'
     http_version: 
-  recorded_at: Thu, 12 Apr 2018 23:52:34 GMT
+  recorded_at: Mon, 30 Jul 2018 20:49:36 GMT
 - request:
     method: put
-    uri: https://api.ebsco.io/rm/rmaccounts/TEST_CUSTOMER_ID/vendors/123355/packages/2845510/titles/62477
+    uri: https://api.ebsco.io/rm/rmaccounts/TEST_CUSTOMER_ID/vendors/123355/packages/2843714/titles/17059805
     body:
       encoding: UTF-8
-      string: '{"isSelected":true,"isHidden":false,"customCoverageList":[{"beginCoverage":"2003-01-01","endCoverage":"2003-12-12"}],"customEmbargoPeriod":{"embargoUnit":"Days","embargoValue":1},"coverageStatement":"Issues
-        on or after 6/1/1992","titleName":"Science","pubType":"bookseries"}'
+      string: '{"isSelected":true,"isHidden":false,"customCoverageList":[{"beginCoverage":"2003-01-01","endCoverage":"2003-12-12"}],"contributorsList":null,"identifiersList":null,"customEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"coverageStatement":"","titleName":"I
+        have a great new title name","pubType":"bookseries","isPeerReviewed":true,"publisherName":"SD
+        Publishing","edition":"4","description":"This is a book","url":"http://hello.hello","proxy":{"id":"\u003cn\u003e","inherited":false}}'
     headers:
       User-Agent:
-      - Flexirest/1.5.5
+      - Flexirest/1.6.7
       Connection:
       - Keep-Alive
       Accept:
@@ -211,13 +206,13 @@ http_interactions:
       Connection:
       - keep-alive
       Date:
-      - Thu, 12 Apr 2018 23:52:34 GMT
+      - Mon, 30 Jul 2018 20:49:36 GMT
       X-Amzn-Requestid:
-      - 92192b42-3eac-11e8-bba7-5dc53c66443a
+      - 11d70c73-943a-11e8-af01-53fe348ac72b
       X-Amzn-Remapped-Connection:
       - keep-alive
       X-Amz-Apigw-Id:
-      - FQKiVHUJIAMFUOA=
+      - K2_7DFztoAMFXeA=
       X-Amzn-Remapped-Server:
       - Microsoft-IIS/8.5
       Cache-Control:
@@ -229,29 +224,29 @@ http_interactions:
       Pragma:
       - no-cache
       X-Amzn-Remapped-Date:
-      - Thu, 12 Apr 2018 23:52:33 GMT
+      - Mon, 30 Jul 2018 20:49:36 GMT
       X-Aspnet-Version:
       - 4.0.30319
       X-Cache:
       - Miss from cloudfront
       Via:
-      - 1.1 07c2fea6c74337bcf89c265be034efcf.cloudfront.net (CloudFront)
+      - 1.1 707d06343c7b07a529839efb71fdb71b.cloudfront.net (CloudFront)
       X-Amz-Cf-Id:
-      - GjhiUDXyzBfyMus5JfvQ3Bb9o3DEE0PMMF6BRWAPwvsVTLTGd4w8XA==
+      - CVMqC--poq0Dxn4H9BWH_bs1MBNz7LONIsOiLbzl4A6JpRyszLibPg==
     body:
       encoding: UTF-8
       string: ''
     http_version: 
-  recorded_at: Thu, 12 Apr 2018 23:52:34 GMT
+  recorded_at: Mon, 30 Jul 2018 20:49:36 GMT
 - request:
     method: get
-    uri: https://api.ebsco.io/rm/rmaccounts/TEST_CUSTOMER_ID/vendors/123355/packages/2845510/titles/62477
+    uri: https://api.ebsco.io/rm/rmaccounts/TEST_CUSTOMER_ID/vendors/123355/packages/2843714/titles/17059805
     body:
       encoding: US-ASCII
       string: ''
     headers:
       User-Agent:
-      - Flexirest/1.5.5
+      - Flexirest/1.6.7
       Connection:
       - Keep-Alive
       Accept:
@@ -270,19 +265,19 @@ http_interactions:
       Content-Type:
       - application/json; charset=utf-8
       Content-Length:
-      - '2146'
+      - '1038'
       Connection:
       - keep-alive
       Date:
-      - Thu, 12 Apr 2018 23:52:34 GMT
+      - Mon, 30 Jul 2018 20:49:36 GMT
       X-Amzn-Requestid:
-      - 92565b0b-3eac-11e8-9c28-050e8ee42bfa
+      - 1211a432-943a-11e8-a180-8568faf22abb
       X-Amzn-Remapped-Content-Length:
-      - '2146'
+      - '1038'
       X-Amzn-Remapped-Connection:
       - keep-alive
       X-Amz-Apigw-Id:
-      - FQKiZEG0oAMFZFA=
+      - K2_7GGsvIAMFpCg=
       X-Amzn-Remapped-Server:
       - Microsoft-IIS/8.5
       Cache-Control:
@@ -294,24 +289,22 @@ http_interactions:
       Pragma:
       - no-cache
       X-Amzn-Remapped-Date:
-      - Thu, 12 Apr 2018 23:52:33 GMT
+      - Mon, 30 Jul 2018 20:49:36 GMT
       X-Aspnet-Version:
       - 4.0.30319
       X-Cache:
       - Miss from cloudfront
       Via:
-      - 1.1 17470a7b5423b241c1cc9b628ff10667.cloudfront.net (CloudFront)
+      - 1.1 8fffcdedc691b0191a3ea5a8f72d87d8.cloudfront.net (CloudFront)
       X-Amz-Cf-Id:
-      - dXwB-qpCFJETj1ckd1e4TBIv72q78towaRYZNiMOWhx2OSTouiOYeg==
+      - xrAUiEbN3VHQS2S5eDgapRoqWmIB9nxmyUVa36_V8aW8eNDCPvPDEQ==
     body:
       encoding: UTF-8
-      string: '{"titleId":62477,"titleName":"Science","publisherName":"American Association
-        for the Advancement of Science","identifiersList":[{"id":"0036-8075","source":"ResourceIdentifier","subtype":1,"type":0},{"id":"01644869","source":"ResourceIdentifier","subtype":0,"type":2},{"id":"036991008","source":"ResourceIdentifier","subtype":0,"type":3},{"id":"101727","source":"ResourceIdentifier","subtype":0,"type":4},{"id":"1095-9203","source":"ResourceIdentifier","subtype":2,"type":0},{"id":"1496749","source":"ResourceIdentifier","subtype":0,"type":7},{"id":"62477","source":"AtoZ","subtype":0,"type":9},{"id":"803597004","source":"ResourceIdentifier","subtype":0,"type":3},{"id":"803597343","source":"ResourceIdentifier","subtype":0,"type":3},{"id":"803597355","source":"ResourceIdentifier","subtype":0,"type":3},{"id":"803916717","source":"ResourceIdentifier","subtype":0,"type":3},{"id":"804167179","source":"ResourceIdentifier","subtype":0,"type":3},{"id":"804240125","source":"ResourceIdentifier","subtype":0,"type":3},{"id":"SCI","source":"MFS","subtype":0,"type":8}],"subjectsList":[{"type":"TLI","subject":"Science
-        (General)"}],"isTitleCustom":false,"pubType":"Journal","customerResourcesList":[{"titleId":62477,"packageId":2845510,"packageName":"\"Testing2\"","packageType":"Custom","proxy":{"id":"<n>","inherited":true},"isPackageCustom":true,"vendorId":123355,"vendorName":"API
-        DEV CORPORATE CUSTOMER","locationId":0,"isSelected":true,"isTokenNeeded":false,"visibilityData":{"isHidden":false,"reason":""},"managedCoverageList":[],"customCoverageList":[{"beginCoverage":"2003-01-01","endCoverage":"2003-12-12"}],"coverageStatement":"Issues
-        on or after 6/1/1992","managedEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"customEmbargoPeriod":{"embargoUnit":"Days","embargoValue":1},"url":null,"userDefinedField1":null,"userDefinedField2":null,"userDefinedField3":null,"userDefinedField4":null,"userDefinedField5":null}],"description":"Contains
-        peer-reviewed articles, original research reports, a news section, editorials,
-        letters, and book reviews on timely science-related topics.","edition":null,"isPeerReviewed":true,"contributorsList":[]}'
+      string: '{"titleId":17059805,"titleName":"I have a great new title name","publisherName":"SD
+        Publishing","identifiersList":[],"subjectsList":[],"isTitleCustom":true,"pubType":"BookSeries","customerResourcesList":[{"titleId":17059805,"packageId":2843714,"packageName":"SD''s
+        test package in TEST_CUSTOMER_ID","packageType":"Custom","proxy":{"id":"<n>","inherited":true},"isPackageCustom":true,"vendorId":123355,"vendorName":"API
+        DEV CORPORATE CUSTOMER","locationId":40526977,"isSelected":true,"isTokenNeeded":false,"visibilityData":{"isHidden":false,"reason":""},"managedCoverageList":[],"customCoverageList":[{"beginCoverage":"2003-01-01","endCoverage":"2003-12-12"}],"coverageStatement":"","managedEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"customEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"url":"http://hello.hello","userDefinedField1":null,"userDefinedField2":null,"userDefinedField3":null,"userDefinedField4":null,"userDefinedField5":null}],"description":"This
+        is a book","edition":"4","isPeerReviewed":true,"contributorsList":[]}'
     http_version: 
-  recorded_at: Thu, 12 Apr 2018 23:52:34 GMT
+  recorded_at: Mon, 30 Jul 2018 20:49:36 GMT
 recorded_with: VCR 3.0.3

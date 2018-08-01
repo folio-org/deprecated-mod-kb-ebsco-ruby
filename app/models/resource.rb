@@ -164,8 +164,10 @@ class Resource < RmApiResource
   end
 
   def merge_fields!(new_values)
-    update_fields.deep_merge(new_values.to_hash).each do |k, v|
-      send("#{k}=".to_sym, v)
+    if isTitleCustom
+      update_fields.deep_merge(new_values.to_hash).each do |k, v|
+        send("#{k}=".to_sym, v)
+      end
     end
 
     resource_update_fields.deep_merge(new_values.to_hash).each do |k, v|

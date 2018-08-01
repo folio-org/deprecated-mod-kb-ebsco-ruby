@@ -24,7 +24,7 @@ RSpec.describe 'Custom Resources', type: :request do
 
       before do
         VCR.use_cassette('put-custom-resource-name') do
-          put '/eholdings/resources/123355-2845510-62477',
+          put '/eholdings/resources/123355-2843714-17059805',
               params: params, as: :json, headers: update_headers
         end
       end
@@ -54,7 +54,7 @@ RSpec.describe 'Custom Resources', type: :request do
 
       before do
         VCR.use_cassette('put-custom-resource-pubtype') do
-          put '/eholdings/resources/123355-2845510-62477',
+          put '/eholdings/resources/123355-2843714-17059805',
               params: params, as: :json, headers: update_headers
         end
       end
@@ -195,7 +195,7 @@ RSpec.describe 'Custom Resources', type: :request do
 
       before do
         VCR.use_cassette('put-custom-resource-coverage-statement') do
-          put '/eholdings/resources/123355-2845510-62477',
+          put '/eholdings/resources/123355-2843714-17059805',
               params: params, as: :json, headers: update_headers
         end
       end
@@ -236,7 +236,7 @@ RSpec.describe 'Custom Resources', type: :request do
 
       before do
         VCR.use_cassette('put-custom-resource-valid-contributors') do
-          put '/eholdings/resources/123355-2845510-62477',
+          put '/eholdings/resources/123355-2843714-17059805',
               params: params, as: :json, headers: update_headers
         end
       end
@@ -283,7 +283,7 @@ RSpec.describe 'Custom Resources', type: :request do
 
       before do
         VCR.use_cassette('put-custom-resource-invalid-contributors') do
-          put '/eholdings/resources/123355-2845510-62477',
+          put '/eholdings/resources/123355-2843714-17059805',
               params: params, as: :json, headers: update_headers
         end
       end
@@ -316,7 +316,7 @@ RSpec.describe 'Custom Resources', type: :request do
 
       before do
         VCR.use_cassette('put-custom-resource-invalid-identifier-id') do
-          put '/eholdings/resources/123355-2845510-62477',
+          put '/eholdings/resources/123355-2843714-17059805',
               params: params, as: :json, headers: update_headers
         end
       end
@@ -356,7 +356,7 @@ RSpec.describe 'Custom Resources', type: :request do
 
       before do
         VCR.use_cassette('put-custom-resource-invalid-identifier-id-length') do
-          put '/eholdings/resources/123355-2845510-62477',
+          put '/eholdings/resources/123355-2843714-17059805',
               params: params, as: :json, headers: update_headers
         end
       end
@@ -394,7 +394,7 @@ RSpec.describe 'Custom Resources', type: :request do
 
       before do
         VCR.use_cassette('put-custom-resource-missing-identifier-id') do
-          put '/eholdings/resources/123355-2845510-62477',
+          put '/eholdings/resources/123355-2843714-17059805',
               params: params, as: :json, headers: update_headers
         end
       end
@@ -433,7 +433,7 @@ RSpec.describe 'Custom Resources', type: :request do
 
       before do
         VCR.use_cassette('put-custom-resource-invalid-identifier-type') do
-          put '/eholdings/resources/123355-2845510-62477',
+          put '/eholdings/resources/123355-2843714-17059805',
               params: params, as: :json, headers: update_headers
         end
       end
@@ -477,7 +477,7 @@ RSpec.describe 'Custom Resources', type: :request do
 
       before do
         VCR.use_cassette('put-custom-resource-valid-identifier-types') do
-          put '/eholdings/resources/123355-2845510-62477',
+          put '/eholdings/resources/123355-2843714-17059805',
               params: params, as: :json, headers: update_headers
         end
       end
@@ -530,7 +530,7 @@ RSpec.describe 'Custom Resources', type: :request do
 
       before do
         VCR.use_cassette('put-custom-resource-invalid-identifier-type') do
-          put '/eholdings/resources/123355-2845510-62477',
+          put '/eholdings/resources/123355-2843714-17059805',
               params: params, as: :json, headers: update_headers
         end
       end
@@ -574,7 +574,7 @@ RSpec.describe 'Custom Resources', type: :request do
 
       before do
         VCR.use_cassette('put-custom-resource-valid-identifier-subtypes') do
-          put '/eholdings/resources/123355-2845510-62477',
+          put '/eholdings/resources/123355-2843714-17059805',
               params: params, as: :json, headers: update_headers
         end
       end

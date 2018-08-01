@@ -649,7 +649,7 @@ RSpec.describe 'Resources', type: :request do
         end
       end
 
-      describe 'trying to update fields only available to custom resources' do
+      describe 'trying to update fields only available to custom resources on a managed title' do
         let(:params) do
           {
             "data": {
@@ -675,8 +675,24 @@ RSpec.describe 'Resources', type: :request do
           end
         end
 
+        let!(:json) { Map JSON.parse response.body }
+
         it 'responds with OK status' do
-          expect(response).to have_http_status(200)
+          expect(response).to have_http_status(422)
+          expect(json.errors[0].title).to eq 'Invalid titleName'
+          expect(json.errors[0].detail).to eq 'Titlename must be blank'
+          expect(json.errors[1].title).to eq 'Invalid isPeerReviewed'
+          expect(json.errors[1].detail).to eq 'Ispeerreviewed must be blank'
+          expect(json.errors[2].title).to eq 'Invalid pubType'
+          expect(json.errors[2].detail).to eq 'Pubtype must be blank'
+          expect(json.errors[3].title).to eq 'Invalid publisherName'
+          expect(json.errors[3].detail).to eq 'Publishername must be blank'
+          expect(json.errors[4].title).to eq 'Invalid edition'
+          expect(json.errors[4].detail).to eq 'Edition must be blank'
+          expect(json.errors[5].title).to eq 'Invalid description'
+          expect(json.errors[5].detail).to eq 'Description must be blank'
+          expect(json.errors[6].title).to eq 'Invalid url'
+          expect(json.errors[6].detail).to eq 'Url must be blank'
         end
       end
     end
