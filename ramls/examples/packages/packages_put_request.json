@@ -3,7 +3,7 @@
     "type": "packages",
     "attributes": {
       "name": "test package for documentation",
-      "contentType": "unknown",
+      "contentType": "Unknown",
       "customCoverage": {
         "beginCoverage": "2003-01-01",
         "endCoverage": "2003-12-01"

@@ -77,7 +77,6 @@ class SerializableResource < SerializableJSONAPIResource
   end
   attribute :publicationType do
     publication_types = {
-      all: 'All',
       audiobook: 'Audiobook',
       book: 'Book',
       bookseries: 'Book Series',

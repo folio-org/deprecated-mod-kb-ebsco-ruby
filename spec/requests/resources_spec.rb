@@ -133,30 +133,30 @@ RSpec.describe 'Resources', type: :request do
     end
   end
 
-  describe 'getting a resource with included vendor' do
+  describe 'getting a resource with included provider' do
     before do
-      VCR.use_cassette('get-resources-vendor') do
-        get '/eholdings/resources/22-1887786-1440285?include=vendor',
+      VCR.use_cassette('get-resources-provider') do
+        get '/eholdings/resources/22-1887786-1440285?include=provider',
             headers: okapi_headers
       end
     end
 
     let!(:json) { Map JSON.parse response.body }
 
-    it 'includes a vendor' do
+    it 'includes a provider' do
       # NOTE: has_one relationships are serialized as singleton hashes
       # there might be a better way to handle this, but for now we
       # wrap the relation in an array
 
       # rubocop:disable Performance/FixedSize
-      expect([json.data.relationships.vendor.data].length).to eq(1)
+      expect([json.data.relationships.provider.data].length).to eq(1)
       # rubocop:enable Performance/FixedSize
 
       expect(json.included.length).to eq(1)
     end
 
     it 'returns the correct included type' do
-      expect(json.included.first.type).to eq('vendors')
+      expect(json.included.first.type).to eq('providers')
     end
   end
 
@@ -218,7 +218,6 @@ RSpec.describe 'Resources', type: :request do
 
     it 'includes the expected relationships' do
       expect(json.data.relationships).to include(
-        'vendor',
         'provider',
         'title',
         'package'
@@ -812,7 +811,7 @@ RSpec.describe 'Resources', type: :request do
     end
 
     let(:package_id) { '19-2516' }
-    let(:title_id) { 907_372 }
+    let(:title_id) { 3_129_599 }
     let(:resource_id) { "#{package_id}-#{title_id}" }
 
     let(:body) { Map JSON.parse response.body }
@@ -823,7 +822,8 @@ RSpec.describe 'Resources', type: :request do
           type: 'resources',
           attributes: {
             packageId: package_id,
-            titleId: title_id
+            titleId: title_id,
+            url: 'http://test.io'
           }
         }
       }
@@ -857,6 +857,7 @@ RSpec.describe 'Resources', type: :request do
         expect(response).to have_http_status(200)
         expect(body.key?('data')).to be true
         expect(body.data.id).to eq resource_id.to_s
+        expect(body.data.attributes.url).to eq 'http://test.io'
       end
       describe 'fetching the resource specified by the newly created id' do
         before do
@@ -869,6 +870,60 @@ RSpec.describe 'Resources', type: :request do
         it 'returns the same resource' do
           expect(body.data.id).to eq resource_id
         end
+      end
+    end
+
+    context 'with an invalid url' do
+      let(:package_id) { '123355-2720678' }
+      let(:params) do
+        {
+          data: {
+            type: 'resources',
+            attributes: {
+              packageId: package_id,
+              titleId: title_id,
+              url: 'not a url'
+            }
+          }
+        }
+      end
+      before do
+        VCR.use_cassette('resource-link-to-custom-package-invalid-url') do
+          post '/eholdings/resources/', params: params, as: :json,
+                                        headers: create_headers
+        end
+      end
+      it 'returns a 422 status code with a validation error' do
+        expect(response).to have_http_status(422)
+        expect(body.key?('errors')).to be true
+        expect(body.errors.first.detail).to eq 'Url has invalid format'
+      end
+    end
+
+    context 'without a url' do
+      let(:package_id) { '123355-2720678' }
+      let(:params) do
+        {
+          data: {
+            type: 'resources',
+            attributes: {
+              packageId: package_id,
+              titleId: title_id
+            }
+          }
+        }
+      end
+      before do
+        VCR.use_cassette('resource-link-to-custom-package-with-empty-url') do
+          post '/eholdings/resources/', params: params, as: :json,
+                                        headers: create_headers
+        end
+      end
+      it 'returns a 200 response code and the created resource in the body' do
+        expect(response).to have_http_status(200)
+        expect(body.key?('data')).to be true
+        expect(body.data.id).to eq resource_id.to_s
+        expect(body.data.attributes.url).to eq nil
       end
     end
   end
