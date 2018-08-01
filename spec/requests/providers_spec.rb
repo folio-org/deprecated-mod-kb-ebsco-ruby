@@ -375,9 +375,9 @@ RSpec.describe 'Providers', type: :request do
       let!(:json_query_invalid_filter) { Map JSON.parse response.body }
 
       it 'returns a request error' do
-        error = json_query_invalid_filter.errors.first.title
         expect(response).to have_http_status(400)
-        expect(error).to eq('Invalid filter parameter')
+        expect(json_query_invalid_filter.errors.first.title).to eq('Invalid selectedFilter')
+        expect(json_query_invalid_filter.errors.first.detail).to eq('Selectedfilter Invalid Query Parameter for filter[selected]')
       end
     end
 
@@ -452,6 +452,60 @@ RSpec.describe 'Providers', type: :request do
           p.attributes.name.downcase
         end
         expect(json_query_with_name_sort.data).to eq(sorted_array)
+      end
+    end
+
+    describe 'with an invalid query param sort within packages query' do
+      before do
+        VCR.use_cassette(
+          'search-providers-related-packages-invalid-sort-query-param'
+        ) do
+          get '/eholdings/providers/19/packages?q=ebsco&sort=invalid', headers: okapi_headers
+        end
+      end
+
+      let!(:json_f) { Map JSON.parse response.body }
+
+      it 'returns a bad request error' do
+        expect(response).to have_http_status(400)
+        expect(json_f.errors.first.title).to eql('Invalid sortFilter')
+        expect(json_f.errors.first.detail).to eql('Sortfilter Invalid Query Parameter for sort')
+      end
+    end
+
+    describe 'with an invalid query param for filter selected within packages query' do
+      before do
+        VCR.use_cassette(
+          'search-providers-related-packages-invalid-filter-selected-query-param'
+        ) do
+          get '/eholdings/providers/19/packages?q=ebsco&filter[selected]=invalid', headers: okapi_headers
+        end
+      end
+
+      let!(:json_f) { Map JSON.parse response.body }
+
+      it 'returns a bad request error' do
+        expect(response).to have_http_status(400)
+        expect(json_f.errors.first.title).to eql('Invalid selectedFilter')
+        expect(json_f.errors.first.detail).to eql('Selectedfilter Invalid Query Parameter for filter[selected]')
+      end
+    end
+
+    describe 'with an invalid query param for filter type within packages query' do
+      before do
+        VCR.use_cassette(
+          'search-providers-related-packages-invalid-filter-type-query-param'
+        ) do
+          get '/eholdings/providers/19/packages?q=ebsco&filter[type]=invalid', headers: okapi_headers
+        end
+      end
+
+      let!(:json_f) { Map JSON.parse response.body }
+
+      it 'returns a bad request error' do
+        expect(response).to have_http_status(400)
+        expect(json_f.errors.first.title).to eql('Invalid contentTypeFilter')
+        expect(json_f.errors.first.detail).to eql('Contenttypefilter Invalid Query Parameter for filter[type]')
       end
     end
   end
