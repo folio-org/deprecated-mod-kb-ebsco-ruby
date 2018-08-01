@@ -7,7 +7,7 @@ module Validation
     include ActiveModel::Validations
 
     attr_accessor :sortFilter, :selectedFilter,
-                  :contentTypeFilter
+                  :contentTypeFilter, :customFilter
 
     validates :sortFilter, inclusion: { in: %w[name relevance],
                                         message: 'Invalid Query Parameter for sort' }, allow_nil: true
@@ -15,12 +15,14 @@ module Validation
                                             message: 'Invalid Query Parameter for filter[:selected]' }, allow_nil: true
     validates :contentTypeFilter, inclusion: { in: %w[aggregatedfulltext abstractandindex ebook ejournal print onlinereference unknown],
                                                message: 'Invalid Query Parameter for filter[:type]' }, allow_nil: true
-
+    validates :customFilter, inclusion: { in: %w[true],
+                                          message: 'Invalid Query Parameter for filter[:custom]' }, allow_nil: true
     def initialize(params = {})
       filters = params.fetch(:filter, nil)
       @sortFilter = params[:sort]
       @selectedFilter = hash?(filters) ? filters[:selected] : filters
       @contentTypeFilter = hash?(filters) ? filters[:type] : filters
+      @customFilter = hash?(filters) ? filters[:custom] : filters
     end
 
     private
