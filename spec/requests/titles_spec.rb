@@ -41,6 +41,37 @@ RSpec.describe 'Titles', type: :request do
       end
     end
 
+    describe 'with count within range' do
+      before do
+        VCR.use_cassette('search-titles-specify-count') do
+          get '/eholdings/titles/?q=ebsco&count=5', headers: okapi_headers
+        end
+      end
+
+      let!(:json2) { Map JSON.parse response.body }
+
+      it 'gets five results of titles' do
+        expect(response).to have_http_status(200)
+        expect(json2.data.length).to equal(5)
+        expect(json2.meta.totalResults).to equal(59)
+      end
+    end
+
+    describe 'with count out of range' do
+      before do
+        VCR.use_cassette('search-titles-specify-count-out-of-range') do
+          get '/eholdings/titles/?q=e&count=150', headers: okapi_headers
+        end
+      end
+
+      let!(:json2) { Map JSON.parse response.body }
+
+      it 'gives expected error response' do
+        expect(response).to have_http_status(400)
+        expect(json2.errors.first.title).to eq('Parameter \'count\' is outside the range 1-100.')
+      end
+    end
+
     describe 'filtering by publication type' do
       before do
         VCR.use_cassette('search-titles-filter-book') do
