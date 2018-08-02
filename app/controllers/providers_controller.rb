@@ -19,7 +19,8 @@ class ProvidersController < ApplicationController
       @providers = providers.all(
         q: params[:q],
         page: params[:page],
-        sort: params[:sort]
+        sort: params[:sort],
+        count: params[:count]
       )
 
       render jsonapi: @providers.vendors.to_a,

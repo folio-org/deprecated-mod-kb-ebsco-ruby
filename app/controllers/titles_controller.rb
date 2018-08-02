@@ -17,7 +17,8 @@ class TitlesController < ApplicationController
         q: params[:q],
         page: params[:page],
         filter: params[:filter],
-        sort: params[:sort]
+        sort: params[:sort],
+        count: params[:count]
       )
 
       render jsonapi: @titles.titles.to_a,

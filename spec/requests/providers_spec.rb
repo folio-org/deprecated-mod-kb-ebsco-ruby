@@ -46,6 +46,42 @@ RSpec.describe 'Providers', type: :request do
       end
     end
 
+    describe 'with count within range' do
+      before do
+        VCR.use_cassette('search-providers-specify-count') do
+          get '/eholdings/providers/?q=e&count=2', headers: okapi_headers
+        end
+      end
+
+      let!(:json2) { Map JSON.parse response.body }
+
+      it 'gets two providers results' do
+        expect(response).to have_http_status(200)
+        expect(json2.data.length).to equal(2)
+        expect(json.data.first.type).to eq('providers')
+        expect(json2.meta.totalResults).to equal(112)
+      end
+
+      it 'contains relationships data' do
+        expect(json2.data.first.relationships). to include('packages')
+      end
+    end
+
+    describe 'with count out of range' do
+      before do
+        VCR.use_cassette('search-providers-specify-count-out-of-range') do
+          get '/eholdings/providers/?q=e&count=200', headers: okapi_headers
+        end
+      end
+
+      let!(:json2) { Map JSON.parse response.body }
+
+      it 'gives expected error response' do
+        expect(response).to have_http_status(400)
+        expect(json2.errors.first.title).to eq('Parameter Count is outside the range 1-100')
+      end
+    end
+
     describe 'with alphabetical sorting' do
       before do
         VCR.use_cassette('search-providers-sort-name') do
