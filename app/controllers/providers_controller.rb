@@ -58,7 +58,8 @@ class ProvidersController < ApplicationController
         q: params[:q],
         page: params[:page],
         filter: params[:filter],
-        sort: params[:sort]
+        sort: params[:sort],
+        count: params[:count]
       )
       render jsonapi: @packages.data,
              meta: @packages.meta

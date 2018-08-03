@@ -75,6 +75,7 @@ class PackagesRepository < RmapiRepository
 
   def where!(params)
     vendor_id = params.fetch(:vendor_id, nil)
+    params[:count] = params[:count] ||= 25
 
     # TODO: controller?
     if params[:filter]
