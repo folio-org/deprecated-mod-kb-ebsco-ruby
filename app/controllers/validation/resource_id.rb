@@ -16,17 +16,17 @@ module Validation
 
     def vendor_id_int?
       errors.add(:vendor_id, ':Invalid vendor id') unless
-        vendor_id.to_i != 0
+        vendor_id&.match?(/\A-?\d+\Z/)
     end
 
     def package_id_int?
       errors.add(:package_id, ':Invalid package id') unless
-        package_id.to_i != 0
+        package_id&.match?(/\A-?\d+\Z/)
     end
 
     def title_id_int?
       errors.add(:title_id, ':Invalid title id') unless
-        title_id.to_i != 0
+        title_id&.match?(/\A-?\d+\Z/)
     end
 
     def initialize(params = {})

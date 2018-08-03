@@ -259,6 +259,40 @@ RSpec.describe 'Resources', type: :request do
         expect(json.errors.first.detail).to eq 'Package :Invalid package id'
       end
     end
+
+    describe 'getting a specific resource with invalid vendor id' do
+      before do
+        VCR.use_cassette('get-resource-with-invalid-vendor-id') do
+          get '/eholdings/resources/a22-18834-345',
+              headers: okapi_headers
+        end
+      end
+
+      let!(:json) { Map JSON.parse response.body }
+
+      it 'returns a 400 bad request error' do
+        expect(response).to have_http_status(400)
+        expect(json.errors.first.title).to eq 'Invalid vendor_id'
+        expect(json.errors.first.detail).to eq 'Vendor :Invalid vendor id'
+      end
+    end
+
+    describe 'getting a specific resource with invalid title id' do
+      before do
+        VCR.use_cassette('get-resource-with-invalid-title-id') do
+          get '/eholdings/resources/22-18834-345abc',
+              headers: okapi_headers
+        end
+      end
+
+      let!(:json) { Map JSON.parse response.body }
+
+      it 'returns a 400 bad request error' do
+        expect(response).to have_http_status(400)
+        expect(json.errors.first.title).to eq 'Invalid title_id'
+        expect(json.errors.first.detail).to eq 'Title :Invalid title id'
+      end
+    end
   end
 
   describe 'updating a resource' do
