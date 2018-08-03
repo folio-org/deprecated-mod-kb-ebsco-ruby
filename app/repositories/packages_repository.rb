@@ -5,6 +5,7 @@ class PackagesRepository < RmapiRepository
     vendor_id, package_id = id.split('-')
 
     fail RequestError.new('Package and provider id are required', 400) unless vendor_id && package_id
+    fail RequestError.new('Package or provider id are invalid', 400) unless vendor_id.match?(/\A-?\d+\Z/) && package_id.match?(/\A-?\d+\Z/)
 
     status, body = request(:get, "/vendors/#{vendor_id}/packages/#{package_id}")
     Result.new(data: to_package(body), status: status, included: body[:included])

@@ -89,6 +89,36 @@ RSpec.describe 'Packages', type: :request do
     end
   end
 
+  describe 'with an invalid package id' do
+    before do
+      VCR.use_cassette('search-packages-package-id-invalid') do
+        get '/eholdings/packages/abc-abc', headers: okapi_headers
+      end
+    end
+
+    let!(:json_f) { Map JSON.parse response.body }
+
+    it 'returns a bad request error' do
+      expect(response).to have_http_status(400)
+      expect(json_f.errors.first.title).to eql('Package or provider id are invalid')
+    end
+  end
+
+  describe 'with another invalid package id' do
+    before do
+      VCR.use_cassette('search-packages-package-id-another-invalid') do
+        get '/eholdings/packages/123abc-abc123', headers: okapi_headers
+      end
+    end
+
+    let!(:json_f) { Map JSON.parse response.body }
+
+    it 'returns a bad request error' do
+      expect(response).to have_http_status(400)
+      expect(json_f.errors.first.title).to eql('Package or provider id are invalid')
+    end
+  end
+
   describe 'with an invalid query param filter[selected]' do
     before do
       VCR.use_cassette('search-packages-invalid-query-param-selected') do
