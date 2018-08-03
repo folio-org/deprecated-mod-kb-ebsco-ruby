@@ -398,6 +398,42 @@ RSpec.describe 'Providers', type: :request do
       end
     end
 
+    describe 'with a search query and count within range' do
+      before do
+        VCR.use_cassette('search-providers-related-packages-count-within-range') do
+          get '/eholdings/providers/19/packages?q=abstract&count=5',
+              headers: okapi_headers
+        end
+      end
+
+      let!(:json_with_query) { Map JSON.parse response.body }
+
+      it 'gets five packages that matches count' do
+        json = json_with_query
+        expect(response).to have_http_status(200)
+        expect(json.data.length).to equal(5)
+        expect(json.meta.totalResults).to equal(46)
+      end
+    end
+
+    describe 'with a search query and count out of range' do
+      before do
+        VCR.use_cassette('search-providers-related-packages-count-out-of-range') do
+          get '/eholdings/providers/19/packages?q=abstract&count=150',
+              headers: okapi_headers
+        end
+      end
+
+      let!(:json_with_query) { Map JSON.parse response.body }
+
+      it 'gets the expected error message' do
+        json = json_with_query
+        expect(response).to have_http_status(400)
+        expect(json.errors.length).to equal(1)
+        expect(json.errors.first.title).to eq('Parameter Count is outside the range 1-100.')
+      end
+    end
+
     describe 'with a invalid filter' do
       before do
         VCR.use_cassette(
