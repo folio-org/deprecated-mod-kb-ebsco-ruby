@@ -12,6 +12,7 @@ class Package
   attribute :is_custom
   attribute :is_selected
   attribute :name
+  attribute :proxy, default: -> { Proxy.new }
   attribute :package_id
   attribute :package_type
   attribute :provider_id
@@ -34,6 +35,13 @@ class Package
 
     attribute :begin_coverage
     attribute :end_coverage
+  end
+
+  class Proxy
+    include ActiveAttr::Model
+
+    attribute :id
+    attribute :inherited
   end
 
   def id
