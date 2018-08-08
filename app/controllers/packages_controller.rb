@@ -102,6 +102,7 @@ class PackagesController < ApplicationController
         :contentType,
         :isSelected,
         :allowKbToAddTitles,
+        proxy: %i[id inherited],
         visibilityData: [:isHidden],
         customCoverage: %i[beginCoverage endCoverage]
       )

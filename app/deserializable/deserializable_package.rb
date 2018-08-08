@@ -6,6 +6,7 @@ class DeserializablePackage < JSONAPI::Deserializable::Resource
              :customCoverage,
              :isSelected,
              :visibilityData,
+             :proxy,
              :name
 
   attribute :contentType do |value|

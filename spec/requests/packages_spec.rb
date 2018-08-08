@@ -866,6 +866,52 @@ RSpec.describe 'Packages', type: :request do
         end
       end
 
+      describe 'updating proxy' do
+        let(:params) do
+          {
+            "data": {
+              "type": 'packages',
+              "attributes": {
+                "isSelected": true,
+                "allowKbToAddTitles": true,
+                "proxy": {
+                  "id": 'TestingFolio'
+                },
+                "visibilityData": {
+                  "isHidden": false
+                },
+                "customCoverage": {
+                  "beginCoverage": '2003-01-01',
+                  "endCoverage": '2003-12-12'
+                }
+              }
+            }
+          }
+        end
+
+        before do
+          VCR.use_cassette('put-packages-isselected-update-proxy') do
+            put '/eholdings/packages/19-6581',
+                params: params, as: :json, headers: update_headers
+          end
+        end
+
+        it 'responds with an ok status' do
+          expect(response).to have_http_status(200)
+        end
+
+        let!(:json) { Map JSON.parse response.body }
+
+        it 'is selected' do
+          expect(json.data.attributes.isSelected).to be true
+        end
+
+        it 'has proxy value with inherited false' do
+          expect(json.data.attributes.proxy.id).to eq('TestingFolio')
+          expect(json.data.attributes.proxy.inherited).to be false
+        end
+      end
+
       describe 'combined update' do
         let(:params) do
           {
@@ -881,8 +927,7 @@ RSpec.describe 'Packages', type: :request do
                 "visibilityData": {
                   "isHidden": true,
                   "reason": ''
-                },
-                "proxy": '<n>'
+                }
               }
             }
           }
@@ -918,11 +963,6 @@ RSpec.describe 'Packages', type: :request do
         it 'is populated with custom coverage' do
           expect(coverage.beginCoverage).to eq '2003-01-01'
           expect(coverage.endCoverage).to eq '2004-01-01'
-        end
-
-        it 'has proxy value with inherited false' do
-          expect(json.data.attributes.proxy.id).to eq('<n>')
-          expect(json.data.attributes.proxy.inherited).to eq(false)
         end
       end
 
