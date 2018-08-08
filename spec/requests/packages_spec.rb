@@ -265,6 +265,7 @@ RSpec.describe 'Packages', type: :request do
       expect(json.data.id).to eq('19-6581')
       expect(json.data.attributes).to include(
         'name',
+        'proxy',
         'contentType',
         'titleCount',
         'selectedCount',
@@ -286,6 +287,11 @@ RSpec.describe 'Packages', type: :request do
 
     it 'returns a valid visibility reason' do
       expect(json.data.attributes.visibilityData.reason).to eq 'Set by system'
+    end
+
+    it 'returns proxy' do
+      expect(json.data.attributes.proxy.id).to eq('EZProxy')
+      expect(json.data.attributes.proxy.inherited).to eq(true)
     end
 
     describe 'getting a package with invalid package id' do
@@ -875,7 +881,8 @@ RSpec.describe 'Packages', type: :request do
                 "visibilityData": {
                   "isHidden": true,
                   "reason": ''
-                }
+                },
+                "proxy": '<n>'
               }
             }
           }
@@ -911,6 +918,11 @@ RSpec.describe 'Packages', type: :request do
         it 'is populated with custom coverage' do
           expect(coverage.beginCoverage).to eq '2003-01-01'
           expect(coverage.endCoverage).to eq '2004-01-01'
+        end
+
+        it 'has proxy value with inherited false' do
+          expect(json.data.attributes.proxy.id).to eq('<n>')
+          expect(json.data.attributes.proxy.inherited).to eq(false)
         end
       end
 
