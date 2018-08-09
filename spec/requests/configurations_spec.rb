@@ -9,6 +9,18 @@ RSpec.describe 'Configurations', type: :request do
     )
   end
 
+  let(:headers_invalid_content_type) do
+    okapi_headers.merge(
+      'Content-Type': 'application/json'
+    )
+  end
+
+  let(:headers_empty_content_type) do
+    okapi_headers.merge(
+      'Content-Type': ''
+    )
+  end
+
   let(:resource) do
     [
       '/eholdings/configuration',
@@ -23,6 +35,40 @@ RSpec.describe 'Configurations', type: :request do
         }
       }.to_json,
       headers: headers
+    ]
+  end
+
+  let(:resource_with_invalid_content_type_header) do
+    [
+      '/eholdings/configuration',
+      params: {
+        data: {
+          type: 'configurations',
+          id: 'default',
+          attributes: {
+            customerId: customer_id,
+            apiKey: api_key
+          }
+        }
+      }.to_json,
+      headers: headers_invalid_content_type
+    ]
+  end
+
+  let(:resource_with_empty_content_type_header) do
+    [
+      '/eholdings/configuration',
+      params: {
+        data: {
+          type: 'configurations',
+          id: 'default',
+          attributes: {
+            customerId: customer_id,
+            apiKey: api_key
+          }
+        }
+      }.to_json,
+      headers: headers_empty_content_type
     ]
   end
 
@@ -58,6 +104,32 @@ RSpec.describe 'Configurations', type: :request do
         expect(json.data.attributes.customerId).to eql(customer_id)
         expect(json.data.attributes.apiKey).to eql(masked_api_key)
       end
+    end
+  end
+
+  describe 'setting the configuration with invalid content type' do
+    before do
+      VCR.use_cassette('put-configuration-invalid-content-type') do
+        put(*resource_with_invalid_content_type_header)
+      end
+    end
+
+    it 'expects the response to have 400' do
+      expect(response).to have_http_status(400)
+      expect(response.body).to eq('Missing/Invalid header Content-Type')
+    end
+  end
+
+  describe 'setting the configuration with empty content type' do
+    before do
+      VCR.use_cassette('put-configuration-empty-content-type') do
+        put(*resource_with_empty_content_type_header)
+      end
+    end
+
+    it 'expects the response to have 400' do
+      expect(response).to have_http_status(400)
+      expect(response.body).to eq('Missing/Invalid header Content-Type')
     end
   end
 

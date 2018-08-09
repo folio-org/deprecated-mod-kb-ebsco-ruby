@@ -9,6 +9,12 @@ RSpec.describe 'Custom Titles Create', type: :request do
     )
   end
 
+  let(:headers_invalid_content_type) do
+    okapi_headers.merge(
+      'Content-Type': 'application/json'
+    )
+  end
+
   let(:payload) do
     Map(
       'data' => {
@@ -273,6 +279,57 @@ RSpec.describe 'Custom Titles Create', type: :request do
     it 'returns an error status' do
       expect(response).to have_http_status(404)
       expect(json.errors.first.title).to eql('Provider not found')
+    end
+  end
+
+  describe 'with invalid content type header' do
+    let(:params) do
+      payload.deep_merge(
+        'data' => {
+          'attributes' => {
+            'name' => 'Retro Temple Test All Fields',
+            'publicationType' => 'Book',
+            'publisherName' => 'test publisher',
+            'isPeerReviewed' => true,
+            'edition' => 'test edition',
+            'description' => 'test description',
+            'contributors' => [
+              {
+                'type' => 'Editor',
+                'contributor' => 'some editor'
+              },
+              {
+                'type' => 'Illustrator',
+                'contributor' => 'some illustrator'
+              }
+            ],
+            'identifiers' => [
+              {
+                'id' => '12347',
+                'type' => 'ISBN',
+                'subtype' => 'Print'
+              },
+              {
+                'id' => '98547',
+                'type' => 'ISSN',
+                'subtype' => 'Online'
+              }
+            ]
+          }
+        }
+      )
+    end
+
+    before do
+      VCR.use_cassette('post-custom-title-invalid-content-type-header') do
+        post '/eholdings/titles',
+             params: params, as: :json, headers: headers_invalid_content_type
+      end
+    end
+
+    it 'expects the response to have 400' do
+      expect(response).to have_http_status(400)
+      expect(response.body).to eq('Missing/Invalid header Content-Type')
     end
   end
 

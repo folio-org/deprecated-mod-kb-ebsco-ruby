@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class ApplicationController < ActionController::API
+  before_action :verify_content_type_header
   before_action :verify_okapi_headers
   before_action :set_response_headers
   around_action :catch_exceptions
@@ -29,6 +30,10 @@ class ApplicationController < ActionController::API
 
   def okapi_token
     request.headers['HTTP_X_OKAPI_TOKEN']
+  end
+
+  def content_type
+    request.headers['Content-Type']
   end
 
   private
@@ -91,6 +96,11 @@ class ApplicationController < ActionController::API
 
   def map_provider(string)
     string.gsub(/Vendor/, 'Provider').gsub(/vendor/, 'provider')
+  end
+
+  def verify_content_type_header
+    render plain: 'Missing/Invalid header Content-Type', status: :bad_request if
+      (request.request_method == 'PUT' || request.request_method == 'POST') && (!content_type || !content_type.casecmp('application/vnd.api+json').zero?)
   end
 
   def verify_okapi_headers
