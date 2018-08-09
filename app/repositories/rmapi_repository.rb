@@ -15,9 +15,13 @@ class RmapiRepository
   end
 
   def request(verb, fragment = '', **options)
+    ## Construction of url is different based on whether fragment is present or not because
+    ## RM API in sandbox needs a trailing slash when fragment is not present.
+    ## As of 08/08/2018, it gives a 403 otherwise.
+    url = fragment == '' ? "#{base_url}/" : "#{base_url}#{fragment}"
     response = HTTP.headers(headers).request(
       verb,
-      "#{base_url}#{fragment}",
+      url,
       options
     )
 
