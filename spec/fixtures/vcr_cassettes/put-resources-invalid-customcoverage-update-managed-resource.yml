@@ -1,0 +1,178 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://okapi.frontside.io/configurations/entries?query=module=KB_EBSCO
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Content-Type:
+      - application/json
+      Accept:
+      - application/json
+      X-Okapi-Tenant:
+      - fs
+      X-Okapi-Token:
+      - TEST_OKAPI_TOKEN
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx/1.13.5
+      Date:
+      - Mon, 13 Aug 2018 19:04:50 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      X-Okapi-Trace:
+      - 'GET mod-authtoken-1.4.1-SNAPSHOT.21 http://10.39.255.17:8081/configurations/entries..
+        : 202 316039us'
+      - 'GET mod-configuration-4.0.4-SNAPSHOT.36 http://10.39.247.129:8081/configurations/entries..
+        : 200 46469us'
+      Host:
+      - okapi.frontside.io
+      X-Real-Ip:
+      - 10.128.0.3
+      X-Forwarded-For:
+      - 10.128.0.3
+      X-Forwarded-Host:
+      - okapi.frontside.io
+      X-Forwarded-Port:
+      - '443'
+      X-Forwarded-Proto:
+      - https
+      X-Original-Uri:
+      - "/configurations/entries?query=module=KB_EBSCO"
+      X-Scheme:
+      - https
+      X-Auth-Request-Redirect:
+      - "/configurations/entries?query=module=KB_EBSCO"
+      Accept:
+      - application/json
+      X-Okapi-Tenant:
+      - fs
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      User-Agent:
+      - Ruby
+      X-Okapi-Request-Id:
+      - 817153/configurations
+      X-Okapi-Url:
+      - http://10.39.254.87:80
+      X-Okapi-Permissions:
+      - '["configuration.entries.collection.get","configuration.entries.collection.get"]'
+      X-Okapi-User-Id:
+      - 1ad737b0-d847-11e6-bf26-cec0c932ce01
+      X-Okapi-Token:
+      - TEST_OKAPI_TOKEN
+      Strict-Transport-Security:
+      - max-age=15724800; includeSubDomains;
+    body:
+      encoding: ASCII-8BIT
+      string: |-
+        {
+          "configs" : [ {
+            "id" : "28fd0ce0-108e-4471-8a7b-4645319fd707",
+            "module" : "KB_EBSCO",
+            "configName" : "api_credentials",
+            "code" : "kb.ebsco.credentials",
+            "description" : "EBSCO RM-API Credentials",
+            "enabled" : true,
+            "value" : "customer-id=TEST_CUSTOMER_ID&api-key=TEST_API_KEY",
+            "metadata" : {
+              "createdDate" : "2018-06-26T13:23:48.592+0000",
+              "createdByUserId" : "1ad737b0-d847-11e6-bf26-cec0c932ce01",
+              "updatedDate" : "2018-06-26T13:23:48.592+0000",
+              "updatedByUserId" : "1ad737b0-d847-11e6-bf26-cec0c932ce01"
+            }
+          } ],
+          "totalRecords" : 1,
+          "resultInfo" : {
+            "totalRecords" : 1,
+            "facets" : [ ]
+          }
+        }
+    http_version: 
+  recorded_at: Mon, 13 Aug 2018 19:04:50 GMT
+- request:
+    method: get
+    uri: https://api.ebsco.io/rm/rmaccounts/TEST_CUSTOMER_ID/vendors/19/packages/6581/titles/581242
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Flexirest/1.6.7
+      Connection:
+      - Keep-Alive
+      Accept:
+      - application/json
+      X-Api-Key:
+      - TEST_API_KEY
+      Content-Type:
+      - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '1529'
+      Connection:
+      - keep-alive
+      Date:
+      - Mon, 13 Aug 2018 19:04:51 GMT
+      X-Amzn-Requestid:
+      - c156c7b1-9f2b-11e8-86c2-2f4accb420be
+      X-Amzn-Remapped-Content-Length:
+      - '1529'
+      X-Amzn-Remapped-Connection:
+      - keep-alive
+      X-Amz-Apigw-Id:
+      - Lk5s-EBLoAMF2hQ=
+      X-Amzn-Remapped-Server:
+      - Microsoft-IIS/8.5
+      Cache-Control:
+      - no-cache
+      Expires:
+      - "-1"
+      X-Powered-By:
+      - ASP.NET
+      Pragma:
+      - no-cache
+      X-Amzn-Remapped-Date:
+      - Mon, 13 Aug 2018 19:04:49 GMT
+      X-Aspnet-Version:
+      - 4.0.30319
+      X-Cache:
+      - Miss from cloudfront
+      Via:
+      - 1.1 316430958c7664ce84a9544466b4155f.cloudfront.net (CloudFront)
+      X-Amz-Cf-Id:
+      - zNYrEKaD6XnTJaRTJ3SVyxyRo-JEbO6KJgcOvYT1rE_YsOAx2qaCrQ==
+    body:
+      encoding: UTF-8
+      string: '{"titleId":581242,"titleName":"Acta Scientiarum Polonorum. Biotechnologia","publisherName":"Wroclaw
+        University of Environmental & Life Sciences","identifiersList":[{"id":"1644-065X","source":"ResourceIdentifier","subtype":1,"type":0},{"id":"2083-8654","source":"ResourceIdentifier","subtype":2,"type":0},{"id":"581242","source":"AtoZ","subtype":0,"type":9},{"id":"97C7","source":"MFS","subtype":0,"type":8}],"subjectsList":[{"type":"TLI","subject":"Biological
+        Engineering"}],"isTitleCustom":false,"pubType":"Journal","customerResourcesList":[{"titleId":581242,"packageId":6581,"packageName":"EBSCO
+        Biotechnology Collection: India","packageType":"Complete","proxy":{"id":"TestingFolio","inherited":true},"isPackageCustom":false,"vendorId":19,"vendorName":"EBSCO","locationId":4829613,"isSelected":true,"isTokenNeeded":false,"visibilityData":{"isHidden":true,"reason":"Hidden
+        by EP"},"managedCoverageList":[{"beginCoverage":"2008-12-01","endCoverage":""}],"customCoverageList":[],"coverageStatement":null,"managedEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"customEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"url":"http://search.ebscohost.com/direct.asp?db=bti&jid=97C7&scope=site","userDefinedField1":null,"userDefinedField2":null,"userDefinedField3":null,"userDefinedField4":null,"userDefinedField5":null}],"description":"Peer-reviewed
+        coverage of topics in biochemistry, biophysics, epidemiology, toxicology,
+        virology, organic and polymer chemistry.","edition":null,"isPeerReviewed":true,"contributorsList":[]}'
+    http_version: 
+  recorded_at: Mon, 13 Aug 2018 19:04:51 GMT
+recorded_with: VCR 3.0.3

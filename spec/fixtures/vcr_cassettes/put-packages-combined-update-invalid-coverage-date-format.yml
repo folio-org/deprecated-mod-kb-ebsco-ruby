@@ -1,0 +1,209 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://okapi.frontside.io/configurations/entries?query=module=KB_EBSCO
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Content-Type:
+      - application/json
+      Accept:
+      - application/json
+      X-Okapi-Tenant:
+      - fs
+      X-Okapi-Token:
+      - TEST_OKAPI_TOKEN
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx/1.13.5
+      Date:
+      - Mon, 13 Aug 2018 17:31:39 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      X-Okapi-Trace:
+      - 'GET mod-authtoken-1.4.1-SNAPSHOT.21 http://10.39.255.17:8081/configurations/entries..
+        : 202 2019us'
+      - 'GET mod-configuration-4.0.4-SNAPSHOT.36 http://10.39.247.129:8081/configurations/entries..
+        : 200 43598us'
+      Host:
+      - okapi.frontside.io
+      X-Real-Ip:
+      - 10.128.0.4
+      X-Forwarded-For:
+      - 10.128.0.4
+      X-Forwarded-Host:
+      - okapi.frontside.io
+      X-Forwarded-Port:
+      - '443'
+      X-Forwarded-Proto:
+      - https
+      X-Original-Uri:
+      - "/configurations/entries?query=module=KB_EBSCO"
+      X-Scheme:
+      - https
+      X-Auth-Request-Redirect:
+      - "/configurations/entries?query=module=KB_EBSCO"
+      Accept:
+      - application/json
+      X-Okapi-Tenant:
+      - fs
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      User-Agent:
+      - Ruby
+      X-Okapi-Request-Id:
+      - 963875/configurations
+      X-Okapi-Url:
+      - http://10.39.254.87:80
+      X-Okapi-Permissions:
+      - '["configuration.entries.collection.get","configuration.entries.collection.get"]'
+      X-Okapi-User-Id:
+      - 1ad737b0-d847-11e6-bf26-cec0c932ce01
+      X-Okapi-Token:
+      - TEST_OKAPI_TOKEN
+      Strict-Transport-Security:
+      - max-age=15724800; includeSubDomains;
+    body:
+      encoding: ASCII-8BIT
+      string: |-
+        {
+          "configs" : [ {
+            "id" : "28fd0ce0-108e-4471-8a7b-4645319fd707",
+            "module" : "KB_EBSCO",
+            "configName" : "api_credentials",
+            "code" : "kb.ebsco.credentials",
+            "description" : "EBSCO RM-API Credentials",
+            "enabled" : true,
+            "value" : "customer-id=TEST_CUSTOMER_ID&api-key=TEST_API_KEY",
+            "metadata" : {
+              "createdDate" : "2018-06-26T13:23:48.592+0000",
+              "createdByUserId" : "1ad737b0-d847-11e6-bf26-cec0c932ce01",
+              "updatedDate" : "2018-06-26T13:23:48.592+0000",
+              "updatedByUserId" : "1ad737b0-d847-11e6-bf26-cec0c932ce01"
+            }
+          } ],
+          "totalRecords" : 1,
+          "resultInfo" : {
+            "totalRecords" : 1,
+            "facets" : [ ]
+          }
+        }
+    http_version: 
+  recorded_at: Mon, 13 Aug 2018 17:31:39 GMT
+- request:
+    method: get
+    uri: https://api.ebsco.io/rm/rmaccounts/TEST_CUSTOMER_ID/vendors/19/packages/6581
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      X-Api-Key:
+      - TEST_API_KEY
+      Content-Type:
+      - application/json
+      Accept:
+      - application/json
+      Connection:
+      - close
+      Host:
+      - api.ebsco.io
+      User-Agent:
+      - http.rb/3.3.0
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json;charset=UTF-8
+      Content-Length:
+      - '461'
+      Connection:
+      - close
+      Date:
+      - Mon, 13 Aug 2018 17:31:39 GMT
+      X-Amzn-Requestid:
+      - bcb3b828-9f1e-11e8-a172-19cff6e82d9e
+      X-Amzn-Remapped-Connection:
+      - keep-alive
+      X-Amz-Apigw-Id:
+      - LksDWHO4IAMFmFA=
+      X-Amzn-Remapped-Date:
+      - Mon, 13 Aug 2018 17:31:39 GMT
+      X-Cache:
+      - Miss from cloudfront
+      Via:
+      - 1.1 51c76241371dfc20d25094a51b4759eb.cloudfront.net (CloudFront)
+      X-Amz-Cf-Id:
+      - 4_KJ0W5Az_p9WsOBlOMcbzU8m67B4s3W8qd4iMfStwxSz-V3AYHcIg==
+    body:
+      encoding: UTF-8
+      string: '{"packageId":6581,"packageName":"EBSCO Biotechnology Collection: India","isCustom":false,"vendorId":19,"vendorName":"EBSCO","titleCount":156,"isSelected":true,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":156,"isTokenNeeded":false,"contentType":"AggregatedFullText","customCoverage":{"beginCoverage":"","endCoverage":""},"proxy":{"id":"TestingFolio","inherited":false},"allowEbscoToAddTitles":true,"packageToken":null,"packageType":"Complete"}'
+    http_version: 
+  recorded_at: Mon, 13 Aug 2018 17:31:39 GMT
+- request:
+    method: get
+    uri: https://api.ebsco.io/rm/rmaccounts/TEST_CUSTOMER_ID/vendors/19/packages/6581
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      X-Api-Key:
+      - TEST_API_KEY
+      Content-Type:
+      - application/json
+      Accept:
+      - application/json
+      Connection:
+      - close
+      Host:
+      - api.ebsco.io
+      User-Agent:
+      - http.rb/3.3.0
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json;charset=UTF-8
+      Content-Length:
+      - '461'
+      Connection:
+      - close
+      Date:
+      - Mon, 13 Aug 2018 17:31:40 GMT
+      X-Amzn-Requestid:
+      - bcca4da3-9f1e-11e8-b35c-677302f7ba26
+      X-Amzn-Remapped-Connection:
+      - keep-alive
+      X-Amz-Apigw-Id:
+      - LksDYGjxIAMFxsA=
+      X-Amzn-Remapped-Date:
+      - Mon, 13 Aug 2018 17:31:39 GMT
+      X-Cache:
+      - Miss from cloudfront
+      Via:
+      - 1.1 91e54ea7c5cc54f4a3500c72b19a2a23.cloudfront.net (CloudFront)
+      X-Amz-Cf-Id:
+      - _sgfPPuwq6txZgyeR9KJQBnVYf28ppeu27ytKgUV_UefMG3HSXYfAA==
+    body:
+      encoding: UTF-8
+      string: '{"packageId":6581,"packageName":"EBSCO Biotechnology Collection: India","isCustom":false,"vendorId":19,"vendorName":"EBSCO","titleCount":156,"isSelected":true,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":156,"isTokenNeeded":false,"contentType":"AggregatedFullText","customCoverage":{"beginCoverage":"","endCoverage":""},"proxy":{"id":"TestingFolio","inherited":false},"allowEbscoToAddTitles":true,"packageToken":null,"packageType":"Complete"}'
+    http_version: 
+  recorded_at: Mon, 13 Aug 2018 17:31:40 GMT
+recorded_with: VCR 3.0.3

@@ -20,6 +20,29 @@ module Validation
       validates :endCoverage, absence: true, unless: :isSelected
     end
 
+    validate :begin_coverage_valid_date_format?, unless: -> { beginCoverage.nil? }
+    validate :end_coverage_valid_date_format?, unless: -> { endCoverage.nil? }
+
+    def begin_coverage_valid_date_format?
+      errors.add(:beginCoverage, 'has invalid format. Should be YYYY-MM-DD') unless
+        valid_date?(beginCoverage)
+    end
+
+    def end_coverage_valid_date_format?
+      errors.add(:endCoverage, 'has invalid format. Should be YYYY-MM-DD') unless
+        valid_date?(endCoverage)
+    end
+
+    def valid_date?(coverage)
+      yyyy, mm, dd = coverage.split('-')
+      begin
+        @valid_date = Date.new(yyyy.to_i, mm.to_i, dd.to_i)
+        return true
+      rescue ArgumentError
+        return false
+      end
+    end
+
     def initialize(params = {})
       @isSelected = params[:isSelected]
       @allowEbscoToAddTitles = params[:allowEbscoToAddTitles]
