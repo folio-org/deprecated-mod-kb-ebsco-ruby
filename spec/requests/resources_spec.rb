@@ -551,6 +551,98 @@ RSpec.describe 'Resources', type: :request do
         end
       end
 
+      describe 'setting invalid custom coverage on custom resource' do
+        let(:params) do
+          {
+            'data' => {
+              'type' => 'resources',
+              'attributes' => {
+                'isSelected' => true,
+                'customCoverages' => [
+                  {
+                    'beginCoverage' => '01-2003-01',
+                    'endCoverage' => '01-01-2004'
+                  }
+                ],
+                'proxy' => {
+                  'id' => 'EZProxy'
+                }
+              }
+            }
+          }
+        end
+
+        before do
+          VCR.use_cassette('put-resources-invalid-customcoverage-update') do
+            put '/eholdings/resources/22-1887786-1440285',
+                params: params, as: :json, headers: update_headers
+          end
+        end
+
+        it 'responds with expected error status' do
+          expect(response).to have_http_status(422)
+        end
+
+        let!(:json) { Map JSON.parse response.body }
+
+        it 'returns the expected error message' do
+          expect(json.errors.first.title)
+            .to eq('Invalid beginCoverage')
+          expect(json.errors.first.detail)
+            .to eq('Begincoverage has invalid format. Should be YYYY-MM-DD')
+          expect(json.errors.second.title)
+            .to eq('Invalid endCoverage')
+          expect(json.errors.second.detail)
+            .to eq('Endcoverage has invalid format. Should be YYYY-MM-DD')
+        end
+      end
+
+      describe 'setting invalid custom coverage on managed resource' do
+        let(:params) do
+          {
+            'data' => {
+              'type' => 'resources',
+              'attributes' => {
+                'isSelected' => true,
+                'customCoverages' => [
+                  {
+                    'beginCoverage' => '01-2003-01',
+                    'endCoverage' => '01-01-2004'
+                  }
+                ],
+                'proxy' => {
+                  'id' => 'EZProxy'
+                }
+              }
+            }
+          }
+        end
+
+        before do
+          VCR.use_cassette('put-resources-invalid-customcoverage-update-managed-resource') do
+            put '/eholdings/resources/19-6581-581242',
+                params: params, as: :json, headers: update_headers
+          end
+        end
+
+        it 'responds with expected error status' do
+          expect(response).to have_http_status(422)
+        end
+
+        let!(:json) { Map JSON.parse response.body }
+
+        it 'returns the expected error message' do
+          expect(json.errors.first.title)
+            .to eq('Invalid beginCoverage')
+          expect(json.errors.first.detail)
+            .to eq('Begincoverage has invalid format. Should be YYYY-MM-DD')
+          expect(json.errors.second.title)
+            .to eq('Invalid endCoverage')
+          expect(json.errors.second.detail)
+            .to eq('Endcoverage has invalid format. Should be YYYY-MM-DD')
+        end
+      end
+
       describe 'setting a custom embargo period' do
         let(:params) do
           {

@@ -966,6 +966,48 @@ RSpec.describe 'Packages', type: :request do
         end
       end
 
+      describe 'combined update with invalid coverage date format' do
+        let(:params) do
+          {
+            "data": {
+              "type": 'packages',
+              "attributes": {
+                "customCoverage": {
+                  "beginCoverage": '01-01-2003',
+                  "endCoverage": '01-01-2004'
+                },
+                "isSelected": true,
+                "allowKbToAddTitles": true,
+                "visibilityData": {
+                  "isHidden": true,
+                  "reason": ''
+                }
+              }
+            }
+          }
+        end
+
+        before do
+          VCR.use_cassette('put-packages-combined-update-invalid-coverage-date-format') do
+            put '/eholdings/packages/19-6581',
+                params: params, as: :json, headers: update_headers
+          end
+        end
+
+        it 'responds with expected status' do
+          expect(response).to have_http_status(422)
+        end
+
+        let!(:json) { Map JSON.parse response.body }
+
+        it 'gives the expected error message' do
+          expect(json.errors.first.title).to eql('Invalid beginCoverage')
+          expect(json.errors.first.detail).to eq 'Begincoverage has invalid format. Should be YYYY-MM-DD'
+          expect(json.errors.second.title).to eql('Invalid endCoverage')
+          expect(json.errors.second.detail).to eq 'Endcoverage has invalid format. Should be YYYY-MM-DD'
+        end
+      end
+
       describe 'deselecting a package' do
         let(:params) do
           {
@@ -1173,6 +1215,49 @@ RSpec.describe 'Packages', type: :request do
           .to eq('2003-01-01')
         expect(json.data.attributes.customCoverage.endCoverage)
           .to eq('2004-01-01')
+      end
+    end
+
+    describe 'changing the coverage dates to invalid' do
+      let(:params) do
+        {
+          "data": {
+            "type": 'packages',
+            "attributes": {
+              "customCoverage": {
+                "beginCoverage": '01-01-2003',
+                "endCoverage": '01-01-2004'
+              },
+              "isSelected": true,
+              "name": 'name of the ages forever and ever',
+              "contentType": 'Aggregated Full Text'
+            }
+          }
+        }
+      end
+
+      before do
+        VCR.use_cassette('put-custom-package-coverage-dates-invalid') do
+          put '/eholdings/packages/123355-2845506',
+              params: params, as: :json, headers: update_headers
+        end
+      end
+
+      it 'responds with expected error status' do
+        expect(response).to have_http_status(422)
+      end
+
+      let!(:json) { Map JSON.parse response.body }
+
+      it 'now has custom coverage' do
+        expect(json.errors.first.title)
+          .to eq('Invalid beginCoverage')
+        expect(json.errors.first.detail)
+          .to eq('Begincoverage has invalid format. Should be YYYY-MM-DD')
+        expect(json.errors.second.title)
+          .to eq('Invalid endCoverage')
+        expect(json.errors.second.detail)
+          .to eq('Endcoverage has invalid format. Should be YYYY-MM-DD')
       end
     end
 
@@ -1456,6 +1541,42 @@ RSpec.describe 'Packages', type: :request do
 
       it 'content type replaced with Unknown' do
         expect(json_response.data.attributes.contentType).to eql('Unknown')
+      end
+    end
+
+    describe 'giving begin coverage in an invalid format' do
+      let(:params) do
+        {
+          "data": {
+            "type": 'packages',
+            "attributes": {
+              "name": 'VCR Package 1.7',
+              "contentType": 'E-Book',
+              "customCoverage": {
+                "beginCoverage": '01-01-2003',
+                "endCoverage": '2004-01-01'
+              }
+            }
+          }
+        }
+      end
+
+      before do
+        VCR.use_cassette('post-custom-package-invalid-begin-coverage') do
+          post '/eholdings/packages/',
+               params: params, as: :json, headers: update_headers
+        end
+      end
+
+      it 'responds with expected error status' do
+        expect(response).to have_http_status(422)
+      end
+
+      let!(:json) { Map JSON.parse response.body }
+
+      it 'returns the expected error message' do
+        expect(json.errors.first.title).to eq 'Invalid beginCoverage'
+        expect(json.errors.first.detail).to eq 'Begincoverage has invalid format. Should be YYYY-MM-DD'
       end
     end
   end

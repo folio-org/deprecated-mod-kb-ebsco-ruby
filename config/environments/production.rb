@@ -50,4 +50,9 @@ Rails.application.configure do
   config.middleware.insert_before Rack::Runtime,
                                   ChunkedTransferDecoder,
                                   decoded_upstream: true
+
+  # Tweak middleware for handling JSON parse errors by providing a decent error response
+  # instead of a stacktrace
+  config.middleware.insert_before Rack::Head,
+                                  CatchInvalidJsonErrors
 end
