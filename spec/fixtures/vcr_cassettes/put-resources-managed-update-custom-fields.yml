@@ -27,7 +27,7 @@ http_interactions:
       Server:
       - nginx/1.13.5
       Date:
-      - Tue, 31 Jul 2018 20:02:46 GMT
+      - Thu, 16 Aug 2018 18:32:43 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -36,15 +36,15 @@ http_interactions:
       - keep-alive
       X-Okapi-Trace:
       - 'GET mod-authtoken-1.4.1-SNAPSHOT.21 http://10.39.255.17:8081/configurations/entries..
-        : 202 306854us'
+        : 202 311668us'
       - 'GET mod-configuration-4.0.4-SNAPSHOT.36 http://10.39.247.129:8081/configurations/entries..
-        : 200 44130us'
+        : 200 48554us'
       Host:
       - okapi.frontside.io
       X-Real-Ip:
-      - 10.128.0.3
+      - 10.36.2.1
       X-Forwarded-For:
-      - 10.128.0.3
+      - 10.36.2.1
       X-Forwarded-Host:
       - okapi.frontside.io
       X-Forwarded-Port:
@@ -66,7 +66,7 @@ http_interactions:
       User-Agent:
       - Ruby
       X-Okapi-Request-Id:
-      - 963202/configurations
+      - 572208/configurations
       X-Okapi-Url:
       - http://10.39.254.87:80
       X-Okapi-Permissions:
@@ -103,7 +103,7 @@ http_interactions:
           }
         }
     http_version: 
-  recorded_at: Tue, 31 Jul 2018 20:02:46 GMT
+  recorded_at: Thu, 16 Aug 2018 18:32:43 GMT
 - request:
     method: get
     uri: https://api.ebsco.io/rm/rmaccounts/TEST_CUSTOMER_ID/vendors/19/packages/530/titles/417981
@@ -112,7 +112,7 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - Flexirest/1.6.7
+      - Flexirest/1.7.0
       Connection:
       - Keep-Alive
       Accept:
@@ -135,15 +135,15 @@ http_interactions:
       Connection:
       - keep-alive
       Date:
-      - Tue, 31 Jul 2018 20:02:46 GMT
+      - Thu, 16 Aug 2018 18:32:44 GMT
       X-Amzn-Requestid:
-      - b16a1902-94fc-11e8-bd7c-c7996ee1b7ed
+      - c3dde618-a182-11e8-8264-9bbf044c47b7
       X-Amzn-Remapped-Content-Length:
       - '1217'
       X-Amzn-Remapped-Connection:
       - keep-alive
       X-Amz-Apigw-Id:
-      - K6L__EYCIAMF4eQ=
+      - Lutz2F0eIAMFQXg=
       X-Amzn-Remapped-Server:
       - Microsoft-IIS/8.5
       Cache-Control:
@@ -155,15 +155,15 @@ http_interactions:
       Pragma:
       - no-cache
       X-Amzn-Remapped-Date:
-      - Tue, 31 Jul 2018 20:02:46 GMT
+      - Thu, 16 Aug 2018 18:32:44 GMT
       X-Aspnet-Version:
       - 4.0.30319
       X-Cache:
       - Miss from cloudfront
       Via:
-      - 1.1 93e404430d11dacb3232bae72aaaee90.cloudfront.net (CloudFront)
+      - 1.1 90d62e521ee2c5442b186a2cbca3fc9d.cloudfront.net (CloudFront)
       X-Amz-Cf-Id:
-      - sK_cY1nFWoBx6rG2kg8lKEI704fqbSYCU90xBWPmx3315bbeWtBIrw==
+      - ojE9Y6Qj7gXX0s7GqNDH2bZdq4dgbYJmGeTwPXkmoxNl5EyPX_8MWw==
     body:
       encoding: UTF-8
       string: '{"titleId":417981,"titleName":"ESI: Electrical Supply Industries of
@@ -171,5 +171,138 @@ http_interactions:
         Engineering"}],"isTitleCustom":false,"pubType":"BookSeries","customerResourcesList":[{"titleId":417981,"packageId":530,"packageName":"Business
         Source Corporate","packageType":"Complete","proxy":{"id":"<n>","inherited":true},"isPackageCustom":false,"vendorId":19,"vendorName":"EBSCO","locationId":1531344,"isSelected":false,"isTokenNeeded":false,"visibilityData":{"isHidden":false,"reason":""},"managedCoverageList":[{"beginCoverage":"2004-01-01","endCoverage":"2006-01-01"}],"customCoverageList":[],"coverageStatement":null,"managedEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"customEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"url":"http://search.ebscohost.com/direct.asp?db=bch&jid=15KM&scope=site","userDefinedField1":null,"userDefinedField2":null,"userDefinedField3":null,"userDefinedField4":null,"userDefinedField5":null}],"description":null,"edition":null,"isPeerReviewed":false,"contributorsList":[]}'
     http_version: 
-  recorded_at: Tue, 31 Jul 2018 20:02:46 GMT
+  recorded_at: Thu, 16 Aug 2018 18:32:44 GMT
+- request:
+    method: put
+    uri: https://api.ebsco.io/rm/rmaccounts/TEST_CUSTOMER_ID/vendors/19/packages/530/titles/417981
+    body:
+      encoding: UTF-8
+      string: '{"isSelected":false,"isHidden":false,"customCoverageList":[],"contributorsList":null,"identifiersList":null,"customEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"coverageStatement":null,"titleName":"ESI:
+        Electrical Supply Industries of the World","pubType":"BookSeries","isPeerReviewed":false,"publisherName":"ABS
+        Energy Research","edition":null,"description":null,"url":null,"proxy":{"id":"\u003cn\u003e","inherited":false}}'
+    headers:
+      User-Agent:
+      - Flexirest/1.7.0
+      Connection:
+      - Keep-Alive
+      Accept:
+      - application/json
+      X-Api-Key:
+      - TEST_API_KEY
+      Content-Type:
+      - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 204
+      message: No Content
+    headers:
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '0'
+      Connection:
+      - keep-alive
+      Date:
+      - Thu, 16 Aug 2018 18:32:44 GMT
+      X-Amzn-Requestid:
+      - c479d819-a182-11e8-a91a-510ab8dd74c8
+      X-Amzn-Remapped-Connection:
+      - keep-alive
+      X-Amz-Apigw-Id:
+      - Lut0AHzdIAMFWcA=
+      X-Amzn-Remapped-Server:
+      - Microsoft-IIS/8.5
+      Cache-Control:
+      - no-cache
+      Expires:
+      - "-1"
+      X-Powered-By:
+      - ASP.NET
+      Pragma:
+      - no-cache
+      X-Amzn-Remapped-Date:
+      - Thu, 16 Aug 2018 18:32:44 GMT
+      X-Aspnet-Version:
+      - 4.0.30319
+      X-Cache:
+      - Miss from cloudfront
+      Via:
+      - 1.1 d56db0d65906a3edce526dc6600d65c6.cloudfront.net (CloudFront)
+      X-Amz-Cf-Id:
+      - mJlFF7XZVTwY95AFil5JwNNLYR8pW1vI_dhsls606ZIOqyifpfZNBg==
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: 
+  recorded_at: Thu, 16 Aug 2018 18:32:44 GMT
+- request:
+    method: get
+    uri: https://api.ebsco.io/rm/rmaccounts/TEST_CUSTOMER_ID/vendors/19/packages/530/titles/417981
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Flexirest/1.7.0
+      Connection:
+      - Keep-Alive
+      Accept:
+      - application/json
+      X-Api-Key:
+      - TEST_API_KEY
+      Content-Type:
+      - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '1217'
+      Connection:
+      - keep-alive
+      Date:
+      - Thu, 16 Aug 2018 18:32:45 GMT
+      X-Amzn-Requestid:
+      - c491ccb5-a182-11e8-8943-9d49e1fba4af
+      X-Amzn-Remapped-Content-Length:
+      - '1217'
+      X-Amzn-Remapped-Connection:
+      - keep-alive
+      X-Amz-Apigw-Id:
+      - Lut0CFdboAMF59w=
+      X-Amzn-Remapped-Server:
+      - Microsoft-IIS/8.5
+      Cache-Control:
+      - no-cache
+      Expires:
+      - "-1"
+      X-Powered-By:
+      - ASP.NET
+      Pragma:
+      - no-cache
+      X-Amzn-Remapped-Date:
+      - Thu, 16 Aug 2018 18:32:44 GMT
+      X-Aspnet-Version:
+      - 4.0.30319
+      X-Cache:
+      - Miss from cloudfront
+      Via:
+      - 1.1 28b1b9930ccdd3e560b3f8d56677a679.cloudfront.net (CloudFront)
+      X-Amz-Cf-Id:
+      - fBcHdEZ4Cx64HYP8PkDcFjl3Hg2uusnNNVYyzs_YGEihI5f5OrlWng==
+    body:
+      encoding: UTF-8
+      string: '{"titleId":417981,"titleName":"ESI: Electrical Supply Industries of
+        the World","publisherName":"ABS Energy Research","identifiersList":[{"id":"15KM","source":"MFS","subtype":0,"type":8},{"id":"417981","source":"AtoZ","subtype":0,"type":9}],"subjectsList":[{"type":"TLI","subject":"Electrical
+        Engineering"}],"isTitleCustom":false,"pubType":"BookSeries","customerResourcesList":[{"titleId":417981,"packageId":530,"packageName":"Business
+        Source Corporate","packageType":"Complete","proxy":{"id":"<n>","inherited":true},"isPackageCustom":false,"vendorId":19,"vendorName":"EBSCO","locationId":1531344,"isSelected":false,"isTokenNeeded":false,"visibilityData":{"isHidden":false,"reason":""},"managedCoverageList":[{"beginCoverage":"2004-01-01","endCoverage":"2006-01-01"}],"customCoverageList":[],"coverageStatement":null,"managedEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"customEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"url":"http://search.ebscohost.com/direct.asp?db=bch&jid=15KM&scope=site","userDefinedField1":null,"userDefinedField2":null,"userDefinedField3":null,"userDefinedField4":null,"userDefinedField5":null}],"description":null,"edition":null,"isPeerReviewed":false,"contributorsList":[]}'
+    http_version: 
+  recorded_at: Thu, 16 Aug 2018 18:32:45 GMT
 recorded_with: VCR 3.0.3
