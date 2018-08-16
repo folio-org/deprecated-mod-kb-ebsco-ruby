@@ -58,9 +58,8 @@ class ResourcesController < ApplicationController
   end
 
   def update
-    is_title_custom = title_custom?
     resource_validation =
-      Validation::ResourceUpdateParameters.new(is_title_custom, update_params)
+      Validation::ResourceUpdateParameters.new(update_params)
 
     if resource_validation.valid?
       @resource.update update_params
@@ -135,8 +134,7 @@ class ResourcesController < ApplicationController
         :edition,
         :description,
         :url,
-        :packageId,
-        :titleId,
+        proxy: [:id],
         visibilityData: %i[isHidden reason],
         customCoverageList: [
           %i[beginCoverage endCoverage]
@@ -157,33 +155,20 @@ class ResourcesController < ApplicationController
   def update_params
     # NOTE: deserialization happens before param parsing, so we
     # use the RMAPI property names here
-    params
-      .require(:resource)
-      .permit(
+    if title_custom?
+      resource_params
+    else
+      resource_params.except(
         :titleName,
-        :pubType,
-        :isSelected,
-        :coverageStatement,
         :isPeerReviewed,
+        :pubType,
         :publisherName,
         :edition,
         :description,
         :url,
-        proxy: [:id],
-        visibilityData: %i[isHidden reason],
-        customCoverageList: [
-          %i[beginCoverage endCoverage]
-        ],
-        contributorsList: [
-          %i[type contributor]
-        ],
-        identifiersList: [
-          %i[id subtype type]
-        ],
-        customEmbargoPeriod: %i[
-          embargoUnit
-          embargoValue
-        ]
+        :contributorsList,
+        :identifiersList
       )
+    end
   end
 end
