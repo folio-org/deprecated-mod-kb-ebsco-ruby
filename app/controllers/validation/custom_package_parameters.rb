@@ -10,8 +10,8 @@ module Validation
 
     validates :name, presence: true
     validates :contentType, presence: true
-    validate :begin_coverage_valid_date_format?, unless: -> { beginCoverage.nil? }
-    validate :end_coverage_valid_date_format?, unless: -> { endCoverage.nil? }
+    validate :begin_coverage_valid_date_format?, unless: -> { beginCoverage.blank? }
+    validate :end_coverage_valid_date_format?, unless: -> { endCoverage.blank? }
 
     def begin_coverage_valid_date_format?
       errors.add(:beginCoverage, 'has invalid format. Should be YYYY-MM-DD') unless
