@@ -1,0 +1,476 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://okapi.frontside.io/configurations/entries?query=module=KB_EBSCO
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Content-Type:
+      - application/json
+      Accept:
+      - application/json
+      X-Okapi-Tenant:
+      - fs
+      X-Okapi-Token:
+      - TEST_OKAPI_TOKEN
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx/1.13.5
+      Date:
+      - Thu, 16 Aug 2018 19:40:27 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      X-Okapi-Trace:
+      - 'GET mod-authtoken-1.4.1-SNAPSHOT.21 http://10.39.255.17:8081/configurations/entries..
+        : 202 311782us'
+      - 'GET mod-configuration-4.0.4-SNAPSHOT.36 http://10.39.247.129:8081/configurations/entries..
+        : 200 45203us'
+      Host:
+      - okapi.frontside.io
+      X-Real-Ip:
+      - 10.128.0.5
+      X-Forwarded-For:
+      - 10.128.0.5
+      X-Forwarded-Host:
+      - okapi.frontside.io
+      X-Forwarded-Port:
+      - '443'
+      X-Forwarded-Proto:
+      - https
+      X-Original-Uri:
+      - "/configurations/entries?query=module=KB_EBSCO"
+      X-Scheme:
+      - https
+      X-Auth-Request-Redirect:
+      - "/configurations/entries?query=module=KB_EBSCO"
+      Accept:
+      - application/json
+      X-Okapi-Tenant:
+      - fs
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      User-Agent:
+      - Ruby
+      X-Okapi-Request-Id:
+      - 157159/configurations
+      X-Okapi-Url:
+      - http://10.39.254.87:80
+      X-Okapi-Permissions:
+      - '["configuration.entries.collection.get","configuration.entries.collection.get"]'
+      X-Okapi-User-Id:
+      - 1ad737b0-d847-11e6-bf26-cec0c932ce01
+      X-Okapi-Token:
+      - TEST_OKAPI_TOKEN
+      Strict-Transport-Security:
+      - max-age=15724800; includeSubDomains;
+    body:
+      encoding: ASCII-8BIT
+      string: |-
+        {
+          "configs" : [ {
+            "id" : "28fd0ce0-108e-4471-8a7b-4645319fd707",
+            "module" : "KB_EBSCO",
+            "configName" : "api_credentials",
+            "code" : "kb.ebsco.credentials",
+            "description" : "EBSCO RM-API Credentials",
+            "enabled" : true,
+            "value" : "customer-id=TEST_CUSTOMER_ID&api-key=TEST_API_KEY",
+            "metadata" : {
+              "createdDate" : "2018-06-26T13:23:48.592+0000",
+              "createdByUserId" : "1ad737b0-d847-11e6-bf26-cec0c932ce01",
+              "updatedDate" : "2018-06-26T13:23:48.592+0000",
+              "updatedByUserId" : "1ad737b0-d847-11e6-bf26-cec0c932ce01"
+            }
+          } ],
+          "totalRecords" : 1,
+          "resultInfo" : {
+            "totalRecords" : 1,
+            "facets" : [ ]
+          }
+        }
+    http_version: 
+  recorded_at: Thu, 16 Aug 2018 19:40:27 GMT
+- request:
+    method: get
+    uri: https://api.ebsco.io/rm/rmaccounts/TEST_CUSTOMER_ID/vendors/123355/packages/2845506
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      X-Api-Key:
+      - TEST_API_KEY
+      Content-Type:
+      - application/json
+      Accept:
+      - application/json
+      Connection:
+      - close
+      Host:
+      - api.ebsco.io
+      User-Agent:
+      - http.rb/3.3.0
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json;charset=UTF-8
+      Content-Length:
+      - '486'
+      Connection:
+      - close
+      Date:
+      - Thu, 16 Aug 2018 19:40:27 GMT
+      X-Amzn-Requestid:
+      - 3a344e8b-a18c-11e8-b246-433e9ce84f9e
+      X-Amzn-Remapped-Connection:
+      - keep-alive
+      X-Amz-Apigw-Id:
+      - Lu3u2E4PIAMF_kw=
+      X-Amzn-Remapped-Date:
+      - Thu, 16 Aug 2018 19:40:27 GMT
+      X-Cache:
+      - Miss from cloudfront
+      Via:
+      - 1.1 3fde21c07022d5a0a6d5c2e220c1ce8f.cloudfront.net (CloudFront)
+      X-Amz-Cf-Id:
+      - OquZx3tdYa4wgjL4629FfXfYtTQ5VTGJU5iEQMfFzlU0uywQ2XHAFw==
+    body:
+      encoding: UTF-8
+      string: '{"packageId":2845506,"packageName":"name of the ages forever and ever","isCustom":true,"vendorId":123355,"vendorName":"API
+        DEV CORPORATE CUSTOMER","titleCount":0,"isSelected":true,"visibilityData":{"isHidden":true,"reason":"Hidden
+        by Customer"},"selectedCount":0,"isTokenNeeded":false,"contentType":"AggregatedFullText","customCoverage":{"beginCoverage":"","endCoverage":""},"proxy":{"id":"<n>","inherited":true},"allowEbscoToAddTitles":false,"packageToken":null,"packageType":"Custom"}'
+    http_version: 
+  recorded_at: Thu, 16 Aug 2018 19:40:27 GMT
+- request:
+    method: get
+    uri: https://api.ebsco.io/rm/rmaccounts/TEST_CUSTOMER_ID/vendors/123355/packages/2845506
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      X-Api-Key:
+      - TEST_API_KEY
+      Content-Type:
+      - application/json
+      Accept:
+      - application/json
+      Connection:
+      - close
+      Host:
+      - api.ebsco.io
+      User-Agent:
+      - http.rb/3.3.0
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json;charset=UTF-8
+      Content-Length:
+      - '486'
+      Connection:
+      - close
+      Date:
+      - Thu, 16 Aug 2018 19:40:28 GMT
+      X-Amzn-Requestid:
+      - 3a4bf618-a18c-11e8-9e60-f97861a9b319
+      X-Amzn-Remapped-Connection:
+      - keep-alive
+      X-Amz-Apigw-Id:
+      - Lu3u4GvDoAMFbyw=
+      X-Amzn-Remapped-Date:
+      - Thu, 16 Aug 2018 19:40:27 GMT
+      X-Cache:
+      - Miss from cloudfront
+      Via:
+      - 1.1 c06c27c7288c4be29d3b21ad2efad59f.cloudfront.net (CloudFront)
+      X-Amz-Cf-Id:
+      - Z5nbvAF6u5OKW6bmRfHNVSv_KedJMT78pVeMdb6f8DP5NICLVCoghA==
+    body:
+      encoding: UTF-8
+      string: '{"packageId":2845506,"packageName":"name of the ages forever and ever","isCustom":true,"vendorId":123355,"vendorName":"API
+        DEV CORPORATE CUSTOMER","titleCount":0,"isSelected":true,"visibilityData":{"isHidden":true,"reason":"Hidden
+        by Customer"},"selectedCount":0,"isTokenNeeded":false,"contentType":"AggregatedFullText","customCoverage":{"beginCoverage":"","endCoverage":""},"proxy":{"id":"<n>","inherited":true},"allowEbscoToAddTitles":false,"packageToken":null,"packageType":"Custom"}'
+    http_version: 
+  recorded_at: Thu, 16 Aug 2018 19:40:28 GMT
+- request:
+    method: get
+    uri: https://api.ebsco.io/rm/rmaccounts/TEST_CUSTOMER_ID/vendors/123355/packages/2845506
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      X-Api-Key:
+      - TEST_API_KEY
+      Content-Type:
+      - application/json
+      Accept:
+      - application/json
+      Connection:
+      - close
+      Host:
+      - api.ebsco.io
+      User-Agent:
+      - http.rb/3.3.0
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json;charset=UTF-8
+      Content-Length:
+      - '486'
+      Connection:
+      - close
+      Date:
+      - Thu, 16 Aug 2018 19:40:28 GMT
+      X-Amzn-Requestid:
+      - 3a665b1b-a18c-11e8-ae64-15a5f946a217
+      X-Amzn-Remapped-Connection:
+      - keep-alive
+      X-Amz-Apigw-Id:
+      - Lu3u6GU3oAMF0Qg=
+      X-Amzn-Remapped-Date:
+      - Thu, 16 Aug 2018 19:40:27 GMT
+      X-Cache:
+      - Miss from cloudfront
+      Via:
+      - 1.1 5f5ca5852c74982e7459707a6c9e215a.cloudfront.net (CloudFront)
+      X-Amz-Cf-Id:
+      - bVy8r6vGdMbqy1ESeBBZRd0UCT5hof7oiQMjarw2MgH4U1u25L5gXQ==
+    body:
+      encoding: UTF-8
+      string: '{"packageId":2845506,"packageName":"name of the ages forever and ever","isCustom":true,"vendorId":123355,"vendorName":"API
+        DEV CORPORATE CUSTOMER","titleCount":0,"isSelected":true,"visibilityData":{"isHidden":true,"reason":"Hidden
+        by Customer"},"selectedCount":0,"isTokenNeeded":false,"contentType":"AggregatedFullText","customCoverage":{"beginCoverage":"","endCoverage":""},"proxy":{"id":"<n>","inherited":true},"allowEbscoToAddTitles":false,"packageToken":null,"packageType":"Custom"}'
+    http_version: 
+  recorded_at: Thu, 16 Aug 2018 19:40:28 GMT
+- request:
+    method: get
+    uri: https://api.ebsco.io/rm/rmaccounts/TEST_CUSTOMER_ID/vendors/123355/packages/2845506
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      X-Api-Key:
+      - TEST_API_KEY
+      Content-Type:
+      - application/json
+      Accept:
+      - application/json
+      Connection:
+      - close
+      Host:
+      - api.ebsco.io
+      User-Agent:
+      - http.rb/3.3.0
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json;charset=UTF-8
+      Content-Length:
+      - '486'
+      Connection:
+      - close
+      Date:
+      - Thu, 16 Aug 2018 19:40:28 GMT
+      X-Amzn-Requestid:
+      - 3a7db3aa-a18c-11e8-9849-6d7fc0b7ab76
+      X-Amzn-Remapped-Connection:
+      - keep-alive
+      X-Amz-Apigw-Id:
+      - Lu3u7EwqoAMF-uw=
+      X-Amzn-Remapped-Date:
+      - Thu, 16 Aug 2018 19:40:27 GMT
+      X-Cache:
+      - Miss from cloudfront
+      Via:
+      - 1.1 6b730041baa15e3191f61ffafbf4e633.cloudfront.net (CloudFront)
+      X-Amz-Cf-Id:
+      - EaeonimZoEOt-vEWNgY8KqJwLVgidrZTPgs5bxnwUhwfDFpZkmKVMA==
+    body:
+      encoding: UTF-8
+      string: '{"packageId":2845506,"packageName":"name of the ages forever and ever","isCustom":true,"vendorId":123355,"vendorName":"API
+        DEV CORPORATE CUSTOMER","titleCount":0,"isSelected":true,"visibilityData":{"isHidden":true,"reason":"Hidden
+        by Customer"},"selectedCount":0,"isTokenNeeded":false,"contentType":"AggregatedFullText","customCoverage":{"beginCoverage":"","endCoverage":""},"proxy":{"id":"<n>","inherited":true},"allowEbscoToAddTitles":false,"packageToken":null,"packageType":"Custom"}'
+    http_version: 
+  recorded_at: Thu, 16 Aug 2018 19:40:28 GMT
+- request:
+    method: get
+    uri: https://api.ebsco.io/rm/rmaccounts/TEST_CUSTOMER_ID/vendors/123355/packages/2845506
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      X-Api-Key:
+      - TEST_API_KEY
+      Content-Type:
+      - application/json
+      Accept:
+      - application/json
+      Connection:
+      - close
+      Host:
+      - api.ebsco.io
+      User-Agent:
+      - http.rb/3.3.0
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json;charset=UTF-8
+      Content-Length:
+      - '486'
+      Connection:
+      - close
+      Date:
+      - Thu, 16 Aug 2018 19:40:28 GMT
+      X-Amzn-Requestid:
+      - 3a909f5a-a18c-11e8-b7fb-3fde826584ed
+      X-Amzn-Remapped-Connection:
+      - keep-alive
+      X-Amz-Apigw-Id:
+      - Lu3u8GRhoAMFvGA=
+      X-Amzn-Remapped-Date:
+      - Thu, 16 Aug 2018 19:40:27 GMT
+      X-Cache:
+      - Miss from cloudfront
+      Via:
+      - 1.1 0ae737265831ce30da6ba6dcf15e3d61.cloudfront.net (CloudFront)
+      X-Amz-Cf-Id:
+      - PmSK6venxBJJrkmQgcOVxFJEUhbxYsZNsswdkRyvq1XHub3h1dBmOQ==
+    body:
+      encoding: UTF-8
+      string: '{"packageId":2845506,"packageName":"name of the ages forever and ever","isCustom":true,"vendorId":123355,"vendorName":"API
+        DEV CORPORATE CUSTOMER","titleCount":0,"isSelected":true,"visibilityData":{"isHidden":true,"reason":"Hidden
+        by Customer"},"selectedCount":0,"isTokenNeeded":false,"contentType":"AggregatedFullText","customCoverage":{"beginCoverage":"","endCoverage":""},"proxy":{"id":"<n>","inherited":true},"allowEbscoToAddTitles":false,"packageToken":null,"packageType":"Custom"}'
+    http_version: 
+  recorded_at: Thu, 16 Aug 2018 19:40:28 GMT
+- request:
+    method: put
+    uri: https://api.ebsco.io/rm/rmaccounts/TEST_CUSTOMER_ID/vendors/123355/packages/2845506
+    body:
+      encoding: UTF-8
+      string: '{"contentType":1,"isSelected":true,"customCoverage":{"beginCoverage":"","endCoverage":""},"allowEbscoToAddTitles":null,"isHidden":null,"packageName":"name
+        of the ages forever and ever"}'
+    headers:
+      X-Api-Key:
+      - TEST_API_KEY
+      Content-Type:
+      - application/json
+      Accept:
+      - application/json
+      Connection:
+      - close
+      Host:
+      - api.ebsco.io
+      User-Agent:
+      - http.rb/3.3.0
+  response:
+    status:
+      code: 204
+      message: No Content
+    headers:
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '0'
+      Connection:
+      - close
+      Date:
+      - Thu, 16 Aug 2018 19:40:28 GMT
+      X-Amzn-Requestid:
+      - 3aa3d9a3-a18c-11e8-985d-813d5ade26ed
+      X-Amzn-Remapped-Connection:
+      - keep-alive
+      X-Amz-Apigw-Id:
+      - Lu3u-EZ3IAMF7Kg=
+      X-Amzn-Remapped-Date:
+      - Thu, 16 Aug 2018 19:40:27 GMT
+      X-Cache:
+      - Miss from cloudfront
+      Via:
+      - 1.1 c06c27c7288c4be29d3b21ad2efad59f.cloudfront.net (CloudFront)
+      X-Amz-Cf-Id:
+      - NNqpziNrBeF8fDg2hCQckuCf5NTTFbBE-PrOybyFgVZbVLO38xJ8Nw==
+    body:
+      encoding: ASCII-8BIT
+      string: ''
+    http_version: 
+  recorded_at: Thu, 16 Aug 2018 19:40:28 GMT
+- request:
+    method: get
+    uri: https://api.ebsco.io/rm/rmaccounts/TEST_CUSTOMER_ID/vendors/123355/packages/2845506
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      X-Api-Key:
+      - TEST_API_KEY
+      Content-Type:
+      - application/json
+      Accept:
+      - application/json
+      Connection:
+      - close
+      Host:
+      - api.ebsco.io
+      User-Agent:
+      - http.rb/3.3.0
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json;charset=UTF-8
+      Content-Length:
+      - '469'
+      Connection:
+      - close
+      Date:
+      - Thu, 16 Aug 2018 19:40:28 GMT
+      X-Amzn-Requestid:
+      - 3abbf5e8-a18c-11e8-b64a-858057230bbb
+      X-Amzn-Remapped-Connection:
+      - keep-alive
+      X-Amz-Apigw-Id:
+      - Lu3u_H8iIAMF0rw=
+      X-Amzn-Remapped-Date:
+      - Thu, 16 Aug 2018 19:40:27 GMT
+      X-Cache:
+      - Miss from cloudfront
+      Via:
+      - 1.1 425f2389e5fb9a53718e2e31598cbbc7.cloudfront.net (CloudFront)
+      X-Amz-Cf-Id:
+      - 4BPxtrgf1jeR6de1DlQlE2o9WNNoDt_sB5ETn8Cg20b9MmC1AzgQlw==
+    body:
+      encoding: UTF-8
+      string: '{"packageId":2845506,"packageName":"name of the ages forever and ever","isCustom":true,"vendorId":123355,"vendorName":"API
+        DEV CORPORATE CUSTOMER","titleCount":0,"isSelected":true,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"AggregatedFullText","customCoverage":{"beginCoverage":"","endCoverage":""},"proxy":{"id":"<n>","inherited":true},"allowEbscoToAddTitles":false,"packageToken":null,"packageType":"Custom"}'
+    http_version: 
+  recorded_at: Thu, 16 Aug 2018 19:40:28 GMT
+recorded_with: VCR 3.0.3
