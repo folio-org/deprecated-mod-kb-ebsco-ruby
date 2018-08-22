@@ -1,0 +1,44 @@
+queryParameters: 
+  q:
+    displayName: Search query
+    type: string
+    description: String to search for to get a collection of packages
+    example: ABC-CLIO
+    required: true
+  page:
+    displayName: Page offset
+    type: integer
+    minimum: 1
+    maximum: 2147483647
+    description: Page offset to retrieve results from Ebsco KB
+    example: 1
+    required: false
+  count:
+    displayName: Count
+    type: integer
+    minimum: 0
+    maximum: 100
+    description: Count of number of results to retrieve from Ebsco KB
+    example: 100
+    required: false
+  sort:
+    displayName: Sort options
+    type: string
+    enum: [name, relevance]
+    description: Option by which results are sorted
+    example: name
+    required: false
+  filter[selected]:
+    displayName: Selection status
+    type: string
+    enum: [selected, notselected, ebsco, all]
+    description: Filter to narrow down results based on selection status
+    example: false
+    required: false
+  filter[type]:
+    displayName: Content type
+    type: string
+    enum: [all, aggregatedfulltext, abstractandindex, ebook, ejournal, print, onlinereference, unknown]
+    description: Filter to narrow down results based on content type
+    example: print
+    required: false

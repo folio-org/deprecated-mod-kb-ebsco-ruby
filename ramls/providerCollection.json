@@ -1,0 +1,29 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "Provider Collection Schema",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "data": {
+      "type": "array",
+      "description": "List of providers",
+      "items": {
+        "type": "object",
+        "$ref": "providers.json"
+      }
+    },
+    "meta": {
+      "type": "object",
+      "description": "metadata",
+      "$ref": "metaTotalResults.json"
+    },
+    "jsonapi": {
+      "type": "object",
+      "description": "version of json api",
+      "$ref": "jsonapi.json"
+    }
+  },
+  "required": [
+    "data"
+  ]
+}

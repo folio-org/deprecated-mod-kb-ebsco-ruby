@@ -1,0 +1,13 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "Provider object in collection schema",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "included": {
+      "type": "boolean",
+      "description": "Relationship of packages to providers",
+      "example": false
+    }
+  }
+}

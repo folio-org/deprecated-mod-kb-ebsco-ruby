@@ -1,0 +1,89 @@
+#%RAML 0.8
+title: mod-kb-ebsco
+baseUri: https://github.com/folio-org/mod-kb-ebsco
+protocols: [ HTTPS ]
+version: v1
+mediaType: "application/vnd.api+json"
+
+documentation:
+  - title: mod-kb-ebsco
+    content: Implements the eholdings interface using the EBSCO kb as a backend.
+
+schemas:
+  - providers.json: !include providers.json
+  - providerListAttributes.json: !include providerListAttributes.json
+  - providerToken.json: !include providerToken.json
+  - packagesInRelationships.json: !include packagesInRelationships.json
+  - metaIncluded.json: !include metaIncluded.json
+  - included.json: !include included.json
+  - metaTotalResults.json: !include metaTotalResults.json
+  - jsonapi.json: !include jsonapi.json
+  - provider: !include provider.json
+  - providerCollection: !include providerCollection.json
+  - providerProviderIdNotFound: !include providerProviderIdNotFound.json
+  - providerProviderIdPut: !include providerProviderIdPut.json
+  - providerData.json: !include providerData.json
+  - providerPutDataAttributes.json: !include providerPutDataAttributes.json
+  - providerResponseData.json: !include providerResponseData.json
+  - providerResponseAttributes.json: !include providerResponseAttributes.json
+  - proxy.json: !include proxy.json
+  - errors: !include raml-util/schemas/errors.schema
+  - error.schema: !include raml-util/schemas/error.schema
+  - parameters.schema: !include raml-util/schemas/parameters.schema
+  
+traits:
+  - queriable: !include queriable.raml
+
+/eholdings/providers:
+  displayName: Providers
+  description: Collection of available providers in eholdings.
+  get:
+    description: Get a list of providers based on the search field.
+    is: [queriable]
+    responses: 
+      200:
+        body:
+          application/vnd.api+json:
+            schema: providerCollection
+            example: !include examples/providers/providers_get_200_response.json
+  /{provider_id}:
+    displayName: Get provider by provider Id
+    description: Get provider by provider Id
+    uriParameters:
+      provider_id:
+        description: The provider id of a provider
+        type: string
+    get:
+      queryParameters:
+        include:
+          displayName: Include a nested resource
+          type: string
+          description: Name of nested resource to include
+          default: packages
+          example: packages
+          required: false
+      responses: 
+        200:
+          body: 
+            application/vnd.api+json:
+              schema: provider
+              example: !include examples/providers/providers_providerId_get_200_response.json
+        404:
+          body:
+            application/vnd.api+json:
+              schema: providerProviderIdNotFound
+              example: !include examples/providers/providers_providerId_404_response.json
+    put:
+      body:
+        application/vnd.api+json:
+          schema: providerProviderIdPut
+          example: !include examples/providers/providers_providerId_put_request.json
+      responses: 
+        200:
+          body:
+            application/vnd.api+json:
+              schema: provider
+              example: !include examples/providers/providers_providerId_put_200_response.json
+        500:
+          body:
+            application/vnd.api+json:

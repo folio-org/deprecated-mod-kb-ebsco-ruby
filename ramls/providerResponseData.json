@@ -1,0 +1,28 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "Provider Response Schema",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Provider Data Id",
+      "example": "18"
+    },
+    "type": {
+      "type": "string",
+      "description": "type of resource",
+      "example": "providers"
+    },
+    "attributes": {
+      "type": "object",
+      "description": "provider response attributes",
+      "$ref": "providerResponseAttributes.json"
+    },
+    "relationships": {
+      "type": "object",
+      "description": "relationships",
+      "$ref": "packagesInRelationships.json"
+    }
+  }
+}

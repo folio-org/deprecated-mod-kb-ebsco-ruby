@@ -1,0 +1,33 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "Provider List Attributes Schema",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Name of provider",
+      "example": "EBSCO"
+    },
+    "packagesTotal": {
+      "type": "integer",
+      "description": "Total number of packages available for this provider",
+      "example": 627
+    },
+    "packagesSelected": {
+      "type": "integer",
+      "description": "Total number of packages selected by this provider",
+      "example": 49
+    },
+    "providerToken": {
+      "type": {"type": ["object", "null"]},
+      "description": "Provider token",
+      "$ref": "providerToken.json"
+    },
+    "supportsCustomPackages": {
+      "type": "boolean",
+      "description": "Whether this provider supports custom packages",
+      "example": false
+    }
+  }
+}
