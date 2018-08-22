@@ -27,6 +27,12 @@ class Resource < RmApiResource
         fail ActionController::BadRequest, 'Invalid filter parameter'
       end
 
+      querykeys = filters.keys & %w[name isxn subject publisher]
+
+      unless querykeys.size <= 1
+        fail ActionController::BadRequest, 'Conflicting filter parameters'
+      end
+
       request.get_params[:selection] =
         if filters[:selected] == 'true'
           'selected'
@@ -40,6 +46,28 @@ class Resource < RmApiResource
 
       request.get_params[:resourcetype] = filters[:type] || 'all'
 
+      titlename = filters[:name]
+      isxn = filters[:isxn]
+      subject = filters[:subject]
+      publisher = filters[:publisher]
+
+      if titlename
+        request.get_params[:search] = titlename
+        request.get_params[:searchfield] = 'titlename'
+      elsif isxn
+        request.get_params[:search] = isxn
+        request.get_params[:searchfield] = 'isxn'
+      elsif subject
+        request.get_params[:search] = subject
+        request.get_params[:searchfield] = 'subject'
+      elsif publisher
+        request.get_params[:search] = publisher
+        request.get_params[:searchfield] = 'publisher'
+      else
+        request.get_params[:search] = ''
+        request.get_params[:searchfield] = 'titlename'
+      end
+
       sort = request.get_params.delete(:sort)
       request.get_params[:orderby] =
         if sort == 'relevance'
@@ -47,14 +75,13 @@ class Resource < RmApiResource
         elsif sort == 'name'
           'titlename'
         else
-          request.get_params[:q] ? 'relevance' : 'titlename'
+          request.get_params[:search].present? ? 'relevance' : 'titlename'
         end
 
-      request.get_params[:search] = request.get_params.delete(:q) || ''
-      request.get_params[:searchfield] = 'titlename'
       request.get_params[:count] ||= 25
       request.get_params[:offset] = request.get_params[:page] || 1
       request.get_params.delete(:page)
+      request.get_params.delete(:q)
     end
   end
 

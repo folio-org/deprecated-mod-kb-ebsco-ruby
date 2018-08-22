@@ -27,7 +27,7 @@ http_interactions:
       Server:
       - nginx/1.13.5
       Date:
-      - Mon, 07 May 2018 09:10:21 GMT
+      - Fri, 24 Aug 2018 22:26:15 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -35,16 +35,16 @@ http_interactions:
       Connection:
       - keep-alive
       X-Okapi-Trace:
-      - 'GET mod-authtoken-1.4.1-SNAPSHOT.20 http://10.39.249.72:8081/configurations/entries..
-        : 202 1266us'
-      - 'GET mod-configuration-4.0.3-SNAPSHOT.29 http://10.39.252.104:8081/configurations/entries..
-        : 200 41169us'
+      - 'GET mod-authtoken-1.4.1-SNAPSHOT.21 http://10.39.255.17:8081/configurations/entries..
+        : 202 2142us'
+      - 'GET mod-configuration-4.0.4-SNAPSHOT.36 http://10.39.247.129:8081/configurations/entries..
+        : 200 46687us'
       Host:
       - okapi.frontside.io
       X-Real-Ip:
-      - 10.128.0.3
+      - 10.128.0.5
       X-Forwarded-For:
-      - 10.128.0.3
+      - 10.128.0.5
       X-Forwarded-Host:
       - okapi.frontside.io
       X-Forwarded-Port:
@@ -66,15 +66,11 @@ http_interactions:
       User-Agent:
       - Ruby
       X-Okapi-Request-Id:
-      - 468365/configurations
+      - 944341/configurations
       X-Okapi-Url:
-      - http://10.39.243.220:80
-      X-Okapi-Permissions-Required:
-      - configuration.entries.collection.get
-      X-Okapi-Module-Permissions:
-      - '{"mod-authtoken-1.4.1-SNAPSHOT.20":["perms.users.get"]}'
+      - http://10.39.254.87:80
       X-Okapi-Permissions:
-      - '["configuration.entries.collection.get"]'
+      - '["configuration.entries.collection.get","configuration.entries.collection.get"]'
       X-Okapi-User-Id:
       - 1ad737b0-d847-11e6-bf26-cec0c932ce01
       X-Okapi-Token:
@@ -86,7 +82,7 @@ http_interactions:
       string: |-
         {
           "configs" : [ {
-            "id" : "9f193b46-4cc5-4c99-b09f-374fe5415673",
+            "id" : "b5bac054-3b49-4a86-ab00-1f22e201cb63",
             "module" : "KB_EBSCO",
             "configName" : "api_credentials",
             "code" : "kb.ebsco.credentials",
@@ -94,9 +90,9 @@ http_interactions:
             "enabled" : true,
             "value" : "customer-id=TEST_CUSTOMER_ID&api-key=TEST_API_KEY",
             "metadata" : {
-              "createdDate" : "2018-03-28T14:49:56.794+0000",
+              "createdDate" : "2018-08-24T21:28:34.010+0000",
               "createdByUserId" : "1ad737b0-d847-11e6-bf26-cec0c932ce01",
-              "updatedDate" : "2018-03-28T14:49:56.794+0000",
+              "updatedDate" : "2018-08-24T21:28:34.010+0000",
               "updatedByUserId" : "1ad737b0-d847-11e6-bf26-cec0c932ce01"
             }
           } ],
@@ -107,7 +103,7 @@ http_interactions:
           }
         }
     http_version: 
-  recorded_at: Mon, 07 May 2018 09:10:21 GMT
+  recorded_at: Fri, 24 Aug 2018 22:26:15 GMT
 - request:
     method: get
     uri: https://api.ebsco.io/rm/rmaccounts/TEST_CUSTOMER_ID/vendors/19/packages/6581
@@ -139,26 +135,26 @@ http_interactions:
       Connection:
       - close
       Date:
-      - Mon, 07 May 2018 09:10:21 GMT
+      - Fri, 24 Aug 2018 22:26:15 GMT
       X-Amzn-Requestid:
-      - 785cf8b0-51d6-11e8-bdf9-05dd7e0ca087
+      - b6e19ed8-a7ec-11e8-9ee3-3131703e4e0a
       X-Amzn-Remapped-Connection:
       - keep-alive
       X-Amz-Apigw-Id:
-      - GgivrHiCIAMFteg=
+      - MJnhNF5AoAMFgdg=
       X-Amzn-Remapped-Date:
-      - Mon, 07 May 2018 09:10:21 GMT
+      - Fri, 24 Aug 2018 22:26:14 GMT
       X-Cache:
       - Miss from cloudfront
       Via:
-      - 1.1 e000b4829c397da077a65028075a32a8.cloudfront.net (CloudFront)
+      - 1.1 a7dda29620c2fec27c03f7bf6c406fc0.cloudfront.net (CloudFront)
       X-Amz-Cf-Id:
-      - hSutuzsaG2AIPR56LE4eRO8NFsOcDOrEaSLUNqB7ZLeDSCVSBU-H3Q==
+      - OEpImE1cIj_maYHA9fnoOMAvtpaqbU6T_IwkjWF0-iisvuPmhks_0A==
     body:
       encoding: UTF-8
-      string: '{"packageId":6581,"packageName":"EBSCO Biotechnology Collection: India","isCustom":false,"vendorId":19,"vendorName":"EBSCO","titleCount":157,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"AggregatedFullText","customCoverage":{"beginCoverage":"","endCoverage":""},"proxy":{"id":"<n>","inherited":true},"allowEbscoToAddTitles":false,"packageToken":null,"packageType":"Complete"}'
+      string: '{"packageId":6581,"packageName":"EBSCO Biotechnology Collection: India","isCustom":false,"vendorId":19,"vendorName":"EBSCO","titleCount":156,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"AggregatedFullText","customCoverage":{"beginCoverage":"","endCoverage":""},"proxy":{"id":"<n>","inherited":true},"allowEbscoToAddTitles":false,"packageToken":null,"packageType":"Complete"}'
     http_version: 
-  recorded_at: Mon, 07 May 2018 09:10:21 GMT
+  recorded_at: Fri, 24 Aug 2018 22:26:15 GMT
 - request:
     method: get
     uri: https://api.ebsco.io/rm/rmaccounts/TEST_CUSTOMER_ID/vendors/19/packages/6581
@@ -190,26 +186,26 @@ http_interactions:
       Connection:
       - close
       Date:
-      - Mon, 07 May 2018 09:10:22 GMT
+      - Fri, 24 Aug 2018 22:26:15 GMT
       X-Amzn-Requestid:
-      - 787b07b0-51d6-11e8-95eb-0594829a89ae
+      - b6fbb695-a7ec-11e8-9e11-e599e34215b8
       X-Amzn-Remapped-Connection:
       - keep-alive
       X-Amz-Apigw-Id:
-      - GgivsFSQoAMFVmA=
+      - MJnhOF8FIAMFmSQ=
       X-Amzn-Remapped-Date:
-      - Mon, 07 May 2018 09:10:22 GMT
+      - Fri, 24 Aug 2018 22:26:15 GMT
       X-Cache:
       - Miss from cloudfront
       Via:
-      - 1.1 9fbe771abcabdb4e14e7709f1f3c6e94.cloudfront.net (CloudFront)
+      - 1.1 da6fd4689552fc29462fc5d11b2e27dd.cloudfront.net (CloudFront)
       X-Amz-Cf-Id:
-      - 0EZPMXHmUnfa9GwxUy56vOtAcrdUe_GwVeQJyAlxuKjeku5c1yWKOg==
+      - iLVEjEFOn99C6yUF62z_yE8uGGEpjw3fVvrAS3pBgmH5BD4aOoCWlw==
     body:
       encoding: UTF-8
-      string: '{"packageId":6581,"packageName":"EBSCO Biotechnology Collection: India","isCustom":false,"vendorId":19,"vendorName":"EBSCO","titleCount":157,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"AggregatedFullText","customCoverage":{"beginCoverage":"","endCoverage":""},"proxy":{"id":"<n>","inherited":true},"allowEbscoToAddTitles":false,"packageToken":null,"packageType":"Complete"}'
+      string: '{"packageId":6581,"packageName":"EBSCO Biotechnology Collection: India","isCustom":false,"vendorId":19,"vendorName":"EBSCO","titleCount":156,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"AggregatedFullText","customCoverage":{"beginCoverage":"","endCoverage":""},"proxy":{"id":"<n>","inherited":true},"allowEbscoToAddTitles":false,"packageToken":null,"packageType":"Complete"}'
     http_version: 
-  recorded_at: Mon, 07 May 2018 09:10:22 GMT
+  recorded_at: Fri, 24 Aug 2018 22:26:15 GMT
 - request:
     method: get
     uri: https://api.ebsco.io/rm/rmaccounts/TEST_CUSTOMER_ID/vendors/19/packages/6581/titles?count=25&offset=1&orderby=relevance&resourcetype=all&search=bioworld%20week&searchfield=titlename&selection=all
@@ -218,7 +214,7 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - Flexirest/1.5.5
+      - Flexirest/1.7.0
       Connection:
       - Keep-Alive
       Accept:
@@ -237,19 +233,19 @@ http_interactions:
       Content-Type:
       - application/json; charset=utf-8
       Content-Length:
-      - '7208'
+      - '7216'
       Connection:
       - keep-alive
       Date:
-      - Mon, 07 May 2018 09:10:22 GMT
+      - Fri, 24 Aug 2018 22:26:16 GMT
       X-Amzn-Requestid:
-      - 789ff4d7-51d6-11e8-907b-f1afac2613ed
+      - b714e3ab-a7ec-11e8-9ee3-3131703e4e0a
       X-Amzn-Remapped-Content-Length:
-      - '7208'
+      - '7216'
       X-Amzn-Remapped-Connection:
       - keep-alive
       X-Amz-Apigw-Id:
-      - GgivvFPLoAMFlJw=
+      - MJnhQF6PoAMFgdg=
       X-Amzn-Remapped-Server:
       - Microsoft-IIS/8.5
       Cache-Control:
@@ -261,15 +257,15 @@ http_interactions:
       Pragma:
       - no-cache
       X-Amzn-Remapped-Date:
-      - Mon, 07 May 2018 09:10:22 GMT
+      - Fri, 24 Aug 2018 22:26:15 GMT
       X-Aspnet-Version:
       - 4.0.30319
       X-Cache:
       - Miss from cloudfront
       Via:
-      - 1.1 ebfea1c8ef298b6d415684e80825a277.cloudfront.net (CloudFront)
+      - 1.1 00ba471211aa4c63ba48b34111f64da1.cloudfront.net (CloudFront)
       X-Amz-Cf-Id:
-      - v2ueXZFsz6re0tBlRgsqxqsgwmLPxGYoFBLBuuZZHnZZLKmSqEN1TA==
+      - jkSgSacMJY-07UImhALxanXfd_ZYXVZVBTjLjBdN7HpxXbo3zrXBfA==
     body:
       encoding: UTF-8
       string: '{"totalResults":6,"titles":[{"titleId":10744,"titleName":"BioWorld
@@ -278,10 +274,7 @@ http_interactions:
         Biotechnology Collection: India","packageType":"Complete","isPackageCustom":false,"vendorId":19,"vendorName":"EBSCO","locationId":4829529,"isSelected":false,"isTokenNeeded":false,"visibilityData":{"isHidden":false,"reason":""},"managedCoverageList":[{"beginCoverage":"2007-04-02","endCoverage":"2011-09-26"}],"customCoverageList":[],"coverageStatement":null,"managedEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"customEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"url":"http://search.ebscohost.com/direct.asp?db=bti&jid=2SCO&scope=site","userDefinedField1":null,"userDefinedField2":null,"userDefinedField3":null,"userDefinedField4":null,"userDefinedField5":null}]},{"titleId":189749,"titleName":"BioWorld
         phase III report","publisherName":"AHC Media LLC","identifiersList":[{"id":"1931-9010","source":"ResourceIdentifier","subtype":1,"type":0},{"id":"2SCP","source":"MFS","subtype":0,"type":8},{"id":"189749","source":"AtoZ","subtype":0,"type":9}],"subjectsList":[{"type":"TLI","subject":"Biological
         Engineering"}],"isTitleCustom":false,"pubType":"Journal","customerResourcesList":[{"titleId":189749,"packageId":6581,"packageName":"EBSCO
-        Biotechnology Collection: India","packageType":"Complete","isPackageCustom":false,"vendorId":19,"vendorName":"EBSCO","locationId":4829600,"isSelected":false,"isTokenNeeded":false,"visibilityData":{"isHidden":false,"reason":""},"managedCoverageList":[{"beginCoverage":"2007-01-01","endCoverage":"2009-08-01"}],"customCoverageList":[],"coverageStatement":null,"managedEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"customEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"url":"http://search.ebscohost.com/direct.asp?db=bti&jid=2SCP&scope=site","userDefinedField1":null,"userDefinedField2":null,"userDefinedField3":null,"userDefinedField4":null,"userDefinedField5":null}]},{"titleId":530257,"titleName":"BioWorld
-        Insight","publisherName":"Reuters","identifiersList":[{"id":"95A0","source":"MFS","subtype":0,"type":8},{"id":"530257","source":"AtoZ","subtype":0,"type":9}],"subjectsList":[{"type":"TLI","subject":"Life
-        Sciences"}],"isTitleCustom":false,"pubType":"Journal","customerResourcesList":[{"titleId":530257,"packageId":6581,"packageName":"EBSCO
-        Biotechnology Collection: India","packageType":"Complete","isPackageCustom":false,"vendorId":19,"vendorName":"EBSCO","locationId":4829567,"isSelected":false,"isTokenNeeded":false,"visibilityData":{"isHidden":false,"reason":""},"managedCoverageList":[{"beginCoverage":"2012-01-03","endCoverage":"2016-03-28"}],"customCoverageList":[],"coverageStatement":null,"managedEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"customEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"url":"http://search.ebscohost.com/direct.asp?db=bti&jid=95A0&scope=site","userDefinedField1":null,"userDefinedField2":null,"userDefinedField3":null,"userDefinedField4":null,"userDefinedField5":null}]},{"titleId":10741,"titleName":"Bioworld
+        Biotechnology Collection: India","packageType":"Complete","isPackageCustom":false,"vendorId":19,"vendorName":"EBSCO","locationId":4829600,"isSelected":false,"isTokenNeeded":false,"visibilityData":{"isHidden":false,"reason":""},"managedCoverageList":[{"beginCoverage":"2007-01-01","endCoverage":"2009-08-01"}],"customCoverageList":[],"coverageStatement":null,"managedEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"customEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"url":"http://search.ebscohost.com/direct.asp?db=bti&jid=2SCP&scope=site","userDefinedField1":null,"userDefinedField2":null,"userDefinedField3":null,"userDefinedField4":null,"userDefinedField5":null}]},{"titleId":10741,"titleName":"Bioworld
         financial watch","publisherName":"AHC Media LLC","identifiersList":[{"id":"1541-0579","source":"ResourceIdentifier","subtype":1,"type":0},{"id":"0964-4199","source":"ResourceIdentifier","subtype":7,"type":0},{"id":"FW8","source":"MFS","subtype":0,"type":8},{"id":"10741","source":"AtoZ","subtype":0,"type":9}],"subjectsList":[{"type":"TLI","subject":"Public
         Finance"}],"isTitleCustom":false,"pubType":"Newsletter","customerResourcesList":[{"titleId":10741,"packageId":6581,"packageName":"EBSCO
         Biotechnology Collection: India","packageType":"Complete","isPackageCustom":false,"vendorId":19,"vendorName":"EBSCO","locationId":4829527,"isSelected":false,"isTokenNeeded":false,"visibilityData":{"isHidden":false,"reason":""},"managedCoverageList":[{"beginCoverage":"2007-03-05","endCoverage":"2009-06-01"}],"customCoverageList":[],"coverageStatement":null,"managedEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"customEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"url":"http://search.ebscohost.com/direct.asp?db=bti&jid=FW8&scope=site","userDefinedField1":null,"userDefinedField2":null,"userDefinedField3":null,"userDefinedField4":null,"userDefinedField5":null}]},{"titleId":10742,"titleName":"BioWorld
@@ -289,7 +282,10 @@ http_interactions:
         Sciences"}],"isTitleCustom":false,"pubType":"Journal","customerResourcesList":[{"titleId":10742,"packageId":6581,"packageName":"EBSCO
         Biotechnology Collection: India","packageType":"Complete","isPackageCustom":false,"vendorId":19,"vendorName":"EBSCO","locationId":4829528,"isSelected":false,"isTokenNeeded":false,"visibilityData":{"isHidden":false,"reason":""},"managedCoverageList":[{"beginCoverage":"2012-01-04","endCoverage":"2013-10-23"}],"customCoverageList":[],"coverageStatement":null,"managedEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"customEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"url":"http://search.ebscohost.com/direct.asp?db=bti&jid=2SCN&scope=site","userDefinedField1":null,"userDefinedField2":null,"userDefinedField3":null,"userDefinedField4":null,"userDefinedField5":null}]},{"titleId":10743,"titleName":"BioWorld
         today","publisherName":"Thomson Reuters","identifiersList":[{"id":"1541-0595","source":"ResourceIdentifier","subtype":1,"type":0},{"id":"0265-6973","source":"ResourceIdentifier","subtype":7,"type":0},{"id":"123780827","source":"ResourceIdentifier","subtype":0,"type":3},{"id":"108124","source":"ResourceIdentifier","subtype":0,"type":4},{"id":"9AC","source":"MFS","subtype":0,"type":8},{"id":"10743","source":"AtoZ","subtype":0,"type":9}],"subjectsList":[{"type":"TLI","subject":"Biotechnology"}],"isTitleCustom":false,"pubType":"Journal","customerResourcesList":[{"titleId":10743,"packageId":6581,"packageName":"EBSCO
-        Biotechnology Collection: India","packageType":"Complete","isPackageCustom":false,"vendorId":19,"vendorName":"EBSCO","locationId":4829617,"isSelected":false,"isTokenNeeded":false,"visibilityData":{"isHidden":false,"reason":""},"managedCoverageList":[{"beginCoverage":"2012-01-03","endCoverage":"2014-02-25"}],"customCoverageList":[],"coverageStatement":null,"managedEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"customEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"url":"http://search.ebscohost.com/direct.asp?db=bti&jid=9AC&scope=site","userDefinedField1":null,"userDefinedField2":null,"userDefinedField3":null,"userDefinedField4":null,"userDefinedField5":null}]}]}'
+        Biotechnology Collection: India","packageType":"Complete","isPackageCustom":false,"vendorId":19,"vendorName":"EBSCO","locationId":4829617,"isSelected":false,"isTokenNeeded":false,"visibilityData":{"isHidden":false,"reason":""},"managedCoverageList":[{"beginCoverage":"2012-01-03","endCoverage":"2014-02-25"}],"customCoverageList":[],"coverageStatement":null,"managedEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"customEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"url":"http://search.ebscohost.com/direct.asp?db=bti&jid=9AC&scope=site","userDefinedField1":null,"userDefinedField2":null,"userDefinedField3":null,"userDefinedField4":null,"userDefinedField5":null}]},{"titleId":530257,"titleName":"BioWorld
+        Insight","publisherName":"Thomson Reuters","identifiersList":[{"id":"95A0","source":"MFS","subtype":0,"type":8},{"id":"530257","source":"AtoZ","subtype":0,"type":9}],"subjectsList":[{"type":"TLI","subject":"Life
+        Sciences"}],"isTitleCustom":false,"pubType":"Journal","customerResourcesList":[{"titleId":530257,"packageId":6581,"packageName":"EBSCO
+        Biotechnology Collection: India","packageType":"Complete","isPackageCustom":false,"vendorId":19,"vendorName":"EBSCO","locationId":4829567,"isSelected":false,"isTokenNeeded":false,"visibilityData":{"isHidden":false,"reason":""},"managedCoverageList":[{"beginCoverage":"2012-01-03","endCoverage":"2016-03-28"}],"customCoverageList":[],"coverageStatement":null,"managedEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"customEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"url":"http://search.ebscohost.com/direct.asp?db=bti&jid=95A0&scope=site","userDefinedField1":null,"userDefinedField2":null,"userDefinedField3":null,"userDefinedField4":null,"userDefinedField5":null}]}]}'
     http_version: 
-  recorded_at: Mon, 07 May 2018 09:10:22 GMT
+  recorded_at: Fri, 24 Aug 2018 22:26:16 GMT
 recorded_with: VCR 3.0.3
