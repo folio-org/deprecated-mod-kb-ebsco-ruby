@@ -4,6 +4,7 @@ class DeserializablePackage < JSONAPI::Deserializable::Resource
   attributes :allowKbToAddTitles,
              :contentType,
              :customCoverage,
+             :packageToken,
              :isSelected,
              :visibilityData,
              :proxy,

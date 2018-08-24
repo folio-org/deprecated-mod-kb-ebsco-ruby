@@ -310,6 +310,61 @@ RSpec.describe 'Packages', type: :request do
     end
   end
 
+  describe 'getting a specific package that has a package token' do
+    before do
+      VCR.use_cassette('get-packages-success-with-package-token') do
+        get '/eholdings/packages/18-343', headers: okapi_headers
+      end
+    end
+
+    let!(:json) { Map JSON.parse response.body }
+
+    it 'gets the resource' do
+      expect(response).to have_http_status(200)
+      expect(json.data.type).to eq('packages')
+      expect(json.data.id).to eq('18-343')
+      expect(json.data.attributes).to include(
+        'name',
+        'proxy',
+        'contentType',
+        'titleCount',
+        'selectedCount',
+        'customCoverage',
+        'visibilityData',
+        'isSelected',
+        'vendorName',
+        'isCustom',
+        'packageType',
+        'allowKbToAddTitles',
+        'packageToken'
+      )
+      expect(json.data.attributes.vendorId).to eq(18)
+      expect(json.data.attributes.packageId).to eq(343)
+    end
+
+    it 'returns package token' do
+      expect(json.data.attributes.packageToken.factName).to eq('[[gale.customcode.infocust]]')
+      expect(json.data.attributes.packageToken.helpText).not_to be_empty
+      expect(json.data.attributes.packageToken.value).to eq('test package token again with Mohan again test again')
+      expect(json.data.attributes.packageToken.prompt).to eq('res_id=info:sid/gale:')
+    end
+
+    describe 'getting a package with invalid package id' do
+      before do
+        VCR.use_cassette('get-package-missing-package-id-in-url') do
+          get '/eholdings/packages/19', headers: okapi_headers
+        end
+      end
+
+      let!(:json_f) { Map JSON.parse response.body }
+
+      it 'returns a bad request error' do
+        expect(response).to have_http_status(400)
+        expect(json_f.errors.first.title).to eql('Package and provider id are required')
+      end
+    end
+  end
+
   describe 'getting a specific package with allow add titles' do
     before do
       VCR.use_cassette('get-package-allow-add-titles') do
@@ -909,6 +964,156 @@ RSpec.describe 'Packages', type: :request do
         it 'has proxy value with inherited false' do
           expect(json.data.attributes.proxy.id).to eq('TestingFolio')
           expect(json.data.attributes.proxy.inherited).to be false
+        end
+      end
+
+      ## RM API has a known issue with updating certain packages by providing complete payload in update
+      ## So, not using complete payload for tests now. We should another test with complete payload after RM API fixes issue on their end
+      describe 'updating package token with partial payload' do
+        let(:params) do
+          {
+            "data": {
+              "type": 'packages',
+              "attributes": {
+                "isSelected": true,
+                "packageToken": {
+                  "value": 'test package token update'
+                }
+              }
+            }
+          }
+        end
+
+        before do
+          VCR.use_cassette('put-packages-isselected-update-package-token') do
+            put '/eholdings/packages/18-343',
+                params: params, as: :json, headers: update_headers
+          end
+        end
+
+        it 'responds with an ok status' do
+          expect(response).to have_http_status(200)
+        end
+
+        let!(:json) { Map JSON.parse response.body }
+
+        it 'is selected' do
+          expect(json.data.attributes.isSelected).to be true
+        end
+
+        it 'has package token with expected value' do
+          expect(json.data.attributes.packageToken.factName).to eq('[[gale.customcode.infocust]]')
+          expect(json.data.attributes.packageToken.value).to eq('test package token update')
+          expect(json.data.attributes.packageToken.prompt).to eq('res_id=info:sid/gale:')
+        end
+      end
+
+      describe 'updating package token with empty string' do
+        let(:params) do
+          {
+            "data": {
+              "type": 'packages',
+              "attributes": {
+                "isSelected": true,
+                "packageToken": {
+                  "value": ''
+                }
+              }
+            }
+          }
+        end
+
+        before do
+          VCR.use_cassette('put-packages-isselected-update-package-token-empty-string') do
+            put '/eholdings/packages/18-343',
+                params: params, as: :json, headers: update_headers
+          end
+        end
+
+        it 'responds with an ok status' do
+          expect(response).to have_http_status(200)
+        end
+
+        let!(:json) { Map JSON.parse response.body }
+
+        it 'is selected' do
+          expect(json.data.attributes.isSelected).to be true
+        end
+
+        it 'has package token with expected value' do
+          expect(json.data.attributes.packageToken.value).to be(nil)
+          expect(json.data.attributes.packageToken.factName).to eq('[[gale.customcode.infocust]]')
+          expect(json.data.attributes.packageToken.prompt).to eq('res_id=info:sid/gale:')
+        end
+      end
+
+      describe 'updating package without a package token' do
+        let(:params) do
+          {
+            "data": {
+              "type": 'packages',
+              "attributes": {
+                "isSelected": true
+              }
+            }
+          }
+        end
+
+        before do
+          VCR.use_cassette('put-packages-isselected-update-without-package-token') do
+            put '/eholdings/packages/18-343',
+                params: params, as: :json, headers: update_headers
+          end
+        end
+
+        it 'responds with an ok status' do
+          expect(response).to have_http_status(200)
+        end
+
+        let!(:json) { Map JSON.parse response.body }
+
+        it 'is selected' do
+          expect(json.data.attributes.isSelected).to be true
+        end
+
+        it 'has nil package token' do
+          expect(json.data.attributes.packageToken.value).to be(nil)
+          expect(json.data.attributes.packageToken.factName).to eq('[[gale.customcode.infocust]]')
+          expect(json.data.attributes.packageToken.prompt).to eq('res_id=info:sid/gale:')
+        end
+      end
+
+      describe 'updating package with unsupported lengthy package token' do
+        let(:largeToken) { '0' * 501 }
+
+        let(:params) do
+          {
+            "data": {
+              "type": 'packages',
+              "attributes": {
+                "isSelected": true,
+                "packageToken": {
+                  "value": largeToken
+                }
+              }
+            }
+          }
+        end
+
+        before do
+          VCR.use_cassette('put-packages-isselected-update-with-lengthy-package-token') do
+            put '/eholdings/packages/18-343',
+                params: params, as: :json, headers: update_headers
+          end
+        end
+
+        let!(:json) { Map JSON.parse response.body }
+        it 'responds with an error status' do
+          expect(response).to have_http_status(422)
+        end
+
+        it 'gives expected error message' do
+          expect(json.errors.first.title).to eql('Invalid value')
         end
       end
 

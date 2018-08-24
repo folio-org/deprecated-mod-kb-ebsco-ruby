@@ -7,7 +7,7 @@ module Validation
     include ActiveModel::Validations
 
     attr_accessor :isSelected, :isHidden, :allowEbscoToAddTitles,
-                  :beginCoverage, :endCoverage
+                  :beginCoverage, :endCoverage, :value
 
     # Deselected packages cannot be customized.  Though the UI is smart enough
     # to keep this from happening, a manual request to the API could lead
@@ -18,8 +18,10 @@ module Validation
       validates :isHidden, absence: true, unless: :isSelected
       validates :beginCoverage, absence: true, unless: :isSelected
       validates :endCoverage, absence: true, unless: :isSelected
+      validates :value, absence: true, unless: :isSelected
     end
 
+    validates :value, length: { maximum: 500 }
     validate :begin_coverage_valid_date_format?, unless: -> { beginCoverage.blank? }
     validate :end_coverage_valid_date_format?, unless: -> { endCoverage.blank? }
 
@@ -49,6 +51,7 @@ module Validation
       @isHidden = params.dig(:visibilityData, :isHidden)
       @beginCoverage = params.dig(:customCoverage, :beginCoverage)
       @endCoverage = params.dig(:customCoverage, :endCoverage)
+      @value = params.dig(:packageToken, :value)
     end
   end
 end

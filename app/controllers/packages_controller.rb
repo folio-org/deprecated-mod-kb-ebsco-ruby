@@ -103,6 +103,7 @@ class PackagesController < ApplicationController
         :isSelected,
         :allowKbToAddTitles,
         proxy: %i[id inherited],
+        packageToken: [:value],
         visibilityData: [:isHidden],
         customCoverage: %i[beginCoverage endCoverage]
       )
@@ -114,7 +115,7 @@ class PackagesController < ApplicationController
 
   def package_update_params
     if package.is_custom
-      package_params
+      package_params.except(:packageToken)
     else
       package_params.except(:name, :contentType)
     end

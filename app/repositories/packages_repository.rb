@@ -42,6 +42,7 @@ class PackagesRepository < RmapiRepository
 
     payload = attrs.to_hash.deep_symbolize_keys
     payload[:allowEbscoToAddTitles] = payload.delete(:allowKbToAddTitles)
+    payload[:packageToken] = payload.delete(:packageToken)
     payload[:isHidden] = payload.dig(:visibilityData, :isHidden)
     payload.delete(:visibilityData)
     content_type_enum = {
