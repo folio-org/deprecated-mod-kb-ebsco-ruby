@@ -27,12 +27,6 @@ class Resource < RmApiResource
         fail ActionController::BadRequest, 'Invalid filter parameter'
       end
 
-      querykeys = filters.keys & %w[name isxn subject publisher]
-
-      unless querykeys.size <= 1
-        fail ActionController::BadRequest, 'Conflicting filter parameters'
-      end
-
       request.get_params[:selection] =
         if filters[:selected] == 'true'
           'selected'
