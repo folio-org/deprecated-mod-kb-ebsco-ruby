@@ -75,7 +75,6 @@ class Resource < RmApiResource
       request.get_params[:count] ||= 25
       request.get_params[:offset] = request.get_params[:page] || 1
       request.get_params.delete(:page)
-      request.get_params.delete(:q)
     end
   end
 
