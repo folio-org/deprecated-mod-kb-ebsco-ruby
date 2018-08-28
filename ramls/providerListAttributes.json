@@ -20,7 +20,7 @@
       "example": 49
     },
     "providerToken": {
-      "type": {"type": ["object", "null"]},
+      "type": "object",
       "description": "Provider token",
       "$ref": "providerToken.json"
     },
