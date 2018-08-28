@@ -275,4 +275,73 @@ http_interactions:
         Biotechnology Collection: India","packageType":"Complete","isPackageCustom":false,"vendorId":19,"vendorName":"EBSCO","locationId":4829613,"isSelected":false,"isTokenNeeded":false,"visibilityData":{"isHidden":false,"reason":""},"managedCoverageList":[{"beginCoverage":"2008-12-01","endCoverage":""}],"customCoverageList":[],"coverageStatement":null,"managedEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"customEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"url":"http://search.ebscohost.com/direct.asp?db=bti&jid=97C7&scope=site","userDefinedField1":null,"userDefinedField2":null,"userDefinedField3":null,"userDefinedField4":null,"userDefinedField5":null}]}]}'
     http_version: 
   recorded_at: Fri, 24 Aug 2018 22:26:14 GMT
+- request:
+    method: get
+    uri: https://api.ebsco.io/rm/rmaccounts/TEST_CUSTOMER_ID/vendors/19/packages/6581/titles?count=25&offset=1&orderby=relevance&q=&resourcetype=all&search=acta&searchfield=titlename&selection=all
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Flexirest/1.7.0
+      Connection:
+      - Keep-Alive
+      Accept:
+      - application/json
+      X-Api-Key:
+      - TEST_API_KEY
+      Content-Type:
+      - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '1298'
+      Connection:
+      - keep-alive
+      Date:
+      - Tue, 28 Aug 2018 19:53:12 GMT
+      X-Amzn-Requestid:
+      - fe619073-aafb-11e8-b0b0-2d66a9a6f00b
+      X-Amzn-Remapped-Content-Length:
+      - '1298'
+      X-Amzn-Remapped-Connection:
+      - keep-alive
+      X-Amz-Apigw-Id:
+      - MWc2MHdxIAMFVTQ=
+      X-Amzn-Remapped-Server:
+      - Microsoft-IIS/8.5
+      Cache-Control:
+      - no-cache
+      Expires:
+      - "-1"
+      X-Powered-By:
+      - ASP.NET
+      Pragma:
+      - no-cache
+      X-Amzn-Remapped-Date:
+      - Tue, 28 Aug 2018 19:53:10 GMT
+      X-Aspnet-Version:
+      - 4.0.30319
+      X-Cache:
+      - Miss from cloudfront
+      Via:
+      - 1.1 a7dda29620c2fec27c03f7bf6c406fc0.cloudfront.net (CloudFront)
+      X-Amz-Cf-Id:
+      - yQer3-_rkbwZ00pFzpYF0JenlCpLp1cIcFih6ul3j2sxwpEccMT4Bw==
+    body:
+      encoding: UTF-8
+      string: '{"totalResults":1,"titles":[{"titleId":581242,"titleName":"Acta Scientiarum
+        Polonorum. Biotechnologia","publisherName":"Wroclaw University of Environmental
+        & Life Sciences","identifiersList":[{"id":"1644-065X","source":"ResourceIdentifier","subtype":1,"type":0},{"id":"2083-8654","source":"ResourceIdentifier","subtype":2,"type":0},{"id":"97C7","source":"MFS","subtype":0,"type":8},{"id":"581242","source":"AtoZ","subtype":0,"type":9}],"subjectsList":[{"type":"TLI","subject":"Biological
+        Engineering"}],"isTitleCustom":false,"pubType":"Journal","customerResourcesList":[{"titleId":581242,"packageId":6581,"packageName":"EBSCO
+        Biotechnology Collection: India","packageType":"Complete","isPackageCustom":false,"vendorId":19,"vendorName":"EBSCO","locationId":4829613,"isSelected":false,"isTokenNeeded":false,"visibilityData":{"isHidden":false,"reason":""},"managedCoverageList":[{"beginCoverage":"2008-12-01","endCoverage":""}],"customCoverageList":[],"coverageStatement":null,"managedEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"customEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"url":"http://search.ebscohost.com/direct.asp?db=bti&jid=97C7&scope=site","userDefinedField1":null,"userDefinedField2":null,"userDefinedField3":null,"userDefinedField4":null,"userDefinedField5":null}]}]}'
+    http_version: 
+  recorded_at: Tue, 28 Aug 2018 19:53:12 GMT
 recorded_with: VCR 3.0.3

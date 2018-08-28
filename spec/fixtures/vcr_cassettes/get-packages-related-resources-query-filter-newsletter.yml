@@ -277,4 +277,75 @@ http_interactions:
         Biotechnology Collection: India","packageType":"Complete","isPackageCustom":false,"vendorId":19,"vendorName":"EBSCO","locationId":4829529,"isSelected":false,"isTokenNeeded":false,"visibilityData":{"isHidden":false,"reason":""},"managedCoverageList":[{"beginCoverage":"2007-04-02","endCoverage":"2011-09-26"}],"customCoverageList":[],"coverageStatement":null,"managedEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"customEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"url":"http://search.ebscohost.com/direct.asp?db=bti&jid=2SCO&scope=site","userDefinedField1":null,"userDefinedField2":null,"userDefinedField3":null,"userDefinedField4":null,"userDefinedField5":null}]}]}'
     http_version: 
   recorded_at: Fri, 24 Aug 2018 22:26:15 GMT
+- request:
+    method: get
+    uri: https://api.ebsco.io/rm/rmaccounts/TEST_CUSTOMER_ID/vendors/19/packages/6581/titles?count=25&offset=1&orderby=relevance&q=&resourcetype=newsletter&search=bioworld&searchfield=titlename&selection=all
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Flexirest/1.7.0
+      Connection:
+      - Keep-Alive
+      Accept:
+      - application/json
+      X-Api-Key:
+      - TEST_API_KEY
+      Content-Type:
+      - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '2515'
+      Connection:
+      - keep-alive
+      Date:
+      - Tue, 28 Aug 2018 19:53:12 GMT
+      X-Amzn-Requestid:
+      - fefd5b58-aafb-11e8-9a8d-65fe833b8b49
+      X-Amzn-Remapped-Content-Length:
+      - '2515'
+      X-Amzn-Remapped-Connection:
+      - keep-alive
+      X-Amz-Apigw-Id:
+      - MWc2WGJyoAMF6Rw=
+      X-Amzn-Remapped-Server:
+      - Microsoft-IIS/8.5
+      Cache-Control:
+      - no-cache
+      Expires:
+      - "-1"
+      X-Powered-By:
+      - ASP.NET
+      Pragma:
+      - no-cache
+      X-Amzn-Remapped-Date:
+      - Tue, 28 Aug 2018 19:53:10 GMT
+      X-Aspnet-Version:
+      - 4.0.30319
+      X-Cache:
+      - Miss from cloudfront
+      Via:
+      - 1.1 a6a098cdc333f9948baa2a00729f4f25.cloudfront.net (CloudFront)
+      X-Amz-Cf-Id:
+      - zi4WId8Qt5AEz_HDSz75SV8XUDyw0AupUJoIKa9TCx2eo9d4HrPU6A==
+    body:
+      encoding: UTF-8
+      string: '{"totalResults":2,"titles":[{"titleId":10741,"titleName":"Bioworld
+        financial watch","publisherName":"AHC Media LLC","identifiersList":[{"id":"1541-0579","source":"ResourceIdentifier","subtype":1,"type":0},{"id":"0964-4199","source":"ResourceIdentifier","subtype":7,"type":0},{"id":"FW8","source":"MFS","subtype":0,"type":8},{"id":"10741","source":"AtoZ","subtype":0,"type":9}],"subjectsList":[{"type":"TLI","subject":"Public
+        Finance"}],"isTitleCustom":false,"pubType":"Newsletter","customerResourcesList":[{"titleId":10741,"packageId":6581,"packageName":"EBSCO
+        Biotechnology Collection: India","packageType":"Complete","isPackageCustom":false,"vendorId":19,"vendorName":"EBSCO","locationId":4829527,"isSelected":false,"isTokenNeeded":false,"visibilityData":{"isHidden":false,"reason":""},"managedCoverageList":[{"beginCoverage":"2007-03-05","endCoverage":"2009-06-01"}],"customCoverageList":[],"coverageStatement":null,"managedEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"customEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"url":"http://search.ebscohost.com/direct.asp?db=bti&jid=FW8&scope=site","userDefinedField1":null,"userDefinedField2":null,"userDefinedField3":null,"userDefinedField4":null,"userDefinedField5":null}]},{"titleId":10744,"titleName":"BioWorld
+        week","publisherName":"AHC Media LLC","identifiersList":[{"id":"1932-7765","source":"ResourceIdentifier","subtype":1,"type":0},{"id":"0840-9153","source":"ResourceIdentifier","subtype":7,"type":0},{"id":"1612-4804","source":"ResourceIdentifier","subtype":7,"type":0},{"id":"2SCO","source":"MFS","subtype":0,"type":8},{"id":"10744","source":"AtoZ","subtype":0,"type":9}],"subjectsList":[{"type":"TLI","subject":"Life
+        Sciences"}],"isTitleCustom":false,"pubType":"Newsletter","customerResourcesList":[{"titleId":10744,"packageId":6581,"packageName":"EBSCO
+        Biotechnology Collection: India","packageType":"Complete","isPackageCustom":false,"vendorId":19,"vendorName":"EBSCO","locationId":4829529,"isSelected":false,"isTokenNeeded":false,"visibilityData":{"isHidden":false,"reason":""},"managedCoverageList":[{"beginCoverage":"2007-04-02","endCoverage":"2011-09-26"}],"customCoverageList":[],"coverageStatement":null,"managedEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"customEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"url":"http://search.ebscohost.com/direct.asp?db=bti&jid=2SCO&scope=site","userDefinedField1":null,"userDefinedField2":null,"userDefinedField3":null,"userDefinedField4":null,"userDefinedField5":null}]}]}'
+    http_version: 
+  recorded_at: Tue, 28 Aug 2018 19:53:12 GMT
 recorded_with: VCR 3.0.3

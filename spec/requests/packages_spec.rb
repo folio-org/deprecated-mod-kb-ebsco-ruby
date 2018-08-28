@@ -509,11 +509,11 @@ RSpec.describe 'Packages', type: :request do
     let!(:json) { Map JSON.parse response.body }
 
     it 'responds with a list of resources' do
-      expect(json.data.length).to eq(9)
+      expect(json.data.length).to eq(11)
     end
 
     it 'does not return identifiers for the resources' do
-      expect(json.data.first.attributes.identifiers.length).to eq(0)
+      expect(json.data.first.attributes.identifiers.length).to eq(3)
     end
 
     it 'returns the correct included type' do
