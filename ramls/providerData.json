@@ -1,0 +1,23 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "Provider data Schema",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "ID of provider",
+      "example": "123355"
+    },
+    "type": {
+      "type": "string",
+      "description": "Type of data resource",
+      "example": "providers"
+    },
+    "attributes": {
+      "type": "object",
+      "description": "Attributes supported in Provider Request object",
+      "$ref": "providerPutDataAttributes.json"
+    }
+  }
+}

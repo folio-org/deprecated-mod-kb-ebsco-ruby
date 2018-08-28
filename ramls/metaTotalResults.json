@@ -1,0 +1,16 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "Metadata total results Schema",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "totalResults": {
+      "type": "integer",
+      "description": "Total number of results",
+      "example": 2
+    }
+  },
+  "required": [
+    "totalResults"
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "Provider Response Schema",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "data": {
+      "type": "object",
+      "description": "Provider Data",
+      "$ref": "providerResponseData.json"
+    },
+    "jsonapi": {
+      "type": "object",
+      "description": "json api",
+      "$ref": "jsonapi.json"
+    }
+  }
+}

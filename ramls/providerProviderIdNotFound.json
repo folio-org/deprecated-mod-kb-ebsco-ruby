@@ -1,0 +1,36 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "description": "Schema for Provider",
+  "type": "object",
+  "properties": {
+    "data": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "description": "Unique ID of this provider",
+          "type": "string"
+        },
+        "type": {
+          "description": "Type of this resource",
+          "type": "string"
+        },
+        "attributes": {
+          "description": "Attributes",
+          "type": "string"
+        },
+        "relationships": {
+          "description": "relationships",
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "type",
+        "attributes"
+      ]
+    }
+  },
+  "required": [
+    "data"
+  ]
+}

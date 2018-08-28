@@ -1,0 +1,18 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "Provider data Schema",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "providerToken": {
+      "type": "object",
+      "description": "Provider Token",
+      "$ref": "providerToken.json"
+    },
+    "proxy": {
+      "type": "object",
+      "description": "Provider Proxy",
+      "$ref": "proxy.json"
+    }
+  }
+}
