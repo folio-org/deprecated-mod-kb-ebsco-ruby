@@ -483,6 +483,9 @@ RSpec.describe 'Packages', type: :request do
 
         let!(:json_query_with_name_sort) { Map JSON.parse response.body }
 
+        # We are currently going to set this expectation to 'pending'
+        # this test is something we want to run but after the issues
+        # on RMAPI get resolved
         xit 'returns a list sorted by name' do
           expect(response).to have_http_status(200)
           sorted_array = json_query_with_name_sort.data.sort_by do |p|
