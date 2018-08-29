@@ -350,4 +350,97 @@ http_interactions:
         on or after 6/1/1992","managedEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"customEmbargoPeriod":{"embargoUnit":"Days","embargoValue":1},"url":"http://www.ebsco.com","userDefinedField1":"String1","userDefinedField2":"String2","userDefinedField3":"String3","userDefinedField4":"String4","userDefinedField5":"String5"}]}]}'
     http_version: 
   recorded_at: Mon, 07 May 2018 09:10:28 GMT
+- request:
+    method: get
+    uri: https://api.ebsco.io/rm/rmaccounts/TEST_CUSTOMER_ID/vendors/123355/packages/2723775/titles?count=25&offset=1&orderby=titlename&q=&resourcetype=all&search=&searchfield=titlename&selection=all
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Flexirest/1.7.0
+      Connection:
+      - Keep-Alive
+      Accept:
+      - application/json
+      X-Api-Key:
+      - TEST_API_KEY
+      Content-Type:
+      - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '10735'
+      Connection:
+      - keep-alive
+      Date:
+      - Tue, 28 Aug 2018 19:53:13 GMT
+      X-Amzn-Requestid:
+      - ff861314-aafb-11e8-81e8-6f29fd28929f
+      X-Amzn-Remapped-Content-Length:
+      - '10735'
+      X-Amzn-Remapped-Connection:
+      - keep-alive
+      X-Amz-Apigw-Id:
+      - MWc2fGAwoAMFZmA=
+      X-Amzn-Remapped-Server:
+      - Microsoft-IIS/8.5
+      Cache-Control:
+      - no-cache
+      Expires:
+      - "-1"
+      X-Powered-By:
+      - ASP.NET
+      Pragma:
+      - no-cache
+      X-Amzn-Remapped-Date:
+      - Tue, 28 Aug 2018 19:53:12 GMT
+      X-Aspnet-Version:
+      - 4.0.30319
+      X-Cache:
+      - Miss from cloudfront
+      Via:
+      - 1.1 a170a9e8f9393700a8de4715a0943846.cloudfront.net (CloudFront)
+      X-Amz-Cf-Id:
+      - HjLMeE_XEN-EKNQ5DnBt4byKv_qppNyJvzoQUAu0L35VwidbWewPkw==
+    body:
+      encoding: UTF-8
+      string: '{"totalResults":11,"titles":[{"titleId":3208295,"titleName":"Carole
+        King 20 Success Facts - Everything You Need to Know About Carole King","publisherName":"Emereo
+        Publishing","identifiersList":[{"id":"978-1-4885-9703-9","source":"ResourceIdentifier","subtype":2,"type":1},{"id":"831768","source":"ResourceIdentifier","subtype":0,"type":7},{"id":"2814566","source":"AtoZ","subtype":0,"type":9}],"subjectsList":null,"isTitleCustom":false,"pubType":"Book","customerResourcesList":[{"titleId":3208295,"packageId":2723775,"packageName":"TEST_CUSTOMER_ID-live-custompackage","packageType":"Custom","isPackageCustom":true,"vendorId":123355,"vendorName":"API
+        DEV CORPORATE CUSTOMER","locationId":0,"isSelected":true,"isTokenNeeded":false,"visibilityData":{"isHidden":false,"reason":""},"managedCoverageList":[],"customCoverageList":[],"coverageStatement":null,"managedEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"customEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"url":null,"userDefinedField1":null,"userDefinedField2":null,"userDefinedField3":null,"userDefinedField4":null,"userDefinedField5":null}]},{"titleId":17059813,"titleName":"custom-title-multi-packages","publisherName":null,"identifiersList":null,"subjectsList":null,"isTitleCustom":true,"pubType":"Book","customerResourcesList":[{"titleId":17059813,"packageId":2723775,"packageName":"TEST_CUSTOMER_ID-live-custompackage","packageType":"Custom","isPackageCustom":true,"vendorId":123355,"vendorName":"API
+        DEV CORPORATE CUSTOMER","locationId":0,"isSelected":true,"isTokenNeeded":false,"visibilityData":{"isHidden":false,"reason":""},"managedCoverageList":[],"customCoverageList":[],"coverageStatement":null,"managedEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"customEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"url":null,"userDefinedField1":null,"userDefinedField2":null,"userDefinedField3":null,"userDefinedField4":null,"userDefinedField5":null}]},{"titleId":17063795,"titleName":"custom-title-multi-packages2","publisherName":null,"identifiersList":null,"subjectsList":null,"isTitleCustom":true,"pubType":"Book","customerResourcesList":[{"titleId":17063795,"packageId":2723775,"packageName":"TEST_CUSTOMER_ID-live-custompackage","packageType":"Custom","isPackageCustom":true,"vendorId":123355,"vendorName":"API
+        DEV CORPORATE CUSTOMER","locationId":0,"isSelected":true,"isTokenNeeded":false,"visibilityData":{"isHidden":false,"reason":""},"managedCoverageList":[],"customCoverageList":[],"coverageStatement":null,"managedEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"customEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"url":null,"userDefinedField1":null,"userDefinedField2":null,"userDefinedField3":null,"userDefinedField4":null,"userDefinedField5":null}]},{"titleId":16901088,"titleName":"Mobile
+        Access","publisherName":null,"identifiersList":null,"subjectsList":null,"isTitleCustom":true,"pubType":"Unspecified","customerResourcesList":[{"titleId":16901088,"packageId":2723775,"packageName":"TEST_CUSTOMER_ID-live-custompackage","packageType":"Custom","isPackageCustom":true,"vendorId":123355,"vendorName":"API
+        DEV CORPORATE CUSTOMER","locationId":0,"isSelected":true,"isTokenNeeded":false,"visibilityData":{"isHidden":false,"reason":""},"managedCoverageList":[],"customCoverageList":[],"coverageStatement":null,"managedEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"customEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"url":null,"userDefinedField1":null,"userDefinedField2":null,"userDefinedField3":null,"userDefinedField4":null,"userDefinedField5":null}]},{"titleId":17063797,"titleName":"test-create-custom-title","publisherName":"EBSCO
+        Publishing","identifiersList":[{"id":"1234","source":"ResourceIdentifier","subtype":1,"type":1}],"subjectsList":null,"isTitleCustom":true,"pubType":"Book","customerResourcesList":[{"titleId":17063797,"packageId":2723775,"packageName":"TEST_CUSTOMER_ID-live-custompackage","packageType":"Custom","isPackageCustom":true,"vendorId":123355,"vendorName":"API
+        DEV CORPORATE CUSTOMER","locationId":38112826,"isSelected":true,"isTokenNeeded":false,"visibilityData":{"isHidden":false,"reason":""},"managedCoverageList":[],"customCoverageList":[{"beginCoverage":"2003-01-01","endCoverage":"2003-12-12"}],"coverageStatement":"Issues
+        on or after 6/1/1992","managedEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"customEmbargoPeriod":{"embargoUnit":"Days","embargoValue":1},"url":"http://www.ebsco.com","userDefinedField1":"String1","userDefinedField2":"String2","userDefinedField3":"String3","userDefinedField4":"String4","userDefinedField5":"String5"}]},{"titleId":17063798,"titleName":"test-create-custom-title-2","publisherName":"EBSCO
+        Publishing","identifiersList":[{"id":"1234","source":"ResourceIdentifier","subtype":1,"type":1}],"subjectsList":null,"isTitleCustom":true,"pubType":"Book","customerResourcesList":[{"titleId":17063798,"packageId":2723775,"packageName":"TEST_CUSTOMER_ID-live-custompackage","packageType":"Custom","isPackageCustom":true,"vendorId":123355,"vendorName":"API
+        DEV CORPORATE CUSTOMER","locationId":38112830,"isSelected":true,"isTokenNeeded":false,"visibilityData":{"isHidden":false,"reason":""},"managedCoverageList":[],"customCoverageList":[{"beginCoverage":"2003-01-01","endCoverage":"2003-12-12"}],"coverageStatement":"Issues
+        on or after 6/1/1992","managedEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"customEmbargoPeriod":{"embargoUnit":"Days","embargoValue":1},"url":"http://www.ebsco.com","userDefinedField1":"String1","userDefinedField2":"String2","userDefinedField3":"String3","userDefinedField4":"String4","userDefinedField5":"String5"}]},{"titleId":17063799,"titleName":"test-create-custom-title-3","publisherName":"EBSCO
+        Publishing","identifiersList":[{"id":"1234","source":"ResourceIdentifier","subtype":1,"type":1}],"subjectsList":null,"isTitleCustom":true,"pubType":"Book","customerResourcesList":[{"titleId":17063799,"packageId":2723775,"packageName":"TEST_CUSTOMER_ID-live-custompackage","packageType":"Custom","isPackageCustom":true,"vendorId":123355,"vendorName":"API
+        DEV CORPORATE CUSTOMER","locationId":38112834,"isSelected":true,"isTokenNeeded":false,"visibilityData":{"isHidden":false,"reason":""},"managedCoverageList":[],"customCoverageList":[{"beginCoverage":"2003-01-01","endCoverage":"2003-12-12"}],"coverageStatement":"Issues
+        on or after 6/1/1992","managedEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"customEmbargoPeriod":{"embargoUnit":"Days","embargoValue":1},"url":"http://www.ebsco.com","userDefinedField1":"String1","userDefinedField2":"String2","userDefinedField3":"String3","userDefinedField4":"String4","userDefinedField5":"String5"}]},{"titleId":17063872,"titleName":"test-create-custom-title-4","publisherName":"EBSCO
+        Publishing","identifiersList":[{"id":"1234","source":"ResourceIdentifier","subtype":1,"type":1}],"subjectsList":null,"isTitleCustom":true,"pubType":"Book","customerResourcesList":[{"titleId":17063872,"packageId":2723775,"packageName":"TEST_CUSTOMER_ID-live-custompackage","packageType":"Custom","isPackageCustom":true,"vendorId":123355,"vendorName":"API
+        DEV CORPORATE CUSTOMER","locationId":38113150,"isSelected":true,"isTokenNeeded":false,"visibilityData":{"isHidden":false,"reason":""},"managedCoverageList":[],"customCoverageList":[{"beginCoverage":"2003-01-01","endCoverage":"2003-12-12"}],"coverageStatement":"Issues
+        on or after 6/1/1992","managedEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"customEmbargoPeriod":{"embargoUnit":"Days","embargoValue":1},"url":"http://www.ebsco.com","userDefinedField1":"String1","userDefinedField2":"String2","userDefinedField3":"String3","userDefinedField4":"String4","userDefinedField5":"String5"}]},{"titleId":17063803,"titleName":"test-create-custom-title-5","publisherName":"EBSCO
+        Publishing","identifiersList":[{"id":"1234","source":"ResourceIdentifier","subtype":1,"type":1}],"subjectsList":null,"isTitleCustom":true,"pubType":"Book","customerResourcesList":[{"titleId":17063803,"packageId":2723775,"packageName":"TEST_CUSTOMER_ID-live-custompackage","packageType":"Custom","isPackageCustom":true,"vendorId":123355,"vendorName":"API
+        DEV CORPORATE CUSTOMER","locationId":38112861,"isSelected":true,"isTokenNeeded":false,"visibilityData":{"isHidden":false,"reason":""},"managedCoverageList":[],"customCoverageList":[{"beginCoverage":"2003-01-01","endCoverage":"2003-12-12"}],"coverageStatement":"Issues
+        on or after 6/1/1992","managedEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"customEmbargoPeriod":{"embargoUnit":"Days","embargoValue":1},"url":"http://www.ebsco.com","userDefinedField1":"String1","userDefinedField2":"String2","userDefinedField3":"String3","userDefinedField4":"String4","userDefinedField5":"String5"}]},{"titleId":17065079,"titleName":"test-create-custom-title-6","publisherName":"EBSCO
+        Publishing","identifiersList":[{"id":"1234","source":"ResourceIdentifier","subtype":1,"type":1}],"subjectsList":null,"isTitleCustom":true,"pubType":"Book","customerResourcesList":[{"titleId":17065079,"packageId":2723775,"packageName":"TEST_CUSTOMER_ID-live-custompackage","packageType":"Custom","isPackageCustom":true,"vendorId":123355,"vendorName":"API
+        DEV CORPORATE CUSTOMER","locationId":38118164,"isSelected":true,"isTokenNeeded":false,"visibilityData":{"isHidden":false,"reason":""},"managedCoverageList":[],"customCoverageList":[{"beginCoverage":"2003-01-01","endCoverage":"2003-12-12"}],"coverageStatement":"Issues
+        on or after 6/1/1992","managedEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"customEmbargoPeriod":{"embargoUnit":"Days","embargoValue":1},"url":"http://www.ebsco.com","userDefinedField1":"String1","userDefinedField2":"String2","userDefinedField3":"String3","userDefinedField4":"String4","userDefinedField5":"String5"}]},{"titleId":17309227,"titleName":"test-create-custom-title-again","publisherName":"EBSCO
+        Publishing","identifiersList":[{"id":"1234","source":"ResourceIdentifier","subtype":1,"type":1}],"subjectsList":null,"isTitleCustom":true,"pubType":"Book","customerResourcesList":[{"titleId":17309227,"packageId":2723775,"packageName":"TEST_CUSTOMER_ID-live-custompackage","packageType":"Custom","isPackageCustom":true,"vendorId":123355,"vendorName":"API
+        DEV CORPORATE CUSTOMER","locationId":38919985,"isSelected":true,"isTokenNeeded":false,"visibilityData":{"isHidden":false,"reason":""},"managedCoverageList":[],"customCoverageList":[{"beginCoverage":"2003-01-01","endCoverage":"2003-12-12"}],"coverageStatement":"Issues
+        on or after 6/1/1992","managedEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"customEmbargoPeriod":{"embargoUnit":"Days","embargoValue":1},"url":"http://www.ebsco.com","userDefinedField1":"String1","userDefinedField2":"String2","userDefinedField3":"String3","userDefinedField4":"String4","userDefinedField5":"String5"}]}]}'
+    http_version: 
+  recorded_at: Tue, 28 Aug 2018 19:53:13 GMT
 recorded_with: VCR 3.0.3
