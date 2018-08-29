@@ -379,6 +379,52 @@ types:
     /resources:
       get:
         description: Include all resources belonging to a specific package
+        queryParameters:
+          sort:
+            displayName: Sort options
+            type: string
+            enum: ["name", "relevance"]
+            description: Option by which results are sorted. Defaults to relevance if query or name if no query.
+            example: name
+            required: false
+          filter[selected]:
+            displayName: Selection status
+            type: string
+            enum: ["true", "false", "ebsco", "all"]
+            description: Filter to narrow down results based on selection status. Defaults to all.
+            example: "false"
+            required: false
+          filter[type]:
+            displayName: Resource type
+            type: string
+            enum: ["all", "audiobook", "book", "bookseries", "database", "journal", "newsletter", "newspaper", "proceedings", "report","streamingaudio", "streamingvideo","thesisdissertation",  "website", "unspecified"]
+            description: Filter to narrow down results based on resource type. Defaults to all.
+            example: book
+            required: false
+          filter[name]:
+            displayName: Query by Title Name
+            type: string
+            description: String to search title name to get a collection of titles
+            example: War and Peace
+            required: false
+          filter[isxn]:
+            displayName: Query by ISSN/ISBN
+            type: string
+            description: String to search ISSN and ISBN to get a collection of titles
+            example: 1050-3331
+            required: false
+          filter[subject]:
+            displayName: Query by Subject
+            type: string
+            description: String to search subjects to get a collection of titles
+            example: history
+            required: false
+          filter[publisher]:
+            displayName: Query by Publisher
+            type: string
+            description: String to search publishers to get a collection of titles
+            example: academic
+            required: false
         responses:
           200:
             description: OK
@@ -610,49 +656,49 @@ types:
                       type: string
                       enum: ["Audiobook", "Book", "Book Series", "Database", "Journal", "Newsletter", "Newspaper", "Proceedings", "Report", "Streaming Audio", "Streaming Video", "Thesis & Dissertation", "Website", "Unspecified"]
                       example: "Newspaper"
-                      required: false    
+                      required: false
                     publisherName:
                       description: |
                         Publisher Name for a custom resource.
                         Note that this attribute can be updated ONLY FOR A CUSTOM RESOURCE.
                       type: string
                       example: "ABC Publishing"
-                      required: false  
+                      required: false
                     edition:
                       description: |
                         Edition for a custom resource.
                         Note that this attribute can be updated ONLY FOR A CUSTOM RESOURCE.
                       type: string
                       example: "5"
-                      required: false         
+                      required: false
                     description:
                       description: |
                         Description for a custom resource.
                         Note that this attribute can be updated ONLY FOR A CUSTOM RESOURCE.
                       type: string
                       example: "Sample title description"
-                      required: false 
+                      required: false
                     contributors:
                       description: |
                         Contributors for a custom resource.
                         Note that this attribute can be updated ONLY FOR A CUSTOM RESOURCE.
                       type: array
                       items: contributor
-                      example: 
+                      example:
                         - # start item 1
                           type: Author
                           contributor: Havard, Margaret
                         - # start item 2
                           type: Illustrator
                           contributor: Tiziani, Adriana
-                      required: false                
+                      required: false
                     identifiers:
                       description: |
                         Identifiers for a custom resource.
                         Note that this attribute can be updated ONLY FOR A CUSTOM RESOURCE.
                       type: array
                       items: identifier
-                      example: 
+                      example:
                         - # start item 1
                           id: 978-0-7295-3913-5
                           type: ISBN
@@ -661,7 +707,7 @@ types:
                           id: 1996-0794
                           type: ISSN
                           subtype: Print
-                      required: false           
+                      required: false
                     customCoverages:
                       description: |
                         Coverage dates of the custom or managed resource to be updated.
@@ -674,7 +720,7 @@ types:
                           endCoverage: 2018-06-04
                         - # start item 2
                           beginCoverage: 2018-06-05
-                          endCoverage: 2018-06-06  
+                          endCoverage: 2018-06-06
                       required: false
                     isSelected:
                       description: |
