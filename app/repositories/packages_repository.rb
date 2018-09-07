@@ -44,6 +44,10 @@ class PackagesRepository < RmapiRepository
     payload[:allowEbscoToAddTitles] = payload.delete(:allowKbToAddTitles)
     payload[:packageToken] = payload.delete(:packageToken)
     payload[:isHidden] = payload.dig(:visibilityData, :isHidden)
+    # RM API gives an error when we pass inherited as true along with updated proxy value
+    # Hard code it to false; it should not affect the state of inherited that RM API maintains
+    payload[:proxy] && payload[:proxy][:inherited] = false
+
     payload.delete(:visibilityData)
     content_type_enum = {
       aggregatedfulltext: 1,
