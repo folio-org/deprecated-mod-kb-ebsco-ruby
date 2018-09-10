@@ -5,7 +5,7 @@ require 'open-uri'
 class Configuration
   include ActiveModel::Validations
 
-  attr_accessor :customer_id, :api_key
+  attr_accessor :customer_id, :api_key, :rmapi_base_url
 
   validate :verify_credentials
 
@@ -13,17 +13,20 @@ class Configuration
     'configuration'
   end
 
-  def initialize(okapi, rmapi_base_url)
-    @rmapi_base_url = rmapi_base_url
+  def initialize(okapi)
     @okapi = okapi
   end
 
   def load!
-    response = @okapi.user.get '/configurations/entries?query=module=KB_EBSCO'
+    response = @okapi.user.get '/configurations/entries?query=module=EKB'
     response['configs'].each do |config|
-      params = Rack::Utils.parse_query(config['value'])
-      @customer_id = params['customer-id']
-      @api_key = params['api-key']
+      if config['code'].casecmp('kb.ebsco.customerId').zero?
+        @customer_id = config['value']
+      elsif config['code'].casecmp('kb.ebsco.apiKey').zero?
+        @api_key = config['value']
+      elsif config['code'].casecmp('kb.ebsco.url').zero?
+        @rmapi_base_url = config['value']
+      end
     end
   end
 

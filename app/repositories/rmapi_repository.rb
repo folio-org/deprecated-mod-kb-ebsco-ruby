@@ -5,7 +5,7 @@ class RmapiRepository
 
   def initialize(config:)
     @config = config
-    @base_url = "#{rmapi_url}/rm/rmaccounts/#{config.customer_id}"
+    @base_url = "#{config.rmapi_base_url}/rm/rmaccounts/#{config.customer_id}"
 
     @headers = {
       'X-Api-Key': config.api_key,
@@ -33,10 +33,6 @@ class RmapiRepository
   end
 
   private
-
-  def rmapi_url
-    Rails.application.config.rmapi_base_url
-  end
 
   class RequestError < StandardError
     attr_reader :status

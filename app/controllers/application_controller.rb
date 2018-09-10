@@ -13,11 +13,7 @@ class ApplicationController < ActionController::API
   end
 
   def config
-    @config ||= ::Configuration.new(okapi, rmapi_base_url).tap(&:load!)
-  end
-
-  def rmapi_base_url
-    Rails.application.config.rmapi_base_url
+    @config ||= ::Configuration.new(okapi).tap(&:load!)
   end
 
   def okapi_url

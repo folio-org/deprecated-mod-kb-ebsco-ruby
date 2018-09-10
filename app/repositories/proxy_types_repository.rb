@@ -37,10 +37,6 @@ class ProxyTypesRepository < RmapiRepository
     [response.status, normalize_response_body(response)]
   end
 
-  def rmapi_url
-    Rails.application.config.rmapi_base_url
-  end
-
   def normalize_response_body(response)
     body = response.body.to_s
     return unless body.length.positive?

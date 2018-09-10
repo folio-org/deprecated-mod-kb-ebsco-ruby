@@ -37,7 +37,7 @@ class ProxyController < ApplicationController
     @rmapi_uri ||= URI(
       format(
         '%{base}/rm/rmaccounts/%{customer_id}%{path}',
-        base: rmapi_base_url,
+        base: config.rmapi_base_url,
         customer_id: config.customer_id,
         path: rmapi_path
       )
