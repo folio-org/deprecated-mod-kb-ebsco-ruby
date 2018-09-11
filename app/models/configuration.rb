@@ -40,8 +40,7 @@ class Configuration
     ).request(:get, verify_path)
 
     return true if response.ok?
-
-    errors[:base] << 'RM-API credentials are invalid'
+    errors.add('RM API Credentials', ':RM-API credentials are invalid')
   end
 
   def save
