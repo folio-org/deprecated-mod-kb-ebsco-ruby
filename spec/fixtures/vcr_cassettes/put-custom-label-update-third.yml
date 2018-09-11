@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://okapi.frontside.io/configurations/entries?query=module=KB_EBSCO
+    uri: https://okapi.frontside.io/configurations/entries?query=module=EKB
     body:
       encoding: US-ASCII
       string: ''
@@ -27,7 +27,7 @@ http_interactions:
       Server:
       - nginx/1.13.5
       Date:
-      - Fri, 23 Mar 2018 20:43:47 GMT
+      - Tue, 11 Sep 2018 19:07:14 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -35,16 +35,16 @@ http_interactions:
       Connection:
       - keep-alive
       X-Okapi-Trace:
-      - 'GET mod-authtoken-1.4.1-SNAPSHOT.20 http://10.39.247.20:8081/configurations/entries..
-        : 202 364521us'
-      - 'GET mod-configuration-4.0.3-SNAPSHOT.29 http://10.39.248.16:8081/configurations/entries..
-        : 200 44958us'
+      - 'GET mod-authtoken-1.5.2-SNAPSHOT.26 http://10.39.242.252:8081/configurations/entries..
+        : 202 1059us'
+      - 'GET mod-configuration-5.0.1-SNAPSHOT.45 http://10.39.249.105:8081/configurations/entries..
+        : 200 45754us'
       Host:
       - okapi.frontside.io
       X-Real-Ip:
-      - 10.128.0.5
+      - 10.128.0.4
       X-Forwarded-For:
-      - 10.128.0.5
+      - 10.128.0.4
       X-Forwarded-Host:
       - okapi.frontside.io
       X-Forwarded-Port:
@@ -52,11 +52,11 @@ http_interactions:
       X-Forwarded-Proto:
       - https
       X-Original-Uri:
-      - "/configurations/entries?query=module=KB_EBSCO"
+      - "/configurations/entries?query=module=EKB"
       X-Scheme:
       - https
       X-Auth-Request-Redirect:
-      - "/configurations/entries?query=module=KB_EBSCO"
+      - "/configurations/entries?query=module=EKB"
       Accept:
       - application/json
       X-Okapi-Tenant:
@@ -66,15 +66,11 @@ http_interactions:
       User-Agent:
       - Ruby
       X-Okapi-Request-Id:
-      - 418935/configurations
+      - 142914/configurations
       X-Okapi-Url:
-      - http://10.39.253.90:80
-      X-Okapi-Permissions-Required:
-      - configuration.entries.collection.get
-      X-Okapi-Module-Permissions:
-      - '{"mod-authtoken-1.4.1-SNAPSHOT.20":["perms.users.get"]}'
+      - http://10.39.245.41:80
       X-Okapi-Permissions:
-      - '["configuration.entries.collection.get"]'
+      - '["configuration.entries.collection.get","configuration.entries.collection.get"]'
       X-Okapi-User-Id:
       - 1ad737b0-d847-11e6-bf26-cec0c932ce01
       X-Okapi-Token:
@@ -86,37 +82,65 @@ http_interactions:
       string: |-
         {
           "configs" : [ {
-            "id" : "f319326e-a420-440d-b034-4f4a62619cb4",
-            "module" : "KB_EBSCO",
-            "configName" : "api_credentials",
-            "code" : "kb.ebsco.credentials",
-            "description" : "EBSCO RM-API Credentials",
+            "id" : "d35d1d52-ca4b-48ab-afe2-27a1e9adaa97",
+            "module" : "EKB",
+            "configName" : "api_access",
+            "code" : "kb.ebsco.url",
+            "description" : "EBSCO RM-API URL",
             "enabled" : true,
-            "value" : "customer-id=TEST_CUSTOMER_ID&api-key=TEST_API_KEY",
+            "value" : "TEST_RMAPI_URL",
             "metadata" : {
-              "createdDate" : "2018-03-16T05:38:48.299+0000",
+              "createdDate" : "2018-09-11T18:53:43.223+0000",
               "createdByUserId" : "1ad737b0-d847-11e6-bf26-cec0c932ce01",
-              "updatedDate" : "2018-03-16T05:38:48.299+0000",
+              "updatedDate" : "2018-09-11T18:53:43.223+0000",
+              "updatedByUserId" : "1ad737b0-d847-11e6-bf26-cec0c932ce01"
+            }
+          }, {
+            "id" : "ad544220-967b-4b91-8c19-d0de6c3c2761",
+            "module" : "EKB",
+            "configName" : "api_access",
+            "code" : "kb.ebsco.customerId",
+            "description" : "EBSCO RM-API Customer ID",
+            "enabled" : true,
+            "value" : "TEST_CUSTOMER_ID",
+            "metadata" : {
+              "createdDate" : "2018-09-11T18:53:43.428+0000",
+              "createdByUserId" : "1ad737b0-d847-11e6-bf26-cec0c932ce01",
+              "updatedDate" : "2018-09-11T18:53:43.428+0000",
+              "updatedByUserId" : "1ad737b0-d847-11e6-bf26-cec0c932ce01"
+            }
+          }, {
+            "id" : "8a15438f-ec4f-4e67-8b28-498acb259e3b",
+            "module" : "EKB",
+            "configName" : "api_access",
+            "code" : "kb.ebsco.apiKey",
+            "description" : "EBSCO RM-API API Key",
+            "enabled" : true,
+            "value" : "TEST_API_KEY",
+            "metadata" : {
+              "createdDate" : "2018-09-11T18:53:43.624+0000",
+              "createdByUserId" : "1ad737b0-d847-11e6-bf26-cec0c932ce01",
+              "updatedDate" : "2018-09-11T18:53:43.624+0000",
               "updatedByUserId" : "1ad737b0-d847-11e6-bf26-cec0c932ce01"
             }
           } ],
-          "totalRecords" : 1,
+          "totalRecords" : 3,
           "resultInfo" : {
-            "totalRecords" : 1,
+            "totalRecords" : 3,
             "facets" : [ ]
           }
         }
     http_version: 
-  recorded_at: Wed, 21 Mar 2018 14:33:10 GMT
+  recorded_at: Tue, 11 Sep 2018 19:07:14 GMT
 - request:
     method: get
-    uri: https://api.ebsco.io/rm/rmaccounts/TEST_CUSTOMER_ID/
+    uri: TEST_RMAPI_URL/rm/rmaccounts/TEST_CUSTOMER_ID/
     body:
       encoding: US-ASCII
       string: ''
     headers:
       User-Agent:
-      - Flexirest/1.5.5
+      - Flexirest/1.7.0
       Connection:
       - Keep-Alive
       Accept:
@@ -135,49 +159,43 @@ http_interactions:
       Content-Type:
       - application/json;charset=UTF-8
       Content-Length:
-      - '580'
+      - '547'
       Connection:
       - keep-alive
       Date:
-      - Fri, 23 Mar 2018 20:43:48 GMT
+      - Tue, 11 Sep 2018 19:07:14 GMT
       X-Amzn-Requestid:
-      - e2ae1e10-2eda-11e8-964c-0371b853c5c8
+      - e4f4231e-b5f5-11e8-91c5-bf9a4a452304
       X-Amzn-Remapped-Connection:
       - keep-alive
       X-Amz-Apigw-Id:
-      - EN0IjEWxIAMFq9w=
+      - NEfPbHXAoAMFltw=
       X-Amzn-Remapped-Date:
-      - Fri, 23 Mar 2018 20:43:48 GMT
+      - Tue, 11 Sep 2018 19:07:14 GMT
       X-Cache:
       - Miss from cloudfront
       Via:
-      - 1.1 488ca64b2230001b81f1cbf87d34963b.cloudfront.net (CloudFront)
+      - 1.1 b7a66b6616123855c5af2d7cdf2b099f.cloudfront.net (CloudFront)
       X-Amz-Cf-Id:
-      - k4T17D4fzvyna__HAymM1F6gVg5EghKwbbZA9rcp89wecOJhhSee0w==
+      - dmgsOH7E6zVB1d6Qz7SnX8sQ-jh8B6yNZxo0ZvrxQasGD7YHlyQ1Sg==
     body:
       encoding: UTF-8
-      string: '{"proxy":{"id":"EZProxy"},"labels":[{"id":1,"displayLabel":"Hello 1st
-        label","displayOnFullTextFinder":true,"displayOnPublicationFinder":false},{"id":2,"displayLabel":"Hello
-        2nd label","displayOnFullTextFinder":true,"displayOnPublicationFinder":false},{"id":3,"displayLabel":"Hello
-        3rd label","displayOnFullTextFinder":true,"displayOnPublicationFinder":false},{"id":4,"displayLabel":"Hello
-        fourth label","displayOnFullTextFinder":true,"displayOnPublicationFinder":false},{"id":5,"displayLabel":"Hello
-        5th label","displayOnFullTextFinder":true,"displayOnPublicationFinder":false}]}'
+      string: '{"proxy":{"id":"EZProxy"},"labels":[{"id":1,"displayLabel":"Hello first
+        label","displayOnFullTextFinder":false,"displayOnPublicationFinder":true},{"id":2,"displayLabel":"Frontside","displayOnFullTextFinder":false,"displayOnPublicationFinder":false},{"id":3,"displayLabel":"Hello
+        third label","displayOnFullTextFinder":true,"displayOnPublicationFinder":true},{"id":4,"displayLabel":"","displayOnFullTextFinder":false,"displayOnPublicationFinder":false},{"id":5,"displayLabel":"","displayOnFullTextFinder":false,"displayOnPublicationFinder":false}]}'
     http_version: 
-  recorded_at: Wed, 21 Mar 2018 14:33:11 GMT
+  recorded_at: Tue, 11 Sep 2018 19:07:14 GMT
 - request:
     method: put
-    uri: https://api.ebsco.io/rm/rmaccounts/TEST_CUSTOMER_ID/
+    uri: TEST_RMAPI_URL/rm/rmaccounts/TEST_CUSTOMER_ID/
     body:
       encoding: UTF-8
-      string: '{"proxy":{"id":"EZProxy"},"labels":[{"id":1,"displayLabel":"Hello 1st
-        label","displayOnFullTextFinder":true,"displayOnPublicationFinder":false},{"id":2,"displayLabel":"Hello
-        2nd label","displayOnFullTextFinder":true,"displayOnPublicationFinder":false},{"id":3,"displayLabel":"Hello
-        third label","displayOnFullTextFinder":true,"displayOnPublicationFinder":true},{"id":4,"displayLabel":"Hello
-        fourth label","displayOnFullTextFinder":true,"displayOnPublicationFinder":false},{"id":5,"displayLabel":"Hello
-        5th label","displayOnFullTextFinder":true,"displayOnPublicationFinder":false}]}'
+      string: '{"proxy":{"id":"EZProxy"},"labels":[{"id":1,"displayLabel":"Hello first
+        label","displayOnFullTextFinder":false,"displayOnPublicationFinder":true},{"id":2,"displayLabel":"Frontside","displayOnFullTextFinder":false,"displayOnPublicationFinder":false},{"id":3,"displayLabel":"Hello
+        third label","displayOnFullTextFinder":true,"displayOnPublicationFinder":true}]}'
     headers:
       User-Agent:
-      - Flexirest/1.5.5
+      - Flexirest/1.7.0
       Connection:
       - Keep-Alive
       Accept:
@@ -200,24 +218,24 @@ http_interactions:
       Connection:
       - keep-alive
       Date:
-      - Fri, 23 Mar 2018 20:43:49 GMT
+      - Tue, 11 Sep 2018 19:07:15 GMT
       X-Amzn-Requestid:
-      - e3769dcf-2eda-11e8-812f-bd261ebaa10c
+      - e5120b16-b5f5-11e8-9bb8-e1be305eb18a
       X-Amzn-Remapped-Connection:
       - keep-alive
       X-Amz-Apigw-Id:
-      - EN0IwFe8IAMFgSQ=
+      - NEfPdELJoAMFTHw=
       X-Amzn-Remapped-Date:
-      - Fri, 23 Mar 2018 20:43:48 GMT
+      - Tue, 11 Sep 2018 19:07:15 GMT
       X-Cache:
       - Miss from cloudfront
       Via:
-      - 1.1 2206fe1cc0579e0d79537b15799c4e2f.cloudfront.net (CloudFront)
+      - 1.1 d4cdd862c8bc0148f37b685614031cf5.cloudfront.net (CloudFront)
       X-Amz-Cf-Id:
-      - 7Je-A8HtsxlMtGDxnPJLsb6Mvww43Zn6yM6_YWMEzSOivwFg94s18Q==
+      - ArlXTrqOnR1honXiFk8rAJcNkIkXmbVIPR5ZhVsuGvc0wbcDmf_S6A==
     body:
       encoding: UTF-8
       string: ''
     http_version: 
-  recorded_at: Wed, 21 Mar 2018 14:33:12 GMT
+  recorded_at: Tue, 11 Sep 2018 19:07:15 GMT
 recorded_with: VCR 3.0.3
