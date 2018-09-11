@@ -20,7 +20,7 @@ RSpec.describe 'Custom Titles Create', type: :request do
       'data' => {
         'type' => 'titles',
         'attributes' => {
-          'name' => 'Goblins New Title',
+          'name' => 'Goblins Testing Title',
           'edition' => '',
           'publisherName' => '',
           'publicationType' => 'Journal',
@@ -71,7 +71,7 @@ RSpec.describe 'Custom Titles Create', type: :request do
     end
 
     it 'has the new name' do
-      expect(json.data.attributes.name).to eq('Goblins New Title')
+      expect(json.data.attributes.name).to eq('Goblins Testing Title')
     end
 
     it 'has the new publication type' do
@@ -168,7 +168,7 @@ RSpec.describe 'Custom Titles Create', type: :request do
       payload.deep_merge(
         'data' => {
           'attributes' => {
-            'name' => 'The Mages New Title',
+            'name' => 'The Mages Newest Title',
             'publicationType' => 'Made Up'
           }
         }
@@ -338,7 +338,7 @@ RSpec.describe 'Custom Titles Create', type: :request do
       payload.deep_merge(
         'data' => {
           'attributes' => {
-            'name' => 'Retro Temple Test All Fields',
+            'name' => 'Retro Temple Test All Fields Together',
             'publicationType' => 'Book',
             'publisherName' => 'test publisher',
             'isPeerReviewed' => true,
@@ -386,7 +386,7 @@ RSpec.describe 'Custom Titles Create', type: :request do
     end
 
     it 'has the new resource name' do
-      expect(attributes.name).to eq('Retro Temple Test All Fields')
+      expect(attributes.name).to eq('Retro Temple Test All Fields Together')
     end
 
     it 'has the new publicationType' do
@@ -730,7 +730,7 @@ RSpec.describe 'Custom Titles Create', type: :request do
       payload.deep_merge(
         'data' => {
           'attributes' => {
-            'name' => 'Owl Bat Valid Identifier',
+            'name' => 'Owl Bat Valid Identifier Again',
             'identifiers' => [
               {
                 'id' => '12345',
@@ -818,7 +818,7 @@ RSpec.describe 'Custom Titles Create', type: :request do
       payload.deep_merge(
         'data' => {
           'attributes' => {
-            'name' => 'Olivander Valid Subtype',
+            'name' => 'Olivander Valid Subtype Test',
             'identifiers' => [
               {
                 'id' => '12345',
