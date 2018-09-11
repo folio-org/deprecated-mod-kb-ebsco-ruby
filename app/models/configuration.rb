@@ -20,11 +20,11 @@ class Configuration
   def load!
     response = @okapi.user.get '/configurations/entries?query=module=EKB'
     response['configs'].each do |config|
-      if config['code'].casecmp('kb.ebsco.customerId').zero?
+      if config['code'].casecmp?('kb.ebsco.customerid')
         @customer_id = config['value']
-      elsif config['code'].casecmp('kb.ebsco.apiKey').zero?
+      elsif config['code'].casecmp?('kb.ebsco.apikey')
         @api_key = config['value']
-      elsif config['code'].casecmp('kb.ebsco.url').zero?
+      elsif config['code'].casecmp?('kb.ebsco.url')
         @rmapi_base_url = config['value']
       end
     end
@@ -47,21 +47,43 @@ class Configuration
   def save
     return false unless valid?
 
-    response = @okapi.user.get '/configurations/entries?query=module=KB_EBSCO'
+    response = @okapi.user.get '/configurations/entries?query=module=EKB'
 
     response['configs'].each do |config|
-      id = config['id']
-      @okapi.user.delete "/configurations/entries/#{id}"
+      if ['kb.ebsco.customerid', 'kb.ebsco.apikey', 'kb.ebsco.url'].include? config['code'].downcase
+        id = config['id']
+        @okapi.user.delete "/configurations/entries/#{id}"
+      end
     end
 
     @okapi.user.post(
       '/configurations/entries',
-      "module": 'KB_EBSCO',
-      "configName": 'api_credentials',
-      "code": 'kb.ebsco.credentials',
-      "description": 'EBSCO RM-API Credentials',
+      "module": 'EKB',
+      "configName": 'api_access',
+      "code": 'kb.ebsco.url',
+      "description": 'EBSCO RM-API URL',
       "enabled": true,
-      "value": "customer-id=#{customer_id}&api-key=#{@api_key}"
+      "value": @mapi_base_url
+    )
+
+    @okapi.user.post(
+      '/configurations/entries',
+      "module": 'EKB',
+      "configName": 'api_access',
+      "code": 'kb.ebsco.customerId',
+      "description": 'EBSCO RM-API Customer ID',
+      "enabled": true,
+      "value": @customer_id
+    )
+
+    @okapi.user.post(
+      '/configurations/entries',
+      "module": 'EKB',
+      "configName": 'api_access',
+      "code": 'kb.ebsco.apiKey',
+      "description": 'EBSCO RM-API API Key',
+      "enabled": true,
+      "value": @api_key
     )
   end
 end

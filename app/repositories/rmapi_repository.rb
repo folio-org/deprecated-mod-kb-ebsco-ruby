@@ -32,8 +32,6 @@ class RmapiRepository
     [response.status, normalize_response_body(response)]
   end
 
-  private
-
   class RequestError < StandardError
     attr_reader :status
 
