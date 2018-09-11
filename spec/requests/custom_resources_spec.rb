@@ -78,8 +78,8 @@ RSpec.describe 'Custom Resources', type: :request do
             "attributes": {
               'customCoverages': [
                 {
-                  'beginCoverage': '2003-01-01',
-                  'endCoverage': '2004-01-01'
+                  'beginCoverage': '2003-12-31',
+                  'endCoverage': '2004-12-31'
                 }
               ],
               "isSelected": true
@@ -90,7 +90,7 @@ RSpec.describe 'Custom Resources', type: :request do
 
       before do
         VCR.use_cassette('put-custom-resource-coverage-dates') do
-          put '/eholdings/resources/123355-2845510-62477',
+          put '/eholdings/resources/123355-2846164-18953864',
               params: params, as: :json, headers: update_headers
         end
       end
@@ -103,9 +103,9 @@ RSpec.describe 'Custom Resources', type: :request do
 
       it 'now has custom coverage' do
         expect(json.data.attributes.customCoverages[0].beginCoverage)
-          .to eq('2003-01-01')
+          .to eq('2003-12-31')
         expect(json.data.attributes.customCoverages[0].endCoverage)
-          .to eq('2004-01-01')
+          .to eq('2004-12-31')
       end
     end
 
@@ -127,7 +127,7 @@ RSpec.describe 'Custom Resources', type: :request do
 
       before do
         VCR.use_cassette('put-custom-resource-visibility') do
-          put '/eholdings/resources/123355-2845510-62477',
+          put '/eholdings/resources/123355-2846164-18137904',
               params: params, as: :json, headers: update_headers
         end
       end
@@ -161,7 +161,7 @@ RSpec.describe 'Custom Resources', type: :request do
 
       before do
         VCR.use_cassette('put-custom-resource-embargo-period') do
-          put '/eholdings/resources/123355-2845510-62477',
+          put '/eholdings/resources/123355-2846164-18137904',
               params: params, as: :json, headers: update_headers
         end
       end
@@ -759,7 +759,7 @@ RSpec.describe 'Custom Resources', type: :request do
     describe 'deletes title if it is part of a custom package' do
       before do
         VCR.use_cassette('delete-custom-title') do
-          delete '/eholdings/resources/123355-2843714-17070531',
+          delete '/eholdings/resources/123355-2846164-18137904',
                  headers: okapi_headers
         end
       end
