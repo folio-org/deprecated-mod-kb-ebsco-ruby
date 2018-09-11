@@ -62,7 +62,7 @@ class Configuration
       "code": 'kb.ebsco.url',
       "description": 'EBSCO RM-API URL',
       "enabled": true,
-      "value": @mapi_base_url
+      "value": @rmapi_base_url
     )
 
     @okapi.user.post(
