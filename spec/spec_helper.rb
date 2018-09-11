@@ -15,6 +15,7 @@ RSpec.shared_context 'Request Test Helpers' do
   let!(:okapi_token) { ENV.fetch('TEST_OKAPI_TOKEN', 'test-okapi-token') }
   let!(:okapi_url) { ENV.fetch('TEST_OKAPI_URL', 'https://okapi.frontside.io') }
   let!(:okapi_tenant) { ENV.fetch('TEST_OKAPI_TENANT', 'fs') }
+  let!(:rmapi_url) { ENV.fetch('TEST_RMAPI_URL', 'https://api.ebsco.io') }
 
   let!(:okapi_headers) do
     {
@@ -57,6 +58,9 @@ VCR.configure do |config|
   end
   config.filter_sensitive_data('TEST_OKAPI_TOKEN') do
     ENV.fetch('TEST_OKAPI_TOKEN', 'test-okapi-token')
+  end
+  config.filter_sensitive_data('TEST_RMAPI_URL') do
+    ENV.fetch('TEST_RMAPI_URL', 'test-rmapi-url')
   end
 
   record_mode = ENV.fetch('VCR', 'once').to_sym
