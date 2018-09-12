@@ -27,7 +27,7 @@ http_interactions:
       Server:
       - nginx/1.13.5
       Date:
-      - Tue, 11 Sep 2018 20:45:53 GMT
+      - Wed, 12 Sep 2018 13:22:38 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -36,15 +36,15 @@ http_interactions:
       - keep-alive
       X-Okapi-Trace:
       - 'GET mod-authtoken-1.5.2-SNAPSHOT.26 http://10.39.242.252:8081/configurations/entries..
-        : 202 504189us'
+        : 202 1551us'
       - 'GET mod-configuration-5.0.1-SNAPSHOT.45 http://10.39.249.105:8081/configurations/entries..
-        : 200 250223us'
+        : 200 44690us'
       Host:
       - okapi.frontside.io
       X-Real-Ip:
-      - 10.128.0.3
+      - 10.128.0.4
       X-Forwarded-For:
-      - 10.128.0.3
+      - 10.128.0.4
       X-Forwarded-Host:
       - okapi.frontside.io
       X-Forwarded-Port:
@@ -66,7 +66,7 @@ http_interactions:
       User-Agent:
       - Ruby
       X-Okapi-Request-Id:
-      - 584108/configurations
+      - '008179/configurations'
       X-Okapi-Url:
       - http://10.39.245.41:80
       X-Okapi-Permissions:
@@ -82,21 +82,21 @@ http_interactions:
       string: |-
         {
           "configs" : [ {
-            "id" : "d35d1d52-ca4b-48ab-afe2-27a1e9adaa97",
+            "id" : "efadf3d8-59c3-4508-99d4-3e36e9247d87",
             "module" : "EKB",
             "configName" : "api_access",
             "code" : "kb.ebsco.url",
             "description" : "EBSCO RM-API URL",
             "enabled" : true,
-            "value" : "TEST_RMAPI_URL",
+            "value" : "https://api.ebsco.io",
             "metadata" : {
-              "createdDate" : "2018-09-11T18:53:43.223+0000",
+              "createdDate" : "2018-09-12T12:34:52.189+0000",
               "createdByUserId" : "1ad737b0-d847-11e6-bf26-cec0c932ce01",
-              "updatedDate" : "2018-09-11T18:53:43.223+0000",
+              "updatedDate" : "2018-09-12T12:34:52.189+0000",
               "updatedByUserId" : "1ad737b0-d847-11e6-bf26-cec0c932ce01"
             }
           }, {
-            "id" : "ad544220-967b-4b91-8c19-d0de6c3c2761",
+            "id" : "6b24b703-243a-4261-a7bf-0336d34f8c94",
             "module" : "EKB",
             "configName" : "api_access",
             "code" : "kb.ebsco.customerId",
@@ -104,13 +104,13 @@ http_interactions:
             "enabled" : true,
             "value" : "TEST_CUSTOMER_ID",
             "metadata" : {
-              "createdDate" : "2018-09-11T18:53:43.428+0000",
+              "createdDate" : "2018-09-12T12:34:52.466+0000",
               "createdByUserId" : "1ad737b0-d847-11e6-bf26-cec0c932ce01",
-              "updatedDate" : "2018-09-11T18:53:43.428+0000",
+              "updatedDate" : "2018-09-12T12:34:52.466+0000",
               "updatedByUserId" : "1ad737b0-d847-11e6-bf26-cec0c932ce01"
             }
           }, {
-            "id" : "8a15438f-ec4f-4e67-8b28-498acb259e3b",
+            "id" : "8038c4f3-0b09-4d97-be46-8a5236ef3f2f",
             "module" : "EKB",
             "configName" : "api_access",
             "code" : "kb.ebsco.apiKey",
@@ -118,9 +118,9 @@ http_interactions:
             "enabled" : true,
             "value" : "TEST_API_KEY",
             "metadata" : {
-              "createdDate" : "2018-09-11T18:53:43.624+0000",
+              "createdDate" : "2018-09-12T12:34:52.788+0000",
               "createdByUserId" : "1ad737b0-d847-11e6-bf26-cec0c932ce01",
-              "updatedDate" : "2018-09-11T18:53:43.624+0000",
+              "updatedDate" : "2018-09-12T12:34:52.788+0000",
               "updatedByUserId" : "1ad737b0-d847-11e6-bf26-cec0c932ce01"
             }
           } ],
@@ -131,10 +131,10 @@ http_interactions:
           }
         }
     http_version: 
-  recorded_at: Tue, 11 Sep 2018 20:45:53 GMT
+  recorded_at: Wed, 12 Sep 2018 13:22:38 GMT
 - request:
     method: get
-    uri: TEST_RMAPI_URL/rm/rmaccounts/TEST_CUSTOMER_ID/vendors/72/packages/6057/titles/1360002
+    uri: https://api.ebsco.io/rm/rmaccounts/TEST_CUSTOMER_ID/vendors/72/packages/6057/titles/1360002
     body:
       encoding: US-ASCII
       string: ''
@@ -163,15 +163,15 @@ http_interactions:
       Connection:
       - keep-alive
       Date:
-      - Tue, 11 Sep 2018 20:45:53 GMT
+      - Wed, 12 Sep 2018 13:22:39 GMT
       X-Amzn-Requestid:
-      - aceb5109-b603-11e8-97b1-d9eef5ca4559
+      - ebabb4c1-b68e-11e8-862f-c97c54e8a4fb
       X-Amzn-Remapped-Content-Length:
       - '999'
       X-Amzn-Remapped-Connection:
       - keep-alive
       X-Amz-Apigw-Id:
-      - NEtsRF5GIAMFbLw=
+      - NG_s2F1OoAMFb8g=
       X-Amzn-Remapped-Server:
       - Microsoft-IIS/8.5
       Cache-Control:
@@ -183,19 +183,19 @@ http_interactions:
       Pragma:
       - no-cache
       X-Amzn-Remapped-Date:
-      - Tue, 11 Sep 2018 20:45:53 GMT
+      - Wed, 12 Sep 2018 13:22:37 GMT
       X-Aspnet-Version:
       - 4.0.30319
       X-Cache:
       - Miss from cloudfront
       Via:
-      - 1.1 8ac2d04f7193cd95abfeb911e77fd3ab.cloudfront.net (CloudFront)
+      - 1.1 00ba471211aa4c63ba48b34111f64da1.cloudfront.net (CloudFront)
       X-Amz-Cf-Id:
-      - c5Wgs8Rr6Uu59mtLWL1W9Io4zcXZ9zjImcb-NuyarmFzlqxuerA3Lw==
+      - Mn8GNnRJLqPEl_K4yZQi9WzlBdTGU_FmUGac0E-M9vElH3yWzcARxA==
     body:
       encoding: UTF-8
       string: '{"titleId":1360002,"titleName":"Early American Imprints","publisherName":"Unspecified","identifiersList":[{"id":"1360002","source":"AtoZ","subtype":0,"type":9}],"subjectsList":[],"isTitleCustom":false,"pubType":"Database","customerResourcesList":[{"titleId":1360002,"packageId":6057,"packageName":"Early
         American Imprints","packageType":"Complete","proxy":{"id":"EZProxy","inherited":true},"isPackageCustom":false,"vendorId":72,"vendorName":"NewsBank","locationId":4492574,"isSelected":false,"isTokenNeeded":false,"visibilityData":{"isHidden":false,"reason":""},"managedCoverageList":[],"customCoverageList":[],"coverageStatement":null,"managedEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"customEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"url":"http://infoweb.newsbank.com","userDefinedField1":null,"userDefinedField2":null,"userDefinedField3":null,"userDefinedField4":null,"userDefinedField5":null}],"description":null,"edition":null,"isPeerReviewed":false,"contributorsList":[]}'
     http_version: 
-  recorded_at: Tue, 11 Sep 2018 20:45:53 GMT
+  recorded_at: Wed, 12 Sep 2018 13:22:39 GMT
 recorded_with: VCR 3.0.3

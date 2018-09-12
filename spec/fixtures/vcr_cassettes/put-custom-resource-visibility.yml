@@ -27,7 +27,7 @@ http_interactions:
       Server:
       - nginx/1.13.5
       Date:
-      - Tue, 11 Sep 2018 21:03:11 GMT
+      - Wed, 12 Sep 2018 13:54:23 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -36,9 +36,9 @@ http_interactions:
       - keep-alive
       X-Okapi-Trace:
       - 'GET mod-authtoken-1.5.2-SNAPSHOT.26 http://10.39.242.252:8081/configurations/entries..
-        : 202 1006us'
+        : 202 500052us'
       - 'GET mod-configuration-5.0.1-SNAPSHOT.45 http://10.39.249.105:8081/configurations/entries..
-        : 200 43699us'
+        : 200 249489us'
       Host:
       - okapi.frontside.io
       X-Real-Ip:
@@ -66,7 +66,7 @@ http_interactions:
       User-Agent:
       - Ruby
       X-Okapi-Request-Id:
-      - 794596/configurations
+      - 554951/configurations
       X-Okapi-Url:
       - http://10.39.245.41:80
       X-Okapi-Permissions:
@@ -82,21 +82,21 @@ http_interactions:
       string: |-
         {
           "configs" : [ {
-            "id" : "d35d1d52-ca4b-48ab-afe2-27a1e9adaa97",
+            "id" : "efadf3d8-59c3-4508-99d4-3e36e9247d87",
             "module" : "EKB",
             "configName" : "api_access",
             "code" : "kb.ebsco.url",
             "description" : "EBSCO RM-API URL",
             "enabled" : true,
-            "value" : "TEST_RMAPI_URL",
+            "value" : "https://api.ebsco.io",
             "metadata" : {
-              "createdDate" : "2018-09-11T18:53:43.223+0000",
+              "createdDate" : "2018-09-12T12:34:52.189+0000",
               "createdByUserId" : "1ad737b0-d847-11e6-bf26-cec0c932ce01",
-              "updatedDate" : "2018-09-11T18:53:43.223+0000",
+              "updatedDate" : "2018-09-12T12:34:52.189+0000",
               "updatedByUserId" : "1ad737b0-d847-11e6-bf26-cec0c932ce01"
             }
           }, {
-            "id" : "ad544220-967b-4b91-8c19-d0de6c3c2761",
+            "id" : "6b24b703-243a-4261-a7bf-0336d34f8c94",
             "module" : "EKB",
             "configName" : "api_access",
             "code" : "kb.ebsco.customerId",
@@ -104,13 +104,13 @@ http_interactions:
             "enabled" : true,
             "value" : "TEST_CUSTOMER_ID",
             "metadata" : {
-              "createdDate" : "2018-09-11T18:53:43.428+0000",
+              "createdDate" : "2018-09-12T12:34:52.466+0000",
               "createdByUserId" : "1ad737b0-d847-11e6-bf26-cec0c932ce01",
-              "updatedDate" : "2018-09-11T18:53:43.428+0000",
+              "updatedDate" : "2018-09-12T12:34:52.466+0000",
               "updatedByUserId" : "1ad737b0-d847-11e6-bf26-cec0c932ce01"
             }
           }, {
-            "id" : "8a15438f-ec4f-4e67-8b28-498acb259e3b",
+            "id" : "8038c4f3-0b09-4d97-be46-8a5236ef3f2f",
             "module" : "EKB",
             "configName" : "api_access",
             "code" : "kb.ebsco.apiKey",
@@ -118,9 +118,9 @@ http_interactions:
             "enabled" : true,
             "value" : "TEST_API_KEY",
             "metadata" : {
-              "createdDate" : "2018-09-11T18:53:43.624+0000",
+              "createdDate" : "2018-09-12T12:34:52.788+0000",
               "createdByUserId" : "1ad737b0-d847-11e6-bf26-cec0c932ce01",
-              "updatedDate" : "2018-09-11T18:53:43.624+0000",
+              "updatedDate" : "2018-09-12T12:34:52.788+0000",
               "updatedByUserId" : "1ad737b0-d847-11e6-bf26-cec0c932ce01"
             }
           } ],
@@ -131,10 +131,10 @@ http_interactions:
           }
         }
     http_version: 
-  recorded_at: Tue, 11 Sep 2018 21:03:11 GMT
+  recorded_at: Wed, 12 Sep 2018 13:54:23 GMT
 - request:
     method: get
-    uri: TEST_RMAPI_URL/rm/rmaccounts/TEST_CUSTOMER_ID/vendors/123355/packages/2846164/titles/18137904
+    uri: https://api.ebsco.io/rm/rmaccounts/TEST_CUSTOMER_ID/vendors/123355/packages/2846164/titles/18953864
     body:
       encoding: US-ASCII
       string: ''
@@ -159,19 +159,19 @@ http_interactions:
       Content-Type:
       - application/json; charset=utf-8
       Content-Length:
-      - '977'
+      - '981'
       Connection:
       - keep-alive
       Date:
-      - Tue, 11 Sep 2018 21:03:11 GMT
+      - Wed, 12 Sep 2018 13:54:23 GMT
       X-Amzn-Requestid:
-      - 1755fbef-b606-11e8-ac83-cb6766ea530c
+      - 5aef744f-b693-11e8-87f5-df63dfcc6231
       X-Amzn-Remapped-Content-Length:
-      - '977'
+      - '981'
       X-Amzn-Remapped-Connection:
       - keep-alive
       X-Amz-Apigw-Id:
-      - NEwOYHt4IAMFw3w=
+      - NHEWcEinoAMF54A=
       X-Amzn-Remapped-Server:
       - Microsoft-IIS/8.5
       Cache-Control:
@@ -183,29 +183,29 @@ http_interactions:
       Pragma:
       - no-cache
       X-Amzn-Remapped-Date:
-      - Tue, 11 Sep 2018 21:03:10 GMT
+      - Wed, 12 Sep 2018 13:54:21 GMT
       X-Aspnet-Version:
       - 4.0.30319
       X-Cache:
       - Miss from cloudfront
       Via:
-      - 1.1 2f7eec78b53c7625bd656dcd08ed1823.cloudfront.net (CloudFront)
+      - 1.1 8ac2d04f7193cd95abfeb911e77fd3ab.cloudfront.net (CloudFront)
       X-Amz-Cf-Id:
-      - d5YLe3iDCbRwZa9ViSKzT1lP6Avqmxze_Nn6vbrhCLHf33juswsKOg==
+      - NnmsY4ocHVIkqTFs8wPNOG9_87tFLeVnBx8xJQ7WSjX5cEaw5FOo4w==
     body:
       encoding: UTF-8
-      string: '{"titleId":18137904,"titleName":"caroles test a title","publisherName":null,"identifiersList":[],"subjectsList":[],"isTitleCustom":true,"pubType":"Unspecified","customerResourcesList":[{"titleId":18137904,"packageId":2846164,"packageName":"Boston","packageType":"Custom","proxy":{"id":"<n>","inherited":true},"isPackageCustom":true,"vendorId":123355,"vendorName":"API
+      string: '{"titleId":18953864,"titleName":"caroles newer test title","publisherName":null,"identifiersList":[],"subjectsList":[],"isTitleCustom":true,"pubType":"Unspecified","customerResourcesList":[{"titleId":18953864,"packageId":2846164,"packageName":"Boston","packageType":"Custom","proxy":{"id":"<n>","inherited":true},"isPackageCustom":true,"vendorId":123355,"vendorName":"API
         DEV CORPORATE CUSTOMER","locationId":0,"isSelected":true,"isTokenNeeded":false,"visibilityData":{"isHidden":true,"reason":"Hidden
-        by Customer"},"managedCoverageList":[],"customCoverageList":[{"beginCoverage":"2003-12-13","endCoverage":"2004-12-13"}],"coverageStatement":null,"managedEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"customEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"url":null,"userDefinedField1":null,"userDefinedField2":null,"userDefinedField3":null,"userDefinedField4":null,"userDefinedField5":null}],"description":"","edition":"","isPeerReviewed":false,"contributorsList":[]}'
+        by Customer"},"managedCoverageList":[],"customCoverageList":[{"beginCoverage":"2003-12-31","endCoverage":"2004-12-31"}],"coverageStatement":null,"managedEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"customEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"url":null,"userDefinedField1":null,"userDefinedField2":null,"userDefinedField3":null,"userDefinedField4":null,"userDefinedField5":null}],"description":"","edition":"","isPeerReviewed":false,"contributorsList":[]}'
     http_version: 
-  recorded_at: Tue, 11 Sep 2018 21:03:11 GMT
+  recorded_at: Wed, 12 Sep 2018 13:54:23 GMT
 - request:
     method: put
-    uri: TEST_RMAPI_URL/rm/rmaccounts/TEST_CUSTOMER_ID/vendors/123355/packages/2846164/titles/18137904
+    uri: https://api.ebsco.io/rm/rmaccounts/TEST_CUSTOMER_ID/vendors/123355/packages/2846164/titles/18953864
     body:
       encoding: UTF-8
-      string: '{"isSelected":true,"isHidden":true,"customCoverageList":[{"beginCoverage":"2003-12-13","endCoverage":"2004-12-13"}],"contributorsList":null,"identifiersList":null,"customEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"coverageStatement":null,"titleName":"caroles
-        test a title","pubType":"Unspecified","isPeerReviewed":false,"publisherName":null,"edition":"","description":"","url":null,"proxy":{"id":"\u003cn\u003e","inherited":false}}'
+      string: '{"isSelected":true,"isHidden":true,"customCoverageList":[{"beginCoverage":"2003-12-31","endCoverage":"2004-12-31"}],"contributorsList":null,"identifiersList":null,"customEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"coverageStatement":null,"titleName":"caroles
+        newer test title","pubType":"Unspecified","isPeerReviewed":false,"publisherName":null,"edition":"","description":"","url":null,"proxy":{"id":"\u003cn\u003e","inherited":false}}'
     headers:
       User-Agent:
       - Flexirest/1.7.0
@@ -231,13 +231,13 @@ http_interactions:
       Connection:
       - keep-alive
       Date:
-      - Tue, 11 Sep 2018 21:03:11 GMT
+      - Wed, 12 Sep 2018 13:54:24 GMT
       X-Amzn-Requestid:
-      - 1768996d-b606-11e8-8341-31ae0df918e9
+      - 5b15723b-b693-11e8-b1c9-9de070f9e3df
       X-Amzn-Remapped-Connection:
       - keep-alive
       X-Amz-Apigw-Id:
-      - NEwOZHlGIAMFkGw=
+      - NHEWfHyqoAMF7Xg=
       X-Amzn-Remapped-Server:
       - Microsoft-IIS/8.5
       Cache-Control:
@@ -249,23 +249,23 @@ http_interactions:
       Pragma:
       - no-cache
       X-Amzn-Remapped-Date:
-      - Tue, 11 Sep 2018 21:03:10 GMT
+      - Wed, 12 Sep 2018 13:54:21 GMT
       X-Aspnet-Version:
       - 4.0.30319
       X-Cache:
       - Miss from cloudfront
       Via:
-      - 1.1 8ac2d04f7193cd95abfeb911e77fd3ab.cloudfront.net (CloudFront)
+      - 1.1 796000a2aeb611d2a2225763c567f35d.cloudfront.net (CloudFront)
       X-Amz-Cf-Id:
-      - 37vigGBQWwAnMo3XhRkyY4zC3o8fhASEXfPdjFLUjv17tv0LYizSWw==
+      - 7FgQ6PhNbSdjkrziD_uEl9d2lg0JD-yJWUMXIUdD_dzPj9VtsBAghQ==
     body:
       encoding: UTF-8
       string: ''
     http_version: 
-  recorded_at: Tue, 11 Sep 2018 21:03:11 GMT
+  recorded_at: Wed, 12 Sep 2018 13:54:24 GMT
 - request:
     method: get
-    uri: TEST_RMAPI_URL/rm/rmaccounts/TEST_CUSTOMER_ID/vendors/123355/packages/2846164/titles/18137904
+    uri: https://api.ebsco.io/rm/rmaccounts/TEST_CUSTOMER_ID/vendors/123355/packages/2846164/titles/18953864
     body:
       encoding: US-ASCII
       string: ''
@@ -290,19 +290,19 @@ http_interactions:
       Content-Type:
       - application/json; charset=utf-8
       Content-Length:
-      - '977'
+      - '981'
       Connection:
       - keep-alive
       Date:
-      - Tue, 11 Sep 2018 21:03:11 GMT
+      - Wed, 12 Sep 2018 13:54:24 GMT
       X-Amzn-Requestid:
-      - 17a2469a-b606-11e8-bcca-bdaf06136524
+      - 5b3d6d60-b693-11e8-b6c8-19777b89f9f6
       X-Amzn-Remapped-Content-Length:
-      - '977'
+      - '981'
       X-Amzn-Remapped-Connection:
       - keep-alive
       X-Amz-Apigw-Id:
-      - NEwOdG0qIAMFzZQ=
+      - NHEWiHbSIAMF72g=
       X-Amzn-Remapped-Server:
       - Microsoft-IIS/8.5
       Cache-Control:
@@ -314,20 +314,20 @@ http_interactions:
       Pragma:
       - no-cache
       X-Amzn-Remapped-Date:
-      - Tue, 11 Sep 2018 21:03:11 GMT
+      - Wed, 12 Sep 2018 13:54:23 GMT
       X-Aspnet-Version:
       - 4.0.30319
       X-Cache:
       - Miss from cloudfront
       Via:
-      - 1.1 707d06343c7b07a529839efb71fdb71b.cloudfront.net (CloudFront)
+      - 1.1 a6a098cdc333f9948baa2a00729f4f25.cloudfront.net (CloudFront)
       X-Amz-Cf-Id:
-      - drY3UYvZ3jxOtD5zhwGQp2_Nhg2oczYMqubtfyyTHBAWyS2jZbv6nw==
+      - sghmfzeC3NvpiE9ft44_97QVSHrPBADLTsWYr45b8flNKfN4Fx6htQ==
     body:
       encoding: UTF-8
-      string: '{"titleId":18137904,"titleName":"caroles test a title","publisherName":null,"identifiersList":[],"subjectsList":[],"isTitleCustom":true,"pubType":"Unspecified","customerResourcesList":[{"titleId":18137904,"packageId":2846164,"packageName":"Boston","packageType":"Custom","proxy":{"id":"<n>","inherited":true},"isPackageCustom":true,"vendorId":123355,"vendorName":"API
+      string: '{"titleId":18953864,"titleName":"caroles newer test title","publisherName":null,"identifiersList":[],"subjectsList":[],"isTitleCustom":true,"pubType":"Unspecified","customerResourcesList":[{"titleId":18953864,"packageId":2846164,"packageName":"Boston","packageType":"Custom","proxy":{"id":"<n>","inherited":true},"isPackageCustom":true,"vendorId":123355,"vendorName":"API
         DEV CORPORATE CUSTOMER","locationId":0,"isSelected":true,"isTokenNeeded":false,"visibilityData":{"isHidden":true,"reason":"Hidden
-        by Customer"},"managedCoverageList":[],"customCoverageList":[{"beginCoverage":"2003-12-13","endCoverage":"2004-12-13"}],"coverageStatement":null,"managedEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"customEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"url":null,"userDefinedField1":null,"userDefinedField2":null,"userDefinedField3":null,"userDefinedField4":null,"userDefinedField5":null}],"description":"","edition":"","isPeerReviewed":false,"contributorsList":[]}'
+        by Customer"},"managedCoverageList":[],"customCoverageList":[{"beginCoverage":"2003-12-31","endCoverage":"2004-12-31"}],"coverageStatement":null,"managedEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"customEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"url":null,"userDefinedField1":null,"userDefinedField2":null,"userDefinedField3":null,"userDefinedField4":null,"userDefinedField5":null}],"description":"","edition":"","isPeerReviewed":false,"contributorsList":[]}'
     http_version: 
-  recorded_at: Tue, 11 Sep 2018 21:03:11 GMT
+  recorded_at: Wed, 12 Sep 2018 13:54:24 GMT
 recorded_with: VCR 3.0.3

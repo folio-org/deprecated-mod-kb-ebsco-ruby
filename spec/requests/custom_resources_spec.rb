@@ -127,7 +127,7 @@ RSpec.describe 'Custom Resources', type: :request do
 
       before do
         VCR.use_cassette('put-custom-resource-visibility') do
-          put '/eholdings/resources/123355-2846164-18137904',
+          put '/eholdings/resources/123355-2846164-18953864',
               params: params, as: :json, headers: update_headers
         end
       end
@@ -161,7 +161,7 @@ RSpec.describe 'Custom Resources', type: :request do
 
       before do
         VCR.use_cassette('put-custom-resource-embargo-period') do
-          put '/eholdings/resources/123355-2846164-18137904',
+          put '/eholdings/resources/123355-2846164-18953864',
               params: params, as: :json, headers: update_headers
         end
       end
@@ -759,7 +759,7 @@ RSpec.describe 'Custom Resources', type: :request do
     describe 'deletes title if it is part of a custom package' do
       before do
         VCR.use_cassette('delete-custom-title') do
-          delete '/eholdings/resources/123355-2846164-18137904',
+          delete '/eholdings/resources/123355-2846164-18953864',
                  headers: okapi_headers
         end
       end

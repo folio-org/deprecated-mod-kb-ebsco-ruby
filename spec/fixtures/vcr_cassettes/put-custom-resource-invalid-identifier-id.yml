@@ -27,7 +27,7 @@ http_interactions:
       Server:
       - nginx/1.13.5
       Date:
-      - Tue, 11 Sep 2018 19:23:38 GMT
+      - Wed, 12 Sep 2018 13:22:31 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -36,15 +36,15 @@ http_interactions:
       - keep-alive
       X-Okapi-Trace:
       - 'GET mod-authtoken-1.5.2-SNAPSHOT.26 http://10.39.242.252:8081/configurations/entries..
-        : 202 1673us'
+        : 202 1429us'
       - 'GET mod-configuration-5.0.1-SNAPSHOT.45 http://10.39.249.105:8081/configurations/entries..
-        : 200 45777us'
+        : 200 44876us'
       Host:
       - okapi.frontside.io
       X-Real-Ip:
-      - 10.128.0.4
+      - 10.36.5.1
       X-Forwarded-For:
-      - 10.128.0.4
+      - 10.36.5.1
       X-Forwarded-Host:
       - okapi.frontside.io
       X-Forwarded-Port:
@@ -66,7 +66,7 @@ http_interactions:
       User-Agent:
       - Ruby
       X-Okapi-Request-Id:
-      - 984257/configurations
+      - 325657/configurations
       X-Okapi-Url:
       - http://10.39.245.41:80
       X-Okapi-Permissions:
@@ -82,21 +82,21 @@ http_interactions:
       string: |-
         {
           "configs" : [ {
-            "id" : "d35d1d52-ca4b-48ab-afe2-27a1e9adaa97",
+            "id" : "efadf3d8-59c3-4508-99d4-3e36e9247d87",
             "module" : "EKB",
             "configName" : "api_access",
             "code" : "kb.ebsco.url",
             "description" : "EBSCO RM-API URL",
             "enabled" : true,
-            "value" : "TEST_RMAPI_URL",
+            "value" : "https://api.ebsco.io",
             "metadata" : {
-              "createdDate" : "2018-09-11T18:53:43.223+0000",
+              "createdDate" : "2018-09-12T12:34:52.189+0000",
               "createdByUserId" : "1ad737b0-d847-11e6-bf26-cec0c932ce01",
-              "updatedDate" : "2018-09-11T18:53:43.223+0000",
+              "updatedDate" : "2018-09-12T12:34:52.189+0000",
               "updatedByUserId" : "1ad737b0-d847-11e6-bf26-cec0c932ce01"
             }
           }, {
-            "id" : "ad544220-967b-4b91-8c19-d0de6c3c2761",
+            "id" : "6b24b703-243a-4261-a7bf-0336d34f8c94",
             "module" : "EKB",
             "configName" : "api_access",
             "code" : "kb.ebsco.customerId",
@@ -104,13 +104,13 @@ http_interactions:
             "enabled" : true,
             "value" : "TEST_CUSTOMER_ID",
             "metadata" : {
-              "createdDate" : "2018-09-11T18:53:43.428+0000",
+              "createdDate" : "2018-09-12T12:34:52.466+0000",
               "createdByUserId" : "1ad737b0-d847-11e6-bf26-cec0c932ce01",
-              "updatedDate" : "2018-09-11T18:53:43.428+0000",
+              "updatedDate" : "2018-09-12T12:34:52.466+0000",
               "updatedByUserId" : "1ad737b0-d847-11e6-bf26-cec0c932ce01"
             }
           }, {
-            "id" : "8a15438f-ec4f-4e67-8b28-498acb259e3b",
+            "id" : "8038c4f3-0b09-4d97-be46-8a5236ef3f2f",
             "module" : "EKB",
             "configName" : "api_access",
             "code" : "kb.ebsco.apiKey",
@@ -118,9 +118,9 @@ http_interactions:
             "enabled" : true,
             "value" : "TEST_API_KEY",
             "metadata" : {
-              "createdDate" : "2018-09-11T18:53:43.624+0000",
+              "createdDate" : "2018-09-12T12:34:52.788+0000",
               "createdByUserId" : "1ad737b0-d847-11e6-bf26-cec0c932ce01",
-              "updatedDate" : "2018-09-11T18:53:43.624+0000",
+              "updatedDate" : "2018-09-12T12:34:52.788+0000",
               "updatedByUserId" : "1ad737b0-d847-11e6-bf26-cec0c932ce01"
             }
           } ],
@@ -131,10 +131,10 @@ http_interactions:
           }
         }
     http_version: 
-  recorded_at: Tue, 11 Sep 2018 19:23:38 GMT
+  recorded_at: Wed, 12 Sep 2018 13:22:31 GMT
 - request:
     method: get
-    uri: TEST_RMAPI_URL/rm/rmaccounts/TEST_CUSTOMER_ID/vendors/123355/packages/2843714/titles/17059805
+    uri: https://api.ebsco.io/rm/rmaccounts/TEST_CUSTOMER_ID/vendors/123355/packages/2843714/titles/17059805
     body:
       encoding: US-ASCII
       string: ''
@@ -163,15 +163,15 @@ http_interactions:
       Connection:
       - keep-alive
       Date:
-      - Tue, 11 Sep 2018 19:23:38 GMT
+      - Wed, 12 Sep 2018 13:22:31 GMT
       X-Amzn-Requestid:
-      - 2f3501c3-b5f8-11e8-9c0a-8dc2c12b3445
+      - e769ec29-b68e-11e8-8c96-37bc1467eaa7
       X-Amzn-Remapped-Content-Length:
       - '1196'
       X-Amzn-Remapped-Connection:
       - keep-alive
       X-Amz-Apigw-Id:
-      - NEhpHHSFIAMFa4w=
+      - NG_ruGnFoAMFcsg=
       X-Amzn-Remapped-Server:
       - Microsoft-IIS/8.5
       Cache-Control:
@@ -183,15 +183,15 @@ http_interactions:
       Pragma:
       - no-cache
       X-Amzn-Remapped-Date:
-      - Tue, 11 Sep 2018 19:23:38 GMT
+      - Wed, 12 Sep 2018 13:22:29 GMT
       X-Aspnet-Version:
       - 4.0.30319
       X-Cache:
       - Miss from cloudfront
       Via:
-      - 1.1 8b80cfad007948900303ef793b88e687.cloudfront.net (CloudFront)
+      - 1.1 796000a2aeb611d2a2225763c567f35d.cloudfront.net (CloudFront)
       X-Amz-Cf-Id:
-      - fpP4ptRRQpYwqeWtIawkynozcXrpz06q6tXyhmFQ5tZ2Jio8rEIY2g==
+      - QlW7evvZYOgZ87pViWqAahBFFAUrN4tYOD_myt-q9ybwi3kuL1KRqQ==
     body:
       encoding: UTF-8
       string: '{"titleId":17059805,"titleName":"I have a great new title name","publisherName":"test
@@ -204,5 +204,5 @@ http_interactions:
         Description again to test again","edition":"23","isPeerReviewed":true,"contributorsList":[{"type":"editor","contributor":"Lang
         Z"},{"type":"illustrator","contributor":"last first"}]}'
     http_version: 
-  recorded_at: Tue, 11 Sep 2018 19:23:38 GMT
+  recorded_at: Wed, 12 Sep 2018 13:22:32 GMT
 recorded_with: VCR 3.0.3

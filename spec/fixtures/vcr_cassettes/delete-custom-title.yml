@@ -27,7 +27,7 @@ http_interactions:
       Server:
       - nginx/1.13.5
       Date:
-      - Tue, 11 Sep 2018 21:03:13 GMT
+      - Wed, 12 Sep 2018 13:54:26 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -36,15 +36,15 @@ http_interactions:
       - keep-alive
       X-Okapi-Trace:
       - 'GET mod-authtoken-1.5.2-SNAPSHOT.26 http://10.39.242.252:8081/configurations/entries..
-        : 202 1889us'
+        : 202 1349us'
       - 'GET mod-configuration-5.0.1-SNAPSHOT.45 http://10.39.249.105:8081/configurations/entries..
-        : 200 43321us'
+        : 200 43570us'
       Host:
       - okapi.frontside.io
       X-Real-Ip:
-      - 10.36.5.1
+      - 10.128.0.3
       X-Forwarded-For:
-      - 10.36.5.1
+      - 10.128.0.3
       X-Forwarded-Host:
       - okapi.frontside.io
       X-Forwarded-Port:
@@ -66,7 +66,7 @@ http_interactions:
       User-Agent:
       - Ruby
       X-Okapi-Request-Id:
-      - 399455/configurations
+      - 786940/configurations
       X-Okapi-Url:
       - http://10.39.245.41:80
       X-Okapi-Permissions:
@@ -82,21 +82,21 @@ http_interactions:
       string: |-
         {
           "configs" : [ {
-            "id" : "d35d1d52-ca4b-48ab-afe2-27a1e9adaa97",
+            "id" : "efadf3d8-59c3-4508-99d4-3e36e9247d87",
             "module" : "EKB",
             "configName" : "api_access",
             "code" : "kb.ebsco.url",
             "description" : "EBSCO RM-API URL",
             "enabled" : true,
-            "value" : "TEST_RMAPI_URL",
+            "value" : "https://api.ebsco.io",
             "metadata" : {
-              "createdDate" : "2018-09-11T18:53:43.223+0000",
+              "createdDate" : "2018-09-12T12:34:52.189+0000",
               "createdByUserId" : "1ad737b0-d847-11e6-bf26-cec0c932ce01",
-              "updatedDate" : "2018-09-11T18:53:43.223+0000",
+              "updatedDate" : "2018-09-12T12:34:52.189+0000",
               "updatedByUserId" : "1ad737b0-d847-11e6-bf26-cec0c932ce01"
             }
           }, {
-            "id" : "ad544220-967b-4b91-8c19-d0de6c3c2761",
+            "id" : "6b24b703-243a-4261-a7bf-0336d34f8c94",
             "module" : "EKB",
             "configName" : "api_access",
             "code" : "kb.ebsco.customerId",
@@ -104,13 +104,13 @@ http_interactions:
             "enabled" : true,
             "value" : "TEST_CUSTOMER_ID",
             "metadata" : {
-              "createdDate" : "2018-09-11T18:53:43.428+0000",
+              "createdDate" : "2018-09-12T12:34:52.466+0000",
               "createdByUserId" : "1ad737b0-d847-11e6-bf26-cec0c932ce01",
-              "updatedDate" : "2018-09-11T18:53:43.428+0000",
+              "updatedDate" : "2018-09-12T12:34:52.466+0000",
               "updatedByUserId" : "1ad737b0-d847-11e6-bf26-cec0c932ce01"
             }
           }, {
-            "id" : "8a15438f-ec4f-4e67-8b28-498acb259e3b",
+            "id" : "8038c4f3-0b09-4d97-be46-8a5236ef3f2f",
             "module" : "EKB",
             "configName" : "api_access",
             "code" : "kb.ebsco.apiKey",
@@ -118,9 +118,9 @@ http_interactions:
             "enabled" : true,
             "value" : "TEST_API_KEY",
             "metadata" : {
-              "createdDate" : "2018-09-11T18:53:43.624+0000",
+              "createdDate" : "2018-09-12T12:34:52.788+0000",
               "createdByUserId" : "1ad737b0-d847-11e6-bf26-cec0c932ce01",
-              "updatedDate" : "2018-09-11T18:53:43.624+0000",
+              "updatedDate" : "2018-09-12T12:34:52.788+0000",
               "updatedByUserId" : "1ad737b0-d847-11e6-bf26-cec0c932ce01"
             }
           } ],
@@ -131,10 +131,10 @@ http_interactions:
           }
         }
     http_version: 
-  recorded_at: Tue, 11 Sep 2018 21:03:13 GMT
+  recorded_at: Wed, 12 Sep 2018 13:54:26 GMT
 - request:
     method: get
-    uri: TEST_RMAPI_URL/rm/rmaccounts/TEST_CUSTOMER_ID/vendors/123355/packages/2846164/titles/18137904
+    uri: https://api.ebsco.io/rm/rmaccounts/TEST_CUSTOMER_ID/vendors/123355/packages/2846164/titles/18953864
     body:
       encoding: US-ASCII
       string: ''
@@ -159,19 +159,19 @@ http_interactions:
       Content-Type:
       - application/json; charset=utf-8
       Content-Length:
-      - '980'
+      - '984'
       Connection:
       - keep-alive
       Date:
-      - Tue, 11 Sep 2018 21:03:13 GMT
+      - Wed, 12 Sep 2018 13:54:26 GMT
       X-Amzn-Requestid:
-      - 18e35235-b606-11e8-a8a7-011ed6ae6916
+      - 5cc82bc2-b693-11e8-a5f1-5964443be53a
       X-Amzn-Remapped-Content-Length:
-      - '980'
+      - '984'
       X-Amzn-Remapped-Connection:
       - keep-alive
       X-Amz-Apigw-Id:
-      - NEwOyEAnIAMFang=
+      - NHEW7H8koAMF1pQ=
       X-Amzn-Remapped-Server:
       - Microsoft-IIS/8.5
       Cache-Control:
@@ -183,25 +183,25 @@ http_interactions:
       Pragma:
       - no-cache
       X-Amzn-Remapped-Date:
-      - Tue, 11 Sep 2018 21:03:13 GMT
+      - Wed, 12 Sep 2018 13:54:25 GMT
       X-Aspnet-Version:
       - 4.0.30319
       X-Cache:
       - Miss from cloudfront
       Via:
-      - 1.1 92e459346829b56068b240340d6508a6.cloudfront.net (CloudFront)
+      - 1.1 5a27d8f87b0f1db56d469d1fefb312ac.cloudfront.net (CloudFront)
       X-Amz-Cf-Id:
-      - uTZyq6oiq-VoDlyn3LDT0ePu9z6y4GVKQgHcqx663m0A23lQvp_DZw==
+      - _i5_xFKCVggcT2oOSD04KQrqHsNNSONaKU3ynh7HUQqg7cHUGK-PgQ==
     body:
       encoding: UTF-8
-      string: '{"titleId":18137904,"titleName":"caroles test a title","publisherName":null,"identifiersList":[],"subjectsList":[],"isTitleCustom":true,"pubType":"Unspecified","customerResourcesList":[{"titleId":18137904,"packageId":2846164,"packageName":"Boston","packageType":"Custom","proxy":{"id":"<n>","inherited":true},"isPackageCustom":true,"vendorId":123355,"vendorName":"API
+      string: '{"titleId":18953864,"titleName":"caroles newer test title","publisherName":null,"identifiersList":[],"subjectsList":[],"isTitleCustom":true,"pubType":"Unspecified","customerResourcesList":[{"titleId":18953864,"packageId":2846164,"packageName":"Boston","packageType":"Custom","proxy":{"id":"<n>","inherited":true},"isPackageCustom":true,"vendorId":123355,"vendorName":"API
         DEV CORPORATE CUSTOMER","locationId":0,"isSelected":true,"isTokenNeeded":false,"visibilityData":{"isHidden":true,"reason":"Hidden
-        by Customer"},"managedCoverageList":[],"customCoverageList":[{"beginCoverage":"2003-12-13","endCoverage":"2004-12-13"}],"coverageStatement":null,"managedEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"customEmbargoPeriod":{"embargoUnit":"Weeks","embargoValue":6},"url":null,"userDefinedField1":null,"userDefinedField2":null,"userDefinedField3":null,"userDefinedField4":null,"userDefinedField5":null}],"description":"","edition":"","isPeerReviewed":false,"contributorsList":[]}'
+        by Customer"},"managedCoverageList":[],"customCoverageList":[{"beginCoverage":"2003-12-31","endCoverage":"2004-12-31"}],"coverageStatement":null,"managedEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"customEmbargoPeriod":{"embargoUnit":"Weeks","embargoValue":6},"url":null,"userDefinedField1":null,"userDefinedField2":null,"userDefinedField3":null,"userDefinedField4":null,"userDefinedField5":null}],"description":"","edition":"","isPeerReviewed":false,"contributorsList":[]}'
     http_version: 
-  recorded_at: Tue, 11 Sep 2018 21:03:13 GMT
+  recorded_at: Wed, 12 Sep 2018 13:54:26 GMT
 - request:
     method: put
-    uri: TEST_RMAPI_URL/rm/rmaccounts/TEST_CUSTOMER_ID/vendors/123355/packages/2846164/titles/18137904
+    uri: https://api.ebsco.io/rm/rmaccounts/TEST_CUSTOMER_ID/vendors/123355/packages/2846164/titles/18953864
     body:
       encoding: UTF-8
       string: '{"isSelected":false}'
@@ -230,13 +230,13 @@ http_interactions:
       Connection:
       - keep-alive
       Date:
-      - Tue, 11 Sep 2018 21:03:14 GMT
+      - Wed, 12 Sep 2018 13:54:27 GMT
       X-Amzn-Requestid:
-      - 18fcf578-b606-11e8-ac83-cb6766ea530c
+      - 5ce59e95-b693-11e8-97c6-69b04f910e76
       X-Amzn-Remapped-Connection:
       - keep-alive
       X-Amz-Apigw-Id:
-      - NEwO0H4qoAMFw3w=
+      - NHEW9HydIAMF41w=
       X-Amzn-Remapped-Server:
       - Microsoft-IIS/8.5
       Cache-Control:
@@ -248,18 +248,18 @@ http_interactions:
       Pragma:
       - no-cache
       X-Amzn-Remapped-Date:
-      - Tue, 11 Sep 2018 21:03:13 GMT
+      - Wed, 12 Sep 2018 13:54:25 GMT
       X-Aspnet-Version:
       - 4.0.30319
       X-Cache:
       - Miss from cloudfront
       Via:
-      - 1.1 8ac2d04f7193cd95abfeb911e77fd3ab.cloudfront.net (CloudFront)
+      - 1.1 2f7eec78b53c7625bd656dcd08ed1823.cloudfront.net (CloudFront)
       X-Amz-Cf-Id:
-      - wuRODFo72hhsGYc7KaH_QdOxagKXXBbSLIUJ0nbfGkujLr3G4hDIXg==
+      - YFgObe2ByY-UPaRL-mYg-sfpq7f9j2sGIuNmq6OW5QHm6lEX-7NzqA==
     body:
       encoding: UTF-8
       string: ''
     http_version: 
-  recorded_at: Tue, 11 Sep 2018 21:03:14 GMT
+  recorded_at: Wed, 12 Sep 2018 13:54:27 GMT
 recorded_with: VCR 3.0.3
