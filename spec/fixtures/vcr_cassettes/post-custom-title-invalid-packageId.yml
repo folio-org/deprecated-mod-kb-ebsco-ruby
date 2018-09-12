@@ -27,7 +27,7 @@ http_interactions:
       Server:
       - nginx/1.13.5
       Date:
-      - Tue, 11 Sep 2018 21:17:38 GMT
+      - Wed, 12 Sep 2018 14:08:40 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -36,9 +36,9 @@ http_interactions:
       - keep-alive
       X-Okapi-Trace:
       - 'GET mod-authtoken-1.5.2-SNAPSHOT.26 http://10.39.242.252:8081/configurations/entries..
-        : 202 1650us'
+        : 202 1518us'
       - 'GET mod-configuration-5.0.1-SNAPSHOT.45 http://10.39.249.105:8081/configurations/entries..
-        : 200 43807us'
+        : 200 43305us'
       Host:
       - okapi.frontside.io
       X-Real-Ip:
@@ -66,7 +66,7 @@ http_interactions:
       User-Agent:
       - Ruby
       X-Okapi-Request-Id:
-      - 818514/configurations
+      - 240476/configurations
       X-Okapi-Url:
       - http://10.39.245.41:80
       X-Okapi-Permissions:
@@ -82,21 +82,21 @@ http_interactions:
       string: |-
         {
           "configs" : [ {
-            "id" : "d35d1d52-ca4b-48ab-afe2-27a1e9adaa97",
+            "id" : "efadf3d8-59c3-4508-99d4-3e36e9247d87",
             "module" : "EKB",
             "configName" : "api_access",
             "code" : "kb.ebsco.url",
             "description" : "EBSCO RM-API URL",
             "enabled" : true,
-            "value" : "TEST_RMAPI_URL",
+            "value" : "https://api.ebsco.io",
             "metadata" : {
-              "createdDate" : "2018-09-11T18:53:43.223+0000",
+              "createdDate" : "2018-09-12T12:34:52.189+0000",
               "createdByUserId" : "1ad737b0-d847-11e6-bf26-cec0c932ce01",
-              "updatedDate" : "2018-09-11T18:53:43.223+0000",
+              "updatedDate" : "2018-09-12T12:34:52.189+0000",
               "updatedByUserId" : "1ad737b0-d847-11e6-bf26-cec0c932ce01"
             }
           }, {
-            "id" : "ad544220-967b-4b91-8c19-d0de6c3c2761",
+            "id" : "6b24b703-243a-4261-a7bf-0336d34f8c94",
             "module" : "EKB",
             "configName" : "api_access",
             "code" : "kb.ebsco.customerId",
@@ -104,13 +104,13 @@ http_interactions:
             "enabled" : true,
             "value" : "TEST_CUSTOMER_ID",
             "metadata" : {
-              "createdDate" : "2018-09-11T18:53:43.428+0000",
+              "createdDate" : "2018-09-12T12:34:52.466+0000",
               "createdByUserId" : "1ad737b0-d847-11e6-bf26-cec0c932ce01",
-              "updatedDate" : "2018-09-11T18:53:43.428+0000",
+              "updatedDate" : "2018-09-12T12:34:52.466+0000",
               "updatedByUserId" : "1ad737b0-d847-11e6-bf26-cec0c932ce01"
             }
           }, {
-            "id" : "8a15438f-ec4f-4e67-8b28-498acb259e3b",
+            "id" : "8038c4f3-0b09-4d97-be46-8a5236ef3f2f",
             "module" : "EKB",
             "configName" : "api_access",
             "code" : "kb.ebsco.apiKey",
@@ -118,9 +118,9 @@ http_interactions:
             "enabled" : true,
             "value" : "TEST_API_KEY",
             "metadata" : {
-              "createdDate" : "2018-09-11T18:53:43.624+0000",
+              "createdDate" : "2018-09-12T12:34:52.788+0000",
               "createdByUserId" : "1ad737b0-d847-11e6-bf26-cec0c932ce01",
-              "updatedDate" : "2018-09-11T18:53:43.624+0000",
+              "updatedDate" : "2018-09-12T12:34:52.788+0000",
               "updatedByUserId" : "1ad737b0-d847-11e6-bf26-cec0c932ce01"
             }
           } ],
@@ -131,13 +131,13 @@ http_interactions:
           }
         }
     http_version: 
-  recorded_at: Tue, 11 Sep 2018 21:17:39 GMT
+  recorded_at: Wed, 12 Sep 2018 14:08:40 GMT
 - request:
     method: post
-    uri: TEST_RMAPI_URL/rm/rmaccounts/TEST_CUSTOMER_ID/vendors/9999999/packages/9999999/titles
+    uri: https://api.ebsco.io/rm/rmaccounts/TEST_CUSTOMER_ID/vendors/9999999/packages/9999999/titles
     body:
       encoding: UTF-8
-      string: '{"titleName":"Goblins New Title","edition":"","publisherName":"","pubType":"journal","isPeerReviewed":false,"description":""}'
+      string: '{"titleName":"Goblins Testing A Title","edition":"","publisherName":"","pubType":"journal","isPeerReviewed":false,"description":""}'
     headers:
       User-Agent:
       - Flexirest/1.7.0
@@ -163,24 +163,24 @@ http_interactions:
       Connection:
       - keep-alive
       Date:
-      - Tue, 11 Sep 2018 21:17:39 GMT
+      - Wed, 12 Sep 2018 14:08:40 GMT
       X-Amzn-Requestid:
-      - 1c98ce5d-b608-11e8-ad00-3f673d011515
+      - 597c7167-b695-11e8-85be-b34257c14dbd
       X-Amzn-Remapped-Connection:
       - keep-alive
       X-Amz-Apigw-Id:
-      - NEyV-Hi0IAMFmLw=
+      - NHGcSHH9IAMFsuA=
       X-Amzn-Remapped-Date:
-      - Tue, 11 Sep 2018 21:17:38 GMT
+      - Wed, 12 Sep 2018 14:08:40 GMT
       X-Cache:
       - Error from cloudfront
       Via:
-      - 1.1 a7dda29620c2fec27c03f7bf6c406fc0.cloudfront.net (CloudFront)
+      - 1.1 74f392c3bbde3f12fab5155d1847c2cd.cloudfront.net (CloudFront)
       X-Amz-Cf-Id:
-      - DnGMQRT2e0KMcztRRtIM7WZ6JVaCvnAG_h2ogH3Z1O_QSWm1UJpF7A==
+      - XbZcV6x0f0JI55TiKRwbxCb3xJqcUyrSSFnNQFmShIpmIXzkixPeOA==
     body:
       encoding: UTF-8
       string: '{"errors":[{"code":1001,"subCode":0,"message":"Vendor not found"}]}'
     http_version: 
-  recorded_at: Tue, 11 Sep 2018 21:17:39 GMT
+  recorded_at: Wed, 12 Sep 2018 14:08:40 GMT
 recorded_with: VCR 3.0.3

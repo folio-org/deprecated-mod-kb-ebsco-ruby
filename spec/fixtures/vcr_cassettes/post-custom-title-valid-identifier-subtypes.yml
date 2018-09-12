@@ -27,7 +27,7 @@ http_interactions:
       Server:
       - nginx/1.13.5
       Date:
-      - Tue, 11 Sep 2018 21:31:11 GMT
+      - Wed, 12 Sep 2018 14:16:47 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -36,9 +36,9 @@ http_interactions:
       - keep-alive
       X-Okapi-Trace:
       - 'GET mod-authtoken-1.5.2-SNAPSHOT.26 http://10.39.242.252:8081/configurations/entries..
-        : 202 1609us'
+        : 202 1291us'
       - 'GET mod-configuration-5.0.1-SNAPSHOT.45 http://10.39.249.105:8081/configurations/entries..
-        : 200 45027us'
+        : 200 44783us'
       Host:
       - okapi.frontside.io
       X-Real-Ip:
@@ -66,7 +66,7 @@ http_interactions:
       User-Agent:
       - Ruby
       X-Okapi-Request-Id:
-      - 218479/configurations
+      - 216871/configurations
       X-Okapi-Url:
       - http://10.39.245.41:80
       X-Okapi-Permissions:
@@ -82,21 +82,21 @@ http_interactions:
       string: |-
         {
           "configs" : [ {
-            "id" : "d35d1d52-ca4b-48ab-afe2-27a1e9adaa97",
+            "id" : "efadf3d8-59c3-4508-99d4-3e36e9247d87",
             "module" : "EKB",
             "configName" : "api_access",
             "code" : "kb.ebsco.url",
             "description" : "EBSCO RM-API URL",
             "enabled" : true,
-            "value" : "TEST_RMAPI_URL",
+            "value" : "https://api.ebsco.io",
             "metadata" : {
-              "createdDate" : "2018-09-11T18:53:43.223+0000",
+              "createdDate" : "2018-09-12T12:34:52.189+0000",
               "createdByUserId" : "1ad737b0-d847-11e6-bf26-cec0c932ce01",
-              "updatedDate" : "2018-09-11T18:53:43.223+0000",
+              "updatedDate" : "2018-09-12T12:34:52.189+0000",
               "updatedByUserId" : "1ad737b0-d847-11e6-bf26-cec0c932ce01"
             }
           }, {
-            "id" : "ad544220-967b-4b91-8c19-d0de6c3c2761",
+            "id" : "6b24b703-243a-4261-a7bf-0336d34f8c94",
             "module" : "EKB",
             "configName" : "api_access",
             "code" : "kb.ebsco.customerId",
@@ -104,13 +104,13 @@ http_interactions:
             "enabled" : true,
             "value" : "TEST_CUSTOMER_ID",
             "metadata" : {
-              "createdDate" : "2018-09-11T18:53:43.428+0000",
+              "createdDate" : "2018-09-12T12:34:52.466+0000",
               "createdByUserId" : "1ad737b0-d847-11e6-bf26-cec0c932ce01",
-              "updatedDate" : "2018-09-11T18:53:43.428+0000",
+              "updatedDate" : "2018-09-12T12:34:52.466+0000",
               "updatedByUserId" : "1ad737b0-d847-11e6-bf26-cec0c932ce01"
             }
           }, {
-            "id" : "8a15438f-ec4f-4e67-8b28-498acb259e3b",
+            "id" : "8038c4f3-0b09-4d97-be46-8a5236ef3f2f",
             "module" : "EKB",
             "configName" : "api_access",
             "code" : "kb.ebsco.apiKey",
@@ -118,9 +118,9 @@ http_interactions:
             "enabled" : true,
             "value" : "TEST_API_KEY",
             "metadata" : {
-              "createdDate" : "2018-09-11T18:53:43.624+0000",
+              "createdDate" : "2018-09-12T12:34:52.788+0000",
               "createdByUserId" : "1ad737b0-d847-11e6-bf26-cec0c932ce01",
-              "updatedDate" : "2018-09-11T18:53:43.624+0000",
+              "updatedDate" : "2018-09-12T12:34:52.788+0000",
               "updatedByUserId" : "1ad737b0-d847-11e6-bf26-cec0c932ce01"
             }
           } ],
@@ -131,13 +131,13 @@ http_interactions:
           }
         }
     http_version: 
-  recorded_at: Tue, 11 Sep 2018 21:31:11 GMT
+  recorded_at: Wed, 12 Sep 2018 14:16:47 GMT
 - request:
     method: post
-    uri: TEST_RMAPI_URL/rm/rmaccounts/TEST_CUSTOMER_ID/vendors/123355/packages/2918760/titles
+    uri: https://api.ebsco.io/rm/rmaccounts/TEST_CUSTOMER_ID/vendors/123355/packages/2918760/titles
     body:
       encoding: UTF-8
-      string: '{"titleName":"Olivander Valid Subtype Test","edition":"","publisherName":"","pubType":"journal","isPeerReviewed":false,"identifiersList":[{"id":"12345","type":0,"subtype":1},{"id":"12345","type":1,"subtype":2}],"description":""}'
+      string: '{"titleName":"Olivander Valid Subtype Testing","edition":"","publisherName":"","pubType":"journal","isPeerReviewed":false,"identifiersList":[{"id":"12345","type":0,"subtype":1},{"id":"12345","type":1,"subtype":2}],"description":""}'
     headers:
       User-Agent:
       - Flexirest/1.7.0
@@ -163,29 +163,29 @@ http_interactions:
       Connection:
       - keep-alive
       Date:
-      - Tue, 11 Sep 2018 21:31:11 GMT
+      - Wed, 12 Sep 2018 14:16:47 GMT
       X-Amzn-Requestid:
-      - 00d7a1e4-b60a-11e8-a50f-3d60f49033ac
+      - 7c082c93-b696-11e8-b709-59e10d36866b
       X-Amzn-Remapped-Connection:
       - keep-alive
       X-Amz-Apigw-Id:
-      - NE0U6GQwIAMFmog=
+      - NHHodFT1IAMFrvA=
       X-Amzn-Remapped-Date:
-      - Tue, 11 Sep 2018 21:31:11 GMT
+      - Wed, 12 Sep 2018 14:16:47 GMT
       X-Cache:
       - Miss from cloudfront
       Via:
-      - 1.1 4a9cf7d692d7309a16ebde15ef85ff54.cloudfront.net (CloudFront)
+      - 1.1 5ea17ec24e220cfd5bc26fea52e3a29c.cloudfront.net (CloudFront)
       X-Amz-Cf-Id:
-      - Qx1FAf4zZ-rhSuZGWGXiLpk4yA4TO2jAJbrFLE_gLRj9zQyS-qFT7A==
+      - oYka3Z-_p3guzMXkIYxeg_Tl6fz5KfFLXYfOyP5JztKwPe5WBQxVRQ==
     body:
       encoding: UTF-8
-      string: '{"titleId":18953874}'
+      string: '{"titleId":18958509}'
     http_version: 
-  recorded_at: Tue, 11 Sep 2018 21:31:11 GMT
+  recorded_at: Wed, 12 Sep 2018 14:16:47 GMT
 - request:
     method: get
-    uri: TEST_RMAPI_URL/rm/rmaccounts/TEST_CUSTOMER_ID/titles/18953874
+    uri: https://api.ebsco.io/rm/rmaccounts/TEST_CUSTOMER_ID/titles/18958509
     body:
       encoding: US-ASCII
       string: ''
@@ -210,19 +210,19 @@ http_interactions:
       Content-Type:
       - application/json; charset=utf-8
       Content-Length:
-      - '1057'
+      - '1060'
       Connection:
       - keep-alive
       Date:
-      - Tue, 11 Sep 2018 21:31:11 GMT
+      - Wed, 12 Sep 2018 14:16:48 GMT
       X-Amzn-Requestid:
-      - 010a4aab-b60a-11e8-9dec-cd70797f1e3b
+      - 7c31acbe-b696-11e8-a484-d13b9f9c9997
       X-Amzn-Remapped-Content-Length:
-      - '1057'
+      - '1060'
       X-Amzn-Remapped-Connection:
       - keep-alive
       X-Amz-Apigw-Id:
-      - NE0U-GVeIAMFsBg=
+      - NHHofGiBoAMFvzA=
       X-Amzn-Remapped-Server:
       - Microsoft-IIS/8.5
       Cache-Control:
@@ -234,20 +234,20 @@ http_interactions:
       Pragma:
       - no-cache
       X-Amzn-Remapped-Date:
-      - Tue, 11 Sep 2018 21:31:11 GMT
+      - Wed, 12 Sep 2018 14:16:45 GMT
       X-Aspnet-Version:
       - 4.0.30319
       X-Cache:
       - Miss from cloudfront
       Via:
-      - 1.1 e848f30e8d63b5f324e9295182b986ef.cloudfront.net (CloudFront)
+      - 1.1 d3424c9f9521e1ec049f487748144c76.cloudfront.net (CloudFront)
       X-Amz-Cf-Id:
-      - 6U4gBmq3Eu7XYL4EREUATVpt5VDLzJW4FoVXL0LtnSwkZKXA4c4dLg==
+      - hV6qYtGhAQnXqf3lobH3oTxaT0cVI2KXhrZxLA0UWPgNBkFTHJrl0Q==
     body:
       encoding: UTF-8
-      string: '{"titleId":18953874,"titleName":"Olivander Valid Subtype Test","publisherName":null,"identifiersList":[{"id":"12345","source":"ResourceIdentifier","subtype":1,"type":0},{"id":"12345","source":"ResourceIdentifier","subtype":2,"type":1}],"subjectsList":[],"isTitleCustom":true,"pubType":"Journal","customerResourcesList":[{"titleId":18953874,"packageId":2918760,"packageName":"Title
+      string: '{"titleId":18958509,"titleName":"Olivander Valid Subtype Testing","publisherName":null,"identifiersList":[{"id":"12345","source":"ResourceIdentifier","subtype":1,"type":0},{"id":"12345","source":"ResourceIdentifier","subtype":2,"type":1}],"subjectsList":[],"isTitleCustom":true,"pubType":"Journal","customerResourcesList":[{"titleId":18958509,"packageId":2918760,"packageName":"Title
         testing package","packageType":"Custom","proxy":{"id":"EZProxy","inherited":true},"isPackageCustom":true,"vendorId":123355,"vendorName":"API
         DEV CORPORATE CUSTOMER","locationId":0,"isSelected":true,"isTokenNeeded":false,"visibilityData":{"isHidden":false,"reason":""},"managedCoverageList":[],"customCoverageList":[],"coverageStatement":null,"managedEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"customEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"url":null,"userDefinedField1":null,"userDefinedField2":null,"userDefinedField3":null,"userDefinedField4":null,"userDefinedField5":null}],"description":"","edition":"","isPeerReviewed":false,"contributorsList":[]}'
     http_version: 
-  recorded_at: Tue, 11 Sep 2018 21:31:11 GMT
+  recorded_at: Wed, 12 Sep 2018 14:16:48 GMT
 recorded_with: VCR 3.0.3

@@ -27,7 +27,7 @@ http_interactions:
       Server:
       - nginx/1.13.5
       Date:
-      - Tue, 11 Sep 2018 21:26:18 GMT
+      - Wed, 12 Sep 2018 14:16:43 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -36,15 +36,15 @@ http_interactions:
       - keep-alive
       X-Okapi-Trace:
       - 'GET mod-authtoken-1.5.2-SNAPSHOT.26 http://10.39.242.252:8081/configurations/entries..
-        : 202 2385us'
+        : 202 501241us'
       - 'GET mod-configuration-5.0.1-SNAPSHOT.45 http://10.39.249.105:8081/configurations/entries..
-        : 200 44305us'
+        : 200 247049us'
       Host:
       - okapi.frontside.io
       X-Real-Ip:
-      - 10.128.0.4
+      - 10.36.5.1
       X-Forwarded-For:
-      - 10.128.0.4
+      - 10.36.5.1
       X-Forwarded-Host:
       - okapi.frontside.io
       X-Forwarded-Port:
@@ -66,7 +66,7 @@ http_interactions:
       User-Agent:
       - Ruby
       X-Okapi-Request-Id:
-      - 322757/configurations
+      - 674059/configurations
       X-Okapi-Url:
       - http://10.39.245.41:80
       X-Okapi-Permissions:
@@ -82,21 +82,21 @@ http_interactions:
       string: |-
         {
           "configs" : [ {
-            "id" : "d35d1d52-ca4b-48ab-afe2-27a1e9adaa97",
+            "id" : "efadf3d8-59c3-4508-99d4-3e36e9247d87",
             "module" : "EKB",
             "configName" : "api_access",
             "code" : "kb.ebsco.url",
             "description" : "EBSCO RM-API URL",
             "enabled" : true,
-            "value" : "TEST_RMAPI_URL",
+            "value" : "https://api.ebsco.io",
             "metadata" : {
-              "createdDate" : "2018-09-11T18:53:43.223+0000",
+              "createdDate" : "2018-09-12T12:34:52.189+0000",
               "createdByUserId" : "1ad737b0-d847-11e6-bf26-cec0c932ce01",
-              "updatedDate" : "2018-09-11T18:53:43.223+0000",
+              "updatedDate" : "2018-09-12T12:34:52.189+0000",
               "updatedByUserId" : "1ad737b0-d847-11e6-bf26-cec0c932ce01"
             }
           }, {
-            "id" : "ad544220-967b-4b91-8c19-d0de6c3c2761",
+            "id" : "6b24b703-243a-4261-a7bf-0336d34f8c94",
             "module" : "EKB",
             "configName" : "api_access",
             "code" : "kb.ebsco.customerId",
@@ -104,13 +104,13 @@ http_interactions:
             "enabled" : true,
             "value" : "TEST_CUSTOMER_ID",
             "metadata" : {
-              "createdDate" : "2018-09-11T18:53:43.428+0000",
+              "createdDate" : "2018-09-12T12:34:52.466+0000",
               "createdByUserId" : "1ad737b0-d847-11e6-bf26-cec0c932ce01",
-              "updatedDate" : "2018-09-11T18:53:43.428+0000",
+              "updatedDate" : "2018-09-12T12:34:52.466+0000",
               "updatedByUserId" : "1ad737b0-d847-11e6-bf26-cec0c932ce01"
             }
           }, {
-            "id" : "8a15438f-ec4f-4e67-8b28-498acb259e3b",
+            "id" : "8038c4f3-0b09-4d97-be46-8a5236ef3f2f",
             "module" : "EKB",
             "configName" : "api_access",
             "code" : "kb.ebsco.apiKey",
@@ -118,9 +118,9 @@ http_interactions:
             "enabled" : true,
             "value" : "TEST_API_KEY",
             "metadata" : {
-              "createdDate" : "2018-09-11T18:53:43.624+0000",
+              "createdDate" : "2018-09-12T12:34:52.788+0000",
               "createdByUserId" : "1ad737b0-d847-11e6-bf26-cec0c932ce01",
-              "updatedDate" : "2018-09-11T18:53:43.624+0000",
+              "updatedDate" : "2018-09-12T12:34:52.788+0000",
               "updatedByUserId" : "1ad737b0-d847-11e6-bf26-cec0c932ce01"
             }
           } ],
@@ -131,13 +131,13 @@ http_interactions:
           }
         }
     http_version: 
-  recorded_at: Tue, 11 Sep 2018 21:26:18 GMT
+  recorded_at: Wed, 12 Sep 2018 14:16:43 GMT
 - request:
     method: post
-    uri: TEST_RMAPI_URL/rm/rmaccounts/TEST_CUSTOMER_ID/vendors/123355/packages/2918760/titles
+    uri: https://api.ebsco.io/rm/rmaccounts/TEST_CUSTOMER_ID/vendors/123355/packages/2918760/titles
     body:
       encoding: UTF-8
-      string: '{"titleName":"The Mages Newest Title","edition":"","publisherName":"","pubType":"unspecified","isPeerReviewed":false,"description":""}'
+      string: '{"titleName":"The Mages Test Title","edition":"","publisherName":"","pubType":"unspecified","isPeerReviewed":false,"description":""}'
     headers:
       User-Agent:
       - Flexirest/1.7.0
@@ -163,29 +163,29 @@ http_interactions:
       Connection:
       - keep-alive
       Date:
-      - Tue, 11 Sep 2018 21:26:18 GMT
+      - Wed, 12 Sep 2018 14:16:45 GMT
       X-Amzn-Requestid:
-      - 51f34b74-b609-11e8-87f5-df63dfcc6231
+      - 79c4f306-b696-11e8-8aca-8b090a22ade4
       X-Amzn-Remapped-Connection:
       - keep-alive
       X-Amz-Apigw-Id:
-      - NEznEGL1IAMF54A=
+      - NHHn3FGjIAMFnXw=
       X-Amzn-Remapped-Date:
-      - Tue, 11 Sep 2018 21:26:17 GMT
+      - Wed, 12 Sep 2018 14:16:45 GMT
       X-Cache:
       - Miss from cloudfront
       Via:
-      - 1.1 e848f30e8d63b5f324e9295182b986ef.cloudfront.net (CloudFront)
+      - 1.1 55157b979573d984aaf7e9e716d67a4a.cloudfront.net (CloudFront)
       X-Amz-Cf-Id:
-      - jQOepdrmnUB3i9umcODiUppgc6QVhIrCNdclHbOL0OL4ZXGVDPfHog==
+      - Rb0i-55foEzxfBylZA1JkNudiZsi2DijwGBRTMzaTBrltBmvgjCYeQ==
     body:
       encoding: UTF-8
-      string: '{"titleId":18953869}'
+      string: '{"titleId":18958507}'
     http_version: 
-  recorded_at: Tue, 11 Sep 2018 21:26:18 GMT
+  recorded_at: Wed, 12 Sep 2018 14:16:46 GMT
 - request:
     method: get
-    uri: TEST_RMAPI_URL/rm/rmaccounts/TEST_CUSTOMER_ID/titles/18953869
+    uri: https://api.ebsco.io/rm/rmaccounts/TEST_CUSTOMER_ID/titles/18958507
     body:
       encoding: US-ASCII
       string: ''
@@ -210,19 +210,19 @@ http_interactions:
       Content-Type:
       - application/json; charset=utf-8
       Content-Length:
-      - '924'
+      - '922'
       Connection:
       - keep-alive
       Date:
-      - Tue, 11 Sep 2018 21:26:18 GMT
+      - Wed, 12 Sep 2018 14:16:46 GMT
       X-Amzn-Requestid:
-      - 5219bfca-b609-11e8-9acd-6f73c97e31e7
+      - 7b160407-b696-11e8-9646-dd9a5f082256
       X-Amzn-Remapped-Content-Length:
-      - '924'
+      - '922'
       X-Amzn-Remapped-Connection:
       - keep-alive
       X-Amz-Apigw-Id:
-      - NEznHHsuIAMFm3A=
+      - NHHoNFjroAMFwwQ=
       X-Amzn-Remapped-Server:
       - Microsoft-IIS/8.5
       Cache-Control:
@@ -234,20 +234,20 @@ http_interactions:
       Pragma:
       - no-cache
       X-Amzn-Remapped-Date:
-      - Tue, 11 Sep 2018 21:26:17 GMT
+      - Wed, 12 Sep 2018 14:16:44 GMT
       X-Aspnet-Version:
       - 4.0.30319
       X-Cache:
       - Miss from cloudfront
       Via:
-      - 1.1 8afd14030d0efa39cea23517afb3058c.cloudfront.net (CloudFront)
+      - 1.1 2f7eec78b53c7625bd656dcd08ed1823.cloudfront.net (CloudFront)
       X-Amz-Cf-Id:
-      - 3jl7BjBpBZG4yM6ZQN_6fiZYTnVsmfvFLt_XNX-q5hh16WWt13qlxg==
+      - Z7RNJFUc0ksGVbxMJ52mcu5LCYd88CaNlZtvBPr-G-7-8sClDvsJMQ==
     body:
       encoding: UTF-8
-      string: '{"titleId":18953869,"titleName":"The Mages Newest Title","publisherName":null,"identifiersList":[],"subjectsList":[],"isTitleCustom":true,"pubType":"Unspecified","customerResourcesList":[{"titleId":18953869,"packageId":2918760,"packageName":"Title
+      string: '{"titleId":18958507,"titleName":"The Mages Test Title","publisherName":null,"identifiersList":[],"subjectsList":[],"isTitleCustom":true,"pubType":"Unspecified","customerResourcesList":[{"titleId":18958507,"packageId":2918760,"packageName":"Title
         testing package","packageType":"Custom","proxy":{"id":"EZProxy","inherited":true},"isPackageCustom":true,"vendorId":123355,"vendorName":"API
         DEV CORPORATE CUSTOMER","locationId":0,"isSelected":true,"isTokenNeeded":false,"visibilityData":{"isHidden":false,"reason":""},"managedCoverageList":[],"customCoverageList":[],"coverageStatement":null,"managedEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"customEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"url":null,"userDefinedField1":null,"userDefinedField2":null,"userDefinedField3":null,"userDefinedField4":null,"userDefinedField5":null}],"description":"","edition":"","isPeerReviewed":false,"contributorsList":[]}'
     http_version: 
-  recorded_at: Tue, 11 Sep 2018 21:26:18 GMT
+  recorded_at: Wed, 12 Sep 2018 14:16:46 GMT
 recorded_with: VCR 3.0.3
