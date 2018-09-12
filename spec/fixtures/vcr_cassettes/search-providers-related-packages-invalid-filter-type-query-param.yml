@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://okapi.frontside.io/configurations/entries?query=module=KB_EBSCO
+    uri: https://okapi.frontside.io/configurations/entries?query=module=EKB
     body:
       encoding: US-ASCII
       string: ''
@@ -27,7 +27,7 @@ http_interactions:
       Server:
       - nginx/1.13.5
       Date:
-      - Wed, 01 Aug 2018 19:34:02 GMT
+      - Wed, 12 Sep 2018 16:40:16 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -35,16 +35,16 @@ http_interactions:
       Connection:
       - keep-alive
       X-Okapi-Trace:
-      - 'GET mod-authtoken-1.4.1-SNAPSHOT.21 http://10.39.255.17:8081/configurations/entries..
-        : 202 1453us'
-      - 'GET mod-configuration-4.0.4-SNAPSHOT.36 http://10.39.247.129:8081/configurations/entries..
-        : 200 43046us'
+      - 'GET mod-authtoken-1.5.2-SNAPSHOT.26 http://10.39.242.252:8081/configurations/entries..
+        : 202 1708us'
+      - 'GET mod-configuration-5.0.1-SNAPSHOT.45 http://10.39.249.105:8081/configurations/entries..
+        : 200 44020us'
       Host:
       - okapi.frontside.io
       X-Real-Ip:
-      - 10.36.4.1
+      - 10.36.5.1
       X-Forwarded-For:
-      - 10.36.4.1
+      - 10.36.5.1
       X-Forwarded-Host:
       - okapi.frontside.io
       X-Forwarded-Port:
@@ -52,11 +52,11 @@ http_interactions:
       X-Forwarded-Proto:
       - https
       X-Original-Uri:
-      - "/configurations/entries?query=module=KB_EBSCO"
+      - "/configurations/entries?query=module=EKB"
       X-Scheme:
       - https
       X-Auth-Request-Redirect:
-      - "/configurations/entries?query=module=KB_EBSCO"
+      - "/configurations/entries?query=module=EKB"
       Accept:
       - application/json
       X-Okapi-Tenant:
@@ -66,9 +66,9 @@ http_interactions:
       User-Agent:
       - Ruby
       X-Okapi-Request-Id:
-      - 720142/configurations
+      - 840828/configurations
       X-Okapi-Url:
-      - http://10.39.254.87:80
+      - http://10.39.245.41:80
       X-Okapi-Permissions:
       - '["configuration.entries.collection.get","configuration.entries.collection.get"]'
       X-Okapi-User-Id:
@@ -82,28 +82,56 @@ http_interactions:
       string: |-
         {
           "configs" : [ {
-            "id" : "28fd0ce0-108e-4471-8a7b-4645319fd707",
-            "module" : "KB_EBSCO",
-            "configName" : "api_credentials",
-            "code" : "kb.ebsco.credentials",
-            "description" : "EBSCO RM-API Credentials",
+            "id" : "efadf3d8-59c3-4508-99d4-3e36e9247d87",
+            "module" : "EKB",
+            "configName" : "api_access",
+            "code" : "kb.ebsco.url",
+            "description" : "EBSCO RM-API URL",
             "enabled" : true,
-            "value" : "customer-id=TEST_CUSTOMER_ID&api-key=TEST_API_KEY",
+            "value" : "https://api.ebsco.io",
             "metadata" : {
-              "createdDate" : "2018-06-26T13:23:48.592+0000",
+              "createdDate" : "2018-09-12T12:34:52.189+0000",
               "createdByUserId" : "1ad737b0-d847-11e6-bf26-cec0c932ce01",
-              "updatedDate" : "2018-06-26T13:23:48.592+0000",
+              "updatedDate" : "2018-09-12T12:34:52.189+0000",
+              "updatedByUserId" : "1ad737b0-d847-11e6-bf26-cec0c932ce01"
+            }
+          }, {
+            "id" : "6b24b703-243a-4261-a7bf-0336d34f8c94",
+            "module" : "EKB",
+            "configName" : "api_access",
+            "code" : "kb.ebsco.customerId",
+            "description" : "EBSCO RM-API Customer ID",
+            "enabled" : true,
+            "value" : "TEST_CUSTOMER_ID",
+            "metadata" : {
+              "createdDate" : "2018-09-12T12:34:52.466+0000",
+              "createdByUserId" : "1ad737b0-d847-11e6-bf26-cec0c932ce01",
+              "updatedDate" : "2018-09-12T12:34:52.466+0000",
+              "updatedByUserId" : "1ad737b0-d847-11e6-bf26-cec0c932ce01"
+            }
+          }, {
+            "id" : "8038c4f3-0b09-4d97-be46-8a5236ef3f2f",
+            "module" : "EKB",
+            "configName" : "api_access",
+            "code" : "kb.ebsco.apiKey",
+            "description" : "EBSCO RM-API API Key",
+            "enabled" : true,
+            "value" : "TEST_API_KEY",
+            "metadata" : {
+              "createdDate" : "2018-09-12T12:34:52.788+0000",
+              "createdByUserId" : "1ad737b0-d847-11e6-bf26-cec0c932ce01",
+              "updatedDate" : "2018-09-12T12:34:52.788+0000",
               "updatedByUserId" : "1ad737b0-d847-11e6-bf26-cec0c932ce01"
             }
           } ],
-          "totalRecords" : 1,
+          "totalRecords" : 3,
           "resultInfo" : {
-            "totalRecords" : 1,
+            "totalRecords" : 3,
             "facets" : [ ]
           }
         }
     http_version: 
-  recorded_at: Wed, 01 Aug 2018 19:34:02 GMT
+  recorded_at: Wed, 12 Sep 2018 16:40:16 GMT
 - request:
     method: get
     uri: https://api.ebsco.io/rm/rmaccounts/TEST_CUSTOMER_ID/vendors/19
@@ -112,7 +140,7 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - Flexirest/1.6.7
+      - Flexirest/1.7.0
       Connection:
       - Keep-Alive
       Accept:
@@ -131,28 +159,28 @@ http_interactions:
       Content-Type:
       - application/json;charset=UTF-8
       Content-Length:
-      - '155'
+      - '158'
       Connection:
       - keep-alive
       Date:
-      - Wed, 01 Aug 2018 19:34:02 GMT
+      - Wed, 12 Sep 2018 16:40:17 GMT
       X-Amzn-Requestid:
-      - d86ba4b0-95c1-11e8-9024-6dcd9652b969
+      - 878f4943-b6aa-11e8-82c5-d1969d286299
       X-Amzn-Remapped-Connection:
       - keep-alive
       X-Amz-Apigw-Id:
-      - K9auqEKXIAMF6og=
+      - NHcppGAqIAMFsaA=
       X-Amzn-Remapped-Date:
-      - Wed, 01 Aug 2018 19:34:02 GMT
+      - Wed, 12 Sep 2018 16:40:17 GMT
       X-Cache:
       - Miss from cloudfront
       Via:
-      - 1.1 a3b69ec39162cbd39675c093fc4e8539.cloudfront.net (CloudFront)
+      - 1.1 64b8f4833a5f8ea49e5c52fc4aa4c280.cloudfront.net (CloudFront)
       X-Amz-Cf-Id:
-      - tLlIJH9ZUTO13YcKTlmdT1lu96LG-8ppJDaQ7u13W8dKrr7zX2z6Wg==
+      - ND-Y-dbyVMXlTW4yzRF4_ty9UGDtS8g1BxSwAFgwpDza1a9V_2IKSg==
     body:
       encoding: UTF-8
-      string: '{"isCustomer":false,"packagesSelected":48,"packagesTotal":624,"vendorId":19,"vendorName":"EBSCO","proxy":{"id":"<n>","inherited":false},"vendorToken":null}'
+      string: '{"isCustomer":false,"packagesSelected":49,"packagesTotal":624,"vendorId":19,"vendorName":"EBSCO","proxy":{"id":"EZProxy","inherited":true},"vendorToken":null}'
     http_version: 
-  recorded_at: Wed, 01 Aug 2018 19:34:02 GMT
+  recorded_at: Wed, 12 Sep 2018 16:40:17 GMT
 recorded_with: VCR 3.0.3
