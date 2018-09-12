@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://okapi.frontside.io/configurations/entries?query=module=KB_EBSCO
+    uri: https://okapi.frontside.io/configurations/entries?query=module=EKB
     body:
       encoding: US-ASCII
       string: ''
@@ -27,7 +27,7 @@ http_interactions:
       Server:
       - nginx/1.13.5
       Date:
-      - Fri, 26 Jan 2018 19:17:56 GMT
+      - Wed, 12 Sep 2018 18:04:23 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -35,16 +35,16 @@ http_interactions:
       Connection:
       - keep-alive
       X-Okapi-Trace:
-      - 'GET mod-authtoken-1.2.0-SNAPSHOT.14 http://10.39.255.104:8081/configurations/entries..
-        : 202 362062us'
-      - 'GET mod-configuration-4.0.1-SNAPSHOT.23 http://10.39.243.63:8081/configurations/entries..
-        : 200 44280us'
+      - 'GET mod-authtoken-1.5.2-SNAPSHOT.26 http://10.39.242.252:8081/configurations/entries..
+        : 202 1354us'
+      - 'GET mod-configuration-5.0.1-SNAPSHOT.45 http://10.39.249.105:8081/configurations/entries..
+        : 200 42842us'
       Host:
       - okapi.frontside.io
       X-Real-Ip:
-      - 10.128.0.5
+      - 10.36.5.1
       X-Forwarded-For:
-      - 10.128.0.5
+      - 10.36.5.1
       X-Forwarded-Host:
       - okapi.frontside.io
       X-Forwarded-Port:
@@ -52,11 +52,11 @@ http_interactions:
       X-Forwarded-Proto:
       - https
       X-Original-Uri:
-      - "/configurations/entries?query=module=KB_EBSCO"
+      - "/configurations/entries?query=module=EKB"
       X-Scheme:
       - https
       X-Auth-Request-Redirect:
-      - "/configurations/entries?query=module=KB_EBSCO"
+      - "/configurations/entries?query=module=EKB"
       Accept:
       - application/json
       X-Okapi-Tenant:
@@ -66,15 +66,11 @@ http_interactions:
       User-Agent:
       - Ruby
       X-Okapi-Request-Id:
-      - 697114/configurations
+      - 839228/configurations
       X-Okapi-Url:
-      - http://10.39.248.95:80
-      X-Okapi-Permissions-Required:
-      - configuration.entries.collection.get
-      X-Okapi-Module-Permissions:
-      - '{"mod-authtoken-1.2.0-SNAPSHOT.14":["perms.users.get"]}'
+      - http://10.39.245.41:80
       X-Okapi-Permissions:
-      - '["configuration.entries.collection.get"]'
+      - '["configuration.entries.collection.get","configuration.entries.collection.get"]'
       X-Okapi-User-Id:
       - 1ad737b0-d847-11e6-bf26-cec0c932ce01
       X-Okapi-Token:
@@ -86,28 +82,56 @@ http_interactions:
       string: |-
         {
           "configs" : [ {
-            "id" : "fa776aae-7473-4bf9-aa33-08f2a314cb04",
-            "module" : "KB_EBSCO",
-            "configName" : "api_credentials",
-            "code" : "kb.ebsco.credentials",
-            "description" : "EBSCO RM-API Credentials",
+            "id" : "efadf3d8-59c3-4508-99d4-3e36e9247d87",
+            "module" : "EKB",
+            "configName" : "api_access",
+            "code" : "kb.ebsco.url",
+            "description" : "EBSCO RM-API URL",
             "enabled" : true,
-            "value" : "customer-id=TEST_CUSTOMER_ID&api-key=TEST_API_KEY",
+            "value" : "https://api.ebsco.io",
             "metadata" : {
-              "createdDate" : "2017-11-02T15:56:49.186+0000",
+              "createdDate" : "2018-09-12T12:34:52.189+0000",
               "createdByUserId" : "1ad737b0-d847-11e6-bf26-cec0c932ce01",
-              "updatedDate" : "2017-11-02T15:56:49.186+0000",
+              "updatedDate" : "2018-09-12T12:34:52.189+0000",
+              "updatedByUserId" : "1ad737b0-d847-11e6-bf26-cec0c932ce01"
+            }
+          }, {
+            "id" : "6b24b703-243a-4261-a7bf-0336d34f8c94",
+            "module" : "EKB",
+            "configName" : "api_access",
+            "code" : "kb.ebsco.customerId",
+            "description" : "EBSCO RM-API Customer ID",
+            "enabled" : true,
+            "value" : "TEST_CUSTOMER_ID",
+            "metadata" : {
+              "createdDate" : "2018-09-12T12:34:52.466+0000",
+              "createdByUserId" : "1ad737b0-d847-11e6-bf26-cec0c932ce01",
+              "updatedDate" : "2018-09-12T12:34:52.466+0000",
+              "updatedByUserId" : "1ad737b0-d847-11e6-bf26-cec0c932ce01"
+            }
+          }, {
+            "id" : "8038c4f3-0b09-4d97-be46-8a5236ef3f2f",
+            "module" : "EKB",
+            "configName" : "api_access",
+            "code" : "kb.ebsco.apiKey",
+            "description" : "EBSCO RM-API API Key",
+            "enabled" : true,
+            "value" : "TEST_API_KEY",
+            "metadata" : {
+              "createdDate" : "2018-09-12T12:34:52.788+0000",
+              "createdByUserId" : "1ad737b0-d847-11e6-bf26-cec0c932ce01",
+              "updatedDate" : "2018-09-12T12:34:52.788+0000",
               "updatedByUserId" : "1ad737b0-d847-11e6-bf26-cec0c932ce01"
             }
           } ],
-          "totalRecords" : 1,
+          "totalRecords" : 3,
           "resultInfo" : {
-            "totalRecords" : 1,
+            "totalRecords" : 3,
             "facets" : [ ]
           }
         }
     http_version: 
-  recorded_at: Fri, 26 Jan 2018 19:17:56 GMT
+  recorded_at: Wed, 12 Sep 2018 18:04:23 GMT
 - request:
     method: get
     uri: https://api.ebsco.io/rm/rmaccounts/TEST_CUSTOMER_ID/vendors/22/packages/1887786/titles/1440285
@@ -116,7 +140,7 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - Flexirest/1.5.5
+      - Flexirest/1.7.0
       Connection:
       - Keep-Alive
       Accept:
@@ -135,17 +159,19 @@ http_interactions:
       Content-Type:
       - application/json; charset=utf-8
       Content-Length:
-      - '1549'
+      - '1673'
       Connection:
       - keep-alive
       Date:
-      - Fri, 26 Jan 2018 19:17:56 GMT
+      - Wed, 12 Sep 2018 18:04:23 GMT
       X-Amzn-Requestid:
-      - 9d7176a3-02cd-11e8-bc4f-6f2af04f80e6
+      - 476ae203-b6b6-11e8-a5f1-5964443be53a
       X-Amzn-Remapped-Content-Length:
-      - '1549'
+      - '1673'
       X-Amzn-Remapped-Connection:
       - keep-alive
+      X-Amz-Apigw-Id:
+      - NHo-JEehIAMF1pQ=
       X-Amzn-Remapped-Server:
       - Microsoft-IIS/8.5
       Cache-Control:
@@ -157,24 +183,24 @@ http_interactions:
       Pragma:
       - no-cache
       X-Amzn-Remapped-Date:
-      - Fri, 26 Jan 2018 19:17:56 GMT
+      - Wed, 12 Sep 2018 18:04:22 GMT
       X-Aspnet-Version:
       - 4.0.30319
       X-Cache:
       - Miss from cloudfront
       Via:
-      - 1.1 6b730041baa15e3191f61ffafbf4e633.cloudfront.net (CloudFront)
+      - 1.1 ded72cd2ec35ccfc935b5442dfad81c9.cloudfront.net (CloudFront)
       X-Amz-Cf-Id:
-      - _fUPFWtKc2oEYuG7zi9RUfxfUwEVZeFLJpvOJdfbWYZOLQK_mB6TVQ==
+      - OWsV_aD2LmoOoVqV-XLU5LAHh0PVQNlNeIgllQm9lj7n9-re6Tivpg==
     body:
       encoding: UTF-8
       string: '{"titleId":1440285,"titleName":"Havard''s Nursing Guide to Drugs (Nursing
         Guide to Drugs)","publisherName":"Elsevier","identifiersList":[{"id":"1440285","source":"AtoZ","subtype":0,"type":9},{"id":"475765","source":"ResourceIdentifier","subtype":0,"type":7},{"id":"978-0-7295-3913-5","source":"ResourceIdentifier","subtype":1,"type":1},{"id":"978-0-7295-7913-1","source":"ResourceIdentifier","subtype":2,"type":1}],"subjectsList":[{"type":"BISAC","subject":"MEDICAL
         / Nursing / Pharmacology"}],"isTitleCustom":false,"pubType":"Book","customerResourcesList":[{"titleId":1440285,"packageId":1887786,"packageName":"ProQuest
-        Ebook Central","packageType":"Variable","proxy":{"id":"<n>","inherited":true},"isPackageCustom":false,"vendorId":22,"vendorName":"Proquest
-        Info & Learning Co","locationId":17545807,"isSelected":true,"isTokenNeeded":true,"visibilityData":{"isHidden":true,"reason":"Hidden
-        by Customer"},"managedCoverageList":[{"beginCoverage":"2010-01-01","endCoverage":"2010-12-31"}],"customCoverageList":[],"coverageStatement":null,"managedEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"customEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"url":"http://ebookcentral.proquest.com/lib/[[SiteID]]/detail.action?docID=1722033","userDefinedField1":null,"userDefinedField2":null,"userDefinedField3":null,"userDefinedField4":null,"userDefinedField5":null}],"description":null,"edition":null,"isPeerReviewed":false,"contributorsList":[{"type":"author","contributor":"Havard,
+        Ebook Central","packageType":"Variable","proxy":{"id":"EZProxy","inherited":false},"isPackageCustom":false,"vendorId":22,"vendorName":"Proquest
+        Info & Learning Co","locationId":17545807,"isSelected":true,"isTokenNeeded":true,"visibilityData":{"isHidden":false,"reason":""},"managedCoverageList":[{"beginCoverage":"2010-01-01","endCoverage":"2010-12-31"}],"customCoverageList":[{"beginCoverage":"2000-01-01","endCoverage":"2004-02-01"},{"beginCoverage":"2005-01-01","endCoverage":""}],"coverageStatement":"Only
+        2000s issues available.","managedEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"customEmbargoPeriod":{"embargoUnit":"Months","embargoValue":5},"url":"https://ebookcentral.proquest.com/lib/[[SiteID]]/detail.action?docID=1722033","userDefinedField1":null,"userDefinedField2":null,"userDefinedField3":null,"userDefinedField4":null,"userDefinedField5":null}],"description":null,"edition":null,"isPeerReviewed":false,"contributorsList":[{"type":"author","contributor":"Havard,
         Margaret"},{"type":"author","contributor":"Tiziani, Adriana."}]}'
     http_version: 
-  recorded_at: Fri, 26 Jan 2018 19:17:56 GMT
+  recorded_at: Wed, 12 Sep 2018 18:04:23 GMT
 recorded_with: VCR 3.0.3
