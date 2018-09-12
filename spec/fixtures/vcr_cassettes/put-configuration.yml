@@ -27,7 +27,7 @@ http_interactions:
       Server:
       - nginx/1.13.5
       Date:
-      - Tue, 11 Sep 2018 18:53:42 GMT
+      - Wed, 12 Sep 2018 12:34:50 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -36,15 +36,15 @@ http_interactions:
       - keep-alive
       X-Okapi-Trace:
       - 'GET mod-authtoken-1.5.2-SNAPSHOT.26 http://10.39.242.252:8081/configurations/entries..
-        : 202 500243us'
+        : 202 519267us'
       - 'GET mod-configuration-5.0.1-SNAPSHOT.45 http://10.39.249.105:8081/configurations/entries..
-        : 200 249491us'
+        : 200 263518us'
       Host:
       - okapi.frontside.io
       X-Real-Ip:
-      - 10.36.5.1
+      - 10.128.0.4
       X-Forwarded-For:
-      - 10.36.5.1
+      - 10.128.0.4
       X-Forwarded-Host:
       - okapi.frontside.io
       X-Forwarded-Port:
@@ -66,7 +66,7 @@ http_interactions:
       User-Agent:
       - Ruby
       X-Okapi-Request-Id:
-      - 728467/configurations
+      - 811111/configurations
       X-Okapi-Url:
       - http://10.39.245.41:80
       X-Okapi-Permissions:
@@ -82,21 +82,21 @@ http_interactions:
       string: |-
         {
           "configs" : [ {
-            "id" : "58cc0c77-f494-47e2-a7d3-b8f5eba63e6c",
+            "id" : "d35d1d52-ca4b-48ab-afe2-27a1e9adaa97",
             "module" : "EKB",
             "configName" : "api_access",
             "code" : "kb.ebsco.url",
             "description" : "EBSCO RM-API URL",
             "enabled" : true,
-            "value" : "TEST_RMAPI_URL",
+            "value" : "https://api.ebsco.io",
             "metadata" : {
-              "createdDate" : "2018-09-11T18:46:03.578+0000",
+              "createdDate" : "2018-09-11T18:53:43.223+0000",
               "createdByUserId" : "1ad737b0-d847-11e6-bf26-cec0c932ce01",
-              "updatedDate" : "2018-09-11T18:46:03.578+0000",
+              "updatedDate" : "2018-09-11T18:53:43.223+0000",
               "updatedByUserId" : "1ad737b0-d847-11e6-bf26-cec0c932ce01"
             }
           }, {
-            "id" : "7c9314be-b3a8-4b3f-a64d-9a64e0fc5303",
+            "id" : "ad544220-967b-4b91-8c19-d0de6c3c2761",
             "module" : "EKB",
             "configName" : "api_access",
             "code" : "kb.ebsco.customerId",
@@ -104,13 +104,13 @@ http_interactions:
             "enabled" : true,
             "value" : "TEST_CUSTOMER_ID",
             "metadata" : {
-              "createdDate" : "2018-09-11T18:46:03.773+0000",
+              "createdDate" : "2018-09-11T18:53:43.428+0000",
               "createdByUserId" : "1ad737b0-d847-11e6-bf26-cec0c932ce01",
-              "updatedDate" : "2018-09-11T18:46:03.773+0000",
+              "updatedDate" : "2018-09-11T18:53:43.428+0000",
               "updatedByUserId" : "1ad737b0-d847-11e6-bf26-cec0c932ce01"
             }
           }, {
-            "id" : "ab172472-930b-4759-b9c1-03c2c812e685",
+            "id" : "8a15438f-ec4f-4e67-8b28-498acb259e3b",
             "module" : "EKB",
             "configName" : "api_access",
             "code" : "kb.ebsco.apiKey",
@@ -118,9 +118,9 @@ http_interactions:
             "enabled" : true,
             "value" : "TEST_API_KEY",
             "metadata" : {
-              "createdDate" : "2018-09-11T18:46:03.968+0000",
+              "createdDate" : "2018-09-11T18:53:43.624+0000",
               "createdByUserId" : "1ad737b0-d847-11e6-bf26-cec0c932ce01",
-              "updatedDate" : "2018-09-11T18:46:03.968+0000",
+              "updatedDate" : "2018-09-11T18:53:43.624+0000",
               "updatedByUserId" : "1ad737b0-d847-11e6-bf26-cec0c932ce01"
             }
           } ],
@@ -131,10 +131,10 @@ http_interactions:
           }
         }
     http_version: 
-  recorded_at: Tue, 11 Sep 2018 18:53:42 GMT
+  recorded_at: Wed, 12 Sep 2018 12:34:50 GMT
 - request:
     method: get
-    uri: TEST_RMAPI_URL/rm/rmaccounts/TEST_CUSTOMER_ID/vendors?count=1&offset=1&orderby=vendorname&search=zz12
+    uri: https://api.ebsco.io/rm/rmaccounts/TEST_CUSTOMER_ID/vendors?count=1&offset=1&orderby=vendorname&search=zz12
     body:
       encoding: US-ASCII
       string: ''
@@ -163,26 +163,26 @@ http_interactions:
       Connection:
       - keep-alive
       Date:
-      - Tue, 11 Sep 2018 18:53:42 GMT
+      - Wed, 12 Sep 2018 12:34:50 GMT
       X-Amzn-Requestid:
-      - 00a12aa7-b5f4-11e8-87f5-df63dfcc6231
+      - 3dfeb449-b688-11e8-a5c1-117c8f3f5221
       X-Amzn-Remapped-Connection:
       - keep-alive
       X-Amz-Apigw-Id:
-      - NEdQeEfPoAMF54A=
+      - NG4sqFZXIAMFyiQ=
       X-Amzn-Remapped-Date:
-      - Tue, 11 Sep 2018 18:53:41 GMT
+      - Wed, 12 Sep 2018 12:34:50 GMT
       X-Cache:
       - Miss from cloudfront
       Via:
-      - 1.1 85ade3d7e64fa9f96dc1f80b7727e190.cloudfront.net (CloudFront)
+      - 1.1 5eeb97aa7733a60bc509534d9745abc7.cloudfront.net (CloudFront)
       X-Amz-Cf-Id:
-      - R4t_GBkn5v4ZhpvjHEWAV6hVTswP85zCu3Mv6r70hZZv_Skc84VWLg==
+      - LTU6c8tbNg_DBBY0dOJ_H9APzy5ED_eOyliim12FFkIIVJrcsNtq-g==
     body:
       encoding: UTF-8
       string: '{"totalResults":0,"vendors":[]}'
     http_version: 
-  recorded_at: Tue, 11 Sep 2018 18:53:42 GMT
+  recorded_at: Wed, 12 Sep 2018 12:34:50 GMT
 - request:
     method: get
     uri: https://okapi.frontside.io/configurations/entries?query=module=EKB
@@ -210,7 +210,7 @@ http_interactions:
       Server:
       - nginx/1.13.5
       Date:
-      - Tue, 11 Sep 2018 18:53:42 GMT
+      - Wed, 12 Sep 2018 12:34:51 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -219,15 +219,15 @@ http_interactions:
       - keep-alive
       X-Okapi-Trace:
       - 'GET mod-authtoken-1.5.2-SNAPSHOT.26 http://10.39.242.252:8081/configurations/entries..
-        : 202 1091us'
+        : 202 1168us'
       - 'GET mod-configuration-5.0.1-SNAPSHOT.45 http://10.39.249.105:8081/configurations/entries..
-        : 200 44951us'
+        : 200 45672us'
       Host:
       - okapi.frontside.io
       X-Real-Ip:
-      - 10.128.0.4
+      - 10.36.5.1
       X-Forwarded-For:
-      - 10.128.0.4
+      - 10.36.5.1
       X-Forwarded-Host:
       - okapi.frontside.io
       X-Forwarded-Port:
@@ -249,7 +249,7 @@ http_interactions:
       User-Agent:
       - Ruby
       X-Okapi-Request-Id:
-      - 174423/configurations
+      - 506988/configurations
       X-Okapi-Url:
       - http://10.39.245.41:80
       X-Okapi-Permissions:
@@ -265,21 +265,21 @@ http_interactions:
       string: |-
         {
           "configs" : [ {
-            "id" : "58cc0c77-f494-47e2-a7d3-b8f5eba63e6c",
+            "id" : "d35d1d52-ca4b-48ab-afe2-27a1e9adaa97",
             "module" : "EKB",
             "configName" : "api_access",
             "code" : "kb.ebsco.url",
             "description" : "EBSCO RM-API URL",
             "enabled" : true,
-            "value" : "TEST_RMAPI_URL",
+            "value" : "https://api.ebsco.io",
             "metadata" : {
-              "createdDate" : "2018-09-11T18:46:03.578+0000",
+              "createdDate" : "2018-09-11T18:53:43.223+0000",
               "createdByUserId" : "1ad737b0-d847-11e6-bf26-cec0c932ce01",
-              "updatedDate" : "2018-09-11T18:46:03.578+0000",
+              "updatedDate" : "2018-09-11T18:53:43.223+0000",
               "updatedByUserId" : "1ad737b0-d847-11e6-bf26-cec0c932ce01"
             }
           }, {
-            "id" : "7c9314be-b3a8-4b3f-a64d-9a64e0fc5303",
+            "id" : "ad544220-967b-4b91-8c19-d0de6c3c2761",
             "module" : "EKB",
             "configName" : "api_access",
             "code" : "kb.ebsco.customerId",
@@ -287,13 +287,13 @@ http_interactions:
             "enabled" : true,
             "value" : "TEST_CUSTOMER_ID",
             "metadata" : {
-              "createdDate" : "2018-09-11T18:46:03.773+0000",
+              "createdDate" : "2018-09-11T18:53:43.428+0000",
               "createdByUserId" : "1ad737b0-d847-11e6-bf26-cec0c932ce01",
-              "updatedDate" : "2018-09-11T18:46:03.773+0000",
+              "updatedDate" : "2018-09-11T18:53:43.428+0000",
               "updatedByUserId" : "1ad737b0-d847-11e6-bf26-cec0c932ce01"
             }
           }, {
-            "id" : "ab172472-930b-4759-b9c1-03c2c812e685",
+            "id" : "8a15438f-ec4f-4e67-8b28-498acb259e3b",
             "module" : "EKB",
             "configName" : "api_access",
             "code" : "kb.ebsco.apiKey",
@@ -301,9 +301,9 @@ http_interactions:
             "enabled" : true,
             "value" : "TEST_API_KEY",
             "metadata" : {
-              "createdDate" : "2018-09-11T18:46:03.968+0000",
+              "createdDate" : "2018-09-11T18:53:43.624+0000",
               "createdByUserId" : "1ad737b0-d847-11e6-bf26-cec0c932ce01",
-              "updatedDate" : "2018-09-11T18:46:03.968+0000",
+              "updatedDate" : "2018-09-11T18:53:43.624+0000",
               "updatedByUserId" : "1ad737b0-d847-11e6-bf26-cec0c932ce01"
             }
           } ],
@@ -314,10 +314,10 @@ http_interactions:
           }
         }
     http_version: 
-  recorded_at: Tue, 11 Sep 2018 18:53:42 GMT
+  recorded_at: Wed, 12 Sep 2018 12:34:51 GMT
 - request:
     method: delete
-    uri: https://okapi.frontside.io/configurations/entries/58cc0c77-f494-47e2-a7d3-b8f5eba63e6c
+    uri: https://okapi.frontside.io/configurations/entries/d35d1d52-ca4b-48ab-afe2-27a1e9adaa97
     body:
       encoding: US-ASCII
       string: ''
@@ -342,16 +342,16 @@ http_interactions:
       Server:
       - nginx/1.13.5
       Date:
-      - Tue, 11 Sep 2018 18:53:42 GMT
+      - Wed, 12 Sep 2018 12:34:51 GMT
       Content-Length:
       - '0'
       Connection:
       - keep-alive
       X-Okapi-Trace:
-      - 'DELETE mod-authtoken-1.5.2-SNAPSHOT.26 http://10.39.242.252:8081/configurations/entries/58cc0c77-f494-47e2-a7d3-b8f5eba63e6c
-        : 202 1841us'
-      - 'DELETE mod-configuration-5.0.1-SNAPSHOT.45 http://10.39.249.105:8081/configurations/entries/58cc0c77-f494-47e2-a7d3-b8f5eba63e6c
-        : 204 49172us'
+      - 'DELETE mod-authtoken-1.5.2-SNAPSHOT.26 http://10.39.242.252:8081/configurations/entries/d35d1d52-ca4b-48ab-afe2-27a1e9adaa97
+        : 202 2229us'
+      - 'DELETE mod-configuration-5.0.1-SNAPSHOT.45 http://10.39.249.105:8081/configurations/entries/d35d1d52-ca4b-48ab-afe2-27a1e9adaa97
+        : 204 50402us'
       Host:
       - okapi.frontside.io
       X-Real-Ip:
@@ -365,11 +365,11 @@ http_interactions:
       X-Forwarded-Proto:
       - https
       X-Original-Uri:
-      - "/configurations/entries/58cc0c77-f494-47e2-a7d3-b8f5eba63e6c"
+      - "/configurations/entries/d35d1d52-ca4b-48ab-afe2-27a1e9adaa97"
       X-Scheme:
       - https
       X-Auth-Request-Redirect:
-      - "/configurations/entries/58cc0c77-f494-47e2-a7d3-b8f5eba63e6c"
+      - "/configurations/entries/d35d1d52-ca4b-48ab-afe2-27a1e9adaa97"
       Accept:
       - text/plain
       X-Okapi-Tenant:
@@ -379,7 +379,7 @@ http_interactions:
       User-Agent:
       - Ruby
       X-Okapi-Request-Id:
-      - '041499/configurations'
+      - 921350/configurations
       X-Okapi-Url:
       - http://10.39.245.41:80
       X-Okapi-Permissions:
@@ -394,10 +394,10 @@ http_interactions:
       encoding: UTF-8
       string: ''
     http_version: 
-  recorded_at: Tue, 11 Sep 2018 18:53:42 GMT
+  recorded_at: Wed, 12 Sep 2018 12:34:51 GMT
 - request:
     method: delete
-    uri: https://okapi.frontside.io/configurations/entries/7c9314be-b3a8-4b3f-a64d-9a64e0fc5303
+    uri: https://okapi.frontside.io/configurations/entries/ad544220-967b-4b91-8c19-d0de6c3c2761
     body:
       encoding: US-ASCII
       string: ''
@@ -422,22 +422,22 @@ http_interactions:
       Server:
       - nginx/1.13.5
       Date:
-      - Tue, 11 Sep 2018 18:53:42 GMT
+      - Wed, 12 Sep 2018 12:34:51 GMT
       Content-Length:
       - '0'
       Connection:
       - keep-alive
       X-Okapi-Trace:
-      - 'DELETE mod-authtoken-1.5.2-SNAPSHOT.26 http://10.39.242.252:8081/configurations/entries/7c9314be-b3a8-4b3f-a64d-9a64e0fc5303
-        : 202 2198us'
-      - 'DELETE mod-configuration-5.0.1-SNAPSHOT.45 http://10.39.249.105:8081/configurations/entries/7c9314be-b3a8-4b3f-a64d-9a64e0fc5303
-        : 204 43043us'
+      - 'DELETE mod-authtoken-1.5.2-SNAPSHOT.26 http://10.39.242.252:8081/configurations/entries/ad544220-967b-4b91-8c19-d0de6c3c2761
+        : 202 1513us'
+      - 'DELETE mod-configuration-5.0.1-SNAPSHOT.45 http://10.39.249.105:8081/configurations/entries/ad544220-967b-4b91-8c19-d0de6c3c2761
+        : 204 43807us'
       Host:
       - okapi.frontside.io
       X-Real-Ip:
-      - 10.128.0.4
+      - 10.36.5.1
       X-Forwarded-For:
-      - 10.128.0.4
+      - 10.36.5.1
       X-Forwarded-Host:
       - okapi.frontside.io
       X-Forwarded-Port:
@@ -445,11 +445,11 @@ http_interactions:
       X-Forwarded-Proto:
       - https
       X-Original-Uri:
-      - "/configurations/entries/7c9314be-b3a8-4b3f-a64d-9a64e0fc5303"
+      - "/configurations/entries/ad544220-967b-4b91-8c19-d0de6c3c2761"
       X-Scheme:
       - https
       X-Auth-Request-Redirect:
-      - "/configurations/entries/7c9314be-b3a8-4b3f-a64d-9a64e0fc5303"
+      - "/configurations/entries/ad544220-967b-4b91-8c19-d0de6c3c2761"
       Accept:
       - text/plain
       X-Okapi-Tenant:
@@ -459,7 +459,7 @@ http_interactions:
       User-Agent:
       - Ruby
       X-Okapi-Request-Id:
-      - 511011/configurations
+      - '085919/configurations'
       X-Okapi-Url:
       - http://10.39.245.41:80
       X-Okapi-Permissions:
@@ -474,10 +474,10 @@ http_interactions:
       encoding: UTF-8
       string: ''
     http_version: 
-  recorded_at: Tue, 11 Sep 2018 18:53:42 GMT
+  recorded_at: Wed, 12 Sep 2018 12:34:51 GMT
 - request:
     method: delete
-    uri: https://okapi.frontside.io/configurations/entries/ab172472-930b-4759-b9c1-03c2c812e685
+    uri: https://okapi.frontside.io/configurations/entries/8a15438f-ec4f-4e67-8b28-498acb259e3b
     body:
       encoding: US-ASCII
       string: ''
@@ -502,22 +502,22 @@ http_interactions:
       Server:
       - nginx/1.13.5
       Date:
-      - Tue, 11 Sep 2018 18:53:43 GMT
+      - Wed, 12 Sep 2018 12:34:51 GMT
       Content-Length:
       - '0'
       Connection:
       - keep-alive
       X-Okapi-Trace:
-      - 'DELETE mod-authtoken-1.5.2-SNAPSHOT.26 http://10.39.242.252:8081/configurations/entries/ab172472-930b-4759-b9c1-03c2c812e685
-        : 202 1935us'
-      - 'DELETE mod-configuration-5.0.1-SNAPSHOT.45 http://10.39.249.105:8081/configurations/entries/ab172472-930b-4759-b9c1-03c2c812e685
-        : 204 43229us'
+      - 'DELETE mod-authtoken-1.5.2-SNAPSHOT.26 http://10.39.242.252:8081/configurations/entries/8a15438f-ec4f-4e67-8b28-498acb259e3b
+        : 202 1742us'
+      - 'DELETE mod-configuration-5.0.1-SNAPSHOT.45 http://10.39.249.105:8081/configurations/entries/8a15438f-ec4f-4e67-8b28-498acb259e3b
+        : 204 44002us'
       Host:
       - okapi.frontside.io
       X-Real-Ip:
-      - 10.36.5.1
+      - 10.128.0.3
       X-Forwarded-For:
-      - 10.36.5.1
+      - 10.128.0.3
       X-Forwarded-Host:
       - okapi.frontside.io
       X-Forwarded-Port:
@@ -525,11 +525,11 @@ http_interactions:
       X-Forwarded-Proto:
       - https
       X-Original-Uri:
-      - "/configurations/entries/ab172472-930b-4759-b9c1-03c2c812e685"
+      - "/configurations/entries/8a15438f-ec4f-4e67-8b28-498acb259e3b"
       X-Scheme:
       - https
       X-Auth-Request-Redirect:
-      - "/configurations/entries/ab172472-930b-4759-b9c1-03c2c812e685"
+      - "/configurations/entries/8a15438f-ec4f-4e67-8b28-498acb259e3b"
       Accept:
       - text/plain
       X-Okapi-Tenant:
@@ -539,7 +539,7 @@ http_interactions:
       User-Agent:
       - Ruby
       X-Okapi-Request-Id:
-      - '057847/configurations'
+      - 072421/configurations
       X-Okapi-Url:
       - http://10.39.245.41:80
       X-Okapi-Permissions:
@@ -554,14 +554,14 @@ http_interactions:
       encoding: UTF-8
       string: ''
     http_version: 
-  recorded_at: Tue, 11 Sep 2018 18:53:43 GMT
+  recorded_at: Wed, 12 Sep 2018 12:34:51 GMT
 - request:
     method: post
     uri: https://okapi.frontside.io/configurations/entries
     body:
       encoding: UTF-8
       string: '{"module":"EKB","configName":"api_access","code":"kb.ebsco.url","description":"EBSCO
-        RM-API URL","enabled":true,"value":"TEST_RMAPI_URL"}'
+        RM-API URL","enabled":true,"value":"https://api.ebsco.io"}'
     headers:
       Content-Type:
       - application/json
@@ -583,7 +583,7 @@ http_interactions:
       Server:
       - nginx/1.13.5
       Date:
-      - Tue, 11 Sep 2018 18:53:43 GMT
+      - Wed, 12 Sep 2018 12:34:52 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -592,11 +592,11 @@ http_interactions:
       - keep-alive
       X-Okapi-Trace:
       - 'POST mod-authtoken-1.5.2-SNAPSHOT.26 http://10.39.242.252:8081/configurations/entries
-        : 202 1445us'
+        : 202 1822us'
       - 'POST mod-configuration-5.0.1-SNAPSHOT.45 http://10.39.249.105:8081/configurations/entries
-        : 201 47777us'
+        : 201 51855us'
       Location:
-      - "/configurations/entries/d35d1d52-ca4b-48ab-afe2-27a1e9adaa97"
+      - "/configurations/entries/efadf3d8-59c3-4508-99d4-3e36e9247d87"
       Host:
       - okapi.frontside.io
       X-Real-Ip:
@@ -624,7 +624,7 @@ http_interactions:
       User-Agent:
       - Ruby
       X-Okapi-Request-Id:
-      - 974019/configurations
+      - 965466/configurations
       X-Okapi-Url:
       - http://10.39.245.41:80
       X-Okapi-Permissions:
@@ -639,22 +639,22 @@ http_interactions:
       encoding: UTF-8
       string: |-
         {
-          "id" : "d35d1d52-ca4b-48ab-afe2-27a1e9adaa97",
+          "id" : "efadf3d8-59c3-4508-99d4-3e36e9247d87",
           "module" : "EKB",
           "configName" : "api_access",
           "code" : "kb.ebsco.url",
           "description" : "EBSCO RM-API URL",
           "enabled" : true,
-          "value" : "TEST_RMAPI_URL",
+          "value" : "https://api.ebsco.io",
           "metadata" : {
-            "createdDate" : "2018-09-11T18:53:43.223+0000",
+            "createdDate" : "2018-09-12T12:34:52.189+0000",
             "createdByUserId" : "1ad737b0-d847-11e6-bf26-cec0c932ce01",
-            "updatedDate" : "2018-09-11T18:53:43.223+0000",
+            "updatedDate" : "2018-09-12T12:34:52.189+0000",
             "updatedByUserId" : "1ad737b0-d847-11e6-bf26-cec0c932ce01"
           }
         }
     http_version: 
-  recorded_at: Tue, 11 Sep 2018 18:53:43 GMT
+  recorded_at: Wed, 12 Sep 2018 12:34:52 GMT
 - request:
     method: post
     uri: https://okapi.frontside.io/configurations/entries
@@ -683,7 +683,7 @@ http_interactions:
       Server:
       - nginx/1.13.5
       Date:
-      - Tue, 11 Sep 2018 18:53:43 GMT
+      - Wed, 12 Sep 2018 12:34:52 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -692,11 +692,11 @@ http_interactions:
       - keep-alive
       X-Okapi-Trace:
       - 'POST mod-authtoken-1.5.2-SNAPSHOT.26 http://10.39.242.252:8081/configurations/entries
-        : 202 1407us'
+        : 202 1962us'
       - 'POST mod-configuration-5.0.1-SNAPSHOT.45 http://10.39.249.105:8081/configurations/entries
-        : 201 44779us'
+        : 201 47518us'
       Location:
-      - "/configurations/entries/ad544220-967b-4b91-8c19-d0de6c3c2761"
+      - "/configurations/entries/6b24b703-243a-4261-a7bf-0336d34f8c94"
       Host:
       - okapi.frontside.io
       X-Real-Ip:
@@ -724,7 +724,7 @@ http_interactions:
       User-Agent:
       - Ruby
       X-Okapi-Request-Id:
-      - 112766/configurations
+      - 508613/configurations
       X-Okapi-Url:
       - http://10.39.245.41:80
       X-Okapi-Permissions:
@@ -739,7 +739,7 @@ http_interactions:
       encoding: UTF-8
       string: |-
         {
-          "id" : "ad544220-967b-4b91-8c19-d0de6c3c2761",
+          "id" : "6b24b703-243a-4261-a7bf-0336d34f8c94",
           "module" : "EKB",
           "configName" : "api_access",
           "code" : "kb.ebsco.customerId",
@@ -747,14 +747,14 @@ http_interactions:
           "enabled" : true,
           "value" : "TEST_CUSTOMER_ID",
           "metadata" : {
-            "createdDate" : "2018-09-11T18:53:43.428+0000",
+            "createdDate" : "2018-09-12T12:34:52.466+0000",
             "createdByUserId" : "1ad737b0-d847-11e6-bf26-cec0c932ce01",
-            "updatedDate" : "2018-09-11T18:53:43.428+0000",
+            "updatedDate" : "2018-09-12T12:34:52.466+0000",
             "updatedByUserId" : "1ad737b0-d847-11e6-bf26-cec0c932ce01"
           }
         }
     http_version: 
-  recorded_at: Tue, 11 Sep 2018 18:53:43 GMT
+  recorded_at: Wed, 12 Sep 2018 12:34:52 GMT
 - request:
     method: post
     uri: https://okapi.frontside.io/configurations/entries
@@ -783,7 +783,7 @@ http_interactions:
       Server:
       - nginx/1.13.5
       Date:
-      - Tue, 11 Sep 2018 18:53:43 GMT
+      - Wed, 12 Sep 2018 12:34:52 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -792,17 +792,17 @@ http_interactions:
       - keep-alive
       X-Okapi-Trace:
       - 'POST mod-authtoken-1.5.2-SNAPSHOT.26 http://10.39.242.252:8081/configurations/entries
-        : 202 2236us'
+        : 202 1948us'
       - 'POST mod-configuration-5.0.1-SNAPSHOT.45 http://10.39.249.105:8081/configurations/entries
-        : 201 46281us'
+        : 201 51549us'
       Location:
-      - "/configurations/entries/8a15438f-ec4f-4e67-8b28-498acb259e3b"
+      - "/configurations/entries/8038c4f3-0b09-4d97-be46-8a5236ef3f2f"
       Host:
       - okapi.frontside.io
       X-Real-Ip:
-      - 10.128.0.3
+      - 10.128.0.4
       X-Forwarded-For:
-      - 10.128.0.3
+      - 10.128.0.4
       X-Forwarded-Host:
       - okapi.frontside.io
       X-Forwarded-Port:
@@ -824,7 +824,7 @@ http_interactions:
       User-Agent:
       - Ruby
       X-Okapi-Request-Id:
-      - 733922/configurations
+      - 704427/configurations
       X-Okapi-Url:
       - http://10.39.245.41:80
       X-Okapi-Permissions:
@@ -839,7 +839,7 @@ http_interactions:
       encoding: UTF-8
       string: |-
         {
-          "id" : "8a15438f-ec4f-4e67-8b28-498acb259e3b",
+          "id" : "8038c4f3-0b09-4d97-be46-8a5236ef3f2f",
           "module" : "EKB",
           "configName" : "api_access",
           "code" : "kb.ebsco.apiKey",
@@ -847,12 +847,12 @@ http_interactions:
           "enabled" : true,
           "value" : "TEST_API_KEY",
           "metadata" : {
-            "createdDate" : "2018-09-11T18:53:43.624+0000",
+            "createdDate" : "2018-09-12T12:34:52.788+0000",
             "createdByUserId" : "1ad737b0-d847-11e6-bf26-cec0c932ce01",
-            "updatedDate" : "2018-09-11T18:53:43.624+0000",
+            "updatedDate" : "2018-09-12T12:34:52.788+0000",
             "updatedByUserId" : "1ad737b0-d847-11e6-bf26-cec0c932ce01"
           }
         }
     http_version: 
-  recorded_at: Tue, 11 Sep 2018 18:53:43 GMT
+  recorded_at: Wed, 12 Sep 2018 12:34:52 GMT
 recorded_with: VCR 3.0.3
