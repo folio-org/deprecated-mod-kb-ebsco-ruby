@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://okapi.frontside.io/configurations/entries?query=module=KB_EBSCO
+    uri: https://okapi.frontside.io/configurations/entries?query=module=EKB
     body:
       encoding: US-ASCII
       string: ''
@@ -27,7 +27,7 @@ http_interactions:
       Server:
       - nginx/1.13.5
       Date:
-      - Wed, 09 May 2018 02:39:38 GMT
+      - Wed, 12 Sep 2018 16:28:14 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -35,16 +35,16 @@ http_interactions:
       Connection:
       - keep-alive
       X-Okapi-Trace:
-      - 'GET mod-authtoken-1.4.1-SNAPSHOT.20 http://10.39.253.209:8081/configurations/entries..
-        : 202 357882us'
-      - 'GET mod-configuration-4.0.3-SNAPSHOT.29 http://10.39.244.97:8081/configurations/entries..
-        : 200 48286us'
+      - 'GET mod-authtoken-1.5.2-SNAPSHOT.26 http://10.39.242.252:8081/configurations/entries..
+        : 202 499518us'
+      - 'GET mod-configuration-5.0.1-SNAPSHOT.45 http://10.39.249.105:8081/configurations/entries..
+        : 200 244122us'
       Host:
       - okapi.frontside.io
       X-Real-Ip:
-      - 10.128.0.5
+      - 10.128.0.3
       X-Forwarded-For:
-      - 10.128.0.5
+      - 10.128.0.3
       X-Forwarded-Host:
       - okapi.frontside.io
       X-Forwarded-Port:
@@ -52,11 +52,11 @@ http_interactions:
       X-Forwarded-Proto:
       - https
       X-Original-Uri:
-      - "/configurations/entries?query=module=KB_EBSCO"
+      - "/configurations/entries?query=module=EKB"
       X-Scheme:
       - https
       X-Auth-Request-Redirect:
-      - "/configurations/entries?query=module=KB_EBSCO"
+      - "/configurations/entries?query=module=EKB"
       Accept:
       - application/json
       X-Okapi-Tenant:
@@ -66,15 +66,11 @@ http_interactions:
       User-Agent:
       - Ruby
       X-Okapi-Request-Id:
-      - 874746/configurations
+      - 536492/configurations
       X-Okapi-Url:
-      - http://10.39.242.98:80
-      X-Okapi-Permissions-Required:
-      - configuration.entries.collection.get
-      X-Okapi-Module-Permissions:
-      - '{"mod-authtoken-1.4.1-SNAPSHOT.20":["perms.users.get"]}'
+      - http://10.39.245.41:80
       X-Okapi-Permissions:
-      - '["configuration.entries.collection.get"]'
+      - '["configuration.entries.collection.get","configuration.entries.collection.get"]'
       X-Okapi-User-Id:
       - 1ad737b0-d847-11e6-bf26-cec0c932ce01
       X-Okapi-Token:
@@ -86,28 +82,56 @@ http_interactions:
       string: |-
         {
           "configs" : [ {
-            "id" : "a6d98284-5c46-4698-a6fe-f9d1594aecfc",
-            "module" : "KB_EBSCO",
-            "configName" : "api_credentials",
-            "code" : "kb.ebsco.credentials",
-            "description" : "EBSCO RM-API Credentials",
+            "id" : "efadf3d8-59c3-4508-99d4-3e36e9247d87",
+            "module" : "EKB",
+            "configName" : "api_access",
+            "code" : "kb.ebsco.url",
+            "description" : "EBSCO RM-API URL",
             "enabled" : true,
-            "value" : "customer-id=TEST_CUSTOMER_ID&api-key=TEST_API_KEY",
+            "value" : "https://api.ebsco.io",
             "metadata" : {
-              "createdDate" : "2018-05-07T20:35:44.622+0000",
+              "createdDate" : "2018-09-12T12:34:52.189+0000",
               "createdByUserId" : "1ad737b0-d847-11e6-bf26-cec0c932ce01",
-              "updatedDate" : "2018-05-07T20:35:44.622+0000",
+              "updatedDate" : "2018-09-12T12:34:52.189+0000",
+              "updatedByUserId" : "1ad737b0-d847-11e6-bf26-cec0c932ce01"
+            }
+          }, {
+            "id" : "6b24b703-243a-4261-a7bf-0336d34f8c94",
+            "module" : "EKB",
+            "configName" : "api_access",
+            "code" : "kb.ebsco.customerId",
+            "description" : "EBSCO RM-API Customer ID",
+            "enabled" : true,
+            "value" : "TEST_CUSTOMER_ID",
+            "metadata" : {
+              "createdDate" : "2018-09-12T12:34:52.466+0000",
+              "createdByUserId" : "1ad737b0-d847-11e6-bf26-cec0c932ce01",
+              "updatedDate" : "2018-09-12T12:34:52.466+0000",
+              "updatedByUserId" : "1ad737b0-d847-11e6-bf26-cec0c932ce01"
+            }
+          }, {
+            "id" : "8038c4f3-0b09-4d97-be46-8a5236ef3f2f",
+            "module" : "EKB",
+            "configName" : "api_access",
+            "code" : "kb.ebsco.apiKey",
+            "description" : "EBSCO RM-API API Key",
+            "enabled" : true,
+            "value" : "TEST_API_KEY",
+            "metadata" : {
+              "createdDate" : "2018-09-12T12:34:52.788+0000",
+              "createdByUserId" : "1ad737b0-d847-11e6-bf26-cec0c932ce01",
+              "updatedDate" : "2018-09-12T12:34:52.788+0000",
               "updatedByUserId" : "1ad737b0-d847-11e6-bf26-cec0c932ce01"
             }
           } ],
-          "totalRecords" : 1,
+          "totalRecords" : 3,
           "resultInfo" : {
-            "totalRecords" : 1,
+            "totalRecords" : 3,
             "facets" : [ ]
           }
         }
     http_version: 
-  recorded_at: Wed, 09 May 2018 02:39:38 GMT
+  recorded_at: Wed, 12 Sep 2018 16:28:14 GMT
 - request:
     method: get
     uri: https://api.ebsco.io/rm/rmaccounts/TEST_CUSTOMER_ID/vendors?count=25&offset=1&orderby=relevance&search=TEST_CUSTOMER_ID
@@ -116,7 +140,7 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - Flexirest/1.6.7
+      - Flexirest/1.7.0
       Connection:
       - Keep-Alive
       Accept:
@@ -135,31 +159,31 @@ http_interactions:
       Content-Type:
       - application/json;charset=UTF-8
       Content-Length:
-      - '170'
+      - '172'
       Connection:
       - keep-alive
       Date:
-      - Wed, 09 May 2018 02:39:38 GMT
+      - Wed, 12 Sep 2018 16:28:14 GMT
       X-Amzn-Requestid:
-      - 37cf900d-5332-11e8-985c-8330b54e98f6
+      - d8edbd34-b6a8-11e8-bfcf-210bc3d40b97
       X-Amzn-Remapped-Connection:
       - keep-alive
       X-Amz-Apigw-Id:
-      - GmPYoHqOoAMF53g=
+      - NHa4xGCNoAMF05w=
       X-Amzn-Remapped-Date:
-      - Wed, 09 May 2018 02:39:38 GMT
+      - Wed, 12 Sep 2018 16:28:14 GMT
       X-Cache:
       - Miss from cloudfront
       Via:
-      - 1.1 720fb1b64ad23858127ee16baf9bbf32.cloudfront.net (CloudFront)
+      - 1.1 45fb37f23f8c197bc04619b2c1f97347.cloudfront.net (CloudFront)
       X-Amz-Cf-Id:
-      - 8DGHjCIts6HtBO8jyffcPq0Wp-23TZ2uQAaoIIXc-qWq9oQ-W5k7zg==
+      - EXrnRidu1Sij9aYa6HHFOPf02L_Bv9jbsQ0YwcNm4lORRUMsckrGDQ==
     body:
       encoding: UTF-8
       string: '{"totalResults":1,"vendors":[{"vendorId":123355,"vendorName":"API DEV
-        CORPORATE CUSTOMER","isCustomer":true,"packagesTotal":74,"packagesSelected":74,"vendorToken":null}]}'
+        CORPORATE CUSTOMER","isCustomer":true,"packagesTotal":139,"packagesSelected":139,"vendorToken":null}]}'
     http_version: 
-  recorded_at: Wed, 09 May 2018 02:39:38 GMT
+  recorded_at: Wed, 12 Sep 2018 16:28:14 GMT
 - request:
     method: get
     uri: https://api.ebsco.io/rm/rmaccounts/TEST_CUSTOMER_ID/vendors/123355/packages?contenttype=all&count=100&offset=1&orderby=packagename&search&selection=all
@@ -187,46 +211,94 @@ http_interactions:
       Content-Type:
       - application/json;charset=UTF-8
       Content-Length:
-      - '26978'
+      - '36788'
       Connection:
       - close
       Date:
-      - Wed, 09 May 2018 02:39:38 GMT
+      - Wed, 12 Sep 2018 16:28:15 GMT
       X-Amzn-Requestid:
-      - 37ea1db8-5332-11e8-b208-87d3f5106cf4
+      - d9293f99-b6a8-11e8-822b-879dcb411786
       X-Amzn-Remapped-Connection:
       - keep-alive
       X-Amz-Apigw-Id:
-      - GmPYqEGooAMFxTQ=
+      - NHa40FgfoAMFw8w=
       X-Amzn-Remapped-Date:
-      - Wed, 09 May 2018 02:39:38 GMT
+      - Wed, 12 Sep 2018 16:28:15 GMT
       X-Cache:
       - Miss from cloudfront
       Via:
-      - 1.1 cbce93bae14c2990d9c172c1090b26cd.cloudfront.net (CloudFront)
+      - 1.1 45fb37f23f8c197bc04619b2c1f97347.cloudfront.net (CloudFront)
       X-Amz-Cf-Id:
-      - dUxXl1li0PNAV_4CHQ_zcUaqdgPfrtaj2kb-VeUT0IEp12zz3unEKg==
+      - p49gI561fWx_lUBygfgRmHQi1ViXVL3r0Bwb-S-PwqY0OwrUFOSVHg==
     body:
       encoding: UTF-8
-      string: '{"totalResults":74,"packagesList":[{"packageId":2845504,"packageName":"\"HAHAHA\"","isCustom":true,"vendorId":123355,"vendorName":"API
-        DEV CORPORATE CUSTOMER","titleCount":6,"isSelected":true,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":6,"isTokenNeeded":false,"contentType":"OnlineReference","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Custom"},{"packageId":2845510,"packageName":"\"Testing2\"","isCustom":true,"vendorId":123355,"vendorName":"API
-        DEV CORPORATE CUSTOMER","titleCount":1,"isSelected":true,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":1,"isTokenNeeded":false,"contentType":"EBook","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Custom"},{"packageId":2846022,"packageName":"\"Testing4\"","isCustom":true,"vendorId":123355,"vendorName":"API
-        DEV CORPORATE CUSTOMER","titleCount":0,"isSelected":true,"visibilityData":{"isHidden":true,"reason":"Hidden
-        by Customer"},"selectedCount":0,"isTokenNeeded":false,"contentType":"EBook","customCoverage":{"beginCoverage":"2018-04-02","endCoverage":"2018-04-23"},"packageType":"Custom"},{"packageId":2861742,"packageName":"All
+      string: '{"totalResults":139,"packagesList":[{"packageId":3120611,"packageName":"123","isCustom":true,"vendorId":123355,"vendorName":"API
+        DEV CORPORATE CUSTOMER","titleCount":1,"isSelected":true,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":1,"isTokenNeeded":false,"contentType":"Unknown","customCoverage":{"beginCoverage":"2003-01-01","endCoverage":"2003-12-01"},"packageType":"Custom"},{"packageId":3120613,"packageName":"345","isCustom":true,"vendorId":123355,"vendorName":"API
+        DEV CORPORATE CUSTOMER","titleCount":0,"isSelected":true,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"Unknown","customCoverage":{"beginCoverage":"2003-01-01","endCoverage":""},"packageType":"Custom"},{"packageId":3120719,"packageName":"567","isCustom":true,"vendorId":123355,"vendorName":"API
+        DEV CORPORATE CUSTOMER","titleCount":0,"isSelected":true,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"Unknown","customCoverage":{"beginCoverage":"2003-01-01","endCoverage":""},"packageType":"Custom"},{"packageId":3121228,"packageName":"8910","isCustom":true,"vendorId":123355,"vendorName":"API
+        DEV CORPORATE CUSTOMER","titleCount":0,"isSelected":true,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"Unknown","customCoverage":{"beginCoverage":"2003-01-01","endCoverage":"2004-01-01"},"packageType":"Custom"},{"packageId":3124668,"packageName":"abc
+        test sd","isCustom":true,"vendorId":123355,"vendorName":"API DEV CORPORATE
+        CUSTOMER","titleCount":1,"isSelected":true,"visibilityData":{"isHidden":true,"reason":"Hidden
+        by Customer"},"selectedCount":1,"isTokenNeeded":false,"contentType":"Unknown","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Custom"},{"packageId":2868997,"packageName":"after
+        package test","isCustom":true,"vendorId":123355,"vendorName":"API DEV CORPORATE
+        CUSTOMER","titleCount":6,"isSelected":true,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":6,"isTokenNeeded":false,"contentType":"Unknown","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Custom"},{"packageId":2869004,"packageName":"after
+        package test 3","isCustom":true,"vendorId":123355,"vendorName":"API DEV CORPORATE
+        CUSTOMER","titleCount":0,"isSelected":true,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"Unknown","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Custom"},{"packageId":2869000,"packageName":"after
+        title test 2","isCustom":true,"vendorId":123355,"vendorName":"API DEV CORPORATE
+        CUSTOMER","titleCount":4,"isSelected":true,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":4,"isTokenNeeded":false,"contentType":"Unknown","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Custom"},{"packageId":2861742,"packageName":"All
         Managed Stuff","isCustom":true,"vendorId":123355,"vendorName":"API DEV CORPORATE
-        CUSTOMER","titleCount":1,"isSelected":true,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":1,"isTokenNeeded":false,"contentType":"Unknown","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Custom"},{"packageId":2720678,"packageName":"TEST_CUSTOMER_ID-custom-package","isCustom":true,"vendorId":123355,"vendorName":"API
-        DEV CORPORATE CUSTOMER","titleCount":9,"isSelected":true,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":9,"isTokenNeeded":false,"contentType":"Unknown","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Custom"},{"packageId":2723775,"packageName":"TEST_CUSTOMER_ID-live-custompackage","isCustom":true,"vendorId":123355,"vendorName":"API
-        DEV CORPORATE CUSTOMER","titleCount":9,"isSelected":true,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":9,"isTokenNeeded":false,"contentType":"OnlineReference","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Custom"},{"packageId":2846164,"packageName":"Boston","isCustom":true,"vendorId":123355,"vendorName":"API
-        DEV CORPORATE CUSTOMER","titleCount":2,"isSelected":true,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":2,"isTokenNeeded":false,"contentType":"Unknown","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Custom"},{"packageId":2865551,"packageName":"caroles
+        CUSTOMER","titleCount":8,"isSelected":true,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":8,"isTokenNeeded":false,"contentType":"Unknown","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Custom"},{"packageId":2879510,"packageName":"aloha","isCustom":true,"vendorId":123355,"vendorName":"API
+        DEV CORPORATE CUSTOMER","titleCount":4,"isSelected":true,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":4,"isTokenNeeded":false,"contentType":"AbstractAndIndex","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Custom"},{"packageId":2720678,"packageName":"TEST_CUSTOMER_ID-custom-package","isCustom":true,"vendorId":123355,"vendorName":"API
+        DEV CORPORATE CUSTOMER","titleCount":14,"isSelected":true,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":14,"isTokenNeeded":false,"contentType":"Unknown","customCoverage":{"beginCoverage":"2010-05-01","endCoverage":""},"packageType":"Custom"},{"packageId":2723775,"packageName":"TEST_CUSTOMER_ID-live-custompackage","isCustom":true,"vendorId":123355,"vendorName":"API
+        DEV CORPORATE CUSTOMER","titleCount":11,"isSelected":true,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":11,"isTokenNeeded":false,"contentType":"OnlineReference","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Custom"},{"packageId":2869002,"packageName":"before
+        test package 1","isCustom":true,"vendorId":123355,"vendorName":"API DEV CORPORATE
+        CUSTOMER","titleCount":1,"isSelected":true,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":1,"isTokenNeeded":false,"contentType":"Unknown","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Custom"},{"packageId":2897636,"packageName":"bigTestJS
+        Custom Package","isCustom":true,"vendorId":123355,"vendorName":"API DEV CORPORATE
+        CUSTOMER","titleCount":0,"isSelected":true,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"Unknown","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Custom"},{"packageId":2846164,"packageName":"Boston","isCustom":true,"vendorId":123355,"vendorName":"API
+        DEV CORPORATE CUSTOMER","titleCount":9,"isSelected":true,"visibilityData":{"isHidden":true,"reason":"Hidden
+        by Customer"},"selectedCount":9,"isTokenNeeded":false,"contentType":"EJournal","customCoverage":{"beginCoverage":"2003-12-13","endCoverage":""},"packageType":"Custom"},{"packageId":2867655,"packageName":"carole
+        create a custom package - 2","isCustom":true,"vendorId":123355,"vendorName":"API
+        DEV CORPORATE CUSTOMER","titleCount":4,"isSelected":true,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":4,"isTokenNeeded":false,"contentType":"Unknown","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Custom"},{"packageId":2867669,"packageName":"carole
+        create a custom package - 3","isCustom":true,"vendorId":123355,"vendorName":"API
+        DEV CORPORATE CUSTOMER","titleCount":2,"isSelected":true,"visibilityData":{"isHidden":true,"reason":"Hidden
+        by Customer"},"selectedCount":2,"isTokenNeeded":false,"contentType":"EBook","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Custom"},{"packageId":2867674,"packageName":"carole
+        create a custom package - 5","isCustom":true,"vendorId":123355,"vendorName":"API
+        DEV CORPORATE CUSTOMER","titleCount":2,"isSelected":true,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":2,"isTokenNeeded":false,"contentType":"Unknown","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Custom"},{"packageId":2867678,"packageName":"carole
+        create a custom package - 6","isCustom":true,"vendorId":123355,"vendorName":"API
+        DEV CORPORATE CUSTOMER","titleCount":1,"isSelected":true,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":1,"isTokenNeeded":false,"contentType":"Unknown","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Custom"},{"packageId":2867680,"packageName":"carole
+        create a custom package - 7","isCustom":true,"vendorId":123355,"vendorName":"API
+        DEV CORPORATE CUSTOMER","titleCount":2,"isSelected":true,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":2,"isTokenNeeded":false,"contentType":"Unknown","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Custom"},{"packageId":2867684,"packageName":"carole
+        create a custom package - 8","isCustom":true,"vendorId":123355,"vendorName":"API
+        DEV CORPORATE CUSTOMER","titleCount":0,"isSelected":true,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"Unknown","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Custom"},{"packageId":3124671,"packageName":"carole
+        create custom","isCustom":true,"vendorId":123355,"vendorName":"API DEV CORPORATE
+        CUSTOMER","titleCount":1,"isSelected":true,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":1,"isTokenNeeded":false,"contentType":"AggregatedFullText","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Custom"},{"packageId":3125166,"packageName":"carole
+        test missing titles","isCustom":true,"vendorId":123355,"vendorName":"API DEV
+        CORPORATE CUSTOMER","titleCount":1,"isSelected":true,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":1,"isTokenNeeded":false,"contentType":"AggregatedFullText","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Custom"},{"packageId":3125199,"packageName":"carole
+        test more missing titles","isCustom":true,"vendorId":123355,"vendorName":"API
+        DEV CORPORATE CUSTOMER","titleCount":1,"isSelected":true,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":1,"isTokenNeeded":false,"contentType":"Unknown","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Custom"},{"packageId":2874581,"packageName":"caroles
+        custom package","isCustom":true,"vendorId":123355,"vendorName":"API DEV CORPORATE
+        CUSTOMER","titleCount":2,"isSelected":true,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":2,"isTokenNeeded":false,"contentType":"OnlineReference","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Custom"},{"packageId":3111169,"packageName":"caroles
+        custom package2","isCustom":true,"vendorId":123355,"vendorName":"API DEV CORPORATE
+        CUSTOMER","titleCount":3,"isSelected":true,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":3,"isTokenNeeded":false,"contentType":"Unknown","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Custom"},{"packageId":2898887,"packageName":"caroles
         test package","isCustom":true,"vendorId":123355,"vendorName":"API DEV CORPORATE
-        CUSTOMER","titleCount":0,"isSelected":true,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"Unknown","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Custom"},{"packageId":2861806,"packageName":"DE16909
+        CUSTOMER","titleCount":2,"isSelected":true,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":2,"isTokenNeeded":false,"contentType":"Unknown","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Custom"},{"packageId":3109292,"packageName":"custom
+        packages api test","isCustom":true,"vendorId":123355,"vendorName":"API DEV
+        CORPORATE CUSTOMER","titleCount":0,"isSelected":true,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"Unknown","customCoverage":{"beginCoverage":"2003-01-01","endCoverage":"2003-12-01"},"packageType":"Custom"},{"packageId":2861806,"packageName":"DE16909
         Match Title","isCustom":true,"vendorId":123355,"vendorName":"API DEV CORPORATE
         CUSTOMER","titleCount":1,"isSelected":true,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":1,"isTokenNeeded":false,"contentType":"Unknown","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Custom"},{"packageId":2861802,"packageName":"DE21046
         Create Custom","isCustom":true,"vendorId":123355,"vendorName":"API DEV CORPORATE
         CUSTOMER","titleCount":1,"isSelected":true,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":1,"isTokenNeeded":false,"contentType":"Unknown","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Custom"},{"packageId":2861804,"packageName":"DE26882
         Ignore Selected","isCustom":true,"vendorId":123355,"vendorName":"API DEV CORPORATE
         CUSTOMER","titleCount":0,"isSelected":true,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"Unknown","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Custom"},{"packageId":2848917,"packageName":"different
-        name","isCustom":true,"vendorId":123355,"vendorName":"API DEV CORPORATE CUSTOMER","titleCount":0,"isSelected":true,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"EJournal","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Custom"},{"packageId":2847324,"packageName":"Foo
+        name","isCustom":true,"vendorId":123355,"vendorName":"API DEV CORPORATE CUSTOMER","titleCount":0,"isSelected":true,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"EJournal","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Custom"},{"packageId":2861731,"packageName":"E.R
+        : Marvel","isCustom":true,"vendorId":123355,"vendorName":"API DEV CORPORATE
+        CUSTOMER","titleCount":0,"isSelected":true,"visibilityData":{"isHidden":true,"reason":"Hidden
+        by Customer"},"selectedCount":0,"isTokenNeeded":false,"contentType":"Unknown","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Custom"},{"packageId":2861738,"packageName":"E.R.
+        : Infinity War","isCustom":true,"vendorId":123355,"vendorName":"API DEV CORPORATE
+        CUSTOMER","titleCount":0,"isSelected":true,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"Unknown","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Custom"},{"packageId":3105869,"packageName":"Elrick
+        Test Package","isCustom":true,"vendorId":123355,"vendorName":"API DEV CORPORATE
+        CUSTOMER","titleCount":0,"isSelected":true,"visibilityData":{"isHidden":true,"reason":"Hidden
+        by Customer"},"selectedCount":0,"isTokenNeeded":false,"contentType":"Unknown","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Custom"},{"packageId":2847324,"packageName":"Foo
         bar book Vol. 1","isCustom":true,"vendorId":123355,"vendorName":"API DEV CORPORATE
         CUSTOMER","titleCount":0,"isSelected":true,"visibilityData":{"isHidden":true,"reason":"Hidden
         by Customer"},"selectedCount":0,"isTokenNeeded":false,"contentType":"EBook","customCoverage":{"beginCoverage":"2003-01-01","endCoverage":"2004-01-01"},"packageType":"Custom"},{"packageId":2846239,"packageName":"Foo
@@ -235,13 +307,13 @@ http_interactions:
         book Vol. 2.1","isCustom":true,"vendorId":123355,"vendorName":"API DEV CORPORATE
         CUSTOMER","titleCount":0,"isSelected":true,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"EBook","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Custom"},{"packageId":2846247,"packageName":"Foo
         book Vol. 2.3","isCustom":true,"vendorId":123355,"vendorName":"API DEV CORPORATE
-        CUSTOMER","titleCount":0,"isSelected":true,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"EBook","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Custom"},{"packageId":2846249,"packageName":"Foo
+        CUSTOMER","titleCount":2,"isSelected":true,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":2,"isTokenNeeded":false,"contentType":"EBook","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Custom"},{"packageId":2846249,"packageName":"Foo
         book Vol. 2.4","isCustom":true,"vendorId":123355,"vendorName":"API DEV CORPORATE
-        CUSTOMER","titleCount":0,"isSelected":true,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"EBook","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Custom"},{"packageId":2846251,"packageName":"Foo
+        CUSTOMER","titleCount":1,"isSelected":true,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":1,"isTokenNeeded":false,"contentType":"EBook","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Custom"},{"packageId":2846251,"packageName":"Foo
         book Vol. 2.5","isCustom":true,"vendorId":123355,"vendorName":"API DEV CORPORATE
         CUSTOMER","titleCount":0,"isSelected":true,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"EBook","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Custom"},{"packageId":2846253,"packageName":"Foo
         book Vol. 2.6","isCustom":true,"vendorId":123355,"vendorName":"API DEV CORPORATE
-        CUSTOMER","titleCount":0,"isSelected":true,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"EBook","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Custom"},{"packageId":2847514,"packageName":"Foo
+        CUSTOMER","titleCount":1,"isSelected":true,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":1,"isTokenNeeded":false,"contentType":"EBook","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Custom"},{"packageId":2847514,"packageName":"Foo
         book Vol. 2.8","isCustom":true,"vendorId":123355,"vendorName":"API DEV CORPORATE
         CUSTOMER","titleCount":0,"isSelected":true,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"EBook","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Custom"},{"packageId":2846241,"packageName":"Foo
         book Vol. 2a","isCustom":true,"vendorId":123355,"vendorName":"API DEV CORPORATE
@@ -249,9 +321,20 @@ http_interactions:
         book Vol. 4","isCustom":true,"vendorId":123355,"vendorName":"API DEV CORPORATE
         CUSTOMER","titleCount":0,"isSelected":true,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"EBook","customCoverage":{"beginCoverage":"2003-01-01","endCoverage":"2004-01-01"},"packageType":"Custom"},{"packageId":2846722,"packageName":"Foo
         book Vol. 4.1","isCustom":true,"vendorId":123355,"vendorName":"API DEV CORPORATE
-        CUSTOMER","titleCount":0,"isSelected":true,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"EBook","customCoverage":{"beginCoverage":"2003-01-01","endCoverage":"2004-01-01"},"packageType":"Custom"},{"packageId":2845506,"packageName":"I
+        CUSTOMER","titleCount":0,"isSelected":true,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"EBook","customCoverage":{"beginCoverage":"2003-01-01","endCoverage":"2004-01-01"},"packageType":"Custom"},{"packageId":3105825,"packageName":"free
+        range","isCustom":true,"vendorId":123355,"vendorName":"API DEV CORPORATE CUSTOMER","titleCount":0,"isSelected":true,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"OnlineReference","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Custom"},{"packageId":2865865,"packageName":"Freedom
+        Collection ","isCustom":true,"vendorId":123355,"vendorName":"API DEV CORPORATE
+        CUSTOMER","titleCount":2,"isSelected":true,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":2,"isTokenNeeded":false,"contentType":"Unknown","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Custom"},{"packageId":3099873,"packageName":"Grid","isCustom":true,"vendorId":123355,"vendorName":"API
+        DEV CORPORATE CUSTOMER","titleCount":0,"isSelected":true,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"Unknown","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Custom"},{"packageId":2845504,"packageName":"hello","isCustom":true,"vendorId":123355,"vendorName":"API
+        DEV CORPORATE CUSTOMER","titleCount":14,"isSelected":true,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":14,"isTokenNeeded":false,"contentType":"Unknown","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Custom"},{"packageId":2879504,"packageName":"hello
+        testing","isCustom":true,"vendorId":123355,"vendorName":"API DEV CORPORATE
+        CUSTOMER","titleCount":0,"isSelected":true,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"Unknown","customCoverage":{"beginCoverage":"2018-05-17","endCoverage":"2018-05-23"},"packageType":"Custom"},{"packageId":2879506,"packageName":"hello
+        testing content type again","isCustom":true,"vendorId":123355,"vendorName":"API
+        DEV CORPORATE CUSTOMER","titleCount":0,"isSelected":true,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"AggregatedFullText","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Custom"},{"packageId":2845506,"packageName":"I
         got a newer package name","isCustom":true,"vendorId":123355,"vendorName":"API
-        DEV CORPORATE CUSTOMER","titleCount":0,"isSelected":true,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"AggregatedFullText","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Custom"},{"packageId":2789766,"packageName":"Jason
+        DEV CORPORATE CUSTOMER","titleCount":0,"isSelected":true,"visibilityData":{"isHidden":true,"reason":"Hidden
+        by Customer"},"selectedCount":0,"isTokenNeeded":false,"contentType":"AggregatedFullText","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Custom"},{"packageId":2901829,"packageName":"information
+        media","isCustom":true,"vendorId":123355,"vendorName":"API DEV CORPORATE CUSTOMER","titleCount":0,"isSelected":true,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"EBook","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Custom"},{"packageId":2789766,"packageName":"Jason
         Nowlin Custom Package DE23001","isCustom":true,"vendorId":123355,"vendorName":"API
         DEV CORPORATE CUSTOMER","titleCount":1,"isSelected":true,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":1,"isTokenNeeded":false,"contentType":"Unknown","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Custom"},{"packageId":2850659,"packageName":"JeffreyApr23ab","isCustom":true,"vendorId":123355,"vendorName":"API
         DEV CORPORATE CUSTOMER","titleCount":0,"isSelected":true,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"OnlineReference","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Custom"},{"packageId":2850661,"packageName":"JeffreyPkgApr30","isCustom":true,"vendorId":123355,"vendorName":"API
@@ -260,34 +343,70 @@ http_interactions:
         CUSTOMER","titleCount":0,"isSelected":true,"visibilityData":{"isHidden":true,"reason":"Hidden
         by Customer"},"selectedCount":0,"isTokenNeeded":false,"contentType":"Print","customCoverage":{"beginCoverage":"2018-04-11","endCoverage":"2018-04-27"},"packageType":"Custom"},{"packageId":2864055,"packageName":"joes_test","isCustom":true,"vendorId":123355,"vendorName":"API
         DEV CORPORATE CUSTOMER","titleCount":0,"isSelected":true,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"EJournal","customCoverage":{"beginCoverage":"2018-05-08","endCoverage":"2018-05-31"},"packageType":"Custom"},{"packageId":2864301,"packageName":"joes_test3","isCustom":true,"vendorId":123355,"vendorName":"API
-        DEV CORPORATE CUSTOMER","titleCount":6,"isSelected":true,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":6,"isTokenNeeded":false,"contentType":"EJournal","customCoverage":{"beginCoverage":"2018-05-08","endCoverage":"2018-05-31"},"packageType":"Custom"},{"packageId":2861731,"packageName":"Marvel","isCustom":true,"vendorId":123355,"vendorName":"API
-        DEV CORPORATE CUSTOMER","titleCount":0,"isSelected":true,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"Unknown","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Custom"},{"packageId":2848852,"packageName":"My
+        DEV CORPORATE CUSTOMER","titleCount":7,"isSelected":true,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":7,"isTokenNeeded":false,"contentType":"EJournal","customCoverage":{"beginCoverage":"2018-05-08","endCoverage":"2018-05-31"},"packageType":"Custom"},{"packageId":3105851,"packageName":"lets
+        try again","isCustom":true,"vendorId":123355,"vendorName":"API DEV CORPORATE
+        CUSTOMER","titleCount":0,"isSelected":true,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"EJournal","customCoverage":{"beginCoverage":"2003-01-01","endCoverage":"2003-12-01"},"packageType":"Custom"},{"packageId":3119776,"packageName":"Library
+        Package 1","isCustom":true,"vendorId":123355,"vendorName":"API DEV CORPORATE
+        CUSTOMER","titleCount":0,"isSelected":true,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"EBook","customCoverage":{"beginCoverage":"2003-01-01","endCoverage":"2003-12-12"},"packageType":"Custom"},{"packageId":2897638,"packageName":"Microstates
+        Custom Package","isCustom":true,"vendorId":123355,"vendorName":"API DEV CORPORATE
+        CUSTOMER","titleCount":0,"isSelected":true,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"EBook","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Custom"},{"packageId":2848852,"packageName":"My
         new custom package","isCustom":true,"vendorId":123355,"vendorName":"API DEV
-        CORPORATE CUSTOMER","titleCount":0,"isSelected":true,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"Unknown","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Custom"},{"packageId":2848892,"packageName":"My
+        CORPORATE CUSTOMER","titleCount":0,"isSelected":true,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"Unknown","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Custom"},{"packageId":3109294,"packageName":"my
+        new custom package for testing cont","isCustom":true,"vendorId":123355,"vendorName":"API
+        DEV CORPORATE CUSTOMER","titleCount":0,"isSelected":true,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"EJournal","customCoverage":{"beginCoverage":"2003-01-01","endCoverage":"2003-12-01"},"packageType":"Custom"},{"packageId":3109296,"packageName":"my
+        new custom package for testing content type","isCustom":true,"vendorId":123355,"vendorName":"API
+        DEV CORPORATE CUSTOMER","titleCount":0,"isSelected":true,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"OnlineReference","customCoverage":{"beginCoverage":"2003-01-01","endCoverage":"2003-12-01"},"packageType":"Custom"},{"packageId":3109300,"packageName":"my
+        new custom package for testing content type again","isCustom":true,"vendorId":123355,"vendorName":"API
+        DEV CORPORATE CUSTOMER","titleCount":0,"isSelected":true,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"Print","customCoverage":{"beginCoverage":"2003-01-01","endCoverage":"2003-12-01"},"packageType":"Custom"},{"packageId":3109289,"packageName":"my
+        new test","isCustom":true,"vendorId":123355,"vendorName":"API DEV CORPORATE
+        CUSTOMER","titleCount":0,"isSelected":true,"visibilityData":{"isHidden":true,"reason":"Hidden
+        by Customer"},"selectedCount":0,"isTokenNeeded":false,"contentType":"Unknown","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Custom"},{"packageId":2848892,"packageName":"My
         SD custom package","isCustom":true,"vendorId":123355,"vendorName":"API DEV
-        CORPORATE CUSTOMER","titleCount":0,"isSelected":true,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"Unknown","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Custom"},{"packageId":2849475,"packageName":"Name
+        CORPORATE CUSTOMER","titleCount":0,"isSelected":true,"visibilityData":{"isHidden":true,"reason":"Hidden
+        by Customer"},"selectedCount":0,"isTokenNeeded":false,"contentType":"Unknown","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Custom"},{"packageId":2867514,"packageName":"my
+        test package 2","isCustom":true,"vendorId":123355,"vendorName":"API DEV CORPORATE
+        CUSTOMER","titleCount":0,"isSelected":true,"visibilityData":{"isHidden":true,"reason":"Hidden
+        by Customer"},"selectedCount":0,"isTokenNeeded":false,"contentType":"Unknown","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Custom"},{"packageId":2849475,"packageName":"Name
         not used so far","isCustom":true,"vendorId":123355,"vendorName":"API DEV CORPORATE
         CUSTOMER","titleCount":0,"isSelected":true,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"EBook","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Custom"},{"packageId":2848967,"packageName":"name
         not used yet","isCustom":true,"vendorId":123355,"vendorName":"API DEV CORPORATE
         CUSTOMER","titleCount":0,"isSelected":true,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"EBook","customCoverage":{"beginCoverage":"2003-01-01","endCoverage":"2004-01-01"},"packageType":"Custom"},{"packageId":2848969,"packageName":"name
         still not used","isCustom":true,"vendorId":123355,"vendorName":"API DEV CORPORATE
-        CUSTOMER","titleCount":0,"isSelected":true,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"EBook","customCoverage":{"beginCoverage":"2003-01-01","endCoverage":"2004-01-01"},"packageType":"Custom"},{"packageId":2849013,"packageName":"new
+        CUSTOMER","titleCount":0,"isSelected":true,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"EBook","customCoverage":{"beginCoverage":"2003-01-01","endCoverage":"2004-01-01"},"packageType":"Custom"},{"packageId":2867573,"packageName":"new
+        custom package testing","isCustom":true,"vendorId":123355,"vendorName":"API
+        DEV CORPORATE CUSTOMER","titleCount":0,"isSelected":true,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"Unknown","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Custom"},{"packageId":2849013,"packageName":"new
         name","isCustom":true,"vendorId":123355,"vendorName":"API DEV CORPORATE CUSTOMER","titleCount":0,"isSelected":true,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"EBook","customCoverage":{"beginCoverage":"2003-01-01","endCoverage":"2004-01-01"},"packageType":"Custom"},{"packageId":2850657,"packageName":"new
         nameaaaa","isCustom":true,"vendorId":123355,"vendorName":"API DEV CORPORATE
-        CUSTOMER","titleCount":0,"isSelected":true,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"EBook","customCoverage":{"beginCoverage":"2003-01-01","endCoverage":"2004-01-01"},"packageType":"Custom"},{"packageId":2863806,"packageName":"newest
+        CUSTOMER","titleCount":0,"isSelected":true,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"EBook","customCoverage":{"beginCoverage":"2003-01-01","endCoverage":"2004-01-01"},"packageType":"Custom"},{"packageId":2867623,"packageName":"new
+        package create","isCustom":true,"vendorId":123355,"vendorName":"API DEV CORPORATE
+        CUSTOMER","titleCount":0,"isSelected":true,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"Unknown","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Custom"},{"packageId":2867634,"packageName":"new
+        package create take 2","isCustom":true,"vendorId":123355,"vendorName":"API
+        DEV CORPORATE CUSTOMER","titleCount":0,"isSelected":true,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"Unknown","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Custom"},{"packageId":2867636,"packageName":"new
+        package create take 3","isCustom":true,"vendorId":123355,"vendorName":"API
+        DEV CORPORATE CUSTOMER","titleCount":0,"isSelected":true,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"Unknown","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Custom"},{"packageId":2867580,"packageName":"new
+        package name","isCustom":true,"vendorId":123355,"vendorName":"API DEV CORPORATE
+        CUSTOMER","titleCount":0,"isSelected":true,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"Unknown","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Custom"},{"packageId":2870457,"packageName":"new
+        package testsing","isCustom":true,"vendorId":123355,"vendorName":"API DEV
+        CORPORATE CUSTOMER","titleCount":0,"isSelected":true,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"Unknown","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Custom"},{"packageId":2863806,"packageName":"newest
         name","isCustom":true,"vendorId":123355,"vendorName":"API DEV CORPORATE CUSTOMER","titleCount":0,"isSelected":true,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"EBook","customCoverage":{"beginCoverage":"2003-01-01","endCoverage":"2004-01-01"},"packageType":"Custom"},{"packageId":2863801,"packageName":"newest
         name of them all","isCustom":true,"vendorId":123355,"vendorName":"API DEV
-        CORPORATE CUSTOMER","titleCount":0,"isSelected":true,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"EBook","customCoverage":{"beginCoverage":"2003-01-01","endCoverage":"2004-01-01"},"packageType":"Custom"},{"packageId":2849009,"packageName":"not
+        CORPORATE CUSTOMER","titleCount":0,"isSelected":true,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"EBook","customCoverage":{"beginCoverage":"2003-01-01","endCoverage":"2004-01-01"},"packageType":"Custom"},{"packageId":2867614,"packageName":"not
+        a new package name","isCustom":true,"vendorId":123355,"vendorName":"API DEV
+        CORPORATE CUSTOMER","titleCount":0,"isSelected":true,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"Unknown","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Custom"},{"packageId":2849009,"packageName":"not
         yet created","isCustom":true,"vendorId":123355,"vendorName":"API DEV CORPORATE
-        CUSTOMER","titleCount":0,"isSelected":true,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"Unknown","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Custom"},{"packageId":2848827,"packageName":"SD
+        CUSTOMER","titleCount":0,"isSelected":true,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"Unknown","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Custom"},{"packageId":2883106,"packageName":"pick
+        a nice package name","isCustom":true,"vendorId":123355,"vendorName":"API DEV
+        CORPORATE CUSTOMER","titleCount":0,"isSelected":true,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"Unknown","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Custom"},{"packageId":2914228,"packageName":"Proxy
+        Testing","isCustom":true,"vendorId":123355,"vendorName":"API DEV CORPORATE
+        CUSTOMER","titleCount":0,"isSelected":true,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"Unknown","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Custom"},{"packageId":2739728,"packageName":"random","isCustom":true,"vendorId":123355,"vendorName":"API
+        DEV CORPORATE CUSTOMER","titleCount":2,"isSelected":true,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":2,"isTokenNeeded":false,"contentType":"AbstractAndIndex","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Custom"},{"packageId":2901827,"packageName":"reason","isCustom":true,"vendorId":123355,"vendorName":"API
+        DEV CORPORATE CUSTOMER","titleCount":0,"isSelected":true,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"Unknown","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Custom"},{"packageId":2848827,"packageName":"SD
         test new custom package","isCustom":true,"vendorId":123355,"vendorName":"API
-        DEV CORPORATE CUSTOMER","titleCount":0,"isSelected":true,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"Print","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Custom"},{"packageId":2850417,"packageName":"SD''s
-        test package","isCustom":true,"vendorId":123355,"vendorName":"API DEV CORPORATE
-        CUSTOMER","titleCount":21,"isSelected":true,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":21,"isTokenNeeded":false,"contentType":"EBook","customCoverage":{"beginCoverage":"2003-01-01","endCoverage":"2003-12-12"},"packageType":"Custom"},{"packageId":2848228,"packageName":"SD''s
-        test package again","isCustom":true,"vendorId":123355,"vendorName":"API DEV
-        CORPORATE CUSTOMER","titleCount":0,"isSelected":true,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"EBook","customCoverage":{"beginCoverage":"2003-01-01","endCoverage":"2003-12-12"},"packageType":"Custom"},{"packageId":2843714,"packageName":"SD''s
+        DEV CORPORATE CUSTOMER","titleCount":0,"isSelected":true,"visibilityData":{"isHidden":true,"reason":"Hidden
+        by Customer"},"selectedCount":0,"isTokenNeeded":false,"contentType":"Print","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Custom"},{"packageId":2843714,"packageName":"SD''s
         test package in TEST_CUSTOMER_ID","isCustom":true,"vendorId":123355,"vendorName":"API
-        DEV CORPORATE CUSTOMER","titleCount":3,"isSelected":true,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":3,"isTokenNeeded":false,"contentType":"EBook","customCoverage":{"beginCoverage":"2003-01-01","endCoverage":"2003-12-12"},"packageType":"Custom"},{"packageId":2843723,"packageName":"SD''s
+        DEV CORPORATE CUSTOMER","titleCount":1,"isSelected":true,"visibilityData":{"isHidden":true,"reason":"Hidden
+        by Customer"},"selectedCount":1,"isTokenNeeded":false,"contentType":"EBook","customCoverage":{"beginCoverage":"2003-01-01","endCoverage":""},"packageType":"Custom"},{"packageId":2843723,"packageName":"SD''s
         test package in TEST_CUSTOMER_ID again","isCustom":true,"vendorId":123355,"vendorName":"API
         DEV CORPORATE CUSTOMER","titleCount":0,"isSelected":true,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"EBook","customCoverage":{"beginCoverage":"2003-01-01","endCoverage":"2003-12-12"},"packageType":"Custom"},{"packageId":2844850,"packageName":"SD''s
         test package with root proxy","isCustom":true,"vendorId":123355,"vendorName":"API
@@ -304,38 +423,7 @@ http_interactions:
         DEV CORPORATE CUSTOMER","titleCount":0,"isSelected":true,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"EBook","customCoverage":{"beginCoverage":"2003-01-01","endCoverage":"2003-12-12"},"packageType":"Custom"},{"packageId":2864801,"packageName":"smoketest1","isCustom":true,"vendorId":123355,"vendorName":"API
         DEV CORPORATE CUSTOMER","titleCount":0,"isSelected":true,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"EBook","customCoverage":{"beginCoverage":"2018-05-01","endCoverage":"2018-05-29"},"packageType":"Custom"},{"packageId":2848898,"packageName":"Sob
         new package","isCustom":true,"vendorId":123355,"vendorName":"API DEV CORPORATE
-        CUSTOMER","titleCount":1,"isSelected":true,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":1,"isTokenNeeded":false,"contentType":"Unknown","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Custom"},{"packageId":2845384,"packageName":"Sobha
-        testing isHidden in POST","isCustom":true,"vendorId":123355,"vendorName":"API
-        DEV CORPORATE CUSTOMER","titleCount":0,"isSelected":true,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"EJournal","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Custom"},{"packageId":2845445,"packageName":"sobha-test-custom-pacakges","isCustom":true,"vendorId":123355,"vendorName":"API
-        DEV CORPORATE CUSTOMER","titleCount":1,"isSelected":true,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":1,"isTokenNeeded":false,"contentType":"EBook","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Custom"},{"packageId":2848902,"packageName":"Sob''s
-        new package","isCustom":true,"vendorId":123355,"vendorName":"API DEV CORPORATE
-        CUSTOMER","titleCount":0,"isSelected":true,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"Unknown","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Custom"},{"packageId":2861738,"packageName":"Star
-        Wars Testing","isCustom":true,"vendorId":123355,"vendorName":"API DEV CORPORATE
-        CUSTOMER","titleCount":0,"isSelected":true,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"Unknown","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Custom"},{"packageId":2862785,"packageName":"supercalifragilisticexpialidocious
-        Pkg","isCustom":true,"vendorId":123355,"vendorName":"API DEV CORPORATE CUSTOMER","titleCount":1,"isSelected":true,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":1,"isTokenNeeded":false,"contentType":"Unknown","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Custom"},{"packageId":2848911,"packageName":"test
-        cp","isCustom":true,"vendorId":123355,"vendorName":"API DEV CORPORATE CUSTOMER","titleCount":0,"isSelected":true,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"EBook","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Custom"},{"packageId":2739728,"packageName":"testing
-        ","isCustom":true,"vendorId":123355,"vendorName":"API DEV CORPORATE CUSTOMER","titleCount":2,"isSelected":true,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":2,"isTokenNeeded":false,"contentType":"Unknown","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Custom"},{"packageId":2849015,"packageName":"testing
-        content type again","isCustom":true,"vendorId":123355,"vendorName":"API DEV
-        CORPORATE CUSTOMER","titleCount":0,"isSelected":true,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"Unknown","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Custom"},{"packageId":2842964,"packageName":"testing
-        title","isCustom":true,"vendorId":123355,"vendorName":"API DEV CORPORATE CUSTOMER","titleCount":5,"isSelected":true,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":5,"isTokenNeeded":false,"contentType":"Unknown","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Custom"},{"packageId":2846034,"packageName":"Testing10","isCustom":true,"vendorId":123355,"vendorName":"API
-        DEV CORPORATE CUSTOMER","titleCount":0,"isSelected":true,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"EBook","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Custom"},{"packageId":2846037,"packageName":"Testing11","isCustom":true,"vendorId":123355,"vendorName":"API
-        DEV CORPORATE CUSTOMER","titleCount":0,"isSelected":true,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"EBook","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Custom"},{"packageId":2846029,"packageName":"Testing8","isCustom":true,"vendorId":123355,"vendorName":"API
-        DEV CORPORATE CUSTOMER","titleCount":0,"isSelected":true,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"EBook","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Custom"},{"packageId":2846032,"packageName":"Testing9","isCustom":true,"vendorId":123355,"vendorName":"API
-        DEV CORPORATE CUSTOMER","titleCount":0,"isSelected":true,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"EBook","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Custom"},{"packageId":2848963,"packageName":"totally
-        new name","isCustom":true,"vendorId":123355,"vendorName":"API DEV CORPORATE
-        CUSTOMER","titleCount":0,"isSelected":true,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"EBook","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Custom"},{"packageId":2863818,"packageName":"VCR
-        Package 1","isCustom":true,"vendorId":123355,"vendorName":"API DEV CORPORATE
-        CUSTOMER","titleCount":0,"isSelected":true,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"Unknown","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Custom"},{"packageId":2863820,"packageName":"VCR
-        Package 1.2","isCustom":true,"vendorId":123355,"vendorName":"API DEV CORPORATE
-        CUSTOMER","titleCount":0,"isSelected":true,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"EBook","customCoverage":{"beginCoverage":"2003-01-01","endCoverage":"2004-01-01"},"packageType":"Custom"},{"packageId":2863822,"packageName":"VCR
-        Package 1.3","isCustom":true,"vendorId":123355,"vendorName":"API DEV CORPORATE
-        CUSTOMER","titleCount":0,"isSelected":true,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"Unknown","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Custom"},{"packageId":2863824,"packageName":"VCR
-        Package 1.4","isCustom":true,"vendorId":123355,"vendorName":"API DEV CORPORATE
-        CUSTOMER","titleCount":0,"isSelected":true,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"Unknown","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Custom"},{"packageId":2863826,"packageName":"VCR
-        Package 1.5","isCustom":true,"vendorId":123355,"vendorName":"API DEV CORPORATE
-        CUSTOMER","titleCount":0,"isSelected":true,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"Unknown","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Custom"},{"packageId":2863828,"packageName":"VCR
-        Package 1.6","isCustom":true,"vendorId":123355,"vendorName":"API DEV CORPORATE
-        CUSTOMER","titleCount":0,"isSelected":true,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"EBook","customCoverage":{"beginCoverage":"2003-01-01","endCoverage":"2004-01-01"},"packageType":"Custom"}]}'
+        CUSTOMER","titleCount":1,"isSelected":true,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":1,"isTokenNeeded":false,"contentType":"Unknown","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Custom"}]}'
     http_version: 
-  recorded_at: Wed, 09 May 2018 02:39:38 GMT
+  recorded_at: Wed, 12 Sep 2018 16:28:15 GMT
 recorded_with: VCR 3.0.3

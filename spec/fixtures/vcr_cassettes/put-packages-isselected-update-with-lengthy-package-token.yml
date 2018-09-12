@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://okapi.frontside.io/configurations/entries?query=module=KB_EBSCO
+    uri: https://okapi.frontside.io/configurations/entries?query=module=EKB
     body:
       encoding: US-ASCII
       string: ''
@@ -27,7 +27,7 @@ http_interactions:
       Server:
       - nginx/1.13.5
       Date:
-      - Thu, 23 Aug 2018 19:55:41 GMT
+      - Wed, 12 Sep 2018 14:33:18 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -35,16 +35,16 @@ http_interactions:
       Connection:
       - keep-alive
       X-Okapi-Trace:
-      - 'GET mod-authtoken-1.4.1-SNAPSHOT.21 http://10.39.255.17:8081/configurations/entries..
-        : 202 306680us'
-      - 'GET mod-configuration-4.0.4-SNAPSHOT.36 http://10.39.247.129:8081/configurations/entries..
-        : 200 44141us'
+      - 'GET mod-authtoken-1.5.2-SNAPSHOT.26 http://10.39.242.252:8081/configurations/entries..
+        : 202 1675us'
+      - 'GET mod-configuration-5.0.1-SNAPSHOT.45 http://10.39.249.105:8081/configurations/entries..
+        : 200 61564us'
       Host:
       - okapi.frontside.io
       X-Real-Ip:
-      - 10.128.0.4
+      - 10.128.0.3
       X-Forwarded-For:
-      - 10.128.0.4
+      - 10.128.0.3
       X-Forwarded-Host:
       - okapi.frontside.io
       X-Forwarded-Port:
@@ -52,11 +52,11 @@ http_interactions:
       X-Forwarded-Proto:
       - https
       X-Original-Uri:
-      - "/configurations/entries?query=module=KB_EBSCO"
+      - "/configurations/entries?query=module=EKB"
       X-Scheme:
       - https
       X-Auth-Request-Redirect:
-      - "/configurations/entries?query=module=KB_EBSCO"
+      - "/configurations/entries?query=module=EKB"
       Accept:
       - application/json
       X-Okapi-Tenant:
@@ -66,9 +66,9 @@ http_interactions:
       User-Agent:
       - Ruby
       X-Okapi-Request-Id:
-      - 946394/configurations
+      - 814213/configurations
       X-Okapi-Url:
-      - http://10.39.254.87:80
+      - http://10.39.245.41:80
       X-Okapi-Permissions:
       - '["configuration.entries.collection.get","configuration.entries.collection.get"]'
       X-Okapi-User-Id:
@@ -82,28 +82,56 @@ http_interactions:
       string: |-
         {
           "configs" : [ {
-            "id" : "28fd0ce0-108e-4471-8a7b-4645319fd707",
-            "module" : "KB_EBSCO",
-            "configName" : "api_credentials",
-            "code" : "kb.ebsco.credentials",
-            "description" : "EBSCO RM-API Credentials",
+            "id" : "efadf3d8-59c3-4508-99d4-3e36e9247d87",
+            "module" : "EKB",
+            "configName" : "api_access",
+            "code" : "kb.ebsco.url",
+            "description" : "EBSCO RM-API URL",
             "enabled" : true,
-            "value" : "customer-id=TEST_CUSTOMER_ID&api-key=TEST_API_KEY",
+            "value" : "https://api.ebsco.io",
             "metadata" : {
-              "createdDate" : "2018-06-26T13:23:48.592+0000",
+              "createdDate" : "2018-09-12T12:34:52.189+0000",
               "createdByUserId" : "1ad737b0-d847-11e6-bf26-cec0c932ce01",
-              "updatedDate" : "2018-06-26T13:23:48.592+0000",
+              "updatedDate" : "2018-09-12T12:34:52.189+0000",
+              "updatedByUserId" : "1ad737b0-d847-11e6-bf26-cec0c932ce01"
+            }
+          }, {
+            "id" : "6b24b703-243a-4261-a7bf-0336d34f8c94",
+            "module" : "EKB",
+            "configName" : "api_access",
+            "code" : "kb.ebsco.customerId",
+            "description" : "EBSCO RM-API Customer ID",
+            "enabled" : true,
+            "value" : "TEST_CUSTOMER_ID",
+            "metadata" : {
+              "createdDate" : "2018-09-12T12:34:52.466+0000",
+              "createdByUserId" : "1ad737b0-d847-11e6-bf26-cec0c932ce01",
+              "updatedDate" : "2018-09-12T12:34:52.466+0000",
+              "updatedByUserId" : "1ad737b0-d847-11e6-bf26-cec0c932ce01"
+            }
+          }, {
+            "id" : "8038c4f3-0b09-4d97-be46-8a5236ef3f2f",
+            "module" : "EKB",
+            "configName" : "api_access",
+            "code" : "kb.ebsco.apiKey",
+            "description" : "EBSCO RM-API API Key",
+            "enabled" : true,
+            "value" : "TEST_API_KEY",
+            "metadata" : {
+              "createdDate" : "2018-09-12T12:34:52.788+0000",
+              "createdByUserId" : "1ad737b0-d847-11e6-bf26-cec0c932ce01",
+              "updatedDate" : "2018-09-12T12:34:52.788+0000",
               "updatedByUserId" : "1ad737b0-d847-11e6-bf26-cec0c932ce01"
             }
           } ],
-          "totalRecords" : 1,
+          "totalRecords" : 3,
           "resultInfo" : {
-            "totalRecords" : 1,
+            "totalRecords" : 3,
             "facets" : [ ]
           }
         }
     http_version: 
-  recorded_at: Thu, 23 Aug 2018 19:55:41 GMT
+  recorded_at: Wed, 12 Sep 2018 14:33:18 GMT
 - request:
     method: get
     uri: https://api.ebsco.io/rm/rmaccounts/TEST_CUSTOMER_ID/vendors/18/packages/343
@@ -131,29 +159,29 @@ http_interactions:
       Content-Type:
       - application/json;charset=UTF-8
       Content-Length:
-      - '1064'
+      - '1059'
       Connection:
       - close
       Date:
-      - Thu, 23 Aug 2018 19:55:41 GMT
+      - Wed, 12 Sep 2018 14:33:18 GMT
       X-Amzn-Requestid:
-      - 839ac919-a70e-11e8-86c3-ab9a47c2dced
+      - ca8b494f-b698-11e8-a54b-abf925b6e3e4
       X-Amzn-Remapped-Connection:
       - keep-alive
       X-Amz-Apigw-Id:
-      - MF-hmGk0IAMFdug=
+      - NHKDQHXMoAMF5WQ=
       X-Amzn-Remapped-Date:
-      - Thu, 23 Aug 2018 19:55:41 GMT
+      - Wed, 12 Sep 2018 14:33:18 GMT
       X-Cache:
       - Miss from cloudfront
       Via:
-      - 1.1 69871091d5ae923909dc2904245b7354.cloudfront.net (CloudFront)
+      - 1.1 53bf73656ba1f20ba4131adac7949bb6.cloudfront.net (CloudFront)
       X-Amz-Cf-Id:
-      - RM0aWGGBH1zPr5SAlQxv8vs3YXt1GVtIb9S7qtY6qbKXz0RBJZfVLQ==
+      - CpygLh0Iel-mxZutptMeayNrH_aKThygF3jquxq7-pxDC9oYV_MjFg==
     body:
       encoding: UTF-8
       string: '{"packageId":343,"packageName":"InfoTrac Custom","isCustom":false,"vendorId":18,"vendorName":"Gale
-        | Cengage","titleCount":15291,"isSelected":true,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":15291,"isTokenNeeded":true,"contentType":"AggregatedFullText","customCoverage":{"beginCoverage":"","endCoverage":""},"proxy":{"id":"TestingFolio","inherited":true},"allowEbscoToAddTitles":false,"packageToken":{"factName":"[[gale.customcode.infocust]]","helpText":"<ul
+        | Cengage","titleCount":15291,"isSelected":true,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":15291,"isTokenNeeded":true,"contentType":"AggregatedFullText","customCoverage":{"beginCoverage":"","endCoverage":""},"proxy":{"id":"EZProxy","inherited":true},"allowEbscoToAddTitles":false,"packageToken":{"factName":"[[gale.customcode.infocust]]","helpText":"<ul
         style=\"list-style-type: disc;\">\r\n    <li style=\"line-height: normal;
         margin: 0in 0in 12pt;\">Enter your Gale® custom package code in the space
         provided below. The custom code may contain a combination of alpha/numeric
@@ -161,7 +189,7 @@ http_interactions:
         package code immediately follows res_id=info:sid/gale: in a URL. The custom
         package code in the following URL is SP00.<br />\r\n    <br />\r\n    http://find.galegroup.com/openurl/openurl?url_ver=Z39.88-2004&a","value":null,"prompt":"res_id=info:sid/gale:"},"packageType":"Variable"}'
     http_version: 
-  recorded_at: Thu, 23 Aug 2018 19:55:41 GMT
+  recorded_at: Wed, 12 Sep 2018 14:33:18 GMT
 - request:
     method: get
     uri: https://api.ebsco.io/rm/rmaccounts/TEST_CUSTOMER_ID/vendors/18/packages/343
@@ -189,29 +217,29 @@ http_interactions:
       Content-Type:
       - application/json;charset=UTF-8
       Content-Length:
-      - '1064'
+      - '1059'
       Connection:
       - close
       Date:
-      - Thu, 23 Aug 2018 19:55:41 GMT
+      - Wed, 12 Sep 2018 14:33:18 GMT
       X-Amzn-Requestid:
-      - 83b8fedf-a70e-11e8-8429-99c291304049
+      - caa9f40f-b698-11e8-bd28-b337b2239a1c
       X-Amzn-Remapped-Connection:
       - keep-alive
       X-Amz-Apigw-Id:
-      - MF-hoHNkIAMFnJg=
+      - NHKDSEGVoAMFQbA=
       X-Amzn-Remapped-Date:
-      - Thu, 23 Aug 2018 19:55:41 GMT
+      - Wed, 12 Sep 2018 14:33:18 GMT
       X-Cache:
       - Miss from cloudfront
       Via:
-      - 1.1 7c972d2210a2e2f3fddbb92b4c35f72e.cloudfront.net (CloudFront)
+      - 1.1 437f7a19314c94b424a3bd6ebc827aaa.cloudfront.net (CloudFront)
       X-Amz-Cf-Id:
-      - 69ZZone59G3nBbRK-6G0cXKtnevr5CkG3ZXdQCpQKk3EZjr8ESuS3A==
+      - uRcJleC9yupiOhI1AwmbV9oMkdTt-WFvZ4VNFMS8XQw58vKxCVESqQ==
     body:
       encoding: UTF-8
       string: '{"packageId":343,"packageName":"InfoTrac Custom","isCustom":false,"vendorId":18,"vendorName":"Gale
-        | Cengage","titleCount":15291,"isSelected":true,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":15291,"isTokenNeeded":true,"contentType":"AggregatedFullText","customCoverage":{"beginCoverage":"","endCoverage":""},"proxy":{"id":"TestingFolio","inherited":true},"allowEbscoToAddTitles":false,"packageToken":{"factName":"[[gale.customcode.infocust]]","helpText":"<ul
+        | Cengage","titleCount":15291,"isSelected":true,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":15291,"isTokenNeeded":true,"contentType":"AggregatedFullText","customCoverage":{"beginCoverage":"","endCoverage":""},"proxy":{"id":"EZProxy","inherited":true},"allowEbscoToAddTitles":false,"packageToken":{"factName":"[[gale.customcode.infocust]]","helpText":"<ul
         style=\"list-style-type: disc;\">\r\n    <li style=\"line-height: normal;
         margin: 0in 0in 12pt;\">Enter your Gale® custom package code in the space
         provided below. The custom code may contain a combination of alpha/numeric
@@ -219,5 +247,5 @@ http_interactions:
         package code immediately follows res_id=info:sid/gale: in a URL. The custom
         package code in the following URL is SP00.<br />\r\n    <br />\r\n    http://find.galegroup.com/openurl/openurl?url_ver=Z39.88-2004&a","value":null,"prompt":"res_id=info:sid/gale:"},"packageType":"Variable"}'
     http_version: 
-  recorded_at: Thu, 23 Aug 2018 19:55:41 GMT
+  recorded_at: Wed, 12 Sep 2018 14:33:18 GMT
 recorded_with: VCR 3.0.3

@@ -2,58 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://api.ebsco.io/rm/rmaccounts/TEST_CUSTOMER_ID/vendors/123355/packages/2848230
-    body:
-      encoding: UTF-8
-      string: ''
-    headers:
-      X-Api-Key:
-      - TEST_API_KEY
-      Content-Type:
-      - application/json
-      Accept:
-      - application/json
-      Connection:
-      - close
-      Host:
-      - api.ebsco.io
-      User-Agent:
-      - http.rb/3.3.0
-  response:
-    status:
-      code: 404
-      message: Not Found
-    headers:
-      Content-Type:
-      - application/json;charset=UTF-8
-      Content-Length:
-      - '68'
-      Connection:
-      - close
-      Date:
-      - Fri, 04 May 2018 02:43:13 GMT
-      X-Amzn-Requestid:
-      - e3cf3d40-4f44-11e8-9b1a-2f30719f98e3
-      X-Amzn-Remapped-Connection:
-      - keep-alive
-      X-Amz-Apigw-Id:
-      - GVxONEYyoAMFrTQ=
-      X-Amzn-Remapped-Date:
-      - Fri, 04 May 2018 02:43:13 GMT
-      X-Cache:
-      - Error from cloudfront
-      Via:
-      - 1.1 89dbe128b639cdc1367dfadc360947d0.cloudfront.net (CloudFront)
-      X-Amz-Cf-Id:
-      - 2g6-bWFFNAduuf1a6_QeBblRqEUrhfFJUFQ7iJQ0iTY5NH3FA1mxdw==
-    body:
-      encoding: UTF-8
-      string: '{"errors":[{"code":1001,"subCode":0,"message":"Package not found"}]}'
-    http_version: 
-  recorded_at: Fri, 04 May 2018 02:43:13 GMT
-- request:
-    method: get
-    uri: https://okapi.frontside.io/configurations/entries?query=module=KB_EBSCO
+    uri: https://okapi.frontside.io/configurations/entries?query=module=EKB
     body:
       encoding: US-ASCII
       string: ''
@@ -78,7 +27,7 @@ http_interactions:
       Server:
       - nginx/1.13.5
       Date:
-      - Fri, 04 May 2018 04:13:38 GMT
+      - Wed, 12 Sep 2018 14:33:50 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -86,10 +35,10 @@ http_interactions:
       Connection:
       - keep-alive
       X-Okapi-Trace:
-      - 'GET mod-authtoken-1.4.1-SNAPSHOT.20 http://10.39.249.72:8081/configurations/entries..
-        : 202 902us'
-      - 'GET mod-configuration-4.0.3-SNAPSHOT.29 http://10.39.252.104:8081/configurations/entries..
-        : 200 41600us'
+      - 'GET mod-authtoken-1.5.2-SNAPSHOT.26 http://10.39.242.252:8081/configurations/entries..
+        : 202 1886us'
+      - 'GET mod-configuration-5.0.1-SNAPSHOT.45 http://10.39.249.105:8081/configurations/entries..
+        : 200 46165us'
       Host:
       - okapi.frontside.io
       X-Real-Ip:
@@ -103,11 +52,11 @@ http_interactions:
       X-Forwarded-Proto:
       - https
       X-Original-Uri:
-      - "/configurations/entries?query=module=KB_EBSCO"
+      - "/configurations/entries?query=module=EKB"
       X-Scheme:
       - https
       X-Auth-Request-Redirect:
-      - "/configurations/entries?query=module=KB_EBSCO"
+      - "/configurations/entries?query=module=EKB"
       Accept:
       - application/json
       X-Okapi-Tenant:
@@ -117,15 +66,11 @@ http_interactions:
       User-Agent:
       - Ruby
       X-Okapi-Request-Id:
-      - 963690/configurations
+      - 071023/configurations
       X-Okapi-Url:
-      - http://10.39.243.220:80
-      X-Okapi-Permissions-Required:
-      - configuration.entries.collection.get
-      X-Okapi-Module-Permissions:
-      - '{"mod-authtoken-1.4.1-SNAPSHOT.20":["perms.users.get"]}'
+      - http://10.39.245.41:80
       X-Okapi-Permissions:
-      - '["configuration.entries.collection.get"]'
+      - '["configuration.entries.collection.get","configuration.entries.collection.get"]'
       X-Okapi-User-Id:
       - 1ad737b0-d847-11e6-bf26-cec0c932ce01
       X-Okapi-Token:
@@ -137,28 +82,56 @@ http_interactions:
       string: |-
         {
           "configs" : [ {
-            "id" : "9f193b46-4cc5-4c99-b09f-374fe5415673",
-            "module" : "KB_EBSCO",
-            "configName" : "api_credentials",
-            "code" : "kb.ebsco.credentials",
-            "description" : "EBSCO RM-API Credentials",
+            "id" : "efadf3d8-59c3-4508-99d4-3e36e9247d87",
+            "module" : "EKB",
+            "configName" : "api_access",
+            "code" : "kb.ebsco.url",
+            "description" : "EBSCO RM-API URL",
             "enabled" : true,
-            "value" : "customer-id=TEST_CUSTOMER_ID&api-key=TEST_API_KEY",
+            "value" : "https://api.ebsco.io",
             "metadata" : {
-              "createdDate" : "2018-03-28T14:49:56.794+0000",
+              "createdDate" : "2018-09-12T12:34:52.189+0000",
               "createdByUserId" : "1ad737b0-d847-11e6-bf26-cec0c932ce01",
-              "updatedDate" : "2018-03-28T14:49:56.794+0000",
+              "updatedDate" : "2018-09-12T12:34:52.189+0000",
+              "updatedByUserId" : "1ad737b0-d847-11e6-bf26-cec0c932ce01"
+            }
+          }, {
+            "id" : "6b24b703-243a-4261-a7bf-0336d34f8c94",
+            "module" : "EKB",
+            "configName" : "api_access",
+            "code" : "kb.ebsco.customerId",
+            "description" : "EBSCO RM-API Customer ID",
+            "enabled" : true,
+            "value" : "TEST_CUSTOMER_ID",
+            "metadata" : {
+              "createdDate" : "2018-09-12T12:34:52.466+0000",
+              "createdByUserId" : "1ad737b0-d847-11e6-bf26-cec0c932ce01",
+              "updatedDate" : "2018-09-12T12:34:52.466+0000",
+              "updatedByUserId" : "1ad737b0-d847-11e6-bf26-cec0c932ce01"
+            }
+          }, {
+            "id" : "8038c4f3-0b09-4d97-be46-8a5236ef3f2f",
+            "module" : "EKB",
+            "configName" : "api_access",
+            "code" : "kb.ebsco.apiKey",
+            "description" : "EBSCO RM-API API Key",
+            "enabled" : true,
+            "value" : "TEST_API_KEY",
+            "metadata" : {
+              "createdDate" : "2018-09-12T12:34:52.788+0000",
+              "createdByUserId" : "1ad737b0-d847-11e6-bf26-cec0c932ce01",
+              "updatedDate" : "2018-09-12T12:34:52.788+0000",
               "updatedByUserId" : "1ad737b0-d847-11e6-bf26-cec0c932ce01"
             }
           } ],
-          "totalRecords" : 1,
+          "totalRecords" : 3,
           "resultInfo" : {
-            "totalRecords" : 1,
+            "totalRecords" : 3,
             "facets" : [ ]
           }
         }
     http_version: 
-  recorded_at: Fri, 04 May 2018 04:13:38 GMT
+  recorded_at: Wed, 12 Sep 2018 14:33:50 GMT
 - request:
     method: get
     uri: https://api.ebsco.io/rm/rmaccounts/TEST_CUSTOMER_ID/vendors/123355/packages/2848971
@@ -190,24 +163,24 @@ http_interactions:
       Connection:
       - close
       Date:
-      - Fri, 04 May 2018 04:13:39 GMT
+      - Wed, 12 Sep 2018 14:33:51 GMT
       X-Amzn-Requestid:
-      - 85ce3871-4f51-11e8-a505-3b5a17e82221
+      - ddf8e2f5-b698-11e8-a410-07d120558e1e
       X-Amzn-Remapped-Connection:
       - keep-alive
       X-Amz-Apigw-Id:
-      - GV-d-EWjIAMF9RA=
+      - NHKIWFPeoAMFj9A=
       X-Amzn-Remapped-Date:
-      - Fri, 04 May 2018 04:13:38 GMT
+      - Wed, 12 Sep 2018 14:33:50 GMT
       X-Cache:
       - Error from cloudfront
       Via:
-      - 1.1 27e9da6719f6373893565138c47b2497.cloudfront.net (CloudFront)
+      - 1.1 2206fe1cc0579e0d79537b15799c4e2f.cloudfront.net (CloudFront)
       X-Amz-Cf-Id:
-      - jyfxGNQGYfq-p6hz59PP-LujFg1Vv1844AbdYPUHkYrXOIsvnZbE8Q==
+      - 4EOT4Zqj0dYKxEvBRm6Sy-FdEyEQ4Mr2GPb9N5HSUXD1O5Mimxs1Eg==
     body:
       encoding: UTF-8
       string: '{"errors":[{"code":1001,"subCode":0,"message":"Package not found"}]}'
     http_version: 
-  recorded_at: Fri, 04 May 2018 04:13:39 GMT
+  recorded_at: Wed, 12 Sep 2018 14:33:51 GMT
 recorded_with: VCR 3.0.3
