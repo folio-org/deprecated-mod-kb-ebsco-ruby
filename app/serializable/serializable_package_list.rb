@@ -12,7 +12,6 @@ class SerializablePackageList < SerializableJSONAPIResource
              :is_custom,
              :is_selected,
              :name,
-             :proxy,
              :package_id,
              :package_type,
              :provider_id,
