@@ -5,7 +5,7 @@ require 'open-uri'
 class Configuration
   include ActiveModel::Validations
 
-  attr_accessor :customer_id, :api_key
+  attr_accessor :customer_id, :api_key, :rmapi_base_url
 
   validate :verify_credentials
 
@@ -13,17 +13,20 @@ class Configuration
     'configuration'
   end
 
-  def initialize(okapi, rmapi_base_url)
-    @rmapi_base_url = rmapi_base_url
+  def initialize(okapi)
     @okapi = okapi
   end
 
   def load!
-    response = @okapi.user.get '/configurations/entries?query=module=KB_EBSCO'
+    response = @okapi.user.get '/configurations/entries?query=module=EKB'
     response['configs'].each do |config|
-      params = Rack::Utils.parse_query(config['value'])
-      @customer_id = params['customer-id']
-      @api_key = params['api-key']
+      if config['code'].casecmp?('kb.ebsco.customerid')
+        @customer_id = config['value']
+      elsif config['code'].casecmp?('kb.ebsco.apikey')
+        @api_key = config['value']
+      elsif config['code'].casecmp?('kb.ebsco.url')
+        @rmapi_base_url = config['value']
+      end
     end
   end
 
@@ -37,28 +40,49 @@ class Configuration
     ).request(:get, verify_path)
 
     return true if response.ok?
-
-    errors[:base] << 'RM-API credentials are invalid'
+    errors.add('KB API Credentials', 'are invalid')
   end
 
   def save
     return false unless valid?
 
-    response = @okapi.user.get '/configurations/entries?query=module=KB_EBSCO'
+    response = @okapi.user.get '/configurations/entries?query=module=EKB'
 
     response['configs'].each do |config|
-      id = config['id']
-      @okapi.user.delete "/configurations/entries/#{id}"
+      if ['kb.ebsco.customerid', 'kb.ebsco.apikey', 'kb.ebsco.url'].include? config['code'].downcase
+        id = config['id']
+        @okapi.user.delete "/configurations/entries/#{id}"
+      end
     end
 
     @okapi.user.post(
       '/configurations/entries',
-      "module": 'KB_EBSCO',
-      "configName": 'api_credentials',
-      "code": 'kb.ebsco.credentials',
-      "description": 'EBSCO RM-API Credentials',
+      "module": 'EKB',
+      "configName": 'api_access',
+      "code": 'kb.ebsco.url',
+      "description": 'EBSCO RM-API URL',
       "enabled": true,
-      "value": "customer-id=#{customer_id}&api-key=#{@api_key}"
+      "value": @rmapi_base_url
+    )
+
+    @okapi.user.post(
+      '/configurations/entries',
+      "module": 'EKB',
+      "configName": 'api_access',
+      "code": 'kb.ebsco.customerId',
+      "description": 'EBSCO RM-API Customer ID',
+      "enabled": true,
+      "value": @customer_id
+    )
+
+    @okapi.user.post(
+      '/configurations/entries',
+      "module": 'EKB',
+      "configName": 'api_access',
+      "code": 'kb.ebsco.apiKey',
+      "description": 'EBSCO RM-API API Key',
+      "enabled": true,
+      "value": @api_key
     )
   end
 end

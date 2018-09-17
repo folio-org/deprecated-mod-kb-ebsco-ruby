@@ -30,7 +30,8 @@ RSpec.describe 'Configurations', type: :request do
           id: 'default',
           attributes: {
             customerId: customer_id,
-            apiKey: api_key
+            apiKey: api_key,
+            rmapiBaseUrl: rmapi_url
           }
         }
       }.to_json,
@@ -47,7 +48,8 @@ RSpec.describe 'Configurations', type: :request do
           id: 'default',
           attributes: {
             customerId: customer_id,
-            apiKey: api_key
+            apiKey: api_key,
+            rmapiBaseUrl: rmapi_url
           }
         }
       }.to_json,
@@ -64,7 +66,8 @@ RSpec.describe 'Configurations', type: :request do
           id: 'default',
           attributes: {
             customerId: customer_id,
-            apiKey: api_key
+            apiKey: api_key,
+            rmapiBaseUrl: rmapi_url
           }
         }
       }.to_json,
@@ -103,6 +106,7 @@ RSpec.describe 'Configurations', type: :request do
       it 'contains valid attributes' do
         expect(json.data.attributes.customerId).to eql(customer_id)
         expect(json.data.attributes.apiKey).to eql(masked_api_key)
+        expect(json.data.attributes.rmapiBaseUrl).to eql(rmapi_url)
       end
     end
   end
@@ -140,7 +144,8 @@ RSpec.describe 'Configurations', type: :request do
           '/eholdings/configuration',
           params: {
             customerId: customer_id,
-            apiKey: api_key
+            apiKey: api_key,
+            rmapiBaseUrl: rmapi_url
           }.to_json,
           headers: headers
         )

@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://okapi.frontside.io/configurations/entries?query=module=KB_EBSCO
+    uri: https://okapi.frontside.io/configurations/entries?query=module=EKB
     body:
       encoding: US-ASCII
       string: ''
@@ -27,7 +27,7 @@ http_interactions:
       Server:
       - nginx/1.13.5
       Date:
-      - Tue, 16 Jan 2018 20:52:55 GMT
+      - Wed, 12 Sep 2018 22:03:18 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -35,16 +35,16 @@ http_interactions:
       Connection:
       - keep-alive
       X-Okapi-Trace:
-      - 'GET mod-authtoken-1.2.0-SNAPSHOT.14 http://10.39.255.104:8081/configurations/entries..
-        : 202 355251us'
-      - 'GET mod-configuration-4.0.1-SNAPSHOT.23 http://10.39.243.63:8081/configurations/entries..
-        : 200 42905us'
+      - 'GET mod-authtoken-1.5.2-SNAPSHOT.26 http://10.39.242.252:8081/configurations/entries..
+        : 202 961us'
+      - 'GET mod-configuration-5.0.1-SNAPSHOT.45 http://10.39.249.105:8081/configurations/entries..
+        : 200 42857us'
       Host:
       - okapi.frontside.io
       X-Real-Ip:
-      - 10.128.0.3
+      - 10.36.5.1
       X-Forwarded-For:
-      - 10.128.0.3
+      - 10.36.5.1
       X-Forwarded-Host:
       - okapi.frontside.io
       X-Forwarded-Port:
@@ -52,11 +52,11 @@ http_interactions:
       X-Forwarded-Proto:
       - https
       X-Original-Uri:
-      - "/configurations/entries?query=module=KB_EBSCO"
+      - "/configurations/entries?query=module=EKB"
       X-Scheme:
       - https
       X-Auth-Request-Redirect:
-      - "/configurations/entries?query=module=KB_EBSCO"
+      - "/configurations/entries?query=module=EKB"
       Accept:
       - application/json
       X-Okapi-Tenant:
@@ -66,15 +66,11 @@ http_interactions:
       User-Agent:
       - Ruby
       X-Okapi-Request-Id:
-      - 701625/configurations
+      - 948498/configurations
       X-Okapi-Url:
-      - http://10.39.248.95:80
-      X-Okapi-Permissions-Required:
-      - configuration.entries.collection.get
-      X-Okapi-Module-Permissions:
-      - '{"mod-authtoken-1.2.0-SNAPSHOT.14":["perms.users.get"]}'
+      - http://10.39.245.41:80
       X-Okapi-Permissions:
-      - '["configuration.entries.collection.get"]'
+      - '["configuration.entries.collection.get","configuration.entries.collection.get"]'
       X-Okapi-User-Id:
       - 1ad737b0-d847-11e6-bf26-cec0c932ce01
       X-Okapi-Token:
@@ -86,37 +82,65 @@ http_interactions:
       string: |-
         {
           "configs" : [ {
-            "id" : "fa776aae-7473-4bf9-aa33-08f2a314cb04",
-            "module" : "KB_EBSCO",
-            "configName" : "api_credentials",
-            "code" : "kb.ebsco.credentials",
-            "description" : "EBSCO RM-API Credentials",
+            "id" : "efadf3d8-59c3-4508-99d4-3e36e9247d87",
+            "module" : "EKB",
+            "configName" : "api_access",
+            "code" : "kb.ebsco.url",
+            "description" : "EBSCO RM-API URL",
             "enabled" : true,
-            "value" : "customer-id=TEST_CUSTOMER_ID&api-key=TEST_API_KEY",
+            "value" : "https://api.ebsco.io",
             "metadata" : {
-              "createdDate" : "2017-11-02T15:56:49.186+0000",
+              "createdDate" : "2018-09-12T12:34:52.189+0000",
               "createdByUserId" : "1ad737b0-d847-11e6-bf26-cec0c932ce01",
-              "updatedDate" : "2017-11-02T15:56:49.186+0000",
+              "updatedDate" : "2018-09-12T12:34:52.189+0000",
+              "updatedByUserId" : "1ad737b0-d847-11e6-bf26-cec0c932ce01"
+            }
+          }, {
+            "id" : "6b24b703-243a-4261-a7bf-0336d34f8c94",
+            "module" : "EKB",
+            "configName" : "api_access",
+            "code" : "kb.ebsco.customerId",
+            "description" : "EBSCO RM-API Customer ID",
+            "enabled" : true,
+            "value" : "TEST_CUSTOMER_ID",
+            "metadata" : {
+              "createdDate" : "2018-09-12T12:34:52.466+0000",
+              "createdByUserId" : "1ad737b0-d847-11e6-bf26-cec0c932ce01",
+              "updatedDate" : "2018-09-12T12:34:52.466+0000",
+              "updatedByUserId" : "1ad737b0-d847-11e6-bf26-cec0c932ce01"
+            }
+          }, {
+            "id" : "8038c4f3-0b09-4d97-be46-8a5236ef3f2f",
+            "module" : "EKB",
+            "configName" : "api_access",
+            "code" : "kb.ebsco.apiKey",
+            "description" : "EBSCO RM-API API Key",
+            "enabled" : true,
+            "value" : "TEST_API_KEY",
+            "metadata" : {
+              "createdDate" : "2018-09-12T12:34:52.788+0000",
+              "createdByUserId" : "1ad737b0-d847-11e6-bf26-cec0c932ce01",
+              "updatedDate" : "2018-09-12T12:34:52.788+0000",
               "updatedByUserId" : "1ad737b0-d847-11e6-bf26-cec0c932ce01"
             }
           } ],
-          "totalRecords" : 1,
+          "totalRecords" : 3,
           "resultInfo" : {
-            "totalRecords" : 1,
+            "totalRecords" : 3,
             "facets" : [ ]
           }
         }
     http_version: 
-  recorded_at: Tue, 16 Jan 2018 20:38:55 GMT
+  recorded_at: Wed, 12 Sep 2018 22:03:18 GMT
 - request:
     method: get
-    uri: https://api.ebsco.io/rm/rmaccounts/TEST_CUSTOMER_ID/vendors/22/packages/4620/titles/5557625
+    uri: https://api.ebsco.io/rm/rmaccounts/TEST_CUSTOMER_ID/vendors/583/packages/2356523/titles/760971
     body:
       encoding: US-ASCII
       string: ''
     headers:
       User-Agent:
-      - Flexirest/1.5.5
+      - Flexirest/1.7.0
       Connection:
       - Keep-Alive
       Accept:
@@ -135,17 +159,19 @@ http_interactions:
       Content-Type:
       - application/json; charset=utf-8
       Content-Length:
-      - '1316'
+      - '1477'
       Connection:
       - keep-alive
       Date:
-      - Tue, 16 Jan 2018 20:52:55 GMT
+      - Wed, 12 Sep 2018 22:03:18 GMT
       X-Amzn-Requestid:
-      - 39ef5557-faff-11e7-9488-99af875eb12b
+      - a7bb3e2c-b6d7-11e8-a878-814d7abd6f9b
       X-Amzn-Remapped-Content-Length:
-      - '1316'
+      - '1477'
       X-Amzn-Remapped-Connection:
       - keep-alive
+      X-Amz-Apigw-Id:
+      - NIL9_G2doAMFbbQ=
       X-Amzn-Remapped-Server:
       - Microsoft-IIS/8.5
       Cache-Control:
@@ -157,23 +183,23 @@ http_interactions:
       Pragma:
       - no-cache
       X-Amzn-Remapped-Date:
-      - Tue, 16 Jan 2018 20:52:55 GMT
+      - Wed, 12 Sep 2018 22:03:17 GMT
       X-Aspnet-Version:
       - 4.0.30319
       X-Cache:
       - Miss from cloudfront
       Via:
-      - 1.1 2f7eec78b53c7625bd656dcd08ed1823.cloudfront.net (CloudFront)
+      - 1.1 901034d5d4414b1ff9a2fe4433360a1d.cloudfront.net (CloudFront)
       X-Amz-Cf-Id:
-      - KboxjaeyDjLzrKBHQePgMcD5hGbigmd12DVOmj5cVvGXzCM2QZj4zw==
+      - _ZDU5j2mrHttTD_f46nzQHbgqdPANeno78X4mbW5wE8RKVKTOehwFg==
     body:
       encoding: UTF-8
-      string: '{"description":null,"edition":null,"isPeerReviewed":false,"contributorsList":[],"titleId":5557625,"titleName":"Muslim
-        Journal","publisherName":"Muslim Journal","identifiersList":[{"id":"0883-816X","source":"ResourceIdentifier","subtype":1,"type":1},{"id":"422558","source":"AtoZ","subtype":0,"type":9},{"id":"604756163","source":"ResourceIdentifier","subtype":0,"type":11},{"id":"BOB5","source":"MFS","subtype":0,"type":17}],"subjectsList":[{"type":"TLI","subject":"Eastern
-        Religions"}],"isTitleCustom":false,"pubType":"Newspaper","customerResourcesList":[{"titleId":5557625,"packageId":4620,"packageName":"ProQuest
-        Black Newspapers","isPackageCustom":false,"vendorId":22,"vendorName":"Proquest
-        Info & Learning Co","locationId":24205955,"isSelected":true,"isTokenNeeded":false,"visibilityData":{"isHidden":true,"reason":"Hidden
-        by EP"},"managedCoverageList":[{"beginCoverage":"2016-05-06","endCoverage":""}],"customCoverageList":[{"beginCoverage":"2017-01-09","endCoverage":"2017-12-28"}],"coverageStatement":null,"managedEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"customEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"url":"https://search.proquest.com/publication/45595","userDefinedField1":null,"userDefinedField2":null,"userDefinedField3":null,"userDefinedField4":null,"userDefinedField5":null}]}'
+      string: '{"titleId":760971,"titleName":"\"Poppa\" Psychology: The Role of Fathers
+        in Children''s Mental Well-being","publisherName":"Praeger","identifiersList":[{"id":"69212","source":"ResourceIdentifier","subtype":0,"type":7},{"id":"760971","source":"AtoZ","subtype":0,"type":9},{"id":"978-0-275-96367-5","source":"ResourceIdentifier","subtype":1,"type":1},{"id":"978-0-313-00100-0","source":"ResourceIdentifier","subtype":2,"type":1}],"subjectsList":[{"type":"BISAC","subject":"PSYCHOLOGY
+        / Mental Health"}],"isTitleCustom":false,"pubType":"Book","customerResourcesList":[{"titleId":760971,"packageId":2356523,"packageName":"ABC-CLIO
+        eBook Collection 2008 (TAEBC)","packageType":"Complete","proxy":{"id":"<n>","inherited":true},"isPackageCustom":false,"vendorId":583,"vendorName":"ABC-CLIO","locationId":24507543,"isSelected":true,"isTokenNeeded":false,"visibilityData":{"isHidden":true,"reason":"Hidden
+        by EP"},"managedCoverageList":[{"beginCoverage":"1999-01-01","endCoverage":"1999-12-31"}],"customCoverageList":[],"coverageStatement":"","managedEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"customEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"url":"http://www.ebooks.greenwood.com/reader.jsp?x=20004E3B&p=cover","userDefinedField1":null,"userDefinedField2":null,"userDefinedField3":null,"userDefinedField4":null,"userDefinedField5":null}],"description":null,"edition":null,"isPeerReviewed":false,"contributorsList":[{"type":"author","contributor":"Phares,
+        Vicky"}]}'
     http_version: 
-  recorded_at: Tue, 16 Jan 2018 20:38:55 GMT
+  recorded_at: Wed, 12 Sep 2018 22:03:18 GMT
 recorded_with: VCR 3.0.3

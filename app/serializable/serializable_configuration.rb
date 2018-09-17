@@ -10,4 +10,6 @@ class SerializableConfiguration < SerializableJSONAPIResource
   attribute :api_key do
     '*' * 40
   end
+
+  attribute :rmapi_base_url
 end

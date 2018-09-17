@@ -11,6 +11,7 @@ class ConfigurationsController < ApplicationController
 
     config.customer_id = data_attributes['customerId']
     config.api_key = data_attributes['apiKey']
+    config.rmapi_base_url = data_attributes['rmapiBaseUrl']
 
     if config.save
       render jsonapi: config,

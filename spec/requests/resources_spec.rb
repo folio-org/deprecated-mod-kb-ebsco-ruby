@@ -128,7 +128,7 @@ RSpec.describe 'Resources', type: :request do
         expect(attributes.proxy.id).to eq('EZProxy')
       end
       it 'contains proxy inheritance' do
-        expect(attributes.proxy.inherited).to eq(true)
+        expect(attributes.proxy.inherited).to eq(false)
       end
     end
   end
@@ -501,7 +501,7 @@ RSpec.describe 'Resources', type: :request do
         end
 
         it 'does not change inheritance value, always from RM API' do
-          expect(json.data.attributes.proxy.inherited).to eq(true)
+          expect(json.data.attributes.proxy.inherited).to eq(false)
         end
       end
 
@@ -947,7 +947,7 @@ RSpec.describe 'Resources', type: :request do
   describe 'when the resource is hidden' do
     before do
       VCR.use_cassette('get-resource-reason-hidden-by-customer') do
-        get '/eholdings/resources/19-2697502-15097690',
+        get '/eholdings/resources//583-4345-761893',
             headers: okapi_headers
       end
     end
@@ -966,7 +966,7 @@ RSpec.describe 'Resources', type: :request do
   describe 'when the resource is hidden at package level' do
     before do
       VCR.use_cassette('get-resource-reason-hidden-by-ep') do
-        get '/eholdings/resources/22-4620-5557625',
+        get '/eholdings/resources/583-2356523-760971',
             headers: okapi_headers
       end
     end
@@ -1025,7 +1025,7 @@ RSpec.describe 'Resources', type: :request do
       end
     end
     context 'with a custom package' do
-      let(:package_id) { '123355-2864301' }
+      let(:package_id) { '123355-2846164' }
       before do
         VCR.use_cassette('resource-link-to-custom-package') do
           post '/eholdings/resources/', params: params, as: :json,
@@ -1053,7 +1053,7 @@ RSpec.describe 'Resources', type: :request do
     end
 
     context 'with an invalid url' do
-      let(:package_id) { '123355-2720678' }
+      let(:package_id) { '123355-3124668' }
       let(:params) do
         {
           data: {
@@ -1080,7 +1080,7 @@ RSpec.describe 'Resources', type: :request do
     end
 
     context 'without a url' do
-      let(:package_id) { '123355-2720678' }
+      let(:package_id) { '123355-3124668' }
       let(:params) do
         {
           data: {
@@ -1111,7 +1111,7 @@ RSpec.describe 'Resources', type: :request do
     describe 'delete a custom resource associated with custom package successfully' do
       before do
         VCR.use_cassette('delete-custom-resource-custom-package') do
-          delete '/eholdings/resources/123355-2845510-17059786',
+          delete '/eholdings/resources/123355-2868997-18640293',
                  headers: okapi_headers
         end
       end

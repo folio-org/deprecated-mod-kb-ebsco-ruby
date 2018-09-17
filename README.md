@@ -20,11 +20,7 @@ Module to broker communication with the EBSCO knowledge base.
 - rspec (test runner)
 
 Environment variables needed:
-- `EBSCO_RESOURCE_MANAGEMENT_API_BASE_URL`
-- `EBSCO_RESOURCE_MANAGEMENT_API_CUSTOMER_ID`
-- `EBSCO_RESOURCE_MANAGEMENT_API_KEY`
-
-Place in `.env` or CI project settings.
+- N/A
 
 ## Running tests
 
@@ -37,6 +33,7 @@ However, if new recordings for tests need to be made, set the following in .env 
 - TEST_CUSTOMER_ID
 - TEST_API_KEY
 - TEST_OKAPI_TOKEN
+- TEST_RMAPI_URL
 
 To run tests that also generate a code coverage report at `/coverage`
 

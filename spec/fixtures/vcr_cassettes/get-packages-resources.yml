@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://okapi.frontside.io/configurations/entries?query=module=KB_EBSCO
+    uri: https://okapi.frontside.io/configurations/entries?query=module=EKB
     body:
       encoding: US-ASCII
       string: ''
@@ -27,7 +27,7 @@ http_interactions:
       Server:
       - nginx/1.13.5
       Date:
-      - Fri, 24 Aug 2018 22:26:09 GMT
+      - Wed, 12 Sep 2018 14:32:24 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -35,16 +35,16 @@ http_interactions:
       Connection:
       - keep-alive
       X-Okapi-Trace:
-      - 'GET mod-authtoken-1.4.1-SNAPSHOT.21 http://10.39.255.17:8081/configurations/entries..
-        : 202 326043us'
-      - 'GET mod-configuration-4.0.4-SNAPSHOT.36 http://10.39.247.129:8081/configurations/entries..
-        : 200 48886us'
+      - 'GET mod-authtoken-1.5.2-SNAPSHOT.26 http://10.39.242.252:8081/configurations/entries..
+        : 202 1507us'
+      - 'GET mod-configuration-5.0.1-SNAPSHOT.45 http://10.39.249.105:8081/configurations/entries..
+        : 200 44696us'
       Host:
       - okapi.frontside.io
       X-Real-Ip:
-      - 10.128.0.5
+      - 10.128.0.3
       X-Forwarded-For:
-      - 10.128.0.5
+      - 10.128.0.3
       X-Forwarded-Host:
       - okapi.frontside.io
       X-Forwarded-Port:
@@ -52,11 +52,11 @@ http_interactions:
       X-Forwarded-Proto:
       - https
       X-Original-Uri:
-      - "/configurations/entries?query=module=KB_EBSCO"
+      - "/configurations/entries?query=module=EKB"
       X-Scheme:
       - https
       X-Auth-Request-Redirect:
-      - "/configurations/entries?query=module=KB_EBSCO"
+      - "/configurations/entries?query=module=EKB"
       Accept:
       - application/json
       X-Okapi-Tenant:
@@ -66,9 +66,9 @@ http_interactions:
       User-Agent:
       - Ruby
       X-Okapi-Request-Id:
-      - 900213/configurations
+      - '082536/configurations'
       X-Okapi-Url:
-      - http://10.39.254.87:80
+      - http://10.39.245.41:80
       X-Okapi-Permissions:
       - '["configuration.entries.collection.get","configuration.entries.collection.get"]'
       X-Okapi-User-Id:
@@ -82,28 +82,56 @@ http_interactions:
       string: |-
         {
           "configs" : [ {
-            "id" : "b5bac054-3b49-4a86-ab00-1f22e201cb63",
-            "module" : "KB_EBSCO",
-            "configName" : "api_credentials",
-            "code" : "kb.ebsco.credentials",
-            "description" : "EBSCO RM-API Credentials",
+            "id" : "efadf3d8-59c3-4508-99d4-3e36e9247d87",
+            "module" : "EKB",
+            "configName" : "api_access",
+            "code" : "kb.ebsco.url",
+            "description" : "EBSCO RM-API URL",
             "enabled" : true,
-            "value" : "customer-id=TEST_CUSTOMER_ID&api-key=TEST_API_KEY",
+            "value" : "https://api.ebsco.io",
             "metadata" : {
-              "createdDate" : "2018-08-24T21:28:34.010+0000",
+              "createdDate" : "2018-09-12T12:34:52.189+0000",
               "createdByUserId" : "1ad737b0-d847-11e6-bf26-cec0c932ce01",
-              "updatedDate" : "2018-08-24T21:28:34.010+0000",
+              "updatedDate" : "2018-09-12T12:34:52.189+0000",
+              "updatedByUserId" : "1ad737b0-d847-11e6-bf26-cec0c932ce01"
+            }
+          }, {
+            "id" : "6b24b703-243a-4261-a7bf-0336d34f8c94",
+            "module" : "EKB",
+            "configName" : "api_access",
+            "code" : "kb.ebsco.customerId",
+            "description" : "EBSCO RM-API Customer ID",
+            "enabled" : true,
+            "value" : "TEST_CUSTOMER_ID",
+            "metadata" : {
+              "createdDate" : "2018-09-12T12:34:52.466+0000",
+              "createdByUserId" : "1ad737b0-d847-11e6-bf26-cec0c932ce01",
+              "updatedDate" : "2018-09-12T12:34:52.466+0000",
+              "updatedByUserId" : "1ad737b0-d847-11e6-bf26-cec0c932ce01"
+            }
+          }, {
+            "id" : "8038c4f3-0b09-4d97-be46-8a5236ef3f2f",
+            "module" : "EKB",
+            "configName" : "api_access",
+            "code" : "kb.ebsco.apiKey",
+            "description" : "EBSCO RM-API API Key",
+            "enabled" : true,
+            "value" : "TEST_API_KEY",
+            "metadata" : {
+              "createdDate" : "2018-09-12T12:34:52.788+0000",
+              "createdByUserId" : "1ad737b0-d847-11e6-bf26-cec0c932ce01",
+              "updatedDate" : "2018-09-12T12:34:52.788+0000",
               "updatedByUserId" : "1ad737b0-d847-11e6-bf26-cec0c932ce01"
             }
           } ],
-          "totalRecords" : 1,
+          "totalRecords" : 3,
           "resultInfo" : {
-            "totalRecords" : 1,
+            "totalRecords" : 3,
             "facets" : [ ]
           }
         }
     http_version: 
-  recorded_at: Fri, 24 Aug 2018 22:26:09 GMT
+  recorded_at: Wed, 12 Sep 2018 14:32:24 GMT
 - request:
     method: get
     uri: https://api.ebsco.io/rm/rmaccounts/TEST_CUSTOMER_ID/vendors/19/packages/6581
@@ -135,26 +163,26 @@ http_interactions:
       Connection:
       - close
       Date:
-      - Fri, 24 Aug 2018 22:26:10 GMT
+      - Wed, 12 Sep 2018 14:32:24 GMT
       X-Amzn-Requestid:
-      - b38fdc2b-a7ec-11e8-b88a-5f7055ee4aee
+      - aa7b6e5c-b698-11e8-8aca-8b090a22ade4
       X-Amzn-Remapped-Connection:
       - keep-alive
       X-Amz-Apigw-Id:
-      - MJngVELnIAMF2fw=
+      - NHJ62EGYIAMFnXw=
       X-Amzn-Remapped-Date:
-      - Fri, 24 Aug 2018 22:26:10 GMT
+      - Wed, 12 Sep 2018 14:32:24 GMT
       X-Cache:
       - Miss from cloudfront
       Via:
-      - 1.1 2206fe1cc0579e0d79537b15799c4e2f.cloudfront.net (CloudFront)
+      - 1.1 2d357730b9d8c4fff788ffa9b0881e8f.cloudfront.net (CloudFront)
       X-Amz-Cf-Id:
-      - X7K0ZqYs-qThk0jHlpUF6yfMP32mbXjNVjj188b0lOy-oMkJHVnc8A==
+      - tc_Xtvr3v9krp1b7DABJy-G_riSI7urR8CWEHuVSj2DPzhf0PVAO5Q==
     body:
       encoding: UTF-8
       string: '{"packageId":6581,"packageName":"EBSCO Biotechnology Collection: India","isCustom":false,"vendorId":19,"vendorName":"EBSCO","titleCount":156,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"AggregatedFullText","customCoverage":{"beginCoverage":"","endCoverage":""},"proxy":{"id":"<n>","inherited":true},"allowEbscoToAddTitles":false,"packageToken":null,"packageType":"Complete"}'
     http_version: 
-  recorded_at: Fri, 24 Aug 2018 22:26:10 GMT
+  recorded_at: Wed, 12 Sep 2018 14:32:24 GMT
 - request:
     method: get
     uri: https://api.ebsco.io/rm/rmaccounts/TEST_CUSTOMER_ID/vendors/19/packages/6581/titles?count=25&offset=1&orderby=titlename&resourcetype=all&search=&searchfield=titlename&selection=all
@@ -182,19 +210,19 @@ http_interactions:
       Content-Type:
       - application/json; charset=utf-8
       Content-Length:
-      - '34727'
+      - '34699'
       Connection:
       - keep-alive
       Date:
-      - Fri, 24 Aug 2018 22:26:10 GMT
+      - Wed, 12 Sep 2018 14:32:25 GMT
       X-Amzn-Requestid:
-      - b3b6c4b4-a7ec-11e8-8e38-4b99fef035ce
+      - aa9d2654-b698-11e8-9acd-6f73c97e31e7
       X-Amzn-Remapped-Content-Length:
-      - '34727'
+      - '34699'
       X-Amzn-Remapped-Connection:
       - keep-alive
       X-Amz-Apigw-Id:
-      - MJngYFuXIAMFh_g=
+      - NHJ64GtKoAMFm3A=
       X-Amzn-Remapped-Server:
       - Microsoft-IIS/8.5
       Cache-Control:
@@ -206,15 +234,15 @@ http_interactions:
       Pragma:
       - no-cache
       X-Amzn-Remapped-Date:
-      - Fri, 24 Aug 2018 22:26:09 GMT
+      - Wed, 12 Sep 2018 14:32:23 GMT
       X-Aspnet-Version:
       - 4.0.30319
       X-Cache:
       - Miss from cloudfront
       Via:
-      - 1.1 53639ba6f1000a6a161851e05908fd9b.cloudfront.net (CloudFront)
+      - 1.1 ded72cd2ec35ccfc935b5442dfad81c9.cloudfront.net (CloudFront)
       X-Amz-Cf-Id:
-      - 3tDzdzTJpB5zWY-s-m2BEBrYcGr9SPXaxvQinrx9D36o6RZAfDVjdA==
+      - 0MF8DGuJJTtjMq7qQnUQisk521TtSxjGIVYc4PazhD1LISbDVx6SyA==
     body:
       encoding: UTF-8
       string: '{"totalResults":156,"titles":[{"titleId":581242,"titleName":"Acta Scientiarum
@@ -224,54 +252,52 @@ http_interactions:
         Biotechnology Collection: India","packageType":"Complete","isPackageCustom":false,"vendorId":19,"vendorName":"EBSCO","locationId":4829613,"isSelected":false,"isTokenNeeded":false,"visibilityData":{"isHidden":false,"reason":""},"managedCoverageList":[{"beginCoverage":"2008-12-01","endCoverage":""}],"customCoverageList":[],"coverageStatement":null,"managedEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"customEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"url":"http://search.ebscohost.com/direct.asp?db=bti&jid=97C7&scope=site","userDefinedField1":null,"userDefinedField2":null,"userDefinedField3":null,"userDefinedField4":null,"userDefinedField5":null}]},{"titleId":432623,"titleName":"Advances
         in Bioinformatics","publisherName":"Hindawi Publishing Corporation","identifiersList":[{"id":"1687-8027","source":"ResourceIdentifier","subtype":1,"type":0},{"id":"1687-8035","source":"ResourceIdentifier","subtype":2,"type":0},{"id":"I16878027","source":"ResourceIdentifier","subtype":0,"type":2},{"id":"015297000","source":"ResourceIdentifier","subtype":0,"type":3},{"id":"718333","source":"ResourceIdentifier","subtype":0,"type":4},{"id":"8NBX","source":"MFS","subtype":0,"type":8},{"id":"432623","source":"AtoZ","subtype":0,"type":9}],"subjectsList":[{"type":"TLI","subject":"Computer
         Science"}],"isTitleCustom":false,"pubType":"Journal","customerResourcesList":[{"titleId":432623,"packageId":6581,"packageName":"EBSCO
-        Biotechnology Collection: India","packageType":"Complete","isPackageCustom":false,"vendorId":19,"vendorName":"EBSCO","locationId":4829611,"isSelected":false,"isTokenNeeded":false,"visibilityData":{"isHidden":false,"reason":""},"managedCoverageList":[{"beginCoverage":"2008-01-01","endCoverage":""}],"customCoverageList":[],"coverageStatement":null,"managedEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"customEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"url":"http://search.ebscohost.com/direct.asp?db=bti&jid=8NBX&scope=site","userDefinedField1":null,"userDefinedField2":null,"userDefinedField3":null,"userDefinedField4":null,"userDefinedField5":null}]},{"titleId":6231,"titleName":"Applied
-        biochemistry and biotechnology","publisherName":"Springer Science+Business
-        Media B.V.","identifiersList":[{"id":"0273-2289","source":"ResourceIdentifier","subtype":1,"type":0},{"id":"1559-0291","source":"ResourceIdentifier","subtype":2,"type":0},{"id":"07033031","source":"ResourceIdentifier","subtype":0,"type":2},{"id":"068045483","source":"ResourceIdentifier","subtype":0,"type":3},{"id":"068045552","source":"ResourceIdentifier","subtype":0,"type":3},{"id":"068046168","source":"ResourceIdentifier","subtype":0,"type":3},{"id":"122616006","source":"ResourceIdentifier","subtype":0,"type":3},{"id":"108584","source":"ResourceIdentifier","subtype":0,"type":4},{"id":"S0N","source":"MFS","subtype":0,"type":8},{"id":"6231","source":"AtoZ","subtype":0,"type":9}],"subjectsList":[{"type":"TLI","subject":"Biochemistry"},{"type":"TLI","subject":"Biological
-        Engineering"}],"isTitleCustom":false,"pubType":"Journal","customerResourcesList":[{"titleId":6231,"packageId":6581,"packageName":"EBSCO
-        Biotechnology Collection: India","packageType":"Complete","isPackageCustom":false,"vendorId":19,"vendorName":"EBSCO","locationId":4829685,"isSelected":false,"isTokenNeeded":false,"visibilityData":{"isHidden":false,"reason":""},"managedCoverageList":[{"beginCoverage":"2011-01-01","endCoverage":""}],"customCoverageList":[],"coverageStatement":null,"managedEmbargoPeriod":{"embargoUnit":"years","embargoValue":1},"customEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"url":"http://search.ebscohost.com/direct.asp?db=bti&jid=S0N&scope=site","userDefinedField1":null,"userDefinedField2":null,"userDefinedField3":null,"userDefinedField4":null,"userDefinedField5":null}]},{"titleId":164826,"titleName":"Annals
-        of Applied Biology","publisherName":"Wiley","identifiersList":[{"id":"0003-4746","source":"ResourceIdentifier","subtype":1,"type":0},{"id":"1744-7348","source":"ResourceIdentifier","subtype":2,"type":0},{"id":"058475575","source":"ResourceIdentifier","subtype":0,"type":3},{"id":"058475663","source":"ResourceIdentifier","subtype":0,"type":3},{"id":"058477019","source":"ResourceIdentifier","subtype":0,"type":3},{"id":"112477","source":"ResourceIdentifier","subtype":0,"type":4},{"id":"GX5","source":"MFS","subtype":0,"type":8},{"id":"164826","source":"AtoZ","subtype":0,"type":9}],"subjectsList":[{"type":"TLI","subject":"Life
-        Sciences"}],"isTitleCustom":false,"pubType":"Journal","customerResourcesList":[{"titleId":164826,"packageId":6581,"packageName":"EBSCO
-        Biotechnology Collection: India","packageType":"Complete","isPackageCustom":false,"vendorId":19,"vendorName":"EBSCO","locationId":4829668,"isSelected":false,"isTokenNeeded":false,"visibilityData":{"isHidden":false,"reason":""},"managedCoverageList":[{"beginCoverage":"2004-06-01","endCoverage":""}],"customCoverageList":[],"coverageStatement":null,"managedEmbargoPeriod":{"embargoUnit":"years","embargoValue":1},"customEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"url":"http://search.ebscohost.com/direct.asp?db=bti&jid=GX5&scope=site","userDefinedField1":null,"userDefinedField2":null,"userDefinedField3":null,"userDefinedField4":null,"userDefinedField5":null}]},{"titleId":182203,"titleName":"American
+        Biotechnology Collection: India","packageType":"Complete","isPackageCustom":false,"vendorId":19,"vendorName":"EBSCO","locationId":4829611,"isSelected":false,"isTokenNeeded":false,"visibilityData":{"isHidden":false,"reason":""},"managedCoverageList":[{"beginCoverage":"2008-01-01","endCoverage":""}],"customCoverageList":[],"coverageStatement":null,"managedEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"customEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"url":"http://search.ebscohost.com/direct.asp?db=bti&jid=8NBX&scope=site","userDefinedField1":null,"userDefinedField2":null,"userDefinedField3":null,"userDefinedField4":null,"userDefinedField5":null}]},{"titleId":182203,"titleName":"American
         Journal of Biochemistry and Biotechnology","publisherName":"Science Publications","identifiersList":[{"id":"1553-3468","source":"ResourceIdentifier","subtype":1,"type":0},{"id":"1558-6332","source":"ResourceIdentifier","subtype":2,"type":0},{"id":"56831021","source":"ResourceIdentifier","subtype":0,"type":2},{"id":"043248640","source":"ResourceIdentifier","subtype":0,"type":3},{"id":"713424","source":"ResourceIdentifier","subtype":0,"type":4},{"id":"1DTT","source":"MFS","subtype":0,"type":8},{"id":"182203","source":"AtoZ","subtype":0,"type":9}],"subjectsList":[{"type":"TLI","subject":"Biochemistry"}],"isTitleCustom":false,"pubType":"Journal","customerResourcesList":[{"titleId":182203,"packageId":6581,"packageName":"EBSCO
         Biotechnology Collection: India","packageType":"Complete","isPackageCustom":false,"vendorId":19,"vendorName":"EBSCO","locationId":4829578,"isSelected":false,"isTokenNeeded":false,"visibilityData":{"isHidden":false,"reason":""},"managedCoverageList":[{"beginCoverage":"2006-01-01","endCoverage":""}],"customCoverageList":[],"coverageStatement":null,"managedEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"customEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"url":"http://search.ebscohost.com/direct.asp?db=bti&jid=1DTT&scope=site","userDefinedField1":null,"userDefinedField2":null,"userDefinedField3":null,"userDefinedField4":null,"userDefinedField5":null}]},{"titleId":894010,"titleName":"Anadolu
         University Journal of Science and Technology - C. Life Sciences and Biotechnology","publisherName":"Anadolu
         University","identifiersList":[{"id":"2146-0264","source":"ResourceIdentifier","subtype":1,"type":0},{"id":"2146-0213","source":"ResourceIdentifier","subtype":2,"type":0},{"id":"BEX4","source":"MFS","subtype":0,"type":8},{"id":"894010","source":"AtoZ","subtype":0,"type":9}],"subjectsList":[{"type":"TLI","subject":"Biological
         Engineering"}],"isTitleCustom":false,"pubType":"Journal","customerResourcesList":[{"titleId":894010,"packageId":6581,"packageName":"EBSCO
-        Biotechnology Collection: India","packageType":"Complete","isPackageCustom":false,"vendorId":19,"vendorName":"EBSCO","locationId":4829646,"isSelected":false,"isTokenNeeded":false,"visibilityData":{"isHidden":false,"reason":""},"managedCoverageList":[{"beginCoverage":"2010-01-01","endCoverage":""}],"customCoverageList":[],"coverageStatement":null,"managedEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"customEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"url":"http://search.ebscohost.com/direct.asp?db=bti&jid=BEX4&scope=site","userDefinedField1":null,"userDefinedField2":null,"userDefinedField3":null,"userDefinedField4":null,"userDefinedField5":null}]},{"titleId":6291,"titleName":"Applied
+        Biotechnology Collection: India","packageType":"Complete","isPackageCustom":false,"vendorId":19,"vendorName":"EBSCO","locationId":4829646,"isSelected":false,"isTokenNeeded":false,"visibilityData":{"isHidden":false,"reason":""},"managedCoverageList":[{"beginCoverage":"2010-01-01","endCoverage":""}],"customCoverageList":[],"coverageStatement":null,"managedEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"customEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"url":"http://search.ebscohost.com/direct.asp?db=bti&jid=BEX4&scope=site","userDefinedField1":null,"userDefinedField2":null,"userDefinedField3":null,"userDefinedField4":null,"userDefinedField5":null}]},{"titleId":164826,"titleName":"Annals
+        of Applied Biology","publisherName":"Wiley","identifiersList":[{"id":"0003-4746","source":"ResourceIdentifier","subtype":1,"type":0},{"id":"1744-7348","source":"ResourceIdentifier","subtype":2,"type":0},{"id":"058475575","source":"ResourceIdentifier","subtype":0,"type":3},{"id":"058475663","source":"ResourceIdentifier","subtype":0,"type":3},{"id":"058477019","source":"ResourceIdentifier","subtype":0,"type":3},{"id":"112477","source":"ResourceIdentifier","subtype":0,"type":4},{"id":"GX5","source":"MFS","subtype":0,"type":8},{"id":"164826","source":"AtoZ","subtype":0,"type":9}],"subjectsList":[{"type":"TLI","subject":"Life
+        Sciences"}],"isTitleCustom":false,"pubType":"Journal","customerResourcesList":[{"titleId":164826,"packageId":6581,"packageName":"EBSCO
+        Biotechnology Collection: India","packageType":"Complete","isPackageCustom":false,"vendorId":19,"vendorName":"EBSCO","locationId":4829668,"isSelected":false,"isTokenNeeded":false,"visibilityData":{"isHidden":false,"reason":""},"managedCoverageList":[{"beginCoverage":"2004-06-01","endCoverage":""}],"customCoverageList":[],"coverageStatement":null,"managedEmbargoPeriod":{"embargoUnit":"years","embargoValue":1},"customEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"url":"http://search.ebscohost.com/direct.asp?db=bti&jid=GX5&scope=site","userDefinedField1":null,"userDefinedField2":null,"userDefinedField3":null,"userDefinedField4":null,"userDefinedField5":null}]},{"titleId":6231,"titleName":"Applied
+        biochemistry and biotechnology","publisherName":"Springer Science+Business
+        Media B.V.","identifiersList":[{"id":"0273-2289","source":"ResourceIdentifier","subtype":1,"type":0},{"id":"1559-0291","source":"ResourceIdentifier","subtype":2,"type":0},{"id":"07033031","source":"ResourceIdentifier","subtype":0,"type":2},{"id":"068045483","source":"ResourceIdentifier","subtype":0,"type":3},{"id":"068045552","source":"ResourceIdentifier","subtype":0,"type":3},{"id":"068046168","source":"ResourceIdentifier","subtype":0,"type":3},{"id":"122616006","source":"ResourceIdentifier","subtype":0,"type":3},{"id":"108584","source":"ResourceIdentifier","subtype":0,"type":4},{"id":"S0N","source":"MFS","subtype":0,"type":8},{"id":"6231","source":"AtoZ","subtype":0,"type":9}],"subjectsList":[{"type":"TLI","subject":"Biochemistry"},{"type":"TLI","subject":"Biological
+        Engineering"}],"isTitleCustom":false,"pubType":"Journal","customerResourcesList":[{"titleId":6231,"packageId":6581,"packageName":"EBSCO
+        Biotechnology Collection: India","packageType":"Complete","isPackageCustom":false,"vendorId":19,"vendorName":"EBSCO","locationId":4829685,"isSelected":false,"isTokenNeeded":false,"visibilityData":{"isHidden":false,"reason":""},"managedCoverageList":[{"beginCoverage":"2011-01-01","endCoverage":""}],"customCoverageList":[],"coverageStatement":null,"managedEmbargoPeriod":{"embargoUnit":"years","embargoValue":1},"customEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"url":"http://search.ebscohost.com/direct.asp?db=bti&jid=S0N&scope=site","userDefinedField1":null,"userDefinedField2":null,"userDefinedField3":null,"userDefinedField4":null,"userDefinedField5":null}]},{"titleId":146131,"titleName":"Applied
+        Bioinformatics","publisherName":"Springer","identifiersList":[{"id":"1175-5636","source":"ResourceIdentifier","subtype":1,"type":0},{"id":"2230-603X","source":"ResourceIdentifier","subtype":2,"type":0},{"id":"068056522","source":"ResourceIdentifier","subtype":0,"type":3},{"id":"111174","source":"ResourceIdentifier","subtype":0,"type":4},{"id":"2SGT","source":"MFS","subtype":0,"type":8},{"id":"146131","source":"AtoZ","subtype":0,"type":9}],"subjectsList":[{"type":"TLI","subject":"Molecular
+        Biology"}],"isTitleCustom":false,"pubType":"Journal","customerResourcesList":[{"titleId":146131,"packageId":6581,"packageName":"EBSCO
+        Biotechnology Collection: India","packageType":"Complete","isPackageCustom":false,"vendorId":19,"vendorName":"EBSCO","locationId":4829606,"isSelected":false,"isTokenNeeded":false,"visibilityData":{"isHidden":false,"reason":""},"managedCoverageList":[{"beginCoverage":"2006-06-01","endCoverage":"2006-12-01"}],"customCoverageList":[],"coverageStatement":null,"managedEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"customEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"url":"http://search.ebscohost.com/direct.asp?db=bti&jid=2SGT&scope=site","userDefinedField1":null,"userDefinedField2":null,"userDefinedField3":null,"userDefinedField4":null,"userDefinedField5":null}]},{"titleId":6291,"titleName":"Applied
         Microbiology and Biotechnology","publisherName":"Springer Science+Business
         Media B.V.","identifiersList":[{"id":"0175-7598","source":"ResourceIdentifier","subtype":1,"type":0},{"id":"1432-0614","source":"ResourceIdentifier","subtype":2,"type":0},{"id":"10397249","source":"ResourceIdentifier","subtype":0,"type":2},{"id":"068324672","source":"ResourceIdentifier","subtype":0,"type":3},{"id":"068324789","source":"ResourceIdentifier","subtype":0,"type":3},{"id":"100457","source":"ResourceIdentifier","subtype":0,"type":4},{"id":"NNA","source":"MFS","subtype":0,"type":8},{"id":"6291","source":"AtoZ","subtype":0,"type":9}],"subjectsList":[{"type":"TLI","subject":"Microbiology"},{"type":"TLI","subject":"Biological
         Engineering"}],"isTitleCustom":false,"pubType":"Journal","customerResourcesList":[{"titleId":6291,"packageId":6581,"packageName":"EBSCO
-        Biotechnology Collection: India","packageType":"Complete","isPackageCustom":false,"vendorId":19,"vendorName":"EBSCO","locationId":4829677,"isSelected":false,"isTokenNeeded":false,"visibilityData":{"isHidden":false,"reason":""},"managedCoverageList":[{"beginCoverage":"2000-01-01","endCoverage":""}],"customCoverageList":[],"coverageStatement":null,"managedEmbargoPeriod":{"embargoUnit":"years","embargoValue":1},"customEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"url":"http://search.ebscohost.com/direct.asp?db=bti&jid=NNA&scope=site","userDefinedField1":null,"userDefinedField2":null,"userDefinedField3":null,"userDefinedField4":null,"userDefinedField5":null}]},{"titleId":7574,"titleName":"Artificial
+        Biotechnology Collection: India","packageType":"Complete","isPackageCustom":false,"vendorId":19,"vendorName":"EBSCO","locationId":4829677,"isSelected":false,"isTokenNeeded":false,"visibilityData":{"isHidden":false,"reason":""},"managedCoverageList":[{"beginCoverage":"2000-01-01","endCoverage":""}],"customCoverageList":[],"coverageStatement":null,"managedEmbargoPeriod":{"embargoUnit":"years","embargoValue":1},"customEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"url":"http://search.ebscohost.com/direct.asp?db=bti&jid=NNA&scope=site","userDefinedField1":null,"userDefinedField2":null,"userDefinedField3":null,"userDefinedField4":null,"userDefinedField5":null}]},{"titleId":99148,"titleName":"Archaea","publisherName":"Hindawi
+        Publishing Corporation","identifiersList":[{"id":"1472-3646","source":"ResourceIdentifier","subtype":1,"type":0},{"id":"1472-3654","source":"ResourceIdentifier","subtype":2,"type":0},{"id":"49631505","source":"ResourceIdentifier","subtype":0,"type":2},{"id":"070356746","source":"ResourceIdentifier","subtype":0,"type":3},{"id":"107936","source":"ResourceIdentifier","subtype":0,"type":4},{"id":"53M7","source":"MFS","subtype":0,"type":8},{"id":"99148","source":"AtoZ","subtype":0,"type":9}],"subjectsList":[{"type":"TLI","subject":"Microbiology"}],"isTitleCustom":false,"pubType":"Journal","customerResourcesList":[{"titleId":99148,"packageId":6581,"packageName":"EBSCO
+        Biotechnology Collection: India","packageType":"Complete","isPackageCustom":false,"vendorId":19,"vendorName":"EBSCO","locationId":4829597,"isSelected":false,"isTokenNeeded":false,"visibilityData":{"isHidden":false,"reason":""},"managedCoverageList":[{"beginCoverage":"2010-01-01","endCoverage":""}],"customCoverageList":[],"coverageStatement":null,"managedEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"customEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"url":"http://search.ebscohost.com/direct.asp?db=bti&jid=53M7&scope=site","userDefinedField1":null,"userDefinedField2":null,"userDefinedField3":null,"userDefinedField4":null,"userDefinedField5":null}]},{"titleId":591460,"titleName":"Artificial
+        Cells, Blood Substitutes, & Immobilization Biotechnology","publisherName":"Informa
+        Healthcare","identifiersList":[{"id":"1073-1199","source":"ResourceIdentifier","subtype":1,"type":0},{"id":"1532-4184","source":"ResourceIdentifier","subtype":2,"type":0},{"id":"KU5","source":"MFS","subtype":0,"type":8},{"id":"591460","source":"AtoZ","subtype":0,"type":9}],"subjectsList":[{"type":"TLI","subject":"Biotechnology"}],"isTitleCustom":false,"pubType":"Journal","customerResourcesList":[{"titleId":591460,"packageId":6581,"packageName":"EBSCO
+        Biotechnology Collection: India","packageType":"Complete","isPackageCustom":false,"vendorId":19,"vendorName":"EBSCO","locationId":4829676,"isSelected":false,"isTokenNeeded":false,"visibilityData":{"isHidden":false,"reason":""},"managedCoverageList":[{"beginCoverage":"2001-01-01","endCoverage":"2002-09-01"}],"customCoverageList":[],"coverageStatement":null,"managedEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"customEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"url":"http://search.ebscohost.com/direct.asp?db=bti&jid=KU5&scope=site","userDefinedField1":null,"userDefinedField2":null,"userDefinedField3":null,"userDefinedField4":null,"userDefinedField5":null}]},{"titleId":7574,"titleName":"Artificial
         Cells, Blood Substitutes, and Immobilization Biotechnology","publisherName":"Taylor
         & Francis","identifiersList":[{"id":"1073-1199","source":"ResourceIdentifier","subtype":1,"type":0},{"id":"1532-4184","source":"ResourceIdentifier","subtype":2,"type":0},{"id":"29333477","source":"ResourceIdentifier","subtype":0,"type":2},{"id":"083264598","source":"ResourceIdentifier","subtype":0,"type":3},{"id":"083264606","source":"ResourceIdentifier","subtype":0,"type":3},{"id":"083267146","source":"ResourceIdentifier","subtype":0,"type":3},{"id":"083267680","source":"ResourceIdentifier","subtype":0,"type":3},{"id":"107820","source":"ResourceIdentifier","subtype":0,"type":4},{"id":"PQG","source":"MFS","subtype":0,"type":8},{"id":"7574","source":"AtoZ","subtype":0,"type":9}],"subjectsList":[{"type":"TLI","subject":"Biochemistry"},{"type":"TLI","subject":"Biological
         Engineering"}],"isTitleCustom":false,"pubType":"Journal","customerResourcesList":[{"titleId":7574,"packageId":6581,"packageName":"EBSCO
-        Biotechnology Collection: India","packageType":"Complete","isPackageCustom":false,"vendorId":19,"vendorName":"EBSCO","locationId":4829683,"isSelected":false,"isTokenNeeded":false,"visibilityData":{"isHidden":false,"reason":""},"managedCoverageList":[{"beginCoverage":"2003-02-01","endCoverage":"2012-12-01"}],"customCoverageList":[],"coverageStatement":null,"managedEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"customEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"url":"http://search.ebscohost.com/direct.asp?db=bti&jid=PQG&scope=site","userDefinedField1":null,"userDefinedField2":null,"userDefinedField3":null,"userDefinedField4":null,"userDefinedField5":null}]},{"titleId":84132,"titleName":"Asia
-        Pacific Biotech News","publisherName":"World Scientific","identifiersList":[{"id":"0219-0303","source":"ResourceIdentifier","subtype":1,"type":0},{"id":"1793-6721","source":"ResourceIdentifier","subtype":2,"type":0},{"id":"085668366","source":"ResourceIdentifier","subtype":0,"type":3},{"id":"714646","source":"ResourceIdentifier","subtype":0,"type":4},{"id":"P5F","source":"MFS","subtype":0,"type":8},{"id":"84132","source":"AtoZ","subtype":0,"type":9}],"subjectsList":[{"type":"TLI","subject":"Biotechnology"}],"isTitleCustom":false,"pubType":"Journal","customerResourcesList":[{"titleId":84132,"packageId":6581,"packageName":"EBSCO
-        Biotechnology Collection: India","packageType":"Complete","isPackageCustom":false,"vendorId":19,"vendorName":"EBSCO","locationId":4829662,"isSelected":false,"isTokenNeeded":false,"visibilityData":{"isHidden":false,"reason":""},"managedCoverageList":[{"beginCoverage":"2003-03-17","endCoverage":""}],"customCoverageList":[],"coverageStatement":null,"managedEmbargoPeriod":{"embargoUnit":"years","embargoValue":1},"customEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"url":"http://search.ebscohost.com/direct.asp?db=bti&jid=P5F&scope=site","userDefinedField1":null,"userDefinedField2":null,"userDefinedField3":null,"userDefinedField4":null,"userDefinedField5":null}]},{"titleId":99148,"titleName":"Archaea","publisherName":"Hindawi
-        Publishing Corporation","identifiersList":[{"id":"1472-3646","source":"ResourceIdentifier","subtype":1,"type":0},{"id":"1472-3654","source":"ResourceIdentifier","subtype":2,"type":0},{"id":"49631505","source":"ResourceIdentifier","subtype":0,"type":2},{"id":"070356746","source":"ResourceIdentifier","subtype":0,"type":3},{"id":"107936","source":"ResourceIdentifier","subtype":0,"type":4},{"id":"53M7","source":"MFS","subtype":0,"type":8},{"id":"99148","source":"AtoZ","subtype":0,"type":9}],"subjectsList":[{"type":"TLI","subject":"Microbiology"}],"isTitleCustom":false,"pubType":"Journal","customerResourcesList":[{"titleId":99148,"packageId":6581,"packageName":"EBSCO
-        Biotechnology Collection: India","packageType":"Complete","isPackageCustom":false,"vendorId":19,"vendorName":"EBSCO","locationId":4829597,"isSelected":false,"isTokenNeeded":false,"visibilityData":{"isHidden":false,"reason":""},"managedCoverageList":[{"beginCoverage":"2010-01-01","endCoverage":""}],"customCoverageList":[],"coverageStatement":null,"managedEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"customEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"url":"http://search.ebscohost.com/direct.asp?db=bti&jid=53M7&scope=site","userDefinedField1":null,"userDefinedField2":null,"userDefinedField3":null,"userDefinedField4":null,"userDefinedField5":null}]},{"titleId":146131,"titleName":"Applied
-        Bioinformatics","publisherName":"Springer","identifiersList":[{"id":"1175-5636","source":"ResourceIdentifier","subtype":1,"type":0},{"id":"2230-603X","source":"ResourceIdentifier","subtype":2,"type":0},{"id":"068056522","source":"ResourceIdentifier","subtype":0,"type":3},{"id":"111174","source":"ResourceIdentifier","subtype":0,"type":4},{"id":"2SGT","source":"MFS","subtype":0,"type":8},{"id":"146131","source":"AtoZ","subtype":0,"type":9}],"subjectsList":[{"type":"TLI","subject":"Molecular
-        Biology"}],"isTitleCustom":false,"pubType":"Journal","customerResourcesList":[{"titleId":146131,"packageId":6581,"packageName":"EBSCO
-        Biotechnology Collection: India","packageType":"Complete","isPackageCustom":false,"vendorId":19,"vendorName":"EBSCO","locationId":4829606,"isSelected":false,"isTokenNeeded":false,"visibilityData":{"isHidden":false,"reason":""},"managedCoverageList":[{"beginCoverage":"2006-06-01","endCoverage":"2006-12-01"}],"customCoverageList":[],"coverageStatement":null,"managedEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"customEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"url":"http://search.ebscohost.com/direct.asp?db=bti&jid=2SGT&scope=site","userDefinedField1":null,"userDefinedField2":null,"userDefinedField3":null,"userDefinedField4":null,"userDefinedField5":null}]},{"titleId":212718,"titleName":"Asian
-        Biotechnology and Development Review","publisherName":"RIS Publication Officer","identifiersList":[{"id":"0972-7566","source":"ResourceIdentifier","subtype":1,"type":0},{"id":"53869306","source":"ResourceIdentifier","subtype":0,"type":2},{"id":"DBKX","source":"MFS","subtype":0,"type":8},{"id":"212718","source":"AtoZ","subtype":0,"type":9}],"subjectsList":[{"type":"TLI","subject":"Technology
-        (General)"}],"isTitleCustom":false,"pubType":"Journal","customerResourcesList":[{"titleId":212718,"packageId":6581,"packageName":"EBSCO
-        Biotechnology Collection: India","packageType":"Complete","isPackageCustom":false,"vendorId":19,"vendorName":"EBSCO","locationId":5104205,"isSelected":false,"isTokenNeeded":false,"visibilityData":{"isHidden":false,"reason":""},"managedCoverageList":[{"beginCoverage":"2012-06-01","endCoverage":""}],"customCoverageList":[],"coverageStatement":null,"managedEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"customEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"url":"http://search.ebscohost.com/direct.asp?db=bti&jid=DBKX&scope=site","userDefinedField1":null,"userDefinedField2":null,"userDefinedField3":null,"userDefinedField4":null,"userDefinedField5":null}]},{"titleId":591460,"titleName":"Artificial
-        Cells, Blood Substitutes, & Immobilization Biotechnology","publisherName":"Informa
-        Healthcare","identifiersList":[{"id":"1073-1199","source":"ResourceIdentifier","subtype":1,"type":0},{"id":"1532-4184","source":"ResourceIdentifier","subtype":2,"type":0},{"id":"KU5","source":"MFS","subtype":0,"type":8},{"id":"591460","source":"AtoZ","subtype":0,"type":9}],"subjectsList":[{"type":"TLI","subject":"Biotechnology"}],"isTitleCustom":false,"pubType":"Journal","customerResourcesList":[{"titleId":591460,"packageId":6581,"packageName":"EBSCO
-        Biotechnology Collection: India","packageType":"Complete","isPackageCustom":false,"vendorId":19,"vendorName":"EBSCO","locationId":4829676,"isSelected":false,"isTokenNeeded":false,"visibilityData":{"isHidden":false,"reason":""},"managedCoverageList":[{"beginCoverage":"2001-01-01","endCoverage":"2002-09-01"}],"customCoverageList":[],"coverageStatement":null,"managedEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"customEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"url":"http://search.ebscohost.com/direct.asp?db=bti&jid=KU5&scope=site","userDefinedField1":null,"userDefinedField2":null,"userDefinedField3":null,"userDefinedField4":null,"userDefinedField5":null}]},{"titleId":1438311,"titleName":"Artificial
-        Cells, Nanomedicine, and Biotechnology","publisherName":"Taylor & Francis","identifiersList":[{"id":"2169-1401","source":"ResourceIdentifier","subtype":1,"type":0},{"id":"2169-141X","source":"ResourceIdentifier","subtype":2,"type":0},{"id":"083267700","source":"ResourceIdentifier","subtype":0,"type":3},{"id":"725749","source":"ResourceIdentifier","subtype":0,"type":4},{"id":"FU72","source":"MFS","subtype":0,"type":8},{"id":"1438311","source":"AtoZ","subtype":0,"type":9}],"subjectsList":[{"type":"TLI","subject":"Biomedicine"}],"isTitleCustom":false,"pubType":"Journal","customerResourcesList":[{"titleId":1438311,"packageId":6581,"packageName":"EBSCO
-        Biotechnology Collection: India","packageType":"Complete","isPackageCustom":false,"vendorId":19,"vendorName":"EBSCO","locationId":9364402,"isSelected":false,"isTokenNeeded":false,"visibilityData":{"isHidden":false,"reason":""},"managedCoverageList":[{"beginCoverage":"2013-02-01","endCoverage":""}],"customCoverageList":[],"coverageStatement":null,"managedEmbargoPeriod":{"embargoUnit":"months","embargoValue":18},"customEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"url":"http://search.ebscohost.com/direct.asp?db=bti&jid=FU72&scope=site","userDefinedField1":null,"userDefinedField2":null,"userDefinedField3":null,"userDefinedField4":null,"userDefinedField5":null}]},{"titleId":10437,"titleName":"Biogeochemistry","publisherName":"Springer
+        Biotechnology Collection: India","packageType":"Complete","isPackageCustom":false,"vendorId":19,"vendorName":"EBSCO","locationId":4829683,"isSelected":false,"isTokenNeeded":false,"visibilityData":{"isHidden":false,"reason":""},"managedCoverageList":[{"beginCoverage":"2003-02-01","endCoverage":"2012-12-01"}],"customCoverageList":[],"coverageStatement":null,"managedEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"customEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"url":"http://search.ebscohost.com/direct.asp?db=bti&jid=PQG&scope=site","userDefinedField1":null,"userDefinedField2":null,"userDefinedField3":null,"userDefinedField4":null,"userDefinedField5":null}]},{"titleId":10437,"titleName":"Biogeochemistry","publisherName":"Springer
         Science+Business Media B.V.","identifiersList":[{"id":"0168-2563","source":"ResourceIdentifier","subtype":1,"type":0},{"id":"1573-515X","source":"ResourceIdentifier","subtype":2,"type":0},{"id":"11749004","source":"ResourceIdentifier","subtype":0,"type":2},{"id":"121945034","source":"ResourceIdentifier","subtype":0,"type":3},{"id":"121945232","source":"ResourceIdentifier","subtype":0,"type":3},{"id":"100244","source":"ResourceIdentifier","subtype":0,"type":4},{"id":"KP2","source":"MFS","subtype":0,"type":8},{"id":"10437","source":"AtoZ","subtype":0,"type":9}],"subjectsList":[{"type":"TLI","subject":"Ecology"},{"type":"TLI","subject":"Conservation
         Biology"}],"isTitleCustom":false,"pubType":"Journal","customerResourcesList":[{"titleId":10437,"packageId":6581,"packageName":"EBSCO
         Biotechnology Collection: India","packageType":"Complete","isPackageCustom":false,"vendorId":19,"vendorName":"EBSCO","locationId":4829667,"isSelected":false,"isTokenNeeded":false,"visibilityData":{"isHidden":false,"reason":""},"managedCoverageList":[{"beginCoverage":"2003-01-01","endCoverage":""}],"customCoverageList":[],"coverageStatement":null,"managedEmbargoPeriod":{"embargoUnit":"years","embargoValue":1},"customEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"url":"http://search.ebscohost.com/direct.asp?db=bti&jid=KP2&scope=site","userDefinedField1":null,"userDefinedField2":null,"userDefinedField3":null,"userDefinedField4":null,"userDefinedField5":null}]},{"titleId":10455,"titleName":"Bioinformatics","publisherName":"Oxford
         University Press","identifiersList":[{"id":"1367-4803","source":"ResourceIdentifier","subtype":1,"type":0},{"id":"1367-4811","source":"ResourceIdentifier","subtype":2,"type":0},{"id":"38899833","source":"ResourceIdentifier","subtype":0,"type":2},{"id":"122150006","source":"ResourceIdentifier","subtype":0,"type":3},{"id":"101512","source":"ResourceIdentifier","subtype":0,"type":4},{"id":"N56","source":"MFS","subtype":0,"type":8},{"id":"10455","source":"AtoZ","subtype":0,"type":9}],"subjectsList":[{"type":"TLI","subject":"Bioinformatics"}],"isTitleCustom":false,"pubType":"Journal","customerResourcesList":[{"titleId":10455,"packageId":6581,"packageName":"EBSCO
-        Biotechnology Collection: India","packageType":"Complete","isPackageCustom":false,"vendorId":19,"vendorName":"EBSCO","locationId":4829671,"isSelected":false,"isTokenNeeded":false,"visibilityData":{"isHidden":false,"reason":""},"managedCoverageList":[{"beginCoverage":"1998-01-01","endCoverage":""}],"customCoverageList":[],"coverageStatement":null,"managedEmbargoPeriod":{"embargoUnit":"years","embargoValue":1},"customEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"url":"http://search.ebscohost.com/direct.asp?db=bti&jid=N56&scope=site","userDefinedField1":null,"userDefinedField2":null,"userDefinedField3":null,"userDefinedField4":null,"userDefinedField5":null}]},{"titleId":124436,"titleName":"Australasian
-        Biotechnology","publisherName":"Copyright Agency Limited (Distributor)","identifiersList":[{"id":"1036-7128","source":"ResourceIdentifier","subtype":1,"type":0},{"id":"24626190","source":"ResourceIdentifier","subtype":0,"type":2},{"id":"095371692","source":"ResourceIdentifier","subtype":0,"type":3},{"id":"719207","source":"ResourceIdentifier","subtype":0,"type":4},{"id":"5E3T","source":"MFS","subtype":0,"type":8},{"id":"124436","source":"AtoZ","subtype":0,"type":9}],"subjectsList":[{"type":"TLI","subject":"Biological
+        Biotechnology Collection: India","packageType":"Complete","isPackageCustom":false,"vendorId":19,"vendorName":"EBSCO","locationId":4829671,"isSelected":false,"isTokenNeeded":false,"visibilityData":{"isHidden":false,"reason":""},"managedCoverageList":[{"beginCoverage":"1998-01-01","endCoverage":""}],"customCoverageList":[],"coverageStatement":null,"managedEmbargoPeriod":{"embargoUnit":"years","embargoValue":1},"customEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"url":"http://search.ebscohost.com/direct.asp?db=bti&jid=N56&scope=site","userDefinedField1":null,"userDefinedField2":null,"userDefinedField3":null,"userDefinedField4":null,"userDefinedField5":null}]},{"titleId":84132,"titleName":"Asia
+        Pacific Biotech News","publisherName":"World Scientific","identifiersList":[{"id":"0219-0303","source":"ResourceIdentifier","subtype":1,"type":0},{"id":"1793-6721","source":"ResourceIdentifier","subtype":2,"type":0},{"id":"085668366","source":"ResourceIdentifier","subtype":0,"type":3},{"id":"714646","source":"ResourceIdentifier","subtype":0,"type":4},{"id":"P5F","source":"MFS","subtype":0,"type":8},{"id":"84132","source":"AtoZ","subtype":0,"type":9}],"subjectsList":[{"type":"TLI","subject":"Biotechnology"}],"isTitleCustom":false,"pubType":"Journal","customerResourcesList":[{"titleId":84132,"packageId":6581,"packageName":"EBSCO
+        Biotechnology Collection: India","packageType":"Complete","isPackageCustom":false,"vendorId":19,"vendorName":"EBSCO","locationId":4829662,"isSelected":false,"isTokenNeeded":false,"visibilityData":{"isHidden":false,"reason":""},"managedCoverageList":[{"beginCoverage":"2003-03-17","endCoverage":""}],"customCoverageList":[],"coverageStatement":null,"managedEmbargoPeriod":{"embargoUnit":"years","embargoValue":1},"customEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"url":"http://search.ebscohost.com/direct.asp?db=bti&jid=P5F&scope=site","userDefinedField1":null,"userDefinedField2":null,"userDefinedField3":null,"userDefinedField4":null,"userDefinedField5":null}]},{"titleId":124436,"titleName":"Australasian
+        Biotechnology","publisherName":"AusBiotech","identifiersList":[{"id":"1036-7128","source":"ResourceIdentifier","subtype":1,"type":0},{"id":"24626190","source":"ResourceIdentifier","subtype":0,"type":2},{"id":"095371692","source":"ResourceIdentifier","subtype":0,"type":3},{"id":"719207","source":"ResourceIdentifier","subtype":0,"type":4},{"id":"5E3T","source":"MFS","subtype":0,"type":8},{"id":"124436","source":"AtoZ","subtype":0,"type":9}],"subjectsList":[{"type":"TLI","subject":"Biological
         Engineering"}],"isTitleCustom":false,"pubType":"Journal","customerResourcesList":[{"titleId":124436,"packageId":6581,"packageName":"EBSCO
         Biotechnology Collection: India","packageType":"Complete","isPackageCustom":false,"vendorId":19,"vendorName":"EBSCO","locationId":4829604,"isSelected":false,"isTokenNeeded":false,"visibilityData":{"isHidden":false,"reason":""},"managedCoverageList":[{"beginCoverage":"2008-09-01","endCoverage":""}],"customCoverageList":[],"coverageStatement":null,"managedEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"customEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"url":"http://search.ebscohost.com/direct.asp?db=bti&jid=5E3T&scope=site","userDefinedField1":null,"userDefinedField2":null,"userDefinedField3":null,"userDefinedField4":null,"userDefinedField5":null}]},{"titleId":191832,"titleName":"BioInformation","publisherName":"Biomedical
         Informatics Publishing Group","identifiersList":[{"id":"0973-8894","source":"ResourceIdentifier","subtype":1,"type":0},{"id":"0973-2063","source":"ResourceIdentifier","subtype":2,"type":0},{"id":"122151194","source":"ResourceIdentifier","subtype":0,"type":3},{"id":"113834","source":"ResourceIdentifier","subtype":0,"type":4},{"id":"38LX","source":"MFS","subtype":0,"type":8},{"id":"191832","source":"AtoZ","subtype":0,"type":9}],"subjectsList":[{"type":"TLI","subject":"Life
         Sciences"}],"isTitleCustom":false,"pubType":"Journal","customerResourcesList":[{"titleId":191832,"packageId":6581,"packageName":"EBSCO
-        Biotechnology Collection: India","packageType":"Complete","isPackageCustom":false,"vendorId":19,"vendorName":"EBSCO","locationId":4829565,"isSelected":false,"isTokenNeeded":false,"visibilityData":{"isHidden":false,"reason":""},"managedCoverageList":[{"beginCoverage":"2007-02-01","endCoverage":""}],"customCoverageList":[],"coverageStatement":null,"managedEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"customEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"url":"http://search.ebscohost.com/direct.asp?db=bti&jid=38LX&scope=site","userDefinedField1":null,"userDefinedField2":null,"userDefinedField3":null,"userDefinedField4":null,"userDefinedField5":null}]},{"titleId":275404,"titleName":"Biomedical
+        Biotechnology Collection: India","packageType":"Complete","isPackageCustom":false,"vendorId":19,"vendorName":"EBSCO","locationId":4829565,"isSelected":false,"isTokenNeeded":false,"visibilityData":{"isHidden":false,"reason":""},"managedCoverageList":[{"beginCoverage":"2007-02-01","endCoverage":""}],"customCoverageList":[],"coverageStatement":null,"managedEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"customEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"url":"http://search.ebscohost.com/direct.asp?db=bti&jid=38LX&scope=site","userDefinedField1":null,"userDefinedField2":null,"userDefinedField3":null,"userDefinedField4":null,"userDefinedField5":null}]},{"titleId":212718,"titleName":"Asian
+        Biotechnology and Development Review","publisherName":"RIS Publication Officer","identifiersList":[{"id":"0972-7566","source":"ResourceIdentifier","subtype":1,"type":0},{"id":"53869306","source":"ResourceIdentifier","subtype":0,"type":2},{"id":"DBKX","source":"MFS","subtype":0,"type":8},{"id":"212718","source":"AtoZ","subtype":0,"type":9}],"subjectsList":[{"type":"TLI","subject":"Technology
+        (General)"}],"isTitleCustom":false,"pubType":"Journal","customerResourcesList":[{"titleId":212718,"packageId":6581,"packageName":"EBSCO
+        Biotechnology Collection: India","packageType":"Complete","isPackageCustom":false,"vendorId":19,"vendorName":"EBSCO","locationId":5104205,"isSelected":false,"isTokenNeeded":false,"visibilityData":{"isHidden":false,"reason":""},"managedCoverageList":[{"beginCoverage":"2012-06-01","endCoverage":""}],"customCoverageList":[],"coverageStatement":null,"managedEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"customEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"url":"http://search.ebscohost.com/direct.asp?db=bti&jid=DBKX&scope=site","userDefinedField1":null,"userDefinedField2":null,"userDefinedField3":null,"userDefinedField4":null,"userDefinedField5":null}]},{"titleId":275404,"titleName":"Biomedical
         Business & Technology","publisherName":"Thomson Reuters","identifiersList":[{"id":"1930-2614","source":"ResourceIdentifier","subtype":1,"type":0},{"id":"1049-4316","source":"ResourceIdentifier","subtype":7,"type":0},{"id":"123074270","source":"ResourceIdentifier","subtype":0,"type":3},{"id":"2SCM","source":"MFS","subtype":0,"type":8},{"id":"275404","source":"AtoZ","subtype":0,"type":9}],"subjectsList":[{"type":"TLI","subject":"Medical
         Sciences"}],"isTitleCustom":false,"pubType":"Journal","customerResourcesList":[{"titleId":275404,"packageId":6581,"packageName":"EBSCO
         Biotechnology Collection: India","packageType":"Complete","isPackageCustom":false,"vendorId":19,"vendorName":"EBSCO","locationId":4829579,"isSelected":false,"isTokenNeeded":false,"visibilityData":{"isHidden":false,"reason":""},"managedCoverageList":[{"beginCoverage":"2007-02-01","endCoverage":"2011-12-01"}],"customCoverageList":[],"coverageStatement":null,"managedEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"customEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"url":"http://search.ebscohost.com/direct.asp?db=bti&jid=2SCM&scope=site","userDefinedField1":null,"userDefinedField2":null,"userDefinedField3":null,"userDefinedField4":null,"userDefinedField5":null}]},{"titleId":419865,"titleName":"Bioinformatics
@@ -286,12 +312,14 @@ http_interactions:
         Biotechnology Collection: India","packageType":"Complete","isPackageCustom":false,"vendorId":19,"vendorName":"EBSCO","locationId":4829610,"isSelected":false,"isTokenNeeded":false,"visibilityData":{"isHidden":false,"reason":""},"managedCoverageList":[{"beginCoverage":"2009-04-01","endCoverage":""}],"customCoverageList":[],"coverageStatement":null,"managedEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"customEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"url":"http://search.ebscohost.com/direct.asp?db=bti&jid=ATX9&scope=site","userDefinedField1":null,"userDefinedField2":null,"userDefinedField3":null,"userDefinedField4":null,"userDefinedField5":null}]},{"titleId":773536,"titleName":"Biomedical
         Engineering and Computational Biology","publisherName":"SAGE Publications","identifiersList":[{"id":"1179-5972","source":"ResourceIdentifier","subtype":2,"type":0},{"id":"733379","source":"ResourceIdentifier","subtype":0,"type":4},{"id":"BNLW","source":"MFS","subtype":0,"type":8},{"id":"773536","source":"AtoZ","subtype":0,"type":9}],"subjectsList":[{"type":"TLI","subject":"Biological
         Engineering"}],"isTitleCustom":false,"pubType":"Journal","customerResourcesList":[{"titleId":773536,"packageId":6581,"packageName":"EBSCO
-        Biotechnology Collection: India","packageType":"Complete","isPackageCustom":false,"vendorId":19,"vendorName":"EBSCO","locationId":4829647,"isSelected":false,"isTokenNeeded":false,"visibilityData":{"isHidden":false,"reason":""},"managedCoverageList":[{"beginCoverage":"2010-01-01","endCoverage":""}],"customCoverageList":[],"coverageStatement":null,"managedEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"customEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"url":"http://search.ebscohost.com/direct.asp?db=bti&jid=BNLW&scope=site","userDefinedField1":null,"userDefinedField2":null,"userDefinedField3":null,"userDefinedField4":null,"userDefinedField5":null}]},{"titleId":1750220,"titleName":"BioMed
+        Biotechnology Collection: India","packageType":"Complete","isPackageCustom":false,"vendorId":19,"vendorName":"EBSCO","locationId":4829647,"isSelected":false,"isTokenNeeded":false,"visibilityData":{"isHidden":false,"reason":""},"managedCoverageList":[{"beginCoverage":"2010-01-01","endCoverage":""}],"customCoverageList":[],"coverageStatement":null,"managedEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"customEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"url":"http://search.ebscohost.com/direct.asp?db=bti&jid=BNLW&scope=site","userDefinedField1":null,"userDefinedField2":null,"userDefinedField3":null,"userDefinedField4":null,"userDefinedField5":null}]},{"titleId":1438311,"titleName":"Artificial
+        Cells, Nanomedicine, and Biotechnology","publisherName":"Taylor & Francis","identifiersList":[{"id":"2169-1401","source":"ResourceIdentifier","subtype":1,"type":0},{"id":"2169-141X","source":"ResourceIdentifier","subtype":2,"type":0},{"id":"083267700","source":"ResourceIdentifier","subtype":0,"type":3},{"id":"725749","source":"ResourceIdentifier","subtype":0,"type":4},{"id":"FU72","source":"MFS","subtype":0,"type":8},{"id":"1438311","source":"AtoZ","subtype":0,"type":9}],"subjectsList":[{"type":"TLI","subject":"Biomedicine"}],"isTitleCustom":false,"pubType":"Journal","customerResourcesList":[{"titleId":1438311,"packageId":6581,"packageName":"EBSCO
+        Biotechnology Collection: India","packageType":"Complete","isPackageCustom":false,"vendorId":19,"vendorName":"EBSCO","locationId":9364402,"isSelected":false,"isTokenNeeded":false,"visibilityData":{"isHidden":false,"reason":""},"managedCoverageList":[{"beginCoverage":"2013-02-01","endCoverage":""}],"customCoverageList":[],"coverageStatement":null,"managedEmbargoPeriod":{"embargoUnit":"months","embargoValue":18},"customEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"url":"http://search.ebscohost.com/direct.asp?db=bti&jid=FU72&scope=site","userDefinedField1":null,"userDefinedField2":null,"userDefinedField3":null,"userDefinedField4":null,"userDefinedField5":null}]},{"titleId":1750220,"titleName":"BioMed
         Research International","publisherName":"Hindawi Publishing Corporation","identifiersList":[{"id":"2314-6133","source":"ResourceIdentifier","subtype":1,"type":0},{"id":"2314-6141","source":"ResourceIdentifier","subtype":2,"type":0},{"id":"123058850","source":"ResourceIdentifier","subtype":0,"type":3},{"id":"725758","source":"ResourceIdentifier","subtype":0,"type":4},{"id":"FT2T","source":"MFS","subtype":0,"type":8},{"id":"1750220","source":"AtoZ","subtype":0,"type":9}],"subjectsList":[{"type":"TLI","subject":"Life
         Sciences"}],"isTitleCustom":false,"pubType":"Journal","customerResourcesList":[{"titleId":1750220,"packageId":6581,"packageName":"EBSCO
         Biotechnology Collection: India","packageType":"Complete","isPackageCustom":false,"vendorId":19,"vendorName":"EBSCO","locationId":6016301,"isSelected":false,"isTokenNeeded":false,"visibilityData":{"isHidden":false,"reason":""},"managedCoverageList":[{"beginCoverage":"2013-01-01","endCoverage":""}],"customCoverageList":[],"coverageStatement":null,"managedEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"customEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"url":"http://search.ebscohost.com/direct.asp?db=bti&jid=FT2T&scope=site","userDefinedField1":null,"userDefinedField2":null,"userDefinedField3":null,"userDefinedField4":null,"userDefinedField5":null}]},{"titleId":2467485,"titleName":"Biointerphases","publisherName":"AVS:
         Science & Technology of Materials, Interfaces, and Processing","identifiersList":[{"id":"1934-8630","source":"ResourceIdentifier","subtype":1,"type":0},{"id":"1559-4106","source":"ResourceIdentifier","subtype":2,"type":0},{"id":"102667066","source":"ResourceIdentifier","subtype":0,"type":3},{"id":"122153798","source":"ResourceIdentifier","subtype":0,"type":3},{"id":"714936","source":"ResourceIdentifier","subtype":0,"type":4},{"id":"2F7L","source":"MFS","subtype":0,"type":8},{"id":"2248363","source":"AtoZ","subtype":0,"type":9}],"subjectsList":[{"type":"TLI","subject":"Physics"}],"isTitleCustom":false,"pubType":"Journal","customerResourcesList":[{"titleId":2467485,"packageId":6581,"packageName":"EBSCO
         Biotechnology Collection: India","packageType":"Complete","isPackageCustom":false,"vendorId":19,"vendorName":"EBSCO","locationId":4829582,"isSelected":false,"isTokenNeeded":false,"visibilityData":{"isHidden":false,"reason":""},"managedCoverageList":[{"beginCoverage":"2006-12-01","endCoverage":""}],"customCoverageList":[],"coverageStatement":null,"managedEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"customEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"url":"http://search.ebscohost.com/direct.asp?db=bti&jid=2F7L&scope=site","userDefinedField1":null,"userDefinedField2":null,"userDefinedField3":null,"userDefinedField4":null,"userDefinedField5":null}]}]}'
     http_version: 
-  recorded_at: Fri, 24 Aug 2018 22:26:10 GMT
+  recorded_at: Wed, 12 Sep 2018 14:32:25 GMT
 recorded_with: VCR 3.0.3

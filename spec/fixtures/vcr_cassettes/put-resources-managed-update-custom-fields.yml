@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://okapi.frontside.io/configurations/entries?query=module=KB_EBSCO
+    uri: https://okapi.frontside.io/configurations/entries?query=module=EKB
     body:
       encoding: US-ASCII
       string: ''
@@ -27,7 +27,7 @@ http_interactions:
       Server:
       - nginx/1.13.5
       Date:
-      - Thu, 16 Aug 2018 18:32:43 GMT
+      - Wed, 12 Sep 2018 18:04:33 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -35,16 +35,16 @@ http_interactions:
       Connection:
       - keep-alive
       X-Okapi-Trace:
-      - 'GET mod-authtoken-1.4.1-SNAPSHOT.21 http://10.39.255.17:8081/configurations/entries..
-        : 202 311668us'
-      - 'GET mod-configuration-4.0.4-SNAPSHOT.36 http://10.39.247.129:8081/configurations/entries..
-        : 200 48554us'
+      - 'GET mod-authtoken-1.5.2-SNAPSHOT.26 http://10.39.242.252:8081/configurations/entries..
+        : 202 1577us'
+      - 'GET mod-configuration-5.0.1-SNAPSHOT.45 http://10.39.249.105:8081/configurations/entries..
+        : 200 42551us'
       Host:
       - okapi.frontside.io
       X-Real-Ip:
-      - 10.36.2.1
+      - 10.128.0.3
       X-Forwarded-For:
-      - 10.36.2.1
+      - 10.128.0.3
       X-Forwarded-Host:
       - okapi.frontside.io
       X-Forwarded-Port:
@@ -52,11 +52,11 @@ http_interactions:
       X-Forwarded-Proto:
       - https
       X-Original-Uri:
-      - "/configurations/entries?query=module=KB_EBSCO"
+      - "/configurations/entries?query=module=EKB"
       X-Scheme:
       - https
       X-Auth-Request-Redirect:
-      - "/configurations/entries?query=module=KB_EBSCO"
+      - "/configurations/entries?query=module=EKB"
       Accept:
       - application/json
       X-Okapi-Tenant:
@@ -66,9 +66,9 @@ http_interactions:
       User-Agent:
       - Ruby
       X-Okapi-Request-Id:
-      - 572208/configurations
+      - 407481/configurations
       X-Okapi-Url:
-      - http://10.39.254.87:80
+      - http://10.39.245.41:80
       X-Okapi-Permissions:
       - '["configuration.entries.collection.get","configuration.entries.collection.get"]'
       X-Okapi-User-Id:
@@ -82,28 +82,56 @@ http_interactions:
       string: |-
         {
           "configs" : [ {
-            "id" : "28fd0ce0-108e-4471-8a7b-4645319fd707",
-            "module" : "KB_EBSCO",
-            "configName" : "api_credentials",
-            "code" : "kb.ebsco.credentials",
-            "description" : "EBSCO RM-API Credentials",
+            "id" : "efadf3d8-59c3-4508-99d4-3e36e9247d87",
+            "module" : "EKB",
+            "configName" : "api_access",
+            "code" : "kb.ebsco.url",
+            "description" : "EBSCO RM-API URL",
             "enabled" : true,
-            "value" : "customer-id=TEST_CUSTOMER_ID&api-key=TEST_API_KEY",
+            "value" : "https://api.ebsco.io",
             "metadata" : {
-              "createdDate" : "2018-06-26T13:23:48.592+0000",
+              "createdDate" : "2018-09-12T12:34:52.189+0000",
               "createdByUserId" : "1ad737b0-d847-11e6-bf26-cec0c932ce01",
-              "updatedDate" : "2018-06-26T13:23:48.592+0000",
+              "updatedDate" : "2018-09-12T12:34:52.189+0000",
+              "updatedByUserId" : "1ad737b0-d847-11e6-bf26-cec0c932ce01"
+            }
+          }, {
+            "id" : "6b24b703-243a-4261-a7bf-0336d34f8c94",
+            "module" : "EKB",
+            "configName" : "api_access",
+            "code" : "kb.ebsco.customerId",
+            "description" : "EBSCO RM-API Customer ID",
+            "enabled" : true,
+            "value" : "TEST_CUSTOMER_ID",
+            "metadata" : {
+              "createdDate" : "2018-09-12T12:34:52.466+0000",
+              "createdByUserId" : "1ad737b0-d847-11e6-bf26-cec0c932ce01",
+              "updatedDate" : "2018-09-12T12:34:52.466+0000",
+              "updatedByUserId" : "1ad737b0-d847-11e6-bf26-cec0c932ce01"
+            }
+          }, {
+            "id" : "8038c4f3-0b09-4d97-be46-8a5236ef3f2f",
+            "module" : "EKB",
+            "configName" : "api_access",
+            "code" : "kb.ebsco.apiKey",
+            "description" : "EBSCO RM-API API Key",
+            "enabled" : true,
+            "value" : "TEST_API_KEY",
+            "metadata" : {
+              "createdDate" : "2018-09-12T12:34:52.788+0000",
+              "createdByUserId" : "1ad737b0-d847-11e6-bf26-cec0c932ce01",
+              "updatedDate" : "2018-09-12T12:34:52.788+0000",
               "updatedByUserId" : "1ad737b0-d847-11e6-bf26-cec0c932ce01"
             }
           } ],
-          "totalRecords" : 1,
+          "totalRecords" : 3,
           "resultInfo" : {
-            "totalRecords" : 1,
+            "totalRecords" : 3,
             "facets" : [ ]
           }
         }
     http_version: 
-  recorded_at: Thu, 16 Aug 2018 18:32:43 GMT
+  recorded_at: Wed, 12 Sep 2018 18:04:33 GMT
 - request:
     method: get
     uri: https://api.ebsco.io/rm/rmaccounts/TEST_CUSTOMER_ID/vendors/19/packages/530/titles/417981
@@ -135,15 +163,15 @@ http_interactions:
       Connection:
       - keep-alive
       Date:
-      - Thu, 16 Aug 2018 18:32:44 GMT
+      - Wed, 12 Sep 2018 18:04:33 GMT
       X-Amzn-Requestid:
-      - c3dde618-a182-11e8-8264-9bbf044c47b7
+      - 4d8672c8-b6b6-11e8-9606-612468af67b1
       X-Amzn-Remapped-Content-Length:
       - '1217'
       X-Amzn-Remapped-Connection:
       - keep-alive
       X-Amz-Apigw-Id:
-      - Lutz2F0eIAMFQXg=
+      - NHo_vFQloAMFZkA=
       X-Amzn-Remapped-Server:
       - Microsoft-IIS/8.5
       Cache-Control:
@@ -155,15 +183,15 @@ http_interactions:
       Pragma:
       - no-cache
       X-Amzn-Remapped-Date:
-      - Thu, 16 Aug 2018 18:32:44 GMT
+      - Wed, 12 Sep 2018 18:04:32 GMT
       X-Aspnet-Version:
       - 4.0.30319
       X-Cache:
       - Miss from cloudfront
       Via:
-      - 1.1 90d62e521ee2c5442b186a2cbca3fc9d.cloudfront.net (CloudFront)
+      - 1.1 ac3474fe463b33f1439c8d949f9a075f.cloudfront.net (CloudFront)
       X-Amz-Cf-Id:
-      - ojE9Y6Qj7gXX0s7GqNDH2bZdq4dgbYJmGeTwPXkmoxNl5EyPX_8MWw==
+      - cIJKYgaIK5XCc-uY27l8UiKIy9hT3EvPZZB_ZXec7NTK6lheRciWkQ==
     body:
       encoding: UTF-8
       string: '{"titleId":417981,"titleName":"ESI: Electrical Supply Industries of
@@ -171,7 +199,7 @@ http_interactions:
         Engineering"}],"isTitleCustom":false,"pubType":"BookSeries","customerResourcesList":[{"titleId":417981,"packageId":530,"packageName":"Business
         Source Corporate","packageType":"Complete","proxy":{"id":"<n>","inherited":true},"isPackageCustom":false,"vendorId":19,"vendorName":"EBSCO","locationId":1531344,"isSelected":false,"isTokenNeeded":false,"visibilityData":{"isHidden":false,"reason":""},"managedCoverageList":[{"beginCoverage":"2004-01-01","endCoverage":"2006-01-01"}],"customCoverageList":[],"coverageStatement":null,"managedEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"customEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"url":"http://search.ebscohost.com/direct.asp?db=bch&jid=15KM&scope=site","userDefinedField1":null,"userDefinedField2":null,"userDefinedField3":null,"userDefinedField4":null,"userDefinedField5":null}],"description":null,"edition":null,"isPeerReviewed":false,"contributorsList":[]}'
     http_version: 
-  recorded_at: Thu, 16 Aug 2018 18:32:44 GMT
+  recorded_at: Wed, 12 Sep 2018 18:04:33 GMT
 - request:
     method: put
     uri: https://api.ebsco.io/rm/rmaccounts/TEST_CUSTOMER_ID/vendors/19/packages/530/titles/417981
@@ -205,13 +233,13 @@ http_interactions:
       Connection:
       - keep-alive
       Date:
-      - Thu, 16 Aug 2018 18:32:44 GMT
+      - Wed, 12 Sep 2018 18:04:33 GMT
       X-Amzn-Requestid:
-      - c479d819-a182-11e8-a91a-510ab8dd74c8
+      - 4da741a4-b6b6-11e8-9bb8-e1be305eb18a
       X-Amzn-Remapped-Connection:
       - keep-alive
       X-Amz-Apigw-Id:
-      - Lut0AHzdIAMFWcA=
+      - NHo_xGuVoAMFTHw=
       X-Amzn-Remapped-Server:
       - Microsoft-IIS/8.5
       Cache-Control:
@@ -223,20 +251,20 @@ http_interactions:
       Pragma:
       - no-cache
       X-Amzn-Remapped-Date:
-      - Thu, 16 Aug 2018 18:32:44 GMT
+      - Wed, 12 Sep 2018 18:04:32 GMT
       X-Aspnet-Version:
       - 4.0.30319
       X-Cache:
       - Miss from cloudfront
       Via:
-      - 1.1 d56db0d65906a3edce526dc6600d65c6.cloudfront.net (CloudFront)
+      - 1.1 4a9cf7d692d7309a16ebde15ef85ff54.cloudfront.net (CloudFront)
       X-Amz-Cf-Id:
-      - mJlFF7XZVTwY95AFil5JwNNLYR8pW1vI_dhsls606ZIOqyifpfZNBg==
+      - ATEzjDt9yiqZbZ1etjiXlojs6cTO3ER2JJxLwlnmguP_WMsKXCciTA==
     body:
       encoding: UTF-8
       string: ''
     http_version: 
-  recorded_at: Thu, 16 Aug 2018 18:32:44 GMT
+  recorded_at: Wed, 12 Sep 2018 18:04:33 GMT
 - request:
     method: get
     uri: https://api.ebsco.io/rm/rmaccounts/TEST_CUSTOMER_ID/vendors/19/packages/530/titles/417981
@@ -268,15 +296,15 @@ http_interactions:
       Connection:
       - keep-alive
       Date:
-      - Thu, 16 Aug 2018 18:32:45 GMT
+      - Wed, 12 Sep 2018 18:04:34 GMT
       X-Amzn-Requestid:
-      - c491ccb5-a182-11e8-8943-9d49e1fba4af
+      - 4dc5ece0-b6b6-11e8-a2b0-5397aeeb7461
       X-Amzn-Remapped-Content-Length:
       - '1217'
       X-Amzn-Remapped-Connection:
       - keep-alive
       X-Amz-Apigw-Id:
-      - Lut0CFdboAMF59w=
+      - NHo_zF4VIAMF3oA=
       X-Amzn-Remapped-Server:
       - Microsoft-IIS/8.5
       Cache-Control:
@@ -288,15 +316,15 @@ http_interactions:
       Pragma:
       - no-cache
       X-Amzn-Remapped-Date:
-      - Thu, 16 Aug 2018 18:32:44 GMT
+      - Wed, 12 Sep 2018 18:04:33 GMT
       X-Aspnet-Version:
       - 4.0.30319
       X-Cache:
       - Miss from cloudfront
       Via:
-      - 1.1 28b1b9930ccdd3e560b3f8d56677a679.cloudfront.net (CloudFront)
+      - 1.1 53bf73656ba1f20ba4131adac7949bb6.cloudfront.net (CloudFront)
       X-Amz-Cf-Id:
-      - fBcHdEZ4Cx64HYP8PkDcFjl3Hg2uusnNNVYyzs_YGEihI5f5OrlWng==
+      - YLK5_0gwAwrFjybZK7xGznAXdxbzXUIVS__LlgkTUClk8n7cCGDSQg==
     body:
       encoding: UTF-8
       string: '{"titleId":417981,"titleName":"ESI: Electrical Supply Industries of
@@ -304,5 +332,5 @@ http_interactions:
         Engineering"}],"isTitleCustom":false,"pubType":"BookSeries","customerResourcesList":[{"titleId":417981,"packageId":530,"packageName":"Business
         Source Corporate","packageType":"Complete","proxy":{"id":"<n>","inherited":true},"isPackageCustom":false,"vendorId":19,"vendorName":"EBSCO","locationId":1531344,"isSelected":false,"isTokenNeeded":false,"visibilityData":{"isHidden":false,"reason":""},"managedCoverageList":[{"beginCoverage":"2004-01-01","endCoverage":"2006-01-01"}],"customCoverageList":[],"coverageStatement":null,"managedEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"customEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"url":"http://search.ebscohost.com/direct.asp?db=bch&jid=15KM&scope=site","userDefinedField1":null,"userDefinedField2":null,"userDefinedField3":null,"userDefinedField4":null,"userDefinedField5":null}],"description":null,"edition":null,"isPeerReviewed":false,"contributorsList":[]}'
     http_version: 
-  recorded_at: Thu, 16 Aug 2018 18:32:45 GMT
+  recorded_at: Wed, 12 Sep 2018 18:04:34 GMT
 recorded_with: VCR 3.0.3

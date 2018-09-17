@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://okapi.frontside.io/configurations/entries?query=module=KB_EBSCO
+    uri: https://okapi.frontside.io/configurations/entries?query=module=EKB
     body:
       encoding: US-ASCII
       string: ''
@@ -27,7 +27,7 @@ http_interactions:
       Server:
       - nginx/1.13.5
       Date:
-      - Fri, 04 May 2018 19:56:32 GMT
+      - Wed, 12 Sep 2018 16:40:22 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -35,16 +35,16 @@ http_interactions:
       Connection:
       - keep-alive
       X-Okapi-Trace:
-      - 'GET mod-authtoken-1.4.1-SNAPSHOT.20 http://10.39.249.72:8081/configurations/entries..
-        : 202 1048us'
-      - 'GET mod-configuration-4.0.3-SNAPSHOT.29 http://10.39.252.104:8081/configurations/entries..
-        : 200 41588us'
+      - 'GET mod-authtoken-1.5.2-SNAPSHOT.26 http://10.39.242.252:8081/configurations/entries..
+        : 202 1349us'
+      - 'GET mod-configuration-5.0.1-SNAPSHOT.45 http://10.39.249.105:8081/configurations/entries..
+        : 200 43260us'
       Host:
       - okapi.frontside.io
       X-Real-Ip:
-      - 10.128.0.5
+      - 10.36.5.1
       X-Forwarded-For:
-      - 10.128.0.5
+      - 10.36.5.1
       X-Forwarded-Host:
       - okapi.frontside.io
       X-Forwarded-Port:
@@ -52,11 +52,11 @@ http_interactions:
       X-Forwarded-Proto:
       - https
       X-Original-Uri:
-      - "/configurations/entries?query=module=KB_EBSCO"
+      - "/configurations/entries?query=module=EKB"
       X-Scheme:
       - https
       X-Auth-Request-Redirect:
-      - "/configurations/entries?query=module=KB_EBSCO"
+      - "/configurations/entries?query=module=EKB"
       Accept:
       - application/json
       X-Okapi-Tenant:
@@ -66,15 +66,11 @@ http_interactions:
       User-Agent:
       - Ruby
       X-Okapi-Request-Id:
-      - 214254/configurations
+      - 395083/configurations
       X-Okapi-Url:
-      - http://10.39.243.220:80
-      X-Okapi-Permissions-Required:
-      - configuration.entries.collection.get
-      X-Okapi-Module-Permissions:
-      - '{"mod-authtoken-1.4.1-SNAPSHOT.20":["perms.users.get"]}'
+      - http://10.39.245.41:80
       X-Okapi-Permissions:
-      - '["configuration.entries.collection.get"]'
+      - '["configuration.entries.collection.get","configuration.entries.collection.get"]'
       X-Okapi-User-Id:
       - 1ad737b0-d847-11e6-bf26-cec0c932ce01
       X-Okapi-Token:
@@ -86,28 +82,56 @@ http_interactions:
       string: |-
         {
           "configs" : [ {
-            "id" : "9f193b46-4cc5-4c99-b09f-374fe5415673",
-            "module" : "KB_EBSCO",
-            "configName" : "api_credentials",
-            "code" : "kb.ebsco.credentials",
-            "description" : "EBSCO RM-API Credentials",
+            "id" : "efadf3d8-59c3-4508-99d4-3e36e9247d87",
+            "module" : "EKB",
+            "configName" : "api_access",
+            "code" : "kb.ebsco.url",
+            "description" : "EBSCO RM-API URL",
             "enabled" : true,
-            "value" : "customer-id=TEST_CUSTOMER_ID&api-key=TEST_API_KEY",
+            "value" : "https://api.ebsco.io",
             "metadata" : {
-              "createdDate" : "2018-03-28T14:49:56.794+0000",
+              "createdDate" : "2018-09-12T12:34:52.189+0000",
               "createdByUserId" : "1ad737b0-d847-11e6-bf26-cec0c932ce01",
-              "updatedDate" : "2018-03-28T14:49:56.794+0000",
+              "updatedDate" : "2018-09-12T12:34:52.189+0000",
+              "updatedByUserId" : "1ad737b0-d847-11e6-bf26-cec0c932ce01"
+            }
+          }, {
+            "id" : "6b24b703-243a-4261-a7bf-0336d34f8c94",
+            "module" : "EKB",
+            "configName" : "api_access",
+            "code" : "kb.ebsco.customerId",
+            "description" : "EBSCO RM-API Customer ID",
+            "enabled" : true,
+            "value" : "TEST_CUSTOMER_ID",
+            "metadata" : {
+              "createdDate" : "2018-09-12T12:34:52.466+0000",
+              "createdByUserId" : "1ad737b0-d847-11e6-bf26-cec0c932ce01",
+              "updatedDate" : "2018-09-12T12:34:52.466+0000",
+              "updatedByUserId" : "1ad737b0-d847-11e6-bf26-cec0c932ce01"
+            }
+          }, {
+            "id" : "8038c4f3-0b09-4d97-be46-8a5236ef3f2f",
+            "module" : "EKB",
+            "configName" : "api_access",
+            "code" : "kb.ebsco.apiKey",
+            "description" : "EBSCO RM-API API Key",
+            "enabled" : true,
+            "value" : "TEST_API_KEY",
+            "metadata" : {
+              "createdDate" : "2018-09-12T12:34:52.788+0000",
+              "createdByUserId" : "1ad737b0-d847-11e6-bf26-cec0c932ce01",
+              "updatedDate" : "2018-09-12T12:34:52.788+0000",
               "updatedByUserId" : "1ad737b0-d847-11e6-bf26-cec0c932ce01"
             }
           } ],
-          "totalRecords" : 1,
+          "totalRecords" : 3,
           "resultInfo" : {
-            "totalRecords" : 1,
+            "totalRecords" : 3,
             "facets" : [ ]
           }
         }
     http_version: 
-  recorded_at: Fri, 04 May 2018 19:56:32 GMT
+  recorded_at: Wed, 12 Sep 2018 16:40:22 GMT
 - request:
     method: get
     uri: https://api.ebsco.io/rm/rmaccounts/TEST_CUSTOMER_ID/vendors/18
@@ -116,7 +140,7 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - Flexirest/1.5.5
+      - Flexirest/1.7.0
       Connection:
       - Keep-Alive
       Accept:
@@ -135,29 +159,29 @@ http_interactions:
       Content-Type:
       - application/json;charset=UTF-8
       Content-Length:
-      - '1265'
+      - '1268'
       Connection:
       - keep-alive
       Date:
-      - Fri, 04 May 2018 19:56:32 GMT
+      - Wed, 12 Sep 2018 16:40:22 GMT
       X-Amzn-Requestid:
-      - 3e603197-4fd5-11e8-aa92-7f364a773251
+      - 8ae10bfa-b6aa-11e8-9606-612468af67b1
       X-Amzn-Remapped-Connection:
       - keep-alive
       X-Amz-Apigw-Id:
-      - GYIlnEqrIAMF51A=
+      - NHcqhEXRoAMFZkA=
       X-Amzn-Remapped-Date:
-      - Fri, 04 May 2018 19:56:32 GMT
+      - Wed, 12 Sep 2018 16:40:22 GMT
       X-Cache:
       - Miss from cloudfront
       Via:
-      - 1.1 96255a5b0caf50bcafcd101c1ff13691.cloudfront.net (CloudFront)
+      - 1.1 1a912d612b879ef62d1eb2f875df3326.cloudfront.net (CloudFront)
       X-Amz-Cf-Id:
-      - dIzurKEAmzL3ayYt-zAwwcW8J7Fgq8zpHRzjSxk43SUK5-xS5dgWRQ==
+      - wdsZI_OXT7BWXvH-Jl5fqt1_xul-odnyWvhMDtxq2Vzt-qCftKS9kQ==
     body:
       encoding: ASCII-8BIT
       string: !binary |-
-        eyJpc0N1c3RvbWVyIjpmYWxzZSwicGFja2FnZXNTZWxlY3RlZCI6MTYsInBhY2thZ2VzVG90YWwiOjI0NCwidmVuZG9ySWQiOjE4LCJ2ZW5kb3JOYW1lIjoiR2FsZSB8IENlbmdhZ2UiLCJwcm94eSI6eyJpZCI6IjxuPiIsImluaGVyaXRlZCI6dHJ1ZX0sInZlbmRvclRva2VuIjp7ImZhY3ROYW1lIjoiW1tnYWxlc2l0ZWlkXV0iLCJwcm9tcHQiOiIvaXR3ZWIvIiwiaGVscFRleHQiOiI8dWw+XHJcbiAgICA8bGk+RW50ZXIgeW91ciBHYWxlPHN1cD7Crjwvc3VwPiBzaXRlIElEIGluIHRoZSBzcGFjZSBwcm92aWRlZCBiZWxvdy4gVGhlIHNpdGUgSUQgbWF5IGNvbnRhaW4gYSBjb21iaW5hdGlvbiBvZiBhbHBoYS9udW1lcmljIGNoYXJhY3RlcnMsIHZhcnlpbmcgaW4gbGVuZ3RoLiA8YmxvY2txdW90ZSBzdHlsZT1cIm1hcmdpbi1yaWdodDogMHB4O1wiIGRpcj1cImx0clwiPlxyXG4gICAgPHA+wqBFeGFtcGxlOiBUaGUgc2l0ZSBJRCBpbW1lZGlhdGVseSBmb2xsb3dzIC9pdHdlYi8gaW4gYSBVUkwuIFRoZSBzaXRlIElEIGluIHRoZSBmb2xsb3dpbmcgVVJMIGlzIDxpPmFhMTFiYjIyPC9pPi4gPC9wPlxyXG4gICAgPC9ibG9ja3F1b3RlPjwvbGk+XHJcbjwvdWw+XHJcbjxibG9ja3F1b3RlIHN0eWxlPVwibWFyZ2luLXJpZ2h0OiAwcHg7XCIgZGlyPVwibHRyXCI+PGJsb2NrcXVvdGUgc3R5bGU9XCJtYXJnaW4tcmlnaHQ6IDBweDtcIiBkaXI9XCJsdHJcIj5cclxuPHA+PHNwYW4gc3R5bGU9XCJ0ZXh0LWRlY29yYXRpb246IHVuZGVybGluZTtcIj5odHRwOi8vaW5mb3RyYWMuZ2FsZWdyb3VwLmNvbS9pdHdlYi9hYTExYmIyMj9kYj1BSU08L3NwYW4+PC9wPlxyXG48L2Jsb2NrcXVvdGU+PC9ibG9ja3F1b3RlPjxiciAvPlxyXG48dWw+XHJcbiAgICA8bGk+SWYgbm8gc2l0ZSBJRCBpcyBzcGVjaWZpZWQsIHlvdXIgR2FsZSBHcm91cCBsaW5rcyBtYXkgbm90IGZ1bmN0aW9uIHByb3Blcmx5LCBhcyBHYWxlIEdyb3VwIHJlcXVpcmVzIHRoaXMgaW5mb3JtYXRpb24gZm9yIGF1dGhlbnRpY2F0aW9uLiA8L2xpPlxyXG4gICAgPGxpPklmIHlvdSBhcmUgdW5hYmxlIHRvIGxvY2F0ZSB0aGUgc2l0ZSBJRCwgcGxlYXNlIGNvbnRhY3QgR2FsZSBHcm91cC4gRm9yIGNvbnRhY3QgaW5mb3JtYXRpb24sIHZpc2l0OiA8YSBocmVmPVwiaHR0cDovL2FjY2Vzcy5nYWxlLmNvbS9hdXRoZW50aWNhdGlvbi9cIj5odHRwOi8vYWNjZXNzLmdhbGUuY29tL2F1dGhlbnRpY2F0aW9uLzwvYT4uIDwvbGk+XHJcbjwvdWw+XHJcbiIsInZhbHVlIjpudWxsfX0=
+        eyJpc0N1c3RvbWVyIjpmYWxzZSwicGFja2FnZXNTZWxlY3RlZCI6NSwicGFja2FnZXNUb3RhbCI6MjQ0LCJ2ZW5kb3JJZCI6MTgsInZlbmRvck5hbWUiOiJHYWxlIHwgQ2VuZ2FnZSIsInByb3h5Ijp7ImlkIjoiRVpQcm94eSIsImluaGVyaXRlZCI6dHJ1ZX0sInZlbmRvclRva2VuIjp7ImZhY3ROYW1lIjoiW1tnYWxlc2l0ZWlkXV0iLCJwcm9tcHQiOiIvaXR3ZWIvIiwiaGVscFRleHQiOiI8dWw+XHJcbiAgICA8bGk+RW50ZXIgeW91ciBHYWxlPHN1cD7Crjwvc3VwPiBzaXRlIElEIGluIHRoZSBzcGFjZSBwcm92aWRlZCBiZWxvdy4gVGhlIHNpdGUgSUQgbWF5IGNvbnRhaW4gYSBjb21iaW5hdGlvbiBvZiBhbHBoYS9udW1lcmljIGNoYXJhY3RlcnMsIHZhcnlpbmcgaW4gbGVuZ3RoLiA8YmxvY2txdW90ZSBzdHlsZT1cIm1hcmdpbi1yaWdodDogMHB4O1wiIGRpcj1cImx0clwiPlxyXG4gICAgPHA+wqBFeGFtcGxlOiBUaGUgc2l0ZSBJRCBpbW1lZGlhdGVseSBmb2xsb3dzIC9pdHdlYi8gaW4gYSBVUkwuIFRoZSBzaXRlIElEIGluIHRoZSBmb2xsb3dpbmcgVVJMIGlzIDxpPmFhMTFiYjIyPC9pPi4gPC9wPlxyXG4gICAgPC9ibG9ja3F1b3RlPjwvbGk+XHJcbjwvdWw+XHJcbjxibG9ja3F1b3RlIHN0eWxlPVwibWFyZ2luLXJpZ2h0OiAwcHg7XCIgZGlyPVwibHRyXCI+PGJsb2NrcXVvdGUgc3R5bGU9XCJtYXJnaW4tcmlnaHQ6IDBweDtcIiBkaXI9XCJsdHJcIj5cclxuPHA+PHNwYW4gc3R5bGU9XCJ0ZXh0LWRlY29yYXRpb246IHVuZGVybGluZTtcIj5odHRwOi8vaW5mb3RyYWMuZ2FsZWdyb3VwLmNvbS9pdHdlYi9hYTExYmIyMj9kYj1BSU08L3NwYW4+PC9wPlxyXG48L2Jsb2NrcXVvdGU+PC9ibG9ja3F1b3RlPjxiciAvPlxyXG48dWw+XHJcbiAgICA8bGk+SWYgbm8gc2l0ZSBJRCBpcyBzcGVjaWZpZWQsIHlvdXIgR2FsZSBHcm91cCBsaW5rcyBtYXkgbm90IGZ1bmN0aW9uIHByb3Blcmx5LCBhcyBHYWxlIEdyb3VwIHJlcXVpcmVzIHRoaXMgaW5mb3JtYXRpb24gZm9yIGF1dGhlbnRpY2F0aW9uLiA8L2xpPlxyXG4gICAgPGxpPklmIHlvdSBhcmUgdW5hYmxlIHRvIGxvY2F0ZSB0aGUgc2l0ZSBJRCwgcGxlYXNlIGNvbnRhY3QgR2FsZSBHcm91cC4gRm9yIGNvbnRhY3QgaW5mb3JtYXRpb24sIHZpc2l0OiA8YSBocmVmPVwiaHR0cDovL2FjY2Vzcy5nYWxlLmNvbS9hdXRoZW50aWNhdGlvbi9cIj5odHRwOi8vYWNjZXNzLmdhbGUuY29tL2F1dGhlbnRpY2F0aW9uLzwvYT4uIDwvbGk+XHJcbjwvdWw+XHJcbiIsInZhbHVlIjpudWxsfX0=
     http_version: 
-  recorded_at: Fri, 04 May 2018 19:56:32 GMT
+  recorded_at: Wed, 12 Sep 2018 16:40:22 GMT
 recorded_with: VCR 3.0.3
