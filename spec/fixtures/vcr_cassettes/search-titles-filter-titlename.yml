@@ -27,7 +27,7 @@ http_interactions:
       Server:
       - nginx/1.13.5
       Date:
-      - Wed, 12 Sep 2018 22:51:04 GMT
+      - Tue, 18 Sep 2018 17:53:57 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -36,15 +36,15 @@ http_interactions:
       - keep-alive
       X-Okapi-Trace:
       - 'GET mod-authtoken-1.5.2-SNAPSHOT.26 http://10.39.242.252:8081/configurations/entries..
-        : 202 1263us'
+        : 202 1383us'
       - 'GET mod-configuration-5.0.1-SNAPSHOT.45 http://10.39.249.105:8081/configurations/entries..
-        : 200 43609us'
+        : 200 46469us'
       Host:
       - okapi.frontside.io
       X-Real-Ip:
-      - 10.36.5.1
+      - 10.128.0.3
       X-Forwarded-For:
-      - 10.36.5.1
+      - 10.128.0.3
       X-Forwarded-Host:
       - okapi.frontside.io
       X-Forwarded-Port:
@@ -66,7 +66,7 @@ http_interactions:
       User-Agent:
       - Ruby
       X-Okapi-Request-Id:
-      - 953613/configurations
+      - 976967/configurations
       X-Okapi-Url:
       - http://10.39.245.41:80
       X-Okapi-Permissions:
@@ -82,7 +82,7 @@ http_interactions:
       string: |-
         {
           "configs" : [ {
-            "id" : "efadf3d8-59c3-4508-99d4-3e36e9247d87",
+            "id" : "0e36cf22-f6d6-4826-87ce-a68325743d11",
             "module" : "EKB",
             "configName" : "api_access",
             "code" : "kb.ebsco.url",
@@ -90,13 +90,13 @@ http_interactions:
             "enabled" : true,
             "value" : "https://api.ebsco.io",
             "metadata" : {
-              "createdDate" : "2018-09-12T12:34:52.189+0000",
+              "createdDate" : "2018-09-17T20:39:04.101+0000",
               "createdByUserId" : "1ad737b0-d847-11e6-bf26-cec0c932ce01",
-              "updatedDate" : "2018-09-12T12:34:52.189+0000",
+              "updatedDate" : "2018-09-17T20:39:04.101+0000",
               "updatedByUserId" : "1ad737b0-d847-11e6-bf26-cec0c932ce01"
             }
           }, {
-            "id" : "6b24b703-243a-4261-a7bf-0336d34f8c94",
+            "id" : "fc40a929-e838-4afd-9efb-3924c2721188",
             "module" : "EKB",
             "configName" : "api_access",
             "code" : "kb.ebsco.customerId",
@@ -104,13 +104,13 @@ http_interactions:
             "enabled" : true,
             "value" : "TEST_CUSTOMER_ID",
             "metadata" : {
-              "createdDate" : "2018-09-12T12:34:52.466+0000",
+              "createdDate" : "2018-09-17T20:39:04.304+0000",
               "createdByUserId" : "1ad737b0-d847-11e6-bf26-cec0c932ce01",
-              "updatedDate" : "2018-09-12T12:34:52.466+0000",
+              "updatedDate" : "2018-09-17T20:39:04.304+0000",
               "updatedByUserId" : "1ad737b0-d847-11e6-bf26-cec0c932ce01"
             }
           }, {
-            "id" : "8038c4f3-0b09-4d97-be46-8a5236ef3f2f",
+            "id" : "fd378b4f-f79b-4ee3-b08f-182d20ed7571",
             "module" : "EKB",
             "configName" : "api_access",
             "code" : "kb.ebsco.apiKey",
@@ -118,9 +118,9 @@ http_interactions:
             "enabled" : true,
             "value" : "TEST_API_KEY",
             "metadata" : {
-              "createdDate" : "2018-09-12T12:34:52.788+0000",
+              "createdDate" : "2018-09-17T20:39:04.501+0000",
               "createdByUserId" : "1ad737b0-d847-11e6-bf26-cec0c932ce01",
-              "updatedDate" : "2018-09-12T12:34:52.788+0000",
+              "updatedDate" : "2018-09-17T20:39:04.501+0000",
               "updatedByUserId" : "1ad737b0-d847-11e6-bf26-cec0c932ce01"
             }
           } ],
@@ -131,10 +131,10 @@ http_interactions:
           }
         }
     http_version: 
-  recorded_at: Wed, 12 Sep 2018 22:51:04 GMT
+  recorded_at: Tue, 18 Sep 2018 17:53:57 GMT
 - request:
     method: get
-    uri: https://api.ebsco.io/rm/rmaccounts/TEST_CUSTOMER_ID/titles?advancedsearch=true&count=25&offset=1&orderby=relevance&resourcetype=all&search=ebsco&searchfield=titlename&selection=all
+    uri: https://api.ebsco.io/rm/rmaccounts/TEST_CUSTOMER_ID/titles?count=25&offset=1&orderby=relevance&resourcetype=all&search=ebsco&searchfield=titlename&searchtype=advanced&selection=all
     body:
       encoding: US-ASCII
       string: ''
@@ -163,63 +163,63 @@ http_interactions:
       Connection:
       - keep-alive
       Date:
-      - Wed, 12 Sep 2018 22:51:05 GMT
+      - Tue, 18 Sep 2018 17:53:57 GMT
       X-Amzn-Requestid:
-      - 5476d9e2-b6de-11e8-9f54-b384f5c5ec9a
+      - d0ef52b8-bb6b-11e8-b269-f9582d5fbd76
       X-Amzn-Remapped-Connection:
       - close
       X-Amz-Apigw-Id:
-      - NIS96H2lIAMF1wQ=
+      - NbZEYGeyIAMF-lg=
       X-Amzn-Trace-Id:
-      - Root=1-5b999859-3ba3db589afad7599a50a31d;Sampled=1
+      - Root=1-5ba13bb5-7039db00f075ab00eaeba580;Sampled=1
       X-Application-Context:
       - resourcemanagement.knowledgebase.gatewayservice:live:8092
       X-Amzn-Remapped-Date:
-      - Wed, 12 Sep 2018 22:51:05 GMT
+      - Tue, 18 Sep 2018 17:53:57 GMT
       X-Cache:
       - Miss from cloudfront
       Via:
-      - 1.1 e848f30e8d63b5f324e9295182b986ef.cloudfront.net (CloudFront)
+      - 1.1 663b9ec2cd0b34391786d62f92365deb.cloudfront.net (CloudFront)
       X-Amz-Cf-Id:
-      - TXTw9A8_mmuOrGh6afXOOG5Y_WY2F5F8XwHnwjSzftOBaTk5mhbQvg==
+      - wXy7dqgYZVV2i7KVfKZ1PboDbnyePILtDhn8z9fF_EuVxioVjrghZA==
     body:
       encoding: UTF-8
       string: '{"totalResults":59,"titles":[{"titleId":790251,"titleName":"FRANCIS
         (EBSCO)","publisherName":"Unspecified","identifiersList":[],"subjectsList":[],"isTitleCustom":false,"pubType":"Database","contributorsList":[],"customerResourcesList":[{"titleId":790251,"packageId":4737,"packageName":"FRANCIS
         (EBSCO)","packageType":"Complete","isPackageCustom":false,"vendorId":19,"vendorName":"EBSCO","locationId":3059535,"isSelected":false,"isTokenNeeded":false,"visibilityData":{"isHidden":false,"reason":null},"managedCoverageList":[],"customCoverageList":null,"coverageStatement":null,"managedEmbargoPeriod":{"embargoUnit":null,"embargoValue":null},"customEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"url":"http://search.ebscohost.com/login.aspx?profile=ehost&defaultdb=fcs","userDefinedField1":null,"userDefinedField2":null,"userDefinedField3":null,"userDefinedField4":null,"userDefinedField5":null}]},{"titleId":480960,"titleName":"Inspec
         (EBSCO)","publisherName":"Unspecified","identifiersList":[],"subjectsList":[],"isTitleCustom":false,"pubType":"Database","contributorsList":[],"customerResourcesList":[{"titleId":480960,"packageId":2602,"packageName":"Inspec
-        (EBSCO)","packageType":"Complete","isPackageCustom":false,"vendorId":19,"vendorName":"EBSCO","locationId":1742518,"isSelected":false,"isTokenNeeded":false,"visibilityData":{"isHidden":false,"reason":null},"managedCoverageList":[],"customCoverageList":null,"coverageStatement":null,"managedEmbargoPeriod":{"embargoUnit":null,"embargoValue":null},"customEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"url":"http://search.ebscohost.com/login.aspx?authtype=cookie,ip,uid&profile=ehost&defaultdb=inh","userDefinedField1":null,"userDefinedField2":null,"userDefinedField3":null,"userDefinedField4":null,"userDefinedField5":null}]},{"titleId":482860,"titleName":"PsycCRITIQUES
-        (EBSCO)","publisherName":"EBSCO","identifiersList":[],"subjectsList":[{"type":"TLI","name":"Psychology","subject":"Psychology"}],"isTitleCustom":false,"pubType":"Database","contributorsList":[],"customerResourcesList":[{"titleId":482860,"packageId":2979,"packageName":"PsycCRITIQUES
-        (EBSCO)","packageType":"Complete","isPackageCustom":false,"vendorId":19,"vendorName":"EBSCO","locationId":1762224,"isSelected":false,"isTokenNeeded":false,"visibilityData":{"isHidden":false,"reason":null},"managedCoverageList":[],"customCoverageList":null,"coverageStatement":null,"managedEmbargoPeriod":{"embargoUnit":null,"embargoValue":null},"customEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"url":"http://search.ebscohost.com/login.aspx?authtype=cookie,ip,uid&profile=ehost&defaultdb=pvh","userDefinedField1":null,"userDefinedField2":null,"userDefinedField3":null,"userDefinedField4":null,"userDefinedField5":null}]},{"titleId":482126,"titleName":"AgeLine
+        (EBSCO)","packageType":"Complete","isPackageCustom":false,"vendorId":19,"vendorName":"EBSCO","locationId":1742518,"isSelected":false,"isTokenNeeded":false,"visibilityData":{"isHidden":false,"reason":null},"managedCoverageList":[],"customCoverageList":null,"coverageStatement":null,"managedEmbargoPeriod":{"embargoUnit":null,"embargoValue":null},"customEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"url":"http://search.ebscohost.com/login.aspx?authtype=cookie,ip,uid&profile=ehost&defaultdb=inh","userDefinedField1":null,"userDefinedField2":null,"userDefinedField3":null,"userDefinedField4":null,"userDefinedField5":null}]},{"titleId":482126,"titleName":"AgeLine
         (EBSCO)","publisherName":"Unspecified","identifiersList":[],"subjectsList":[],"isTitleCustom":false,"pubType":"Database","contributorsList":[],"customerResourcesList":[{"titleId":482126,"packageId":2699,"packageName":"AgeLine
-        (EBSCO)","packageType":"Complete","isPackageCustom":false,"vendorId":19,"vendorName":"EBSCO","locationId":1747710,"isSelected":false,"isTokenNeeded":false,"visibilityData":{"isHidden":false,"reason":null},"managedCoverageList":[],"customCoverageList":null,"coverageStatement":null,"managedEmbargoPeriod":{"embargoUnit":null,"embargoValue":null},"customEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"url":"http://search.ebscohost.com/login.aspx?authtype=cookie,ip,uid&profile=ehost&defaultdb=gnh","userDefinedField1":null,"userDefinedField2":null,"userDefinedField3":null,"userDefinedField4":null,"userDefinedField5":null}]},{"titleId":480631,"titleName":"ERIC
+        (EBSCO)","packageType":"Complete","isPackageCustom":false,"vendorId":19,"vendorName":"EBSCO","locationId":1747710,"isSelected":false,"isTokenNeeded":false,"visibilityData":{"isHidden":false,"reason":null},"managedCoverageList":[],"customCoverageList":null,"coverageStatement":null,"managedEmbargoPeriod":{"embargoUnit":null,"embargoValue":null},"customEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"url":"http://search.ebscohost.com/login.aspx?authtype=cookie,ip,uid&profile=ehost&defaultdb=gnh","userDefinedField1":null,"userDefinedField2":null,"userDefinedField3":null,"userDefinedField4":null,"userDefinedField5":null}]},{"titleId":482860,"titleName":"PsycCRITIQUES
+        (EBSCO)","publisherName":"EBSCO","identifiersList":[],"subjectsList":[{"type":"TLI","name":"Psychology","subject":"Psychology"}],"isTitleCustom":false,"pubType":"Database","contributorsList":[],"customerResourcesList":[{"titleId":482860,"packageId":2979,"packageName":"PsycCRITIQUES
+        (EBSCO)","packageType":"Complete","isPackageCustom":false,"vendorId":19,"vendorName":"EBSCO","locationId":1762224,"isSelected":false,"isTokenNeeded":false,"visibilityData":{"isHidden":false,"reason":null},"managedCoverageList":[],"customCoverageList":null,"coverageStatement":null,"managedEmbargoPeriod":{"embargoUnit":null,"embargoValue":null},"customEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"url":"http://search.ebscohost.com/login.aspx?authtype=cookie,ip,uid&profile=ehost&defaultdb=pvh","userDefinedField1":null,"userDefinedField2":null,"userDefinedField3":null,"userDefinedField4":null,"userDefinedField5":null}]},{"titleId":480631,"titleName":"ERIC
         (EBSCO)","publisherName":"Unspecified","identifiersList":[],"subjectsList":[{"type":"TLI","name":"Literature
         & Writing (General)","subject":"Literature & Writing (General)"}],"isTitleCustom":false,"pubType":"Database","contributorsList":[],"customerResourcesList":[{"titleId":480631,"packageId":2564,"packageName":"ERIC
-        (EBSCO)","packageType":"Complete","isPackageCustom":false,"vendorId":19,"vendorName":"EBSCO","locationId":1739090,"isSelected":true,"isTokenNeeded":false,"visibilityData":{"isHidden":false,"reason":null},"managedCoverageList":[],"customCoverageList":null,"coverageStatement":null,"managedEmbargoPeriod":{"embargoUnit":null,"embargoValue":null},"customEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"url":"http://search.ebscohost.com/login.aspx?authtype=cookie,ip,uid&profile=ehost&defaultdb=eric","userDefinedField1":null,"userDefinedField2":null,"userDefinedField3":null,"userDefinedField4":null,"userDefinedField5":null}]},{"titleId":480660,"titleName":"ATLA  (EBSCO)","publisherName":"Unspecified","identifiersList":[],"subjectsList":[],"isTitleCustom":false,"pubType":"Database","contributorsList":[],"customerResourcesList":[{"titleId":480660,"packageId":2577,"packageName":"ATLA
-        Religion Database (EBSCO)","packageType":"Complete","isPackageCustom":false,"vendorId":19,"vendorName":"EBSCO","locationId":1739177,"isSelected":false,"isTokenNeeded":false,"visibilityData":{"isHidden":false,"reason":null},"managedCoverageList":[],"customCoverageList":null,"coverageStatement":null,"managedEmbargoPeriod":{"embargoUnit":null,"embargoValue":null},"customEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"url":"http://search.ebscohost.com/login.aspx?authtype=cookie,ip,uid&profile=ehost&defaultdb=reh","userDefinedField1":null,"userDefinedField2":null,"userDefinedField3":null,"userDefinedField4":null,"userDefinedField5":null}]},{"titleId":482070,"titleName":"Agricola
-        (EBSCO)","publisherName":"Unspecified","identifiersList":[],"subjectsList":[],"isTitleCustom":false,"pubType":"Database","contributorsList":[],"customerResourcesList":[{"titleId":482070,"packageId":2681,"packageName":"Agricola
-        (EBSCO)","packageType":"Complete","isPackageCustom":false,"vendorId":19,"vendorName":"EBSCO","locationId":1747557,"isSelected":false,"isTokenNeeded":false,"visibilityData":{"isHidden":false,"reason":null},"managedCoverageList":[],"customCoverageList":null,"coverageStatement":null,"managedEmbargoPeriod":{"embargoUnit":null,"embargoValue":null},"customEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"url":"http://search.ebscohost.com/login.aspx?authtype=cookie,ip,uid&profile=ehost&defaultdb=agr","userDefinedField1":null,"userDefinedField2":null,"userDefinedField3":null,"userDefinedField4":null,"userDefinedField5":null}]},{"titleId":1353080,"titleName":"EBSCO
+        (EBSCO)","packageType":"Complete","isPackageCustom":false,"vendorId":19,"vendorName":"EBSCO","locationId":1739090,"isSelected":true,"isTokenNeeded":false,"visibilityData":{"isHidden":false,"reason":null},"managedCoverageList":[],"customCoverageList":null,"coverageStatement":null,"managedEmbargoPeriod":{"embargoUnit":null,"embargoValue":null},"customEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"url":"http://search.ebscohost.com/login.aspx?authtype=cookie,ip,uid&profile=ehost&defaultdb=eric","userDefinedField1":null,"userDefinedField2":null,"userDefinedField3":null,"userDefinedField4":null,"userDefinedField5":null}]},{"titleId":609101,"titleName":"EconLit
+        (EBSCO)","publisherName":"Unspecified","identifiersList":[],"subjectsList":[],"isTitleCustom":false,"pubType":"Database","contributorsList":[],"customerResourcesList":[{"titleId":609101,"packageId":4054,"packageName":"EconLit
+        (EBSCO)","packageType":"Complete","isPackageCustom":false,"vendorId":19,"vendorName":"EBSCO","locationId":2414598,"isSelected":false,"isTokenNeeded":false,"visibilityData":{"isHidden":false,"reason":null},"managedCoverageList":[],"customCoverageList":null,"coverageStatement":null,"managedEmbargoPeriod":{"embargoUnit":null,"embargoValue":null},"customEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"url":"http://search.ebscohost.com/login.aspx?authtype=cookie,ip,uid&profile=ehost&defaultdb=ecn","userDefinedField1":null,"userDefinedField2":null,"userDefinedField3":null,"userDefinedField4":null,"userDefinedField5":null}]},{"titleId":1443437,"titleName":"PsycTESTS
+        (EBSCO)","publisherName":"Unspecified","identifiersList":[],"subjectsList":[{"type":"TLI","name":"Psychology","subject":"Psychology"}],"isTitleCustom":false,"pubType":"Database","contributorsList":[],"customerResourcesList":[{"titleId":1443437,"packageId":6657,"packageName":"PsycTESTS
+        (EBSCO)","packageType":"Complete","isPackageCustom":false,"vendorId":19,"vendorName":"EBSCO","locationId":4864232,"isSelected":false,"isTokenNeeded":false,"visibilityData":{"isHidden":false,"reason":null},"managedCoverageList":[],"customCoverageList":null,"coverageStatement":null,"managedEmbargoPeriod":{"embargoUnit":null,"embargoValue":null},"customEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"url":"http://search.ebscohost.com/login.aspx?authtype=cookie,ip,uid&profile=ehost&defaultdb=psyh","userDefinedField1":null,"userDefinedField2":null,"userDefinedField3":null,"userDefinedField4":null,"userDefinedField5":null}]},{"titleId":1353080,"titleName":"EBSCO
         Citations","publisherName":"Unspecified","identifiersList":[],"subjectsList":[],"isTitleCustom":false,"pubType":"Database","contributorsList":[],"customerResourcesList":[{"titleId":1353080,"packageId":6027,"packageName":"EBSCO
         Citations","packageType":"Complete","isPackageCustom":false,"vendorId":19,"vendorName":"EBSCO","locationId":4474341,"isSelected":true,"isTokenNeeded":false,"visibilityData":{"isHidden":false,"reason":null},"managedCoverageList":[],"customCoverageList":null,"coverageStatement":null,"managedEmbargoPeriod":{"embargoUnit":null,"embargoValue":null},"customEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"url":"http://search.ebscohost.com","userDefinedField1":null,"userDefinedField2":null,"userDefinedField3":null,"userDefinedField4":null,"userDefinedField5":null}]},{"titleId":481131,"titleName":"GeoRef
         (EBSCO)","publisherName":"Unspecified","identifiersList":[],"subjectsList":[],"isTitleCustom":false,"pubType":"Database","contributorsList":[],"customerResourcesList":[{"titleId":481131,"packageId":2616,"packageName":"GeoRef
         (EBSCO)","packageType":"Complete","isPackageCustom":false,"vendorId":19,"vendorName":"EBSCO","locationId":1743052,"isSelected":false,"isTokenNeeded":false,"visibilityData":{"isHidden":false,"reason":null},"managedCoverageList":[],"customCoverageList":null,"coverageStatement":null,"managedEmbargoPeriod":{"embargoUnit":null,"embargoValue":null},"customEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"url":"http://search.ebscohost.com/login.aspx?authtype=cookie,ip,uid&profile=ehost&defaultdb=geh","userDefinedField1":null,"userDefinedField2":null,"userDefinedField3":null,"userDefinedField4":null,"userDefinedField5":null}]},{"titleId":790250,"titleName":"PASCAL
         (EBSCO)","publisherName":"Unspecified","identifiersList":[],"subjectsList":[],"isTitleCustom":false,"pubType":"Database","contributorsList":[],"customerResourcesList":[{"titleId":790250,"packageId":4736,"packageName":"PASCAL
-        (EBSCO)","packageType":"Complete","isPackageCustom":false,"vendorId":19,"vendorName":"EBSCO","locationId":3059534,"isSelected":false,"isTokenNeeded":false,"visibilityData":{"isHidden":false,"reason":null},"managedCoverageList":[],"customCoverageList":null,"coverageStatement":null,"managedEmbargoPeriod":{"embargoUnit":null,"embargoValue":null},"customEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"url":"http://search.ebscohost.com/login.aspx?authtype=cookie,ip,uid&profile=ehost&defaultdb=pcl","userDefinedField1":null,"userDefinedField2":null,"userDefinedField3":null,"userDefinedField4":null,"userDefinedField5":null}]},{"titleId":481536,"titleName":"MEDLINE
+        (EBSCO)","packageType":"Complete","isPackageCustom":false,"vendorId":19,"vendorName":"EBSCO","locationId":3059534,"isSelected":false,"isTokenNeeded":false,"visibilityData":{"isHidden":false,"reason":null},"managedCoverageList":[],"customCoverageList":null,"coverageStatement":null,"managedEmbargoPeriod":{"embargoUnit":null,"embargoValue":null},"customEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"url":"http://search.ebscohost.com/login.aspx?authtype=cookie,ip,uid&profile=ehost&defaultdb=pcl","userDefinedField1":null,"userDefinedField2":null,"userDefinedField3":null,"userDefinedField4":null,"userDefinedField5":null}]},{"titleId":480660,"titleName":"ATLA  (EBSCO)","publisherName":"Unspecified","identifiersList":[],"subjectsList":[],"isTitleCustom":false,"pubType":"Database","contributorsList":[],"customerResourcesList":[{"titleId":480660,"packageId":2577,"packageName":"ATLA
+        Religion Database (EBSCO)","packageType":"Complete","isPackageCustom":false,"vendorId":19,"vendorName":"EBSCO","locationId":1739177,"isSelected":false,"isTokenNeeded":false,"visibilityData":{"isHidden":false,"reason":null},"managedCoverageList":[],"customCoverageList":null,"coverageStatement":null,"managedEmbargoPeriod":{"embargoUnit":null,"embargoValue":null},"customEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"url":"http://search.ebscohost.com/login.aspx?authtype=cookie,ip,uid&profile=ehost&defaultdb=reh","userDefinedField1":null,"userDefinedField2":null,"userDefinedField3":null,"userDefinedField4":null,"userDefinedField5":null}]},{"titleId":481536,"titleName":"MEDLINE
         (EBSCO)","publisherName":"Unspecified","identifiersList":[],"subjectsList":[{"type":"TLI","name":"Health
         & Medicine (General)","subject":"Health & Medicine (General)"}],"isTitleCustom":false,"pubType":"Database","contributorsList":[],"customerResourcesList":[{"titleId":481536,"packageId":2641,"packageName":"MEDLINE
-        (EBSCO)","packageType":"Complete","isPackageCustom":false,"vendorId":19,"vendorName":"EBSCO","locationId":1746035,"isSelected":true,"isTokenNeeded":false,"visibilityData":{"isHidden":false,"reason":null},"managedCoverageList":[],"customCoverageList":null,"coverageStatement":null,"managedEmbargoPeriod":{"embargoUnit":null,"embargoValue":null},"customEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"url":"http://search.ebscohost.com/login.aspx?authtype=cookie,ip,uid&profile=ehost&defaultdb=cmedm","userDefinedField1":null,"userDefinedField2":null,"userDefinedField3":null,"userDefinedField4":null,"userDefinedField5":null}]},{"titleId":1443437,"titleName":"PsycTESTS
-        (EBSCO)","publisherName":"Unspecified","identifiersList":[],"subjectsList":[{"type":"TLI","name":"Psychology","subject":"Psychology"}],"isTitleCustom":false,"pubType":"Database","contributorsList":[],"customerResourcesList":[{"titleId":1443437,"packageId":6657,"packageName":"PsycTESTS
-        (EBSCO)","packageType":"Complete","isPackageCustom":false,"vendorId":19,"vendorName":"EBSCO","locationId":4864232,"isSelected":false,"isTokenNeeded":false,"visibilityData":{"isHidden":false,"reason":null},"managedCoverageList":[],"customCoverageList":null,"coverageStatement":null,"managedEmbargoPeriod":{"embargoUnit":null,"embargoValue":null},"customEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"url":"http://search.ebscohost.com/login.aspx?authtype=cookie,ip,uid&profile=ehost&defaultdb=psyh","userDefinedField1":null,"userDefinedField2":null,"userDefinedField3":null,"userDefinedField4":null,"userDefinedField5":null}]},{"titleId":609101,"titleName":"EconLit
-        (EBSCO)","publisherName":"Unspecified","identifiersList":[],"subjectsList":[],"isTitleCustom":false,"pubType":"Database","contributorsList":[],"customerResourcesList":[{"titleId":609101,"packageId":4054,"packageName":"EconLit
-        (EBSCO)","packageType":"Complete","isPackageCustom":false,"vendorId":19,"vendorName":"EBSCO","locationId":2414598,"isSelected":false,"isTokenNeeded":false,"visibilityData":{"isHidden":false,"reason":null},"managedCoverageList":[],"customCoverageList":null,"coverageStatement":null,"managedEmbargoPeriod":{"embargoUnit":null,"embargoValue":null},"customEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"url":"http://search.ebscohost.com/login.aspx?authtype=cookie,ip,uid&profile=ehost&defaultdb=ecn","userDefinedField1":null,"userDefinedField2":null,"userDefinedField3":null,"userDefinedField4":null,"userDefinedField5":null}]},{"titleId":482361,"titleName":"CAB
+        (EBSCO)","packageType":"Complete","isPackageCustom":false,"vendorId":19,"vendorName":"EBSCO","locationId":1746035,"isSelected":true,"isTokenNeeded":false,"visibilityData":{"isHidden":false,"reason":null},"managedCoverageList":[],"customCoverageList":null,"coverageStatement":null,"managedEmbargoPeriod":{"embargoUnit":null,"embargoValue":null},"customEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"url":"http://search.ebscohost.com/login.aspx?authtype=cookie,ip,uid&profile=ehost&defaultdb=cmedm","userDefinedField1":null,"userDefinedField2":null,"userDefinedField3":null,"userDefinedField4":null,"userDefinedField5":null}]},{"titleId":482070,"titleName":"Agricola
+        (EBSCO)","publisherName":"Unspecified","identifiersList":[],"subjectsList":[],"isTitleCustom":false,"pubType":"Database","contributorsList":[],"customerResourcesList":[{"titleId":482070,"packageId":2681,"packageName":"Agricola
+        (EBSCO)","packageType":"Complete","isPackageCustom":false,"vendorId":19,"vendorName":"EBSCO","locationId":1747557,"isSelected":false,"isTokenNeeded":false,"visibilityData":{"isHidden":false,"reason":null},"managedCoverageList":[],"customCoverageList":null,"coverageStatement":null,"managedEmbargoPeriod":{"embargoUnit":null,"embargoValue":null},"customEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"url":"http://search.ebscohost.com/login.aspx?authtype=cookie,ip,uid&profile=ehost&defaultdb=agr","userDefinedField1":null,"userDefinedField2":null,"userDefinedField3":null,"userDefinedField4":null,"userDefinedField5":null}]},{"titleId":482361,"titleName":"CAB
         Abstracts (EBSCO)","publisherName":"Unspecified","identifiersList":[],"subjectsList":[],"isTitleCustom":false,"pubType":"Database","contributorsList":[],"customerResourcesList":[{"titleId":482361,"packageId":2854,"packageName":"CAB
         Abstracts (EBSCO)","packageType":"Complete","isPackageCustom":false,"vendorId":19,"vendorName":"EBSCO","locationId":1753099,"isSelected":false,"isTokenNeeded":false,"visibilityData":{"isHidden":false,"reason":null},"managedCoverageList":[],"customCoverageList":null,"coverageStatement":null,"managedEmbargoPeriod":{"embargoUnit":null,"embargoValue":null},"customEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"url":"http://search.ebscohost.com/login.aspx?authtype=cookie,ip,uid&profile=ehost&defaultdb=lah","userDefinedField1":null,"userDefinedField2":null,"userDefinedField3":null,"userDefinedField4":null,"userDefinedField5":null}]},{"titleId":480396,"titleName":"Historical
         Abstracts (EBSCO)","publisherName":"Unspecified","identifiersList":[],"subjectsList":[],"isTitleCustom":false,"pubType":"Database","contributorsList":[],"customerResourcesList":[{"titleId":480396,"packageId":2526,"packageName":"Historical
-        Abstracts (EBSCO)","packageType":"Complete","isPackageCustom":false,"vendorId":19,"vendorName":"EBSCO","locationId":1738130,"isSelected":false,"isTokenNeeded":false,"visibilityData":{"isHidden":false,"reason":null},"managedCoverageList":[],"customCoverageList":null,"coverageStatement":null,"managedEmbargoPeriod":{"embargoUnit":null,"embargoValue":null},"customEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"url":"http://search.ebscohost.com/login.aspx?authtype=cookie,ip,uid&profile=ehost&defaultdb=hia","userDefinedField1":null,"userDefinedField2":null,"userDefinedField3":null,"userDefinedField4":null,"userDefinedField5":null}]},{"titleId":480716,"titleName":"Polymer
-        Library (EBSCO)","publisherName":"Unspecified","identifiersList":[],"subjectsList":[],"isTitleCustom":false,"pubType":"Database","contributorsList":[],"customerResourcesList":[{"titleId":480716,"packageId":2585,"packageName":"Polymer
-        Library (EBSCO)","packageType":"Complete","isPackageCustom":false,"vendorId":19,"vendorName":"EBSCO","locationId":1739890,"isSelected":false,"isTokenNeeded":false,"visibilityData":{"isHidden":false,"reason":null},"managedCoverageList":[],"customCoverageList":null,"coverageStatement":null,"managedEmbargoPeriod":{"embargoUnit":null,"embargoValue":null},"customEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"url":"http://search.ebscohost.com/login.aspx?authtype=cookie,ip,uid&profile=ehost&defaultdb=ply","userDefinedField1":null,"userDefinedField2":null,"userDefinedField3":null,"userDefinedField4":null,"userDefinedField5":null}]},{"titleId":482136,"titleName":"Biological
-        Abstracts (EBSCO)","publisherName":"Unspecified","identifiersList":[],"subjectsList":[],"isTitleCustom":false,"pubType":"Database","contributorsList":[],"customerResourcesList":[{"titleId":482136,"packageId":2706,"packageName":"Biological
-        Abstracts (EBSCO)","packageType":"Complete","isPackageCustom":false,"vendorId":19,"vendorName":"EBSCO","locationId":1747755,"isSelected":false,"isTokenNeeded":false,"visibilityData":{"isHidden":false,"reason":null},"managedCoverageList":[],"customCoverageList":null,"coverageStatement":null,"managedEmbargoPeriod":{"embargoUnit":null,"embargoValue":null},"customEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"url":"http://search.ebscohost.com/login.aspx?authtype=cookie,ip,uid&profile=ehost&defaultdb=bxh","userDefinedField1":null,"userDefinedField2":null,"userDefinedField3":null,"userDefinedField4":null,"userDefinedField5":null}]},{"titleId":480704,"titleName":"Philosopher''s
+        Abstracts (EBSCO)","packageType":"Complete","isPackageCustom":false,"vendorId":19,"vendorName":"EBSCO","locationId":1738130,"isSelected":false,"isTokenNeeded":false,"visibilityData":{"isHidden":false,"reason":null},"managedCoverageList":[],"customCoverageList":null,"coverageStatement":null,"managedEmbargoPeriod":{"embargoUnit":null,"embargoValue":null},"customEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"url":"http://search.ebscohost.com/login.aspx?authtype=cookie,ip,uid&profile=ehost&defaultdb=hia","userDefinedField1":null,"userDefinedField2":null,"userDefinedField3":null,"userDefinedField4":null,"userDefinedField5":null}]},{"titleId":482173,"titleName":"Global
+        Health (EBSCO)","publisherName":"Unspecified","identifiersList":[],"subjectsList":[],"isTitleCustom":false,"pubType":"Database","contributorsList":[],"customerResourcesList":[{"titleId":482173,"packageId":2731,"packageName":"Global
+        Health (EBSCO)","packageType":"Complete","isPackageCustom":false,"vendorId":19,"vendorName":"EBSCO","locationId":1747851,"isSelected":false,"isTokenNeeded":false,"visibilityData":{"isHidden":false,"reason":null},"managedCoverageList":[],"customCoverageList":null,"coverageStatement":null,"managedEmbargoPeriod":{"embargoUnit":null,"embargoValue":null},"customEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"url":"http://search.ebscohost.com/login.aspx?authtype=cookie,ip,uid&profile=ehost&defaultdb=lhh","userDefinedField1":null,"userDefinedField2":null,"userDefinedField3":null,"userDefinedField4":null,"userDefinedField5":null}]},{"titleId":796256,"titleName":"EBSCO
+        Discovery Service","publisherName":"EBSCO","identifiersList":[],"subjectsList":[],"isTitleCustom":false,"pubType":"Database","contributorsList":[],"customerResourcesList":[{"titleId":796256,"packageId":4841,"packageName":"EBSCO
+        Discovery Service","packageType":"Complete","isPackageCustom":false,"vendorId":19,"vendorName":"EBSCO","locationId":3086385,"isSelected":true,"isTokenNeeded":false,"visibilityData":{"isHidden":false,"reason":null},"managedCoverageList":[],"customCoverageList":null,"coverageStatement":null,"managedEmbargoPeriod":{"embargoUnit":null,"embargoValue":null},"customEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"url":"http://search.ebscohost.com/login.aspx?authtype=cookie,ip,uid&profile=eds","userDefinedField1":null,"userDefinedField2":null,"userDefinedField3":null,"userDefinedField4":null,"userDefinedField5":null}]},{"titleId":480704,"titleName":"Philosopher''s
         Index (EBSCO)","publisherName":"Unspecified","identifiersList":[],"subjectsList":[],"isTitleCustom":false,"pubType":"Database","contributorsList":[],"customerResourcesList":[{"titleId":480704,"packageId":2580,"packageName":"Philosopher''s
         Index (EBSCO)","packageType":"Complete","isPackageCustom":false,"vendorId":19,"vendorName":"EBSCO","locationId":1739359,"isSelected":false,"isTokenNeeded":false,"visibilityData":{"isHidden":false,"reason":null},"managedCoverageList":[],"customCoverageList":null,"coverageStatement":null,"managedEmbargoPeriod":{"embargoUnit":null,"embargoValue":null},"customEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"url":"http://search.ebscohost.com/login.aspx?authtype=cookie,ip,uid&profile=ehost&defaultdb=pix","userDefinedField1":null,"userDefinedField2":null,"userDefinedField3":null,"userDefinedField4":null,"userDefinedField5":null}]},{"titleId":928371,"titleName":"World
         Textiles (EBSCO)","publisherName":"Unspecified","identifiersList":[],"subjectsList":[],"isTitleCustom":false,"pubType":"Database","contributorsList":[],"customerResourcesList":[{"titleId":928371,"packageId":5208,"packageName":"World
@@ -227,15 +227,15 @@ http_interactions:
         Abstracts (EBSCO)","publisherName":"Unspecified","identifiersList":[],"subjectsList":[],"isTitleCustom":false,"pubType":"Database","contributorsList":[],"customerResourcesList":[{"titleId":665815,"packageId":4240,"packageName":"Communication
         Abstracts (EBSCO)","packageType":"Complete","isPackageCustom":false,"vendorId":19,"vendorName":"EBSCO","locationId":2603586,"isSelected":false,"isTokenNeeded":false,"visibilityData":{"isHidden":false,"reason":null},"managedCoverageList":[],"customCoverageList":null,"coverageStatement":null,"managedEmbargoPeriod":{"embargoUnit":null,"embargoValue":null},"customEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"url":"http://search.ebscohost.com/login.aspx?authtype=cookie,ip,uid&profile=ehost&defaultdb=cax","userDefinedField1":null,"userDefinedField2":null,"userDefinedField3":null,"userDefinedField4":null,"userDefinedField5":null}]},{"titleId":1825502,"titleName":"AMA
         Archive (Ebsco)","publisherName":"EBSCO","identifiersList":[],"subjectsList":[],"isTitleCustom":false,"pubType":"Database","contributorsList":[],"customerResourcesList":[{"titleId":1825502,"packageId":7377,"packageName":"AMA
-        Archive (EBSCO)","packageType":"Complete","isPackageCustom":false,"vendorId":19,"vendorName":"EBSCO","locationId":5755366,"isSelected":false,"isTokenNeeded":false,"visibilityData":{"isHidden":false,"reason":null},"managedCoverageList":[],"customCoverageList":null,"coverageStatement":null,"managedEmbargoPeriod":{"embargoUnit":null,"embargoValue":null},"customEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"url":"http://search.ebscohost.com/login.aspx?authtype=cookie,ip,uid&profile=ehost&defaultdb=veh","userDefinedField1":null,"userDefinedField2":null,"userDefinedField3":null,"userDefinedField4":null,"userDefinedField5":null}]},{"titleId":480827,"titleName":"Index
+        Archive (EBSCO)","packageType":"Complete","isPackageCustom":false,"vendorId":19,"vendorName":"EBSCO","locationId":5755366,"isSelected":false,"isTokenNeeded":false,"visibilityData":{"isHidden":false,"reason":null},"managedCoverageList":[],"customCoverageList":null,"coverageStatement":null,"managedEmbargoPeriod":{"embargoUnit":null,"embargoValue":null},"customEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"url":"http://search.ebscohost.com/login.aspx?authtype=cookie,ip,uid&profile=ehost&defaultdb=veh","userDefinedField1":null,"userDefinedField2":null,"userDefinedField3":null,"userDefinedField4":null,"userDefinedField5":null}]},{"titleId":480716,"titleName":"Polymer
+        Library (EBSCO)","publisherName":"Unspecified","identifiersList":[],"subjectsList":[],"isTitleCustom":false,"pubType":"Database","contributorsList":[],"customerResourcesList":[{"titleId":480716,"packageId":2585,"packageName":"Polymer
+        Library (EBSCO)","packageType":"Complete","isPackageCustom":false,"vendorId":19,"vendorName":"EBSCO","locationId":1739890,"isSelected":false,"isTokenNeeded":false,"visibilityData":{"isHidden":false,"reason":null},"managedCoverageList":[],"customCoverageList":null,"coverageStatement":null,"managedEmbargoPeriod":{"embargoUnit":null,"embargoValue":null},"customEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"url":"http://search.ebscohost.com/login.aspx?authtype=cookie,ip,uid&profile=ehost&defaultdb=ply","userDefinedField1":null,"userDefinedField2":null,"userDefinedField3":null,"userDefinedField4":null,"userDefinedField5":null}]},{"titleId":480827,"titleName":"Index
         Islamicus (EBSCO)","publisherName":"Unspecified","identifiersList":[],"subjectsList":[{"type":"TLI","name":"Islam","subject":"Islam"}],"isTitleCustom":false,"pubType":"Database","contributorsList":[],"customerResourcesList":[{"titleId":480827,"packageId":2595,"packageName":"Index
-        Islamicus (EBSCO)","packageType":"Complete","isPackageCustom":false,"vendorId":19,"vendorName":"EBSCO","locationId":1742356,"isSelected":false,"isTokenNeeded":false,"visibilityData":{"isHidden":false,"reason":null},"managedCoverageList":[],"customCoverageList":null,"coverageStatement":null,"managedEmbargoPeriod":{"embargoUnit":null,"embargoValue":null},"customEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"url":"http://search.ebscohost.com/login.aspx?authtype=cookie,ip,uid&profile=ehost&defaultdb=ich","userDefinedField1":null,"userDefinedField2":null,"userDefinedField3":null,"userDefinedField4":null,"userDefinedField5":null}]},{"titleId":1375042,"titleName":"Anthropological
+        Islamicus (EBSCO)","packageType":"Complete","isPackageCustom":false,"vendorId":19,"vendorName":"EBSCO","locationId":1742356,"isSelected":false,"isTokenNeeded":false,"visibilityData":{"isHidden":false,"reason":null},"managedCoverageList":[],"customCoverageList":null,"coverageStatement":null,"managedEmbargoPeriod":{"embargoUnit":null,"embargoValue":null},"customEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"url":"http://search.ebscohost.com/login.aspx?authtype=cookie,ip,uid&profile=ehost&defaultdb=ich","userDefinedField1":null,"userDefinedField2":null,"userDefinedField3":null,"userDefinedField4":null,"userDefinedField5":null}]},{"titleId":482136,"titleName":"Biological
+        Abstracts (EBSCO)","publisherName":"Unspecified","identifiersList":[],"subjectsList":[],"isTitleCustom":false,"pubType":"Database","contributorsList":[],"customerResourcesList":[{"titleId":482136,"packageId":2706,"packageName":"Biological
+        Abstracts (EBSCO)","packageType":"Complete","isPackageCustom":false,"vendorId":19,"vendorName":"EBSCO","locationId":1747755,"isSelected":false,"isTokenNeeded":false,"visibilityData":{"isHidden":false,"reason":null},"managedCoverageList":[],"customCoverageList":null,"coverageStatement":null,"managedEmbargoPeriod":{"embargoUnit":null,"embargoValue":null},"customEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"url":"http://search.ebscohost.com/login.aspx?authtype=cookie,ip,uid&profile=ehost&defaultdb=bxh","userDefinedField1":null,"userDefinedField2":null,"userDefinedField3":null,"userDefinedField4":null,"userDefinedField5":null}]},{"titleId":1375042,"titleName":"Anthropological
         Literature (EBSCO)","publisherName":"Unspecified","identifiersList":[],"subjectsList":[],"isTitleCustom":false,"pubType":"Database","contributorsList":[],"customerResourcesList":[{"titleId":1375042,"packageId":6108,"packageName":"Anthropological
-        Literature (EBSCO)","packageType":"Complete","isPackageCustom":false,"vendorId":19,"vendorName":"EBSCO","locationId":4533540,"isSelected":false,"isTokenNeeded":false,"visibilityData":{"isHidden":false,"reason":null},"managedCoverageList":[],"customCoverageList":null,"coverageStatement":null,"managedEmbargoPeriod":{"embargoUnit":null,"embargoValue":null},"customEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"url":"http://search.ebscohost.com/login.aspx?authtype=cookie,ip,uid&profile=ehost&defaultdb=anl","userDefinedField1":null,"userDefinedField2":null,"userDefinedField3":null,"userDefinedField4":null,"userDefinedField5":null}]},{"titleId":482173,"titleName":"Global
-        Health (EBSCO)","publisherName":"Unspecified","identifiersList":[],"subjectsList":[],"isTitleCustom":false,"pubType":"Database","contributorsList":[],"customerResourcesList":[{"titleId":482173,"packageId":2731,"packageName":"Global
-        Health (EBSCO)","packageType":"Complete","isPackageCustom":false,"vendorId":19,"vendorName":"EBSCO","locationId":1747851,"isSelected":false,"isTokenNeeded":false,"visibilityData":{"isHidden":false,"reason":null},"managedCoverageList":[],"customCoverageList":null,"coverageStatement":null,"managedEmbargoPeriod":{"embargoUnit":null,"embargoValue":null},"customEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"url":"http://search.ebscohost.com/login.aspx?authtype=cookie,ip,uid&profile=ehost&defaultdb=lhh","userDefinedField1":null,"userDefinedField2":null,"userDefinedField3":null,"userDefinedField4":null,"userDefinedField5":null}]},{"titleId":796256,"titleName":"EBSCO
-        Discovery Service","publisherName":"EBSCO","identifiersList":[],"subjectsList":[],"isTitleCustom":false,"pubType":"Database","contributorsList":[],"customerResourcesList":[{"titleId":796256,"packageId":4841,"packageName":"EBSCO
-        Discovery Service","packageType":"Complete","isPackageCustom":false,"vendorId":19,"vendorName":"EBSCO","locationId":3086385,"isSelected":true,"isTokenNeeded":false,"visibilityData":{"isHidden":false,"reason":null},"managedCoverageList":[],"customCoverageList":null,"coverageStatement":null,"managedEmbargoPeriod":{"embargoUnit":null,"embargoValue":null},"customEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"url":"http://search.ebscohost.com/login.aspx?authtype=cookie,ip,uid&profile=eds","userDefinedField1":null,"userDefinedField2":null,"userDefinedField3":null,"userDefinedField4":null,"userDefinedField5":null}]}]}'
+        Literature (EBSCO)","packageType":"Complete","isPackageCustom":false,"vendorId":19,"vendorName":"EBSCO","locationId":4533540,"isSelected":false,"isTokenNeeded":false,"visibilityData":{"isHidden":false,"reason":null},"managedCoverageList":[],"customCoverageList":null,"coverageStatement":null,"managedEmbargoPeriod":{"embargoUnit":null,"embargoValue":null},"customEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"url":"http://search.ebscohost.com/login.aspx?authtype=cookie,ip,uid&profile=ehost&defaultdb=anl","userDefinedField1":null,"userDefinedField2":null,"userDefinedField3":null,"userDefinedField4":null,"userDefinedField5":null}]}]}'
     http_version: 
-  recorded_at: Wed, 12 Sep 2018 22:51:05 GMT
+  recorded_at: Tue, 18 Sep 2018 17:53:58 GMT
 recorded_with: VCR 3.0.3
