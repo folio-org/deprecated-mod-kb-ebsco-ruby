@@ -373,9 +373,8 @@ RSpec.describe 'Titles', type: :request do
       expect(response).to have_http_status(200)
       expect(json_n.data.length).to equal(25)
       expect(json_n.data[6].id).to eq('3119726')
-      expect(json_n.data[6].attributes.identifiers.length).to eq(2)
-      expect(json_n.data[6].attributes.identifiers[0].subtype).to eq('Empty')
-      expect(json_n.data[6].attributes.identifiers[1].subtype).to eq('Online')
+      expect(json_n.data[6].attributes.identifiers.length).to eq(1)
+      expect(json_n.data[6].attributes.identifiers[0].subtype).to eq('Online')
     end
   end
 
@@ -409,9 +408,9 @@ RSpec.describe 'Titles', type: :request do
 
     it 'returns identifiers as human readable types and subtypes' do
       expect(json.data.attributes.identifiers).to include(
-        'id' => '316875',
-        'type' => 'BHM',
-        'subtype' => 'Empty'
+        'id' => '978-0-19-512574-0',
+        'type' => 'ISBN',
+        'subtype' => 'Print'
       )
     end
 
@@ -450,14 +449,13 @@ RSpec.describe 'Titles', type: :request do
 
     let!(:json) { Map JSON.parse response.body }
 
-    it 'contains identifiers that are sorted by subtype and type' do
+    it 'contains identifiers that are sorted by subtype and type and contain only types and subtypes that our UI needs' do
       expect(response).to have_http_status(200)
       expect(json.data.id).to eq('169441')
-      expect(json.data.attributes.identifiers.length).to eq(4)
-      expect(json.data.attributes.identifiers[0].subtype).to eq('Empty')
-      expect(json.data.attributes.identifiers[1].subtype).to eq('Print')
-      expect(json.data.attributes.identifiers[2].subtype).to eq('Online')
-      expect(json.data.attributes.identifiers[0].type).to eq('BHM')
+      expect(json.data.attributes.identifiers.length).to eq(3)
+      expect(json.data.attributes.identifiers[0].subtype).to eq('Print')
+      expect(json.data.attributes.identifiers[1].subtype).to eq('Online')
+      expect(json.data.attributes.identifiers[0].type).to eq('ISBN')
       expect(json.data.attributes.identifiers[1].type).to eq('ISBN')
     end
   end
