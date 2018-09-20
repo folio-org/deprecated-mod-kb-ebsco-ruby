@@ -43,7 +43,8 @@ class SerializableTitleList < SerializableJSONAPIResource
     }
 
     if @object.identifiersList
-      sorted_identifiers_list = @object.identifiersList.sort_by { |identifier| [identifier.subtype, identifier.type] }
+      identifiers_list = @object.identifiersList.select { |identifier| ((identifier.type.zero? || identifier.type == 1) && (identifier.subtype == 1 || identifier.subtype == 2)) }
+      sorted_identifiers_list = identifiers_list.sort_by { |identifier| [identifier.subtype, identifier.type] }
       sorted_identifiers_list.map do |identifier|
         {
           id: identifier['id'],
