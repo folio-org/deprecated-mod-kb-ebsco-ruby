@@ -23,16 +23,8 @@ class Title < RmApiResource
       isxn = filters[:isxn]
       subject = filters[:subject]
       publisher = filters[:publisher]
-      query = request.get_params.delete(:q)
 
-      if query && querykeys.size == 1
-        fail ActionController::BadRequest, 'Conflicting query parameters'
-      end
-
-      if query
-        request.get_params[:search] = query
-        request.get_params[:searchfield] = 'titlename'
-      elsif titlename
+      if titlename
         request.get_params[:search] = titlename
         request.get_params[:searchfield] = 'titlename'
       elsif isxn

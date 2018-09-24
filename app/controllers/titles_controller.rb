@@ -14,7 +14,6 @@ class TitlesController < ApplicationController
 
     if title_query_params_validation.valid?
       @titles = titles.all(
-        q: params[:q],
         page: params[:page],
         filter: params[:filter],
         sort: params[:sort],
