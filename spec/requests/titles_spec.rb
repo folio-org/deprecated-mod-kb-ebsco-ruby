@@ -6,7 +6,7 @@ RSpec.describe 'Titles', type: :request do
   describe 'searching for titles' do
     before do
       VCR.use_cassette('search-titles') do
-        get '/eholdings/titles/?q=ebsco', headers: okapi_headers
+        get '/eholdings/titles/?filter[name]=ebsco', headers: okapi_headers
       end
     end
 
@@ -27,7 +27,7 @@ RSpec.describe 'Titles', type: :request do
     describe 'with pagination' do
       before do
         VCR.use_cassette('search-titles-page2') do
-          get '/eholdings/titles/?q=ebsco&page=2', headers: okapi_headers
+          get '/eholdings/titles/?filter[name]=ebsco&page=2', headers: okapi_headers
         end
       end
 
@@ -44,7 +44,7 @@ RSpec.describe 'Titles', type: :request do
     describe 'with count within range' do
       before do
         VCR.use_cassette('search-titles-specify-count') do
-          get '/eholdings/titles/?q=ebsco&count=5', headers: okapi_headers
+          get '/eholdings/titles/?filter[name]=ebsco&count=5', headers: okapi_headers
         end
       end
 
@@ -60,7 +60,7 @@ RSpec.describe 'Titles', type: :request do
     describe 'with count out of range' do
       before do
         VCR.use_cassette('search-titles-specify-count-out-of-range') do
-          get '/eholdings/titles/?q=e&count=150', headers: okapi_headers
+          get '/eholdings/titles/?filter[name]=e&count=150', headers: okapi_headers
         end
       end
 
@@ -76,7 +76,7 @@ RSpec.describe 'Titles', type: :request do
       before do
         VCR.use_cassette('search-titles-filter-book') do
           filter = { filter: { type: 'book' } }.to_query
-          get "/eholdings/titles/?q=news&#{filter}", headers: okapi_headers
+          get "/eholdings/titles/?filter[name]=news&#{filter}", headers: okapi_headers
         end
       end
 
@@ -93,7 +93,7 @@ RSpec.describe 'Titles', type: :request do
         before do
           VCR.use_cassette('search-titles-filter-book-selection') do
             filter = { filter: { type: 'book', selected: true } }.to_query
-            get "/eholdings/titles/?q=news&#{filter}", headers: okapi_headers
+            get "/eholdings/titles/?filter[name]=news&#{filter}", headers: okapi_headers
           end
         end
 
@@ -111,7 +111,7 @@ RSpec.describe 'Titles', type: :request do
     describe 'with an invalid filter param' do
       before do
         VCR.use_cassette('search-titles-filter-invalid') do
-          get '/eholdings/titles/?q=news&filter=invalid', headers: okapi_headers
+          get '/eholdings/titles/?filter[name]=news&filter=invalid', headers: okapi_headers
         end
       end
 
@@ -126,7 +126,7 @@ RSpec.describe 'Titles', type: :request do
     describe 'with an invalid query param filter[selected]' do
       before do
         VCR.use_cassette('search-titles-invalid-query-param-selected') do
-          get '/eholdings/titles/?q=ebsco&filter[selected]=doNotEnter', headers: okapi_headers
+          get '/eholdings/titles/?filter[name]=ebsco&filter[selected]=doNotEnter', headers: okapi_headers
         end
       end
 
@@ -141,7 +141,7 @@ RSpec.describe 'Titles', type: :request do
     describe 'with an invalid query param filter[type]' do
       before do
         VCR.use_cassette('search-titles-invalid-query-param-type') do
-          get '/eholdings/titles/?q=ebsco&filter[type]=doNotEnter', headers: okapi_headers
+          get '/eholdings/titles/?filter[name]=ebsco&filter[type]=doNotEnter', headers: okapi_headers
         end
       end
 
@@ -156,7 +156,7 @@ RSpec.describe 'Titles', type: :request do
     describe 'with an invalid query param searchField' do
       before do
         VCR.use_cassette('search-titles-invalid-query-param-search-field') do
-          get '/eholdings/titles/?q=ebsco&searchfield=doNotEnter', headers: okapi_headers
+          get '/eholdings/titles/?filter[name]=ebsco&searchfield=doNotEnter', headers: okapi_headers
         end
       end
 
@@ -263,24 +263,6 @@ RSpec.describe 'Titles', type: :request do
         expect(response).to have_http_status(400)
         expect(json_c.errors.first.title).to eql(
           'Conflicting filter parameters'
-        )
-      end
-    end
-
-    describe 'with conflicting query parameters' do
-      before do
-        VCR.use_cassette('search-titles-query-conflict') do
-          get '/eholdings/titles/?q=ebsco&filter[name]=ebsco',
-              headers: okapi_headers
-        end
-      end
-
-      let!(:json_c) { Map JSON.parse response.body }
-
-      it 'returns a bad request' do
-        expect(response).to have_http_status(400)
-        expect(json_c.errors.first.title).to eql(
-          'Conflicting query parameters'
         )
       end
     end
