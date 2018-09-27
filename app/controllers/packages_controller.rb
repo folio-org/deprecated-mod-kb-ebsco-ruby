@@ -68,7 +68,6 @@ class PackagesController < ApplicationController
   def resources
     @resources = find_resources(
       page: params[:page],
-      q: params[:q],
       filter: params[:filter],
       sort: params[:sort]
     )
