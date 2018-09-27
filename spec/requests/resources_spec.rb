@@ -858,6 +858,37 @@ RSpec.describe 'Resources', type: :request do
           expect(json.errors.first.detail).to eq 'Url has invalid format'
         end
       end
+
+      describe 'updating a resource with an empty url' do
+        let(:params) do
+          {
+            'data' => {
+              'type' => 'resources',
+              'attributes' => {
+                'isSelected' => true,
+                'url' => ''
+              }
+            }
+          }
+        end
+
+        before do
+          VCR.use_cassette('put-resources-update-empty-url') do
+            put '/eholdings/resources/123355-3120611-19017544',
+                params: params, as: :json, headers: update_headers
+          end
+        end
+
+        it 'responds with OK status' do
+          expect(response).to have_http_status(200)
+        end
+
+        let!(:json) { Map JSON.parse response.body }
+
+        it 'returns null url' do
+          expect(json.data.attributes.url).to eq(nil)
+        end
+      end
     end
 
     describe 'trying to update an invalid resource gives the expected errors' do

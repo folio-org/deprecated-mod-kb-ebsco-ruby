@@ -19,7 +19,7 @@ module Validation
     validates :edition, length: { maximum: 250 }, allow_nil: true
     validates :description, length: { maximum: 1500 }, allow_nil: true
     validates :url, length: { maximum: 600 }, allow_nil: true
-    validate :url_has_valid_format?, unless: -> { url.nil? }
+    validate :url_has_valid_format?, unless: -> { url.blank? }
     validates :coverageStatement, length: { maximum: 250 }, allow_nil: true
     validate :identifiers_list_valid?, unless: -> { identifiersList.blank? }
     validate :custom_coverage_list_valid?, unless: -> { customCoverageList.blank? }
