@@ -22,7 +22,17 @@
         "isHidden": true,
         "reason": ""
       },
-      "allowKbToAddTitles": false
+      "allowKbToAddTitles": false,
+      "packageToken": {
+        "factName":"siteid",
+        "prompt":"/itweb/",
+        "helpText":"<ul><li>Enter your token</li></ul>",
+        "value": "123456"
+      },
+      "proxy": {
+        "id": "<n>",
+        "inherited": true
+      }
     },
     "relationships": {
       "resources": {

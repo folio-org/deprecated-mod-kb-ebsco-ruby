@@ -11,6 +11,12 @@
       "isSelected": true,
       "visibilityData": {
         "isHidden": true
+      },
+      "packageToken": {
+        "value": "hellotoken"
+      },
+      "proxy": {
+        "id": "EZProxy"
       }
     }
   }

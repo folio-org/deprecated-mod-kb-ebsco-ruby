@@ -6,8 +6,13 @@
       "name": "ecch",
       "packagesTotal": 2,
       "packagesSelected": 0,
-      "providerToken": null,
       "supportsCustomPackages": false,
+      "providerToken": {
+        "factName":"siteid",
+        "prompt":"/itweb/",
+        "helpText":"<ul><li>Enter your token</li></ul>",
+        "value": "123456"
+      },
       "proxy": {
         "id": "EZProxy",
         "inherited": true
