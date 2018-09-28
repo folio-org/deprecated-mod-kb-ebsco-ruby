@@ -27,7 +27,7 @@ http_interactions:
       Server:
       - nginx/1.13.5
       Date:
-      - Wed, 12 Sep 2018 15:53:51 GMT
+      - Thu, 27 Sep 2018 17:46:35 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -36,15 +36,15 @@ http_interactions:
       - keep-alive
       X-Okapi-Trace:
       - 'GET mod-authtoken-1.5.2-SNAPSHOT.26 http://10.39.242.252:8081/configurations/entries..
-        : 202 1687us'
+        : 202 310547us'
       - 'GET mod-configuration-5.0.1-SNAPSHOT.45 http://10.39.249.105:8081/configurations/entries..
-        : 200 42883us'
+        : 200 50214us'
       Host:
       - okapi.frontside.io
       X-Real-Ip:
-      - 10.36.5.1
+      - 10.128.0.4
       X-Forwarded-For:
-      - 10.36.5.1
+      - 10.128.0.4
       X-Forwarded-Host:
       - okapi.frontside.io
       X-Forwarded-Port:
@@ -66,7 +66,7 @@ http_interactions:
       User-Agent:
       - Ruby
       X-Okapi-Request-Id:
-      - 937506/configurations
+      - 423710/configurations
       X-Okapi-Url:
       - http://10.39.245.41:80
       X-Okapi-Permissions:
@@ -82,21 +82,7 @@ http_interactions:
       string: |-
         {
           "configs" : [ {
-            "id" : "efadf3d8-59c3-4508-99d4-3e36e9247d87",
-            "module" : "EKB",
-            "configName" : "api_access",
-            "code" : "kb.ebsco.url",
-            "description" : "EBSCO RM-API URL",
-            "enabled" : true,
-            "value" : "https://api.ebsco.io",
-            "metadata" : {
-              "createdDate" : "2018-09-12T12:34:52.189+0000",
-              "createdByUserId" : "1ad737b0-d847-11e6-bf26-cec0c932ce01",
-              "updatedDate" : "2018-09-12T12:34:52.189+0000",
-              "updatedByUserId" : "1ad737b0-d847-11e6-bf26-cec0c932ce01"
-            }
-          }, {
-            "id" : "6b24b703-243a-4261-a7bf-0336d34f8c94",
+            "id" : "d94c5e91-fe82-4eb7-a823-7a28376831a4",
             "module" : "EKB",
             "configName" : "api_access",
             "code" : "kb.ebsco.customerId",
@@ -104,13 +90,27 @@ http_interactions:
             "enabled" : true,
             "value" : "TEST_CUSTOMER_ID",
             "metadata" : {
-              "createdDate" : "2018-09-12T12:34:52.466+0000",
+              "createdDate" : "2018-09-24T18:25:04.316+0000",
               "createdByUserId" : "1ad737b0-d847-11e6-bf26-cec0c932ce01",
-              "updatedDate" : "2018-09-12T12:34:52.466+0000",
+              "updatedDate" : "2018-09-24T18:25:04.316+0000",
               "updatedByUserId" : "1ad737b0-d847-11e6-bf26-cec0c932ce01"
             }
           }, {
-            "id" : "8038c4f3-0b09-4d97-be46-8a5236ef3f2f",
+            "id" : "2ce03532-7126-43e1-b532-d53d4bd837ff",
+            "module" : "EKB",
+            "configName" : "api_access",
+            "code" : "kb.ebsco.url",
+            "description" : "EBSCO RM-API URL",
+            "enabled" : true,
+            "value" : "https://api.ebsco.io",
+            "metadata" : {
+              "createdDate" : "2018-09-24T18:25:04.267+0000",
+              "createdByUserId" : "1ad737b0-d847-11e6-bf26-cec0c932ce01",
+              "updatedDate" : "2018-09-24T18:25:04.267+0000",
+              "updatedByUserId" : "1ad737b0-d847-11e6-bf26-cec0c932ce01"
+            }
+          }, {
+            "id" : "d414f3c4-85c1-47ac-b42c-d1e0a8294c3d",
             "module" : "EKB",
             "configName" : "api_access",
             "code" : "kb.ebsco.apiKey",
@@ -118,9 +118,9 @@ http_interactions:
             "enabled" : true,
             "value" : "TEST_API_KEY",
             "metadata" : {
-              "createdDate" : "2018-09-12T12:34:52.788+0000",
+              "createdDate" : "2018-09-24T18:25:04.366+0000",
               "createdByUserId" : "1ad737b0-d847-11e6-bf26-cec0c932ce01",
-              "updatedDate" : "2018-09-12T12:34:52.788+0000",
+              "updatedDate" : "2018-09-24T18:25:04.366+0000",
               "updatedByUserId" : "1ad737b0-d847-11e6-bf26-cec0c932ce01"
             }
           } ],
@@ -131,7 +131,7 @@ http_interactions:
           }
         }
     http_version: 
-  recorded_at: Wed, 12 Sep 2018 15:53:51 GMT
+  recorded_at: Thu, 27 Sep 2018 17:46:36 GMT
 - request:
     method: get
     uri: https://api.ebsco.io/rm/rmaccounts/TEST_CUSTOMER_ID/vendors/19/packages/6581
@@ -159,31 +159,30 @@ http_interactions:
       Content-Type:
       - application/json;charset=UTF-8
       Content-Length:
-      - '473'
+      - '455'
       Connection:
       - close
       Date:
-      - Wed, 12 Sep 2018 15:53:51 GMT
+      - Thu, 27 Sep 2018 17:46:36 GMT
       X-Amzn-Requestid:
-      - 0b70be59-b6a4-11e8-b1c9-9de070f9e3df
+      - 477dfe01-c27d-11e8-adeb-3d36c4eecc14
       X-Amzn-Remapped-Connection:
       - keep-alive
       X-Amz-Apigw-Id:
-      - NHV2dErmIAMF7Xg=
+      - N5CbYG04IAMFeDw=
       X-Amzn-Remapped-Date:
-      - Wed, 12 Sep 2018 15:53:51 GMT
+      - Thu, 27 Sep 2018 17:46:36 GMT
       X-Cache:
       - Miss from cloudfront
       Via:
-      - 1.1 aa68f5b22238752251dcb5f9488ca0bf.cloudfront.net (CloudFront)
+      - 1.1 5e247ae48d5501e7c1be84d6fd290885.cloudfront.net (CloudFront)
       X-Amz-Cf-Id:
-      - jSjiZUiq8PrcmD3dXUgIK1bzziCLnDm2R7QXXsYfNF3aw3UpIxN49Q==
+      - INC4MSgwgygbWsuLOBAmaciXrhK0SmwcihdewLMJQvcKxSI1SieyvA==
     body:
       encoding: UTF-8
-      string: '{"packageId":6581,"packageName":"EBSCO Biotechnology Collection: India","isCustom":false,"vendorId":19,"vendorName":"EBSCO","titleCount":156,"isSelected":true,"visibilityData":{"isHidden":true,"reason":"Hidden
-        by Customer"},"selectedCount":156,"isTokenNeeded":false,"contentType":"AggregatedFullText","customCoverage":{"beginCoverage":"","endCoverage":""},"proxy":{"id":"EZProxy","inherited":true},"allowEbscoToAddTitles":false,"packageToken":null,"packageType":"Complete"}'
+      string: '{"packageId":6581,"packageName":"EBSCO Biotechnology Collection: India","isCustom":false,"vendorId":19,"vendorName":"EBSCO","titleCount":156,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"AggregatedFullText","customCoverage":{"beginCoverage":"","endCoverage":""},"proxy":{"id":"EZProxy","inherited":true},"allowEbscoToAddTitles":false,"packageToken":null,"packageType":"Complete"}'
     http_version: 
-  recorded_at: Wed, 12 Sep 2018 15:53:51 GMT
+  recorded_at: Thu, 27 Sep 2018 17:46:36 GMT
 - request:
     method: get
     uri: https://api.ebsco.io/rm/rmaccounts/TEST_CUSTOMER_ID/vendors/19/packages/6581
@@ -211,34 +210,33 @@ http_interactions:
       Content-Type:
       - application/json;charset=UTF-8
       Content-Length:
-      - '473'
+      - '455'
       Connection:
       - close
       Date:
-      - Wed, 12 Sep 2018 15:53:52 GMT
+      - Thu, 27 Sep 2018 17:46:36 GMT
       X-Amzn-Requestid:
-      - 0b8e0a96-b6a4-11e8-88a0-11d79f757df6
+      - 479222ff-c27d-11e8-83e2-173096225925
       X-Amzn-Remapped-Connection:
       - keep-alive
       X-Amz-Apigw-Id:
-      - NHV2fGIWIAMFyNQ=
+      - N5CbaGFSoAMF2lg=
       X-Amzn-Remapped-Date:
-      - Wed, 12 Sep 2018 15:53:51 GMT
+      - Thu, 27 Sep 2018 17:46:36 GMT
       X-Cache:
       - Miss from cloudfront
       Via:
-      - 1.1 a5d569cb3db7d3a17cfa847456b00932.cloudfront.net (CloudFront)
+      - 1.1 844f1d5f6c5723bfa87f9a3a73f6fd59.cloudfront.net (CloudFront)
       X-Amz-Cf-Id:
-      - IqYaQNEsW5fjn94OiBjwwBDqhvr1aXGopnby_wDHLYTr6Fg9ozksZw==
+      - Pu6cyiNuWf25v2boiURFHfT25MvdbY-fBQ1GA98DwKIpfLDAwGDu5g==
     body:
       encoding: UTF-8
-      string: '{"packageId":6581,"packageName":"EBSCO Biotechnology Collection: India","isCustom":false,"vendorId":19,"vendorName":"EBSCO","titleCount":156,"isSelected":true,"visibilityData":{"isHidden":true,"reason":"Hidden
-        by Customer"},"selectedCount":156,"isTokenNeeded":false,"contentType":"AggregatedFullText","customCoverage":{"beginCoverage":"","endCoverage":""},"proxy":{"id":"EZProxy","inherited":true},"allowEbscoToAddTitles":false,"packageToken":null,"packageType":"Complete"}'
+      string: '{"packageId":6581,"packageName":"EBSCO Biotechnology Collection: India","isCustom":false,"vendorId":19,"vendorName":"EBSCO","titleCount":156,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"AggregatedFullText","customCoverage":{"beginCoverage":"","endCoverage":""},"proxy":{"id":"EZProxy","inherited":true},"allowEbscoToAddTitles":false,"packageToken":null,"packageType":"Complete"}'
     http_version: 
-  recorded_at: Wed, 12 Sep 2018 15:53:52 GMT
+  recorded_at: Thu, 27 Sep 2018 17:46:36 GMT
 - request:
     method: get
-    uri: https://api.ebsco.io/rm/rmaccounts/TEST_CUSTOMER_ID/vendors/19/packages/6581/titles?count=25&offset=1&orderby=relevance&q=&resourcetype=newsletter&search=bioworld&searchfield=titlename&selection=all
+    uri: https://api.ebsco.io/rm/rmaccounts/TEST_CUSTOMER_ID/vendors/19/packages/6581/titles?count=25&offset=1&orderby=relevance&resourcetype=newsletter&search=bioworld&searchfield=titlename&selection=all
     body:
       encoding: US-ASCII
       string: ''
@@ -263,19 +261,19 @@ http_interactions:
       Content-Type:
       - application/json; charset=utf-8
       Content-Length:
-      - '2547'
+      - '2515'
       Connection:
       - keep-alive
       Date:
-      - Wed, 12 Sep 2018 15:53:52 GMT
+      - Thu, 27 Sep 2018 17:46:36 GMT
       X-Amzn-Requestid:
-      - 0baeffb9-b6a4-11e8-81c2-1d42fdb369fe
+      - 47a5834f-c27d-11e8-8356-c734f00c8ebf
       X-Amzn-Remapped-Content-Length:
-      - '2547'
+      - '2515'
       X-Amzn-Remapped-Connection:
       - keep-alive
       X-Amz-Apigw-Id:
-      - NHV2hF73IAMFRRQ=
+      - N5CbbGT2IAMFYIw=
       X-Amzn-Remapped-Server:
       - Microsoft-IIS/8.5
       Cache-Control:
@@ -287,26 +285,24 @@ http_interactions:
       Pragma:
       - no-cache
       X-Amzn-Remapped-Date:
-      - Wed, 12 Sep 2018 15:53:51 GMT
+      - Thu, 27 Sep 2018 17:46:35 GMT
       X-Aspnet-Version:
       - 4.0.30319
       X-Cache:
       - Miss from cloudfront
       Via:
-      - 1.1 a170a9e8f9393700a8de4715a0943846.cloudfront.net (CloudFront)
+      - 1.1 5374c8a291c9962f98e9cfd5e2b835a5.cloudfront.net (CloudFront)
       X-Amz-Cf-Id:
-      - cAU6ffABU9-YUgADA1gxwxVTLqcdckWDUFLfdZQXrLQcneWvUG4P5A==
+      - eQoQ7JbYxELzGEq2MTuBjJA2vQeAYLD3J9Syq-nN-JB8O23dXb_SUQ==
     body:
       encoding: UTF-8
       string: '{"totalResults":2,"titles":[{"titleId":10741,"titleName":"Bioworld
         financial watch","publisherName":"AHC Media LLC","identifiersList":[{"id":"1541-0579","source":"ResourceIdentifier","subtype":1,"type":0},{"id":"0964-4199","source":"ResourceIdentifier","subtype":7,"type":0},{"id":"FW8","source":"MFS","subtype":0,"type":8},{"id":"10741","source":"AtoZ","subtype":0,"type":9}],"subjectsList":[{"type":"TLI","subject":"Public
         Finance"}],"isTitleCustom":false,"pubType":"Newsletter","customerResourcesList":[{"titleId":10741,"packageId":6581,"packageName":"EBSCO
-        Biotechnology Collection: India","packageType":"Complete","isPackageCustom":false,"vendorId":19,"vendorName":"EBSCO","locationId":4829527,"isSelected":true,"isTokenNeeded":false,"visibilityData":{"isHidden":true,"reason":"Hidden
-        by Customer"},"managedCoverageList":[{"beginCoverage":"2007-03-05","endCoverage":"2009-06-01"}],"customCoverageList":[],"coverageStatement":null,"managedEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"customEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"url":"http://search.ebscohost.com/direct.asp?db=bti&jid=FW8&scope=site","userDefinedField1":null,"userDefinedField2":null,"userDefinedField3":null,"userDefinedField4":null,"userDefinedField5":null}]},{"titleId":10744,"titleName":"BioWorld
+        Biotechnology Collection: India","packageType":"Complete","isPackageCustom":false,"vendorId":19,"vendorName":"EBSCO","locationId":4829527,"isSelected":false,"isTokenNeeded":false,"visibilityData":{"isHidden":false,"reason":""},"managedCoverageList":[{"beginCoverage":"2007-03-05","endCoverage":"2009-06-01"}],"customCoverageList":[],"coverageStatement":null,"managedEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"customEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"url":"http://search.ebscohost.com/direct.asp?db=bti&jid=FW8&scope=site","userDefinedField1":null,"userDefinedField2":null,"userDefinedField3":null,"userDefinedField4":null,"userDefinedField5":null}]},{"titleId":10744,"titleName":"BioWorld
         week","publisherName":"AHC Media LLC","identifiersList":[{"id":"1932-7765","source":"ResourceIdentifier","subtype":1,"type":0},{"id":"0840-9153","source":"ResourceIdentifier","subtype":7,"type":0},{"id":"1612-4804","source":"ResourceIdentifier","subtype":7,"type":0},{"id":"2SCO","source":"MFS","subtype":0,"type":8},{"id":"10744","source":"AtoZ","subtype":0,"type":9}],"subjectsList":[{"type":"TLI","subject":"Life
         Sciences"}],"isTitleCustom":false,"pubType":"Newsletter","customerResourcesList":[{"titleId":10744,"packageId":6581,"packageName":"EBSCO
-        Biotechnology Collection: India","packageType":"Complete","isPackageCustom":false,"vendorId":19,"vendorName":"EBSCO","locationId":4829529,"isSelected":true,"isTokenNeeded":false,"visibilityData":{"isHidden":true,"reason":"Hidden
-        by Customer"},"managedCoverageList":[{"beginCoverage":"2007-04-02","endCoverage":"2011-09-26"}],"customCoverageList":[],"coverageStatement":null,"managedEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"customEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"url":"http://search.ebscohost.com/direct.asp?db=bti&jid=2SCO&scope=site","userDefinedField1":null,"userDefinedField2":null,"userDefinedField3":null,"userDefinedField4":null,"userDefinedField5":null}]}]}'
+        Biotechnology Collection: India","packageType":"Complete","isPackageCustom":false,"vendorId":19,"vendorName":"EBSCO","locationId":4829529,"isSelected":false,"isTokenNeeded":false,"visibilityData":{"isHidden":false,"reason":""},"managedCoverageList":[{"beginCoverage":"2007-04-02","endCoverage":"2011-09-26"}],"customCoverageList":[],"coverageStatement":null,"managedEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"customEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"url":"http://search.ebscohost.com/direct.asp?db=bti&jid=2SCO&scope=site","userDefinedField1":null,"userDefinedField2":null,"userDefinedField3":null,"userDefinedField4":null,"userDefinedField5":null}]}]}'
     http_version: 
-  recorded_at: Wed, 12 Sep 2018 15:53:52 GMT
+  recorded_at: Thu, 27 Sep 2018 17:46:36 GMT
 recorded_with: VCR 3.0.3

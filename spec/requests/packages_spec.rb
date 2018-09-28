@@ -553,6 +553,25 @@ RSpec.describe 'Packages', type: :request do
     end
   end
 
+  describe 'getting resources related to package times out' do
+    before do
+      expect_any_instance_of(Faraday::Connection).to receive(:get).and_return(Map(body: { 'errors': [{ 'title': 'Request timed out', 'detail': 'Timed out getting https://api.ebsco.io/rm/rmaccounts/apidvcorp/vendors/19/packages/796/titles?count=25&offset=1&orderby=relevance&resourcetype=all&search=aa&searchfield=titlename&selection=all' }], 'jsonapi': { 'version': '1.0' } }.to_json, status: 408))
+    end
+
+    let(:response) { Faraday::Connection.new.get('/eholdings/packages/19-796/resources?filter[name]=physics&page=1') }
+
+    it 'returns the specified value on any instance of the class' do
+      expect(response.status).to eq(408)
+    end
+
+    let(:json) { Map JSON.parse response.body }
+
+    it 'gives expected error message' do
+      expect(json.errors.first.title).to eql('Request timed out')
+      expect(json.errors.first.detail).to eql('Timed out getting https://api.ebsco.io/rm/rmaccounts/apidvcorp/vendors/19/packages/796/titles?count=25&offset=1&orderby=relevance&resourcetype=all&search=aa&searchfield=titlename&selection=all')
+    end
+  end
+
   describe 'getting resources related to a custom package' do
     before do
       VCR.use_cassette('get-custom-package-related-resources') do
