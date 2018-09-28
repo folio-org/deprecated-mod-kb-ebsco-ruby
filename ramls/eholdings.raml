@@ -347,6 +347,21 @@ types:
                         Note that this attribute can be updated both for CUSTOM AND MANAGED PACKAGES.
                       type: visibilityData
                       required: false
+                    packageToken:
+                      displayName: Package token
+                      type: object
+                      description: |
+                        Tokens are variables in content URLs that identify the customer.
+                        The token is text within the URL that needs to be replaced with an institute-specific value.
+                      example: |
+                        {
+                          "value": "hellotoken"
+                        }
+                      required: false
+                    proxy:
+                      displayName: Proxy ID
+                      type: proxy
+                      required: false
           example: !include examples/packages/packages_put_request.json
       responses:
         200:
