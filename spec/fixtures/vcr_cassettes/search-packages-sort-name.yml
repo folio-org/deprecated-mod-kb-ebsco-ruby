@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://okapi.frontside.io/configurations/entries?query=module=KB_EBSCO
+    uri: https://okapi.frontside.io/configurations/entries?query=module=EKB
     body:
       encoding: US-ASCII
       string: ''
@@ -27,7 +27,7 @@ http_interactions:
       Server:
       - nginx/1.13.5
       Date:
-      - Fri, 04 May 2018 02:41:47 GMT
+      - Wed, 12 Sep 2018 14:43:30 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -35,16 +35,16 @@ http_interactions:
       Connection:
       - keep-alive
       X-Okapi-Trace:
-      - 'GET mod-authtoken-1.4.1-SNAPSHOT.20 http://10.39.249.72:8081/configurations/entries..
-        : 202 1581us'
-      - 'GET mod-configuration-4.0.3-SNAPSHOT.29 http://10.39.252.104:8081/configurations/entries..
-        : 200 43767us'
+      - 'GET mod-authtoken-1.5.2-SNAPSHOT.26 http://10.39.242.252:8081/configurations/entries..
+        : 202 508064us'
+      - 'GET mod-configuration-5.0.1-SNAPSHOT.45 http://10.39.249.105:8081/configurations/entries..
+        : 200 248579us'
       Host:
       - okapi.frontside.io
       X-Real-Ip:
-      - 10.128.0.3
+      - 10.36.5.1
       X-Forwarded-For:
-      - 10.128.0.3
+      - 10.36.5.1
       X-Forwarded-Host:
       - okapi.frontside.io
       X-Forwarded-Port:
@@ -52,11 +52,11 @@ http_interactions:
       X-Forwarded-Proto:
       - https
       X-Original-Uri:
-      - "/configurations/entries?query=module=KB_EBSCO"
+      - "/configurations/entries?query=module=EKB"
       X-Scheme:
       - https
       X-Auth-Request-Redirect:
-      - "/configurations/entries?query=module=KB_EBSCO"
+      - "/configurations/entries?query=module=EKB"
       Accept:
       - application/json
       X-Okapi-Tenant:
@@ -66,15 +66,11 @@ http_interactions:
       User-Agent:
       - Ruby
       X-Okapi-Request-Id:
-      - 367768/configurations
+      - 695499/configurations
       X-Okapi-Url:
-      - http://10.39.243.220:80
-      X-Okapi-Permissions-Required:
-      - configuration.entries.collection.get
-      X-Okapi-Module-Permissions:
-      - '{"mod-authtoken-1.4.1-SNAPSHOT.20":["perms.users.get"]}'
+      - http://10.39.245.41:80
       X-Okapi-Permissions:
-      - '["configuration.entries.collection.get"]'
+      - '["configuration.entries.collection.get","configuration.entries.collection.get"]'
       X-Okapi-User-Id:
       - 1ad737b0-d847-11e6-bf26-cec0c932ce01
       X-Okapi-Token:
@@ -86,28 +82,56 @@ http_interactions:
       string: |-
         {
           "configs" : [ {
-            "id" : "9f193b46-4cc5-4c99-b09f-374fe5415673",
-            "module" : "KB_EBSCO",
-            "configName" : "api_credentials",
-            "code" : "kb.ebsco.credentials",
-            "description" : "EBSCO RM-API Credentials",
+            "id" : "efadf3d8-59c3-4508-99d4-3e36e9247d87",
+            "module" : "EKB",
+            "configName" : "api_access",
+            "code" : "kb.ebsco.url",
+            "description" : "EBSCO RM-API URL",
             "enabled" : true,
-            "value" : "customer-id=TEST_CUSTOMER_ID&api-key=TEST_API_KEY",
+            "value" : "https://api.ebsco.io",
             "metadata" : {
-              "createdDate" : "2018-03-28T14:49:56.794+0000",
+              "createdDate" : "2018-09-12T12:34:52.189+0000",
               "createdByUserId" : "1ad737b0-d847-11e6-bf26-cec0c932ce01",
-              "updatedDate" : "2018-03-28T14:49:56.794+0000",
+              "updatedDate" : "2018-09-12T12:34:52.189+0000",
+              "updatedByUserId" : "1ad737b0-d847-11e6-bf26-cec0c932ce01"
+            }
+          }, {
+            "id" : "6b24b703-243a-4261-a7bf-0336d34f8c94",
+            "module" : "EKB",
+            "configName" : "api_access",
+            "code" : "kb.ebsco.customerId",
+            "description" : "EBSCO RM-API Customer ID",
+            "enabled" : true,
+            "value" : "TEST_CUSTOMER_ID",
+            "metadata" : {
+              "createdDate" : "2018-09-12T12:34:52.466+0000",
+              "createdByUserId" : "1ad737b0-d847-11e6-bf26-cec0c932ce01",
+              "updatedDate" : "2018-09-12T12:34:52.466+0000",
+              "updatedByUserId" : "1ad737b0-d847-11e6-bf26-cec0c932ce01"
+            }
+          }, {
+            "id" : "8038c4f3-0b09-4d97-be46-8a5236ef3f2f",
+            "module" : "EKB",
+            "configName" : "api_access",
+            "code" : "kb.ebsco.apiKey",
+            "description" : "EBSCO RM-API API Key",
+            "enabled" : true,
+            "value" : "TEST_API_KEY",
+            "metadata" : {
+              "createdDate" : "2018-09-12T12:34:52.788+0000",
+              "createdByUserId" : "1ad737b0-d847-11e6-bf26-cec0c932ce01",
+              "updatedDate" : "2018-09-12T12:34:52.788+0000",
               "updatedByUserId" : "1ad737b0-d847-11e6-bf26-cec0c932ce01"
             }
           } ],
-          "totalRecords" : 1,
+          "totalRecords" : 3,
           "resultInfo" : {
-            "totalRecords" : 1,
+            "totalRecords" : 3,
             "facets" : [ ]
           }
         }
     http_version: 
-  recorded_at: Fri, 04 May 2018 02:41:47 GMT
+  recorded_at: Wed, 12 Sep 2018 14:43:30 GMT
 - request:
     method: get
     uri: https://api.ebsco.io/rm/rmaccounts/TEST_CUSTOMER_ID/packages?contenttype=all&count=25&offset=1&orderby=packagename&search=academic%20search&selection=all
@@ -135,72 +159,71 @@ http_interactions:
       Content-Type:
       - application/json;charset=UTF-8
       Content-Length:
-      - '9385'
+      - '9365'
       Connection:
       - close
       Date:
-      - Fri, 04 May 2018 02:41:48 GMT
+      - Wed, 12 Sep 2018 14:43:34 GMT
       X-Amzn-Requestid:
-      - b0c9b681-4f44-11e8-af8b-57b0e48cad51
+      - 37b3a93e-b69a-11e8-81c2-1d42fdb369fe
       X-Amzn-Remapped-Connection:
       - keep-alive
       X-Amz-Apigw-Id:
-      - GVxA1FHvIAMFvMQ=
+      - NHLi-HbUIAMFRRQ=
       X-Amzn-Remapped-Date:
-      - Fri, 04 May 2018 02:41:48 GMT
+      - Wed, 12 Sep 2018 14:43:34 GMT
       X-Cache:
       - Miss from cloudfront
       Via:
-      - 1.1 a1bc06b7f7932216e8d406a348288eac.cloudfront.net (CloudFront)
+      - 1.1 ded72cd2ec35ccfc935b5442dfad81c9.cloudfront.net (CloudFront)
       X-Amz-Cf-Id:
-      - 8EzBPjSfGHmtAecE9OX_KDEquB_PInpv25B7q9molins_iaZ3vFTQw==
+      - zBXf_uSKIU3Uvncv-CxM2o48VCm9Q4vUwMcCkeT4VFl24jRpptHcrg==
     body:
       encoding: UTF-8
-      string: '{"totalResults":186,"packagesList":[{"packageId":34,"packageName":"Academic
-        ASAP","isCustom":false,"vendorId":18,"vendorName":"Gale | Cengage","titleCount":647,"isSelected":true,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":644,"isTokenNeeded":false,"contentType":"AggregatedFullText","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Complete"},{"packageId":1665,"packageName":"Academic
-        Journals","isCustom":false,"vendorId":293,"vendorName":"Academic Journals","titleCount":111,"isSelected":true,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":1,"isTokenNeeded":false,"contentType":"EJournal","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Variable"},{"packageId":2773362,"packageName":"Academic
+      string: '{"totalResults":190,"packagesList":[{"packageId":34,"packageName":"Academic
+        ASAP","isCustom":false,"vendorId":18,"vendorName":"Gale | Cengage","titleCount":648,"isSelected":true,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":1,"isTokenNeeded":true,"contentType":"AggregatedFullText","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Complete"},{"packageId":1665,"packageName":"Academic
+        Journals","isCustom":false,"vendorId":293,"vendorName":"Academic Journals","titleCount":114,"isSelected":true,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":114,"isTokenNeeded":false,"contentType":"EJournal","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Variable"},{"packageId":2773362,"packageName":"Academic
         Journals on Nature.com All (JUSTICE)","isCustom":false,"vendorId":36,"vendorName":"Springer
-        Nature","titleCount":40,"isSelected":true,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":1,"isTokenNeeded":false,"contentType":"EJournal","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Complete"},{"packageId":1357,"packageName":"Academic
-        OneFile","isCustom":false,"vendorId":18,"vendorName":"Gale | Cengage","titleCount":9216,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"AggregatedFullText","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Complete"},{"packageId":1073,"packageName":"Academic
-        Search Alumni Edition","isCustom":false,"vendorId":19,"vendorName":"EBSCO","titleCount":3735,"isSelected":true,"visibilityData":{"isHidden":true,"reason":"Hidden
-        by EP"},"selectedCount":3735,"isTokenNeeded":false,"contentType":"AggregatedFullText","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Complete"},{"packageId":1615,"packageName":"Academic
-        Search Complete","isCustom":false,"vendorId":19,"vendorName":"EBSCO","titleCount":10611,"isSelected":true,"visibilityData":{"isHidden":true,"reason":"Hidden
-        by EP"},"selectedCount":10610,"isTokenNeeded":false,"contentType":"AggregatedFullText","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Complete"},{"packageId":158,"packageName":"Academic
-        Search Elite","isCustom":false,"vendorId":19,"vendorName":"EBSCO","titleCount":3505,"isSelected":true,"visibilityData":{"isHidden":true,"reason":"Hidden
-        by EP"},"selectedCount":1,"isTokenNeeded":false,"contentType":"AggregatedFullText","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Complete"},{"packageId":1327231,"packageName":"Academic
+        Nature","titleCount":40,"isSelected":true,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":40,"isTokenNeeded":false,"contentType":"EJournal","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Complete"},{"packageId":1357,"packageName":"Academic
+        OneFile","isCustom":false,"vendorId":18,"vendorName":"Gale | Cengage","titleCount":9317,"isSelected":true,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":1,"isTokenNeeded":true,"contentType":"AggregatedFullText","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Complete"},{"packageId":3110662,"packageName":"Academic
+        Research Publishing Group","isCustom":false,"vendorId":132036,"vendorName":"Academic
+        Research Publishing Group","titleCount":13,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"EJournal","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Variable"},{"packageId":1073,"packageName":"Academic
+        Search Alumni Edition","isCustom":false,"vendorId":19,"vendorName":"EBSCO","titleCount":3724,"isSelected":true,"visibilityData":{"isHidden":true,"reason":"Hidden
+        by EP"},"selectedCount":3724,"isTokenNeeded":false,"contentType":"AggregatedFullText","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Complete"},{"packageId":1615,"packageName":"Academic
+        Search Complete","isCustom":false,"vendorId":19,"vendorName":"EBSCO","titleCount":10571,"isSelected":true,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":10552,"isTokenNeeded":false,"contentType":"AggregatedFullText","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Complete"},{"packageId":158,"packageName":"Academic
+        Search Elite","isCustom":false,"vendorId":19,"vendorName":"EBSCO","titleCount":3483,"isSelected":true,"visibilityData":{"isHidden":true,"reason":"Hidden
+        by Customer"},"selectedCount":3481,"isTokenNeeded":false,"contentType":"AggregatedFullText","customCoverage":{"beginCoverage":"2018-06-01","endCoverage":"2018-06-30"},"packageType":"Complete"},{"packageId":1327231,"packageName":"Academic
         Search Index","isCustom":false,"vendorId":19,"vendorName":"EBSCO","titleCount":1,"isSelected":true,"visibilityData":{"isHidden":true,"reason":"Hidden
         by EP"},"selectedCount":1,"isTokenNeeded":false,"contentType":"AbstractAndIndex","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Complete"},{"packageId":4065,"packageName":"Academic
-        Search Main Edition ","isCustom":false,"vendorId":19,"vendorName":"EBSCO","titleCount":3004,"isSelected":true,"visibilityData":{"isHidden":true,"reason":"Hidden
-        by Customer"},"selectedCount":3004,"isTokenNeeded":false,"contentType":"AggregatedFullText","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Complete"},{"packageId":160,"packageName":"Academic
-        Search Premier","isCustom":false,"vendorId":19,"vendorName":"EBSCO","titleCount":6098,"isSelected":true,"visibilityData":{"isHidden":true,"reason":"Hidden
-        by Customer"},"selectedCount":6092,"isTokenNeeded":false,"contentType":"AggregatedFullText","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Complete"},{"packageId":2333054,"packageName":"Academic
-        Search Ultimate","isCustom":false,"vendorId":19,"vendorName":"EBSCO","titleCount":13341,"isSelected":true,"visibilityData":{"isHidden":true,"reason":"Hidden
+        Search Main Edition ","isCustom":false,"vendorId":19,"vendorName":"EBSCO","titleCount":2987,"isSelected":true,"visibilityData":{"isHidden":true,"reason":"Hidden
+        by Customer"},"selectedCount":2987,"isTokenNeeded":false,"contentType":"AggregatedFullText","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Complete"},{"packageId":160,"packageName":"Academic
+        Search Premier","isCustom":false,"vendorId":19,"vendorName":"EBSCO","titleCount":6073,"isSelected":true,"visibilityData":{"isHidden":true,"reason":"Hidden
+        by EP"},"selectedCount":6073,"isTokenNeeded":false,"contentType":"AggregatedFullText","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Complete"},{"packageId":2333054,"packageName":"Academic
+        Search Ultimate","isCustom":false,"vendorId":19,"vendorName":"EBSCO","titleCount":13633,"isSelected":true,"visibilityData":{"isHidden":true,"reason":"Hidden
         by EP"},"selectedCount":1,"isTokenNeeded":false,"contentType":"AggregatedFullText","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Complete"},{"packageId":2149456,"packageName":"Academic
         Video Online: Premium - Australia","isCustom":false,"vendorId":413,"vendorName":"Alexander
-        Street Press","titleCount":57161,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"AggregatedFullText","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Complete"},{"packageId":2166726,"packageName":"Academic
+        Street Press","titleCount":57962,"isSelected":true,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":1,"isTokenNeeded":false,"contentType":"AggregatedFullText","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Complete"},{"packageId":2166726,"packageName":"Academic
         Video Online: Premium - Canada","isCustom":false,"vendorId":413,"vendorName":"Alexander
-        Street Press","titleCount":62743,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"AggregatedFullText","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Complete"},{"packageId":2178279,"packageName":"Academic
+        Street Press","titleCount":61913,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"AggregatedFullText","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Complete"},{"packageId":2178279,"packageName":"Academic
         Video Online: Premium - Japan","isCustom":false,"vendorId":413,"vendorName":"Alexander
-        Street Press","titleCount":57487,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"AggregatedFullText","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Complete"},{"packageId":2480369,"packageName":"Academic
+        Street Press","titleCount":58764,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"AggregatedFullText","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Complete"},{"packageId":2480369,"packageName":"Academic
         Video Online: Premium - Korea","isCustom":false,"vendorId":413,"vendorName":"Alexander
-        Street Press","titleCount":54516,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"AggregatedFullText","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Complete"},{"packageId":2359258,"packageName":"Academic
+        Street Press","titleCount":54516,"isSelected":true,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":2,"isTokenNeeded":false,"contentType":"AggregatedFullText","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Complete"},{"packageId":2864050,"packageName":"Academic
+        Video Online: Premium - Outside North America","isCustom":false,"vendorId":413,"vendorName":"Alexander
+        Street Press","titleCount":58541,"isSelected":true,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":2,"isTokenNeeded":false,"contentType":"AggregatedFullText","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Complete"},{"packageId":2359258,"packageName":"Academic
         Video Online: Premium - United States","isCustom":false,"vendorId":413,"vendorName":"Alexander
-        Street Press","titleCount":61596,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"AggregatedFullText","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Complete"},{"packageId":6528,"packageName":"ACS
+        Street Press","titleCount":62560,"isSelected":true,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":1,"isTokenNeeded":false,"contentType":"AggregatedFullText","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Complete"},{"packageId":6528,"packageName":"ACS
         Academic Core +","isCustom":false,"vendorId":37,"vendorName":"American Chemical
-        Society","titleCount":57,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"EJournal","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Complete"},{"packageId":7232,"packageName":"African
+        Society","titleCount":56,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"EJournal","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Complete"},{"packageId":7232,"packageName":"African
         American Experience (Academic)","isCustom":false,"vendorId":583,"vendorName":"ABC-CLIO","titleCount":1,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"OnlineReference","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Complete"},{"packageId":1666,"packageName":"AgEcon
-        Search","isCustom":false,"vendorId":294,"vendorName":"University of Minnesota","titleCount":116,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"AggregatedFullText","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Variable"},{"packageId":2865,"packageName":"Arts
+        Search","isCustom":false,"vendorId":294,"vendorName":"University of Minnesota","titleCount":117,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"AggregatedFullText","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Variable"},{"packageId":2865,"packageName":"Arts
         and Humanities Search","isCustom":false,"vendorId":21,"vendorName":"OCLC","titleCount":1,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"AbstractAndIndex","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Complete"},{"packageId":2662191,"packageName":"Arts:Search
         - ReVIEW","isCustom":false,"vendorId":126096,"vendorName":"Design Research
         Publications","titleCount":50,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"EJournal","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Complete"},{"packageId":1251251,"packageName":"BASE:
         Bielefeld Academic Search Engine","isCustom":false,"vendorId":91548,"vendorName":"Universitätsbibliothek
         Bielefeld ","titleCount":1,"isSelected":true,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":1,"isTokenNeeded":false,"contentType":"OnlineReference","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Complete"},{"packageId":2542275,"packageName":"Bloomsbury
         Economics Landmark Texts (Bloomsbury Academic Collections series)","isCustom":false,"vendorId":694,"vendorName":"Bloomsbury
-        Publishing","titleCount":26,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"EBook","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Complete"},{"packageId":2542939,"packageName":"Bloomsbury
-        History Landmark Texts (Bloomsbury Academic Collections)","isCustom":false,"vendorId":694,"vendorName":"Bloomsbury
-        Publishing","titleCount":23,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"EBook","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Complete"},{"packageId":2543118,"packageName":"Bloomsbury
-        Japanese History Landmark Texts (Bloomsbury Academic Collections series)","isCustom":false,"vendorId":694,"vendorName":"Bloomsbury
-        Publishing","titleCount":37,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"EBook","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Complete"}]}'
+        Publishing","titleCount":26,"isSelected":false,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":0,"isTokenNeeded":false,"contentType":"EBook","customCoverage":{"beginCoverage":"","endCoverage":""},"packageType":"Complete"}]}'
     http_version: 
-  recorded_at: Fri, 04 May 2018 02:41:48 GMT
+  recorded_at: Wed, 12 Sep 2018 14:43:34 GMT
 recorded_with: VCR 3.0.3

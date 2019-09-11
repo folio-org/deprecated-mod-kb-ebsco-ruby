@@ -128,7 +128,7 @@ RSpec.describe 'Resources', type: :request do
         expect(attributes.proxy.id).to eq('EZProxy')
       end
       it 'contains proxy inheritance' do
-        expect(attributes.proxy.inherited).to eq(true)
+        expect(attributes.proxy.inherited).to eq(false)
       end
     end
   end
@@ -501,7 +501,7 @@ RSpec.describe 'Resources', type: :request do
         end
 
         it 'does not change inheritance value, always from RM API' do
-          expect(json.data.attributes.proxy.inherited).to eq(true)
+          expect(json.data.attributes.proxy.inherited).to eq(false)
         end
       end
 
@@ -548,6 +548,98 @@ RSpec.describe 'Resources', type: :request do
         end
         it 'custom coverage range has an ending' do
           expect(coverages[0].endCoverage).to eq('2004-01-01')
+        end
+      end
+
+      describe 'setting invalid custom coverage on custom resource' do
+        let(:params) do
+          {
+            'data' => {
+              'type' => 'resources',
+              'attributes' => {
+                'isSelected' => true,
+                'customCoverages' => [
+                  {
+                    'beginCoverage' => '01-2003-01',
+                    'endCoverage' => '01-01-2004'
+                  }
+                ],
+                'proxy' => {
+                  'id' => 'EZProxy'
+                }
+              }
+            }
+          }
+        end
+
+        before do
+          VCR.use_cassette('put-resources-invalid-customcoverage-update') do
+            put '/eholdings/resources/22-1887786-1440285',
+                params: params, as: :json, headers: update_headers
+          end
+        end
+
+        it 'responds with expected error status' do
+          expect(response).to have_http_status(422)
+        end
+
+        let!(:json) { Map JSON.parse response.body }
+
+        it 'returns the expected error message' do
+          expect(json.errors.first.title)
+            .to eq('Invalid beginCoverage')
+          expect(json.errors.first.detail)
+            .to eq('Begincoverage has invalid format. Should be YYYY-MM-DD')
+          expect(json.errors.second.title)
+            .to eq('Invalid endCoverage')
+          expect(json.errors.second.detail)
+            .to eq('Endcoverage has invalid format. Should be YYYY-MM-DD')
+        end
+      end
+
+      describe 'setting invalid custom coverage on managed resource' do
+        let(:params) do
+          {
+            'data' => {
+              'type' => 'resources',
+              'attributes' => {
+                'isSelected' => true,
+                'customCoverages' => [
+                  {
+                    'beginCoverage' => '01-2003-01',
+                    'endCoverage' => '01-01-2004'
+                  }
+                ],
+                'proxy' => {
+                  'id' => 'EZProxy'
+                }
+              }
+            }
+          }
+        end
+
+        before do
+          VCR.use_cassette('put-resources-invalid-customcoverage-update-managed-resource') do
+            put '/eholdings/resources/19-6581-581242',
+                params: params, as: :json, headers: update_headers
+          end
+        end
+
+        it 'responds with expected error status' do
+          expect(response).to have_http_status(422)
+        end
+
+        let!(:json) { Map JSON.parse response.body }
+
+        it 'returns the expected error message' do
+          expect(json.errors.first.title)
+            .to eq('Invalid beginCoverage')
+          expect(json.errors.first.detail)
+            .to eq('Begincoverage has invalid format. Should be YYYY-MM-DD')
+          expect(json.errors.second.title)
+            .to eq('Invalid endCoverage')
+          expect(json.errors.second.detail)
+            .to eq('Endcoverage has invalid format. Should be YYYY-MM-DD')
         end
       end
 
@@ -695,8 +787,7 @@ RSpec.describe 'Resources', type: :request do
                 "publisherName": 'Frontside Newspapers',
                 "edition": '5',
                 "description": 'Something something something',
-                "url": 'https://frontside.io',
-                "packageId": '19-530'
+                "url": 'https://frontside.io'
               }
             }
           }
@@ -712,21 +803,10 @@ RSpec.describe 'Resources', type: :request do
         let!(:json) { Map JSON.parse response.body }
 
         it 'responds with OK status' do
-          expect(response).to have_http_status(422)
-          expect(json.errors[0].title).to eq 'Invalid titleName'
-          expect(json.errors[0].detail).to eq 'Titlename must be blank'
-          expect(json.errors[1].title).to eq 'Invalid isPeerReviewed'
-          expect(json.errors[1].detail).to eq 'Ispeerreviewed must be blank'
-          expect(json.errors[2].title).to eq 'Invalid pubType'
-          expect(json.errors[2].detail).to eq 'Pubtype must be blank'
-          expect(json.errors[3].title).to eq 'Invalid publisherName'
-          expect(json.errors[3].detail).to eq 'Publishername must be blank'
-          expect(json.errors[4].title).to eq 'Invalid edition'
-          expect(json.errors[4].detail).to eq 'Edition must be blank'
-          expect(json.errors[5].title).to eq 'Invalid description'
-          expect(json.errors[5].detail).to eq 'Description must be blank'
-          expect(json.errors[6].title).to eq 'Invalid url'
-          expect(json.errors[6].detail).to eq 'Url must be blank'
+          expect(response).to have_http_status(200)
+          expect(json.data.attributes.isPeerReviewed).to be false
+          expect(json.data.attributes.edition).to be_nil
+          expect(json.data.attributes.description).to be_nil
         end
       end
 
@@ -776,6 +856,37 @@ RSpec.describe 'Resources', type: :request do
         it 'gives expected error messages in response' do
           expect(json.errors.first.title).to eq 'Invalid url'
           expect(json.errors.first.detail).to eq 'Url has invalid format'
+        end
+      end
+
+      describe 'updating a resource with an empty url' do
+        let(:params) do
+          {
+            'data' => {
+              'type' => 'resources',
+              'attributes' => {
+                'isSelected' => true,
+                'url' => ''
+              }
+            }
+          }
+        end
+
+        before do
+          VCR.use_cassette('put-resources-update-empty-url') do
+            put '/eholdings/resources/123355-3120611-19017544',
+                params: params, as: :json, headers: update_headers
+          end
+        end
+
+        it 'responds with OK status' do
+          expect(response).to have_http_status(200)
+        end
+
+        let!(:json) { Map JSON.parse response.body }
+
+        it 'returns null url' do
+          expect(json.data.attributes.url).to eq(nil)
         end
       end
     end
@@ -867,7 +978,7 @@ RSpec.describe 'Resources', type: :request do
   describe 'when the resource is hidden' do
     before do
       VCR.use_cassette('get-resource-reason-hidden-by-customer') do
-        get '/eholdings/resources/19-2697502-15097690',
+        get '/eholdings/resources//583-4345-761893',
             headers: okapi_headers
       end
     end
@@ -886,7 +997,7 @@ RSpec.describe 'Resources', type: :request do
   describe 'when the resource is hidden at package level' do
     before do
       VCR.use_cassette('get-resource-reason-hidden-by-ep') do
-        get '/eholdings/resources/22-4620-5557625',
+        get '/eholdings/resources/583-2356523-760971',
             headers: okapi_headers
       end
     end
@@ -945,7 +1056,7 @@ RSpec.describe 'Resources', type: :request do
       end
     end
     context 'with a custom package' do
-      let(:package_id) { '123355-2864301' }
+      let(:package_id) { '123355-2846164' }
       before do
         VCR.use_cassette('resource-link-to-custom-package') do
           post '/eholdings/resources/', params: params, as: :json,
@@ -973,7 +1084,7 @@ RSpec.describe 'Resources', type: :request do
     end
 
     context 'with an invalid url' do
-      let(:package_id) { '123355-2720678' }
+      let(:package_id) { '123355-3124668' }
       let(:params) do
         {
           data: {
@@ -1000,7 +1111,7 @@ RSpec.describe 'Resources', type: :request do
     end
 
     context 'without a url' do
-      let(:package_id) { '123355-2720678' }
+      let(:package_id) { '123355-3124668' }
       let(:params) do
         {
           data: {
@@ -1031,7 +1142,7 @@ RSpec.describe 'Resources', type: :request do
     describe 'delete a custom resource associated with custom package successfully' do
       before do
         VCR.use_cassette('delete-custom-resource-custom-package') do
-          delete '/eholdings/resources/123355-2845510-17059786',
+          delete '/eholdings/resources/123355-2868997-18640293',
                  headers: okapi_headers
         end
       end

@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://okapi.frontside.io/configurations/entries?query=module=KB_EBSCO
+    uri: https://okapi.frontside.io/configurations/entries?query=module=EKB
     body:
       encoding: US-ASCII
       string: ''
@@ -27,7 +27,7 @@ http_interactions:
       Server:
       - nginx/1.13.5
       Date:
-      - Fri, 04 May 2018 19:55:44 GMT
+      - Wed, 12 Sep 2018 16:39:58 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -35,10 +35,10 @@ http_interactions:
       Connection:
       - keep-alive
       X-Okapi-Trace:
-      - 'GET mod-authtoken-1.4.1-SNAPSHOT.20 http://10.39.249.72:8081/configurations/entries..
-        : 202 1123us'
-      - 'GET mod-configuration-4.0.3-SNAPSHOT.29 http://10.39.252.104:8081/configurations/entries..
-        : 200 41051us'
+      - 'GET mod-authtoken-1.5.2-SNAPSHOT.26 http://10.39.242.252:8081/configurations/entries..
+        : 202 1464us'
+      - 'GET mod-configuration-5.0.1-SNAPSHOT.45 http://10.39.249.105:8081/configurations/entries..
+        : 200 45644us'
       Host:
       - okapi.frontside.io
       X-Real-Ip:
@@ -52,11 +52,11 @@ http_interactions:
       X-Forwarded-Proto:
       - https
       X-Original-Uri:
-      - "/configurations/entries?query=module=KB_EBSCO"
+      - "/configurations/entries?query=module=EKB"
       X-Scheme:
       - https
       X-Auth-Request-Redirect:
-      - "/configurations/entries?query=module=KB_EBSCO"
+      - "/configurations/entries?query=module=EKB"
       Accept:
       - application/json
       X-Okapi-Tenant:
@@ -66,15 +66,11 @@ http_interactions:
       User-Agent:
       - Ruby
       X-Okapi-Request-Id:
-      - 441734/configurations
+      - 193307/configurations
       X-Okapi-Url:
-      - http://10.39.243.220:80
-      X-Okapi-Permissions-Required:
-      - configuration.entries.collection.get
-      X-Okapi-Module-Permissions:
-      - '{"mod-authtoken-1.4.1-SNAPSHOT.20":["perms.users.get"]}'
+      - http://10.39.245.41:80
       X-Okapi-Permissions:
-      - '["configuration.entries.collection.get"]'
+      - '["configuration.entries.collection.get","configuration.entries.collection.get"]'
       X-Okapi-User-Id:
       - 1ad737b0-d847-11e6-bf26-cec0c932ce01
       X-Okapi-Token:
@@ -86,28 +82,56 @@ http_interactions:
       string: |-
         {
           "configs" : [ {
-            "id" : "9f193b46-4cc5-4c99-b09f-374fe5415673",
-            "module" : "KB_EBSCO",
-            "configName" : "api_credentials",
-            "code" : "kb.ebsco.credentials",
-            "description" : "EBSCO RM-API Credentials",
+            "id" : "efadf3d8-59c3-4508-99d4-3e36e9247d87",
+            "module" : "EKB",
+            "configName" : "api_access",
+            "code" : "kb.ebsco.url",
+            "description" : "EBSCO RM-API URL",
             "enabled" : true,
-            "value" : "customer-id=TEST_CUSTOMER_ID&api-key=TEST_API_KEY",
+            "value" : "https://api.ebsco.io",
             "metadata" : {
-              "createdDate" : "2018-03-28T14:49:56.794+0000",
+              "createdDate" : "2018-09-12T12:34:52.189+0000",
               "createdByUserId" : "1ad737b0-d847-11e6-bf26-cec0c932ce01",
-              "updatedDate" : "2018-03-28T14:49:56.794+0000",
+              "updatedDate" : "2018-09-12T12:34:52.189+0000",
+              "updatedByUserId" : "1ad737b0-d847-11e6-bf26-cec0c932ce01"
+            }
+          }, {
+            "id" : "6b24b703-243a-4261-a7bf-0336d34f8c94",
+            "module" : "EKB",
+            "configName" : "api_access",
+            "code" : "kb.ebsco.customerId",
+            "description" : "EBSCO RM-API Customer ID",
+            "enabled" : true,
+            "value" : "TEST_CUSTOMER_ID",
+            "metadata" : {
+              "createdDate" : "2018-09-12T12:34:52.466+0000",
+              "createdByUserId" : "1ad737b0-d847-11e6-bf26-cec0c932ce01",
+              "updatedDate" : "2018-09-12T12:34:52.466+0000",
+              "updatedByUserId" : "1ad737b0-d847-11e6-bf26-cec0c932ce01"
+            }
+          }, {
+            "id" : "8038c4f3-0b09-4d97-be46-8a5236ef3f2f",
+            "module" : "EKB",
+            "configName" : "api_access",
+            "code" : "kb.ebsco.apiKey",
+            "description" : "EBSCO RM-API API Key",
+            "enabled" : true,
+            "value" : "TEST_API_KEY",
+            "metadata" : {
+              "createdDate" : "2018-09-12T12:34:52.788+0000",
+              "createdByUserId" : "1ad737b0-d847-11e6-bf26-cec0c932ce01",
+              "updatedDate" : "2018-09-12T12:34:52.788+0000",
               "updatedByUserId" : "1ad737b0-d847-11e6-bf26-cec0c932ce01"
             }
           } ],
-          "totalRecords" : 1,
+          "totalRecords" : 3,
           "resultInfo" : {
-            "totalRecords" : 1,
+            "totalRecords" : 3,
             "facets" : [ ]
           }
         }
     http_version: 
-  recorded_at: Fri, 04 May 2018 19:55:44 GMT
+  recorded_at: Wed, 12 Sep 2018 16:39:58 GMT
 - request:
     method: get
     uri: https://api.ebsco.io/rm/rmaccounts/TEST_CUSTOMER_ID/vendors?count=25&offset=1&orderby=vendorname&search=higher%20education
@@ -116,7 +140,7 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - Flexirest/1.5.5
+      - Flexirest/1.7.0
       Connection:
       - Keep-Alive
       Accept:
@@ -135,29 +159,53 @@ http_interactions:
       Content-Type:
       - application/json;charset=UTF-8
       Content-Length:
-      - '3321'
+      - '3783'
       Connection:
       - keep-alive
       Date:
-      - Fri, 04 May 2018 19:55:44 GMT
+      - Wed, 12 Sep 2018 16:39:58 GMT
       X-Amzn-Requestid:
-      - 21939b1b-4fd5-11e8-a666-4fce454008af
+      - 7cc2b20d-b6aa-11e8-acd3-6b7cfdab567c
       X-Amzn-Remapped-Connection:
       - keep-alive
       X-Amz-Apigw-Id:
-      - GYIeEE0lIAMFmjg=
+      - NHcm0FAUIAMFxpA=
       X-Amzn-Remapped-Date:
-      - Fri, 04 May 2018 19:55:44 GMT
+      - Wed, 12 Sep 2018 16:39:58 GMT
       X-Cache:
       - Miss from cloudfront
       Via:
-      - 1.1 0576b942ae9f4fc9c0b62b0736e9bfd6.cloudfront.net (CloudFront)
+      - 1.1 12b95f4a8620bcfb6c85511fae926d57.cloudfront.net (CloudFront)
       X-Amz-Cf-Id:
-      - IMDDyyJXptb3jI-s48J-3n9egvkrme0AATQoDDrZerJI0pmkY6i6DQ==
+      - KpSI5iAKOMSyTbUsCcRQj5AAkZ3NfnZtvIjze2E8R149JY5bO95p0w==
     body:
-      encoding: ASCII-8BIT
-      string: !binary |-
-        eyJ0b3RhbFJlc3VsdHMiOjIyLCJ2ZW5kb3JzIjpbeyJ2ZW5kb3JJZCI6MjIxMjUsInZlbmRvck5hbWUiOiJBZnJpY2FuIEhpZ2hlciBFZHVjYXRpb24gUmVzZWFyY2ggKEFIRVJPKSIsImlzQ3VzdG9tZXIiOmZhbHNlLCJwYWNrYWdlc1RvdGFsIjoxLCJwYWNrYWdlc1NlbGVjdGVkIjowLCJ2ZW5kb3JUb2tlbiI6bnVsbH0seyJ2ZW5kb3JJZCI6ODkyMzksInZlbmRvck5hbWUiOiJCcmlkZ2VtYW4gRWR1Y2F0aW9uIiwiaXNDdXN0b21lciI6ZmFsc2UsInBhY2thZ2VzVG90YWwiOjEsInBhY2thZ2VzU2VsZWN0ZWQiOjAsInZlbmRvclRva2VuIjpudWxsfSx7InZlbmRvcklkIjoxMjE1OTEsInZlbmRvck5hbWUiOiJDZW50ZXIgZm9yIE9wZW4gRWR1Y2F0aW9uIiwiaXNDdXN0b21lciI6ZmFsc2UsInBhY2thZ2VzVG90YWwiOjEsInBhY2thZ2VzU2VsZWN0ZWQiOjAsInZlbmRvclRva2VuIjpudWxsfSx7InZlbmRvcklkIjo3MzY2LCJ2ZW5kb3JOYW1lIjoiQ2hyb25pY2xlIG9mIEhpZ2hlciBFZHVjYXRpb24iLCJpc0N1c3RvbWVyIjpmYWxzZSwicGFja2FnZXNUb3RhbCI6MSwicGFja2FnZXNTZWxlY3RlZCI6MCwidmVuZG9yVG9rZW4iOm51bGx9LHsidmVuZG9ySWQiOjkzMjc1LCJ2ZW5kb3JOYW1lIjoiQ29sb3JhZG8gRGVwYXJ0bWVudCBvZiBFZHVjYXRpb24iLCJpc0N1c3RvbWVyIjpmYWxzZSwicGFja2FnZXNUb3RhbCI6MSwicGFja2FnZXNTZWxlY3RlZCI6MCwidmVuZG9yVG9rZW4iOm51bGx9LHsidmVuZG9ySWQiOjQxMjUsInZlbmRvck5hbWUiOiJDb25zb3J0aXVtIGZvciBQb2xpY3kgUmVzZWFyY2ggaW4gRWR1Y2F0aW9uIiwiaXNDdXN0b21lciI6ZmFsc2UsInBhY2thZ2VzVG90YWwiOjEsInBhY2thZ2VzU2VsZWN0ZWQiOjAsInZlbmRvclRva2VuIjpudWxsfSx7InZlbmRvcklkIjoxMTEyLCJ2ZW5kb3JOYW1lIjoiRGlzY292ZXJ5IEVkdWNhdGlvbiIsImlzQ3VzdG9tZXIiOmZhbHNlLCJwYWNrYWdlc1RvdGFsIjoxLCJwYWNrYWdlc1NlbGVjdGVkIjoxLCJ2ZW5kb3JUb2tlbiI6bnVsbH0seyJ2ZW5kb3JJZCI6MTUzLCJ2ZW5kb3JOYW1lIjoiR2VuZXZhIEZvdW5kYXRpb24gZm9yIE1lZGljYWwgRWR1Y2F0aW9uIGFuZCBSZXNlYXJjaCIsImlzQ3VzdG9tZXIiOmZhbHNlLCJwYWNrYWdlc1RvdGFsIjoxLCJwYWNrYWdlc1NlbGVjdGVkIjowLCJ2ZW5kb3JUb2tlbiI6bnVsbH0seyJ2ZW5kb3JJZCI6MTI4NjYyLCJ2ZW5kb3JOYW1lIjoiSGFydmFyZCBFZHVjYXRpb24gUHJlc3MiLCJpc0N1c3RvbWVyIjpmYWxzZSwicGFja2FnZXNUb3RhbCI6MSwicGFja2FnZXNTZWxlY3RlZCI6MCwidmVuZG9yVG9rZW4iOm51bGx9LHsidmVuZG9ySWQiOjEyMzU3OSwidmVuZG9yTmFtZSI6IkhpZ2hlciBFZHVjYXRpb24gUHJlc3MiLCJpc0N1c3RvbWVyIjpmYWxzZSwicGFja2FnZXNUb3RhbCI6MiwicGFja2FnZXNTZWxlY3RlZCI6MCwidmVuZG9yVG9rZW4iOm51bGx9LHsidmVuZG9ySWQiOjEyMzkwNCwidmVuZG9yTmFtZSI6IkhvZGRlciBFZHVjYXRpb24iLCJpc0N1c3RvbWVyIjpmYWxzZSwicGFja2FnZXNUb3RhbCI6MSwicGFja2FnZXNTZWxlY3RlZCI6MCwidmVuZG9yVG9rZW4iOm51bGx9LHsidmVuZG9ySWQiOjEyODYyMCwidmVuZG9yTmFtZSI6Ikluc3RpdHV0ZSBmb3IgdGhlIFN0dWR5IG9mIEtub3dsZWRnZSBNYW5hZ2VtZW50IGluIEVkdWNhdGlvbiIsImlzQ3VzdG9tZXIiOmZhbHNlLCJwYWNrYWdlc1RvdGFsIjoxLCJwYWNrYWdlc1NlbGVjdGVkIjowLCJ2ZW5kb3JUb2tlbiI6bnVsbH0seyJ2ZW5kb3JJZCI6NzEyLCJ2ZW5kb3JOYW1lIjoiSW5zdGl0dXRlIG9mIEVkdWNhdGlvbiBTY2llbmNlcyIsImlzQ3VzdG9tZXIiOmZhbHNlLCJwYWNrYWdlc1RvdGFsIjoxLCJwYWNrYWdlc1NlbGVjdGVkIjowLCJ2ZW5kb3JUb2tlbiI6bnVsbH0seyJ2ZW5kb3JJZCI6MTAzNSwidmVuZG9yTmFtZSI6Iklvd2EgQXJlYSBFZHVjYXRpb24gQWdlbmNpZXMiLCJpc0N1c3RvbWVyIjpmYWxzZSwicGFja2FnZXNUb3RhbCI6MSwicGFja2FnZXNTZWxlY3RlZCI6MCwidmVuZG9yVG9rZW4iOm51bGx9LHsidmVuZG9ySWQiOjEyMzIwNSwidmVuZG9yTmFtZSI6IktvcmVhIEVkdWNhdGlvbiBSZXNlYXJjaCBJbmZvcm1hdGlvbiBTZXJ2aWNlIChLRVJJUykiLCJpc0N1c3RvbWVyIjpmYWxzZSwicGFja2FnZXNUb3RhbCI6MiwicGFja2FnZXNTZWxlY3RlZCI6MCwidmVuZG9yVG9rZW4iOm51bGx9LHsidmVuZG9ySWQiOjU4NywidmVuZG9yTmFtZSI6Ik1FTkM6IFRoZSBOYXRpb25hbCBBc3NvY2lhdGlvbiBmb3IgTXVzaWMgRWR1Y2F0aW9uIiwiaXNDdXN0b21lciI6ZmFsc2UsInBhY2thZ2VzVG90YWwiOjEsInBhY2thZ2VzU2VsZWN0ZWQiOjAsInZlbmRvclRva2VuIjpudWxsfSx7InZlbmRvcklkIjo2MTQsInZlbmRvck5hbWUiOiJOYXRpb25hbCBBc3NvY2lhdGlvbiBvZiBTdGF0ZSBEaXJlY3RvcnMgb2YgVGVhY2hlciBFZHVjYXRpb24gYW5kIENlcnRpZmljYXRpb24iLCJpc0N1c3RvbWVyIjpmYWxzZSwicGFja2FnZXNUb3RhbCI6MSwicGFja2FnZXNTZWxlY3RlZCI6MCwidmVuZG9yVG9rZW4iOm51bGx9LHsidmVuZG9ySWQiOjEyMTY5MCwidmVuZG9yTmFtZSI6Ik5hdGlvbmFsIERhbmNlIEVkdWNhdGlvbiBPcmdhbml6YXRpb24iLCJpc0N1c3RvbWVyIjpmYWxzZSwicGFja2FnZXNUb3RhbCI6MSwicGFja2FnZXNTZWxlY3RlZCI6MCwidmVuZG9yVG9rZW4iOm51bGx9LHsidmVuZG9ySWQiOjk1OCwidmVuZG9yTmFtZSI6Ik9ic2VydmF0b3J5IG9uIEJvcmRlcmxlc3MgSGlnaGVyIEVkdWNhdGlvbiIsImlzQ3VzdG9tZXIiOmZhbHNlLCJwYWNrYWdlc1RvdGFsIjoxLCJwYWNrYWdlc1NlbGVjdGVkIjowLCJ2ZW5kb3JUb2tlbiI6bnVsbH0seyJ2ZW5kb3JJZCI6MTEwMzE2LCJ2ZW5kb3JOYW1lIjoiT3B0aW11cyBFZHVjYXRpb24iLCJpc0N1c3RvbWVyIjpmYWxzZSwicGFja2FnZXNUb3RhbCI6MSwicGFja2FnZXNTZWxlY3RlZCI6MCwidmVuZG9yVG9rZW4iOm51bGx9LHsidmVuZG9ySWQiOjY4NywidmVuZG9yTmFtZSI6IlNvdXRoZXJuIFB1YmxpYyBBZG1pbmlzdHJhdGlvbiBFZHVjYXRpb24gRm91bmRhdGlvbiAoU1BBRUYpIiwiaXNDdXN0b21lciI6ZmFsc2UsInBhY2thZ2VzVG90YWwiOjEsInBhY2thZ2VzU2VsZWN0ZWQiOjAsInZlbmRvclRva2VuIjpudWxsfSx7InZlbmRvcklkIjo1OTI4NCwidmVuZG9yTmFtZSI6IumrmOetieaVmeiCsuefpeitmOW6qyBIaWdoZXIgRWR1Y2F0aW9uIFB1Ymxpc2hpbmcgQ28uLCBMdGQuIiwiaXNDdXN0b21lciI6ZmFsc2UsInBhY2thZ2VzVG90YWwiOjEsInBhY2thZ2VzU2VsZWN0ZWQiOjAsInZlbmRvclRva2VuIjpudWxsfV19
+      encoding: UTF-8
+      string: '{"totalResults":26,"vendors":[{"vendorId":22125,"vendorName":"African
+        Higher Education Research (AHERO)","isCustomer":false,"packagesTotal":1,"packagesSelected":0,"vendorToken":null},{"vendorId":89239,"vendorName":"Bridgeman
+        Education","isCustomer":false,"packagesTotal":1,"packagesSelected":0,"vendorToken":null},{"vendorId":131763,"vendorName":"Canadian
+        Center of Science and Education (CCSE)","isCustomer":false,"packagesTotal":1,"packagesSelected":0,"vendorToken":null},{"vendorId":121591,"vendorName":"Center
+        for Open Education","isCustomer":false,"packagesTotal":1,"packagesSelected":0,"vendorToken":null},{"vendorId":7366,"vendorName":"Chronicle
+        of Higher Education","isCustomer":false,"packagesTotal":1,"packagesSelected":0,"vendorToken":null},{"vendorId":93275,"vendorName":"Colorado
+        Department of Education","isCustomer":false,"packagesTotal":1,"packagesSelected":0,"vendorToken":null},{"vendorId":4125,"vendorName":"Consortium
+        for Policy Research in Education","isCustomer":false,"packagesTotal":1,"packagesSelected":0,"vendorToken":null},{"vendorId":1112,"vendorName":"Discovery
+        Education","isCustomer":false,"packagesTotal":1,"packagesSelected":1,"vendorToken":null},{"vendorId":153,"vendorName":"Geneva
+        Foundation for Medical Education and Research","isCustomer":false,"packagesTotal":1,"packagesSelected":0,"vendorToken":null},{"vendorId":128662,"vendorName":"Harvard
+        Education Press","isCustomer":false,"packagesTotal":1,"packagesSelected":0,"vendorToken":null},{"vendorId":123579,"vendorName":"Higher
+        Education Press","isCustomer":false,"packagesTotal":2,"packagesSelected":0,"vendorToken":null},{"vendorId":123904,"vendorName":"Hodder
+        Education","isCustomer":false,"packagesTotal":1,"packagesSelected":0,"vendorToken":null},{"vendorId":128620,"vendorName":"Institute
+        for the Study of Knowledge Management in Education","isCustomer":false,"packagesTotal":1,"packagesSelected":0,"vendorToken":null},{"vendorId":712,"vendorName":"Institute
+        of Education Sciences","isCustomer":false,"packagesTotal":1,"packagesSelected":0,"vendorToken":null},{"vendorId":1035,"vendorName":"Iowa
+        Area Education Agencies","isCustomer":false,"packagesTotal":1,"packagesSelected":0,"vendorToken":null},{"vendorId":123205,"vendorName":"Korea
+        Education Research Information Service (KERIS)","isCustomer":false,"packagesTotal":2,"packagesSelected":0,"vendorToken":null},{"vendorId":587,"vendorName":"MENC:
+        The National Association for Music Education","isCustomer":false,"packagesTotal":1,"packagesSelected":0,"vendorToken":null},{"vendorId":614,"vendorName":"National
+        Association of State Directors of Teacher Education and Certification","isCustomer":false,"packagesTotal":1,"packagesSelected":0,"vendorToken":null},{"vendorId":121690,"vendorName":"National
+        Dance Education Organization","isCustomer":false,"packagesTotal":1,"packagesSelected":0,"vendorToken":null},{"vendorId":958,"vendorName":"Observatory
+        on Borderless Higher Education","isCustomer":false,"packagesTotal":1,"packagesSelected":0,"vendorToken":null},{"vendorId":110316,"vendorName":"Optimus
+        Education","isCustomer":false,"packagesTotal":1,"packagesSelected":0,"vendorToken":null},{"vendorId":131873,"vendorName":"SCOPE
+        Education Services","isCustomer":false,"packagesTotal":1,"packagesSelected":0,"vendorToken":null},{"vendorId":687,"vendorName":"Southern
+        Public Administration Education Foundation (SPAEF)","isCustomer":false,"packagesTotal":1,"packagesSelected":0,"vendorToken":null},{"vendorId":131745,"vendorName":"The
+        Indian Society of Education and Environment","isCustomer":false,"packagesTotal":1,"packagesSelected":0,"vendorToken":null},{"vendorId":128894,"vendorName":"The
+        Ministry of Higher Education & Scientific Research of Iraq ","isCustomer":false,"packagesTotal":1,"packagesSelected":0,"vendorToken":null}]}'
     http_version: 
-  recorded_at: Fri, 04 May 2018 19:55:44 GMT
+  recorded_at: Wed, 12 Sep 2018 16:39:59 GMT
 recorded_with: VCR 3.0.3

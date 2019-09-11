@@ -15,7 +15,7 @@ RSpec.describe 'Providers', type: :request do
     it 'gets a list of resources' do
       expect(response).to have_http_status(200)
       expect(json.data.length).to equal(25)
-      expect(json.meta.totalResults).to equal(105)
+      expect(json.meta.totalResults).to equal(115)
       expect(json.data.first.type).to eq('providers')
       expect(json.data.first.attributes).to_not include('proxy')
     end
@@ -36,7 +36,7 @@ RSpec.describe 'Providers', type: :request do
       it 'gets a different list of resources' do
         expect(response).to have_http_status(200)
         expect(json2.data.length).to equal(25)
-        expect(json2.meta.totalResults).to equal(106)
+        expect(json2.meta.totalResults).to equal(115)
         expect(json.data.first.id).not_to eql(json2.data.first.id)
         expect(json.data.first.type).to eq('providers')
       end
@@ -59,7 +59,7 @@ RSpec.describe 'Providers', type: :request do
         expect(response).to have_http_status(200)
         expect(json2.data.length).to equal(2)
         expect(json.data.first.type).to eq('providers')
-        expect(json2.meta.totalResults).to equal(112)
+        expect(json2.meta.totalResults).to equal(115)
       end
 
       it 'contains relationships data' do
@@ -94,8 +94,8 @@ RSpec.describe 'Providers', type: :request do
 
       it 'contains a list of alphabetically A-Z sorted resources' do
         expect(response).to have_http_status(200)
-        expect(json_n.data.length).to equal(22)
-        expect(json_n.meta.totalResults).to equal(22)
+        expect(json_n.data.length).to equal(25)
+        expect(json_n.meta.totalResults).to equal(26)
         expect(json_n.data.first.type).to eq('providers')
         sorted_array = json_n.data.sort_by { |p| p.attributes.name.downcase }
         expect(json_n.data).to eq(sorted_array)
@@ -114,8 +114,8 @@ RSpec.describe 'Providers', type: :request do
 
       it 'contains a list of relevancy sorted resources' do
         expect(response).to have_http_status(200)
-        expect(json_n.data.length).to equal(22)
-        expect(json_n.meta.totalResults).to equal(22)
+        expect(json_n.data.length).to equal(25)
+        expect(json_n.meta.totalResults).to equal(26)
         expect(json_n.data.first.type).to eq('providers')
         expect(json_n.data[0].attributes.name.downcase).to include(
           'higher education'
@@ -137,8 +137,8 @@ RSpec.describe 'Providers', type: :request do
 
       it 'contains a list of relevancy sorted resources' do
         expect(response).to have_http_status(200)
-        expect(json_n.data.length).to equal(22)
-        expect(json_n.meta.totalResults).to equal(22)
+        expect(json_n.data.length).to equal(25)
+        expect(json_n.meta.totalResults).to equal(26)
         expect(json_n.data.first.type).to eq('providers')
         expect(json_n.data[0].attributes.name.downcase).to include(
           'higher education'
@@ -161,7 +161,7 @@ RSpec.describe 'Providers', type: :request do
       it 'contains a list of alphabetically sorted resources' do
         expect(response).to have_http_status(200)
         expect(json_n.data.length).to equal(25)
-        expect(json_n.meta.totalResults).to equal(1782)
+        expect(json_n.meta.totalResults).to equal(1886)
         expect(json_n.data.first.type).to eq('providers')
         sorted_array = json_n.data.sort_by { |p| p.attributes.name.downcase }
         expect(json_n.data).to eq(sorted_array)
@@ -240,7 +240,7 @@ RSpec.describe 'Providers', type: :request do
       expect(json.data.attributes.providerToken).to include(
         'factName' => '[[galesiteid]]',
         'prompt' => '/itweb/',
-        'value' => nil
+        'value' => '99'
       )
     end
 
@@ -330,7 +330,7 @@ RSpec.describe 'Providers', type: :request do
       expect(response).to have_http_status(200)
       expect(json.data.first.type).to eq('packages')
       expect(json.data.length).to eq(25)
-      expect(json.meta.totalResults).to equal(626)
+      expect(json.meta.totalResults).to equal(624)
       expect(json.data.first.attributes).to(
         include(
           'vendorId',
@@ -363,7 +363,7 @@ RSpec.describe 'Providers', type: :request do
       it 'gets a different list of resources' do
         expect(response).to have_http_status(200)
         expect(json2.data.length).to equal(25)
-        expect(json2.meta.totalResults).to equal(626)
+        expect(json2.meta.totalResults).to equal(624)
         expect(json.data.first.id).not_to eql(json2.data.first.id)
       end
 
@@ -745,7 +745,7 @@ RSpec.describe 'Providers', type: :request do
                   'value' => '99'
                 },
                 'proxy' => {
-                  'id' => '<n>'
+                  'id' => 'TestingFolio'
                 }
               }
             }
@@ -770,9 +770,9 @@ RSpec.describe 'Providers', type: :request do
           expect(json.data.attributes.providerToken.value).to eq('99')
         end
 
-        it 'has proxy value with inherited false' do
-          expect(json.data.attributes.proxy.id).to eq('<n>')
-          expect(json.data.attributes.proxy.inherited).to eq(false)
+        it 'has proxy value with inherited true' do
+          expect(json.data.attributes.proxy.id).to eq('TestingFolio')
+          expect(json.data.attributes.proxy.inherited).to eq(true)
         end
       end
     end

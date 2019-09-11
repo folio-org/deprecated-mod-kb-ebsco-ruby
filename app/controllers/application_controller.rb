@@ -13,11 +13,7 @@ class ApplicationController < ActionController::API
   end
 
   def config
-    @config ||= ::Configuration.new(okapi, rmapi_base_url).tap(&:load!)
-  end
-
-  def rmapi_base_url
-    Rails.application.config.rmapi_base_url
+    @config ||= ::Configuration.new(okapi).tap(&:load!)
   end
 
   def okapi_url
@@ -64,10 +60,15 @@ class ApplicationController < ActionController::API
     yield
   rescue Flexirest::HTTPClientException,
          Flexirest::HTTPServerException,
-         Flexirest::HTTPNotFoundClientException => e
-
-    render jsonapi_errors: get_errors_hash(e),
-           status: e.status
+         Flexirest::HTTPNotFoundClientException,
+         Flexirest::TimeoutException => e
+    if e.is_a? Flexirest::TimeoutException
+      render jsonapi_errors: { "title": 'Request timed out', "detail": e.message },
+             status: :request_timeout
+    else
+      render jsonapi_errors: get_errors_hash(e),
+             status: e.status
+    end
   end
 
   def get_errors_hash(error)

@@ -30,6 +30,24 @@ RSpec.describe 'Configurations', type: :request do
           id: 'default',
           attributes: {
             customerId: customer_id,
+            apiKey: api_key,
+            rmapiBaseUrl: rmapi_url
+          }
+        }
+      }.to_json,
+      headers: headers
+    ]
+  end
+
+  let(:resource_with_missing_url) do
+    [
+      '/eholdings/configuration',
+      params: {
+        data: {
+          type: 'configurations',
+          id: 'default',
+          attributes: {
+            customerId: customer_id,
             apiKey: api_key
           }
         }
@@ -47,7 +65,8 @@ RSpec.describe 'Configurations', type: :request do
           id: 'default',
           attributes: {
             customerId: customer_id,
-            apiKey: api_key
+            apiKey: api_key,
+            rmapiBaseUrl: rmapi_url
           }
         }
       }.to_json,
@@ -64,7 +83,8 @@ RSpec.describe 'Configurations', type: :request do
           id: 'default',
           attributes: {
             customerId: customer_id,
-            apiKey: api_key
+            apiKey: api_key,
+            rmapiBaseUrl: rmapi_url
           }
         }
       }.to_json,
@@ -103,6 +123,39 @@ RSpec.describe 'Configurations', type: :request do
       it 'contains valid attributes' do
         expect(json.data.attributes.customerId).to eql(customer_id)
         expect(json.data.attributes.apiKey).to eql(masked_api_key)
+        expect(json.data.attributes.rmapiBaseUrl).to eql(rmapi_url)
+      end
+    end
+  end
+
+  describe 'setting the configuration with missing url' do
+    before do
+      VCR.use_cassette('put-configuration-missing-url') do
+        put(*resource_with_missing_url)
+      end
+    end
+
+    let!(:json) { Map JSON.parse response.body }
+
+    it 'expects the response to have 200' do
+      expect(response).to have_http_status(200)
+    end
+
+    describe 'reading the configuration' do
+      before do
+        VCR.use_cassette('get-configuration-missinurl') do
+          get(*resource)
+        end
+      end
+
+      it 'expect the response to be 200' do
+        expect(response).to have_http_status(200)
+      end
+
+      it 'updates configuration and defaults to currently configured url' do
+        expect(json.data.attributes.customerId).to eql(customer_id)
+        expect(json.data.attributes.apiKey).to eql(masked_api_key)
+        expect(json.data.attributes.rmapiBaseUrl).to eql(rmapi_url)
       end
     end
   end
@@ -140,7 +193,8 @@ RSpec.describe 'Configurations', type: :request do
           '/eholdings/configuration',
           params: {
             customerId: customer_id,
-            apiKey: api_key
+            apiKey: api_key,
+            rmapiBaseUrl: rmapi_url
           }.to_json,
           headers: headers
         )

@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://okapi.frontside.io/configurations/entries?query=module=KB_EBSCO
+    uri: https://okapi.frontside.io/configurations/entries?query=module=EKB
     body:
       encoding: US-ASCII
       string: ''
@@ -27,7 +27,7 @@ http_interactions:
       Server:
       - nginx/1.13.5
       Date:
-      - Mon, 23 Jul 2018 18:29:08 GMT
+      - Wed, 12 Sep 2018 18:04:36 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -35,16 +35,16 @@ http_interactions:
       Connection:
       - keep-alive
       X-Okapi-Trace:
-      - 'GET mod-authtoken-1.4.1-SNAPSHOT.21 http://10.39.255.17:8081/configurations/entries..
-        : 202 310325us'
-      - 'GET mod-configuration-4.0.4-SNAPSHOT.36 http://10.39.247.129:8081/configurations/entries..
-        : 200 44294us'
+      - 'GET mod-authtoken-1.5.2-SNAPSHOT.26 http://10.39.242.252:8081/configurations/entries..
+        : 202 1567us'
+      - 'GET mod-configuration-5.0.1-SNAPSHOT.45 http://10.39.249.105:8081/configurations/entries..
+        : 200 42787us'
       Host:
       - okapi.frontside.io
       X-Real-Ip:
-      - 10.128.0.3
+      - 10.128.0.4
       X-Forwarded-For:
-      - 10.128.0.3
+      - 10.128.0.4
       X-Forwarded-Host:
       - okapi.frontside.io
       X-Forwarded-Port:
@@ -52,11 +52,11 @@ http_interactions:
       X-Forwarded-Proto:
       - https
       X-Original-Uri:
-      - "/configurations/entries?query=module=KB_EBSCO"
+      - "/configurations/entries?query=module=EKB"
       X-Scheme:
       - https
       X-Auth-Request-Redirect:
-      - "/configurations/entries?query=module=KB_EBSCO"
+      - "/configurations/entries?query=module=EKB"
       Accept:
       - application/json
       X-Okapi-Tenant:
@@ -66,9 +66,9 @@ http_interactions:
       User-Agent:
       - Ruby
       X-Okapi-Request-Id:
-      - 367615/configurations
+      - 752456/configurations
       X-Okapi-Url:
-      - http://10.39.254.87:80
+      - http://10.39.245.41:80
       X-Okapi-Permissions:
       - '["configuration.entries.collection.get","configuration.entries.collection.get"]'
       X-Okapi-User-Id:
@@ -82,28 +82,56 @@ http_interactions:
       string: |-
         {
           "configs" : [ {
-            "id" : "28fd0ce0-108e-4471-8a7b-4645319fd707",
-            "module" : "KB_EBSCO",
-            "configName" : "api_credentials",
-            "code" : "kb.ebsco.credentials",
-            "description" : "EBSCO RM-API Credentials",
+            "id" : "efadf3d8-59c3-4508-99d4-3e36e9247d87",
+            "module" : "EKB",
+            "configName" : "api_access",
+            "code" : "kb.ebsco.url",
+            "description" : "EBSCO RM-API URL",
             "enabled" : true,
-            "value" : "customer-id=TEST_CUSTOMER_ID&api-key=TEST_API_KEY",
+            "value" : "https://api.ebsco.io",
             "metadata" : {
-              "createdDate" : "2018-06-26T13:23:48.592+0000",
+              "createdDate" : "2018-09-12T12:34:52.189+0000",
               "createdByUserId" : "1ad737b0-d847-11e6-bf26-cec0c932ce01",
-              "updatedDate" : "2018-06-26T13:23:48.592+0000",
+              "updatedDate" : "2018-09-12T12:34:52.189+0000",
+              "updatedByUserId" : "1ad737b0-d847-11e6-bf26-cec0c932ce01"
+            }
+          }, {
+            "id" : "6b24b703-243a-4261-a7bf-0336d34f8c94",
+            "module" : "EKB",
+            "configName" : "api_access",
+            "code" : "kb.ebsco.customerId",
+            "description" : "EBSCO RM-API Customer ID",
+            "enabled" : true,
+            "value" : "TEST_CUSTOMER_ID",
+            "metadata" : {
+              "createdDate" : "2018-09-12T12:34:52.466+0000",
+              "createdByUserId" : "1ad737b0-d847-11e6-bf26-cec0c932ce01",
+              "updatedDate" : "2018-09-12T12:34:52.466+0000",
+              "updatedByUserId" : "1ad737b0-d847-11e6-bf26-cec0c932ce01"
+            }
+          }, {
+            "id" : "8038c4f3-0b09-4d97-be46-8a5236ef3f2f",
+            "module" : "EKB",
+            "configName" : "api_access",
+            "code" : "kb.ebsco.apiKey",
+            "description" : "EBSCO RM-API API Key",
+            "enabled" : true,
+            "value" : "TEST_API_KEY",
+            "metadata" : {
+              "createdDate" : "2018-09-12T12:34:52.788+0000",
+              "createdByUserId" : "1ad737b0-d847-11e6-bf26-cec0c932ce01",
+              "updatedDate" : "2018-09-12T12:34:52.788+0000",
               "updatedByUserId" : "1ad737b0-d847-11e6-bf26-cec0c932ce01"
             }
           } ],
-          "totalRecords" : 1,
+          "totalRecords" : 3,
           "resultInfo" : {
-            "totalRecords" : 1,
+            "totalRecords" : 3,
             "facets" : [ ]
           }
         }
     http_version: 
-  recorded_at: Mon, 23 Jul 2018 18:29:08 GMT
+  recorded_at: Wed, 12 Sep 2018 18:04:36 GMT
 - request:
     method: get
     uri: https://api.ebsco.io/rm/rmaccounts/TEST_CUSTOMER_ID/vendors/19/packages/2516
@@ -135,27 +163,27 @@ http_interactions:
       Connection:
       - close
       Date:
-      - Mon, 23 Jul 2018 18:29:08 GMT
+      - Wed, 12 Sep 2018 18:04:36 GMT
       X-Amzn-Requestid:
-      - 49bb7fc0-8ea6-11e8-9f36-a784f53a0757
+      - 4f4dc555-b6b6-11e8-953d-8f3446b8ecf4
       X-Amzn-Remapped-Connection:
       - keep-alive
       X-Amz-Apigw-Id:
-      - KfmyPHp6IAMFVeA=
+      - NHpANHgqoAMFrzA=
       X-Amzn-Remapped-Date:
-      - Mon, 23 Jul 2018 18:29:08 GMT
+      - Wed, 12 Sep 2018 18:04:36 GMT
       X-Cache:
       - Miss from cloudfront
       Via:
-      - 1.1 e90303ba6db45a2785ea8e963e1ef010.cloudfront.net (CloudFront)
+      - 1.1 3182c21f2ee69ff40cfaf404637c649f.cloudfront.net (CloudFront)
       X-Amz-Cf-Id:
-      - sez667rCs0eDlH2sg-sb2o5OA0-51oge_52kdWsfvo6QxeXRSqbXdQ==
+      - bGPX3ntN57r5aEl7KiTrHpYQMgmnRLQUD7qBszJIdDtdPZ8aSlDRxQ==
     body:
       encoding: UTF-8
       string: '{"packageId":2516,"packageName":"Abstracts in Social Gerontology","isCustom":false,"vendorId":19,"vendorName":"EBSCO","titleCount":1,"isSelected":true,"visibilityData":{"isHidden":true,"reason":"Hidden
         by Customer"},"selectedCount":1,"isTokenNeeded":false,"contentType":"AbstractAndIndex","customCoverage":{"beginCoverage":"","endCoverage":""},"proxy":{"id":"<n>","inherited":true},"allowEbscoToAddTitles":false,"packageToken":null,"packageType":"Complete"}'
     http_version: 
-  recorded_at: Mon, 23 Jul 2018 18:29:08 GMT
+  recorded_at: Wed, 12 Sep 2018 18:04:36 GMT
 - request:
     method: get
     uri: https://api.ebsco.io/rm/rmaccounts/TEST_CUSTOMER_ID/titles/3129599
@@ -164,7 +192,7 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - Flexirest/1.6.7
+      - Flexirest/1.7.0
       Connection:
       - Keep-Alive
       Accept:
@@ -183,19 +211,19 @@ http_interactions:
       Content-Type:
       - application/json; charset=utf-8
       Content-Length:
-      - '2023'
+      - '2711'
       Connection:
       - keep-alive
       Date:
-      - Mon, 23 Jul 2018 18:29:09 GMT
+      - Wed, 12 Sep 2018 18:04:36 GMT
       X-Amzn-Requestid:
-      - 49da78da-8ea6-11e8-9edc-55602380375c
+      - 4f7aa1b5-b6b6-11e8-8293-01e1fae259c1
       X-Amzn-Remapped-Content-Length:
-      - '2023'
+      - '2711'
       X-Amzn-Remapped-Connection:
       - keep-alive
       X-Amz-Apigw-Id:
-      - KfmyRHw7IAMFv8A=
+      - NHpAQFu4oAMFbgg=
       X-Amzn-Remapped-Server:
       - Microsoft-IIS/8.5
       Cache-Control:
@@ -207,23 +235,24 @@ http_interactions:
       Pragma:
       - no-cache
       X-Amzn-Remapped-Date:
-      - Mon, 23 Jul 2018 18:29:08 GMT
+      - Wed, 12 Sep 2018 18:04:36 GMT
       X-Aspnet-Version:
       - 4.0.30319
       X-Cache:
       - Miss from cloudfront
       Via:
-      - 1.1 655ceee114a61672fa30ade2501aa4b4.cloudfront.net (CloudFront)
+      - 1.1 901034d5d4414b1ff9a2fe4433360a1d.cloudfront.net (CloudFront)
       X-Amz-Cf-Id:
-      - gS3i9UrBCLmbTzL2Fok5DveKoNSm9itHLV0VWTTR3TGIavqq4Tj8bw==
+      - BuVtADIvtttASbrbLw3TwRgIzm3sVBtBa0sMxdRXQQqPPGFMAZFhAQ==
     body:
       encoding: UTF-8
       string: '{"titleId":3129599,"titleName":"The Carole Lombard Handbook - Everything
-        you need to know about Carole Lombard","publisherName":"Emereo Publishing","identifiersList":[{"id":"2748990","source":"AtoZ","subtype":0,"type":9},{"id":"978-1-283-74485-0","source":"ResourceIdentifier","subtype":2,"type":1},{"id":"978-1-74304-061-4","source":"ResourceIdentifier","subtype":1,"type":1}],"subjectsList":[],"isTitleCustom":false,"pubType":"Book","customerResourcesList":[{"titleId":3129599,"packageId":1861142,"packageName":"MyiLibrary","packageType":"Variable","proxy":{"id":"TestingFolio","inherited":true},"isPackageCustom":false,"vendorId":58388,"vendorName":"Ingram
-        Content Group, Inc.","locationId":9453518,"isSelected":false,"isTokenNeeded":false,"visibilityData":{"isHidden":false,"reason":""},"managedCoverageList":[{"beginCoverage":"2012-01-01","endCoverage":"2012-12-31"}],"customCoverageList":[],"coverageStatement":null,"managedEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"customEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"url":"http://lib.myilibrary.com?id=405735","userDefinedField1":null,"userDefinedField2":null,"userDefinedField3":null,"userDefinedField4":null,"userDefinedField5":null},{"titleId":3129599,"packageId":2864301,"packageName":"joes_test3","packageType":"Custom","proxy":{"id":"TestingFolio","inherited":true},"isPackageCustom":true,"vendorId":123355,"vendorName":"API
+        you need to know about Carole Lombard","publisherName":"Emereo Publishing","identifiersList":[{"id":"2748990","source":"AtoZ","subtype":0,"type":9},{"id":"978-1-283-74485-0","source":"ResourceIdentifier","subtype":2,"type":1},{"id":"978-1-74304-061-4","source":"ResourceIdentifier","subtype":1,"type":1}],"subjectsList":[],"isTitleCustom":false,"pubType":"Book","customerResourcesList":[{"titleId":3129599,"packageId":1861142,"packageName":"MyiLibrary","packageType":"Variable","proxy":{"id":"<n>","inherited":true},"isPackageCustom":false,"vendorId":58388,"vendorName":"Ingram
+        Content Group, Inc.","locationId":9453518,"isSelected":false,"isTokenNeeded":false,"visibilityData":{"isHidden":false,"reason":""},"managedCoverageList":[{"beginCoverage":"2012-01-01","endCoverage":"2012-12-31"}],"customCoverageList":[],"coverageStatement":null,"managedEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"customEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"url":"http://lib.myilibrary.com?id=405735","userDefinedField1":null,"userDefinedField2":null,"userDefinedField3":null,"userDefinedField4":null,"userDefinedField5":null},{"titleId":3129599,"packageId":2720678,"packageName":"TEST_CUSTOMER_ID-custom-package","packageType":"Custom","proxy":{"id":"<n>","inherited":true},"isPackageCustom":true,"vendorId":123355,"vendorName":"API
+        DEV CORPORATE CUSTOMER","locationId":0,"isSelected":true,"isTokenNeeded":false,"visibilityData":{"isHidden":false,"reason":""},"managedCoverageList":[],"customCoverageList":[{"beginCoverage":"2010-05-01","endCoverage":""}],"coverageStatement":null,"managedEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"customEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"url":null,"userDefinedField1":null,"userDefinedField2":null,"userDefinedField3":null,"userDefinedField4":null,"userDefinedField5":null},{"titleId":3129599,"packageId":2864301,"packageName":"joes_test3","packageType":"Custom","proxy":{"id":"<n>","inherited":true},"isPackageCustom":true,"vendorId":123355,"vendorName":"API
         DEV CORPORATE CUSTOMER","locationId":40606913,"isSelected":true,"isTokenNeeded":false,"visibilityData":{"isHidden":false,"reason":""},"managedCoverageList":[],"customCoverageList":[{"beginCoverage":"2018-05-08","endCoverage":"2018-05-31"}],"coverageStatement":null,"managedEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"customEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"url":"http://test.io","userDefinedField1":null,"userDefinedField2":null,"userDefinedField3":null,"userDefinedField4":null,"userDefinedField5":null}],"description":null,"edition":null,"isPeerReviewed":false,"contributorsList":[]}'
     http_version: 
-  recorded_at: Mon, 23 Jul 2018 18:29:09 GMT
+  recorded_at: Wed, 12 Sep 2018 18:04:36 GMT
 - request:
     method: get
     uri: https://api.ebsco.io/rm/rmaccounts/TEST_CUSTOMER_ID/vendors/19/packages/2516/titles?count=25&offset=1&orderby=titlename&resourcetype=all&search=&searchfield=titlename&selection=all
@@ -232,7 +261,7 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - Flexirest/1.6.7
+      - Flexirest/1.7.0
       Connection:
       - Keep-Alive
       Accept:
@@ -255,15 +284,15 @@ http_interactions:
       Connection:
       - keep-alive
       Date:
-      - Mon, 23 Jul 2018 18:29:09 GMT
+      - Wed, 12 Sep 2018 18:04:37 GMT
       X-Amzn-Requestid:
-      - 49f0e759-8ea6-11e8-bde0-cb7a39a5d4dc
+      - 4f9be5c5-b6b6-11e8-9726-45c50f8e46b3
       X-Amzn-Remapped-Content-Length:
       - '1159'
       X-Amzn-Remapped-Connection:
       - keep-alive
       X-Amz-Apigw-Id:
-      - KfmyTEoCoAMF5Yw=
+      - NHpASHi2IAMFWgA=
       X-Amzn-Remapped-Server:
       - Microsoft-IIS/8.5
       Cache-Control:
@@ -275,15 +304,15 @@ http_interactions:
       Pragma:
       - no-cache
       X-Amzn-Remapped-Date:
-      - Mon, 23 Jul 2018 18:29:08 GMT
+      - Wed, 12 Sep 2018 18:04:36 GMT
       X-Aspnet-Version:
       - 4.0.30319
       X-Cache:
       - Miss from cloudfront
       Via:
-      - 1.1 655ceee114a61672fa30ade2501aa4b4.cloudfront.net (CloudFront)
+      - 1.1 3182c21f2ee69ff40cfaf404637c649f.cloudfront.net (CloudFront)
       X-Amz-Cf-Id:
-      - 2YyW2RyABENp0LoBK-LKmRzK20_KQkuviQmL6McgedGotfKoKlwDPg==
+      - vyWR7ZQKv1ayjkwoHAuTjYQyUC5DFWHc3FoOPqmvxwbHZSb1rCYkzg==
     body:
       encoding: UTF-8
       string: '{"totalResults":1,"titles":[{"titleId":480368,"titleName":"Abstracts
@@ -291,5 +320,5 @@ http_interactions:
         in Social Gerontology","packageType":"Complete","isPackageCustom":false,"vendorId":19,"vendorName":"EBSCO","locationId":1737811,"isSelected":true,"isTokenNeeded":false,"visibilityData":{"isHidden":true,"reason":"Hidden
         by Customer"},"managedCoverageList":[],"customCoverageList":[],"coverageStatement":null,"managedEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"customEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"url":"http://search.ebscohost.com/login.aspx?authtype=cookie,ip,uid&profile=ehost&defaultdb=27h","userDefinedField1":null,"userDefinedField2":null,"userDefinedField3":null,"userDefinedField4":null,"userDefinedField5":null}]}]}'
     http_version: 
-  recorded_at: Mon, 23 Jul 2018 18:29:09 GMT
+  recorded_at: Wed, 12 Sep 2018 18:04:37 GMT
 recorded_with: VCR 3.0.3

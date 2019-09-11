@@ -9,7 +9,7 @@ pipeline {
   }
 
   environment {
-     EBSCO_RESOURCE_MANAGEMENT_API_BASE_URL = "https://api.ebsco.io"
+     TEST_RMAPI_URL = "https://api.ebsco.io"
      TEST_CUSTOMER_ID = credentials('ebsco-rmapi-custid')
      TEST_API_KEY = credentials('ebsco-rmapi-key')
      TEST_OKAPI_TOKEN = 'XXXXXXX'
@@ -54,17 +54,20 @@ pipeline {
 
           // getting current version from MD.  Not ideal. Good enough for now.
           def version = foliociLib.getModuleDescriptorIdVer('ModuleDescriptor.json')
-
-          // if release tag
-          if ( env.BRANCH_NAME ==~ /^v\d+\.\d+\.\d+$/ ) {
+         
+          // boolean to determine if this is a tagged release
+          def Boolean isRelease = foliociLib.isRelease()
+ 
+          // if release
+          if ( isRelease == true ) {
             env.version = version
             env.dockerRepo = 'folioorg'
-            echo "This is a release build."
+            env.isRelease = true
           }
           else {
             env.version = "${version}-SNAPSHOT.${env.BUILD_NUMBER}"
             env.dockerRepo = 'folioci'
-            echo "This is a snapshot build."
+            env.snapshot = true
           }
         }
 

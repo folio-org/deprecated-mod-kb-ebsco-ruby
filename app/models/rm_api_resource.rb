@@ -20,13 +20,13 @@ class RmApiResource < Flexirest::Base
   # Having our Flexirest resources configured is great, but each one
   # needs use the correct credentials in order to make its
   # requests. However, all of the finders exist on the Class
-  # level. E.g. `Title.find(title_id)` and `Title.all(q:
-  # params[:q])`. In order to preserve the finders, we return a new,
+  # level. E.g. `Title.find(title_id)` and `Title.all(filter: `
+  # params[:filter])`. In order to preserve the finders, we return a new,
   # anonymous class that contains the per-request configuration so
   # they work the same, just scoped to this particular request:
   #
   #   Title.configure(config).find(title_id)
-  #   Title.configure(config).all(q: params[:q])
+  #   Title.configure(config).all(filter: params[:filter])
   def self.configure(config)
     Class.new(self).tap do |subclass|
       subclass.verbose!
@@ -52,7 +52,7 @@ class RmApiResource < Flexirest::Base
   private
 
   def set_base_url(_name, request)
-    rmapi_url = Rails.application.config.rmapi_base_url
+    rmapi_url = request.object.config.rmapi_base_url
     customer_id = request.object.config.customer_id
     self.class.base_url "#{rmapi_url}/rm/rmaccounts/#{customer_id}"
   end

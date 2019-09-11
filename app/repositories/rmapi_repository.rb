@@ -5,7 +5,7 @@ class RmapiRepository
 
   def initialize(config:)
     @config = config
-    @base_url = "#{rmapi_url}/rm/rmaccounts/#{config.customer_id}"
+    @base_url = "#{config.rmapi_base_url}/rm/rmaccounts/#{config.customer_id}"
 
     @headers = {
       'X-Api-Key': config.api_key,
@@ -30,12 +30,6 @@ class RmapiRepository
     # TODO: return Result instance, nix normalize_response_body and make it to_entity
     # enforce generic interface
     [response.status, normalize_response_body(response)]
-  end
-
-  private
-
-  def rmapi_url
-    Rails.application.config.rmapi_base_url
   end
 
   class RequestError < StandardError

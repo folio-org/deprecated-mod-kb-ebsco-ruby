@@ -6,7 +6,7 @@ RSpec.describe 'Titles', type: :request do
   describe 'searching for titles' do
     before do
       VCR.use_cassette('search-titles') do
-        get '/eholdings/titles/?q=ebsco', headers: okapi_headers
+        get '/eholdings/titles/?filter[name]=ebsco', headers: okapi_headers
       end
     end
 
@@ -27,7 +27,7 @@ RSpec.describe 'Titles', type: :request do
     describe 'with pagination' do
       before do
         VCR.use_cassette('search-titles-page2') do
-          get '/eholdings/titles/?q=ebsco&page=2', headers: okapi_headers
+          get '/eholdings/titles/?filter[name]=ebsco&page=2', headers: okapi_headers
         end
       end
 
@@ -44,7 +44,7 @@ RSpec.describe 'Titles', type: :request do
     describe 'with count within range' do
       before do
         VCR.use_cassette('search-titles-specify-count') do
-          get '/eholdings/titles/?q=ebsco&count=5', headers: okapi_headers
+          get '/eholdings/titles/?filter[name]=ebsco&count=5', headers: okapi_headers
         end
       end
 
@@ -60,7 +60,7 @@ RSpec.describe 'Titles', type: :request do
     describe 'with count out of range' do
       before do
         VCR.use_cassette('search-titles-specify-count-out-of-range') do
-          get '/eholdings/titles/?q=e&count=150', headers: okapi_headers
+          get '/eholdings/titles/?filter[name]=e&count=150', headers: okapi_headers
         end
       end
 
@@ -76,7 +76,7 @@ RSpec.describe 'Titles', type: :request do
       before do
         VCR.use_cassette('search-titles-filter-book') do
           filter = { filter: { type: 'book' } }.to_query
-          get "/eholdings/titles/?q=news&#{filter}", headers: okapi_headers
+          get "/eholdings/titles/?filter[name]=news&#{filter}", headers: okapi_headers
         end
       end
 
@@ -85,7 +85,7 @@ RSpec.describe 'Titles', type: :request do
       it 'gets a list of book resources' do
         expect(response).to have_http_status(200)
         expect(json_f.data.length).to equal(25)
-        expect(json_f.meta.totalResults).to equal(3949)
+        expect(json_f.meta.totalResults).to equal(3995)
         expect(json_f.data.first.attributes.publicationType).to eql('Book')
       end
 
@@ -93,7 +93,7 @@ RSpec.describe 'Titles', type: :request do
         before do
           VCR.use_cassette('search-titles-filter-book-selection') do
             filter = { filter: { type: 'book', selected: true } }.to_query
-            get "/eholdings/titles/?q=news&#{filter}", headers: okapi_headers
+            get "/eholdings/titles/?filter[name]=news&#{filter}", headers: okapi_headers
           end
         end
 
@@ -102,7 +102,7 @@ RSpec.describe 'Titles', type: :request do
         it 'gets a list of unselected book resources' do
           expect(response).to have_http_status(200)
           expect(json_f2.data.length).to equal(25)
-          expect(json_f2.meta.totalResults).to equal(1474)
+          expect(json_f2.meta.totalResults).to equal(1311)
           expect(json_f2.data.first.attributes.publicationType).to eql('Book')
         end
       end
@@ -111,7 +111,7 @@ RSpec.describe 'Titles', type: :request do
     describe 'with an invalid filter param' do
       before do
         VCR.use_cassette('search-titles-filter-invalid') do
-          get '/eholdings/titles/?q=news&filter=invalid', headers: okapi_headers
+          get '/eholdings/titles/?filter[name]=news&filter=invalid', headers: okapi_headers
         end
       end
 
@@ -126,7 +126,7 @@ RSpec.describe 'Titles', type: :request do
     describe 'with an invalid query param filter[selected]' do
       before do
         VCR.use_cassette('search-titles-invalid-query-param-selected') do
-          get '/eholdings/titles/?q=ebsco&filter[selected]=doNotEnter', headers: okapi_headers
+          get '/eholdings/titles/?filter[name]=ebsco&filter[selected]=doNotEnter', headers: okapi_headers
         end
       end
 
@@ -141,7 +141,7 @@ RSpec.describe 'Titles', type: :request do
     describe 'with an invalid query param filter[type]' do
       before do
         VCR.use_cassette('search-titles-invalid-query-param-type') do
-          get '/eholdings/titles/?q=ebsco&filter[type]=doNotEnter', headers: okapi_headers
+          get '/eholdings/titles/?filter[name]=ebsco&filter[type]=doNotEnter', headers: okapi_headers
         end
       end
 
@@ -156,7 +156,7 @@ RSpec.describe 'Titles', type: :request do
     describe 'with an invalid query param searchField' do
       before do
         VCR.use_cassette('search-titles-invalid-query-param-search-field') do
-          get '/eholdings/titles/?q=ebsco&searchfield=doNotEnter', headers: okapi_headers
+          get '/eholdings/titles/?filter[name]=ebsco&searchfield=doNotEnter', headers: okapi_headers
         end
       end
 
@@ -240,7 +240,7 @@ RSpec.describe 'Titles', type: :request do
       it 'gets a filtered list of resources' do
         expect(response).to have_http_status(200)
         expect(json_h.data.length).to equal(25)
-        expect(json_h.meta.totalResults).to equal(194_042)
+        expect(json_h.meta.totalResults).to equal(199_629)
         json_h.data.each do |title|
           expect(title.attributes.subjects.any? do |sub|
             sub.name.downcase.include?('history')
@@ -266,24 +266,6 @@ RSpec.describe 'Titles', type: :request do
         )
       end
     end
-
-    describe 'with conflicting query parameters' do
-      before do
-        VCR.use_cassette('search-titles-query-conflict') do
-          get '/eholdings/titles/?q=ebsco&filter[name]=ebsco',
-              headers: okapi_headers
-        end
-      end
-
-      let!(:json_c) { Map JSON.parse response.body }
-
-      it 'returns a bad request' do
-        expect(response).to have_http_status(400)
-        expect(json_c.errors.first.title).to eql(
-          'Conflicting query parameters'
-        )
-      end
-    end
   end
 
   # NOTE: alphabetical sorting tests for titles are currently limited
@@ -305,7 +287,7 @@ RSpec.describe 'Titles', type: :request do
     it 'contains a list of alphabetically A-Z sorted resources' do
       expect(response).to have_http_status(200)
       expect(json_n.data.length).to equal(25)
-      expect(json_n.meta.totalResults).to equal(4444)
+      expect(json_n.meta.totalResults).to equal(4523)
       expect(json_n.data.first.type).to eq('titles')
       expect(json_n.data[0].attributes.name.downcase).not_to include(
         'victorian fashion'
@@ -326,7 +308,7 @@ RSpec.describe 'Titles', type: :request do
     it 'contains a list of relevancy sorted resources' do
       expect(response).to have_http_status(200)
       expect(json_n.data.length).to equal(25)
-      expect(json_n.meta.totalResults).to equal(4444)
+      expect(json_n.meta.totalResults).to equal(4523)
       expect(json_n.data.first.type).to eq('titles')
       expect(json_n.data[0].attributes.name.downcase).to include(
         'victorian fashion'
@@ -349,7 +331,7 @@ RSpec.describe 'Titles', type: :request do
     it 'contains a list of relevancy sorted resources' do
       expect(response).to have_http_status(200)
       expect(json_n.data.length).to equal(25)
-      expect(json_n.meta.totalResults).to equal(4444)
+      expect(json_n.meta.totalResults).to equal(4523)
       expect(json_n.data.first.type).to eq('titles')
       expect(json_n.data[0].attributes.name.downcase).to include(
         'victorian fashion'
@@ -373,9 +355,8 @@ RSpec.describe 'Titles', type: :request do
       expect(response).to have_http_status(200)
       expect(json_n.data.length).to equal(25)
       expect(json_n.data[6].id).to eq('3119726')
-      expect(json_n.data[6].attributes.identifiers.length).to eq(2)
-      expect(json_n.data[6].attributes.identifiers[0].subtype).to eq('Empty')
-      expect(json_n.data[6].attributes.identifiers[1].subtype).to eq('Online')
+      expect(json_n.data[6].attributes.identifiers.length).to eq(1)
+      expect(json_n.data[6].attributes.identifiers[0].subtype).to eq('Online')
     end
   end
 
@@ -409,9 +390,9 @@ RSpec.describe 'Titles', type: :request do
 
     it 'returns identifiers as human readable types and subtypes' do
       expect(json.data.attributes.identifiers).to include(
-        'id' => '316875',
-        'type' => 'BHM',
-        'subtype' => 'Empty'
+        'id' => '978-0-19-512574-0',
+        'type' => 'ISBN',
+        'subtype' => 'Print'
       )
     end
 
@@ -450,14 +431,13 @@ RSpec.describe 'Titles', type: :request do
 
     let!(:json) { Map JSON.parse response.body }
 
-    it 'contains identifiers that are sorted by subtype and type' do
+    it 'contains identifiers that are sorted by subtype and type and contain only types and subtypes that our UI needs' do
       expect(response).to have_http_status(200)
       expect(json.data.id).to eq('169441')
-      expect(json.data.attributes.identifiers.length).to eq(4)
-      expect(json.data.attributes.identifiers[0].subtype).to eq('Empty')
-      expect(json.data.attributes.identifiers[1].subtype).to eq('Print')
-      expect(json.data.attributes.identifiers[2].subtype).to eq('Online')
-      expect(json.data.attributes.identifiers[0].type).to eq('BHM')
+      expect(json.data.attributes.identifiers.length).to eq(3)
+      expect(json.data.attributes.identifiers[0].subtype).to eq('Print')
+      expect(json.data.attributes.identifiers[1].subtype).to eq('Online')
+      expect(json.data.attributes.identifiers[0].type).to eq('ISBN')
       expect(json.data.attributes.identifiers[1].type).to eq('ISBN')
     end
   end
@@ -484,7 +464,7 @@ RSpec.describe 'Titles', type: :request do
   describe 'getting a custom title with empty array fields' do
     before do
       VCR.use_cassette('get-custom-title') do
-        get '/eholdings/titles/17059784', headers: okapi_headers
+        get '/eholdings/titles/17628542', headers: okapi_headers
       end
     end
 
@@ -498,7 +478,7 @@ RSpec.describe 'Titles', type: :request do
   describe 'getting a title with empty array fields' do
     before do
       VCR.use_cassette('get-titles-empty-array-fields') do
-        get '/eholdings/titles/146131', headers: okapi_headers
+        get '/eholdings/titles/17628542', headers: okapi_headers
       end
     end
 

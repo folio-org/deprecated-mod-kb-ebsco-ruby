@@ -68,7 +68,6 @@ class PackagesController < ApplicationController
   def resources
     @resources = find_resources(
       page: params[:page],
-      q: params[:q],
       filter: params[:filter],
       sort: params[:sort]
     )
@@ -102,7 +101,8 @@ class PackagesController < ApplicationController
         :contentType,
         :isSelected,
         :allowKbToAddTitles,
-        proxy: %i[id inherited],
+        proxy: [:id],
+        packageToken: [:value],
         visibilityData: [:isHidden],
         customCoverage: %i[beginCoverage endCoverage]
       )
@@ -114,7 +114,7 @@ class PackagesController < ApplicationController
 
   def package_update_params
     if package.is_custom
-      package_params
+      package_params.except(:packageToken)
     else
       package_params.except(:name, :contentType)
     end

@@ -31,7 +31,7 @@ RSpec.describe 'Packages', type: :request do
       it 'gets a different list of resources' do
         expect(response).to have_http_status(200)
         expect(json2.data.length).to equal(25)
-        expect(json2.meta.totalResults).to equal(114)
+        expect(json2.meta.totalResults).to equal(115)
         expect(json.data.first.id).not_to eql(json2.data.first.id)
       end
     end
@@ -177,7 +177,7 @@ RSpec.describe 'Packages', type: :request do
     it 'contains a list of alphabetically A-Z sorted resources' do
       expect(response).to have_http_status(200)
       expect(json_n.data.length).to equal(25)
-      expect(json_n.meta.totalResults).to equal(186)
+      expect(json_n.meta.totalResults).to equal(190)
       expect(json_n.data.first.type).to eq('packages')
       sorted_array = json_n.data.sort_by { |p| p.attributes.name.downcase }
       expect(json_n.data).to eq(sorted_array)
@@ -197,7 +197,7 @@ RSpec.describe 'Packages', type: :request do
     it 'contains a list of relevancy sorted resources' do
       expect(response).to have_http_status(200)
       expect(json_n.data.length).to equal(25)
-      expect(json_n.meta.totalResults).to equal(186)
+      expect(json_n.meta.totalResults).to equal(190)
       expect(json_n.data.first.type).to eq('packages')
       expect(json_n.data[0].attributes.name.downcase).to include(
         'academic search'
@@ -220,7 +220,7 @@ RSpec.describe 'Packages', type: :request do
     it 'contains a list of relevancy sorted resources' do
       expect(response).to have_http_status(200)
       expect(json_n.data.length).to equal(25)
-      expect(json_n.meta.totalResults).to equal(186)
+      expect(json_n.meta.totalResults).to equal(190)
       expect(json_n.data.first.type).to eq('packages')
       expect(json_n.data[0].attributes.name.downcase).to include(
         'academic search'
@@ -253,7 +253,7 @@ RSpec.describe 'Packages', type: :request do
   describe 'getting a specific package' do
     before do
       VCR.use_cassette('get-packages-success') do
-        get '/eholdings/packages/19-6581', headers: okapi_headers
+        get '/eholdings/packages/19-3964', headers: okapi_headers
       end
     end
 
@@ -262,7 +262,7 @@ RSpec.describe 'Packages', type: :request do
     it 'gets the resource' do
       expect(response).to have_http_status(200)
       expect(json.data.type).to eq('packages')
-      expect(json.data.id).to eq('19-6581')
+      expect(json.data.id).to eq('19-3964')
       expect(json.data.attributes).to include(
         'name',
         'proxy',
@@ -278,7 +278,7 @@ RSpec.describe 'Packages', type: :request do
         'allowKbToAddTitles'
       )
       expect(json.data.attributes.vendorId).to eq(19)
-      expect(json.data.attributes.packageId).to eq(6581)
+      expect(json.data.attributes.packageId).to eq(3964)
     end
 
     it 'returns a human readable content type' do
@@ -292,6 +292,61 @@ RSpec.describe 'Packages', type: :request do
     it 'returns proxy' do
       expect(json.data.attributes.proxy.id).to eq('EZProxy')
       expect(json.data.attributes.proxy.inherited).to eq(true)
+    end
+
+    describe 'getting a package with invalid package id' do
+      before do
+        VCR.use_cassette('get-package-missing-package-id-in-url') do
+          get '/eholdings/packages/19', headers: okapi_headers
+        end
+      end
+
+      let!(:json_f) { Map JSON.parse response.body }
+
+      it 'returns a bad request error' do
+        expect(response).to have_http_status(400)
+        expect(json_f.errors.first.title).to eql('Package and provider id are required')
+      end
+    end
+  end
+
+  describe 'getting a specific package that has a package token' do
+    before do
+      VCR.use_cassette('get-packages-success-with-package-token') do
+        get '/eholdings/packages/18-343', headers: okapi_headers
+      end
+    end
+
+    let!(:json) { Map JSON.parse response.body }
+
+    it 'gets the resource' do
+      expect(response).to have_http_status(200)
+      expect(json.data.type).to eq('packages')
+      expect(json.data.id).to eq('18-343')
+      expect(json.data.attributes).to include(
+        'name',
+        'proxy',
+        'contentType',
+        'titleCount',
+        'selectedCount',
+        'customCoverage',
+        'visibilityData',
+        'isSelected',
+        'vendorName',
+        'isCustom',
+        'packageType',
+        'allowKbToAddTitles',
+        'packageToken'
+      )
+      expect(json.data.attributes.vendorId).to eq(18)
+      expect(json.data.attributes.packageId).to eq(343)
+    end
+
+    it 'returns package token' do
+      expect(json.data.attributes.packageToken.factName).to eq('[[gale.customcode.infocust]]')
+      expect(json.data.attributes.packageToken.helpText).not_to be_empty
+      expect(json.data.attributes.packageToken.value).to eq('test package token again with Mohan again test again')
+      expect(json.data.attributes.packageToken.prompt).to eq('res_id=info:sid/gale:')
     end
 
     describe 'getting a package with invalid package id' do
@@ -384,7 +439,7 @@ RSpec.describe 'Packages', type: :request do
       it 'gets a different list of resources' do
         expect(response).to have_http_status(200)
         expect(json2.data.length).to equal(25)
-        expect(json2.meta.totalResults).to equal(157)
+        expect(json2.meta.totalResults).to equal(156)
         expect(json.data.first.id).not_to eql(json2.data.first.id)
       end
     end
@@ -392,7 +447,7 @@ RSpec.describe 'Packages', type: :request do
     describe 'with a query' do
       before do
         VCR.use_cassette('get-packages-related-resources-query') do
-          get '/eholdings/packages/19-6581/resources/?q=acta',
+          get '/eholdings/packages/19-6581/resources?filter[name]=acta',
               headers: okapi_headers
         end
       end
@@ -409,8 +464,8 @@ RSpec.describe 'Packages', type: :request do
           VCR.use_cassette(
             'get-packages-related-resources-query-invalid-sort'
           ) do
-            get '/eholdings/packages/19-6581/resources/'\
-                 '?q=acta&filter=invalid',
+            get '/eholdings/packages/19-6581/resources'\
+                 '?filter[name]=acta&filter=invalid',
                 headers: okapi_headers
           end
         end
@@ -430,8 +485,8 @@ RSpec.describe 'Packages', type: :request do
             'get-packages-related-resources-query-filter-newsletter'
           ) do
             filter = { filter: { type: 'newsletter' } }.to_query
-            get '/eholdings/packages/19-6581/resources/'\
-                 "?q=bioworld&#{filter}",
+            get '/eholdings/packages/19-6581/resources'\
+                 "?filter[name]=bioworld&#{filter}",
                 headers: okapi_headers
           end
         end
@@ -449,8 +504,7 @@ RSpec.describe 'Packages', type: :request do
           VCR.use_cassette(
             'get-packages-related-resources-query-default-to-relevance'
           ) do
-            get '/eholdings/packages/19-6581/resources/'\
-                '?q=bioworld%20week',
+            get '/eholdings/packages/19-6581/resources?filter[name]=bioworld%20week',
                 headers: okapi_headers
           end
         end
@@ -464,27 +518,57 @@ RSpec.describe 'Packages', type: :request do
         end
       end
 
+      #   # NOTE: alphabetical sorting tests for titles are currently limited
+      #   # due to a limitation in RM API. Cannot compare sorted results with
+      #   # a sorted list (some titles appear out of order).
+      #   # Additionally the same search with different sorts yields different counts.
+      #   # Title sorting is not being invoked from UI until
+      #   # sort limitation and a title count difference is resolved.
+
       describe 'with passing a sort of name' do
         before do
           VCR.use_cassette(
             'get-packages-related-resources-query-with-name-sort'
           ) do
-            get '/eholdings/packages/19-6581/resources/'\
-                 '?q=bioworld%20week&sort=name',
+            get '/eholdings/packages/19-6581/resources?'\
+                 'filter[name]=technology&sort=name',
                 headers: okapi_headers
           end
         end
 
         let!(:json_query_with_name_sort) { Map JSON.parse response.body }
 
-        it 'returns a list sorted by name' do
+        # We are currently going to set this expectation to 'pending'
+        # this test is something we want to run but after the issues
+        # on RMAPI get resolved
+        xit 'returns a list sorted by name' do
           expect(response).to have_http_status(200)
           sorted_array = json_query_with_name_sort.data.sort_by do |p|
             p.attributes.name.downcase
           end
+
           expect(json_query_with_name_sort.data).to eq(sorted_array)
         end
       end
+    end
+  end
+
+  describe 'getting resources related to package times out' do
+    before do
+      expect_any_instance_of(Faraday::Connection).to receive(:get).and_return(Map(body: { 'errors': [{ 'title': 'Request timed out', 'detail': 'Timed out getting https://api.ebsco.io/rm/rmaccounts/apidvcorp/vendors/19/packages/796/titles?count=25&offset=1&orderby=relevance&resourcetype=all&search=aa&searchfield=titlename&selection=all' }], 'jsonapi': { 'version': '1.0' } }.to_json, status: 408))
+    end
+
+    let(:response) { Faraday::Connection.new.get('/eholdings/packages/19-796/resources?filter[name]=physics&page=1') }
+
+    it 'returns the specified value on any instance of the class' do
+      expect(response.status).to eq(408)
+    end
+
+    let(:json) { Map JSON.parse response.body }
+
+    it 'gives expected error message' do
+      expect(json.errors.first.title).to eql('Request timed out')
+      expect(json.errors.first.detail).to eql('Timed out getting https://api.ebsco.io/rm/rmaccounts/apidvcorp/vendors/19/packages/796/titles?count=25&offset=1&orderby=relevance&resourcetype=all&search=aa&searchfield=titlename&selection=all')
     end
   end
 
@@ -499,11 +583,11 @@ RSpec.describe 'Packages', type: :request do
     let!(:json) { Map JSON.parse response.body }
 
     it 'responds with a list of resources' do
-      expect(json.data.length).to eq(9)
+      expect(json.data.length).to eq(11)
     end
 
     it 'does not return identifiers for the resources' do
-      expect(json.data.first.attributes.identifiers.length).to eq(0)
+      expect(json.data.first.attributes.identifiers.length).to eq(3)
     end
 
     it 'returns the correct included type' do
@@ -912,6 +996,156 @@ RSpec.describe 'Packages', type: :request do
         end
       end
 
+      ## RM API has a known issue with updating certain packages by providing complete payload in update
+      ## So, not using complete payload for tests now. We should another test with complete payload after RM API fixes issue on their end
+      describe 'updating package token with partial payload' do
+        let(:params) do
+          {
+            "data": {
+              "type": 'packages',
+              "attributes": {
+                "isSelected": true,
+                "packageToken": {
+                  "value": 'test package token update'
+                }
+              }
+            }
+          }
+        end
+
+        before do
+          VCR.use_cassette('put-packages-isselected-update-package-token') do
+            put '/eholdings/packages/18-343',
+                params: params, as: :json, headers: update_headers
+          end
+        end
+
+        it 'responds with an ok status' do
+          expect(response).to have_http_status(200)
+        end
+
+        let!(:json) { Map JSON.parse response.body }
+
+        it 'is selected' do
+          expect(json.data.attributes.isSelected).to be true
+        end
+
+        it 'has package token with expected value' do
+          expect(json.data.attributes.packageToken.factName).to eq('[[gale.customcode.infocust]]')
+          expect(json.data.attributes.packageToken.value).to eq('test package token update')
+          expect(json.data.attributes.packageToken.prompt).to eq('res_id=info:sid/gale:')
+        end
+      end
+
+      describe 'updating package token with empty string' do
+        let(:params) do
+          {
+            "data": {
+              "type": 'packages',
+              "attributes": {
+                "isSelected": true,
+                "packageToken": {
+                  "value": ''
+                }
+              }
+            }
+          }
+        end
+
+        before do
+          VCR.use_cassette('put-packages-isselected-update-package-token-empty-string') do
+            put '/eholdings/packages/18-343',
+                params: params, as: :json, headers: update_headers
+          end
+        end
+
+        it 'responds with an ok status' do
+          expect(response).to have_http_status(200)
+        end
+
+        let!(:json) { Map JSON.parse response.body }
+
+        it 'is selected' do
+          expect(json.data.attributes.isSelected).to be true
+        end
+
+        it 'has package token with expected value' do
+          expect(json.data.attributes.packageToken.value).to be(nil)
+          expect(json.data.attributes.packageToken.factName).to eq('[[gale.customcode.infocust]]')
+          expect(json.data.attributes.packageToken.prompt).to eq('res_id=info:sid/gale:')
+        end
+      end
+
+      describe 'updating package without a package token' do
+        let(:params) do
+          {
+            "data": {
+              "type": 'packages',
+              "attributes": {
+                "isSelected": true
+              }
+            }
+          }
+        end
+
+        before do
+          VCR.use_cassette('put-packages-isselected-update-without-package-token') do
+            put '/eholdings/packages/18-343',
+                params: params, as: :json, headers: update_headers
+          end
+        end
+
+        it 'responds with an ok status' do
+          expect(response).to have_http_status(200)
+        end
+
+        let!(:json) { Map JSON.parse response.body }
+
+        it 'is selected' do
+          expect(json.data.attributes.isSelected).to be true
+        end
+
+        it 'has nil package token' do
+          expect(json.data.attributes.packageToken.value).to be(nil)
+          expect(json.data.attributes.packageToken.factName).to eq('[[gale.customcode.infocust]]')
+          expect(json.data.attributes.packageToken.prompt).to eq('res_id=info:sid/gale:')
+        end
+      end
+
+      describe 'updating package with unsupported lengthy package token' do
+        let(:largeToken) { '0' * 501 }
+
+        let(:params) do
+          {
+            "data": {
+              "type": 'packages',
+              "attributes": {
+                "isSelected": true,
+                "packageToken": {
+                  "value": largeToken
+                }
+              }
+            }
+          }
+        end
+
+        before do
+          VCR.use_cassette('put-packages-isselected-update-with-lengthy-package-token') do
+            put '/eholdings/packages/18-343',
+                params: params, as: :json, headers: update_headers
+          end
+        end
+
+        let!(:json) { Map JSON.parse response.body }
+        it 'responds with an error status' do
+          expect(response).to have_http_status(422)
+        end
+
+        it 'gives expected error message' do
+          expect(json.errors.first.title).to eql('Invalid value')
+        end
+      end
+
       describe 'combined update' do
         let(:params) do
           {
@@ -963,6 +1197,88 @@ RSpec.describe 'Packages', type: :request do
         it 'is populated with custom coverage' do
           expect(coverage.beginCoverage).to eq '2003-01-01'
           expect(coverage.endCoverage).to eq '2004-01-01'
+        end
+      end
+
+      describe 'combined update with invalid coverage date format' do
+        let(:params) do
+          {
+            "data": {
+              "type": 'packages',
+              "attributes": {
+                "customCoverage": {
+                  "beginCoverage": '01-01-2003',
+                  "endCoverage": '01-01-2004'
+                },
+                "isSelected": true,
+                "allowKbToAddTitles": true,
+                "visibilityData": {
+                  "isHidden": true,
+                  "reason": ''
+                }
+              }
+            }
+          }
+        end
+
+        before do
+          VCR.use_cassette('put-packages-combined-update-invalid-coverage-date-format') do
+            put '/eholdings/packages/19-6581',
+                params: params, as: :json, headers: update_headers
+          end
+        end
+
+        it 'responds with expected status' do
+          expect(response).to have_http_status(422)
+        end
+
+        let!(:json) { Map JSON.parse response.body }
+
+        it 'gives the expected error message' do
+          expect(json.errors.first.title).to eql('Invalid beginCoverage')
+          expect(json.errors.first.detail).to eq 'Begincoverage has invalid format. Should be YYYY-MM-DD'
+          expect(json.errors.second.title).to eql('Invalid endCoverage')
+          expect(json.errors.second.detail).to eq 'Endcoverage has invalid format. Should be YYYY-MM-DD'
+        end
+      end
+
+      describe 'combined update with empty coverage date format' do
+        let(:params) do
+          {
+            "data": {
+              "type": 'packages',
+              "attributes": {
+                "customCoverage": {
+                  "beginCoverage": '',
+                  "endCoverage": ''
+                },
+                "isSelected": true,
+                "allowKbToAddTitles": true,
+                "visibilityData": {
+                  "isHidden": true,
+                  "reason": ''
+                }
+              }
+            }
+          }
+        end
+
+        before do
+          VCR.use_cassette('put-packages-combined-update-empty-coverage-date-format') do
+            put '/eholdings/packages/19-6581',
+                params: params, as: :json, headers: update_headers
+          end
+        end
+
+        it 'responds with expected status' do
+          expect(response).to have_http_status(200)
+        end
+
+        let!(:json) { Map JSON.parse response.body }
+
+        it 'gives the expected coverage dates' do
+          expect(json.data.attributes.customCoverage.beginCoverage).to eql('')
+          expect(json.data.attributes.customCoverage.endCoverage).to eql('')
         end
       end
 
@@ -1030,7 +1346,7 @@ RSpec.describe 'Packages', type: :request do
   describe 'getting a hidden by ep package' do
     before do
       VCR.use_cassette('get-package-reason-hidden-by-ep') do
-        get '/eholdings/packages/19-2516',
+        get '/eholdings/packages/19-3964',
             headers: okapi_headers
       end
     end
@@ -1176,6 +1492,86 @@ RSpec.describe 'Packages', type: :request do
       end
     end
 
+    describe 'changing the coverage dates to invalid' do
+      let(:params) do
+        {
+          "data": {
+            "type": 'packages',
+            "attributes": {
+              "customCoverage": {
+                "beginCoverage": '01-01-2003',
+                "endCoverage": '01-01-2004'
+              },
+              "isSelected": true,
+              "name": 'name of the ages forever and ever',
+              "contentType": 'Aggregated Full Text'
+            }
+          }
+        }
+      end
+
+      before do
+        VCR.use_cassette('put-custom-package-coverage-dates-invalid') do
+          put '/eholdings/packages/123355-2845506',
+              params: params, as: :json, headers: update_headers
+        end
+      end
+
+      it 'responds with expected error status' do
+        expect(response).to have_http_status(422)
+      end
+
+      let!(:json) { Map JSON.parse response.body }
+
+      it 'now has custom coverage' do
+        expect(json.errors.first.title)
+          .to eq('Invalid beginCoverage')
+        expect(json.errors.first.detail)
+          .to eq('Begincoverage has invalid format. Should be YYYY-MM-DD')
+        expect(json.errors.second.title)
+          .to eq('Invalid endCoverage')
+        expect(json.errors.second.detail)
+          .to eq('Endcoverage has invalid format. Should be YYYY-MM-DD')
+      end
+    end
+
+    describe 'changing the coverage dates to empty strings' do
+      let(:params) do
+        {
+          "data": {
+            "type": 'packages',
+            "attributes": {
+              "customCoverage": {
+                "beginCoverage": '',
+                "endCoverage": ''
+              },
+              "isSelected": true,
+              "name": 'name of the ages forever and ever',
+              "contentType": 'Aggregated Full Text'
+            }
+          }
+        }
+      end
+
+      before do
+        VCR.use_cassette('put-custom-package-coverage-dates-empty') do
+          put '/eholdings/packages/123355-2845506',
+              params: params, as: :json, headers: update_headers
+        end
+      end
+
+      it 'responds with expected status' do
+        expect(response).to have_http_status(200)
+      end
+
+      let!(:json) { Map JSON.parse response.body }
+
+      it 'gives the expected coverage dates' do
+        expect(json.data.attributes.customCoverage.beginCoverage).to eql('')
+        expect(json.data.attributes.customCoverage.endCoverage).to eql('')
+      end
+    end
+
     describe 'changing the content type' do
       let(:params) do
         {
@@ -1249,7 +1645,7 @@ RSpec.describe 'Packages', type: :request do
     describe 'delete a custom package successfully' do
       before do
         VCR.use_cassette('delete-custom-package') do
-          delete '/eholdings/packages/123355-2848971',
+          delete '/eholdings/packages/123355-2884739',
                  headers: okapi_headers
         end
       end
@@ -1363,7 +1759,7 @@ RSpec.describe 'Packages', type: :request do
           "data": {
             "type": 'packages',
             "attributes": {
-              "name": 'VCR Package 1.6',
+              "name": 'VCR Package 1.7',
               "contentType": 'E-Book',
               "customCoverage": {
                 "beginCoverage": '2003-01-01',
@@ -1388,7 +1784,7 @@ RSpec.describe 'Packages', type: :request do
       let!(:json) { Map JSON.parse response.body }
 
       it 'returns a fully formed custom package' do
-        expect(json.data.attributes.name).to eq 'VCR Package 1.6'
+        expect(json.data.attributes.name).to eq 'VCR Package 1.7'
         expect(json.data.attributes.contentType).to eq 'E-Book'
         expect(json.data.attributes.customCoverage.beginCoverage)
           .to eq '2003-01-01'
@@ -1435,7 +1831,7 @@ RSpec.describe 'Packages', type: :request do
             "type": 'packages',
             "attributes": {
               "contentType": 'something',
-              "name": 'VCR Package 1.5'
+              "name": 'VCR Package 1.9'
             }
           }
         }
@@ -1458,6 +1854,42 @@ RSpec.describe 'Packages', type: :request do
         expect(json_response.data.attributes.contentType).to eql('Unknown')
       end
     end
+
+    describe 'giving begin coverage in an invalid format' do
+      let(:params) do
+        {
+          "data": {
+            "type": 'packages',
+            "attributes": {
+              "name": 'VCR Package 1.7',
+              "contentType": 'E-Book',
+              "customCoverage": {
+                "beginCoverage": '01-01-2003',
+                "endCoverage": '2004-01-01'
+              }
+            }
+          }
+        }
+      end
+
+      before do
+        VCR.use_cassette('post-custom-package-invalid-begin-coverage') do
+          post '/eholdings/packages/',
+               params: params, as: :json, headers: update_headers
+        end
+      end
+
+      it 'responds with expected error status' do
+        expect(response).to have_http_status(422)
+      end
+
+      let!(:json) { Map JSON.parse response.body }
+
+      it 'returns the expected error message' do
+        expect(json.errors.first.title).to eq 'Invalid beginCoverage'
+        expect(json.errors.first.detail).to eq 'Begincoverage has invalid format. Should be YYYY-MM-DD'
+      end
+    end
   end
 
   describe 'filtering by custom' do
@@ -1471,7 +1903,8 @@ RSpec.describe 'Packages', type: :request do
 
     it 'gets a list of custom packages' do
       expect(response).to have_http_status(200)
-      expect(json.data.length).to equal(74)
+      expect(json.data.length).to equal(100)
+      expect(json.meta.totalResults).to equal(139)
       expect(json.data.first.attributes.isCustom).to be true
     end
   end

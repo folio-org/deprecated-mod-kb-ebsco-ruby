@@ -1,0 +1,482 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://okapi.frontside.io/configurations/entries?query=module=EKB
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Content-Type:
+      - application/json
+      Accept:
+      - application/json
+      X-Okapi-Tenant:
+      - fs
+      X-Okapi-Token:
+      - TEST_OKAPI_TOKEN
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx/1.13.5
+      Date:
+      - Wed, 12 Sep 2018 14:33:13 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      X-Okapi-Trace:
+      - 'GET mod-authtoken-1.5.2-SNAPSHOT.26 http://10.39.242.252:8081/configurations/entries..
+        : 202 1776us'
+      - 'GET mod-configuration-5.0.1-SNAPSHOT.45 http://10.39.249.105:8081/configurations/entries..
+        : 200 60956us'
+      Host:
+      - okapi.frontside.io
+      X-Real-Ip:
+      - 10.128.0.3
+      X-Forwarded-For:
+      - 10.128.0.3
+      X-Forwarded-Host:
+      - okapi.frontside.io
+      X-Forwarded-Port:
+      - '443'
+      X-Forwarded-Proto:
+      - https
+      X-Original-Uri:
+      - "/configurations/entries?query=module=EKB"
+      X-Scheme:
+      - https
+      X-Auth-Request-Redirect:
+      - "/configurations/entries?query=module=EKB"
+      Accept:
+      - application/json
+      X-Okapi-Tenant:
+      - fs
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      User-Agent:
+      - Ruby
+      X-Okapi-Request-Id:
+      - 491092/configurations
+      X-Okapi-Url:
+      - http://10.39.245.41:80
+      X-Okapi-Permissions:
+      - '["configuration.entries.collection.get","configuration.entries.collection.get"]'
+      X-Okapi-User-Id:
+      - 1ad737b0-d847-11e6-bf26-cec0c932ce01
+      X-Okapi-Token:
+      - TEST_OKAPI_TOKEN
+      Strict-Transport-Security:
+      - max-age=15724800; includeSubDomains;
+    body:
+      encoding: ASCII-8BIT
+      string: |-
+        {
+          "configs" : [ {
+            "id" : "efadf3d8-59c3-4508-99d4-3e36e9247d87",
+            "module" : "EKB",
+            "configName" : "api_access",
+            "code" : "kb.ebsco.url",
+            "description" : "EBSCO RM-API URL",
+            "enabled" : true,
+            "value" : "https://api.ebsco.io",
+            "metadata" : {
+              "createdDate" : "2018-09-12T12:34:52.189+0000",
+              "createdByUserId" : "1ad737b0-d847-11e6-bf26-cec0c932ce01",
+              "updatedDate" : "2018-09-12T12:34:52.189+0000",
+              "updatedByUserId" : "1ad737b0-d847-11e6-bf26-cec0c932ce01"
+            }
+          }, {
+            "id" : "6b24b703-243a-4261-a7bf-0336d34f8c94",
+            "module" : "EKB",
+            "configName" : "api_access",
+            "code" : "kb.ebsco.customerId",
+            "description" : "EBSCO RM-API Customer ID",
+            "enabled" : true,
+            "value" : "TEST_CUSTOMER_ID",
+            "metadata" : {
+              "createdDate" : "2018-09-12T12:34:52.466+0000",
+              "createdByUserId" : "1ad737b0-d847-11e6-bf26-cec0c932ce01",
+              "updatedDate" : "2018-09-12T12:34:52.466+0000",
+              "updatedByUserId" : "1ad737b0-d847-11e6-bf26-cec0c932ce01"
+            }
+          }, {
+            "id" : "8038c4f3-0b09-4d97-be46-8a5236ef3f2f",
+            "module" : "EKB",
+            "configName" : "api_access",
+            "code" : "kb.ebsco.apiKey",
+            "description" : "EBSCO RM-API API Key",
+            "enabled" : true,
+            "value" : "TEST_API_KEY",
+            "metadata" : {
+              "createdDate" : "2018-09-12T12:34:52.788+0000",
+              "createdByUserId" : "1ad737b0-d847-11e6-bf26-cec0c932ce01",
+              "updatedDate" : "2018-09-12T12:34:52.788+0000",
+              "updatedByUserId" : "1ad737b0-d847-11e6-bf26-cec0c932ce01"
+            }
+          } ],
+          "totalRecords" : 3,
+          "resultInfo" : {
+            "totalRecords" : 3,
+            "facets" : [ ]
+          }
+        }
+    http_version: 
+  recorded_at: Wed, 12 Sep 2018 14:33:13 GMT
+- request:
+    method: get
+    uri: https://api.ebsco.io/rm/rmaccounts/TEST_CUSTOMER_ID/vendors/18/packages/343
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      X-Api-Key:
+      - TEST_API_KEY
+      Content-Type:
+      - application/json
+      Accept:
+      - application/json
+      Connection:
+      - close
+      Host:
+      - api.ebsco.io
+      User-Agent:
+      - http.rb/3.3.0
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json;charset=UTF-8
+      Content-Length:
+      - '1078'
+      Connection:
+      - close
+      Date:
+      - Wed, 12 Sep 2018 14:33:13 GMT
+      X-Amzn-Requestid:
+      - c7a45585-b698-11e8-81b2-83629130c5e8
+      X-Amzn-Remapped-Connection:
+      - keep-alive
+      X-Amz-Apigw-Id:
+      - NHKCfH8OoAMFQlA=
+      X-Amzn-Remapped-Date:
+      - Wed, 12 Sep 2018 14:33:13 GMT
+      X-Cache:
+      - Miss from cloudfront
+      Via:
+      - 1.1 92e459346829b56068b240340d6508a6.cloudfront.net (CloudFront)
+      X-Amz-Cf-Id:
+      - EDhn7x4Rwv2Fod7yvFyWj0Olr9AL6BtEtTVCFsAOOhHA9nqfHTz1bg==
+    body:
+      encoding: UTF-8
+      string: '{"packageId":343,"packageName":"InfoTrac Custom","isCustom":false,"vendorId":18,"vendorName":"Gale
+        | Cengage","titleCount":15291,"isSelected":true,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":15291,"isTokenNeeded":true,"contentType":"AggregatedFullText","customCoverage":{"beginCoverage":"","endCoverage":""},"proxy":{"id":"EZProxy","inherited":true},"allowEbscoToAddTitles":false,"packageToken":{"factName":"[[gale.customcode.infocust]]","helpText":"<ul
+        style=\"list-style-type: disc;\">\r\n    <li style=\"line-height: normal;
+        margin: 0in 0in 12pt;\">Enter your Gale® custom package code in the space
+        provided below. The custom code may contain a combination of alpha/numeric
+        characters, varying in length.<br />\r\n    <br />\r\n    Example: The custom
+        package code immediately follows res_id=info:sid/gale: in a URL. The custom
+        package code in the following URL is SP00.<br />\r\n    <br />\r\n    http://find.galegroup.com/openurl/openurl?url_ver=Z39.88-2004&a","value":"myValue
+        in production","prompt":"res_id=info:sid/gale:"},"packageType":"Variable"}'
+    http_version: 
+  recorded_at: Wed, 12 Sep 2018 14:33:13 GMT
+- request:
+    method: get
+    uri: https://api.ebsco.io/rm/rmaccounts/TEST_CUSTOMER_ID/vendors/18/packages/343
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      X-Api-Key:
+      - TEST_API_KEY
+      Content-Type:
+      - application/json
+      Accept:
+      - application/json
+      Connection:
+      - close
+      Host:
+      - api.ebsco.io
+      User-Agent:
+      - http.rb/3.3.0
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json;charset=UTF-8
+      Content-Length:
+      - '1078'
+      Connection:
+      - close
+      Date:
+      - Wed, 12 Sep 2018 14:33:13 GMT
+      X-Amzn-Requestid:
+      - c7c46080-b698-11e8-8e07-5dd10f91140e
+      X-Amzn-Remapped-Connection:
+      - keep-alive
+      X-Amz-Apigw-Id:
+      - NHKChGkOoAMFnuA=
+      X-Amzn-Remapped-Date:
+      - Wed, 12 Sep 2018 14:33:13 GMT
+      X-Cache:
+      - Miss from cloudfront
+      Via:
+      - 1.1 47d6834f4a1b452aaf7621406b34f3c1.cloudfront.net (CloudFront)
+      X-Amz-Cf-Id:
+      - uTOf9JwPIMVeFMDgst3MEXD-Xu5MRcr_0KUHGl3mmsYbuQdgDbPlkA==
+    body:
+      encoding: UTF-8
+      string: '{"packageId":343,"packageName":"InfoTrac Custom","isCustom":false,"vendorId":18,"vendorName":"Gale
+        | Cengage","titleCount":15291,"isSelected":true,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":15291,"isTokenNeeded":true,"contentType":"AggregatedFullText","customCoverage":{"beginCoverage":"","endCoverage":""},"proxy":{"id":"EZProxy","inherited":true},"allowEbscoToAddTitles":false,"packageToken":{"factName":"[[gale.customcode.infocust]]","helpText":"<ul
+        style=\"list-style-type: disc;\">\r\n    <li style=\"line-height: normal;
+        margin: 0in 0in 12pt;\">Enter your Gale® custom package code in the space
+        provided below. The custom code may contain a combination of alpha/numeric
+        characters, varying in length.<br />\r\n    <br />\r\n    Example: The custom
+        package code immediately follows res_id=info:sid/gale: in a URL. The custom
+        package code in the following URL is SP00.<br />\r\n    <br />\r\n    http://find.galegroup.com/openurl/openurl?url_ver=Z39.88-2004&a","value":"myValue
+        in production","prompt":"res_id=info:sid/gale:"},"packageType":"Variable"}'
+    http_version: 
+  recorded_at: Wed, 12 Sep 2018 14:33:13 GMT
+- request:
+    method: get
+    uri: https://api.ebsco.io/rm/rmaccounts/TEST_CUSTOMER_ID/vendors/18/packages/343
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      X-Api-Key:
+      - TEST_API_KEY
+      Content-Type:
+      - application/json
+      Accept:
+      - application/json
+      Connection:
+      - close
+      Host:
+      - api.ebsco.io
+      User-Agent:
+      - http.rb/3.3.0
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json;charset=UTF-8
+      Content-Length:
+      - '1078'
+      Connection:
+      - close
+      Date:
+      - Wed, 12 Sep 2018 14:33:14 GMT
+      X-Amzn-Requestid:
+      - c7e248bf-b698-11e8-8185-a727bcdba2bf
+      X-Amzn-Remapped-Connection:
+      - keep-alive
+      X-Amz-Apigw-Id:
+      - NHKCjEBJIAMFbBg=
+      X-Amzn-Remapped-Date:
+      - Wed, 12 Sep 2018 14:33:13 GMT
+      X-Cache:
+      - Miss from cloudfront
+      Via:
+      - 1.1 901034d5d4414b1ff9a2fe4433360a1d.cloudfront.net (CloudFront)
+      X-Amz-Cf-Id:
+      - tMMySvNtfOIwsyHBgbytjx3Z8AVQiWmMKhU1usZjSvFbjhtHn8vCGg==
+    body:
+      encoding: UTF-8
+      string: '{"packageId":343,"packageName":"InfoTrac Custom","isCustom":false,"vendorId":18,"vendorName":"Gale
+        | Cengage","titleCount":15291,"isSelected":true,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":15291,"isTokenNeeded":true,"contentType":"AggregatedFullText","customCoverage":{"beginCoverage":"","endCoverage":""},"proxy":{"id":"EZProxy","inherited":true},"allowEbscoToAddTitles":false,"packageToken":{"factName":"[[gale.customcode.infocust]]","helpText":"<ul
+        style=\"list-style-type: disc;\">\r\n    <li style=\"line-height: normal;
+        margin: 0in 0in 12pt;\">Enter your Gale® custom package code in the space
+        provided below. The custom code may contain a combination of alpha/numeric
+        characters, varying in length.<br />\r\n    <br />\r\n    Example: The custom
+        package code immediately follows res_id=info:sid/gale: in a URL. The custom
+        package code in the following URL is SP00.<br />\r\n    <br />\r\n    http://find.galegroup.com/openurl/openurl?url_ver=Z39.88-2004&a","value":"myValue
+        in production","prompt":"res_id=info:sid/gale:"},"packageType":"Variable"}'
+    http_version: 
+  recorded_at: Wed, 12 Sep 2018 14:33:14 GMT
+- request:
+    method: get
+    uri: https://api.ebsco.io/rm/rmaccounts/TEST_CUSTOMER_ID/vendors/18/packages/343
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      X-Api-Key:
+      - TEST_API_KEY
+      Content-Type:
+      - application/json
+      Accept:
+      - application/json
+      Connection:
+      - close
+      Host:
+      - api.ebsco.io
+      User-Agent:
+      - http.rb/3.3.0
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json;charset=UTF-8
+      Content-Length:
+      - '1078'
+      Connection:
+      - close
+      Date:
+      - Wed, 12 Sep 2018 14:33:14 GMT
+      X-Amzn-Requestid:
+      - c802a1ab-b698-11e8-946e-2bd1cc5c035a
+      X-Amzn-Remapped-Connection:
+      - keep-alive
+      X-Amz-Apigw-Id:
+      - NHKClGbToAMFVAg=
+      X-Amzn-Remapped-Date:
+      - Wed, 12 Sep 2018 14:33:13 GMT
+      X-Cache:
+      - Miss from cloudfront
+      Via:
+      - 1.1 a7dda29620c2fec27c03f7bf6c406fc0.cloudfront.net (CloudFront)
+      X-Amz-Cf-Id:
+      - gZ42CxJ7AARUetu8pu7jwchD88YZ_I_AzCHjt3eiupQnGSAgwiwmBw==
+    body:
+      encoding: UTF-8
+      string: '{"packageId":343,"packageName":"InfoTrac Custom","isCustom":false,"vendorId":18,"vendorName":"Gale
+        | Cengage","titleCount":15291,"isSelected":true,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":15291,"isTokenNeeded":true,"contentType":"AggregatedFullText","customCoverage":{"beginCoverage":"","endCoverage":""},"proxy":{"id":"EZProxy","inherited":true},"allowEbscoToAddTitles":false,"packageToken":{"factName":"[[gale.customcode.infocust]]","helpText":"<ul
+        style=\"list-style-type: disc;\">\r\n    <li style=\"line-height: normal;
+        margin: 0in 0in 12pt;\">Enter your Gale® custom package code in the space
+        provided below. The custom code may contain a combination of alpha/numeric
+        characters, varying in length.<br />\r\n    <br />\r\n    Example: The custom
+        package code immediately follows res_id=info:sid/gale: in a URL. The custom
+        package code in the following URL is SP00.<br />\r\n    <br />\r\n    http://find.galegroup.com/openurl/openurl?url_ver=Z39.88-2004&a","value":"myValue
+        in production","prompt":"res_id=info:sid/gale:"},"packageType":"Variable"}'
+    http_version: 
+  recorded_at: Wed, 12 Sep 2018 14:33:14 GMT
+- request:
+    method: put
+    uri: https://api.ebsco.io/rm/rmaccounts/TEST_CUSTOMER_ID/vendors/18/packages/343
+    body:
+      encoding: UTF-8
+      string: '{"isSelected":true,"allowEbscoToAddTitles":null,"packageToken":{"value":"test
+        package token update"},"isHidden":null}'
+    headers:
+      X-Api-Key:
+      - TEST_API_KEY
+      Content-Type:
+      - application/json
+      Accept:
+      - application/json
+      Connection:
+      - close
+      Host:
+      - api.ebsco.io
+      User-Agent:
+      - http.rb/3.3.0
+  response:
+    status:
+      code: 204
+      message: No Content
+    headers:
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '0'
+      Connection:
+      - close
+      Date:
+      - Wed, 12 Sep 2018 14:33:14 GMT
+      X-Amzn-Requestid:
+      - c825ba73-b698-11e8-b397-c3685b78fac9
+      X-Amzn-Remapped-Connection:
+      - keep-alive
+      X-Amz-Apigw-Id:
+      - NHKCoERZIAMFVjg=
+      X-Amzn-Remapped-Date:
+      - Wed, 12 Sep 2018 14:33:13 GMT
+      X-Cache:
+      - Miss from cloudfront
+      Via:
+      - 1.1 a3e3d513d9f4e5f94855ae4a4ce1a7c3.cloudfront.net (CloudFront)
+      X-Amz-Cf-Id:
+      - K70C41JMhwWtR2DCtt36pXiFIRhFD_NLkTaVPhNkx38DSL6tDf_FxQ==
+    body:
+      encoding: ASCII-8BIT
+      string: ''
+    http_version: 
+  recorded_at: Wed, 12 Sep 2018 14:33:14 GMT
+- request:
+    method: get
+    uri: https://api.ebsco.io/rm/rmaccounts/TEST_CUSTOMER_ID/vendors/18/packages/343
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      X-Api-Key:
+      - TEST_API_KEY
+      Content-Type:
+      - application/json
+      Accept:
+      - application/json
+      Connection:
+      - close
+      Host:
+      - api.ebsco.io
+      User-Agent:
+      - http.rb/3.3.0
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json;charset=UTF-8
+      Content-Length:
+      - '1082'
+      Connection:
+      - close
+      Date:
+      - Wed, 12 Sep 2018 14:33:14 GMT
+      X-Amzn-Requestid:
+      - c848d262-b698-11e8-9c36-a3f0a03163a4
+      X-Amzn-Remapped-Connection:
+      - keep-alive
+      X-Amz-Apigw-Id:
+      - NHKCqHgjIAMF-Uw=
+      X-Amzn-Remapped-Date:
+      - Wed, 12 Sep 2018 14:33:14 GMT
+      X-Cache:
+      - Miss from cloudfront
+      Via:
+      - 1.1 e848f30e8d63b5f324e9295182b986ef.cloudfront.net (CloudFront)
+      X-Amz-Cf-Id:
+      - BEbaerS1NRQIUgBl4ABO-ayaiSUWctXOBb-uzPNl5q0K7ww_7O6_cQ==
+    body:
+      encoding: UTF-8
+      string: '{"packageId":343,"packageName":"InfoTrac Custom","isCustom":false,"vendorId":18,"vendorName":"Gale
+        | Cengage","titleCount":15291,"isSelected":true,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":15291,"isTokenNeeded":true,"contentType":"AggregatedFullText","customCoverage":{"beginCoverage":"","endCoverage":""},"proxy":{"id":"EZProxy","inherited":true},"allowEbscoToAddTitles":false,"packageToken":{"factName":"[[gale.customcode.infocust]]","helpText":"<ul
+        style=\"list-style-type: disc;\">\r\n    <li style=\"line-height: normal;
+        margin: 0in 0in 12pt;\">Enter your Gale® custom package code in the space
+        provided below. The custom code may contain a combination of alpha/numeric
+        characters, varying in length.<br />\r\n    <br />\r\n    Example: The custom
+        package code immediately follows res_id=info:sid/gale: in a URL. The custom
+        package code in the following URL is SP00.<br />\r\n    <br />\r\n    http://find.galegroup.com/openurl/openurl?url_ver=Z39.88-2004&a","value":"test
+        package token update","prompt":"res_id=info:sid/gale:"},"packageType":"Variable"}'
+    http_version: 
+  recorded_at: Wed, 12 Sep 2018 14:33:14 GMT
+recorded_with: VCR 3.0.3

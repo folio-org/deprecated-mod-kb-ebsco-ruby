@@ -1,11 +1,351 @@
 ---
 http_interactions:
 - request:
+    method: get
+    uri: https://okapi.frontside.io/configurations/entries?query=module=EKB
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Content-Type:
+      - application/json
+      Accept:
+      - application/json
+      X-Okapi-Tenant:
+      - fs
+      X-Okapi-Token:
+      - TEST_OKAPI_TOKEN
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx/1.13.5
+      Date:
+      - Wed, 12 Sep 2018 14:33:34 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      X-Okapi-Trace:
+      - 'GET mod-authtoken-1.5.2-SNAPSHOT.26 http://10.39.242.252:8081/configurations/entries..
+        : 202 1636us'
+      - 'GET mod-configuration-5.0.1-SNAPSHOT.45 http://10.39.249.105:8081/configurations/entries..
+        : 200 45158us'
+      Host:
+      - okapi.frontside.io
+      X-Real-Ip:
+      - 10.128.0.4
+      X-Forwarded-For:
+      - 10.128.0.4
+      X-Forwarded-Host:
+      - okapi.frontside.io
+      X-Forwarded-Port:
+      - '443'
+      X-Forwarded-Proto:
+      - https
+      X-Original-Uri:
+      - "/configurations/entries?query=module=EKB"
+      X-Scheme:
+      - https
+      X-Auth-Request-Redirect:
+      - "/configurations/entries?query=module=EKB"
+      Accept:
+      - application/json
+      X-Okapi-Tenant:
+      - fs
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      User-Agent:
+      - Ruby
+      X-Okapi-Request-Id:
+      - 118241/configurations
+      X-Okapi-Url:
+      - http://10.39.245.41:80
+      X-Okapi-Permissions:
+      - '["configuration.entries.collection.get","configuration.entries.collection.get"]'
+      X-Okapi-User-Id:
+      - 1ad737b0-d847-11e6-bf26-cec0c932ce01
+      X-Okapi-Token:
+      - TEST_OKAPI_TOKEN
+      Strict-Transport-Security:
+      - max-age=15724800; includeSubDomains;
+    body:
+      encoding: ASCII-8BIT
+      string: |-
+        {
+          "configs" : [ {
+            "id" : "efadf3d8-59c3-4508-99d4-3e36e9247d87",
+            "module" : "EKB",
+            "configName" : "api_access",
+            "code" : "kb.ebsco.url",
+            "description" : "EBSCO RM-API URL",
+            "enabled" : true,
+            "value" : "https://api.ebsco.io",
+            "metadata" : {
+              "createdDate" : "2018-09-12T12:34:52.189+0000",
+              "createdByUserId" : "1ad737b0-d847-11e6-bf26-cec0c932ce01",
+              "updatedDate" : "2018-09-12T12:34:52.189+0000",
+              "updatedByUserId" : "1ad737b0-d847-11e6-bf26-cec0c932ce01"
+            }
+          }, {
+            "id" : "6b24b703-243a-4261-a7bf-0336d34f8c94",
+            "module" : "EKB",
+            "configName" : "api_access",
+            "code" : "kb.ebsco.customerId",
+            "description" : "EBSCO RM-API Customer ID",
+            "enabled" : true,
+            "value" : "TEST_CUSTOMER_ID",
+            "metadata" : {
+              "createdDate" : "2018-09-12T12:34:52.466+0000",
+              "createdByUserId" : "1ad737b0-d847-11e6-bf26-cec0c932ce01",
+              "updatedDate" : "2018-09-12T12:34:52.466+0000",
+              "updatedByUserId" : "1ad737b0-d847-11e6-bf26-cec0c932ce01"
+            }
+          }, {
+            "id" : "8038c4f3-0b09-4d97-be46-8a5236ef3f2f",
+            "module" : "EKB",
+            "configName" : "api_access",
+            "code" : "kb.ebsco.apiKey",
+            "description" : "EBSCO RM-API API Key",
+            "enabled" : true,
+            "value" : "TEST_API_KEY",
+            "metadata" : {
+              "createdDate" : "2018-09-12T12:34:52.788+0000",
+              "createdByUserId" : "1ad737b0-d847-11e6-bf26-cec0c932ce01",
+              "updatedDate" : "2018-09-12T12:34:52.788+0000",
+              "updatedByUserId" : "1ad737b0-d847-11e6-bf26-cec0c932ce01"
+            }
+          } ],
+          "totalRecords" : 3,
+          "resultInfo" : {
+            "totalRecords" : 3,
+            "facets" : [ ]
+          }
+        }
+    http_version: 
+  recorded_at: Wed, 12 Sep 2018 14:33:34 GMT
+- request:
+    method: get
+    uri: https://api.ebsco.io/rm/rmaccounts/TEST_CUSTOMER_ID/vendors/75/packages/2686
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      X-Api-Key:
+      - TEST_API_KEY
+      Content-Type:
+      - application/json
+      Accept:
+      - application/json
+      Connection:
+      - close
+      Host:
+      - api.ebsco.io
+      User-Agent:
+      - http.rb/3.3.0
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json;charset=UTF-8
+      Content-Length:
+      - '474'
+      Connection:
+      - close
+      Date:
+      - Wed, 12 Sep 2018 14:33:34 GMT
+      X-Amzn-Requestid:
+      - d44732ad-b698-11e8-b63c-0d1047d6db1e
+      X-Amzn-Remapped-Connection:
+      - keep-alive
+      X-Amz-Apigw-Id:
+      - NHKFzFHBIAMFjQg=
+      X-Amzn-Remapped-Date:
+      - Wed, 12 Sep 2018 14:33:33 GMT
+      X-Cache:
+      - Miss from cloudfront
+      Via:
+      - 1.1 8ac2d04f7193cd95abfeb911e77fd3ab.cloudfront.net (CloudFront)
+      X-Amz-Cf-Id:
+      - WR7bkYTHDU_VCCnonJHPM0Jj_VeNVJzmHiTXm0vGaoUToOdv0qG63A==
+    body:
+      encoding: UTF-8
+      string: '{"packageId":2686,"packageName":"Aerospace & High Technology Database","isCustom":false,"vendorId":75,"vendorName":"Cambridge
+        Scientific Abstracts","titleCount":1,"isSelected":true,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":1,"isTokenNeeded":false,"contentType":"AbstractAndIndex","customCoverage":{"beginCoverage":"","endCoverage":""},"proxy":{"id":"EZProxy","inherited":true},"allowEbscoToAddTitles":false,"packageToken":null,"packageType":"Complete"}'
+    http_version: 
+  recorded_at: Wed, 12 Sep 2018 14:33:34 GMT
+- request:
+    method: get
+    uri: https://api.ebsco.io/rm/rmaccounts/TEST_CUSTOMER_ID/vendors/75/packages/2686
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      X-Api-Key:
+      - TEST_API_KEY
+      Content-Type:
+      - application/json
+      Accept:
+      - application/json
+      Connection:
+      - close
+      Host:
+      - api.ebsco.io
+      User-Agent:
+      - http.rb/3.3.0
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json;charset=UTF-8
+      Content-Length:
+      - '474'
+      Connection:
+      - close
+      Date:
+      - Wed, 12 Sep 2018 14:33:35 GMT
+      X-Amzn-Requestid:
+      - d465b749-b698-11e8-b5c8-9f17b6176b55
+      X-Amzn-Remapped-Connection:
+      - keep-alive
+      X-Amz-Apigw-Id:
+      - NHKF1FV6IAMFg5Q=
+      X-Amzn-Remapped-Date:
+      - Wed, 12 Sep 2018 14:33:35 GMT
+      X-Cache:
+      - Miss from cloudfront
+      Via:
+      - 1.1 5ea17ec24e220cfd5bc26fea52e3a29c.cloudfront.net (CloudFront)
+      X-Amz-Cf-Id:
+      - lHDsfJSlHN1Ume1X6PAK4PhwdukuOwRVeSC_U9eVR6zBx-TdjvweHQ==
+    body:
+      encoding: UTF-8
+      string: '{"packageId":2686,"packageName":"Aerospace & High Technology Database","isCustom":false,"vendorId":75,"vendorName":"Cambridge
+        Scientific Abstracts","titleCount":1,"isSelected":true,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":1,"isTokenNeeded":false,"contentType":"AbstractAndIndex","customCoverage":{"beginCoverage":"","endCoverage":""},"proxy":{"id":"EZProxy","inherited":true},"allowEbscoToAddTitles":false,"packageToken":null,"packageType":"Complete"}'
+    http_version: 
+  recorded_at: Wed, 12 Sep 2018 14:33:35 GMT
+- request:
+    method: get
+    uri: https://api.ebsco.io/rm/rmaccounts/TEST_CUSTOMER_ID/vendors/75/packages/2686
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      X-Api-Key:
+      - TEST_API_KEY
+      Content-Type:
+      - application/json
+      Accept:
+      - application/json
+      Connection:
+      - close
+      Host:
+      - api.ebsco.io
+      User-Agent:
+      - http.rb/3.3.0
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json;charset=UTF-8
+      Content-Length:
+      - '474'
+      Connection:
+      - close
+      Date:
+      - Wed, 12 Sep 2018 14:33:35 GMT
+      X-Amzn-Requestid:
+      - d48573ea-b698-11e8-a4fd-559799f94f61
+      X-Amzn-Remapped-Connection:
+      - keep-alive
+      X-Amz-Apigw-Id:
+      - NHKF3GANIAMFjHA=
+      X-Amzn-Remapped-Date:
+      - Wed, 12 Sep 2018 14:33:35 GMT
+      X-Cache:
+      - Miss from cloudfront
+      Via:
+      - 1.1 92e459346829b56068b240340d6508a6.cloudfront.net (CloudFront)
+      X-Amz-Cf-Id:
+      - yI3-DTwb0HM0AF8H5mI-anuUZR1SBJze8kgoJQ9jp8CP_YOcZJ_d4w==
+    body:
+      encoding: UTF-8
+      string: '{"packageId":2686,"packageName":"Aerospace & High Technology Database","isCustom":false,"vendorId":75,"vendorName":"Cambridge
+        Scientific Abstracts","titleCount":1,"isSelected":true,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":1,"isTokenNeeded":false,"contentType":"AbstractAndIndex","customCoverage":{"beginCoverage":"","endCoverage":""},"proxy":{"id":"EZProxy","inherited":true},"allowEbscoToAddTitles":false,"packageToken":null,"packageType":"Complete"}'
+    http_version: 
+  recorded_at: Wed, 12 Sep 2018 14:33:35 GMT
+- request:
+    method: get
+    uri: https://api.ebsco.io/rm/rmaccounts/TEST_CUSTOMER_ID/vendors/75/packages/2686
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      X-Api-Key:
+      - TEST_API_KEY
+      Content-Type:
+      - application/json
+      Accept:
+      - application/json
+      Connection:
+      - close
+      Host:
+      - api.ebsco.io
+      User-Agent:
+      - http.rb/3.3.0
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json;charset=UTF-8
+      Content-Length:
+      - '474'
+      Connection:
+      - close
+      Date:
+      - Wed, 12 Sep 2018 14:33:35 GMT
+      X-Amzn-Requestid:
+      - d4a50a6c-b698-11e8-860d-e7dadf53e6d2
+      X-Amzn-Remapped-Connection:
+      - keep-alive
+      X-Amz-Apigw-Id:
+      - NHKF5FdjIAMFm5g=
+      X-Amzn-Remapped-Date:
+      - Wed, 12 Sep 2018 14:33:35 GMT
+      X-Cache:
+      - Miss from cloudfront
+      Via:
+      - 1.1 74f392c3bbde3f12fab5155d1847c2cd.cloudfront.net (CloudFront)
+      X-Amz-Cf-Id:
+      - cwYbKcaLQhdu213-pQytJYntmlF-LvDiKAu8I5Fv7wu9dRENpHvtZw==
+    body:
+      encoding: UTF-8
+      string: '{"packageId":2686,"packageName":"Aerospace & High Technology Database","isCustom":false,"vendorId":75,"vendorName":"Cambridge
+        Scientific Abstracts","titleCount":1,"isSelected":true,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":1,"isTokenNeeded":false,"contentType":"AbstractAndIndex","customCoverage":{"beginCoverage":"","endCoverage":""},"proxy":{"id":"EZProxy","inherited":true},"allowEbscoToAddTitles":false,"packageToken":null,"packageType":"Complete"}'
+    http_version: 
+  recorded_at: Wed, 12 Sep 2018 14:33:35 GMT
+- request:
     method: put
     uri: https://api.ebsco.io/rm/rmaccounts/TEST_CUSTOMER_ID/vendors/75/packages/2686
     body:
       encoding: UTF-8
-      string: '{"allowEbscoToAddTitles":null,"isHidden":null}'
+      string: '{"allowEbscoToAddTitles":null,"packageToken":null,"isHidden":null}'
     headers:
       X-Api-Key:
       - TEST_API_KEY
@@ -31,341 +371,25 @@ http_interactions:
       Connection:
       - close
       Date:
-      - Wed, 30 May 2018 11:42:46 GMT
+      - Wed, 12 Sep 2018 14:33:35 GMT
       X-Amzn-Requestid:
-      - 925336de-63fe-11e8-8829-8933f219a121
+      - d4c3dc34-b698-11e8-acd3-6b7cfdab567c
       X-Amzn-Remapped-Connection:
       - keep-alive
       X-Amz-Apigw-Id:
-      - HssoeEjVIAMFY0A=
+      - NHKF7H2oIAMFxpA=
       X-Amzn-Remapped-Date:
-      - Wed, 30 May 2018 11:42:45 GMT
+      - Wed, 12 Sep 2018 14:33:35 GMT
       X-Cache:
       - Error from cloudfront
       Via:
-      - 1.1 d671204b8bf6c2b9056c338588204020.cloudfront.net (CloudFront)
+      - 1.1 73a52047a4b5d0888cd6da66a23c4762.cloudfront.net (CloudFront)
       X-Amz-Cf-Id:
-      - ixDi7k-0WgJfTud2TW9TLpgNmHIqJpCzAk7l3Y6P6SXvV5UHzU-lVg==
+      - _LLa9KYJC6tvry2D5XLJvcRSbZH0uGY2nojm98OmpmSE6zjKmoENOA==
     body:
       encoding: UTF-8
       string: '{"errors":[{"code":1005,"subCode":0,"message":"Attribute IsSelected
         is missing."}]}'
     http_version: 
-  recorded_at: Wed, 30 May 2018 11:42:46 GMT
-- request:
-    method: get
-    uri: https://okapi.frontside.io/configurations/entries?query=module=KB_EBSCO
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      Content-Type:
-      - application/json
-      Accept:
-      - application/json
-      X-Okapi-Tenant:
-      - fs
-      X-Okapi-Token:
-      - TEST_OKAPI_TOKEN
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-      User-Agent:
-      - Ruby
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Server:
-      - nginx/1.13.5
-      Date:
-      - Wed, 30 May 2018 12:21:33 GMT
-      Content-Type:
-      - application/json
-      Transfer-Encoding:
-      - chunked
-      Connection:
-      - keep-alive
-      X-Okapi-Trace:
-      - 'GET mod-authtoken-1.4.1-SNAPSHOT.20 http://10.39.253.209:8081/configurations/entries..
-        : 202 357439us'
-      - 'GET mod-configuration-4.0.3-SNAPSHOT.29 http://10.39.244.97:8081/configurations/entries..
-        : 200 43185us'
-      Host:
-      - okapi.frontside.io
-      X-Real-Ip:
-      - 10.128.0.3
-      X-Forwarded-For:
-      - 10.128.0.3
-      X-Forwarded-Host:
-      - okapi.frontside.io
-      X-Forwarded-Port:
-      - '443'
-      X-Forwarded-Proto:
-      - https
-      X-Original-Uri:
-      - "/configurations/entries?query=module=KB_EBSCO"
-      X-Scheme:
-      - https
-      X-Auth-Request-Redirect:
-      - "/configurations/entries?query=module=KB_EBSCO"
-      Accept:
-      - application/json
-      X-Okapi-Tenant:
-      - fs
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-      User-Agent:
-      - Ruby
-      X-Okapi-Request-Id:
-      - 649671/configurations
-      X-Okapi-Url:
-      - http://10.39.242.98:80
-      X-Okapi-Permissions-Required:
-      - configuration.entries.collection.get
-      X-Okapi-Module-Permissions:
-      - '{"mod-authtoken-1.4.1-SNAPSHOT.20":["perms.users.get"]}'
-      X-Okapi-Permissions:
-      - '["configuration.entries.collection.get"]'
-      X-Okapi-User-Id:
-      - 1ad737b0-d847-11e6-bf26-cec0c932ce01
-      X-Okapi-Token:
-      - TEST_OKAPI_TOKEN
-      Strict-Transport-Security:
-      - max-age=15724800; includeSubDomains;
-    body:
-      encoding: ASCII-8BIT
-      string: |-
-        {
-          "configs" : [ {
-            "id" : "a6d98284-5c46-4698-a6fe-f9d1594aecfc",
-            "module" : "KB_EBSCO",
-            "configName" : "api_credentials",
-            "code" : "kb.ebsco.credentials",
-            "description" : "EBSCO RM-API Credentials",
-            "enabled" : true,
-            "value" : "customer-id=TEST_CUSTOMER_ID&api-key=TEST_API_KEY",
-            "metadata" : {
-              "createdDate" : "2018-05-07T20:35:44.622+0000",
-              "createdByUserId" : "1ad737b0-d847-11e6-bf26-cec0c932ce01",
-              "updatedDate" : "2018-05-07T20:35:44.622+0000",
-              "updatedByUserId" : "1ad737b0-d847-11e6-bf26-cec0c932ce01"
-            }
-          } ],
-          "totalRecords" : 1,
-          "resultInfo" : {
-            "totalRecords" : 1,
-            "facets" : [ ]
-          }
-        }
-    http_version: 
-  recorded_at: Wed, 30 May 2018 12:21:33 GMT
-- request:
-    method: get
-    uri: https://api.ebsco.io/rm/rmaccounts/TEST_CUSTOMER_ID/vendors/75/packages/2686
-    body:
-      encoding: UTF-8
-      string: ''
-    headers:
-      X-Api-Key:
-      - TEST_API_KEY
-      Content-Type:
-      - application/json
-      Accept:
-      - application/json
-      Connection:
-      - close
-      Host:
-      - api.ebsco.io
-      User-Agent:
-      - http.rb/3.3.0
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Content-Type:
-      - application/json;charset=UTF-8
-      Content-Length:
-      - '474'
-      Connection:
-      - close
-      Date:
-      - Wed, 30 May 2018 12:21:34 GMT
-      X-Amzn-Requestid:
-      - fdcbc72e-6403-11e8-b253-9d614a7f2c57
-      X-Amzn-Remapped-Connection:
-      - keep-alive
-      X-Amz-Apigw-Id:
-      - HsyUMGqsIAMFeqA=
-      X-Amzn-Remapped-Date:
-      - Wed, 30 May 2018 12:21:34 GMT
-      X-Cache:
-      - Miss from cloudfront
-      Via:
-      - 1.1 27f5831be5a9ad411fca9c84fe627bdc.cloudfront.net (CloudFront)
-      X-Amz-Cf-Id:
-      - SHbmmn-ivwGEi_oHiM4enK425RzsLF90_s-K_VpfjS4D5Dp0rEOV1A==
-    body:
-      encoding: UTF-8
-      string: '{"packageId":2686,"packageName":"Aerospace & High Technology Database","isCustom":false,"vendorId":75,"vendorName":"Cambridge
-        Scientific Abstracts","titleCount":1,"isSelected":true,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":1,"isTokenNeeded":false,"contentType":"AbstractAndIndex","customCoverage":{"beginCoverage":"","endCoverage":""},"proxy":{"id":"EZProxy","inherited":true},"allowEbscoToAddTitles":false,"packageToken":null,"packageType":"Complete"}'
-    http_version: 
-  recorded_at: Wed, 30 May 2018 12:21:34 GMT
-- request:
-    method: get
-    uri: https://api.ebsco.io/rm/rmaccounts/TEST_CUSTOMER_ID/vendors/75/packages/2686
-    body:
-      encoding: UTF-8
-      string: ''
-    headers:
-      X-Api-Key:
-      - TEST_API_KEY
-      Content-Type:
-      - application/json
-      Accept:
-      - application/json
-      Connection:
-      - close
-      Host:
-      - api.ebsco.io
-      User-Agent:
-      - http.rb/3.3.0
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Content-Type:
-      - application/json;charset=UTF-8
-      Content-Length:
-      - '474'
-      Connection:
-      - close
-      Date:
-      - Wed, 30 May 2018 12:21:34 GMT
-      X-Amzn-Requestid:
-      - fde913a0-6403-11e8-ba7a-e362130f7f35
-      X-Amzn-Remapped-Connection:
-      - keep-alive
-      X-Amz-Apigw-Id:
-      - HsyUOGhnIAMFmwA=
-      X-Amzn-Remapped-Date:
-      - Wed, 30 May 2018 12:21:34 GMT
-      X-Cache:
-      - Miss from cloudfront
-      Via:
-      - 1.1 d4cdd862c8bc0148f37b685614031cf5.cloudfront.net (CloudFront)
-      X-Amz-Cf-Id:
-      - IcKLW0YRfSgi4yHr7u6GzAiOWkKUh6RME2oREiehM475Cb-RT-8Prw==
-    body:
-      encoding: UTF-8
-      string: '{"packageId":2686,"packageName":"Aerospace & High Technology Database","isCustom":false,"vendorId":75,"vendorName":"Cambridge
-        Scientific Abstracts","titleCount":1,"isSelected":true,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":1,"isTokenNeeded":false,"contentType":"AbstractAndIndex","customCoverage":{"beginCoverage":"","endCoverage":""},"proxy":{"id":"EZProxy","inherited":true},"allowEbscoToAddTitles":false,"packageToken":null,"packageType":"Complete"}'
-    http_version: 
-  recorded_at: Wed, 30 May 2018 12:21:34 GMT
-- request:
-    method: get
-    uri: https://api.ebsco.io/rm/rmaccounts/TEST_CUSTOMER_ID/vendors/75/packages/2686
-    body:
-      encoding: UTF-8
-      string: ''
-    headers:
-      X-Api-Key:
-      - TEST_API_KEY
-      Content-Type:
-      - application/json
-      Accept:
-      - application/json
-      Connection:
-      - close
-      Host:
-      - api.ebsco.io
-      User-Agent:
-      - http.rb/3.3.0
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Content-Type:
-      - application/json;charset=UTF-8
-      Content-Length:
-      - '474'
-      Connection:
-      - close
-      Date:
-      - Wed, 30 May 2018 12:21:34 GMT
-      X-Amzn-Requestid:
-      - fe0bde11-6403-11e8-a332-1531d4889209
-      X-Amzn-Remapped-Connection:
-      - keep-alive
-      X-Amz-Apigw-Id:
-      - HsyUQE6aoAMFiMg=
-      X-Amzn-Remapped-Date:
-      - Wed, 30 May 2018 12:21:34 GMT
-      X-Cache:
-      - Miss from cloudfront
-      Via:
-      - 1.1 a86da8347e06cd1a49dfa25142e0bbf8.cloudfront.net (CloudFront)
-      X-Amz-Cf-Id:
-      - 5tdT4qIPBBZLgOu2zGyd4giDW873Gu_TMeR5eMTZa1a6cgEp5iv-qA==
-    body:
-      encoding: UTF-8
-      string: '{"packageId":2686,"packageName":"Aerospace & High Technology Database","isCustom":false,"vendorId":75,"vendorName":"Cambridge
-        Scientific Abstracts","titleCount":1,"isSelected":true,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":1,"isTokenNeeded":false,"contentType":"AbstractAndIndex","customCoverage":{"beginCoverage":"","endCoverage":""},"proxy":{"id":"EZProxy","inherited":true},"allowEbscoToAddTitles":false,"packageToken":null,"packageType":"Complete"}'
-    http_version: 
-  recorded_at: Wed, 30 May 2018 12:21:34 GMT
-- request:
-    method: get
-    uri: https://api.ebsco.io/rm/rmaccounts/TEST_CUSTOMER_ID/vendors/75/packages/2686
-    body:
-      encoding: UTF-8
-      string: ''
-    headers:
-      X-Api-Key:
-      - TEST_API_KEY
-      Content-Type:
-      - application/json
-      Accept:
-      - application/json
-      Connection:
-      - close
-      Host:
-      - api.ebsco.io
-      User-Agent:
-      - http.rb/3.3.0
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Content-Type:
-      - application/json;charset=UTF-8
-      Content-Length:
-      - '474'
-      Connection:
-      - close
-      Date:
-      - Wed, 30 May 2018 12:21:34 GMT
-      X-Amzn-Requestid:
-      - fe2c84a3-6403-11e8-bebd-39d10a7f6c6b
-      X-Amzn-Remapped-Connection:
-      - keep-alive
-      X-Amz-Apigw-Id:
-      - HsyUSF5HIAMFr_g=
-      X-Amzn-Remapped-Date:
-      - Wed, 30 May 2018 12:21:34 GMT
-      X-Cache:
-      - Miss from cloudfront
-      Via:
-      - 1.1 6e24e95f882f20707346a032d1fa2949.cloudfront.net (CloudFront)
-      X-Amz-Cf-Id:
-      - C4eE87zhND7kiTELPwlqPhqYZKELWFeC2tZ2l97z90SZpz-Hv4YKCA==
-    body:
-      encoding: UTF-8
-      string: '{"packageId":2686,"packageName":"Aerospace & High Technology Database","isCustom":false,"vendorId":75,"vendorName":"Cambridge
-        Scientific Abstracts","titleCount":1,"isSelected":true,"visibilityData":{"isHidden":false,"reason":""},"selectedCount":1,"isTokenNeeded":false,"contentType":"AbstractAndIndex","customCoverage":{"beginCoverage":"","endCoverage":""},"proxy":{"id":"EZProxy","inherited":true},"allowEbscoToAddTitles":false,"packageToken":null,"packageType":"Complete"}'
-    http_version: 
-  recorded_at: Wed, 30 May 2018 12:21:34 GMT
+  recorded_at: Wed, 12 Sep 2018 14:33:35 GMT
 recorded_with: VCR 3.0.3

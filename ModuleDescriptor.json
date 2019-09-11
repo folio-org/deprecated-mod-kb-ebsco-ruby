@@ -1,5 +1,5 @@
 {
-  "id": "mod-kb-ebsco-0.1.1",
+  "id": "mod-kb-ebsco-1.1.1",
   "name": "kb-ebsco",
   "provides": [
     {
@@ -47,7 +47,7 @@
   ],
   "permissionSets" : [],
   "launchDescriptor": {
-    "dockerImage": "mod-kb-ebsco:0.1.1",
+    "dockerImage": "mod-kb-ebsco-1.1.1",
     "dockerArgs": {
       "HostConfig": { "PortBindings": { "8081/tcp":  [{ "HostPort": "%p" }] } }
     },

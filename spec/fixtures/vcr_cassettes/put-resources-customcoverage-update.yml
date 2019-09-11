@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://okapi.frontside.io/configurations/entries?query=module=KB_EBSCO
+    uri: https://okapi.frontside.io/configurations/entries?query=module=EKB
     body:
       encoding: US-ASCII
       string: ''
@@ -27,7 +27,7 @@ http_interactions:
       Server:
       - nginx/1.13.5
       Date:
-      - Mon, 21 May 2018 21:12:08 GMT
+      - Wed, 12 Sep 2018 18:04:28 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -35,16 +35,16 @@ http_interactions:
       Connection:
       - keep-alive
       X-Okapi-Trace:
-      - 'GET mod-authtoken-1.4.1-SNAPSHOT.20 http://10.39.253.209:8081/configurations/entries..
-        : 202 366186us'
-      - 'GET mod-configuration-4.0.3-SNAPSHOT.29 http://10.39.244.97:8081/configurations/entries..
-        : 200 42953us'
+      - 'GET mod-authtoken-1.5.2-SNAPSHOT.26 http://10.39.242.252:8081/configurations/entries..
+        : 202 1653us'
+      - 'GET mod-configuration-5.0.1-SNAPSHOT.45 http://10.39.249.105:8081/configurations/entries..
+        : 200 42218us'
       Host:
       - okapi.frontside.io
       X-Real-Ip:
-      - 10.128.0.3
+      - 10.128.0.4
       X-Forwarded-For:
-      - 10.128.0.3
+      - 10.128.0.4
       X-Forwarded-Host:
       - okapi.frontside.io
       X-Forwarded-Port:
@@ -52,11 +52,11 @@ http_interactions:
       X-Forwarded-Proto:
       - https
       X-Original-Uri:
-      - "/configurations/entries?query=module=KB_EBSCO"
+      - "/configurations/entries?query=module=EKB"
       X-Scheme:
       - https
       X-Auth-Request-Redirect:
-      - "/configurations/entries?query=module=KB_EBSCO"
+      - "/configurations/entries?query=module=EKB"
       Accept:
       - application/json
       X-Okapi-Tenant:
@@ -66,15 +66,11 @@ http_interactions:
       User-Agent:
       - Ruby
       X-Okapi-Request-Id:
-      - 672966/configurations
+      - 072177/configurations
       X-Okapi-Url:
-      - http://10.39.242.98:80
-      X-Okapi-Permissions-Required:
-      - configuration.entries.collection.get
-      X-Okapi-Module-Permissions:
-      - '{"mod-authtoken-1.4.1-SNAPSHOT.20":["perms.users.get"]}'
+      - http://10.39.245.41:80
       X-Okapi-Permissions:
-      - '["configuration.entries.collection.get"]'
+      - '["configuration.entries.collection.get","configuration.entries.collection.get"]'
       X-Okapi-User-Id:
       - 1ad737b0-d847-11e6-bf26-cec0c932ce01
       X-Okapi-Token:
@@ -86,28 +82,56 @@ http_interactions:
       string: |-
         {
           "configs" : [ {
-            "id" : "a6d98284-5c46-4698-a6fe-f9d1594aecfc",
-            "module" : "KB_EBSCO",
-            "configName" : "api_credentials",
-            "code" : "kb.ebsco.credentials",
-            "description" : "EBSCO RM-API Credentials",
+            "id" : "efadf3d8-59c3-4508-99d4-3e36e9247d87",
+            "module" : "EKB",
+            "configName" : "api_access",
+            "code" : "kb.ebsco.url",
+            "description" : "EBSCO RM-API URL",
             "enabled" : true,
-            "value" : "customer-id=TEST_CUSTOMER_ID&api-key=TEST_API_KEY",
+            "value" : "https://api.ebsco.io",
             "metadata" : {
-              "createdDate" : "2018-05-07T20:35:44.622+0000",
+              "createdDate" : "2018-09-12T12:34:52.189+0000",
               "createdByUserId" : "1ad737b0-d847-11e6-bf26-cec0c932ce01",
-              "updatedDate" : "2018-05-07T20:35:44.622+0000",
+              "updatedDate" : "2018-09-12T12:34:52.189+0000",
+              "updatedByUserId" : "1ad737b0-d847-11e6-bf26-cec0c932ce01"
+            }
+          }, {
+            "id" : "6b24b703-243a-4261-a7bf-0336d34f8c94",
+            "module" : "EKB",
+            "configName" : "api_access",
+            "code" : "kb.ebsco.customerId",
+            "description" : "EBSCO RM-API Customer ID",
+            "enabled" : true,
+            "value" : "TEST_CUSTOMER_ID",
+            "metadata" : {
+              "createdDate" : "2018-09-12T12:34:52.466+0000",
+              "createdByUserId" : "1ad737b0-d847-11e6-bf26-cec0c932ce01",
+              "updatedDate" : "2018-09-12T12:34:52.466+0000",
+              "updatedByUserId" : "1ad737b0-d847-11e6-bf26-cec0c932ce01"
+            }
+          }, {
+            "id" : "8038c4f3-0b09-4d97-be46-8a5236ef3f2f",
+            "module" : "EKB",
+            "configName" : "api_access",
+            "code" : "kb.ebsco.apiKey",
+            "description" : "EBSCO RM-API API Key",
+            "enabled" : true,
+            "value" : "TEST_API_KEY",
+            "metadata" : {
+              "createdDate" : "2018-09-12T12:34:52.788+0000",
+              "createdByUserId" : "1ad737b0-d847-11e6-bf26-cec0c932ce01",
+              "updatedDate" : "2018-09-12T12:34:52.788+0000",
               "updatedByUserId" : "1ad737b0-d847-11e6-bf26-cec0c932ce01"
             }
           } ],
-          "totalRecords" : 1,
+          "totalRecords" : 3,
           "resultInfo" : {
-            "totalRecords" : 1,
+            "totalRecords" : 3,
             "facets" : [ ]
           }
         }
     http_version: 
-  recorded_at: Mon, 21 May 2018 21:12:08 GMT
+  recorded_at: Wed, 12 Sep 2018 18:04:28 GMT
 - request:
     method: get
     uri: https://api.ebsco.io/rm/rmaccounts/TEST_CUSTOMER_ID/vendors/22/packages/1887786/titles/1440285
@@ -116,7 +140,7 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - Flexirest/1.6.7
+      - Flexirest/1.7.0
       Connection:
       - Keep-Alive
       Accept:
@@ -135,19 +159,19 @@ http_interactions:
       Content-Type:
       - application/json; charset=utf-8
       Content-Length:
-      - '1685'
+      - '1690'
       Connection:
       - keep-alive
       Date:
-      - Mon, 21 May 2018 21:12:08 GMT
+      - Wed, 12 Sep 2018 18:04:28 GMT
       X-Amzn-Requestid:
-      - 9f11afcc-5d3b-11e8-a22f-f3a8344db650
+      - 4a57c80c-b6b6-11e8-b83b-91b2c61ceb0f
       X-Amzn-Remapped-Content-Length:
-      - '1685'
+      - '1690'
       X-Amzn-Remapped-Connection:
       - keep-alive
       X-Amz-Apigw-Id:
-      - HQVmXFFqoAMFcNg=
+      - NHo-6Fo_oAMFthg=
       X-Amzn-Remapped-Server:
       - Microsoft-IIS/8.5
       Cache-Control:
@@ -159,27 +183,27 @@ http_interactions:
       Pragma:
       - no-cache
       X-Amzn-Remapped-Date:
-      - Mon, 21 May 2018 21:12:08 GMT
+      - Wed, 12 Sep 2018 18:04:27 GMT
       X-Aspnet-Version:
       - 4.0.30319
       X-Cache:
       - Miss from cloudfront
       Via:
-      - 1.1 2d357730b9d8c4fff788ffa9b0881e8f.cloudfront.net (CloudFront)
+      - 1.1 1180e7db9140d463ff91bf71050bd572.cloudfront.net (CloudFront)
       X-Amz-Cf-Id:
-      - q94_r8snK8Xn7rzY_L08wELKG1p3h3ebRC7sP-cQxOmlOBvu0nmOZQ==
+      - rhp_qRW-0kTZdoG88aiC4CWhTyyUSWp7MdAvBsiwprKhCMayUXe5jA==
     body:
       encoding: UTF-8
       string: '{"titleId":1440285,"titleName":"Havard''s Nursing Guide to Drugs (Nursing
         Guide to Drugs)","publisherName":"Elsevier","identifiersList":[{"id":"1440285","source":"AtoZ","subtype":0,"type":9},{"id":"475765","source":"ResourceIdentifier","subtype":0,"type":7},{"id":"978-0-7295-3913-5","source":"ResourceIdentifier","subtype":1,"type":1},{"id":"978-0-7295-7913-1","source":"ResourceIdentifier","subtype":2,"type":1}],"subjectsList":[{"type":"BISAC","subject":"MEDICAL
         / Nursing / Pharmacology"}],"isTitleCustom":false,"pubType":"Book","customerResourcesList":[{"titleId":1440285,"packageId":1887786,"packageName":"ProQuest
-        Ebook Central","packageType":"Variable","proxy":{"id":"<n>","inherited":true},"isPackageCustom":false,"vendorId":22,"vendorName":"Proquest
+        Ebook Central","packageType":"Variable","proxy":{"id":"EZProxy","inherited":false},"isPackageCustom":false,"vendorId":22,"vendorName":"Proquest
         Info & Learning Co","locationId":17545807,"isSelected":true,"isTokenNeeded":true,"visibilityData":{"isHidden":true,"reason":"Hidden
         by Customer"},"managedCoverageList":[{"beginCoverage":"2010-01-01","endCoverage":"2010-12-31"}],"customCoverageList":[{"beginCoverage":"2000-01-01","endCoverage":"2004-02-01"},{"beginCoverage":"2005-01-01","endCoverage":""}],"coverageStatement":"Only
         2000s issues available.","managedEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"customEmbargoPeriod":{"embargoUnit":"Months","embargoValue":5},"url":"https://ebookcentral.proquest.com/lib/[[SiteID]]/detail.action?docID=1722033","userDefinedField1":null,"userDefinedField2":null,"userDefinedField3":null,"userDefinedField4":null,"userDefinedField5":null}],"description":null,"edition":null,"isPeerReviewed":false,"contributorsList":[{"type":"author","contributor":"Havard,
         Margaret"},{"type":"author","contributor":"Tiziani, Adriana."}]}'
     http_version: 
-  recorded_at: Mon, 21 May 2018 21:12:08 GMT
+  recorded_at: Wed, 12 Sep 2018 18:04:28 GMT
 - request:
     method: put
     uri: https://api.ebsco.io/rm/rmaccounts/TEST_CUSTOMER_ID/vendors/22/packages/1887786/titles/1440285
@@ -190,7 +214,7 @@ http_interactions:
         Guide to Drugs)","pubType":"Book","isPeerReviewed":false,"publisherName":"Elsevier","edition":null,"description":null,"url":null,"proxy":{"id":"EZProxy","inherited":false}}'
     headers:
       User-Agent:
-      - Flexirest/1.6.7
+      - Flexirest/1.7.0
       Connection:
       - Keep-Alive
       Accept:
@@ -213,13 +237,13 @@ http_interactions:
       Connection:
       - keep-alive
       Date:
-      - Mon, 21 May 2018 21:12:09 GMT
+      - Wed, 12 Sep 2018 18:04:28 GMT
       X-Amzn-Requestid:
-      - 9f2a40f3-5d3b-11e8-9751-412e033b40ba
+      - 4a75fe66-b6b6-11e8-bf90-a7c5cbb0a4f0
       X-Amzn-Remapped-Connection:
       - keep-alive
       X-Amz-Apigw-Id:
-      - HQVmZE6uoAMFjrA=
+      - NHo-8GlcoAMFbUA=
       X-Amzn-Remapped-Server:
       - Microsoft-IIS/8.5
       Cache-Control:
@@ -231,20 +255,20 @@ http_interactions:
       Pragma:
       - no-cache
       X-Amzn-Remapped-Date:
-      - Mon, 21 May 2018 21:12:08 GMT
+      - Wed, 12 Sep 2018 18:04:28 GMT
       X-Aspnet-Version:
       - 4.0.30319
       X-Cache:
       - Miss from cloudfront
       Via:
-      - 1.1 d1c6b0af1d2d0f3694496e7cbde73924.cloudfront.net (CloudFront)
+      - 1.1 47d6834f4a1b452aaf7621406b34f3c1.cloudfront.net (CloudFront)
       X-Amz-Cf-Id:
-      - G2aQoNfsWghdqHzDZbEj6gdv6hBt05zUZ3ezILvY2zEsgTKCxCnQ2Q==
+      - N6yAwCjdUrWo-UoX9bsLgymklDHvye7DcJohk7B5QmSPp3pyg9Ma2g==
     body:
       encoding: UTF-8
       string: ''
     http_version: 
-  recorded_at: Mon, 21 May 2018 21:12:09 GMT
+  recorded_at: Wed, 12 Sep 2018 18:04:28 GMT
 - request:
     method: get
     uri: https://api.ebsco.io/rm/rmaccounts/TEST_CUSTOMER_ID/vendors/22/packages/1887786/titles/1440285
@@ -253,7 +277,7 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - Flexirest/1.6.7
+      - Flexirest/1.7.0
       Connection:
       - Keep-Alive
       Accept:
@@ -276,15 +300,15 @@ http_interactions:
       Connection:
       - keep-alive
       Date:
-      - Mon, 21 May 2018 21:12:09 GMT
+      - Wed, 12 Sep 2018 18:04:28 GMT
       X-Amzn-Requestid:
-      - 9f7700e7-5d3b-11e8-aa79-5f47ffa6865b
+      - 4a9ff487-b6b6-11e8-9987-1f8627594dbc
       X-Amzn-Remapped-Content-Length:
       - '1642'
       X-Amzn-Remapped-Connection:
       - keep-alive
       X-Amz-Apigw-Id:
-      - HQVmeHyAIAMFeXg=
+      - NHo-_GPqIAMFi1w=
       X-Amzn-Remapped-Server:
       - Microsoft-IIS/8.5
       Cache-Control:
@@ -296,15 +320,15 @@ http_interactions:
       Pragma:
       - no-cache
       X-Amzn-Remapped-Date:
-      - Mon, 21 May 2018 21:12:08 GMT
+      - Wed, 12 Sep 2018 18:04:28 GMT
       X-Aspnet-Version:
       - 4.0.30319
       X-Cache:
       - Miss from cloudfront
       Via:
-      - 1.1 1180e7db9140d463ff91bf71050bd572.cloudfront.net (CloudFront)
+      - 1.1 ac3474fe463b33f1439c8d949f9a075f.cloudfront.net (CloudFront)
       X-Amz-Cf-Id:
-      - skpR4Bd_xom-efbO9j0NHHW1GBgKDRIRGMv0ejFMksAYoWpF1KAb4g==
+      - TSx0V7Cloyu7T2IXMcbpaMpJTyc4wPj9NBlZPY-vMMwgS4xevDoYjQ==
     body:
       encoding: UTF-8
       string: '{"titleId":1440285,"titleName":"Havard''s Nursing Guide to Drugs (Nursing
@@ -316,5 +340,5 @@ http_interactions:
         2000s issues available.","managedEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"customEmbargoPeriod":{"embargoUnit":"Months","embargoValue":5},"url":"https://ebookcentral.proquest.com/lib/[[SiteID]]/detail.action?docID=1722033","userDefinedField1":null,"userDefinedField2":null,"userDefinedField3":null,"userDefinedField4":null,"userDefinedField5":null}],"description":null,"edition":null,"isPeerReviewed":false,"contributorsList":[{"type":"author","contributor":"Havard,
         Margaret"},{"type":"author","contributor":"Tiziani, Adriana."}]}'
     http_version: 
-  recorded_at: Mon, 21 May 2018 21:12:09 GMT
+  recorded_at: Wed, 12 Sep 2018 18:04:28 GMT
 recorded_with: VCR 3.0.3

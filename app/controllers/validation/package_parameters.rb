@@ -7,7 +7,7 @@ module Validation
     include ActiveModel::Validations
 
     attr_accessor :isSelected, :isHidden, :allowEbscoToAddTitles,
-                  :beginCoverage, :endCoverage
+                  :beginCoverage, :endCoverage, :value
 
     # Deselected packages cannot be customized.  Though the UI is smart enough
     # to keep this from happening, a manual request to the API could lead
@@ -18,6 +18,31 @@ module Validation
       validates :isHidden, absence: true, unless: :isSelected
       validates :beginCoverage, absence: true, unless: :isSelected
       validates :endCoverage, absence: true, unless: :isSelected
+      validates :value, absence: true, unless: :isSelected
+    end
+
+    validates :value, length: { maximum: 500 }
+    validate :begin_coverage_valid_date_format?, unless: -> { beginCoverage.blank? }
+    validate :end_coverage_valid_date_format?, unless: -> { endCoverage.blank? }
+
+    def begin_coverage_valid_date_format?
+      errors.add(:beginCoverage, 'has invalid format. Should be YYYY-MM-DD') unless
+        valid_date?(beginCoverage)
+    end
+
+    def end_coverage_valid_date_format?
+      errors.add(:endCoverage, 'has invalid format. Should be YYYY-MM-DD') unless
+        valid_date?(endCoverage)
+    end
+
+    def valid_date?(coverage)
+      yyyy, mm, dd = coverage.split('-')
+      begin
+        @valid_date = Date.new(yyyy.to_i, mm.to_i, dd.to_i)
+        return true
+      rescue ArgumentError
+        return false
+      end
     end
 
     def initialize(params = {})
@@ -26,6 +51,7 @@ module Validation
       @isHidden = params.dig(:visibilityData, :isHidden)
       @beginCoverage = params.dig(:customCoverage, :beginCoverage)
       @endCoverage = params.dig(:customCoverage, :endCoverage)
+      @value = params.dig(:packageToken, :value)
     end
   end
 end

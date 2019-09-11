@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://okapi.frontside.io/configurations/entries?query=module=KB_EBSCO
+    uri: https://okapi.frontside.io/configurations/entries?query=module=EKB
     body:
       encoding: US-ASCII
       string: ''
@@ -27,7 +27,7 @@ http_interactions:
       Server:
       - nginx/1.13.5
       Date:
-      - Mon, 30 Jul 2018 20:49:37 GMT
+      - Wed, 12 Sep 2018 13:22:29 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -35,16 +35,16 @@ http_interactions:
       Connection:
       - keep-alive
       X-Okapi-Trace:
-      - 'GET mod-authtoken-1.4.1-SNAPSHOT.21 http://10.39.255.17:8081/configurations/entries..
-        : 202 1690us'
-      - 'GET mod-configuration-4.0.4-SNAPSHOT.36 http://10.39.247.129:8081/configurations/entries..
-        : 200 43159us'
+      - 'GET mod-authtoken-1.5.2-SNAPSHOT.26 http://10.39.242.252:8081/configurations/entries..
+        : 202 1416us'
+      - 'GET mod-configuration-5.0.1-SNAPSHOT.45 http://10.39.249.105:8081/configurations/entries..
+        : 200 46453us'
       Host:
       - okapi.frontside.io
       X-Real-Ip:
-      - 10.128.0.5
+      - 10.128.0.4
       X-Forwarded-For:
-      - 10.128.0.5
+      - 10.128.0.4
       X-Forwarded-Host:
       - okapi.frontside.io
       X-Forwarded-Port:
@@ -52,11 +52,11 @@ http_interactions:
       X-Forwarded-Proto:
       - https
       X-Original-Uri:
-      - "/configurations/entries?query=module=KB_EBSCO"
+      - "/configurations/entries?query=module=EKB"
       X-Scheme:
       - https
       X-Auth-Request-Redirect:
-      - "/configurations/entries?query=module=KB_EBSCO"
+      - "/configurations/entries?query=module=EKB"
       Accept:
       - application/json
       X-Okapi-Tenant:
@@ -66,9 +66,9 @@ http_interactions:
       User-Agent:
       - Ruby
       X-Okapi-Request-Id:
-      - 314585/configurations
+      - 037272/configurations
       X-Okapi-Url:
-      - http://10.39.254.87:80
+      - http://10.39.245.41:80
       X-Okapi-Permissions:
       - '["configuration.entries.collection.get","configuration.entries.collection.get"]'
       X-Okapi-User-Id:
@@ -82,28 +82,56 @@ http_interactions:
       string: |-
         {
           "configs" : [ {
-            "id" : "28fd0ce0-108e-4471-8a7b-4645319fd707",
-            "module" : "KB_EBSCO",
-            "configName" : "api_credentials",
-            "code" : "kb.ebsco.credentials",
-            "description" : "EBSCO RM-API Credentials",
+            "id" : "efadf3d8-59c3-4508-99d4-3e36e9247d87",
+            "module" : "EKB",
+            "configName" : "api_access",
+            "code" : "kb.ebsco.url",
+            "description" : "EBSCO RM-API URL",
             "enabled" : true,
-            "value" : "customer-id=TEST_CUSTOMER_ID&api-key=TEST_API_KEY",
+            "value" : "https://api.ebsco.io",
             "metadata" : {
-              "createdDate" : "2018-06-26T13:23:48.592+0000",
+              "createdDate" : "2018-09-12T12:34:52.189+0000",
               "createdByUserId" : "1ad737b0-d847-11e6-bf26-cec0c932ce01",
-              "updatedDate" : "2018-06-26T13:23:48.592+0000",
+              "updatedDate" : "2018-09-12T12:34:52.189+0000",
+              "updatedByUserId" : "1ad737b0-d847-11e6-bf26-cec0c932ce01"
+            }
+          }, {
+            "id" : "6b24b703-243a-4261-a7bf-0336d34f8c94",
+            "module" : "EKB",
+            "configName" : "api_access",
+            "code" : "kb.ebsco.customerId",
+            "description" : "EBSCO RM-API Customer ID",
+            "enabled" : true,
+            "value" : "TEST_CUSTOMER_ID",
+            "metadata" : {
+              "createdDate" : "2018-09-12T12:34:52.466+0000",
+              "createdByUserId" : "1ad737b0-d847-11e6-bf26-cec0c932ce01",
+              "updatedDate" : "2018-09-12T12:34:52.466+0000",
+              "updatedByUserId" : "1ad737b0-d847-11e6-bf26-cec0c932ce01"
+            }
+          }, {
+            "id" : "8038c4f3-0b09-4d97-be46-8a5236ef3f2f",
+            "module" : "EKB",
+            "configName" : "api_access",
+            "code" : "kb.ebsco.apiKey",
+            "description" : "EBSCO RM-API API Key",
+            "enabled" : true,
+            "value" : "TEST_API_KEY",
+            "metadata" : {
+              "createdDate" : "2018-09-12T12:34:52.788+0000",
+              "createdByUserId" : "1ad737b0-d847-11e6-bf26-cec0c932ce01",
+              "updatedDate" : "2018-09-12T12:34:52.788+0000",
               "updatedByUserId" : "1ad737b0-d847-11e6-bf26-cec0c932ce01"
             }
           } ],
-          "totalRecords" : 1,
+          "totalRecords" : 3,
           "resultInfo" : {
-            "totalRecords" : 1,
+            "totalRecords" : 3,
             "facets" : [ ]
           }
         }
     http_version: 
-  recorded_at: Mon, 30 Jul 2018 20:49:37 GMT
+  recorded_at: Wed, 12 Sep 2018 13:22:29 GMT
 - request:
     method: get
     uri: https://api.ebsco.io/rm/rmaccounts/TEST_CUSTOMER_ID/vendors/123355/packages/2843714/titles/17059805
@@ -112,7 +140,7 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - Flexirest/1.6.7
+      - Flexirest/1.7.0
       Connection:
       - Keep-Alive
       Accept:
@@ -131,19 +159,19 @@ http_interactions:
       Content-Type:
       - application/json; charset=utf-8
       Content-Length:
-      - '1038'
+      - '1106'
       Connection:
       - keep-alive
       Date:
-      - Mon, 30 Jul 2018 20:49:37 GMT
+      - Wed, 12 Sep 2018 13:22:29 GMT
       X-Amzn-Requestid:
-      - 1299e672-943a-11e8-83c1-6d2e1427e7d7
+      - e6300d62-b68e-11e8-9c0a-8dc2c12b3445
       X-Amzn-Remapped-Content-Length:
-      - '1038'
+      - '1106'
       X-Amzn-Remapped-Connection:
       - keep-alive
       X-Amz-Apigw-Id:
-      - K2_7PE9eIAMFjkg=
+      - NG_raEo6oAMFa4w=
       X-Amzn-Remapped-Server:
       - Microsoft-IIS/8.5
       Cache-Control:
@@ -155,36 +183,40 @@ http_interactions:
       Pragma:
       - no-cache
       X-Amzn-Remapped-Date:
-      - Mon, 30 Jul 2018 20:49:37 GMT
+      - Wed, 12 Sep 2018 13:22:28 GMT
       X-Aspnet-Version:
       - 4.0.30319
       X-Cache:
       - Miss from cloudfront
       Via:
-      - 1.1 15b0145f4a440167477203d93c9e877a.cloudfront.net (CloudFront)
+      - 1.1 5a27d8f87b0f1db56d469d1fefb312ac.cloudfront.net (CloudFront)
       X-Amz-Cf-Id:
-      - 99uYwVuBOQNxhElNb0LKBneAY3w5fUuIWq_yTsJ9f2wVegnmUdtrKA==
+      - A2u1uBULftDWWub0LPpbQTyqF0ARMBFn_5liyzAMNfNg2WTTd2eY7w==
     body:
       encoding: UTF-8
-      string: '{"titleId":17059805,"titleName":"I have a great new title name","publisherName":"SD
-        Publishing","identifiersList":[],"subjectsList":[],"isTitleCustom":true,"pubType":"BookSeries","customerResourcesList":[{"titleId":17059805,"packageId":2843714,"packageName":"SD''s
-        test package in TEST_CUSTOMER_ID","packageType":"Custom","proxy":{"id":"<n>","inherited":true},"isPackageCustom":true,"vendorId":123355,"vendorName":"API
-        DEV CORPORATE CUSTOMER","locationId":40526977,"isSelected":true,"isTokenNeeded":false,"visibilityData":{"isHidden":false,"reason":""},"managedCoverageList":[],"customCoverageList":[{"beginCoverage":"2003-01-01","endCoverage":"2003-12-12"}],"coverageStatement":"","managedEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"customEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"url":"http://hello.hello","userDefinedField1":null,"userDefinedField2":null,"userDefinedField3":null,"userDefinedField4":null,"userDefinedField5":null}],"description":"This
-        is a book","edition":"4","isPeerReviewed":true,"contributorsList":[]}'
+      string: '{"titleId":17059805,"titleName":"I have a great new title name","publisherName":"test
+        publisher","identifiersList":[],"subjectsList":[],"isTitleCustom":true,"pubType":"BookSeries","customerResourcesList":[{"titleId":17059805,"packageId":2843714,"packageName":"SD''s
+        test package in TEST_CUSTOMER_ID","packageType":"Custom","proxy":{"id":"TestingFolio","inherited":true},"isPackageCustom":true,"vendorId":123355,"vendorName":"API
+        DEV CORPORATE CUSTOMER","locationId":41321345,"isSelected":true,"isTokenNeeded":false,"visibilityData":{"isHidden":true,"reason":"Hidden
+        by Customer"},"managedCoverageList":[],"customCoverageList":[{"beginCoverage":"2003-01-01","endCoverage":"2003-12-12"}],"coverageStatement":"We
+        have so much coverage.","managedEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"customEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"url":"http://url
+        ","userDefinedField1":null,"userDefinedField2":null,"userDefinedField3":null,"userDefinedField4":null,"userDefinedField5":null}],"description":"Test
+        Description again to test again","edition":"23","isPeerReviewed":true,"contributorsList":[]}'
     http_version: 
-  recorded_at: Mon, 30 Jul 2018 20:49:37 GMT
+  recorded_at: Wed, 12 Sep 2018 13:22:29 GMT
 - request:
     method: put
     uri: https://api.ebsco.io/rm/rmaccounts/TEST_CUSTOMER_ID/vendors/123355/packages/2843714/titles/17059805
     body:
       encoding: UTF-8
-      string: '{"isSelected":true,"isHidden":false,"customCoverageList":[{"beginCoverage":"2003-01-01","endCoverage":"2003-12-12"}],"contributorsList":[{"type":"Editor","contributor":"Lang
-        Z"},{"type":"Illustrator","contributor":"last first"}],"identifiersList":null,"customEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"coverageStatement":"","titleName":"I
-        have a great new title name","pubType":"BookSeries","isPeerReviewed":true,"publisherName":"SD
-        Publishing","edition":"4","description":"This is a book","url":"http://hello.hello","proxy":{"id":"\u003cn\u003e","inherited":false}}'
+      string: '{"isSelected":true,"isHidden":true,"customCoverageList":[{"beginCoverage":"2003-01-01","endCoverage":"2003-12-12"}],"contributorsList":[{"type":"Editor","contributor":"Lang
+        Z"},{"type":"Illustrator","contributor":"last first"}],"identifiersList":null,"customEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"coverageStatement":"We
+        have so much coverage.","titleName":"I have a great new title name","pubType":"BookSeries","isPeerReviewed":true,"publisherName":"test
+        publisher","edition":"23","description":"Test Description again to test again","url":"http://url
+        ","proxy":{"id":"TestingFolio","inherited":false}}'
     headers:
       User-Agent:
-      - Flexirest/1.6.7
+      - Flexirest/1.7.0
       Connection:
       - Keep-Alive
       Accept:
@@ -207,13 +239,13 @@ http_interactions:
       Connection:
       - keep-alive
       Date:
-      - Mon, 30 Jul 2018 20:49:37 GMT
+      - Wed, 12 Sep 2018 13:22:30 GMT
       X-Amzn-Requestid:
-      - 12b16667-943a-11e8-acdd-599a0d3a142e
+      - e6593fcd-b68e-11e8-80e1-4bc219906d9a
       X-Amzn-Remapped-Connection:
       - keep-alive
       X-Amz-Apigw-Id:
-      - K2_7RGBUIAMFRZA=
+      - NG_rdGRIIAMF2Fg=
       X-Amzn-Remapped-Server:
       - Microsoft-IIS/8.5
       Cache-Control:
@@ -225,20 +257,20 @@ http_interactions:
       Pragma:
       - no-cache
       X-Amzn-Remapped-Date:
-      - Mon, 30 Jul 2018 20:49:37 GMT
+      - Wed, 12 Sep 2018 13:22:28 GMT
       X-Aspnet-Version:
       - 4.0.30319
       X-Cache:
       - Miss from cloudfront
       Via:
-      - 1.1 da6fd4689552fc29462fc5d11b2e27dd.cloudfront.net (CloudFront)
+      - 1.1 2206fe1cc0579e0d79537b15799c4e2f.cloudfront.net (CloudFront)
       X-Amz-Cf-Id:
-      - 8m_AfkC8yHdeW1SfGNLblsL3Sh1PCvaOdlwP0Ga_KHiUdTla10Xuiw==
+      - LGOjUySKB8lnnq_Il2of45cHOsEvRq2T3wVBqydPIkmTTckUUp3N0g==
     body:
       encoding: UTF-8
       string: ''
     http_version: 
-  recorded_at: Mon, 30 Jul 2018 20:49:38 GMT
+  recorded_at: Wed, 12 Sep 2018 13:22:30 GMT
 - request:
     method: get
     uri: https://api.ebsco.io/rm/rmaccounts/TEST_CUSTOMER_ID/vendors/123355/packages/2843714/titles/17059805
@@ -247,7 +279,7 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - Flexirest/1.6.7
+      - Flexirest/1.7.0
       Connection:
       - Keep-Alive
       Accept:
@@ -266,19 +298,19 @@ http_interactions:
       Content-Type:
       - application/json; charset=utf-8
       Content-Length:
-      - '1128'
+      - '1196'
       Connection:
       - keep-alive
       Date:
-      - Mon, 30 Jul 2018 20:49:38 GMT
+      - Wed, 12 Sep 2018 13:22:30 GMT
       X-Amzn-Requestid:
-      - 12e854b6-943a-11e8-badc-c34fa7c9e29c
+      - e6a256ae-b68e-11e8-a546-933386c14d61
       X-Amzn-Remapped-Content-Length:
-      - '1128'
+      - '1196'
       X-Amzn-Remapped-Connection:
       - keep-alive
       X-Amz-Apigw-Id:
-      - K2_7VGFboAMFYRg=
+      - NG_rhEIhIAMFlzg=
       X-Amzn-Remapped-Server:
       - Microsoft-IIS/8.5
       Cache-Control:
@@ -290,23 +322,26 @@ http_interactions:
       Pragma:
       - no-cache
       X-Amzn-Remapped-Date:
-      - Mon, 30 Jul 2018 20:49:37 GMT
+      - Wed, 12 Sep 2018 13:22:28 GMT
       X-Aspnet-Version:
       - 4.0.30319
       X-Cache:
       - Miss from cloudfront
       Via:
-      - 1.1 53639ba6f1000a6a161851e05908fd9b.cloudfront.net (CloudFront)
+      - 1.1 91ccbcd6bac9f333587d2a41caeeb0c5.cloudfront.net (CloudFront)
       X-Amz-Cf-Id:
-      - I1nfvhI8_OsyVIeFu2uFt5Pj9WqpbAr0BPtWcuNGNyVf_VLm_6BqTw==
+      - Xo2gBamI7XBBKZMuKX4e1U0G-SVylPlzy493h1vv24jT0flQdQq3BA==
     body:
       encoding: UTF-8
-      string: '{"titleId":17059805,"titleName":"I have a great new title name","publisherName":"SD
-        Publishing","identifiersList":[],"subjectsList":[],"isTitleCustom":true,"pubType":"BookSeries","customerResourcesList":[{"titleId":17059805,"packageId":2843714,"packageName":"SD''s
-        test package in TEST_CUSTOMER_ID","packageType":"Custom","proxy":{"id":"<n>","inherited":true},"isPackageCustom":true,"vendorId":123355,"vendorName":"API
-        DEV CORPORATE CUSTOMER","locationId":40526977,"isSelected":true,"isTokenNeeded":false,"visibilityData":{"isHidden":false,"reason":""},"managedCoverageList":[],"customCoverageList":[{"beginCoverage":"2003-01-01","endCoverage":"2003-12-12"}],"coverageStatement":"","managedEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"customEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"url":"http://hello.hello","userDefinedField1":null,"userDefinedField2":null,"userDefinedField3":null,"userDefinedField4":null,"userDefinedField5":null}],"description":"This
-        is a book","edition":"4","isPeerReviewed":true,"contributorsList":[{"type":"editor","contributor":"Lang
+      string: '{"titleId":17059805,"titleName":"I have a great new title name","publisherName":"test
+        publisher","identifiersList":[],"subjectsList":[],"isTitleCustom":true,"pubType":"BookSeries","customerResourcesList":[{"titleId":17059805,"packageId":2843714,"packageName":"SD''s
+        test package in TEST_CUSTOMER_ID","packageType":"Custom","proxy":{"id":"TestingFolio","inherited":true},"isPackageCustom":true,"vendorId":123355,"vendorName":"API
+        DEV CORPORATE CUSTOMER","locationId":41321345,"isSelected":true,"isTokenNeeded":false,"visibilityData":{"isHidden":true,"reason":"Hidden
+        by Customer"},"managedCoverageList":[],"customCoverageList":[{"beginCoverage":"2003-01-01","endCoverage":"2003-12-12"}],"coverageStatement":"We
+        have so much coverage.","managedEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"customEmbargoPeriod":{"embargoUnit":null,"embargoValue":0},"url":"http://url
+        ","userDefinedField1":null,"userDefinedField2":null,"userDefinedField3":null,"userDefinedField4":null,"userDefinedField5":null}],"description":"Test
+        Description again to test again","edition":"23","isPeerReviewed":true,"contributorsList":[{"type":"editor","contributor":"Lang
         Z"},{"type":"illustrator","contributor":"last first"}]}'
     http_version: 
-  recorded_at: Mon, 30 Jul 2018 20:49:38 GMT
+  recorded_at: Wed, 12 Sep 2018 13:22:30 GMT
 recorded_with: VCR 3.0.3
